@@ -25,9 +25,9 @@ It then calls setClassData to store information about the current context. Use h
 |                  |                                                                                 |
 |                  | ::                                                                              |
 |                  |                                                                                 |
-|                  | int setClassData (                                                              |
-|                  | unsigned int  theClass,                                                         |
-|                  | void          *info);                                                           |
+|                  |   int setClassData (                                                            |
+|                  |     unsigned int  theClass,                                                     |
+|                  |     void          *info);                                                       |
 |                  |                                                                                 |
 |                  | - ``theClass`` - the class being set. Use a unique 4-byte code.                 |
 |                  | - ``info`` - the class data to be set. It can be used as a pointer or a handle. |
@@ -38,8 +38,8 @@ It then calls setClassData to store information about the current context. Use h
 |                  |                                                                                 |
 |                  | ::                                                                              |
 |                  |                                                                                 |
-|                  | int getClassData (                                                              |
-|                  | unsigned int  theClass);                                                        |
+|                  |   int getClassData (                                                            |
+|                  |     unsigned int  theClass);                                                    |
 |                  |                                                                                 |
 |                  | - ``theClass`` - the class for which to retrieve data.                          |
 +------------------+---------------------------------------------------------------------------------+

@@ -791,15 +791,15 @@ So, a simple example, three clips in a stack, the top one with three effects loo
 
 ::
 
-Segment
-  Compositor Node
-    Clip Node
-      Media Node (bottom clip) Clip Node
-    Clip Node
-      Media Node (middle clip) Clip Node
-    Clip Node
-      Media Node (top clip)
-      Clip Operators (Blur, Color Corrector, Motion)
+  Segment
+    Compositor Node
+      Clip Node
+        Media Node (bottom clip) Clip Node
+      Clip Node
+        Media Node (middle clip) Clip Node
+      Clip Node
+        Media Node (top clip)
+        Clip Operators (Blur, Color Corrector, Motion)
 
 To get a good idea of the segment structure, try the SDK player, create a sequence using the SDK Editing Mode, and watch the text overlay in the Sequence Monitor as you perform edits.
 

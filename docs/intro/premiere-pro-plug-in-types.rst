@@ -12,7 +12,7 @@ Premiere Pro Plug-In Types
 |                    |                                                                                                                                                             |
 |                    | Custom importers, dynamically synthesize media to disk.                                                                                                     |
 +--------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Recorders          | Records from a (usually hardware) source to disk. If necessary, provides a plug-in-defined settings dialog.                                               |
+| Recorders          | Records from a (usually hardware) source to disk. If necessary, provides a plug-in-defined settings dialog.                                                 |
 |                    |                                                                                                                                                             |
 |                    | Displays the video overlay in the preview area of the Capture panel.                                                                                        |
 |                    |                                                                                                                                                             |

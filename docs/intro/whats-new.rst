@@ -3,8 +3,6 @@
 Whats New
 ################################################################################
 
-----
-
 What's New in 13.0
 ================================================================================
 
@@ -327,7 +325,7 @@ The importer and exporter APIs have been extended to support closed captioning e
 Miscellaneous Improvements
 ********************************************************************************
 
--  A new pixel format for native 10-bit RGB support - PrPixelFormat_RGB_444_10u, as well as PrPixelFormat_UYVY_422_32f_\* formats
+-  A new pixel format for native 10-bit RGB support - PrPixelFormat_RGB_444_10u, as well as ``PrPixelFormat_UYVY_422_32f_*`` formats
 
 -  VST 3 support allows many more audio plug-ins to run in Premiere Pro
 

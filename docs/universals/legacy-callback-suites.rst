@@ -11,6 +11,7 @@ piSuites
 These callbacks are available to all plug-ins, although many of these callbacks are only appropriate for specific plug-in types.
 
 ::
+
   typedef struct {
     int                   piInterfaceVer;
     PlugMemoryFuncsPtr    memFuncs;
@@ -253,11 +254,11 @@ Utility Functions
 |                        |     prRect       *bounds,                                                                                                                                                   |
 |                        |     csSDK_int32  flags);                                                                                                                                                    |
 |                        |                                                                                                                                                                             |
-|                        | - ``filespec`: the description of the file                                                                                                                                  |
-|                        | - ``frame`: the frame to retrieve                                                                                                                                           |
-|                        | - ``thePort`: where the frame will be delivered, allocate prior to calling                                                                                                  |
-|                        | - ``bounds`: the boundary of the port                                                                                                                                       |
-|                        | - ``flags`: unused                                                                                                                                                          |
+|                        | - ``filespec``: the description of the file                                                                                                                                 |
+|                        | - ``frame``: the frame to retrieve                                                                                                                                          |
+|                        | - ``thePort``: where the frame will be delivered, allocate prior to calling                                                                                                 |
+|                        | - ``bounds``: the boundary of the port                                                                                                                                      |
+|                        | - ``flags``: unused                                                                                                                                                         |
 +------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``getFileVideoBounds`` | Passes back the bounds of a file.                                                                                                                                           |
 |                        | If the file is already in the sequence, it is preferable to get a file's video bounds using the Clip Render Suite.                                                          |
