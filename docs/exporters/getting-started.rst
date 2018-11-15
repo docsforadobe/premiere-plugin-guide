@@ -126,7 +126,7 @@ For both Windows and Mac OS: ``[App installation path]\MediaIO\systempresets\[ex
 
 The subfolder must be named based on the hexadecimal fourCCs of the ClassID and fi­
 
-letype of the exporter. For example, the SDK exporter has a ClassID of 'DTEK' or 0x4454454B, and a filetype of 'SDK_' or 0x53444B5F. So the subfolder must be named '4454454B_53444B5F'. For convenience, you can find the ClassID and filetype fourCCs in the preset file itself, in a decimal representation.
+letype of the exporter. For example, the SDK exporter has a ClassID of 'DTEK' or 0x4454454B, and a filetype of ``SDK`` or 0x53444B5F. So the subfolder must be named '4454454B_53444B5F'. For convenience, you can find the ClassID and filetype fourCCs in the preset file itself, in a decimal representation.
 
 ----
 

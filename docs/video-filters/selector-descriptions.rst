@@ -80,7 +80,17 @@ The PiPL bits ``anyPixelAspectRatio`` and ``unityPixelAspectRatio`` must not be 
 fsGetPixelFormatsSupported
 ================================================================================
 
-Optional. Gets pixel formats supported. Called iteratively until all formats have been given. Set (*theData)->pixelFormatSupported to a supported pixel format, and return fsNo­ Err. When all formats have been described, return fsBadFormatIndex. See the field-aware video filter sample for an example.
+Optional.
+
+Gets pixel formats supported.
+
+Called iteratively until all formats have been given.
+
+Set ``(*theData)->pixelFormatSupported`` to a supported pixel format, and return fsNo­ Err.
+
+When all formats have been described, return ``fsBadFormatIndex``.
+
+See the field-aware video filter sample for an example.
 
 ----
 

@@ -609,15 +609,23 @@ Returned from ``RenderVideoFrame()`` and passed by ``PrSDKSequenceAsyncRenderCom
 RenderVideoFrame()
 ********************************************************************************
 
-The basic, synchronous call to get a rendered frame from the host. Returns suiteError_NoError if you can continue exporting, exportReturn_Abort if the user aborted the export, exportReturn_Done if the export has finished, or an error code.
+The basic, synchronous call to get a rendered frame from the host.
 
-prSuiteError (*RenderVideoFrame)(
+Returns:
 
-csSDK_uint32 inVideoRenderID,
+- ``suiteError_NoError`` if you can continue exporting,
+- ``exportReturn_Abort`` if the user aborted the export,
+- ``exportReturn_Done`` if the export has finished, or
+- an error code.
 
-PrTime inTime,
+::
 
-SequenceRender_ParamsRec* inRenderParams, PrRenderCacheType inCacheFlags, SequenceRender_GetFrameReturnRec* getFrameReturn);
+  prSuiteError (*RenderVideoFrame)(
+    csSDK_uint32                       inVideoRenderID,
+    PrTime                             inTime,
+    SequenceRender_ParamsRec*          inRenderParams,
+    PrRenderCacheType                  inCacheFlags,
+    SequenceRender_GetFrameReturnRec*  getFrameReturn);
 
 +---------------------+-----------------------------------------------------------------------------------------------------+
 |    **Parameter**    |                                           **Description**                                           |
@@ -753,9 +761,9 @@ Prefetch the media needed to render this frame. This is a hint to the importers 
 
 ::
 
-prSuiteError (*PrefetchMedia)(
-  csSDK_uint32  inVideoRenderID,
-  PrTime        inFrame);
+  prSuiteError (*PrefetchMedia)(
+    csSDK_uint32  inVideoRenderID,
+    PrTime        inFrame);
 
 PrefetchMediaWithRenderParameters()
 ********************************************************************************

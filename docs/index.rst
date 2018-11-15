@@ -3,9 +3,8 @@ Welcome to the Adobe Premiere Pro CC SDK Guide!
 
 .. toctree::
   :maxdepth: 1
-  :caption: About
+  :caption: History
 
-  about
   history
 
 .. toctree::

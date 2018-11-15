@@ -506,10 +506,10 @@ Provides access to the privateData for the indicated filetype, so that the expor
     csSDK_uint32  fileType;
   } exExporterInstanceRec;
 
-+----------------------+--------------------------------------------------------------------------------+
-| ``exporterPluginID`` | The host's internal identifier for this exporter. Do not modify.               |
-+----------------------+--------------------------------------------------------------------------------+
-| ``privateData``      | Data allocated and managed by the exporter.                                    |
-+----------------------+--------------------------------------------------------------------------------+
++----------------------+----------------------------------------------------------------------------------+
+| ``exporterPluginID`` | The host's internal identifier for this exporter. Do not modify.                 |
++----------------------+----------------------------------------------------------------------------------+
+| ``privateData``      | Data allocated and managed by the exporter.                                      |
++----------------------+----------------------------------------------------------------------------------+
 | ``fileType``         | The file format four character code set by the exporter during ``exSelStartup``. |
-+----------------------+--------------------------------------------------------------------------------+
++----------------------+----------------------------------------------------------------------------------+

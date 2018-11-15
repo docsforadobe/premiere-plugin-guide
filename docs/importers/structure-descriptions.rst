@@ -3,8 +3,6 @@
 Structure Descriptions
 ################################################################################
 
-----
-
 imAcceleratorRec
 ================================================================================
 
@@ -83,7 +81,7 @@ Create an asynchronous importer object using the data provided, and store it her
 +-------------------------+---------------------------------------------------------------------------------------+
 | ``outAsyncEntry``       | Provide the entry point for async selectors sent to the asynchronous importer object. |
 +-------------------------+---------------------------------------------------------------------------------------+
-| ``outAsyncPrivateData`` | ``PrivateData`` for the asynchronous importer object.                                     |
+| ``outAsyncPrivateData`` | ``PrivateData`` for the asynchronous importer object.                                 |
 +-------------------------+---------------------------------------------------------------------------------------+
 
 ----
@@ -277,6 +275,7 @@ Set ``ioBufferSize`` to the required size for the buffer, and the host will allo
     void         *inDestinationBuffer;
     PrSDKString  outName;
   } imIndColorProfileRec;
+
 ----
 
 imCopyFileRec
@@ -342,7 +341,7 @@ This structure is used like ``imAnalysisRec``.
 +-----------------+---------------------------------------------------------------------------------------------+
 | ``buffer``      | Pointer to the analysis buffer to be filled with imDataSamples (see structure below).       |
 +-----------------+---------------------------------------------------------------------------------------------+
-| ``baserate``    | ``Audio`` data rate (bytes per second) of the file.                                             |
+| ``baserate``    | ``Audio`` data rate (bytes per second) of the file.                                         |
 +-----------------+---------------------------------------------------------------------------------------------+
 
 ::
@@ -355,7 +354,7 @@ This structure is used like ``imAnalysisRec``.
 +----------------+-------------------------------------------------------------------------------------------------------------+
 | ``sampledur``  | Duration of one sample in video timebase, in samplesize increments; set the high bit if this is a keyframe. |
 +----------------+-------------------------------------------------------------------------------------------------------------+
-| ``samplesize`` | ``Size`` of this sample in bytes.                                                                               |
+| ``samplesize`` | ``Size`` of this sample in bytes.                                                                           |
 +----------------+-------------------------------------------------------------------------------------------------------------+
 
 ----
@@ -838,7 +837,7 @@ Plug-in Info
 ********************************************************************************
 
 +----------------------------+----------------------------------------------------------------------------------------+
-| ``importerID``             | ``Can`` be used as the ID for calls in the PPix Cache Suite.                               |
+| ``importerID``             | ``Can`` be used as the ID for calls in the PPix Cache Suite.                           |
 +----------------------------+----------------------------------------------------------------------------------------+
 | ``supportsAsyncIO``        | Set this to true if the importer supports ``imCreateAsyncImporter`` and ai* selectors. |
 +----------------------------+----------------------------------------------------------------------------------------+
@@ -903,7 +902,7 @@ Time Info
 |                     | - ``importer_PulldownPhase_SWWWW``                                                                               |
 |                     | - ``importer_PulldownPhase_WWWWS``                                                                               |
 +---------------------+------------------------------------------------------------------------------------------------------------------+
-| ``posterFrame``     | New in Premiere Pro CS3. Poster frame number to be displayed.                                                |
+| ``posterFrame``     | New in Premiere Pro CS3. Poster frame number to be displayed.                                                    |
 |                     |                                                                                                                  |
 |                     | If not specified, the poster frame will be the first frame of the clip.                                          |
 +---------------------+------------------------------------------------------------------------------------------------------------------+
@@ -911,57 +910,57 @@ Time Info
 Format Info
 ********************************************************************************
 
-+------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``depth``                    | Bits per pixel. This currently has no effect and should be left unchanged.                                                                                  |
-+------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``subType``                  | The four character code of the file's codec; associates files with MAL plug-ins. For uncompressed files, set to imUncom­ pressed.                           |
-+------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``fieldType``                | One of the following:                                                                                                                                       |
-|                              |                                                                                                                                                             |
-|                              | - ``prFieldsNone``                                                                                                                                          |
-|                              | - ``prFieldsUpperFirst``                                                                                                                                    |
-|                              | - ``prFieldsLowerFirst``                                                                                                                                    |
-|                              | - ``prFieldsUnknown``                                                                                                                                       |
-+------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``fieldsStacked``            | Fields are present, and not interlaced.                                                                                                                     |
-+------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``alphaType``                | Used when depth is 32 or greater. One of the following:                                                                                                     |
-|                              |                                                                                                                                                             |
-|                              | - ``alphaNone`` - no alpha channel (the default)                                                                                                            |
-|                              | - ``alphaStraight`` - straight alpha channel                                                                                                                |
-|                              | - ``alphaBlackMatte`` - premultiplied with black                                                                                                            |
-|                              | - ``alphaWhiteMatte`` - premultiplied with white                                                                                                            |
-|                              | - ``alphaArbitrary`` - premultiplied with the color specified in matteColor                                                                                 |
-|                              | - ``alphaOpaque`` - for video with alpha channel prefilled to opaque.                                                                                       |
-|                              |                                                                                                                                                             |
-|                              | This gives Premiere the opportunity to make an optimization by skipping the fill to opaque that would otherwise be performed if alphaNone was set.          |
-+------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``matteColor``               | ``Newly`` used in Premiere Pro CS3. Used to specify matte color if ``alphaType`` is set to ``alphaArbitrary``.                                              |
-+------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``alphaInverted``            | If non-zero, alpha is treated as inverted (e.g. black becomes transparent).                                                                                 |
-+------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``canTransform``             | Set to non-zero value to specify this importer handles resolution independent files and can apply a transform matrix.                                       |
-|                              |                                                                                                                                                             |
-|                              | The matrix will be passed during the import request in ``imImportImag­eRec.transform``.                                                                     |
-|                              |                                                                                                                                                             |
-|                              | This code path is currently not called by Premiere Pro. After Effects uses this call to import Flash video.                                                 |
-+------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``interpretationUn­certain`` | Use an 'or' operator to combine any of the following flags:                                                                                                 |
-|                              |                                                                                                                                                             |
-|                              | - ``imPixelAspectRatioUncertain``                                                                                                                           |
-|                              | - ``imFieldTypeUncertain``                                                                                                                                  |
-|                              | - ``imAlphaInfoUncertain``                                                                                                                                  |
-|                              | - ``imEmbeddedColorProfileUncertain``                                                                                                                       |
-+------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``colorProfileSupport``      | Deprecated as of 13.0. New in CS5.5.                                                                                                                        |
-|                              |                                                                                                                                                             |
-|                              | Set to ``imColorProfileSupport_Fixed`` to support color management.                                                                                         |
-|                              | If the importer is uncertain, it should use ``interpretationUncertain`` above instead.                                                                      |
-+------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``codecDescription``         | Text description of the codec in use.                                                                                                                       |
-+------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``ColorProfileRec``          | New in 13.0; describes the color profile being used by the importer, with this media.                                                                       |
-+------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
++------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``depth``                    | Bits per pixel. This currently has no effect and should be left unchanged.                                                                         |
++------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``subType``                  | The four character code of the file's codec; associates files with MAL plug-ins. For uncompressed files, set to imUncom­ pressed.                  |
++------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``fieldType``                | One of the following:                                                                                                                              |
+|                              |                                                                                                                                                    |
+|                              | - ``prFieldsNone``                                                                                                                                 |
+|                              | - ``prFieldsUpperFirst``                                                                                                                           |
+|                              | - ``prFieldsLowerFirst``                                                                                                                           |
+|                              | - ``prFieldsUnknown``                                                                                                                              |
++------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``fieldsStacked``            | Fields are present, and not interlaced.                                                                                                            |
++------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``alphaType``                | Used when depth is 32 or greater. One of the following:                                                                                            |
+|                              |                                                                                                                                                    |
+|                              | - ``alphaNone`` - no alpha channel (the default)                                                                                                   |
+|                              | - ``alphaStraight`` - straight alpha channel                                                                                                       |
+|                              | - ``alphaBlackMatte`` - premultiplied with black                                                                                                   |
+|                              | - ``alphaWhiteMatte`` - premultiplied with white                                                                                                   |
+|                              | - ``alphaArbitrary`` - premultiplied with the color specified in matteColor                                                                        |
+|                              | - ``alphaOpaque`` - for video with alpha channel prefilled to opaque.                                                                              |
+|                              |                                                                                                                                                    |
+|                              | This gives Premiere the opportunity to make an optimization by skipping the fill to opaque that would otherwise be performed if alphaNone was set. |
++------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``matteColor``               | ``Newly`` used in Premiere Pro CS3. Used to specify matte color if ``alphaType`` is set to ``alphaArbitrary``.                                     |
++------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``alphaInverted``            | If non-zero, alpha is treated as inverted (e.g. black becomes transparent).                                                                        |
++------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``canTransform``             | Set to non-zero value to specify this importer handles resolution independent files and can apply a transform matrix.                              |
+|                              |                                                                                                                                                    |
+|                              | The matrix will be passed during the import request in ``imImportImag­eRec.transform``.                                                            |
+|                              |                                                                                                                                                    |
+|                              | This code path is currently not called by Premiere Pro. After Effects uses this call to import Flash video.                                        |
++------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``interpretationUn­certain`` | Use an 'or' operator to combine any of the following flags:                                                                                        |
+|                              |                                                                                                                                                    |
+|                              | - ``imPixelAspectRatioUncertain``                                                                                                                  |
+|                              | - ``imFieldTypeUncertain``                                                                                                                         |
+|                              | - ``imAlphaInfoUncertain``                                                                                                                         |
+|                              | - ``imEmbeddedColorProfileUncertain``                                                                                                              |
++------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``colorProfileSupport``      | Deprecated as of 13.0. New in CS5.5.                                                                                                               |
+|                              |                                                                                                                                                    |
+|                              | Set to ``imColorProfileSupport_Fixed`` to support color management.                                                                                |
+|                              | If the importer is uncertain, it should use ``interpretationUncertain`` above instead.                                                             |
++------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``codecDescription``         | Text description of the codec in use.                                                                                                              |
++------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``ColorProfileRec``          | New in 13.0; describes the color profile being used by the importer, with this media.                                                              |
++------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Unused
 ********************************************************************************
@@ -1083,52 +1082,55 @@ Bounds Info
 Frame Info
 ********************************************************************************
 
-+--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``rowbytes``       | The number of bytes in a single row of pixels.                                                                                                                                                                                                                                                                                        |
-+--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``pix``            | Pointer to a buffer into which the importer should draw. Allocated based on information from the ``imGetInfo8``.                                                                                                                                                                                                                      |
-+--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``pixsize``        | The number of pixels. rowbytes * height.                                                                                                                                                                                                                                                                                              |
-+--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``pixformat``      | The pixel format Premiere requests.                                                                                                                                                                                                                                                                                                   |
-+--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``flags``          | ``imDraftMode`` - Draw quickly if possible, using a faster and possibly less accurate algorithm.                                                                                                                                                                                                                                      |
-|                    | This may be passed when playing from the timeline.                                                                                                                                                                                                                                                                                    |
-|                    |                                                                                                                                                                                                                                                                                                                                       |
-|                    | ``imSamplesAreFields`` - Most importers will ignore as Premiere already scales in/out/scale to account for fields, but if you need to know that this has occurred (because maybe you measure something in 'frames'), check this flag.                                                                                                 |
-|                    | Also, may we suggest considering measuring in seconds instead of frames?                                                                                                                                                                                                                                                              |
-+--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``fieldType``      | If the importer can swap fields, it should render the frame with the given field dominance:                                                                                                                                                                                                                                           |
-|                    |                                                                                                                                                                                                                                                                                                                                       |
-|                    | either ``imFieldsUpperFirst`` or ``imFieldsLowerFirst``.                                                                                                                                                                                                                                                                              |
-+--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``scale``          | The frame rate of the video, represented as scale over sampleSize.                                                                                                                                                                                                                                                                    |
-+--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``sampleSize``     |                                                                                                                                                                                                                                                                                                                                       |
-+--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``in``             | In point, based on the timebase defined by scale over sampleSize..                                                                                                                                                                                                                                                                    |
-+--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``out``            | Out point, based on the timebase defined by scale over sampleSize..                                                                                                                                                                                                                                                                   |
-+--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``pos``            | Import position, based on the above timebase.                                                                                                                                                                                                                                                                                         |
-|                    |                                                                                                                                                                                                                                                                                                                                       |
-|                    | **API bug**: Synthetic and custom importers will always receive zero.                                                                                                                                                                                                                                                                 |
-|                    | Thus, adjusting the in point on the timeline will not offset the in point.                                                                                                                                                                                                                                                            |
-+--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``privatedata``    | Instance data gathered during ``imGetInfo`` or ``imGetPrefs``.                                                                                                                                                                                                                                                                        |
-+--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``prefs``          | Clip Source Settings data gathered during ``imGetPrefs`` (setup dialog info).                                                                                                                                                                                                                                                         |
-+--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``alphaBounds``    | This is the rect outside of which the alpha is always 0. Simply do not alter this field if the alpha bounds match the destination bounds. If set, the alpha bounds must be contained by the destination bounds. This is only currently used when a plug-in calls ppixGetAlph­ aBounds, and not currently used by any native plug-ins. |
-+--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``applyTransform`` | New in After Effects CS3. Not currently provided by Premiere.                                                                                                                                                                                                                                                                         |
-|                    |                                                                                                                                                                                                                                                                                                                                       |
-|                    | If non-zero, the host is requesting that the importer apply the transform specified in transform and destClipRect before returning the resulting image in pix.                                                                                                                                                                        |
-+--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``transform``      | New in After Effects CS3. Not currently provided by Premiere. The source to destination transform matrix.                                                                                                                                                                                                                             |
-+--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``destClipRect``   | New in After Effects CS3. Not currently provided by Premiere. Destination rect inside the bounds of the pix buffer.                                                                                                                                                                                                                   |
-+--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``rowbytes``       | The number of bytes in a single row of pixels.                                                                                                                                                                                        |
++--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``pix``            | Pointer to a buffer into which the importer should draw. Allocated based on information from the ``imGetInfo8``.                                                                                                                      |
++--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``pixsize``        | The number of pixels. rowbytes * height.                                                                                                                                                                                              |
++--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``pixformat``      | The pixel format Premiere requests.                                                                                                                                                                                                   |
++--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``flags``          | ``imDraftMode`` - Draw quickly if possible, using a faster and possibly less accurate algorithm.                                                                                                                                      |
+|                    |                                                                                                                                                                                                                                       |
+|                    | This may be passed when playing from the timeline.                                                                                                                                                                                    |
+|                    |                                                                                                                                                                                                                                       |
+|                    | ``imSamplesAreFields`` - Most importers will ignore as Premiere already scales in/out/scale to account for fields, but if you need to know that this has occurred (because maybe you measure something in 'frames'), check this flag. |
+|                    |                                                                                                                                                                                                                                       |
+|                    | Also, may we suggest considering measuring in seconds instead of frames?                                                                                                                                                              |
++--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``fieldType``      | If the importer can swap fields, it should render the frame with the given field dominance: either ``imFieldsUpperFirst`` or ``imFieldsLowerFirst``.                                                                                  |
++--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``scale``          | The frame rate of the video, represented as scale over sampleSize.                                                                                                                                                                    |
++--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``sampleSize``     |                                                                                                                                                                                                                                       |
++--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``in``             | In point, based on the timebase defined by scale over sampleSize..                                                                                                                                                                    |
++--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``out``            | Out point, based on the timebase defined by scale over sampleSize..                                                                                                                                                                   |
++--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``pos``            | Import position, based on the above timebase.                                                                                                                                                                                         |
+|                    |                                                                                                                                                                                                                                       |
+|                    | **API bug**: Synthetic and custom importers will always receive zero.                                                                                                                                                                 |
+|                    |                                                                                                                                                                                                                                       |
+|                    | Thus, adjusting the in point on the timeline will not offset the in point.                                                                                                                                                            |
++--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``privatedata``    | Instance data gathered during ``imGetInfo`` or ``imGetPrefs``.                                                                                                                                                                        |
++--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``prefs``          | Clip Source Settings data gathered during ``imGetPrefs`` (setup dialog info).                                                                                                                                                         |
++--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``alphaBounds``    | This is the rect outside of which the alpha is always 0. Simply do not alter this field if the alpha bounds match the destination bounds.                                                                                             |
+|                    |                                                                                                                                                                                                                                       |
+|                    | If set, the alpha bounds must be contained by the destination bounds. This is only currently used when a plug-in calls ppixGetAlph­ aBounds, and not currently used by any native plug-ins.                                           |
++--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``applyTransform`` | New in After Effects CS3. Not currently provided by Premiere.                                                                                                                                                                         |
+|                    |                                                                                                                                                                                                                                       |
+|                    | If non-zero, the host is requesting that the importer apply the transform specified in transform and destClipRect before returning the resulting image in pix.                                                                        |
++--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``transform``      | New in After Effects CS3. Not currently provided by Premiere. The source to destination transform matrix.                                                                                                                             |
++--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``destClipRect``   | New in After Effects CS3. Not currently provided by Premiere. Destination rect inside the bounds of the pix buffer.                                                                                                                   |
++--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ----
 
@@ -1368,13 +1370,13 @@ Describes the pixel format(s) supported by the importer.
     const void*    prefs;
   } imIndPixelFormatRec;
 
-+--------------------+--------------------------------------------------------------------------------------+
-| ``privatedata``    | Instance data from ``imGetInfo8`` or ``imGetPrefs8``.                                |
-+--------------------+--------------------------------------------------------------------------------------+
-| ``outPixelFormat`` | One of the pixel formats supported by the importer                                   |
-+--------------------+--------------------------------------------------------------------------------------+
++--------------------+---------------------------------------------------------------------------------------+
+| ``privatedata``    | Instance data from ``imGetInfo8`` or ``imGetPrefs8``.                                 |
++--------------------+---------------------------------------------------------------------------------------+
+| ``outPixelFormat`` | One of the pixel formats supported by the importer                                    |
++--------------------+---------------------------------------------------------------------------------------+
 | ``prefs``          | New in CC. Clip Source Settings data gathered during ``imGet­Prefs8`` (setup dialog). |
-+--------------------+--------------------------------------------------------------------------------------+
++--------------------+---------------------------------------------------------------------------------------+
 
 ----
 
@@ -1817,29 +1819,31 @@ Also provides a callback to update the progress bar and check if the user has ca
     void                *progressCallbackID;
   } imTrimFileRec8;
 
-+------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``privatedata``        | Instance data gathered during ``imGetInfo8`` or ``imGetPrefs8``.                                                                                                                          |
-+------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``prefs``              | Clip settings data gathered during ``imGetPrefs8`` (setup dialog).                                                                                                                        |
-+------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``trimIn``             | In point of the trimmed clip, in the timebase specified by scale and sampleSize.                                                                                                          |
-+------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``duration``           | Duration of the trimmed clip. If 0, then the request is to leave the clip untrimmed, and at the current duration                                                                          |
-+------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``keepAudio``          | If non-zero, the request is to keep the audio in the trimmed result.                                                                                                                      |
-+------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``keepVideo``          | If non-zero, the request is to keep the video in the trimmed result.                                                                                                                      |
-+------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``destFilePath``       | The unicode path and name of the file to create.                                                                                                                                          |
-+------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``scale``              | The frame rate of the video, represented as scale over sampleSize.                                                                                                                        |
-+------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``sampleSize``         |                                                                                                                                                                                           |
-+------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``progressCallback``   | ``importProgressFunc`` callback to call repeatedly to provide progress and to check for cancel by user. May be a NULL pointer, so make sure the function pointer is valid before calling. |
-+------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``progressCallbackID`` | Pass to ``progressCallback``.                                                                                                                                                             |
-+------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++------------------------+------------------------------------------------------------------------------------------------------------------+
+| ``privatedata``        | Instance data gathered during ``imGetInfo8`` or ``imGetPrefs8``.                                                 |
++------------------------+------------------------------------------------------------------------------------------------------------------+
+| ``prefs``              | Clip settings data gathered during ``imGetPrefs8`` (setup dialog).                                               |
++------------------------+------------------------------------------------------------------------------------------------------------------+
+| ``trimIn``             | In point of the trimmed clip, in the timebase specified by scale and sampleSize.                                 |
++------------------------+------------------------------------------------------------------------------------------------------------------+
+| ``duration``           | Duration of the trimmed clip. If 0, then the request is to leave the clip untrimmed, and at the current duration |
++------------------------+------------------------------------------------------------------------------------------------------------------+
+| ``keepAudio``          | If non-zero, the request is to keep the audio in the trimmed result.                                             |
++------------------------+------------------------------------------------------------------------------------------------------------------+
+| ``keepVideo``          | If non-zero, the request is to keep the video in the trimmed result.                                             |
++------------------------+------------------------------------------------------------------------------------------------------------------+
+| ``destFilePath``       | The unicode path and name of the file to create.                                                                 |
++------------------------+------------------------------------------------------------------------------------------------------------------+
+| ``scale``              | The frame rate of the video, represented as scale over sampleSize.                                               |
++------------------------+------------------------------------------------------------------------------------------------------------------+
+| ``sampleSize``         |                                                                                                                  |
++------------------------+------------------------------------------------------------------------------------------------------------------+
+| ``progressCallback``   | ``importProgressFunc`` callback to call repeatedly to provide progress and to check for cancel by user.          |
+|                        |                                                                                                                  |
+|                        | May be a NULL pointer, so make sure the function pointer is valid before calling.                                |
++------------------------+------------------------------------------------------------------------------------------------------------------+
+| ``progressCallbackID`` | Pass to ``progressCallback``.                                                                                    |
++------------------------+------------------------------------------------------------------------------------------------------------------+
 
 ----
 

@@ -564,8 +564,8 @@ Another example is capturing a still from tape, which could be stamped with time
 imGetFileAttributes
 ================================================================================
 
-- param1 - ``imFileAttributesRec``
--
+- param1 - ``imFileAttributesRec*``
+
 Optional.
 
 ``Pass back the creation date stamp in imFileAttributesRec.``

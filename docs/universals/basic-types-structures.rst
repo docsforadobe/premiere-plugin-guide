@@ -24,7 +24,7 @@ Premiere defines cross-platform types for convenience when developing plug-ins f
 +----------------------------------------+--------------------------------------------------------------------------------------------------------------+
 | ``prRect``                             | A Windows ``RECT`` or Mac OS ``Rect``.                                                                       |
 |                                        |                                                                                                              |
-|                                        | Use the utility function pr­ ``SetRect`` to set the dimensions of a ``prRect`` struct.                         |
+|                                        | Use the utility function pr­ ``SetRect`` to set the dimensions of a ``prRect`` struct.                       |
 |                                        |                                                                                                              |
 |                                        | This should be used because Mac OS ``Rect`` members have a different ordering than Windows ``RECT`` members. |
 +----------------------------------------+--------------------------------------------------------------------------------------------------------------+
@@ -119,7 +119,7 @@ Premiere defines cross-platform types for convenience when developing plug-ins f
 |                                        |     kPrParamType_PrMemoryPtr                                                                                 |
 |                                        |   };                                                                                                         |
 +----------------------------------------+--------------------------------------------------------------------------------------------------------------+
-| ``prDateStamp``                        | Used in by importers in ``imFileAttributesRec.cre­ationDateStamp``.                                           |
+| ``prDateStamp``                        | Used in by importers in ``imFileAttributesRec.cre­ationDateStamp``.                                          |
 |                                        |                                                                                                              |
 |                                        | ::                                                                                                           |
 |                                        |                                                                                                              |
