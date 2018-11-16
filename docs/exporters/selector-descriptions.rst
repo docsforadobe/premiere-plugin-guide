@@ -39,7 +39,7 @@ exSelGenerateDefaultParams
 - param1 - ``exGenerateDefaultParamRec*``
 - param2 - ``unused``
 
-Set the exporter's default parameters using the Export Param Suite.
+Set the exporter's default parameters using the :ref:`exporters/suites.export-param-suite`.
 
 ----
 
@@ -59,7 +59,7 @@ exSelValidateParamChanged
 - param1 - ``exParamChangedRec*``
 - param2 - ``unused``
 
-Validate any parameters that have changed. Based on a change to a parameter value, the exporter may update other parameter values, or show/hide certain parameter controls, using the Export Param Suite.
+Validate any parameters that have changed. Based on a change to a parameter value, the exporter may update other parameter values, or show/hide certain parameter controls, using the :ref:`exporters/suites.export-param-suite`.
 
 To notify the host that the plug-in is changing other parameters, set exParam­ ``ChangedRec.rebuildAllParams`` to a non-zero value.
 
@@ -99,7 +99,7 @@ exSelExport
 
 Do the export! Sent when the user starts an export to the format supported by the exporter, or if the exporter is used in an Editing Mode and the user renders the work area.
 
-Single file exporters are sent this selector only once per export (e.g. AVI, QuickTime). To create a single file, setup a loop where you request each frame in the startTime to endTime range using one of the render calls in the Sequence Render Suite and GetAudio in the Sequence Audio Suite. For better performance, you can use the asynchronous calls in the Sequence Render Suite to have the host render multiple frames on multiple threads.
+Single file exporters are sent this selector only once per export (e.g. AVI, QuickTime). To create a single file, setup a loop where you request each frame in the startTime to endTime range using one of the render calls in the :ref:`exporters/suites.sequence-render-suite` and GetAudio in the :ref:`exporters/suites.sequence-audio-suite`. For better performance, you can use the asynchronous calls in the :ref:`exporters/suites.sequence-render-suite` to have the host render multiple frames on multiple threads.
 
 Still frame exporters are sent ``exSelExport`` for each frame in the sequence (e.g. numbered TIFFs). The host will name the files appropriately.
 

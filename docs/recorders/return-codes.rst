@@ -56,11 +56,11 @@ Return Codes
 +---------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
 | ``rmCantFindRecordInPoint``     | If capturing in to out and the recorder can't find the in point timecode                                                           |
 +---------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
-| ``rmLastErrorSet``              | The recorder set the last error string using the SweetPea Error Suite                                                              |
+| ``rmLastErrorSet``              | The recorder set the last error string using the :ref:`universals/sweetpea-suites.error-suite`                                     |
 +---------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
-| ``rmLastWarningSet``            | The recorder set the last warning string using the SweetPea Error Suite                                                            |
+| ``rmLastWarningSet``            | The recorder set the last warning string using the :ref:`universals/sweetpea-suites.error-suite`                                   |
 +---------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
-| ``rmLastInfoSet``               | The recorder set the last info string using the SweetPea Error Suite                                                               |
+| ``rmLastInfoSet``               | The recorder set the last info string using the :ref:`universals/sweetpea-suites.error-suite`                                      |
 +---------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
 | ``rmIllegalAudioFormatChange``  | Return when two different audio formats are recorded on a tape and the user tries to capture frames from both in a single capture. |
 +---------------------------------+------------------------------------------------------------------------------------------------------------------------------------+

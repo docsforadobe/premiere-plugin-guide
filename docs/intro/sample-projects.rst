@@ -111,7 +111,7 @@ Descriptions
 |                          |                                                                                                                                                                                                                                          |
 |                          | The alpha is preserved.                                                                                                                                                                                                                  |
 |                          |                                                                                                                                                                                                                                          |
-|                          | It demonstrates use of PPix Suite and Pixel Format Suite.                                                                                                                                                                                |
+|                          | It demonstrates use of :ref:`universals/sweetpea-suites.ppix-suite` and :ref:`universals/sweetpea-suites.pixel-format-suite`.                                                                                                            |
 |                          |                                                                                                                                                                                                                                          |
 |                          | When the setup button is pressed, it displays a message box on Windows, and an alert on macOS.                                                                                                                                           |
 +--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -165,7 +165,7 @@ Descriptions
 How To Build the SDK Sample Projects
 ================================================================================
 
-The required development environment is described in the SDK Audience section.
+The required development environment is described in :ref:`intro/sdk-audience`.
 
 See a quickstart video on building an effect using a similar SDK (on macOS): adobe.ly/2sjMDwM
 

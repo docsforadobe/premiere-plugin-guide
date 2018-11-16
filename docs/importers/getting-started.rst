@@ -105,9 +105,7 @@ Clip Source Settings can be shown on file creation (for synthetic or custom impo
 
 Settings data should be stored in a disk-safe prefs structure, which is defined by the importer.
 
-Premiere will allocate the prefs based on the prefsLength re-
-
-turned from the first call to *imGetPrefs8*.
+Premiere will allocate the prefs based on the prefsLength re turned from the first call to *imGetPrefs8*.
 
 Premiere will deallocate the prefs when it is no longer needed.
 
@@ -129,7 +127,9 @@ If a clip is placed in the timeline, and its settings dialog is opened by double
 File Handling
 ================================================================================
 
-Basic importers that bring in media from a single file can rely on the host to provide basic file handling. If a clip has child files or a custom file system, an importer can provide its own file handling. Set canOpen, canSave, and canDelete to true during *imInit*, and respond to *imO­ penFile8*, *imQuietFile*, *imCloseFile*, *imSaveFile8*, *imDeleteFile8*. Use the Async File Reader Suite for cross-platform file operations.
+Basic importers that bring in media from a single file can rely on the host to provide basic file handling. If a clip has child files or a custom file system, an importer can provide its own file handling. Set canOpen, canSave, and canDelete to true during *imInit*, and respond to *imO­penFile8*, *imQuietFile*, *imCloseFile*, *imSaveFile8*, *imDeleteFile8*.
+
+Use the :ref:`importers/suites.async-file-reader-suite` for cross-platform file operations.
 
 Quieting versus Closing a File
 ********************************************************************************
@@ -162,7 +162,7 @@ If the filetype is an existing filetype supported by Premiere Pro, then set a hi
 
 For your filetype to be visible in the Proxy > Attach Proxies window, set imIndFormatRec. flags \|= xfIsMovie (this flag is labeled obsolete, but still needed for this case)
 
-If your importer supports different fractional resolutions and decode qualities, the fractional resolutions can be enumerated in response to the selector *imGetPreferredFrameSize*, and the decode quality hint is sent on import requests to your importer (for example in imSourceVideoRec. inQuality).
+If your importer supports different fractional resolutions and decode qualities, the fractional resolutions can be enumerated in response to the selector *imGetPreferredFrameSize*, and the decode quality hint is sent on import requests to your importer (for example in imSourceVideoRec.inQuality).
 
 ----
 
@@ -255,7 +255,7 @@ To support trimming, importers will want to set the canCalcSizes and canTrim fla
 
 If the each clip has more than one source file (such as audio channels in separate files), the importer should also set canCopy and support *imCopyFile*. Otherwise, the Project Manager will not know about the other source files.
 
-External files, such as textures, logos, etc. that are used by an importer instance but do not appear as footage in Project panel, should be registered with Premiere Pro using the File Registration Suite during *imGetInfo8* or *imGetPrefs8*. Registered files will be taken into account when trimming or copying a project using the Project Manager.
+External files, such as textures, logos, etc. that are used by an importer instance but do not appear as footage in Project panel, should be registered with Premiere Pro using the :ref:`universals/sweetpea-suites.file-registration-suite` during *imGetInfo8* or *imGetPrefs8*. Registered files will be taken into account when trimming or copying a project using the Project Manager.
 
 ----
 

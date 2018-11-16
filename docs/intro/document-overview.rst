@@ -13,7 +13,7 @@ All developers should read this chapter, and browse through chapters two and thr
 
 :ref:`hardware/hardware` introduces Media Abstraction, used by hardware integrators and software developers to integrate with Premiere and accelerate specific workflows.
 
-The remainder of the document describes specific plug-in types.
+The remainder of the document describes specific :ref:`intro/premiere-pro-plug-in-types`.
 
 This document is designed to be read non-linearly. You can browse through the topics from the bookmarks that appear in the left-hand panel in Acrobat, or the right-hand panel in the Preview application on macOS. A simple search for a well-chosen keyword will also turn up much information on any given topic.
 

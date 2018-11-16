@@ -231,9 +231,9 @@ Called to import audio using the new 32-bit float, uninterleaved audio format.
 
 Fill ``imImportAudioRec7->buffer`` with the number of sample frames specified in ``imImportAudioRec7->size``, starting from ``imImportAudioRec7->position``.
 
-Always return 32-bit float, uninterleaved samples as described in the Universals chapter.
+Always return 32-bit float, uninterleaved samples as described in :ref:`universals/universals`.
 
-You may use the calls in the Audio Suite to do some common conversions.
+You may use the calls in the :ref:`universals/sweetpea-suites.audio-suite` to do some common conversions.
 
 ----
 
@@ -549,7 +549,7 @@ Sent after a capture completes, where timecode was provided by the recorder or d
 
 Use this to write timecode data and timecode rate to your file.
 
-See the Universals chapter for more information on time in Premiere.
+See :ref:`universals/universals` for more information on time in Premiere.
 
 Supercedes ``imSetTimeInfo``.
 

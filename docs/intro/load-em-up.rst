@@ -6,7 +6,7 @@ Load Em Up
 Plug-in Caching
 ================================================================================
 
-On its first launch, Premiere Pro loads all the plug-ins, reads the PiPL resource, and sends any startup selectors to determine the plug-ins' capabilities. To speed up future application launches, it saves some of these capabilities in what we call the plug-in cache (the registry on Windows, a Property List file on macOS).
+On its first launch, Premiere Pro loads all the plug-ins, reads the :ref:`resources/pipl-resource`, and sends any startup selectors to determine the plug-ins' capabilities. To speed up future application launches, it saves some of these capabilities in what we call the plug-in cache (the registry on Windows, a Property List file on macOS).
 
 The next time the application is launched, the cached data is used wherever possible, rather than loading all the plug-ins on startup. Using this changed data will make the application launch faster, but for a small set of plug-ins that need to be initialized every time, it may be undesirable. These include plug-ins that need to get run-time information that might change in between app launches (i.e. installed codec lists), and plug-ins that check for hardware and need to be able to fail. So we give your plug-in control final say over whether or not it is reloaded each time.
 
@@ -25,9 +25,9 @@ On Windows only, you can force Premiere to reload all the plug-ins by holding do
 
 For plug-in loading issues, you may first check one of the plug-in loading logs.
 
-On Windows: ``[user folder]\AppData\Roaming\Adobe\Premiere Pro\[version num­ ber]\Plugin Loading.log``
+On Windows: ``[user folder]\AppData\Roaming\Adobe\Premiere Pro\[version number]\Plugin Loading.log``
 
-On macOS, this is: ``~/Library/Application Support/Adobe/Premiere Pro/[version num­ ber]/Plugin Loading.log``
+On macOS, this is: ``~/Library/Application Support/Adobe/Premiere Pro/[version number]/Plugin Loading.log``
 
 Your plug-in will be listed by path and filename, and the log will contain details on what happened during the plug-in loading process. Starting in CC 2017, it now logs any error codes returned from an effect on *PF_Cmd_GLOBAL_SETUP*.
 

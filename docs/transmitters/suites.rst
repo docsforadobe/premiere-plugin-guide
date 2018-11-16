@@ -7,6 +7,8 @@ For information on how to acquire and manage suites, as well as information on m
 
 ----
 
+.. _transmitters/suites.playmod-audio-suite:
+
 Playmod Audio Suite
 ================================================================================
 
@@ -26,9 +28,9 @@ The plug-in must manage the memory allocation of inInBuffers, which must point t
 
 Returns:
 
-- ``suiteEr­ror_NoError``,
+- ``suiteError_NoError``,
 - ``suiteError_PlayModuleAudioNotInitialized``, or
-- ``suiteEr­ror_PlayModuleAudioNotStarted``
+- ``suiteError_PlayModuleAudioNotStarted``
 
 ::
 
@@ -45,7 +47,7 @@ Returns:
 |                       |                                                                                                                                                           |
 |                       | A pointer to an array of buffers holding ``inNumSampleFrames`` input audio in each buffer, corresponding to the total number of available input channels. |
 +-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``outOutBuffers``     | A pointer to an array of buffers inNumSam­ pleFrames long into which the host will write the output audio.                                                |
+| ``outOutBuffers``     | A pointer to an array of buffers ``inNumSampleFrames`` long into which the host will write the output audio.                                              |
 |                       |                                                                                                                                                           |
 |                       | There must be N buffers, where N is the number of output channels for the output channel type specified in ``InitPluginAudio``.                           |
 +-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -53,6 +55,8 @@ Returns:
 +-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ----
+
+.. _transmitters/suites.transmit-invocation-suite:
 
 Transmit Invocation Suite
 ================================================================================

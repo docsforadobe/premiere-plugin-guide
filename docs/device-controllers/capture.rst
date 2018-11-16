@@ -13,7 +13,7 @@ Since the device controller and recorder sample plug-ins both only simulate hard
 Preroll Time
 ================================================================================
 
-The Preroll Time value is set in the Capture panel, in the Settings tab. The value defaults to zero seconds, but it may be set to any positive value chosen by the user. Adjusting the Preroll Time setting will have an effect on the DeviceRec.preroll value sent during *dsExecute/cmdLo­ cate*. The value with be converted from seconds into frames for the device controller.
+The Preroll Time value is set in the Capture panel, in the Settings tab. The value defaults to zero seconds, but it may be set to any positive value chosen by the user. Adjusting the Preroll Time setting will have an effect on the DeviceRec.preroll value sent during *dsExecute/cmdLocate*. The value with be converted from seconds into frames for the device controller.
 
 ----
 

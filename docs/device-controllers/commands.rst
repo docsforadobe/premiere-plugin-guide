@@ -77,7 +77,7 @@ Populate DeviceRec.features with the features of your device controller, using t
 +-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``fNoTransport``        | Device supports no transport modes (play, stop, etc).                                                                                                                                                 |
 +-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``fCanAssembleEdit``    | New in CC. Set if the device controller supports modeRecor­ dAssemble.                                                                                                                                |
+| ``fCanAssembleEdit``    | New in CC. Set if the device controller supports ``modeRecordAssemble``.                                                                                                                              |
 +-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``fCanPreviewEdit``     | New in CC. Set if modePreviewRecord is supported for the Edit to Tape panel.                                                                                                                          |
 +-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -190,7 +190,7 @@ Use intermediate speeds if the device supports them. If it doesn't implement shu
 cmdInsertEdit
 ================================================================================
 
-No longer needed starting in CC, if the Edit to Tape panel is supported. Otherwise, this was sent if the device controller supports insert mode and wants to control the edit (set fExportDia­ log and fCanInsertEdit during *cmdGetFeatures* to do so).
+No longer needed starting in CC, if the Edit to Tape panel is supported. Otherwise, this was sent if the device controller supports insert mode and wants to control the edit (set ``fExportDialog`` and fCanInsertEdit during *cmdGetFeatures* to do so).
 
 When the user invokes Export To Tape, Premiere prepares to play the chosen clip and sets the following in the DeviceHand:
 
@@ -200,7 +200,7 @@ When the user invokes Export To Tape, Premiere prepares to play the chosen clip 
   mode = modeRecord
   xTimecode = duration of the movie
 
-Premiere then enters a loop, calling the device controller with the above DeviceHand. When the device controller returns, Premiere sends the PrintProc specified in DeviceHand.set­ upWaitProc. Premiere will have already performed the preroll; everything is ready to play.
+Premiere then enters a loop, calling the device controller with the above DeviceHand. When the device controller returns, Premiere sends the PrintProc specified in ``DeviceHand.setupWaitProc``. Premiere will have already performed the preroll; everything is ready to play.
 
 When the device controller returns, Premiere plays the clip, sending idle to PrintProc once per frame. Premiere again calls the plug-in's entry point with the DeviceHand, allowing the device controller to perform any cue operations. Premiere calls PrintProc with complete when finished. If *cmdInsertEdit* is proceeding correctly PrintProc should always return 0.
 

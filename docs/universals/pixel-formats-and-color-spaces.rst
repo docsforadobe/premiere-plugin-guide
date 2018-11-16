@@ -27,7 +27,7 @@ Importers typically should provide frames in a format closest to the source form
 
 If needed, Premiere can convert any compressed format to a 8-bit or 32-bit uncompressed format. Keeping the format compressed as long as possible as it passes through the render pipeline will save memory and bandwidth.
 
-Starting in Premiere Pro CC 2014, importers can now choose the format they are rendering in. This allows importers to change pixel formats and quality based on criteria like enabled hardware and other source settings, such as HDR. To handle the negotiation, implement *imSelectClipFra­ meDescriptor*.
+Starting in Premiere Pro CC 2014, importers can now choose the format they are rendering in. This allows importers to change pixel formats and quality based on criteria like enabled hardware and other source settings, such as HDR. To handle the negotiation, implement *imSelectClipFrameDescriptor*.
 
 Effects
 ********************************************************************************
@@ -43,7 +43,7 @@ Exporters and transmitters should request frames in a format closest to the outp
 
 Any render function that takes a list of pixel formats can now be called with just two formats - the desired 4:4:4:4 pixel format, and PrPixelFormat_Any. This allows the host to avoid frame conversions and decompressions in many very common cases. The best part is that the plug-in doesn't need to
 
-understand all the possible pixel formats to make use of this. It can use the Image Processing Suite to copy/convert from any a PPix of any format to a separate memory buffer, which is a copy that would likely need to be done anyway.
+understand all the possible pixel formats to make use of this. It can use the :ref:`universals/sweetpea-suites.image-processing-suite` to copy/convert from any a PPix of any format to a separate memory buffer, which is a copy that would likely need to be done anyway.
 
 After the request is made, Premiere analyzes the preferred format of all importers and effects that are used to produce a single rendered frame, as well as the list of requested formats, and chooses the best format to use on a per-segment basis.
 
@@ -63,7 +63,7 @@ The ARGB formats can be natively used in the After Effects render pipeline, and 
 Byte Order
 ================================================================================
 
-BGRA, ARGB, and VUYA are written in order of increasing memory address from left to right. Uncompressed formats have a lower-left origin, meaning the first pixel in the buffer describes the pixel in the lower-left corner of the image. Compressed formats have format-specific origins. Use calls in the Image Processing Suite to get details on any format.
+BGRA, ARGB, and VUYA are written in order of increasing memory address from left to right. Uncompressed formats have a lower-left origin, meaning the first pixel in the buffer describes the pixel in the lower-left corner of the image. Compressed formats have format-specific origins. Use calls in the :ref:`universals/sweetpea-suites.image-processing-suite` to get details on any format.
 
 8-bit and 16-bit BGRA formats do not contain super whites or super blacks.
 
@@ -279,21 +279,21 @@ Miscellaneous
 Custom Pixel Formats
 ================================================================================
 
-New in CS4, custom pixel formats are supported. Plug-ins can define a pixel format which can pass through various aspects of our pipeline, but remain completely opaque to the built-in renderers. Use the macro MAKE_THIRD_PARTY_CUSTOM_PIXEL_FORMAT_FOURCC in the Pixel Format Suite. Please use a unique name to avoid collisions.
+New in CS4, custom pixel formats are supported. Plug-ins can define a pixel format which can pass through various aspects of our pipeline, but remain completely opaque to the built-in renderers. Use the macro MAKE_THIRD_PARTY_CUSTOM_PIXEL_FORMAT_FOURCC in the :ref:`universals/sweetpea-suites.pixel-format-suite`. Please use a unique name to avoid collisions.
 
 The format doesn't need to be registered in any sense. They can just be used in the same way the current pixel formats are used, though in many cases they will be ignored.
 
 The first place the new pixel formats can appear in the render pipeline is at the importer level. Importers can advertise the availability of these pixel formats during *imGetIndPixelFormat*, just as they would for any other format. Note that importers must also support a non-custom pixel format, for the case where the built-in renderer is used, which would not be prepared to handle an opaque pixel format added by a third-party.
 
-In the importer, use the new CreateCustomPPix call in the PPix Creator 2 Suite, and specify a custom pixel format and a memory buffer size, and the call will pass back a PPix of the requested format. These PPixes can then be returned from an importer, like any other. The memory for the PPix will be allocated by MediaCore, and must be a flat data structure as they will need to be copied between processes.
+In the importer, use the new CreateCustomPPix call in the :ref:`universals/sweetpea-suites.ppix-creator2-suite`, and specify a custom pixel format and a memory buffer size, and the call will pass back a PPix of the requested format. These PPixes can then be returned from an importer, like any other. The memory for the PPix will be allocated by MediaCore, and must be a flat data structure as they will need to be copied between processes.
 
 However, because the data itself is completely opaque, it can easily be a reference to another pixel buffer, as long as the reference can be copied. For example, the buffer could be a constant 16 bytes, containing a GUID which can be used to access a memory buffer by name in another process.
 
-To query for available custom pixel formats from the player, use the GetNumCustomPixelFormats and GetCustomPixelFormat calls in the Clip Render Suite. The custom pixel formats will not returned by the regular calls to get the supported frame formats, mostly to prevent them from being used.
+To query for available custom pixel formats from the player, use the GetNumCustomPixelFormats and GetCustomPixelFormat calls in the :ref:`universals/sweetpea-suites.clip-render-suite`. The custom pixel formats will not returned by the regular calls to get the supported frame formats, mostly to prevent them from being used.
 
-The other Clip Render Suite functions will accept requests for custom pixel formats and will return these custom PPixes like any others.
+The other :ref:`universals/sweetpea-suites.clip-render-suite` functions will accept requests for custom pixel formats and will return these custom PPixes like any others.
 
-With the Clip Render Suite, a third-party player can directly access these custom PPixes from a matched importer.
+With the :ref:`universals/sweetpea-suites.clip-render-suite`, a third-party player can directly access these custom PPixes from a matched importer.
 
 Smart Rendering
 ********************************************************************************
@@ -302,10 +302,10 @@ Smart rendering involves passing compressed frames from the importer to the expo
 
 The way to implement this is by passing custom PPixes between an importer, exporter, and usually a renderer.
 
-In the rare case of exporting a single clip, using the Clip Render Suite in the exporter to request custom PPixes from the importer is sufficient. But in the more common case of exporting a sequence, a renderer that supports the custom pixel format is required.
+In the rare case of exporting a single clip, using the :ref:`universals/sweetpea-suites.clip-render-suite` in the exporter to request custom PPixes from the importer is sufficient. But in the more common case of exporting a sequence, a renderer that supports the custom pixel format is required.
 
 When an exporter running in Media Encoder parses the segments in the sequence, it only has a very high-level view. It sees the entire sequence as a single clip (which is actually a temporary project file that has been opened using a Dynamic Link to the PProHeadless process), and it sees any optional cropping or filters as applied effects.
 
-So when the exporter parses that simple, high-level sequence, if there are no effects, it should use the MediaNode's ClipID with the Clip Render Suite to get frames directly from the PProHeadless process. In the PProHeadless process, the renderer can step in and parse the real sequence in all its glory.
+So when the exporter parses that simple, high-level sequence, if there are no effects, it should use the MediaNode's ClipID with the :ref:`universals/sweetpea-suites.clip-render-suite` to get frames directly from the PProHeadless process. In the PProHeadless process, the renderer can step in and parse the real sequence in all its glory.
 
-It can use the Clip Render Suite to get the frames in the custom pixel format directly from the importer, and then set the custom PPix as the render result. This custom PPix then is available to the exporter, in a pristine, compressed PPix.
+It can use the :ref:`universals/sweetpea-suites.clip-render-suite` to get the frames in the custom pixel format directly from the importer, and then set the custom PPix as the render result. This custom PPix then is available to the exporter, in a pristine, compressed PPix.

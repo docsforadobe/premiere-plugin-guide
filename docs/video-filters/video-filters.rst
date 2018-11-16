@@ -11,4 +11,4 @@ Video filters process a video frame into a destination frame. Filter parameters 
 
 Premiere provides basic user interface in the Effect Controls panel, drawing sliders, color pickers, angle dials, and checkboxes based on the parameter definitions in the PiPL resource. Video filters can have their own custom modal setup dialog for additional settings.
 
-If you've never developed a video filter before, you can skip the What's New section, and go directly to Getting Started.
+If you've never developed a video filter before, you can skip :ref:`video-filters/whats-new`, and go directly to :ref:`video-filters/getting-started`.

@@ -7,4 +7,4 @@ Recorders interface directly with capture hardware, and capture video and/or aud
 
 A recorder can only capture to a single filetype. To capture to several filetypes, provide several recorders.
 
-If you've never developed a recorder before, you can skip the What's New sections, and go directly to Getting Started.
+If you've never developed a recorder before, you can skip :ref:`recorders/whats-new`, and go directly to :ref:`recorders/getting-started`.

@@ -6,7 +6,7 @@ Getting Started
 Setting up the Sample Projects
 ================================================================================
 
-If you are developing an effect, begin with one of the two GPU effect sample projects, progressively replacing its functionality with your own. Refer to chapter 1 for general instructions on how to build the SDK projects.
+If you are developing an effect, begin with one of the two GPU effect sample projects, progressively replacing its functionality with your own. Refer to :ref:`intro/intro` for general instructions on how to build the SDK projects.
 
 In addition to those general instructions, the sample project is also dependent on the After Effects plug-in SDK. Download it here. On Windows, create an environment variable pointing to it named AE_SDK_BASE_PATH, so that the compiler will find the AE headers that the project includes. On macOS, in *Xcode > Preferences > Locations > Source Trees*, specify AE_SDK_BASE_PATH to be the root folder of the AE plug-in SDK you have downloaded and unzipped.
 
@@ -32,7 +32,7 @@ GetProperty(kVideoSegmentProperty_Transition_TransitionDuration, duration);
 Lifetime of a GPU Effect / Transition
 ================================================================================
 
-A new GPU effect instance is created when an effect/transition is applied in the timeline, or when an effect parameter is changed. When rendering a series of frames it won't needlessly be recreated. The Opaque Effect Data suite should be used to share unflattened sequence data between instances of the same effect on a track item.
+A new GPU effect instance is created when an effect/transition is applied in the timeline, or when an effect parameter is changed. When rendering a series of frames it won't needlessly be recreated. The :ref:`gpu-effects-transitions/suites.opaque-effect-data-suite` should be used to share unflattened sequence data between instances of the same effect on a track item.
 
 ----
 
@@ -41,11 +41,11 @@ Fallback to Software Rendering
 
 When a new GPU effect instance is created, the instance has the option of opting-in or out of providing GPU rendering. The GPU effect should be reasonably sure it has sufficient resources to complete the render if it opts-in, because there is no API support to fall back to software rendering in the middle of a render.
 
-Calling GetDeviceInfo() in the GPU Device Suite, and checking ``outDevi­ceInfo.outMeetsMinimumRequirementsForAcceleration``, you can see if supports the minimum system requirements for acceleration. Do not proceed with
+Calling GetDeviceInfo() in the :ref:`gpu-effects-transitions/suites.gpu-device-suite`, and checking ``outDevi­ceInfo.outMeetsMinimumRequirementsForAcceleration``, you can see if supports the minimum system requirements for acceleration. Do not proceed with
 
 AcquireExclusiveDeviceAccess(), if the minimum requirements are not met.
 
-In emergency situations, when there is not enough GPU memory available to complete a render, an effect may call PurgeDeviceMemory in the GPU Device Suite to free up memory not initially available. This will impact performance, and should be used only if absolutely necessary.
+In emergency situations, when there is not enough GPU memory available to complete a render, an effect may call PurgeDeviceMemory in the :ref:`gpu-effects-transitions/suites.gpu-device-suite` to free up memory not initially available. This will impact performance, and should be used only if absolutely necessary.
 
 ----
 
@@ -74,7 +74,7 @@ Note that on the Mac there is no real OpenGL/CUDA interoperability, and these ca
 Entry Point
 ================================================================================
 
-The GPU entry point function will only be called if the current project is using GPU acceleration. Otherwise, the normal entry point function will be called as described in the After Effects SDK, or transitions or video filters chapters in this SDK Guide.
+The GPU entry point function will only be called if the current project is using GPU acceleration. Otherwise, the normal entry point function will be called as described in the After Effects SDK, or :ref:`gpu-effects-transitions/gpu-effects-transitions` or :ref:`video-filters/video-filters` in this SDK Guide.
 
 Make sure GPU acceleration is activated in File > Project Settings > General > Video Rendering and Playback > Renderer. If a GPU option is not available, then you will need to install a suitable video card in your system.
 

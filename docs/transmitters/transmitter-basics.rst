@@ -55,7 +55,7 @@ For framerate, video will be pushed to you at the rate of the timeline. This was
 Dropped Frames
 ================================================================================
 
-If the host cannot keep up rendering, it will send duplicate frames with PushVideo. If you receive a frame that cannot be sent out to hardware on time, notify the host using inDroppedFrame­ Callback in tmPlaybackClock. In Premiere Pro, the user can turn on the Dropped Frame Indicator to see the total number of frames that were dropped either because the host couldn't keep up, or the hardware couldn't keep up.
+If the host cannot keep up rendering, it will send duplicate frames with PushVideo. If you receive a frame that cannot be sent out to hardware on time, notify the host using inDroppedFrame Callback in tmPlaybackClock. In Premiere Pro, the user can turn on the Dropped Frame Indicator to see the total number of frames that were dropped either because the host couldn't keep up, or the hardware couldn't keep up.
 
 ----
 
@@ -80,14 +80,14 @@ Turn on dog ears to view statistics about the frames being sent to the transmitt
 Closed Captioning
 ================================================================================
 
-This captioning data is attached to a sequence by the user via menu items in the Sequence menu. In the Program Monitor, the Closed Captioning Display options in the fly-out menu give the user control over the display. The hardware should always transmit any Closed Captioning data, and the user can go through the hardware monitor's on-screen display menu to choose which caption track to view. The closed captioning data is accessible using the new Captioning Suite. Use this data for the hardware output.
+This captioning data is attached to a sequence by the user via menu items in the Sequence menu. In the Program Monitor, the Closed Captioning Display options in the fly-out menu give the user control over the display. The hardware should always transmit any Closed Captioning data, and the user can go through the hardware monitor's on-screen display menu to choose which caption track to view. The closed captioning data is accessible using the new :ref:`universals/sweetpea-suites.captioning-suite`. Use this data for the hardware output.
 
 ----
 
 Driving Transmitters from Other Plug-ins
 ================================================================================
 
-Transmitters can be driven by many areas of the Premiere Pro interface. Currently, they are called to show frames from the Program Monitor and Source Monitor. But other types of plug-ins can use the Transmit Invocation Suite to push frames to transmitters. For example, an effect or titler with a modal setup dialog could push frames to the output.
+Transmitters can be driven by many areas of the Premiere Pro interface. Currently, they are called to show frames from the Program Monitor and Source Monitor. But other types of plug-ins can use the :ref:`transmitters/suites.transmit-invocation-suite` to push frames to transmitters. For example, an effect or titler with a modal setup dialog could push frames to the output.
 
 ----
 

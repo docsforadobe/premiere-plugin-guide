@@ -3,45 +3,45 @@
 Premiere Pro Plug-In Types
 ################################################################################
 
-+--------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|      **Type**      |                                                                       **Description**                                                                       |
-+====================+=============================================================================================================================================================+
-| Importers          | Import video and audio media into Premiere.                                                                                                                 |
-|                    |                                                                                                                                                             |
-|                    | Synthetic importers, a subset, dynamically synthesize media without creating an actual file on disk.                                                        |
-|                    |                                                                                                                                                             |
-|                    | Custom importers, dynamically synthesize media to disk.                                                                                                     |
-+--------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Recorders          | Records from a (usually hardware) source to disk. If necessary, provides a plug-in-defined settings dialog.                                                 |
-|                    |                                                                                                                                                             |
-|                    | Displays the video overlay in the preview area of the Capture panel.                                                                                        |
-|                    |                                                                                                                                                             |
-|                    | Any audio preview should be played directly be the recorder.                                                                                                |
-|                    | The captured file is passed to Premiere after capture by its file path.                                                                                     |
-|                    | The recorder can optionally provide the timecode of the captured file to Premiere Pro.                                                                      |
-+--------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Export Controllers | Can drive any exporter to generate a file in any format and perform custom post-processing operations.                                                      |
-|                    |                                                                                                                                                             |
-|                    | Developers wanting to integrate Premiere Pro with an asset management system will want to use this API instead of the exporter API.                         |
-+--------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Exporters          | Allows the user to output media to disk.                                                                                                                    |
-+--------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Transmitters       | Sends video, audio, and closed captioning to any external device during playback and editing.                                                               |
-+--------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Video Filters      | **We strongly recommend using the After Effects SDK to develop effects plug-ins. Most of the effects included in Premiere Pro are After Effects plug-ins.** |
-|                    |                                                                                                                                                             |
-|                    | Process a series of video frames with parameters that can be animated over time.                                                                            |
-+--------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Video Transitions  | Process two video sources into a single destination over time.                                                                                              |
-|                    |                                                                                                                                                             |
-|                    | This API is based on the After Effects API, with certain functions to enable transition functionality in Premiere Pro.                                      |
-+--------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Device Controllers | Control an external device (video tape recorder, camera, etc.) during Capture and Edit To Tape.                                                             |
-+--------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Control Surfaces   | Interface with a hardware control surface to support audio mixing, basic transport controls, and the Lumetri Color panel.                                   |
-|                    |                                                                                                                                                             |
-|                    | The API supports two-way communication with Premiere Pro, so that motorized hardware faders, VU meters, etc can be in sync with the application.            |
-+--------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
++--------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                        **Type**                        |                                                                       **Description**                                                                       |
++========================================================+=============================================================================================================================================================+
+| :ref:`importers/importers`                             | Import video and audio media into Premiere.                                                                                                                 |
+|                                                        |                                                                                                                                                             |
+|                                                        | Synthetic importers, a subset, dynamically synthesize media without creating an actual file on disk.                                                        |
+|                                                        |                                                                                                                                                             |
+|                                                        | Custom importers, dynamically synthesize media to disk.                                                                                                     |
++--------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`recorders/recorders`                             | Records from a (usually hardware) source to disk. If necessary, provides a plug-in-defined settings dialog.                                                 |
+|                                                        |                                                                                                                                                             |
+|                                                        | Displays the video overlay in the preview area of the Capture panel.                                                                                        |
+|                                                        |                                                                                                                                                             |
+|                                                        | Any audio preview should be played directly be the recorder.                                                                                                |
+|                                                        | The captured file is passed to Premiere after capture by its file path.                                                                                     |
+|                                                        | The recorder can optionally provide the timecode of the captured file to Premiere Pro.                                                                      |
++--------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`export-controllers/export-controllers`           | Can drive any exporter to generate a file in any format and perform custom post-processing operations.                                                      |
+|                                                        |                                                                                                                                                             |
+|                                                        | Developers wanting to integrate Premiere Pro with an asset management system will want to use this API instead of the exporter API.                         |
++--------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`exporters/exporters`                             | Allows the user to output media to disk.                                                                                                                    |
++--------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`transmitters/transmitters`                       | Sends video, audio, and closed captioning to any external device during playback and editing.                                                               |
++--------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`video-filters/video-filters`                     | **We strongly recommend using the After Effects SDK to develop effects plug-ins. Most of the effects included in Premiere Pro are After Effects plug-ins.** |
+|                                                        |                                                                                                                                                             |
+|                                                        | Process a series of video frames with parameters that can be animated over time.                                                                            |
++--------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`gpu-effects-transitions/gpu-effects-transitions` | Process two video sources into a single destination over time.                                                                                              |
+|                                                        |                                                                                                                                                             |
+|                                                        | This API is based on the After Effects API, with certain functions to enable transition functionality in Premiere Pro.                                      |
++--------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`device-controllers/device-controllers`           | Control an external device (video tape recorder, camera, etc.) during Capture and Edit To Tape.                                                             |
++--------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`control-surfaces/control-surfaces`               | Interface with a hardware control surface to support audio mixing, basic transport controls, and the Lumetri Color panel.                                   |
+|                                                        |                                                                                                                                                             |
+|                                                        | The API supports two-way communication with Premiere Pro, so that motorized hardware faders, VU meters, etc can be in sync with the application.            |
++--------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Other Supported Plug-In Standards
 *********************************************************************************
@@ -111,7 +111,7 @@ This chart shows which third-party plug-ins are supported by the various Video a
 
 Encore can use third-party exporters to transcode assets to MPEG-2 or Blu-ray compliant files.
 
-Please refer to the Guidelines for Exporters in Encore for instructions on how to set up your exporter so that Encore can use it for transcoding.
+Please refer to :ref:`exporters/additional-details.guidelines-for-exporters-in-encore` for instructions on how to set up your exporter so that Encore can use it for transcoding.
 
 ----
 
@@ -136,7 +136,7 @@ Premiere Elements uses the same core libraries for plug-in support that Premiere
 
 It's always important to test the plug-in fully in each application before advertising compatibility.
 
-Check out the Guidelines for Exporters in Premiere Elements for instructions on how to set up your exporter to be used in Premiere Elements.
+Check out :ref:`exporters/additional-details.guidelines-for-exporters-in-premiere-elements` for instructions on how to set up your exporter to be used in Premiere Elements.
 
 ----
 

@@ -73,7 +73,7 @@ Describes the recorder's capabilities to Premiere.
 +--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``canRecordLimit``       | If set, the recorder can accepts recording time limits.                                                                                                      |
 |                          |                                                                                                                                                              |
-|                          | The recorder will receive the user-specified record limit in ``recCapParmsRec.record­`` limit.                                                               |
+|                          | The recorder will receive the user-specified record limit in ``recCapParmsRec.record`` limit.                                                                |
 |                          |                                                                                                                                                              |
 |                          | The plug-in must enforce the time limit during capture.                                                                                                      |
 +--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -164,7 +164,7 @@ Enumerate custom setup buttons for the Capture Settings dialog, and pull-down me
 +------------------+---------------------------------------------------------------------------------+
 | ``setups[4]``    | Four recSetupItem8s used to label the setup buttons.                            |
 |                  |                                                                                 |
-|                  | A ``recSetupItem8`` is just a ``prUTF­16Char[256]``.                            |
+|                  | A ``recSetupItem8`` is just a ``prUTF16Char[256]``.                             |
 +------------------+---------------------------------------------------------------------------------+
 
 ----
@@ -373,7 +373,7 @@ Specifies capture settings.
 +---------------------------+-----------------------------------------------------------------------------------------------------------------------------+
 | ``height``                |                                                                                                                             |
 +---------------------------+-----------------------------------------------------------------------------------------------------------------------------+
-| ``timescale``             | Recording timebase. Only sent if accept­ ``sTimebase`` was set in the ``recInfoRec8``.                                      |
+| ``timescale``             | Recording timebase. Only sent if accept ``sTimebase`` was set in the ``recInfoRec8``.                                       |
 |                           |                                                                                                                             |
 |                           | Otherwise, capture using the timebase we previously set in ``recInfoRec8``.                                                 |
 |                           |                                                                                                                             |
@@ -409,11 +409,11 @@ Specifies capture settings.
 |                           |                                                                                                                             |
 |                           | Otherwise, this function pointer to be set to NULL. See PrerollFunc for more information.                                   |
 +---------------------------+-----------------------------------------------------------------------------------------------------------------------------+
-| ``frameCount``            | If canCountFrames was set in recIn­ foRec8, the number of frames to capture. No device polling will be done.                |
+| ``frameCount``            | If canCountFrames was set in ``recInfoRec8``, the number of frames to capture. No device polling will be done.              |
 +---------------------------+-----------------------------------------------------------------------------------------------------------------------------+
 | ``reportDrops``           | If non-zero, report dropped frames when they occur (by returning ``rmErrVidDataErr``).                                      |
 +---------------------------+-----------------------------------------------------------------------------------------------------------------------------+
-| ``currate``               | Frames per second to capture at (23, 24, 25, 30, 59). This is superceded by timescale / sam­plesize above.                  |
+| ``currate``               | Frames per second to capture at (23, 24, 25, 30, 59). This is superceded by timescale / samplesize above.                   |
 +---------------------------+-----------------------------------------------------------------------------------------------------------------------------+
 | ``timeFormat``            | 0 = non-drop frame, 1 = drop frame timecode.                                                                                |
 +---------------------------+-----------------------------------------------------------------------------------------------------------------------------+
@@ -500,7 +500,7 @@ Allows the recorder to supply the resolution and pixel aspect ratio of the clip 
   } recCapInfoRec;
 
 +----------------------+----------------------------------------------------------------------------------------------------------------------------------+
-| ``version``          | The version of this structure. ``kRecCapIn­foRecVersion``                                                                        |
+| ``version``          | The version of this structure. ``kRecCapInfoRecVersion``                                                                        |
 +----------------------+----------------------------------------------------------------------------------------------------------------------------------+
 | ``timeScale``        | Unused. A logged clip gets it's frame rate from the device controller in ``cmdStatus``.                                          |
 +----------------------+----------------------------------------------------------------------------------------------------------------------------------+
@@ -559,7 +559,7 @@ Used for scene searching. searchingForward is provided as a hint as the state of
 +----------------------+---------------------------------------------------------------------------------+
 | ``searchingForward`` | True if the tape is playing forward                                             |
 +----------------------+---------------------------------------------------------------------------------+
-| ``searchMode``       | Either ``sceneSearch_FastScan`` or scene­ ``Search_SlowScan``                   |
+| ``searchMode``       | Either ``sceneSearch_FastScan`` or scene ``Search_SlowScan``                    |
 +----------------------+---------------------------------------------------------------------------------+
 | ``isDropFrame``      | True if drop-frame, false otherwise                                             |
 +----------------------+---------------------------------------------------------------------------------+

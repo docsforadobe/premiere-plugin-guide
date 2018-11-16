@@ -19,13 +19,15 @@ Creating a Non-Editable String in the Parameter UI
 
 During ``exSelGenerateDefaultParams``, add a parameter with ``exNewParamInfo.flags = exParamFlag_none``.
 
-Then during ``exSelPostProcessParams``, call ``AddConstrainedValuePair()`` in the Export Param Suite.
+Then during ``exSelPostProcessParams``, call ``AddConstrainedValuePair()`` in the :ref:`exporters/suites.export-param-suite`.
 
 If you only add one value pair, then the parameter will be a non-editable string.
 
 In the case of the SDK Exporter sample, it adds two, which appear as a pair of radio buttons side-by-side.
 
 ----
+
+.. _exporters/additional-details.guidelines-for-exporters-in-encore:
 
 Guidelines for Exporters in Encore
 ================================================================================
@@ -118,6 +120,8 @@ is little guarantee of the correctness of the encoded file and the size of the f
 +------------------------------------+----------------------------------------+--------------------------------+-------------------------------------------------------------------------------+
 
 ----
+
+.. _exporters/additional-details.guidelines-for-exporters-in-premiere-elements:
 
 Guidelines for Exporters in Premiere Elements
 ================================================================================

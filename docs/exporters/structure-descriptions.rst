@@ -8,7 +8,7 @@ exDoExportRec
 
 Selector: ``exSelExport``
 
-Provides general export settings. The exporter should retrieve the parameter settings from the Export Param Suite.
+Provides general export settings. The exporter should retrieve the parameter settings from the :ref:`exporters/suites.export-param-suite`.
 
 ::
 
@@ -27,35 +27,35 @@ Provides general export settings. The exporter should retrieve the parameter set
     csSDK_int32   embedCaptions
   } exDoExportRec;
 
-+--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``exporterPluginID``     | The host's internal identifier for this exporter, used for various suite calls, such as in the Sequence Render Suite and Sequence Audio Suite. |
-+--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``privateData``          | Data allocated and managed by the exporter.                                                                                                    |
-+--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``fileType``             | The file format four character code set by the exporter during ``exSelStartup``.                                                               |
-|                          |                                                                                                                                                |
-|                          | Indicates which format the exporter should write, since exporters can support multiple formats.                                                |
-+--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``exportAudio``          | If non-zero, export audio.                                                                                                                     |
-+--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``exportVideo``          | If non-zero, export video.                                                                                                                     |
-+--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``startTime``            | The start time of the sequence to export.                                                                                                      |
-+--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``endTime``              | The end time of the sequence to export. If startTime is 0, also the total durection to export.                                                 |
-|                          |                                                                                                                                                |
-|                          | Range specified is ``[startTime, endTime)``, meaning the ``endTime`` is not actually included in the range.                                    |
-+--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``fileObject``           | For use with the Export File Suite, to get and manipulate the file specified by the user.                                                      |
-+--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``timelineData``         | Handle used for the Timeline Functions.                                                                                                        |
-+--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``reserveMetaDataSpace`` | Amount to reserve in a file for metadata storage.                                                                                              |
-+--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``maximumRenderQuality`` | If non-zero, the exporter should set ``SequenceRender_ParamsRec.inRenderQuality`` and ``inDeinterlace­Quality`` to ``kPrRenderQuality_Max``.   |
-+--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``embedCaptions``        | New in CC. If non-zero, the exporter should embed captions obtained from the Captioning Suite.                                                 |
-+--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
++--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``exporterPluginID``     | The host's internal identifier for this exporter, used for various suite calls, such as in the :ref:`exporters/suites.sequence-render-suite` and :ref:`exporters/suites.sequence-audio-suite`. |
++--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``privateData``          | Data allocated and managed by the exporter.                                                                                                                                                    |
++--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``fileType``             | The file format four character code set by the exporter during ``exSelStartup``.                                                                                                               |
+|                          |                                                                                                                                                                                                |
+|                          | Indicates which format the exporter should write, since exporters can support multiple formats.                                                                                                |
++--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``exportAudio``          | If non-zero, export audio.                                                                                                                                                                     |
++--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``exportVideo``          | If non-zero, export video.                                                                                                                                                                     |
++--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``startTime``            | The start time of the sequence to export.                                                                                                                                                      |
++--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``endTime``              | The end time of the sequence to export. If startTime is 0, also the total durection to export.                                                                                                 |
+|                          |                                                                                                                                                                                                |
+|                          | Range specified is ``[startTime, endTime)``, meaning the ``endTime`` is not actually included in the range.                                                                                    |
++--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``fileObject``           | For use with the :ref:`exporters/suites.export-file-suite`, to get and manipulate the file specified by the user.                                                                              |
++--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``timelineData``         | Handle used for the Timeline Functions.                                                                                                                                                        |
++--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``reserveMetaDataSpace`` | Amount to reserve in a file for metadata storage.                                                                                                                                              |
++--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``maximumRenderQuality`` | If non-zero, the exporter should set ``SequenceRender_ParamsRec.inRenderQuality`` and ``inDeinterlace­Quality`` to ``kPrRenderQuality_Max``.                                                   |
++--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``embedCaptions``        | New in CC. If non-zero, the exporter should embed captions obtained from the :ref:`universals/sweetpea-suites.captioning-suite`.                                                               |
++--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ----
 
@@ -438,25 +438,25 @@ Provides access to the privateData for the indicated filetype, and provides a se
     csSDK_int32         outUseMaximumRenderPrecision;
   } exQueryOutputSettingsRec;
 
-+-----------------------------------+----------------------------------------------------------------------------------------------------------------------------+
-| ``exporterPluginID``              | The host's internal identifier for this exporter. Do not modify.                                                           |
-+-----------------------------------+----------------------------------------------------------------------------------------------------------------------------+
-| ``privateData``                   | Data allocated and managed by the exporter.                                                                                |
-+-----------------------------------+----------------------------------------------------------------------------------------------------------------------------+
-| ``fileType``                      | The file format four character code set by the exporter during ``exSelStartup``.                                           |
-+-----------------------------------+----------------------------------------------------------------------------------------------------------------------------+
-| ``inMultiGroupIndex``             | Return the parameter settings of the multi-group with this index.                                                          |
-+-----------------------------------+----------------------------------------------------------------------------------------------------------------------------+
-| ``inExportVideo``                 | If non-zero, the current settings are set to export video.                                                                 |
-+-----------------------------------+----------------------------------------------------------------------------------------------------------------------------+
-| ``inExportAudio``                 | If non-zero, the current settings are set to export audio.                                                                 |
-+-----------------------------------+----------------------------------------------------------------------------------------------------------------------------+
-| ``outVideoWidth``                 | Return each parameter setting, by getting the current value of the parameter using the Export Param Suite.                 |
-| ``outVideoHeight``                |                                                                                                                            |
-|                                   | Some settings, such as ``outVideoFieldType``, may be implicit, for example if the format only supports progressive frames. |
-+-----------------------------------+----------------------------------------------------------------------------------------------------------------------------+
-| ``outUseMaximumRender­Precision`` | New in CS6. If non-zero, renders will always be made at maximum bit-depth.                                                 |
-+-----------------------------------+----------------------------------------------------------------------------------------------------------------------------+
++-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
+| ``exporterPluginID``              | The host's internal identifier for this exporter. Do not modify.                                                                   |
++-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
+| ``privateData``                   | Data allocated and managed by the exporter.                                                                                        |
++-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
+| ``fileType``                      | The file format four character code set by the exporter during ``exSelStartup``.                                                   |
++-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
+| ``inMultiGroupIndex``             | Return the parameter settings of the multi-group with this index.                                                                  |
++-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
+| ``inExportVideo``                 | If non-zero, the current settings are set to export video.                                                                         |
++-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
+| ``inExportAudio``                 | If non-zero, the current settings are set to export audio.                                                                         |
++-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
+| ``outVideoWidth``                 | Return each parameter setting, by getting the current value of the parameter using the :ref:`exporters/suites.export-param-suite`. |
+| ``outVideoHeight``                |                                                                                                                                    |
+|                                   | Some settings, such as ``outVideoFieldType``, may be implicit, for example if the format only supports progressive frames.         |
++-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
+| ``outUseMaximumRender­Precision`` | New in CS6. If non-zero, renders will always be made at maximum bit-depth.                                                         |
++-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
 
 ----
 

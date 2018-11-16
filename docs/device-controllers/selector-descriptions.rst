@@ -52,7 +52,7 @@ Perform a device control operation based on the command in the DeviceRec. See th
 dsCleanup
 ================================================================================
 
-Disconnect from hardware and dispose of the plug-in's private instance data (stored in device­ Data).
+Disconnect from hardware and dispose of the plug-in's private instance data (stored in ``deviceData``).
 
 ----
 

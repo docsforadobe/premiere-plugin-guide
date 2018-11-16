@@ -86,7 +86,7 @@ Gets pixel formats supported.
 
 Called iteratively until all formats have been given.
 
-Set ``(*theData)->pixelFormatSupported`` to a supported pixel format, and return fsNo­ Err.
+Set ``(*theData)->pixelFormatSupported`` to a supported pixel format, and return ``fsNoErr``.
 
 When all formats have been described, return ``fsBadFormatIndex``.
 

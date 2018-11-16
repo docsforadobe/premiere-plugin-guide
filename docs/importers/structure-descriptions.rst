@@ -103,12 +103,13 @@ Audio data properties of the file (or of the data you will generate, if syntheti
 
 +-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``numChannels`` | Number of audio channels in the audio stream.                                                                                                            |
+|                 |                                                                                                                                                          |
 |                 | Either 1, 2, or 6.                                                                                                                                       |
 +-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``sampleRate``  | In hertz.                                                                                                                                                |
 +-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``sampleType``  | This is for informational use only, to disclose the format of the audio on disk, before it is converted to 32-bit float, uninterleaved, by the importer. |
-|                 | The audio sample types are listed in the Universals chapter.                                                                                             |
+|                 | The audio sample types are listed in :ref:`universals/universals`.                                                                                       |
 +-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ----
@@ -495,69 +496,69 @@ If importing stereoscopic footage, import the left-eye video channel for streamI
     char             mayBeGrowing;
   } imFileInfoRec8;
 
-+------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``hasVideo``           | If non-zero, the file contains video.                                                                                                                                                                         |
-+------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``hasAudio``           | If non-zero, the file contains audio.                                                                                                                                                                         |
-+------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``vidInfo``            | If there is video in the file, fill out the imImageInfoRec structure (e.g. height, width, alpha info, etc.).                                                                                                  |
-+------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``vidScale``           | The frame rate of the video, represented as scale over sampleSize.                                                                                                                                            |
-+------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``vidSampleSize``      |                                                                                                                                                                                                               |
-+------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``vidDuration``        | The total number of frames of video, in the video timebase.                                                                                                                                                   |
-+------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``audInfo``            | If there is audio in the file, fill out the imAudioInfoRec7 structure.                                                                                                                                        |
-+------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``audDuration``        | The total number of audio sample frames.                                                                                                                                                                      |
-+------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``accessModes``        | The access mode of this file. Use one of the following constants:                                                                                                                                             |
-|                        |                                                                                                                                                                                                               |
-|                        | - ``kRandomAccessImport`` - This file can be read by random access (default)                                                                                                                                  |
-|                        | - ``kSequentialAudioOnly`` - When accessing audio, only sequential reads allowed (for variable bit rate files)                                                                                                |
-|                        | - ``kSequentialVideoOnly`` - When accessing video, only sequential reads allowed                                                                                                                              |
-|                        | - ``kSequentialOnly`` - Both sequential audio and video                                                                                                                                                       |
-|                        | - ``kSeparateSequentialAudio`` - Both random access and sequential access.                                                                                                                                    |
-|                        |                                                                                                                                                                                                               |
-|                        | This setting allows audio to be retrieved for scrubbing or playback even during audio conforming.                                                                                                             |
-+------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``privatedata``        | Private instance data.                                                                                                                                                                                        |
-|                        | Allocate a handle using Premiere's memory functions and store it here.                                                                                                                                        |
-|                        | Premiere will return the handle with subsequent selectors.                                                                                                                                                    |
-+------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``prefs``              | Clip Source Settings data gathered from ``imGetPrefs8`` (setup dialog info).                                                                                                                                  |
-|                        | When a synthetic clip is created using File > New, ``imGetPrefs8`` is sent ``beforeimGetInfo8`` so this settings structure will already be valid.                                                             |
-+------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``hasDataRate``        | If set, the importer can read or generate data rate information for this file and will be sent ``imDataRateAnalysis``.                                                                                        |
-+------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``streamIdx``          | The Premiere-specified stream index number.                                                                                                                                                                   |
-|                        | Only useful if clip uses multiple streams.                                                                                                                                                                    |
-+------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``streamsAsComp``      | If multiple streams and this is stream zero, indicate whether to import as a composition or multiple clips.                                                                                                   |
-+------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``streamName``         | Optional. The unicode name of this stream if there are multiple streams.                                                                                                                                      |
-|                        |                                                                                                                                                                                                               |
-|                        | New in Premiere Pro 3.1, an importer may use this to set the clip name based on metadata rather than the filename.                                                                                            |
-|                        |                                                                                                                                                                                                               |
-|                        | The importer should set ``imImportInfoRec.canSupplyMetadataClip­Name`` to true, and fill out the name here.                                                                                                   |
-+------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``sessionPluginID``    | This ID should be used in the File Registration Suite for registering external files (such as textures, logos, etc) that are used by an importer instance but do not appear as footage in the Project Window. |
-|                        |                                                                                                                                                                                                               |
-|                        | Registered files will be taken into account when trimming or copying a project using the Project Manager.                                                                                                     |
-|                        |                                                                                                                                                                                                               |
-|                        | The ``sessionPluginID`` is valid only for the call that it is passed on.                                                                                                                                      |
-+------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``alwaysUnquiet``      | Set to non-zero to tell Premiere if the clip should always be unquieted immediately when the application regains focus.                                                                                       |
-+------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``filepath``           | Added in Premiere Pro 4.1. For clips that have audio in files separate from the video file, set the filename here, so that UMIDs can properly be generated when exporting sequences to AAF.                   |
-+------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``canProvidePeakData`` | New in Premiere Pro CS6. This allows an importer to toggle whether or not it wants to provide peak audio data on a clip-by-clip basis.                                                                        |
-|                        |                                                                                                                                                                                                               |
-|                        | It defaults to the setting set in ``imImportInfoRec.canProvide­PeakAudio``.                                                                                                                                   |
-+------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``mayBeGrowing``       | New in Premiere Pro CS6.0.2. Set to non-zero if this clip is growing and should be refreshed at the interval set in the Media Preferences.                                                                    |
-+------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``hasVideo``           | If non-zero, the file contains video.                                                                                                                                                                                                           |
++------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``hasAudio``           | If non-zero, the file contains audio.                                                                                                                                                                                                           |
++------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``vidInfo``            | If there is video in the file, fill out the imImageInfoRec structure (e.g. height, width, alpha info, etc.).                                                                                                                                    |
++------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``vidScale``           | The frame rate of the video, represented as scale over sampleSize.                                                                                                                                                                              |
++------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``vidSampleSize``      |                                                                                                                                                                                                                                                 |
++------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``vidDuration``        | The total number of frames of video, in the video timebase.                                                                                                                                                                                     |
++------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``audInfo``            | If there is audio in the file, fill out the imAudioInfoRec7 structure.                                                                                                                                                                          |
++------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``audDuration``        | The total number of audio sample frames.                                                                                                                                                                                                        |
++------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``accessModes``        | The access mode of this file. Use one of the following constants:                                                                                                                                                                               |
+|                        |                                                                                                                                                                                                                                                 |
+|                        | - ``kRandomAccessImport`` - This file can be read by random access (default)                                                                                                                                                                    |
+|                        | - ``kSequentialAudioOnly`` - When accessing audio, only sequential reads allowed (for variable bit rate files)                                                                                                                                  |
+|                        | - ``kSequentialVideoOnly`` - When accessing video, only sequential reads allowed                                                                                                                                                                |
+|                        | - ``kSequentialOnly`` - Both sequential audio and video                                                                                                                                                                                         |
+|                        | - ``kSeparateSequentialAudio`` - Both random access and sequential access.                                                                                                                                                                      |
+|                        |                                                                                                                                                                                                                                                 |
+|                        | This setting allows audio to be retrieved for scrubbing or playback even during audio conforming.                                                                                                                                               |
++------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``privatedata``        | Private instance data.                                                                                                                                                                                                                          |
+|                        | Allocate a handle using Premiere's memory functions and store it here.                                                                                                                                                                          |
+|                        | Premiere will return the handle with subsequent selectors.                                                                                                                                                                                      |
++------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``prefs``              | Clip Source Settings data gathered from ``imGetPrefs8`` (setup dialog info).                                                                                                                                                                    |
+|                        | When a synthetic clip is created using File > New, ``imGetPrefs8`` is sent ``beforeimGetInfo8`` so this settings structure will already be valid.                                                                                               |
++------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``hasDataRate``        | If set, the importer can read or generate data rate information for this file and will be sent ``imDataRateAnalysis``.                                                                                                                          |
++------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``streamIdx``          | The Premiere-specified stream index number.                                                                                                                                                                                                     |
+|                        | Only useful if clip uses multiple streams.                                                                                                                                                                                                      |
++------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``streamsAsComp``      | If multiple streams and this is stream zero, indicate whether to import as a composition or multiple clips.                                                                                                                                     |
++------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``streamName``         | Optional. The unicode name of this stream if there are multiple streams.                                                                                                                                                                        |
+|                        |                                                                                                                                                                                                                                                 |
+|                        | New in Premiere Pro 3.1, an importer may use this to set the clip name based on metadata rather than the filename.                                                                                                                              |
+|                        |                                                                                                                                                                                                                                                 |
+|                        | The importer should set ``imImportInfoRec.canSupplyMetadataClip­Name`` to true, and fill out the name here.                                                                                                                                     |
++------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``sessionPluginID``    | This ID should be used in the :ref:`universals/sweetpea-suites.file-registration-suite` for registering external files (such as textures, logos, etc) that are used by an importer instance but do not appear as footage in the Project Window. |
+|                        |                                                                                                                                                                                                                                                 |
+|                        | Registered files will be taken into account when trimming or copying a project using the Project Manager.                                                                                                                                       |
+|                        |                                                                                                                                                                                                                                                 |
+|                        | The ``sessionPluginID`` is valid only for the call that it is passed on.                                                                                                                                                                        |
++------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``alwaysUnquiet``      | Set to non-zero to tell Premiere if the clip should always be unquieted immediately when the application regains focus.                                                                                                                         |
++------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``filepath``           | Added in Premiere Pro 4.1. For clips that have audio in files separate from the video file, set the filename here, so that UMIDs can properly be generated when exporting sequences to AAF.                                                     |
++------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``canProvidePeakData`` | New in Premiere Pro CS6. This allows an importer to toggle whether or not it wants to provide peak audio data on a clip-by-clip basis.                                                                                                          |
+|                        |                                                                                                                                                                                                                                                 |
+|                        | It defaults to the setting set in ``imImportInfoRec.canProvide­PeakAudio``.                                                                                                                                                                     |
++------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``mayBeGrowing``       | New in Premiere Pro CS6.0.2. Set to non-zero if this clip is growing and should be refreshed at the interval set in the Media Preferences.                                                                                                      |
++------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ----
 
@@ -591,7 +592,7 @@ The file Premiere wants the importer to open.
 |                         |                                                                                                                                                     |
 |                         | Either ``kPrOpenFileAccess_ReadOnly`` or ``kPrOpenFileAccess_ReadWrite``                                                                            |
 +-------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``inImporterID``        | Can be used as the ID for calls in the PPix Cache Suite.                                                                                            |
+| ``inImporterID``        | Can be used as the ID for calls in the :ref:`universals/sweetpea-suites.ppix-cache-suite`.                                                          |
 +-------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``outExtraMemoryUsage`` | New in CS5. If the importer uses memory just by being open, which cannot otherwise be registered in the cache, put the size in bytes in this field. |
 +-------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -657,7 +658,7 @@ If no labels are specified, the channel layout will be assumed to be discrete.
 +----------------------+------------------------------------------------------------------------------+
 | ``outChannelLabels`` | A valid audio channel label should be assigned for each channel in the clip. |
 |                      |                                                                              |
-|                      | Labels are defined in the Audio Suite.                                       |
+|                      | Labels are defined in the :ref:`universals/sweetpea-suites.audio-suite`.     |
 +----------------------+------------------------------------------------------------------------------+
 
 ----
@@ -748,43 +749,43 @@ If you are creating media, you can may generate a video preview that includes th
     float           sampleRate;
   } imGetPrefsRec;
 
-+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``prefs``               | A pointer to a private structure (which you allocate) for storing Clip Source Settings.                                                                                                                      |
-+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``prefsLength``         | Prior to storing anything in the prefs member, set pref­ sLength to the size of your structure and return imNoErr; Premiere will re-size and call the plug-in again with ``imGet­Prefs8``.                   |
-+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``firstTime``           | If set, ``imGetPrefs8`` is being sent for the first time.                                                                                                                                                    |
-|                         |                                                                                                                                                                                                              |
-|                         | Instead, check to see if prefs has been allocated. If not, ``imGetPrefs8`` is being sent for the first time. Set up default values for the prefsLength buffer and present any setup dialog.                  |
-+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``timelineData``        | ``Can`` be passed to getPreviewFrameEx callback along with tdbTimelineLocation to get a frame from the timeline beneath the current clip or timeline location. This is useful for titler plug-ins.           |
-+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``privatedata``         | Private instance data.                                                                                                                                                                                       |
-|                         |                                                                                                                                                                                                              |
-|                         | Allocate a handle using Premiere's memory functions and store it here, if not already allocated in ``imGetInfo8``.                                                                                           |
-|                         |                                                                                                                                                                                                              |
-|                         | Premiere will return the handle with subsequent selectors.                                                                                                                                                   |
-+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``tdbTimelineLocation`` | ``Can`` be passed to getPreviewFrameEx callback along with timelineData to get a frame from the timeline beneath the current clip or timeline location. This is useful for titler plug-ins.                  |
-+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``sessionPluginID``     | This ID should be used in the File Registration Suite for registering external files (such as textures, logos, etc) that are used by a importer instance but do not appear as footage in the Project Window. |
-|                         |                                                                                                                                                                                                              |
-|                         | Registered files will be taken into account when trimming or copying a project using the Project Manager. The sessionPluginID is valid only for the call that it is passed on.                               |
-+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``imageWidth``          | New in CS5. The native resolution of the video.                                                                                                                                                              |
-+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``imageHeight``         |                                                                                                                                                                                                              |
-+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``pixelAspectNum``      | New in CS5. The pixel aspect ratio of the video.                                                                                                                                                             |
-+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``pixelAspectDen``      |                                                                                                                                                                                                              |
-+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``vidScale``            | New in CS5. The frame rate of the video, represented as scale over sampleSize.                                                                                                                               |
-+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``vidSampleSize``       |                                                                                                                                                                                                              |
-+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``sampleRate``          | New in CS5. Audio sample rate.                                                                                                                                                                               |
-+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``prefs``               | A pointer to a private structure (which you allocate) for storing Clip Source Settings.                                                                                                                                                        |
++-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``prefsLength``         | Prior to storing anything in the prefs member, set pref­ sLength to the size of your structure and return imNoErr; Premiere will re-size and call the plug-in again with ``imGet­Prefs8``.                                                     |
++-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``firstTime``           | If set, ``imGetPrefs8`` is being sent for the first time.                                                                                                                                                                                      |
+|                         |                                                                                                                                                                                                                                                |
+|                         | Instead, check to see if prefs has been allocated. If not, ``imGetPrefs8`` is being sent for the first time. Set up default values for the prefsLength buffer and present any setup dialog.                                                    |
++-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``timelineData``        | ``Can`` be passed to getPreviewFrameEx callback along with tdbTimelineLocation to get a frame from the timeline beneath the current clip or timeline location. This is useful for titler plug-ins.                                             |
++-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``privatedata``         | Private instance data.                                                                                                                                                                                                                         |
+|                         |                                                                                                                                                                                                                                                |
+|                         | Allocate a handle using Premiere's memory functions and store it here, if not already allocated in ``imGetInfo8``.                                                                                                                             |
+|                         |                                                                                                                                                                                                                                                |
+|                         | Premiere will return the handle with subsequent selectors.                                                                                                                                                                                     |
++-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``tdbTimelineLocation`` | ``Can`` be passed to getPreviewFrameEx callback along with timelineData to get a frame from the timeline beneath the current clip or timeline location. This is useful for titler plug-ins.                                                    |
++-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``sessionPluginID``     | This ID should be used in the :ref:`universals/sweetpea-suites.file-registration-suite` for registering external files (such as textures, logos, etc) that are used by a importer instance but do not appear as footage in the Project Window. |
+|                         |                                                                                                                                                                                                                                                |
+|                         | Registered files will be taken into account when trimming or copying a project using the Project Manager. The sessionPluginID is valid only for the call that it is passed on.                                                                 |
++-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``imageWidth``          | New in CS5. The native resolution of the video.                                                                                                                                                                                                |
++-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``imageHeight``         |                                                                                                                                                                                                                                                |
++-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``pixelAspectNum``      | New in CS5. The pixel aspect ratio of the video.                                                                                                                                                                                               |
++-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``pixelAspectDen``      |                                                                                                                                                                                                                                                |
++-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``vidScale``            | New in CS5. The frame rate of the video, represented as scale over sampleSize.                                                                                                                                                                 |
++-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``vidSampleSize``       |                                                                                                                                                                                                                                                |
++-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``sampleRate``          | New in CS5. Audio sample rate.                                                                                                                                                                                                                 |
++-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ----
 
@@ -836,13 +837,13 @@ Selector: ```imGetInfo8``` (member of imFileInfoRec8) Describes the video to be 
 Plug-in Info
 ********************************************************************************
 
-+----------------------------+----------------------------------------------------------------------------------------+
-| ``importerID``             | ``Can`` be used as the ID for calls in the PPix Cache Suite.                           |
-+----------------------------+----------------------------------------------------------------------------------------+
-| ``supportsAsyncIO``        | Set this to true if the importer supports ``imCreateAsyncImporter`` and ai* selectors. |
-+----------------------------+----------------------------------------------------------------------------------------+
-| ``supportsGetSourceVideo`` | Set this to true if the importer supports the ``imGetSourceVideo`` selector.           |
-+----------------------------+----------------------------------------------------------------------------------------+
++----------------------------+------------------------------------------------------------------------------------------------+
+| ``importerID``             | ``Can`` be used as the ID for calls in the :ref:`universals/sweetpea-suites.ppix-cache-suite`. |
++----------------------------+------------------------------------------------------------------------------------------------+
+| ``supportsAsyncIO``        | Set this to true if the importer supports ``imCreateAsyncImporter`` and ai* selectors.         |
++----------------------------+------------------------------------------------------------------------------------------------+
+| ``supportsGetSourceVideo`` | Set this to true if the importer supports the ``imGetSourceVideo`` selector.                   |
++----------------------------+------------------------------------------------------------------------------------------------+
 
 Bounds Info
 ********************************************************************************
@@ -864,48 +865,48 @@ Bounds Info
 Time Info
 ********************************************************************************
 
-+---------------------+------------------------------------------------------------------------------------------------------------------+
-| ``isStill``         | If set, the file contains a single frame, so only one frame will be cached.                                      |
-+---------------------+------------------------------------------------------------------------------------------------------------------+
-| ``noDuration``      | One of the following:                                                                                            |
-|                     |                                                                                                                  |
-|                     | - ``imNoDurationFalse``                                                                                          |
-|                     | - ``imNoDurationNoDefault``                                                                                      |
-|                     | - ``imNoDurationStillDefault`` - use the default duration for stills, as set by the user in the Preferences      |
-|                     | - ``imNoDurationNoDefault`` - the importer will supply it's own duration                                         |
-|                     |                                                                                                                  |
-|                     | This is primarily for synthetic clips, but can be used for importing non-sequential still images.                |
-+---------------------+------------------------------------------------------------------------------------------------------------------+
-| ``isRollCrawl``     | Set to non-zero value to specify this clip is a rolling or crawling title.                                       |
-|                     |                                                                                                                  |
-|                     | This allows a player to optionally use the RollCrawl Suite to get sections of this title for real-time playback. |
-+---------------------+------------------------------------------------------------------------------------------------------------------+
-| ``hasPulldown``     | Set this to true if the clip contains NTSC film footage with 3:2 pulldown.                                       |
-+---------------------+------------------------------------------------------------------------------------------------------------------+
-| ``pulldownCadence`` | Set this to the enumerated value that describes the pulldown of the clip:                                        |
-|                     |                                                                                                                  |
-|                     | ``importer_PulldownPhase_NO_PULLDOWN``                                                                           |
-|                     |                                                                                                                  |
-|                     | 2:3 cadences:                                                                                                    |
-|                     |                                                                                                                  |
-|                     | - ``importer_PulldownPhase_WSSWW``                                                                               |
-|                     | - ``importer_PulldownPhase_SSWWW``                                                                               |
-|                     | - ``importer_PulldownPhase_SWWWS``                                                                               |
-|                     | - ``importer_PulldownPhase_WWWSS``                                                                               |
-|                     | - ``importer_PulldownPhase_WWSSW``                                                                               |
-|                     |                                                                                                                  |
-|                     | 24pa cadences:                                                                                                   |
-|                     |                                                                                                                  |
-|                     | - ``importer_PulldownPhase_WWWSW``                                                                               |
-|                     | - ``importer_PulldownPhase_WWSWW``                                                                               |
-|                     | - ``importer_PulldownPhase_WSWWW``                                                                               |
-|                     | - ``importer_PulldownPhase_SWWWW``                                                                               |
-|                     | - ``importer_PulldownPhase_WWWWS``                                                                               |
-+---------------------+------------------------------------------------------------------------------------------------------------------+
-| ``posterFrame``     | New in Premiere Pro CS3. Poster frame number to be displayed.                                                    |
-|                     |                                                                                                                  |
-|                     | If not specified, the poster frame will be the first frame of the clip.                                          |
-+---------------------+------------------------------------------------------------------------------------------------------------------+
++---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``isStill``         | If set, the file contains a single frame, so only one frame will be cached.                                                                        |
++---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``noDuration``      | One of the following:                                                                                                                              |
+|                     |                                                                                                                                                    |
+|                     | - ``imNoDurationFalse``                                                                                                                            |
+|                     | - ``imNoDurationNoDefault``                                                                                                                        |
+|                     | - ``imNoDurationStillDefault`` - use the default duration for stills, as set by the user in the Preferences                                        |
+|                     | - ``imNoDurationNoDefault`` - the importer will supply it's own duration                                                                           |
+|                     |                                                                                                                                                    |
+|                     | This is primarily for synthetic clips, but can be used for importing non-sequential still images.                                                  |
++---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``isRollCrawl``     | Set to non-zero value to specify this clip is a rolling or crawling title.                                                                         |
+|                     |                                                                                                                                                    |
+|                     | This allows a player to optionally use the :ref:`universals/sweetpea-suites.rollcrawl-suite` to get sections of this title for real-time playback. |
++---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``hasPulldown``     | Set this to true if the clip contains NTSC film footage with 3:2 pulldown.                                                                         |
++---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``pulldownCadence`` | Set this to the enumerated value that describes the pulldown of the clip:                                                                          |
+|                     |                                                                                                                                                    |
+|                     | ``importer_PulldownPhase_NO_PULLDOWN``                                                                                                             |
+|                     |                                                                                                                                                    |
+|                     | 2:3 cadences:                                                                                                                                      |
+|                     |                                                                                                                                                    |
+|                     | - ``importer_PulldownPhase_WSSWW``                                                                                                                 |
+|                     | - ``importer_PulldownPhase_SSWWW``                                                                                                                 |
+|                     | - ``importer_PulldownPhase_SWWWS``                                                                                                                 |
+|                     | - ``importer_PulldownPhase_WWWSS``                                                                                                                 |
+|                     | - ``importer_PulldownPhase_WWSSW``                                                                                                                 |
+|                     |                                                                                                                                                    |
+|                     | 24pa cadences:                                                                                                                                     |
+|                     |                                                                                                                                                    |
+|                     | - ``importer_PulldownPhase_WWWSW``                                                                                                                 |
+|                     | - ``importer_PulldownPhase_WWSWW``                                                                                                                 |
+|                     | - ``importer_PulldownPhase_WSWWW``                                                                                                                 |
+|                     | - ``importer_PulldownPhase_SWWWW``                                                                                                                 |
+|                     | - ``importer_PulldownPhase_WWWWS``                                                                                                                 |
++---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``posterFrame``     | New in Premiere Pro CS3. Poster frame number to be displayed.                                                                                      |
+|                     |                                                                                                                                                    |
+|                     | If not specified, the poster frame will be the first frame of the clip.                                                                            |
++---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Format Info
 ********************************************************************************
@@ -1590,19 +1591,19 @@ If the state hasn't changed since the last call, the GUID returned should be the
     PrSDKString  *outFilePaths;
   } imQueryInputFileListRec;
 
-+---------------------+----------------------------------------------------------------------------------------------------------+
-| ``inPrivateData``   | Instance data gathered from ``imGetInfo8`` or ``imGetPrefs8``.                                           |
-+---------------------+----------------------------------------------------------------------------------------------------------+
-| ``inPrefs``         | Clip Source Settings data gathered from ``imGetPrefs8`` (setup dialog info).                             |
-+---------------------+----------------------------------------------------------------------------------------------------------+
-| ``inBasePath``      | Path of main file that was passed earlier in ``imOpenFile``.                                             |
-+---------------------+----------------------------------------------------------------------------------------------------------+
-| ``outNumFilePaths`` | The first time ``imQueryInputFileList`` is sent, fill in the number of files that the media uses.        |
-+---------------------+----------------------------------------------------------------------------------------------------------+
-| ``outFilePaths``    | The second time ``imQueryInputFileList`` is sent, this will be preallocated as an array of NULL strings. |
-|                     |                                                                                                          |
-|                     | Use the String Suite to fill the array with PrSDKStrings with the actual paths.                          |
-+---------------------+----------------------------------------------------------------------------------------------------------+
++---------------------+-------------------------------------------------------------------------------------------------------------------+
+| ``inPrivateData``   | Instance data gathered from ``imGetInfo8`` or ``imGetPrefs8``.                                                    |
++---------------------+-------------------------------------------------------------------------------------------------------------------+
+| ``inPrefs``         | Clip Source Settings data gathered from ``imGetPrefs8`` (setup dialog info).                                      |
++---------------------+-------------------------------------------------------------------------------------------------------------------+
+| ``inBasePath``      | Path of main file that was passed earlier in ``imOpenFile``.                                                      |
++---------------------+-------------------------------------------------------------------------------------------------------------------+
+| ``outNumFilePaths`` | The first time ``imQueryInputFileList`` is sent, fill in the number of files that the media uses.                 |
++---------------------+-------------------------------------------------------------------------------------------------------------------+
+| ``outFilePaths``    | The second time ``imQueryInputFileList`` is sent, this will be preallocated as an array of NULL strings.          |
+|                     |                                                                                                                   |
+|                     | Use the :ref:`universals/sweetpea-suites.string-suite` to fill the array with PrSDKStrings with the actual paths. |
++---------------------+-------------------------------------------------------------------------------------------------------------------+
 
 ----
 
@@ -1624,15 +1625,15 @@ For stereoscopic importers, use the predefined labels in PrSDKStreamLabel.h.
     PrSDKString*  outStreamLabel;
   } imQueryStreamLabelRec;
 
-+--------------------+------------------------------------------------------------------------------+
-| ``privatedata``    | Instance data gathered from ``imGetInfo8`` or ``imGetPrefs8``.               |
-+--------------------+------------------------------------------------------------------------------+
-| ``prefs``          | Clip Source Settings data gathered from ``imGetPrefs8`` (setup dialog info). |
-+--------------------+------------------------------------------------------------------------------+
-| ``inStreamIdx``    | The ID of the stream that needs to be labeled.                               |
-+--------------------+------------------------------------------------------------------------------+
-| ``outStreamLabel`` | The stream label, allocated using the String Suite.                          |
-+--------------------+------------------------------------------------------------------------------+
++--------------------+---------------------------------------------------------------------------------------+
+| ``privatedata``    | Instance data gathered from ``imGetInfo8`` or ``imGetPrefs8``.                        |
++--------------------+---------------------------------------------------------------------------------------+
+| ``prefs``          | Clip Source Settings data gathered from ``imGetPrefs8`` (setup dialog info).          |
++--------------------+---------------------------------------------------------------------------------------+
+| ``inStreamIdx``    | The ID of the stream that needs to be labeled.                                        |
++--------------------+---------------------------------------------------------------------------------------+
+| ``outStreamLabel`` | The stream label, allocated using the :ref:`universals/sweetpea-suites.string-suite`. |
++--------------------+---------------------------------------------------------------------------------------+
 
 ----
 

@@ -3,9 +3,11 @@
 Suites
 ################################################################################
 
-For information on how to acquire and manage suites, see the SweetPea Suites section in the Universals chapter.
+For information on how to acquire and manage suites, see the SweetPea Suites section in :ref:`universals/universals`.
 
 ----
+
+.. _gpu-effects-transitions/suites.gpu-device-suite:
 
 GPU Device Suite
 ================================================================================
@@ -17,6 +19,8 @@ Use this suite to get exclusive access to a device using AcquireExclusiveDeviceA
 Device memory should ideally be allocated through this suite. In some cases you may find it more efficient to use a texture / image object as the source. With CUDA, you can bind a texture reference to an existing linear buffer. With OpenCL, you can create an image object from an existing 2D buffer object using image_2d_from_buffer. Temporary allocations are also fine but may be rather slow.
 
 ----
+
+.. _gpu-effects-transitions/suites.opaque-effect-data-suite:
 
 Opaque Effect Data Suite
 ================================================================================
@@ -38,7 +42,7 @@ When ``SEQUENCE_SETDOWN`` is called (it may be called multiple times to dispose 
 instanceID
 ********************************************************************************
 
-The Opaque Effect Data Suite functions need the instanceID of the effect. For the software entry point, you can obtain this using GetFilterInstanceID() in PF_UtilitySuite, defined in PrSDKAESupport.h. For the GPU Render entry point, you can use the following code: csSDK_uint32 instanceID;
+The :ref:`gpu-effects-transitions/suites.opaque-effect-data-suite` functions need the instanceID of the effect. For the software entry point, you can obtain this using GetFilterInstanceID() in PF_UtilitySuite, defined in PrSDKAESupport.h. For the GPU Render entry point, you can use the following code: csSDK_uint32 instanceID;
 
 ::
 

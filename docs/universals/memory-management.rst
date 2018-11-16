@@ -23,6 +23,6 @@ On the other hand, memory contention between plug-ins and the rest of Premiere P
 Solutions for Memory Contention
 ================================================================================
 
-The best approach to reduce memory contention is to reduce the memory requirements of each plug-in. However, if the memory requirements of a plug-in are significant, it should also use the Memory Manager Suite to report any memory usage that would not already be accounted for.
+The best approach to reduce memory contention is to reduce the memory requirements of each plug-in. However, if the memory requirements of a plug-in are significant, it should also use the :ref:`universals/sweetpea-suites.memory-manager-suite` to report any memory usage that would not already be accounted for.
 
-Frames allocated using the PPix Creator Suite are accounted for, but any memory allocated using the old PPix and Memory functions are not automatically accounted for.
+Frames allocated using the :ref:`universals/sweetpea-suites.ppix-creator-suite` are accounted for, but any memory allocated using the old PPix and Memory functions are not automatically accounted for.

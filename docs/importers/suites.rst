@@ -8,10 +8,14 @@ Suites
 
 For information on how to acquire and manage suites, see the SweetPea Suites section.
 
+.. _importers/suites.async-file-reader-suite:
+
 Async File Reader Suite
 ********************************************************************************
 
 New in Premiere Pro CS5. A cross-platform file handling suite.
+
+.. _importers/suites.deferred-processing-suite:
 
 Deferred Processing Suite
 ********************************************************************************

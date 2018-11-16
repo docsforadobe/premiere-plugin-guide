@@ -52,4 +52,4 @@ Closed Captioning
 
 When using the Edit to Tape panel, the device controller should specify if it supports Closed Captioning export by setting fCanUseCC along with any other flags during dsExecute/ cmdGetFeatures.
 
-If the user checks the Insert Closed Captioning checkbox and chooses Record or Preview, the device controller should use the Captioning Suite to get the captions and send them out with the export.
+If the user checks the Insert Closed Captioning checkbox and chooses Record or Preview, the device controller should use the :ref:`universals/sweetpea-suites.captioning-suite` to get the captions and send them out with the export.

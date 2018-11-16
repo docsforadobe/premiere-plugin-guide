@@ -9,4 +9,4 @@ Device controllers are usually called by Premiere when the user is in the Captur
 
 capture. Especially when capturing video, the device controller's operation becomes deeply intertwined with the recorder. Device controllers work along with recorders to update Premiere with timecode information from the hardware.
 
-If you've never developed a device controller before, you can skip the What's New section, and go directly to Getting Started.
+If you've never developed a device controller before, you can skip :ref:`device-controllers/whats-new`, and go directly to :ref:`device-controllers/getting-started`.

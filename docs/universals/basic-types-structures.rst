@@ -24,7 +24,7 @@ Premiere defines cross-platform types for convenience when developing plug-ins f
 +----------------------------------------+--------------------------------------------------------------------------------------------------------------+
 | ``prRect``                             | A Windows ``RECT`` or Mac OS ``Rect``.                                                                       |
 |                                        |                                                                                                              |
-|                                        | Use the utility function pr­ ``SetRect`` to set the dimensions of a ``prRect`` struct.                       |
+|                                        | Use the utility function ``prSetRect`` to set the dimensions of a ``prRect`` struct.                         |
 |                                        |                                                                                                              |
 |                                        | This should be used because Mac OS ``Rect`` members have a different ordering than Windows ``RECT`` members. |
 +----------------------------------------+--------------------------------------------------------------------------------------------------------------+
@@ -61,7 +61,7 @@ Premiere defines cross-platform types for convenience when developing plug-ins f
 +----------------------------------------+--------------------------------------------------------------------------------------------------------------+
 | ``PPix``, ``*PPixPtr``, ``**PPixHand`` | Holds a video frame or field, and contains related attributes such as pixel aspect ratio and pixel format.   |
 |                                        |                                                                                                              |
-|                                        | Manipulate PPixs using the PPix Suite, never directly.                                                       |
+|                                        | Manipulate PPixs using the :ref:`universals/sweetpea-suites.ppix-suite`, never directly.                     |
 +----------------------------------------+--------------------------------------------------------------------------------------------------------------+
 | ``TDB_TimeRecord``                     | A time database record representing a time value in the context of a video frame rate.                       |
 |                                        |                                                                                                              |
@@ -81,7 +81,7 @@ Premiere defines cross-platform types for convenience when developing plug-ins f
 +----------------------------------------+--------------------------------------------------------------------------------------------------------------+
 | ``prUTF8Char``                         | An 8-bit unsigned integer.                                                                                   |
 +----------------------------------------+--------------------------------------------------------------------------------------------------------------+
-| ``PrSDKString``                        | An opaque data type that should be accessed using the new String Suite.                                      |
+| ``PrSDKString``                        | An opaque data type that should be accessed using the new :ref:`universals/sweetpea-suites.string-suite`.    |
 +----------------------------------------+--------------------------------------------------------------------------------------------------------------+
 | ``PrParam``                            | Used for exporter parameters                                                                                 |
 |                                        |                                                                                                              |
@@ -119,7 +119,7 @@ Premiere defines cross-platform types for convenience when developing plug-ins f
 |                                        |     kPrParamType_PrMemoryPtr                                                                                 |
 |                                        |   };                                                                                                         |
 +----------------------------------------+--------------------------------------------------------------------------------------------------------------+
-| ``prDateStamp``                        | Used in by importers in ``imFileAttributesRec.cre­ationDateStamp``.                                          |
+| ``prDateStamp``                        | Used in by importers in ``imFileAttributesRec.creationDateStamp``.                                           |
 |                                        |                                                                                                              |
 |                                        | ::                                                                                                           |
 |                                        |                                                                                                              |
