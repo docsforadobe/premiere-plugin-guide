@@ -152,7 +152,7 @@ Versioning
 
 Generally from version to version, the changes made to a suite are additive, so it is recommended to work with the most recent version of a suite if possible. However the latest version of a suite may not be supported by older versions of Premiere Pro or other host applications. Attempting to acquire suites that are unsupported by the host application will result in a NULL pointer being returned from AcquireSuite.
 
-For a plug-in to support multiple versions, it may choose to use a specific older version of the suite that is supported across those multiple versions. Alternatively, it may check the version of the host application (using the :ref:`universals/sweetpea-suites.app-info-suite` below), and use the new suites where available, or the older suites when running in an older version. To acquire a specific older version of a suite, rather than requesting kPrSDKPixelFormatSuiteVersion in the example above, use a specific version number instead.
+For a plug-in to support multiple versions, it may choose to use a specific older version of the suite that is supported across those multiple versions. Alternatively, it may check the version of the host application (using the :ref:`universals/sweetpea-suites.app-info-suite`), and use the new suites where available, or the older suites when running in an older version. To acquire a specific older version of a suite, rather than requesting kPrSDKPixelFormatSuiteVersion in the example above, use a specific version number instead.
 
 ----
 

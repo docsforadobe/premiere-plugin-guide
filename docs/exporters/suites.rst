@@ -3,7 +3,7 @@
 Suites
 ################################################################################
 
-For information on how to acquire and manage suites, see the SweetPea Suites section.
+For information on how to acquire and manage suites, see :ref:`universals/sweetpea-suites`.
 
 ----
 

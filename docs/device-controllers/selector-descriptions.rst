@@ -45,7 +45,7 @@ Display a modal dialog with any user settings and info the device controller wis
 dsExecute
 ================================================================================
 
-Perform a device control operation based on the command in the DeviceRec. See the Commands section below for detailed descriptions.
+Perform a device control operation based on the command in the DeviceRec. See :ref:`device-controllers/commands` for detailed descriptions.
 
 ----
 

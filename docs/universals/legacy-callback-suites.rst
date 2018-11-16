@@ -21,32 +21,34 @@ These callbacks are available to all plug-ins, although many of these callbacks 
     PlugTimelineFuncsPtr  timelineFuncs;
   } piSuites, *piSuitesPtr;
 
-+--------------------+------------------------------------------------------------------------------------------------------------------------------------------+
-|     **Member**     |                                                             **Description**                                                              |
-+====================+==========================================================================================================================================+
-| ``piInterfaceVer`` | API version                                                                                                                              |
-|                    |                                                                                                                                          |
-|                    | - Premiere Pro CS4 - ``PR_PISUITES_VERSION_9``                                                                                           |
-|                    | - Premiere Pro CS3 - ``PR_PISUITES_VERSION_8``                                                                                           |
-|                    | - Premiere Pro 2.0 - ``PR_PISUITES_VERSION_7``                                                                                           |
-|                    | - Premiere Pro 1.5.1 - ``PR_PISUITES_VERSION_6``                                                                                         |
-|                    | - Premiere Pro 1.5 - ``PR_PISUITES_VERSION_5``                                                                                           |
-|                    | - Premiere Pro 1.0 - ``PR_PISUITES_VERSION_4``                                                                                           |
-|                    | - Premiere 6.x - ``PR_PISUITES_VERSION_3``                                                                                               |
-|                    | - Premiere 5.1 - ``PR_PISUITES_VERSION_2``                                                                                               |
-|                    | - Premiere 5.0 - ``PR_PISUITES_VERSION_1``                                                                                               |
-+--------------------+------------------------------------------------------------------------------------------------------------------------------------------+
-| ``memfuncs``       | Pointer to memory functions                                                                                                              |
-+--------------------+------------------------------------------------------------------------------------------------------------------------------------------+
-| ``windFuncs``      | Pointer window functions                                                                                                                 |
-+--------------------+------------------------------------------------------------------------------------------------------------------------------------------+
-| ``ppixFuncs``      | Pointer PPix functions                                                                                                                   |
-+--------------------+------------------------------------------------------------------------------------------------------------------------------------------+
-| ``utilFuncs``      | Pointer to utility functions.                                                                                                            |
-|                    | In the utilFuncs, the getSPBasicSuite callback provides access to the "SweetPea" Suites, which are used for most of the newer functions. |
-+--------------------+------------------------------------------------------------------------------------------------------------------------------------------+
-| ``timelineFuncs``  | Pointer to timeline functions                                                                                                            |
-+--------------------+------------------------------------------------------------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                                      **Member**                                      |                                                                     **Description**                                                                      |
++======================================================================================+==========================================================================================================================================================+
+| ``piInterfaceVer``                                                                   | API version                                                                                                                                              |
+|                                                                                      |                                                                                                                                                          |
+|                                                                                      | - Premiere Pro CS4 - ``PR_PISUITES_VERSION_9``                                                                                                           |
+|                                                                                      | - Premiere Pro CS3 - ``PR_PISUITES_VERSION_8``                                                                                                           |
+|                                                                                      | - Premiere Pro 2.0 - ``PR_PISUITES_VERSION_7``                                                                                                           |
+|                                                                                      | - Premiere Pro 1.5.1 - ``PR_PISUITES_VERSION_6``                                                                                                         |
+|                                                                                      | - Premiere Pro 1.5 - ``PR_PISUITES_VERSION_5``                                                                                                           |
+|                                                                                      | - Premiere Pro 1.0 - ``PR_PISUITES_VERSION_4``                                                                                                           |
+|                                                                                      | - Premiere 6.x - ``PR_PISUITES_VERSION_3``                                                                                                               |
+|                                                                                      | - Premiere 5.1 - ``PR_PISUITES_VERSION_2``                                                                                                               |
+|                                                                                      | - Premiere 5.0 - ``PR_PISUITES_VERSION_1``                                                                                                               |
++--------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`memfuncs <universals/legacy-callback-suites.piSuites.memory-functions>`        | Pointer to memory functions                                                                                                                              |
++--------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`windFuncs <universals/legacy-callback-suites.piSuites.window-functions>`       | Pointer window functions                                                                                                                                 |
++--------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`ppixFuncs <universals/legacy-callback-suites.piSuites.ppix-functions>`         | Pointer PPix functions                                                                                                                                   |
++--------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`utilFuncs <universals/legacy-callback-suites.piSuites.utility-functions>`      | Pointer to utility functions.                                                                                                                            |
+|                                                                                      | In the utilFuncs, the getSPBasicSuite callback provides access to the :ref:`universals/sweetpea-suites`, which are used for most of the newer functions. |
++--------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`timelineFuncs <universals/legacy-callback-suites.piSuites.timeline-functions>` | Pointer to timeline functions                                                                                                                            |
++--------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+.. _universals/legacy-callback-suites.piSuites.memory-functions:
 
 Memory Functions
 ********************************************************************************
@@ -125,6 +127,8 @@ Strings passed to and from Premiere in API structures are always null-terminated
 | ``lockHandle`` ``unlockHandle`` | These legacy functions are deprecated and should no longer be used. |
 +---------------------------------+---------------------------------------------------------------------+
 
+.. _universals/legacy-callback-suites.piSuites.window-functions:
+
 Window Functions
 ********************************************************************************
 
@@ -145,6 +149,8 @@ Window management routines. Superceded by the :ref:`universals/sweetpea-suites.w
 |                      |                                                            |
 |                      |   void getMainWnd (void);                                  |
 +----------------------+------------------------------------------------------------+
+
+.. _universals/legacy-callback-suites.piSuites.ppix-functions:
 
 PPix Functions
 ********************************************************************************
@@ -210,6 +216,8 @@ Used to manipulate a PPix. Superceded by the :ref:`universals/sweetpea-suites.pp
 |                                         |     prRect    *alphaBounds);                                                                   |
 +-----------------------------------------+------------------------------------------------------------------------------------------------+
 
+.. _universals/legacy-callback-suites.piSuites.utility-functions:
+
 Utility Functions
 ********************************************************************************
 
@@ -270,7 +278,7 @@ Utility Functions
 |                        |     prFileSpec *filespec,                                                                                                                                                   |
 |                        |     prRect *bounds);                                                                                                                                                        |
 +------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``getSPBasicSuite``    | This very important call returns the SweetPea suite that allows plug-ins to acquire and release all other SweetPea suites.                                                  |
+| ``getSPBasicSuite``    | This very important call returns the SweetPea suite that allows plug-ins to acquire and release all other :ref:`universals/sweetpea-suites`.                                |
 |                        |                                                                                                                                                                             |
 |                        | ::                                                                                                                                                                          |
 |                        |                                                                                                                                                                             |
@@ -290,6 +298,8 @@ Utility Functions
 |                        | - ``kFileTypes_AudioVideo``: audio and video media                                                                                                                          |
 |                        | - ``kFileTypes_AllNoIntrinsics``: all importable media types via importer plug-ins (no prproj, txt, etc)                                                                    |
 +------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+.. _universals/legacy-callback-suites.piSuites.timeline-functions:
 
 Timeline Functions
 ********************************************************************************

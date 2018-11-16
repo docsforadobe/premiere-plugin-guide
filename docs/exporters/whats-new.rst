@@ -6,7 +6,9 @@ Whats New
 What's New in CC
 ================================================================================
 
-A new Captions tab has been added to the Export Settings, for Closed Captioning export. For all formats, a sidecar file containing the captions can be exported. To learn how exporters can optionally embed Closed Captioning directly in the output file, see the Closed Captioning section.
+A new Captions tab has been added to the Export Settings, for Closed Captioning export. For all formats, a sidecar file containing the captions can be exported.
+
+To learn how exporters can optionally embed Closed Captioning directly in the output file, see :ref:`exporters/getting-started.closed-captioning`.
 
 Two new selectors have been added to GetExportSourceInfo in the :ref:`exporters/suites.export-info-suite`. You can use kExportInfo_UsePreviewFiles to check if the user has checked "Use Previews" in the Export Settings dialog. If so, if possible, reuse any preview files already rendered. You can use kExportInfo_NumAudioChannels to get the number of audio channels in a given source.
 

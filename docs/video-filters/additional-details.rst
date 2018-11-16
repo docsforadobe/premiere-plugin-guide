@@ -19,7 +19,9 @@ Frame Caching
 
 The rendered output of video filters is stored in the host media cache. For example, when the user scrubs over a frame with a filter on it, the filter will be called to render its effect on the frame and return the buffer to Premiere. Premiere caches the returned frame, so when the user scrubs over the same frame, Premiere will return the cached frame without having to call the filter again. If the user has modified the filter settings, the clip settings, the preview quality, etc, Premiere will call the filter to render with the new settings, but will keep the previously cache frame for a while. So if the changes are reversed, Premiere may still have the cached frame to return when appropriate.
 
-If the filter should generate random, non-deterministic output, or if it changes over time without keyframes, the randomness bit must be set in the ANIM_FilterInfo section in the PiPL (.r file). If you set the bit to noRandomness, Premiere will only render one frame of a still image.
+If the filter should generate random, non-deterministic output, or if it changes over time without keyframes, the randomness bit must be set in the ``ANIM_FilterInfo`` section in the PiPL (.r file).
+
+If you set the bit to noRandomness, Premiere will only render one frame of a still image.
 
 ----
 

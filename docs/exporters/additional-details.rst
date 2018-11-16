@@ -59,7 +59,9 @@ The audio formats available in an exporter should correspond to the same choices
 
 Encore will need to access many of the exporter's encoding parameters. It may even modify some of the encoding parameters during the transcoding to MPEG-2 DVD and Blu-ray formats, so that the encoding stays within the bit-budget constraints of the project. So a third-party exporter must use specific property identifiers and property types. If these parameters are not used, then there
 
-is little guarantee of the correctness of the encoded file and the size of the final disc, since Encore will not be able to control the settings of the exporter to apply the size constraints to the output files. Below is a list of the properties with their identifiers and types that an exporter plugin must support:
+is little guarantee of the correctness of the encoded file and the size of the final disc, since Encore will not be able to control the settings of the exporter to apply the size constraints to the output files.
+
+Below is a list of the properties with their identifiers and types that an exporter plugin must support:
 
 +------------------------------------+----------------------------------------+--------------------------------+-------------------------------------------------------------------------------+
 | **Property Identifier**            | **Required**                           | **Property type**              | **Description**                                                               |

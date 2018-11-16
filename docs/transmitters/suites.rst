@@ -3,7 +3,7 @@
 Suites
 ################################################################################
 
-For information on how to acquire and manage suites, as well as information on more suites that are available to other plug-in types beyond just transmitters, see the SweetPea Suites section.
+For information on how to acquire and manage suites, as well as information on more suites that are available to other plug-in types beyond just transmitters, see :ref:`universals/sweetpea-suites`.
 
 ----
 
