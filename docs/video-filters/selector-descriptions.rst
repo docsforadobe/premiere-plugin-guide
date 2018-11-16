@@ -3,6 +3,8 @@
 Selector Descriptions
 ################################################################################
 
+.. _video-filters/selector-descriptions.fsInitSpec:
+
 fsInitSpec
 ================================================================================
 
@@ -12,12 +14,16 @@ Allocate and pass back a handle to a structure containing the parameter values i
 
 ----
 
+.. _video-filters/selector-descriptions.fsHasSetupDialog:
+
 fsHasSetupDialog
 ================================================================================
 
 New for Premiere Pro CS3. Optional. Specify whether or not the filter has a setup dialog, by ``returning`` fsHasNoSetupDialog or fsNoErr.
 
 ----
+
+.. _video-filters/selector-descriptions.fsSetup:
 
 fsSetup
 ================================================================================
@@ -36,6 +42,8 @@ If the filter has a setup dialog, the VFilterCallbackProcPtr should be used to g
 
 ----
 
+.. _video-filters/selector-descriptions.fsExecute:
+
 fsExecute
 ================================================================================
 
@@ -45,12 +53,16 @@ The video your filter receives may be interlaced, in the field order determined 
 
 ----
 
+.. _video-filters/selector-descriptions.fsDisposeData:
+
 fsDisposeData
 ================================================================================
 
 Optional. Called when the project closes. Dispose of any instance data created during ``fsExecute``. See VideoHandle->InstanceData.
 
 ----
+
+.. _video-filters/selector-descriptions.fsCanHandlePAR:
 
 fsCanHandlePAR
 ================================================================================
@@ -77,6 +89,8 @@ The PiPL bits ``anyPixelAspectRatio`` and ``unityPixelAspectRatio`` must not be 
 
 ----
 
+.. _video-filters/selector-descriptions.fsGetPixelFormatsSupported:
+
 fsGetPixelFormatsSupported
 ================================================================================
 
@@ -93,6 +107,8 @@ When all formats have been described, return ``fsBadFormatIndex``.
 See the field-aware video filter sample for an example.
 
 ----
+
+.. _video-filters/selector-descriptions.fsCacheOnLoad:
 
 fsCacheOnLoad
 ================================================================================

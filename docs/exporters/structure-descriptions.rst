@@ -3,10 +3,12 @@
 Structure Descriptions
 ################################################################################
 
+.. _exporters/structure-descriptions.exDoExportRec:
+
 exDoExportRec
 ================================================================================
 
-Selector: ``exSelExport``
+Selector: :ref:`exporters/selector-descriptions.exSelExport`
 
 Provides general export settings. The exporter should retrieve the parameter settings from the :ref:`exporters/suites.export-param-suite`.
 
@@ -32,7 +34,7 @@ Provides general export settings. The exporter should retrieve the parameter set
 +--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``privateData``          | Data allocated and managed by the exporter.                                                                                                                                                    |
 +--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``fileType``             | The file format four character code set by the exporter during ``exSelStartup``.                                                                                                               |
+| ``fileType``             | The file format four character code set by the exporter during :ref:`exporters/selector-descriptions.exSelStartup`.                                                                            |
 |                          |                                                                                                                                                                                                |
 |                          | Indicates which format the exporter should write, since exporters can support multiple formats.                                                                                                |
 +--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -59,14 +61,18 @@ Provides general export settings. The exporter should retrieve the parameter set
 
 ----
 
+.. _exporters/structure-descriptions.exExporterInfoRec:
+
 exExporterInfoRec
 ================================================================================
 
-Selector: ``exSelStartup`` and ``exSelShutdown`` (starting in CS6)
+Selector: :ref:`exporters/selector-descriptions.exSelStartup` and :ref:`exporters/selector-descriptions.exSelShutdown` (starting in CS6)
 
-Describe the exporter's capabilities by filling out this structure during ``exSelStartup``. For each filetype, populate exExporterInfoRec and return ``exportReturnIterateExporter``.
+Describe the exporter's capabilities by filling out this structure during :ref:`exporters/selector-descriptions.exSelStartup`.
 
-``exSelStartup`` will then be resent. Repeat the process until there are no more file formats to describe, then return ``exportReturn_IterateExporterDone``.
+For each filetype, populate exExporterInfoRec and return ``exportReturnIterateExporter``.
+
+:ref:`exporters/selector-descriptions.exSelStartup` will then be resent. Repeat the process until there are no more file formats to describe, then return ``exportReturn_IterateExporterDone``.
 
 The fileType indicates which format the exporter should currently work with in subsequent calls.
 
@@ -132,10 +138,12 @@ The fileType indicates which format the exporter should currently work with in s
 
 ----
 
+.. _exporters/structure-descriptions.exExporterInstanceRec:
+
 exExporterInstanceRec
 ================================================================================
 
-Selector: ``exSelBeginInstance`` and ``exSelEndInstance``
+Selector: :ref:`exporters/selector-descriptions.exSelBeginInstance` and :ref:`exporters/selector-descriptions.exSelEndInstance`
 
 Provides access to the privateData for the indicated filetype, so that the exporter can allocate privateData and pass it to the host, or deallocate it.
 
@@ -147,20 +155,22 @@ Provides access to the privateData for the indicated filetype, so that the expor
     void*         privateData;
   } exExporterInstanceRec;
 
-+----------------------+----------------------------------------------------------------------------------+
-| ``exporterPluginID`` | The host's internal identifier for this exporter. Do not modify.                 |
-+----------------------+----------------------------------------------------------------------------------+
-| ``fileType``         | The file format four character code set by the exporter during ``exSelStartup``. |
-+----------------------+----------------------------------------------------------------------------------+
-| ``privateData``      | Data allocated and managed by the exporter.                                      |
-+----------------------+----------------------------------------------------------------------------------+
++----------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``exporterPluginID`` | The host's internal identifier for this exporter. Do not modify.                                                    |
++----------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``fileType``         | The file format four character code set by the exporter during :ref:`exporters/selector-descriptions.exSelStartup`. |
++----------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``privateData``      | Data allocated and managed by the exporter.                                                                         |
++----------------------+---------------------------------------------------------------------------------------------------------------------+
 
 ----
+
+.. _exporters/structure-descriptions.exGenerateDefaultParamRec:
 
 exGenerateDefaultParamRec
 ================================================================================
 
-Selector: ``exSelGenerateDefaultParams``
+Selector: :ref:`exporters/selector-descriptions.exSelGenerateDefaultParams`
 
 Provides access to the privateData for the indicated filetype, so that the exporter can generate the default parameter set.
 
@@ -172,20 +182,22 @@ Provides access to the privateData for the indicated filetype, so that the expor
     csSDK_uint32  fileType;
   } exExporterInstanceRec;
 
-+----------------------+----------------------------------------------------------------------------------+
-| ``exporterPluginID`` | The host's internal identifier for this exporter. Do not modify.                 |
-+----------------------+----------------------------------------------------------------------------------+
-| ``privateData``      | Data allocated and managed by the exporter.                                      |
-+----------------------+----------------------------------------------------------------------------------+
-| ``fileType``         | The file format four character code set by the exporter during ``exSelStartup``. |
-+----------------------+----------------------------------------------------------------------------------+
++----------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``exporterPluginID`` | The host's internal identifier for this exporter. Do not modify.                                                    |
++----------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``privateData``      | Data allocated and managed by the exporter.                                                                         |
++----------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``fileType``         | The file format four character code set by the exporter during :ref:`exporters/selector-descriptions.exSelStartup`. |
++----------------------+---------------------------------------------------------------------------------------------------------------------+
 
 ----
+
+.. _exporters/structure-descriptions.exParamButtonRec:
 
 exParamButtonRec
 ================================================================================
 
-Selector: ``exSelParamButton``
+Selector: :ref:`exporters/selector-descriptions.exSelParamButton`
 
 Provides access to the privateData for the indicated filetype, and discloses the specific button hit by the user, since there can be multiple button parameters.
 
@@ -201,28 +213,30 @@ Provides access to the privateData for the indicated filetype, and discloses the
     exParamIdentifier  buttonParamIdentifier;
   } exParamButtonRec;
 
-+---------------------------+----------------------------------------------------------------------------------+
-| ``exporterPluginID``      | The host's internal identifier for this exporter. Do not modify.                 |
-+---------------------------+----------------------------------------------------------------------------------+
-| ``privateData``           | Data allocated and managed by the exporter.                                      |
-+---------------------------+----------------------------------------------------------------------------------+
-| ``fileType``              | The file format four character code set by the exporter during ``exSelStartup``. |
-+---------------------------+----------------------------------------------------------------------------------+
-| ``exportAudio``           | If non-zero, the current settings are set to export audio.                       |
-+---------------------------+----------------------------------------------------------------------------------+
-| ``exportVideo``           | If non-zero, the current settings are set to export video.                       |
-+---------------------------+----------------------------------------------------------------------------------+
-| ``multiGroupIndex``       | Discloses the index of the multi-group, containing the button hit by the user.   |
-+---------------------------+----------------------------------------------------------------------------------+
-| ``buttonParamIdentifier`` | Discloses the parameter ID of the button hit by the user.                        |
-+---------------------------+----------------------------------------------------------------------------------+
++---------------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``exporterPluginID``      | The host's internal identifier for this exporter. Do not modify.                                                    |
++---------------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``privateData``           | Data allocated and managed by the exporter.                                                                         |
++---------------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``fileType``              | The file format four character code set by the exporter during :ref:`exporters/selector-descriptions.exSelStartup`. |
++---------------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``exportAudio``           | If non-zero, the current settings are set to export audio.                                                          |
++---------------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``exportVideo``           | If non-zero, the current settings are set to export video.                                                          |
++---------------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``multiGroupIndex``       | Discloses the index of the multi-group, containing the button hit by the user.                                      |
++---------------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``buttonParamIdentifier`` | Discloses the parameter ID of the button hit by the user.                                                           |
++---------------------------+---------------------------------------------------------------------------------------------------------------------+
 
 ----
+
+.. _exporters/structure-descriptions.exParamChangedRec:
 
 exParamChangedRec
 ================================================================================
 
-Selector: ``exSelValidateParamChanged``
+Selector: :ref:`exporters/selector-descriptions.exSelValidateParamChanged`
 
 Provides access to the privateData for the indicated filetype, and discloses the specific parameter changed by the user.
 
@@ -241,34 +255,36 @@ To notify the host that the plug-in is changing other parameters, set ``rebuildA
     csSDK_int32        rebuildAllParams;
   } exParamChangedRec;
 
-+----------------------------+--------------------------------------------------------------------------------------------------------+
-| ``exporterPluginID``       | The host's internal identifier for this exporter. Do not modify.                                       |
-+----------------------------+--------------------------------------------------------------------------------------------------------+
-| ``privateData``            | Data allocated and managed by the exporter.                                                            |
-+----------------------------+--------------------------------------------------------------------------------------------------------+
-| ``fileType``               | The file format four character code set by the exporter during ``exSelStartup``.                       |
-+----------------------------+--------------------------------------------------------------------------------------------------------+
-| ``exportAudio``            | If non-zero, the current settings are set to export audio.                                             |
-+----------------------------+--------------------------------------------------------------------------------------------------------+
-| ``exportVideo``            | If non-zero, the current settings are set to export video.                                             |
-+----------------------------+--------------------------------------------------------------------------------------------------------+
-| ``multiGroupIndex``        | Discloses the index of the multi-group, containing the parameter changed by the user.                  |
-+----------------------------+--------------------------------------------------------------------------------------------------------+
-| ``changedParamIdentifier`` | Discloses the parameter ID of the parameter changed by the user.                                       |
-|                            |                                                                                                        |
-|                            | May be empty if the changed item was exportAudio, exportVideo or the current multiGroupIndex.          |
-+----------------------------+--------------------------------------------------------------------------------------------------------+
-| ``rebuildAllParams``       | Set this to non-zero to tell the host to refresh ALL parameters using the latest provided information. |
-|                            |                                                                                                        |
-|                            | This can solve various problems when dynamically updating parameter visibility, valid ranges, etc.     |
-+----------------------------+--------------------------------------------------------------------------------------------------------+
++----------------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``exporterPluginID``       | The host's internal identifier for this exporter. Do not modify.                                                    |
++----------------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``privateData``            | Data allocated and managed by the exporter.                                                                         |
++----------------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``fileType``               | The file format four character code set by the exporter during :ref:`exporters/selector-descriptions.exSelStartup`. |
++----------------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``exportAudio``            | If non-zero, the current settings are set to export audio.                                                          |
++----------------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``exportVideo``            | If non-zero, the current settings are set to export video.                                                          |
++----------------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``multiGroupIndex``        | Discloses the index of the multi-group, containing the parameter changed by the user.                               |
++----------------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``changedParamIdentifier`` | Discloses the parameter ID of the parameter changed by the user.                                                    |
+|                            |                                                                                                                     |
+|                            | May be empty if the changed item was exportAudio, exportVideo or the current multiGroupIndex.                       |
++----------------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``rebuildAllParams``       | Set this to non-zero to tell the host to refresh ALL parameters using the latest provided information.              |
+|                            |                                                                                                                     |
+|                            | This can solve various problems when dynamically updating parameter visibility, valid ranges, etc.                  |
++----------------------------+---------------------------------------------------------------------------------------------------------------------+
 
 ----
+
+.. _exporters/structure-descriptions.exParamSummaryRec:
 
 exParamSummaryRec
 ================================================================================
 
-Selector: ``exSelGetParamSummary``
+Selector: :ref:`exporters/selector-descriptions.exSelGetParamSummary`
 
 Provides access to the privateData for the indicated filetype, and provides buffers for the exporter to fill in with a localized summary of the parameters.
 
@@ -302,10 +318,12 @@ Provides access to the privateData for the indicated filetype, and provides buff
 
 ----
 
+.. _exporters/structure-descriptions.exPostProcessParamsRec:
+
 exPostProcessParamsRec
 ================================================================================
 
-Selector: ``exSelPostProcessParams``
+Selector: :ref:`exporters/selector-descriptions.exSelPostProcessParams`
 
 Provides access to the privateData for the indicated filetype.
 
@@ -320,26 +338,28 @@ Provides access to the privateData for the indicated filetype.
     csSDK_int32   doConformToMatchParams;
   } exPostProcessParamsRec;
 
-+----------------------------+----------------------------------------------------------------------------------+
-| ``exporterPluginID``       | The host's internal identifier for this exporter. Do not modify.                 |
-+----------------------------+----------------------------------------------------------------------------------+
-| ``privateData``            | Data allocated and managed by the exporter.                                      |
-+----------------------------+----------------------------------------------------------------------------------+
-| ``fileType``               | The file format four character code set by the exporter during ``exSelStartup``. |
-+----------------------------+----------------------------------------------------------------------------------+
-| ``exportAudio``            | If non-zero, the current settings are set to export audio.                       |
-+----------------------------+----------------------------------------------------------------------------------+
-| ``exportVideo``            | If non-zero, the current settings are set to export video.                       |
-+----------------------------+----------------------------------------------------------------------------------+
-| ``doConformToMatchParams`` | New in CC.                                                                       |
-+----------------------------+----------------------------------------------------------------------------------+
++----------------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``exporterPluginID``       | The host's internal identifier for this exporter. Do not modify.                                                    |
++----------------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``privateData``            | Data allocated and managed by the exporter.                                                                         |
++----------------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``fileType``               | The file format four character code set by the exporter during :ref:`exporters/selector-descriptions.exSelStartup`. |
++----------------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``exportAudio``            | If non-zero, the current settings are set to export audio.                                                          |
++----------------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``exportVideo``            | If non-zero, the current settings are set to export video.                                                          |
++----------------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``doConformToMatchParams`` | New in CC.                                                                                                          |
++----------------------------+---------------------------------------------------------------------------------------------------------------------+
 
 ----
+
+.. _exporters/structure-descriptions.exQueryExportFileExtensionRec:
 
 exQueryExportFileExtensionRec
 ================================================================================
 
-Selector: ``exSelQueryExportFileExtension``
+Selector: :ref:`exporters/selector-descriptions.exSelQueryExportFileExtension`
 
 Provides access to the privateData for the indicated filetype, and provides a buffer for the exporter to fill in with the file extension.
 
@@ -352,22 +372,24 @@ Provides access to the privateData for the indicated filetype, and provides a bu
     prUTF16Char   outFileExtension[256];
   } exQueryExportFileExtensionRec;
 
-+----------------------+----------------------------------------------------------------------------------+
-| ``exporterPluginID`` | The host's internal identifier for this exporter. Do not modify.                 |
-+----------------------+----------------------------------------------------------------------------------+
-| ``privateData``      | Data allocated and managed by the exporter.                                      |
-+----------------------+----------------------------------------------------------------------------------+
-| ``fileType``         | The file format four character code set by the exporter during ``exSelStartup``. |
-+----------------------+----------------------------------------------------------------------------------+
-| ``outFileExtension`` | Provide the file extension here, given the current parameter settings.           |
-+----------------------+----------------------------------------------------------------------------------+
++----------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``exporterPluginID`` | The host's internal identifier for this exporter. Do not modify.                                                    |
++----------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``privateData``      | Data allocated and managed by the exporter.                                                                         |
++----------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``fileType``         | The file format four character code set by the exporter during :ref:`exporters/selector-descriptions.exSelStartup`. |
++----------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``outFileExtension`` | Provide the file extension here, given the current parameter settings.                                              |
++----------------------+---------------------------------------------------------------------------------------------------------------------+
 
 ----
+
+.. _exporters/structure-descriptions.exQueryOutputFileListRec:
 
 exQueryOutputFileListRec
 ================================================================================
 
-Selector: ``exSelQueryOutputFileList``
+Selector: :ref:`exporters/selector-descriptions.exSelQueryOutputFileList`
 
 Provides access to the privateData for the indicated filetype, and provides a pointer to a array of ``exOutputFileRecs`` for the exporter to fill in with the file paths.
 
@@ -382,37 +404,39 @@ Provides access to the privateData for the indicated filetype, and provides a po
     exOutputFileRec  *outputFileRecs;
   } exQueryOutputFileListRec;
 
-+----------------------+--------------------------------------------------------------------------------------------------------------+
-| ``exporterPluginID`` | The host's internal identifier for this exporter. Do not modify.                                             |
-+----------------------+--------------------------------------------------------------------------------------------------------------+
-| ``privateData``      | Data allocated and managed by the exporter.                                                                  |
-+----------------------+--------------------------------------------------------------------------------------------------------------+
-| ``fileType``         | The file format four character code set by the exporter during ``exSelStartup``.                             |
-+----------------------+--------------------------------------------------------------------------------------------------------------+
-| ``numOutputFiles``   | On the first call to ``exSelQueryOutputFileList``, provide the number of file paths here.                    |
-+----------------------+--------------------------------------------------------------------------------------------------------------+
-| ``path``             | New in CS5. Contains the primary intended destination path provided by the host.                             |
-+----------------------+--------------------------------------------------------------------------------------------------------------+
-| ``outputFileRecs``   | An array of ``exOutputFileRecs``.                                                                            |
-|                      |                                                                                                              |
-|                      | On the second call to ``exSelQueryOutputFileList``, the path length (including trailing null) for each path. |
-|                      |                                                                                                              |
-|                      | On the third call, fill in the path of each exOutputFileRec.                                                 |
-|                      |                                                                                                              |
-|                      | ::                                                                                                           |
-|                      |                                                                                                              |
-|                      |   typedef struct {                                                                                           |
-|                      |     int           pathLength;                                                                                |
-|                      |     prUTF16Char*  path;                                                                                      |
-|                      |   } exOutputFileRec;                                                                                         |
-+----------------------+--------------------------------------------------------------------------------------------------------------+
++----------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``exporterPluginID`` | The host's internal identifier for this exporter. Do not modify.                                                    |
++----------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``privateData``      | Data allocated and managed by the exporter.                                                                         |
++----------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``fileType``         | The file format four character code set by the exporter during :ref:`exporters/selector-descriptions.exSelStartup`. |
++----------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``numOutputFiles``   | On the first call to ``exSelQueryOutputFileList``, provide the number of file paths here.                           |
++----------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``path``             | New in CS5. Contains the primary intended destination path provided by the host.                                    |
++----------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``outputFileRecs``   | An array of ``exOutputFileRecs``.                                                                                   |
+|                      |                                                                                                                     |
+|                      | On the second call to ``exSelQueryOutputFileList``, the path length (including trailing null) for each path.        |
+|                      |                                                                                                                     |
+|                      | On the third call, fill in the path of each exOutputFileRec.                                                        |
+|                      |                                                                                                                     |
+|                      | ::                                                                                                                  |
+|                      |                                                                                                                     |
+|                      |   typedef struct {                                                                                                  |
+|                      |     int           pathLength;                                                                                       |
+|                      |     prUTF16Char*  path;                                                                                             |
+|                      |   } exOutputFileRec;                                                                                                |
++----------------------+---------------------------------------------------------------------------------------------------------------------+
 
 ----
+
+.. _exporters/structure-descriptions.exQueryOutputSettingsRec:
 
 exQueryOutputSettingsRec
 ================================================================================
 
-Selector: ``exSelQueryOutputSettings``
+Selector: :ref:`exporters/selector-descriptions.exSelQueryOutputSettings`
 
 Provides access to the privateData for the indicated filetype, and provides a set of members for the exporter to fill in with the current export settings.
 
@@ -443,7 +467,7 @@ Provides access to the privateData for the indicated filetype, and provides a se
 +----------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
 | ``privateData``                  | Data allocated and managed by the exporter.                                                                                        |
 +----------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
-| ``fileType``                     | The file format four character code set by the exporter during ``exSelStartup``.                                                   |
+| ``fileType``                     | The file format four character code set by the exporter during :ref:`exporters/selector-descriptions.exSelStartup`.                |
 +----------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
 | ``inMultiGroupIndex``            | Return the parameter settings of the multi-group with this index.                                                                  |
 +----------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
@@ -460,10 +484,12 @@ Provides access to the privateData for the indicated filetype, and provides a se
 
 ----
 
+.. _exporters/structure-descriptions.exQueryStillSequenceRec:
+
 exQueryStillSequenceRec
 ================================================================================
 
-Selector: ``exSelQueryStillSequence``
+Selector: :ref:`exporters/selector-descriptions.exSelQueryStillSequence`
 
 Provides access to the privateData for the indicated filetype, and provides a set of members for the exporter to provide information on how it would export the sequence of stills.
 
@@ -477,24 +503,26 @@ Provides access to the privateData for the indicated filetype, and provides a se
     PrTime        exportFrameRate;
   } exQueryStillSequenceRec;
 
-+---------------------------+----------------------------------------------------------------------------------------------+
-| ``exporterPluginID``      | The host's internal identifier for this exporter. Do not modify.                             |
-+---------------------------+----------------------------------------------------------------------------------------------+
-| ``privateData``           | Data allocated and managed by the exporter.                                                  |
-+---------------------------+----------------------------------------------------------------------------------------------+
-| ``fileType``              | The file format four character code set by the exporter during ``exSelStartup``.             |
-+---------------------------+----------------------------------------------------------------------------------------------+
-| ``exportAsStillSequence`` | Set this to non-zero to tell the host that the exporter can export the stills as a sequence. |
-+---------------------------+----------------------------------------------------------------------------------------------+
-| ``exportFrameRate``       | Set this to the frame rate of the still sequence.                                            |
-+---------------------------+----------------------------------------------------------------------------------------------+
++---------------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``exporterPluginID``      | The host's internal identifier for this exporter. Do not modify.                                                    |
++---------------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``privateData``           | Data allocated and managed by the exporter.                                                                         |
++---------------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``fileType``              | The file format four character code set by the exporter during :ref:`exporters/selector-descriptions.exSelStartup`. |
++---------------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``exportAsStillSequence`` | Set this to non-zero to tell the host that the exporter can export the stills as a sequence.                        |
++---------------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``exportFrameRate``       | Set this to the frame rate of the still sequence.                                                                   |
++---------------------------+---------------------------------------------------------------------------------------------------------------------+
 
 ----
+
+.. _exporters/structure-descriptions.exValidateOutputSettingsRec:
 
 exValidateOutputSettingsRec
 ================================================================================
 
-Selector: ``exSelValidateOutputSettings``
+Selector: :ref:`exporters/selector-descriptions.exSelValidateOutputSettings`
 
 Provides access to the privateData for the indicated filetype, so that the exporter can validate the current parameter settings.
 
@@ -506,10 +534,10 @@ Provides access to the privateData for the indicated filetype, so that the expor
     csSDK_uint32  fileType;
   } exExporterInstanceRec;
 
-+----------------------+----------------------------------------------------------------------------------+
-| ``exporterPluginID`` | The host's internal identifier for this exporter. Do not modify.                 |
-+----------------------+----------------------------------------------------------------------------------+
-| ``privateData``      | Data allocated and managed by the exporter.                                      |
-+----------------------+----------------------------------------------------------------------------------+
-| ``fileType``         | The file format four character code set by the exporter during ``exSelStartup``. |
-+----------------------+----------------------------------------------------------------------------------+
++----------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``exporterPluginID`` | The host's internal identifier for this exporter. Do not modify.                                                    |
++----------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``privateData``      | Data allocated and managed by the exporter.                                                                         |
++----------------------+---------------------------------------------------------------------------------------------------------------------+
+| ``fileType``         | The file format four character code set by the exporter during :ref:`exporters/selector-descriptions.exSelStartup`. |
++----------------------+---------------------------------------------------------------------------------------------------------------------+

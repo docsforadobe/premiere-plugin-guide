@@ -5,37 +5,39 @@ Commands
 
 When the plug-in receives ``dsExecute``, DeviceRec.command indicates the behavior requested.
 
-+-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-|            **Command**            |                                                                   **Description**                                                                    |
-+===================================+======================================================================================================================================================+
-| ``cmdGetFeatures``                | Fill in the features field with the device's features.                                                                                               |
-+-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``cmdStatus``                     | Return the deck mode and current timecode position.                                                                                                  |
-+-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``cmdNewMode``                    | Change the deck's mode.                                                                                                                              |
-+-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``cmdGoto``                       | Move asynchronously to a particular time and return in pause mode.                                                                                   |
-+-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``cmdLocate``                     | Move synchronously to a particular time and return in play mode.                                                                                     |
-+-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``cmdShuttle``                    | Shuttle the deck at a specified rate.                                                                                                                |
-+-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``cmdEject``                      | Eject media.                                                                                                                                         |
-+-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``cmdInsertEdit``                 | No longer needed in CC and later, if the Edit to Tape panel is supported.                                                                            |
-|                                   |                                                                                                                                                      |
-|                                   | In previous versions this was sent for Export To Tape. This has been left in for backwards-compatibility.                                            |
-+-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``cmdGetDeviceDisplayName``       | Provide the device display name for display in the Capture Panel.                                                                                    |
-+-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``cmdSetDropness``                | Tells the device controller whether the current timecode is drop-frame or non-drop-frame.                                                            |
-+-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``cmdGetCurrentDeviceIdentifier`` | For internal use only.                                                                                                                               |
-+-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``cmdSetDeviceHandler``           | New in CC October 2013. Optional. Tells the plug-in which panel is using the device controller -- either the Capture panel, or Export to Tape panel. |
-+-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
++------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                        **Command**                         |                                                                   **Description**                                                                    |
++============================================================+======================================================================================================================================================+
+| :ref:`device-controllers/commands.cmdGetFeatures`          | Fill in the features field with the device's features.                                                                                               |
++------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`device-controllers/commands.cmdStatus`               | Return the deck mode and current timecode position.                                                                                                  |
++------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`device-controllers/commands.cmdNewMode`              | Change the deck's mode.                                                                                                                              |
++------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`device-controllers/commands.cmdGoto`                 | Move asynchronously to a particular time and return in pause mode.                                                                                   |
++------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`device-controllers/commands.cmdLocate`               | Move synchronously to a particular time and return in play mode.                                                                                     |
++------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`device-controllers/commands.cmdShuttle`              | Shuttle the deck at a specified rate.                                                                                                                |
++------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``cmdEject``                                               | Eject media.                                                                                                                                         |
++------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`device-controllers/commands.cmdInsertEdit`           | No longer needed in CC and later, if the Edit to Tape panel is supported.                                                                            |
+|                                                            |                                                                                                                                                      |
+|                                                            | In previous versions this was sent for Export To Tape. This has been left in for backwards-compatibility.                                            |
++------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`device-controllers/commands.cmdGetDeviceDisplayName` | Provide the device display name for display in the Capture Panel.                                                                                    |
++------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`device-controllers/commands.cmdSetDropness`          | Tells the device controller whether the current timecode is drop-frame or non-drop-frame.                                                            |
++------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``cmdGetCurrentDeviceIdentifier``                          | For internal use only.                                                                                                                               |
++------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`device-controllers/commands.cmdSetDeviceHandler`     | New in CC October 2013. Optional. Tells the plug-in which panel is using the device controller -- either the Capture panel, or Export to Tape panel. |
++------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ----
+
+.. _device-controllers/commands.cmdGetFeatures:
 
 cmdGetFeatures
 ================================================================================
@@ -94,6 +96,8 @@ Populate DeviceRec.features with the features of your device controller, using t
 
 ----
 
+.. _device-controllers/commands.cmdStatus:
+
 cmdStatus
 ================================================================================
 
@@ -102,6 +106,8 @@ Premiere sends ``cmdStatus`` to obtain the deck's current mode (play, pause, etc
 The values of mode and timecode persist. If you only know one of the two pieces of information, store it, and ignore the other. If your device controller makes two calls to determine these values, alternately request one and return the other.
 
 ----
+
+.. _device-controllers/commands.cmdNewMode:
 
 cmdNewMode
 ================================================================================
@@ -156,6 +162,8 @@ Puts the device into a new operating mode, specified in mode.
 
 ----
 
+.. _device-controllers/commands.cmdGoto:
+
 cmdGoto
 ================================================================================
 
@@ -169,6 +177,8 @@ the device in modePause (if you were able to complete the seek) or modeStop (if 
 
 ----
 
+.. _device-controllers/commands.cmdLocate:
+
 cmdLocate
 ================================================================================
 
@@ -178,6 +188,8 @@ Seek to an exact frame specified in DeviceRec.timecode, minus any amount specifi
 
 ----
 
+.. _device-controllers/commands.cmdShuttle:
+
 cmdShuttle
 ================================================================================
 
@@ -186,6 +198,8 @@ Sent when the user moves the shuttle control; mode is the shuttle speed:
 Use intermediate speeds if the device supports them. If it doesn't implement shuttling but does support multiple play speeds, Premiere will simulate shuttling by playing at different rates, based on the shuttle control position. Better results can be obtained by directly supporting shuttling with the *cmdShuttle* command.
 
 ----
+
+.. _device-controllers/commands.cmdInsertEdit:
 
 cmdInsertEdit
 ================================================================================
@@ -206,6 +220,8 @@ When the device controller returns, Premiere plays the clip, sending idle to Pri
 
 ----
 
+.. _device-controllers/commands.cmdGetDeviceDisplayName:
+
 cmdGetDeviceDisplayName
 ================================================================================
 
@@ -213,12 +229,16 @@ Sent so the device controller can provide the device display name for display in
 
 ----
 
+.. _device-controllers/commands.cmdSetDropness:
+
 cmdSetDropness
 ================================================================================
 
 Sent only if DeviceRec.autoDetectDropness is set to true. This selector tells the device controller whether the current timecode is drop-frame or non-drop-frame, as determined by the active recorder. The timecode information is passed in videoStreamIsDrop in DeviceRec. Sent when recorder determines drop-frame attribute and calls FormatChangedFunc.
 
 ----
+
+.. _device-controllers/commands.cmdSetDeviceHandler:
 
 cmdSetDeviceHandler
 ================================================================================

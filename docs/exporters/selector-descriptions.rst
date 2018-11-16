@@ -9,10 +9,12 @@ Additional implementation details are at the end of the chapter.
 
 ----
 
+.. _exporters/selector-descriptions.exSelStartup:
+
 exSelStartup
 ================================================================================
 
-- param1 - ``exExporterInfoRec*``
+- param1 - :ref:`exExporterInfoRec* <exporters/structure-descriptions.exExporterInfoRec>`
 - param2 - ``unused``
 
 Sent during application launch, unless the exporter has been cached.
@@ -23,40 +25,48 @@ A single exporter can support multiple codecs and file extensions.
 
 ----
 
+.. _exporters/selector-descriptions.exSelBeginInstance:
+
 exSelBeginInstance
 ================================================================================
 
-- param1 - ``exExporterInstanceRec*``
+- param1 - :ref:`exExporterInstanceRec* <exporters/structure-descriptions.exExporterInstanceRec>`
 - param2 - ``unused``
 
 Allocate any private data.
 
 ----
 
+.. _exporters/selector-descriptions.exSelGenerateDefaultParams:
+
 exSelGenerateDefaultParams
 ================================================================================
 
-- param1 - ``exGenerateDefaultParamRec*``
+- param1 - :ref:`exGenerateDefaultParamRec* <exporters/structure-descriptions.exGenerateDefaultParamRec>`
 - param2 - ``unused``
 
 Set the exporter's default parameters using the :ref:`exporters/suites.export-param-suite`.
 
 ----
 
+.. _exporters/selector-descriptions.exSelPostProcessParams:
+
 exSelPostProcessParams
 ================================================================================
 
-- param1 - ``exPostProcessParamsRec*``
+- param1 - :ref:`exPostProcessParamsRec* <exporters/structure-descriptions.exPostProcessParamsRec>`
 - param2 - ``unused``
 
 Post process parameters. This is where the localized strings for the parameter UI must be provided.
 
 ----
 
+.. _exporters/selector-descriptions.exSelValidateParamChanged:
+
 exSelValidateParamChanged
 ================================================================================
 
-- param1 - ``exParamChangedRec*``
+- param1 - :ref:`exParamChangedRec* <exporters/structure-descriptions.exParamChangedRec>`
 - param2 - ``unused``
 
 Validate any parameters that have changed. Based on a change to a parameter value, the exporter may update other parameter values, or show/hide certain parameter controls, using the :ref:`exporters/suites.export-param-suite`.
@@ -65,20 +75,24 @@ To notify the host that the plug-in is changing other parameters, set ``exParamC
 
 ----
 
+.. _exporters/selector-descriptions.exSelGetParamSummary:
+
 exSelGetParamSummary
 ================================================================================
 
-- param1 - ``exParamSummaryRec*``
+- param1 - :ref:`exParamSummaryRec* <exporters/structure-descriptions.exParamSummaryRec>`
 - param2 - ``unused``
 
 Provide a text summary of the current parameter settings, which will be displayed in the summary area of the Export Settings dialog.
 
 ----
 
+.. _exporters/selector-descriptions.exSelParamButton:
+
 exSelParamButton
 ================================================================================
 
-- param1 - ``exParamButtonRec*``
+- param1 - :ref:`exParamButtonRec* <exporters/structure-descriptions.exParamButtonRec>`
 - param2 - ``unused``
 
 Sent if exporter has one or more buttons in its parameter UI, and the user clicks one of the buttons in the Export Settings.
@@ -91,10 +105,12 @@ If the user cancels the dialog, return ``exportReturn_ParamButtonCancel`` to sig
 
 ----
 
+.. _exporters/selector-descriptions.exSelExport:
+
 exSelExport
 ================================================================================
 
-- param1 - ``exDoExportRec*``
+- param1 - :ref:`exDoExportRec* <exporters/structure-descriptions.exDoExportRec>`
 - param2 - ``unused``
 
 Do the export! Sent when the user starts an export to the format supported by the exporter, or if the exporter is used in an Editing Mode and the user renders the work area.
@@ -107,10 +123,12 @@ Save render time by checking to see if frames are repeated. Inspect the Sequence
 
 ----
 
+.. _exporters/selector-descriptions.exSelQueryExportFileExtension:
+
 exSelQueryExportFileExtension
 ================================================================================
 
-- param1 - ``exQueryExportFileExtensionRec*``
+- param1 - :ref:`exQueryExportFileExtensionRec* <exporters/structure-descriptions.exQueryExportFileExtensionRec>`
 - param2 - ``unused``
 
 For exporters that support more than one file extension, specify an extension given the file type.
@@ -119,10 +137,12 @@ If this selector is not supported by the exporter, the extension is specified by
 
 ----
 
+.. _exporters/selector-descriptions.exSelQueryOutputFileList:
+
 exSelQueryOutputFileList
 ================================================================================
 
-- param1 - ``exQueryOutputFileListRec*``
+- param1 - :ref:`exQueryOutputFileListRec* <exporters/structure-descriptions.exQueryOutputFileListRec>`
 - param2 - ``unused``
 
 For exporters that export to more than one file. This is called before an export for the host to find out which files would need to be overwritten.
@@ -137,30 +157,36 @@ On the third call, the plug-in fills in the path members of the outputFileRecs.
 
 ----
 
+.. _exporters/selector-descriptions.exSelQueryStillSequence:
+
 exSelQueryStillSequence
 ================================================================================
 
-- param1 - ``exQueryStillSequenceRec*``
+- param1 - :ref:`exQueryStillSequenceRec* <exporters/structure-descriptions.exQueryStillSequenceRec>`
 - param2 - ``unused``
 
 The host application asks a still-only exporter if it wants to export as a sequence, and at what frame rate.
 
 ----
 
+.. _exporters/selector-descriptions.exSelQueryOutputSettings:
+
 exSelQueryOutputSettings
 ================================================================================
 
-- param1 - ``exQueryOutputSettingsRec*``
+- param1 - :ref:`exQueryOutputSettingsRec* <exporters/structure-descriptions.exQueryOutputSettingsRec>`
 - param2 - ``unused``
 
 The host application asks the exporter for general details about the current settings. This is a required selector.
 
 ----
 
+.. _exporters/selector-descriptions.exSelValidateOutputSettings:
+
 exSelValidateOutputSettings
 ================================================================================
 
-- param1 - ``exValidateOutputSettingsRec*``
+- param1 - :ref:`exValidateOutputSettingsRec* <exporters/structure-descriptions.exValidateOutputSettingsRec>`
 - param2 - ``unused``
 
 The host application asks the exporter if it can export with the current settings.
@@ -169,15 +195,19 @@ The exporter should return ``exportReturn_ErrLastErrorSet`` if not, and the erro
 
 ----
 
+.. _exporters/selector-descriptions.exSelEndInstance:
+
 exSelEndInstance
 ================================================================================
 
-- param1 - ``exExporterInstanceRec*``
+- param1 - :ref:`exExporterInstanceRec* <exporters/structure-descriptions.exExporterInstanceRec>`
 - param2 - ``unused``
 
 Deallocate any private data.
 
 ----
+
+.. _exporters/selector-descriptions.exSelShutdown:
 
 exSelShutdown
 ================================================================================

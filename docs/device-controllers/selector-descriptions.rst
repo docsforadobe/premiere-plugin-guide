@@ -3,6 +3,8 @@
 Selector Descriptions
 ################################################################################
 
+.. _device-controllers/selector-descriptions.dsInit:
+
 dsInit
 ================================================================================
 
@@ -20,6 +22,8 @@ Keep in mind, though, that the host will still send messages to the device contr
 
 ----
 
+.. _device-controllers/selector-descriptions.dsRestart:
+
 dsRestart
 ================================================================================
 
@@ -33,6 +37,8 @@ If you have just modified the definition of the private data structure, you can 
 
 ----
 
+.. _device-controllers/selector-descriptions.dsSetup:
+
 dsSetup
 ================================================================================
 
@@ -42,6 +48,8 @@ Display a modal dialog with any user settings and info the device controller wis
 
 ----
 
+.. _device-controllers/selector-descriptions.dsExecute:
+
 dsExecute
 ================================================================================
 
@@ -49,12 +57,16 @@ Perform a device control operation based on the command in the DeviceRec. See :r
 
 ----
 
+.. _device-controllers/selector-descriptions.dsCleanup:
+
 dsCleanup
 ================================================================================
 
 Disconnect from hardware and dispose of the plug-in's private instance data (stored in ``deviceData``).
 
 ----
+
+.. _device-controllers/selector-descriptions.dsQuiet:
 
 dsQuiet
 ================================================================================
@@ -64,6 +76,8 @@ Like ``dsCleanup``; disconnect from the device, but don't dispose of private ins
 ``dsRestart`` will be sent to reconnect the device.
 
 ----
+
+.. _device-controllers/selector-descriptions.dsHasOptions:
 
 dsHasOptions
 ================================================================================
