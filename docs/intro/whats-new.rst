@@ -207,13 +207,9 @@ For any importers that are using imClipFrameDescriptorRec, note that the structu
 Exporters
 ********************************************************************************
 
-Exporters can now use standard parameters for audio channel configura-
+Exporters can now use standard parameters for audio channel configuration, as used with the built-in QuickTime exporter. The new exporter parameters ADBEAudioChannelConfigurationGroup and ADBEAudioChannelConfiguration supercede ADBEAudioNumChannels. The new Export Audio Param Suite can be used to query/change the audio channel configuration.
 
-tion, as used with the built-in QuickTime exporter. The new exporter parameters ADBEAudioChannelConfigurationGroup and ADBEAudioChannelConfiguration supercede ADBEAudioNumChannels. The new Export Audio Param Suite can be used to query/
-
-change the audio channel configuration. The :ref:`exporters/suites.sequence-audio-suite` is now at version 2, revising
-
-MakeAudioRenderer() to take PrAudioChannelLabel\* as a parameter.
+The :ref:`exporters/suites.sequence-audio-suite` is now at version 2, revising ``MakeAudioRenderer()`` to take ``PrAudioChannelLabel*`` as a parameter.
 
 Transmitters
 ********************************************************************************

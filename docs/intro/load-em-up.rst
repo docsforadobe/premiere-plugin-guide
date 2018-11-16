@@ -10,7 +10,7 @@ On its first launch, Premiere Pro loads all the plug-ins, reads the :ref:`resour
 
 The next time the application is launched, the cached data is used wherever possible, rather than loading all the plug-ins on startup. Using this changed data will make the application launch faster, but for a small set of plug-ins that need to be initialized every time, it may be undesirable. These include plug-ins that need to get run-time information that might change in between app launches (i.e. installed codec lists), and plug-ins that check for hardware and need to be able to fail. So we give your plug-in control final say over whether or not it is reloaded each time.
 
-By default, importers, recorders, and exporters are not cached. Exporters can be cached by setting exExporterInfoRec.isCacheable to non-zero during *exSelStartup*. Importers and recorders can be cached by returning \*IsCacheable instead of \*NoError (e.g. for importers, imIsCacheable instead of imNoError) on the startup selector.
+By default, importers, recorders, and exporters are not cached. Exporters can be cached by setting exExporterInfoRec.isCacheable to non-zero during *exSelStartup*. Importers and recorders can be cached by returning ``*IsCacheable`` instead of ``*NoError`` (e.g. for importers, imIsCacheable instead of imNoError) on the startup selector.
 
 By default, legacy video filters and device controllers are cached by default. To specify that legacy video filters must be reloaded each time, rather than cached, Premiere filters should respond to *fsCacheOnLoad*.
 

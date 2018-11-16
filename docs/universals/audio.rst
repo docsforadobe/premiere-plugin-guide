@@ -10,7 +10,7 @@ All audio calls to and from Premiere use arrays of buffers of 32-bit floats to p
 
 ::
 
-  float\* audio[2];
+  float* audio[2];
 
 where audio[0] is the address of a buffer N samples long, and audio[1] is the address of a second buffer N samples long. audio[0] contains the left channel, and audio[1] contains the right channel. N is the number of sample frames in the buffer.
 
