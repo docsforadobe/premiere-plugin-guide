@@ -3,10 +3,12 @@
 Structure Descriptions
 ################################################################################
 
+.. _recorders/structure-descriptions.recInfoRec8:
+
 recInfoRec8
 ================================================================================
 
-Selector: ``recmod_Startup8``
+Selector: :ref:`recorders/selector-descriptions.recmod_Startup8`
 
 Describes the recorder's capabilities to Premiere.
 
@@ -140,10 +142,12 @@ Describes the recorder's capabilities to Premiere.
 
 ----
 
+.. _recorders/structure-descriptions.recCapSetups8:
+
 recCapSetups8
 ================================================================================
 
-Selector: ``recmod_GetSetupInfo8``
+Selector: :ref:`recorders/selector-descriptions.recmod_GetSetupInfo8`
 
 Enumerate custom setup buttons for the Capture Settings dialog, and pull-down menu items in the Capture panel.
 
@@ -169,10 +173,12 @@ Enumerate custom setup buttons for the Capture Settings dialog, and pull-down me
 
 ----
 
+.. _recorders/structure-descriptions.recDisplayPos:
+
 recDisplayPos
 ================================================================================
 
-Selector: ``recmod_SetDisp``, ``recmod_Open`` (member of ``recOpenParms``)
+Selector: :ref:`recorders/selector-descriptions.recmod_SetDisp`, :ref:`recorders/selector-descriptions.recmod_Open` (member of :ref:`recorders/structure-descriptions.recOpenParms`)
 
 Describes the display position for preview frames.
 
@@ -203,10 +209,12 @@ Describes the display position for preview frames.
 
 ----
 
+.. _recorders/structure-descriptions.recOpenParms:
+
 recOpenParms
 ================================================================================
 
-Selector: ``recmod_Open``
+Selector: :ref:`recorders/selector-descriptions.recmod_Open`
 
 Provides capture session information; save this information in private instance data.
 
@@ -234,10 +242,12 @@ Provides capture session information; save this information in private instance 
 
 ----
 
+.. _recorders/structure-descriptions.recCapturedFileInfo:
+
 recCapturedFileInfo
 ================================================================================
 
-Selector: ``recmod_StartRecord``
+Selector: :ref:`recorders/selector-descriptions.recmod_StartRecord`
 
 Provide pixel aspect ratio and starting timecode of the captured clip.
 
@@ -267,10 +277,12 @@ Provide pixel aspect ratio and starting timecode of the captured clip.
 
 ----
 
+.. _recorders/structure-descriptions.recFileSpec8:
+
 recFileSpec8
 ================================================================================
 
-Selector: ``recmod_PrepRecord8`` (member of ``recCapParmsRec8``)
+Selector: :ref:`recorders/selector-descriptions.recmod_PrepRecord8` (member of :ref:`recorders/structure-descriptions.recCapParmsRec8`)
 
 Used to describe the capture destination file.
 
@@ -292,10 +304,12 @@ Used to describe the capture destination file.
 
 ----
 
+.. _recorders/structure-descriptions.recSetupParms:
+
 recSetupParms
 ================================================================================
 
-Selector: ``recmod_ShowOptions``
+Selector: :ref:`recorders/selector-descriptions.recmod_ShowOptions`
 
 Indicates which settings dialog should be displayed, and provides any previously saved settings.
 
@@ -317,10 +331,12 @@ Indicates which settings dialog should be displayed, and provides any previously
 
 ----
 
+.. _recorders/structure-descriptions.recCapParmsRec8:
+
 recCapParmsRec8
 ================================================================================
 
-Selector: ``recmod_PrepRecord8``
+Selector: :ref:`recorders/selector-descriptions.recmod_PrepRecord8`
 
 Specifies capture settings.
 
@@ -434,10 +450,12 @@ Specifies capture settings.
 
 ----
 
+.. _recorders/structure-descriptions.recGetTimecodeRec:
+
 recGetTimecodeRec
 ================================================================================
 
-Selector: ``recmod_Idle``
+Selector: :ref:`recorders/selector-descriptions.recmod_Idle`
 
 Allows the recorder to supply timecode information.
 
@@ -471,10 +489,12 @@ Allows the recorder to supply timecode information.
 
 ----
 
+.. _recorders/structure-descriptions.recCapInfoRec:
+
 recCapInfoRec
 ================================================================================
 
-Selector: ``recmod_QueryInfo``
+Selector: :ref:`recorders/selector-descriptions.recmod_QueryInfo`
 
 Allows the recorder to supply the resolution and pixel aspect ratio of the clip being logged.
 
@@ -532,6 +552,8 @@ Allows the recorder to supply the resolution and pixel aspect ratio of the clip 
 +----------------------+----------------------------------------------------------------------------------------------------------------------------------+
 
 ----
+
+.. _recorders/structure-descriptions.recSceneDetectionParmsRec:
 
 recSceneDetectionParmsRec
 ================================================================================

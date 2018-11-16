@@ -12,7 +12,7 @@ Additional implementation details are at the end of the chapter.
 imInit
 ================================================================================
 
-- param1 - :ref:`importers/structure-descriptions.imImportInfoRec`*
+- param1 - :ref:`imImportInfoRec* <importers/structure-descriptions.imImportInfoRec>`
 - param2 - ``unused``
 
 Sent during application startup.
@@ -69,7 +69,7 @@ imGetIndFormat
 ================================================================================
 
 - param1 - ``(int) index``
-- param2 - :ref:`importers/structure-descriptions.imIndFormatRec`*
+- param2 - :ref:`imIndFormatRec* <importers/structure-descriptions.imIndFormatRec>`
 
 Sent repeatedly, immediately after imInit; enumerate the filetypes the plug-in supports by populating the imIndFormatRec.
 
@@ -115,8 +115,8 @@ A plug-in that supports the Premiere Pro 1.0 API (and beyond) must return ``malS
 imGetInfo8
 ================================================================================
 
-- param1 - :ref:`importers/structure-descriptions.imFileAccessRec8`*
-- param2 - :ref:`importers/structure-descriptions.imFileInfoRec8`*
+- param1 - :ref:`imFileAccessRec8* <importers/structure-descriptions.imFileAccessRec8>`
+- param2 - :ref:`imFileInfoRec8* <importers/structure-descriptions.imFileInfoRec8>`
 
 Describe a clip, or a single stream of a clip if the clip has multiple streams.
 
@@ -136,7 +136,7 @@ You can create a still frame, a movie of a set duration, or an 'infinite' length
 imCloseFile
 ================================================================================
 
-- param1 - :ref:`importers/structure-descriptions.imFileRef`*
+- param1 - :ref:`imFileRef* <importers/structure-descriptions.imFileRef>`
 - param2 - ``(void*) PrivateData**``
 
 The specified file is no longer required; dispose of ``privateData``.
@@ -151,7 +151,7 @@ imGetIndPixelFormat
 ================================================================================
 
 - param1 - ``(int) index``
-- param2 - :ref:`importers/structure-descriptions.imIndPixelFormatRec`*
+- param2 - :ref:`imIndPixelFormatRec* <importers/structure-descriptions.imIndPixelFormatRec>`
 
 New optional selector called to enumerate the pixel formats available for a specific file.
 
@@ -177,7 +177,7 @@ imGetPreferredFrameSize
 ================================================================================
 
 - param1 - :ref:`importers/structure-descriptions.imFileRef`
-- param2 - :ref:`importers/structure-descriptions.imPreferredFrameSizeRec`*
+- param2 - :ref:`imPreferredFrameSizeRec* <importers/structure-descriptions.imPreferredFrameSizeRec>`
 
 Provide the frame sizes preferred by the importer.
 
@@ -189,7 +189,7 @@ imSelectClipFrameDescriptor
 ================================================================================
 
 - param1 - :ref:`importers/structure-descriptions.imFileRef`
-- param2 - :ref:`importers/structure-descriptions.imClipFrameDescriptorRec`*
+- param2 - :ref:`imClipFrameDescriptorRec* <importers/structure-descriptions.imClipFrameDescriptorRec>`
 
 New in Premiere Pro CC 2014.
 
@@ -205,7 +205,7 @@ imGetSourceVideo
 ================================================================================
 
 - param1 - :ref:`importers/structure-descriptions.imFileRef`
-- param2 - :ref:`importers/structure-descriptions.imSourceVideoRec`*
+- param2 - :ref:`imSourceVideoRec* <importers/structure-descriptions.imSourceVideoRec>`
 
 Get the host an unscaled frame of video.
 
@@ -218,7 +218,7 @@ This selector will be sent instead of ``imImportImage`` if supportsGetSourceVide
 imCreateAsyncImporter
 ================================================================================
 
-- param1 - :ref:`importers/structure-descriptions.imAsyncImporterCreationRec`*
+- param1 - :ref:`imAsyncImporterCreationRec* <importers/structure-descriptions.imAsyncImporterCreationRec>`
 - param2 - ``unused``
 
 Create an asynchronous importer object using the data provided, and store it in ``imAsyncImporterCreationRec``.
@@ -231,7 +231,7 @@ imImportImage
 ================================================================================
 
 - param1 - :ref:`importers/structure-descriptions.imFileRef`
-- param2 - :ref:`importers/structure-descriptions.imImportImageRec`*
+- param2 - :ref:`imImportImageRec* <importers/structure-descriptions.imImportImageRec>`
 
 Note: In most cases, ``imGetSourceVideo`` is the better choice.
 
@@ -249,7 +249,7 @@ imImportAudio7
 ================================================================================
 
 - param1 - :ref:`importers/structure-descriptions.imFileRef`
-- param2 - :ref:`importers/structure-descriptions.imImportAudioRec7`*
+- param2 - :ref:`imImportAudioRec7* <importers/structure-descriptions.imImportAudioRec7>`
 
 Replacement for ``imImportAudio`` that uses new ``imAudioInfoRec7``.
 
@@ -268,8 +268,8 @@ You may use the calls in the :ref:`universals/sweetpea-suites.audio-suite` to do
 imGetPrefs8
 ================================================================================
 
-- param1 - :ref:`importers/structure-descriptions.imFileAccessRec8`*
-- param2 - :ref:`importers/structure-descriptions.imGetPrefsRec`*
+- param1 - :ref:`imFileAccessRec8* <importers/structure-descriptions.imFileAccessRec8>`
+- param2 - :ref:`imGetPrefsRec* <importers/structure-descriptions.imGetPrefsRec>`
 
 Only sent if clip filetype uses a setup dialog within Premiere.
 
@@ -314,8 +314,8 @@ See Additional Details for more information on custom importers.
 imOpenFile8
 ================================================================================
 
-- param1 - :ref:`importers/structure-descriptions.imFileRef`*
-- param2 - :ref:`importers/structure-descriptions.imFileOpenRec8`*
+- param1 - :ref:`imFileRef* <importers/structure-descriptions.imFileRef>`
+- param2 - :ref:`imFileOpenRec8* <importers/structure-descriptions.imFileOpenRec8>`
 
 Open a file and give Premiere its handle.
 
@@ -342,7 +342,7 @@ On Windows, this helps memory usage, but on Mac OS this addresses a whole class 
 imQuietFile
 ================================================================================
 
-- param1 - :ref:`importers/structure-descriptions.imFileRef`*
+- param1 - :ref:`imFileRef* <importers/structure-descriptions.imFileRef>`
 - param2 - ``(void*) PrivateData**``
 
 Close the file in ``imFileRef``, and release any hardware resources associated with it.
@@ -360,7 +360,7 @@ Do not deallocate ``privateData`` in response to ``imQuietFile``; do so during `
 imSaveFile8
 ================================================================================
 
-- param1 - :ref:`importers/structure-descriptions.imSaveFileRec8`*
+- param1 - :ref:`imSaveFileRec8* <importers/structure-descriptions.imSaveFileRec8>`
 - param2 - ``unused``
 
 Save the file specified in ``imSaveFileRec8``.
@@ -374,7 +374,7 @@ Only sent if canOpen was set to true during ``imInit``.
 imDeleteFile
 ================================================================================
 
-- param1 - :ref:`importers/structure-descriptions.imDeleteFileRec`*
+- param1 - :ref:`imDeleteFileRec* <importers/structure-descriptions.imDeleteFileRec>`
 - param2 - ``unused``
 
 Request this selector (by setting canDelete to true during ``imInit``) only if you have child files or related files associated with your file.
@@ -390,8 +390,8 @@ Numbered still file importers do not need to respond to this selector; each file
 imCalcSize8
 ================================================================================
 
-- param1 - :ref:`importers/structure-descriptions.imCalcSizeRec`*
-- param2 - :ref:`importers/structure-descriptions.imFileAccessRec8`*
+- param1 - :ref:`imCalcSizeRec* <importers/structure-descriptions.imCalcSizeRec>`
+- param2 - :ref:`imFileAccessRec8* <importers/structure-descriptions.imFileAccessRec8>`
 
 Called before Premiere trims a clip, to get the disk size used by a clip.
 
@@ -412,8 +412,8 @@ If the ``trimIn`` and ``duration`` are valid values, Premiere is asking for the 
 imCheckTrim8
 ================================================================================
 
-- param1 - :ref:`importers/structure-descriptions.imCheckTrimRec`*
-- param2 - :ref:`importers/structure-descriptions.imFileAccessRec8`*
+- param1 - :ref:`imCheckTrimRec* <importers/structure-descriptions.imCheckTrimRec>`
+- param2 - :ref:`imFileAccessRec8* <importers/structure-descriptions.imFileAccessRec8>`
 
 Called before Premiere trims a clip, to check if a clip can be trimmed at the specified boundaries.
 
@@ -446,8 +446,8 @@ If either the video or audio boundaries extend further than the other boundaries
 imTrimFile8
 ================================================================================
 
-- param1 - :ref:`importers/structure-descriptions.imFileAccessRec8`*
-- param2 - :ref:`importers/structure-descriptions.imTrimFileRec8`*
+- param1 - :ref:`imFileAccessRec8* <importers/structure-descriptions.imFileAccessRec8>`
+- param2 - :ref:`imTrimFileRec8* <importers/structure-descriptions.imTrimFileRec8>`
 
 Called when Premiere trims a clip.
 
@@ -474,7 +474,7 @@ The callback function will return ``imProgressAbort`` or ``imProgressContinue``.
 imCopyFile
 ================================================================================
 
-- param1 - :ref:`importers/structure-descriptions.imCopyFileRec`*
+- param1 - :ref:`imCopyFileRec* <importers/structure-descriptions.imCopyFileRec>`
 - param2 - ``unused``
 
 ``imCopyFile`` is sent rather than ``imSaveFile`` to importers that have set ``imImportInfoRec`` can Copy when doing a copy operation using the Project Manager.
@@ -488,7 +488,7 @@ The importer should maintain data on the original file rather than the copy when
 imRetargetAccelerator
 ================================================================================
 
-- param1 - :ref:`importers/structure-descriptions.imAcceleratorRec`*
+- param1 - :ref:`imAcceleratorRec* <importers/structure-descriptions.imAcceleratorRec>`
 - param2 - ``unused``
 
 When the Project Manager copies media and its accelerator, this selector gives an opportunity to update the accelerator to refer to the copied media.
@@ -500,7 +500,7 @@ When the Project Manager copies media and its accelerator, this selector gives a
 imQueryDestinationPath
 ================================================================================
 
-- param1 - :ref:`importers/structure-descriptions.imQueryDestinationPathRec`*
+- param1 - :ref:`imQueryDestinationPathRec* <importers/structure-descriptions.imQueryDestinationPathRec>`
 - param2 - ``unused``
 
 New in CS5.
@@ -515,7 +515,7 @@ imInitiateAsyncClosedCaptionScan
 ================================================================================
 
 - param1 - :ref:`importers/structure-descriptions.imFileRef`
-- param2 - :ref:`importers/structure-descriptions.imInitiateAsyncClosedCaptionScanRec`*
+- param2 - :ref:`imInitiateAsyncClosedCaptionScanRec* <importers/structure-descriptions.imInitiateAsyncClosedCaptionScanRec>`
 
 New in CC.
 
@@ -531,7 +531,7 @@ imGetNextClosedCaption
 ================================================================================
 
 - param1 - :ref:`importers/structure-descriptions.imFileRef`
-- param2 - :ref:`importers/structure-descriptions.imGetNextClosedCaptionRec`*
+- param2 - :ref:`imGetNextClosedCaptionRec* <importers/structure-descriptions.imGetNextClosedCaptionRec>`
 
 New in CC.
 
@@ -547,7 +547,7 @@ imCompleteAsyncClosedCaptionScan
 ================================================================================
 
 - param1 - :ref:`importers/structure-descriptions.imFileRef`
-- param2 - :ref:`importers/structure-descriptions.imCompleteAsyncClosedCaptionScanRec`*
+- param2 - :ref:`imCompleteAsyncClosedCaptionScanRec* <importers/structure-descriptions.imCompleteAsyncClosedCaptionScanRec>`
 
 New in CC.
 
@@ -561,7 +561,7 @@ imAnalysis
 ================================================================================
 
 - param1 - :ref:`importers/structure-descriptions.imFileRef`
-- param2 - :ref:`importers/structure-descriptions.imAnalysisRec`*
+- param2 - :ref:`imAnalysisRec* <importers/structure-descriptions.imAnalysisRec>`
 
 Provide information about the file in the imAnalysisRec; this is sent when the user views the Properties dialog for your file.
 
@@ -575,7 +575,7 @@ imDataRateAnalysis
 ================================================================================
 
 - param1 - :ref:`importers/structure-descriptions.imFileRef`
-- param2 - :ref:`importers/structure-descriptions.imDataRateAnalysisRec`*
+- param2 - :ref:`imDataRateAnalysisRec* <importers/structure-descriptions.imDataRateAnalysisRec>`
 
 Give Premiere a data rate analysis of the file.
 
@@ -591,7 +591,7 @@ imGetTimeInfo8
 ================================================================================
 
 - param1 - :ref:`importers/structure-descriptions.imFileRef`
-- param2 - :ref:`importers/structure-descriptions.imTimeInfoRec8`*
+- param2 - :ref:`imTimeInfoRec8* <importers/structure-descriptions.imTimeInfoRec8>`
 
 Read any embedded timecode data in the file.
 
@@ -605,7 +605,7 @@ imSetTimeInfo8
 ================================================================================
 
 - param1 - :ref:`importers/structure-descriptions.imFileRef`
-- param2 - :ref:`importers/structure-descriptions.imTimeInfoRec8`*
+- param2 - :ref:`imTimeInfoRec8* <importers/structure-descriptions.imTimeInfoRec8>`
 
 Sent after a capture completes, where timecode was provided by the recorder or device controller.
 
@@ -628,7 +628,7 @@ Another example is capturing a still from tape, which could be stamped with time
 imGetFileAttributes
 ================================================================================
 
-- param1 - :ref:`importers/structure-descriptions.imFileAttributesRec`*
+- param1 - :ref:`imFileAttributesRec* <importers/structure-descriptions.imFileAttributesRec>`
 
 Optional.
 
@@ -642,7 +642,7 @@ imGetMetaData
 ================================================================================
 
 - param1 - :ref:`importers/structure-descriptions.imFileRef`
-- param2 - :ref:`importers/structure-descriptions.imMetaDataRec`*
+- param2 - :ref:`imMetaDataRec* <importers/structure-descriptions.imMetaDataRec>`
 
 Called to get a metadata chunk specified by a fourcc code.
 
@@ -658,7 +658,7 @@ imSetMetaData
 ================================================================================
 
 - param1 - :ref:`importers/structure-descriptions.imFileRef`
-- param2 - :ref:`importers/structure-descriptions.imMetaDataRec`*
+- param2 - :ref:`imMetaDataRec* <importers/structure-descriptions.imMetaDataRec>`
 
 Called to add a metadata chunk specified by a fourcc code.
 
@@ -669,7 +669,7 @@ Called to add a metadata chunk specified by a fourcc code.
 imDeferredProcessing
 ================================================================================
 
-- param1 - :ref:`importers/structure-descriptions.imDeferredProcessingRec`*
+- param1 - :ref:`imDeferredProcessingRec* <importers/structure-descriptions.imDeferredProcessingRec>`
 - param2 - ``unused``
 
 Describe the current progress of the deferred processing on the clip.
@@ -682,7 +682,7 @@ imGetAudioChannelLayout
 ================================================================================
 
 - param1 - :ref:`importers/structure-descriptions.imFileRef`
-- param2 - :ref:`importers/structure-descriptions.imGetAudioChannelLayoutRec`*
+- param2 - :ref:`imGetAudioChannelLayoutRec* <importers/structure-descriptions.imGetAudioChannelLayoutRec>`
 
 New in CC.
 
@@ -696,7 +696,7 @@ imGetPeakAudio
 ================================================================================
 
 - param1 - :ref:`importers/structure-descriptions.imFileRef`
-- param2 - :ref:`importers/structure-descriptions.imPeakAudioRec`*
+- param2 - :ref:`imPeakAudioRec* <importers/structure-descriptions.imPeakAudioRec>`
 
 Optional selector allows Premiere to get audio peak data directly from the importer.
 
@@ -711,7 +711,7 @@ Providing peak data can significantly improve waveform rendering performance whe
 imQueryContentState
 ================================================================================
 
-- param1 - :ref:`importers/structure-descriptions.imQueryContentStateRec`*
+- param1 - :ref:`imQueryContentStateRec* <importers/structure-descriptions.imQueryContentStateRec>`
 - param2 - ``unused``
 
 New in CS5.
@@ -727,7 +727,7 @@ If an importer doesn't support the selector then the host checks the last modifi
 imQueryStreamLabel
 ================================================================================
 
-- param1 - :ref:`importers/structure-descriptions.imQueryStreamLabelRec`*
+- param1 - :ref:`imQueryStreamLabelRec* <importers/structure-descriptions.imQueryStreamLabelRec>`
 - param2 - ``unused``
 
 New in CS6.
@@ -742,7 +742,7 @@ imGetSubTypeNames
 ================================================================================
 
 - param1 - ``(csSDK_int32) fileType``
-- param2 - :ref:`importers/structure-descriptions.imSubTypeDescriptionRec`*
+- param2 - :ref:`imSubTypeDescriptionRec* <importers/structure-descriptions.imSubTypeDescriptionRec>`
 
 New optional selector added for After Effects CS3.
 
@@ -762,7 +762,7 @@ imGetIndColorProfile
 ================================================================================
 
 - param1 - ``(int) index``
-- param2 - :ref:`importers/structure-descriptions.imIndColorProfileRec`*
+- param2 - :ref:`imIndColorProfileRec* <importers/structure-descriptions.imIndColorProfileRec>`
 
 New in After Effects CS5.5; not used in Premiere Pro.
 
@@ -779,7 +779,7 @@ After all color profiles have been described, return a non-zero value.
 imQueryInputFileList
 ================================================================================
 
-- param1 - :ref:`importers/structure-descriptions.imQueryInputFileListRec`*
+- param1 - :ref:`imQueryInputFileListRec* <importers/structure-descriptions.imQueryInputFileListRec>`
 - param2 - ``unused``
 
 New for After Effects CS6; not used in Premiere Pro.

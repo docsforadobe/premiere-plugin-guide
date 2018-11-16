@@ -97,7 +97,7 @@ Create an asynchronous importer object using the data provided, and store it her
 imAudioInfoRec7
 ================================================================================
 
-Selector: :ref:`importers/selector-descriptions.mGetInfo8` (member of :ref:`importers/structure-descriptions.imFileInfoRec8`)
+Selector: :ref:`importers/selector-descriptions.imGetInfo8` (member of :ref:`importers/structure-descriptions.imFileInfoRec8`)
 
 Audio data properties of the file (or of the data you will generate, if synthetic).
 
@@ -501,7 +501,7 @@ New in Premiere Pro 3.1. Provide the clip creation date.
 imFileInfoRec8
 ================================================================================
 
-Selector: :ref:`importers/selector-descriptions.mGetInfo8`
+Selector: :ref:`importers/selector-descriptions.imGetInfo8`
 
 Describes the clip, or the stream with the ID streamIdx. Set the clip or stream attributes from the file header or data source. Create and store any privateData.
 
@@ -787,7 +787,7 @@ This structure provides private data allocated in ``imInitiateAsyncClosedCaption
 imGetPrefsRec
 ================================================================================
 
-Selector: :ref:`importers/selector-descriptions.mGetPrefs8`
+Selector: :ref:`importers/selector-descriptions.imGetPrefs8`
 
 Contains settings/prefs data gathered from (or defaults to populate) a setup dialog.
 
@@ -857,7 +857,7 @@ If you are creating media, you can may generate a video preview that includes th
 imImageInfoRec
 ================================================================================
 
-Selector: :ref:`importers/selector-descriptions.mGetInfo8` (member of :ref:`importers/structure-descriptions.imFileInfoRec8`)
+Selector: :ref:`importers/selector-descriptions.imGetInfo8` (member of :ref:`importers/structure-descriptions.imFileInfoRec8`)
 
 Describes the video to be imported.
 
@@ -1901,7 +1901,7 @@ Describes the timecode and timecode rate associated with a clip.
 imTrimFileRec8
 ================================================================================
 
-Selector: :ref:`importers/selector-descriptions.imGetIndColorSpace`
+Selector: ``imGetIndColorSpace``
 
 Describes how to trim a clip, based on information returned by the importer during ``imCheckTrim8``.
 
@@ -1956,7 +1956,7 @@ Also provides a callback to update the progress bar and check if the user has ca
 ColorSpaceRec
 ================================================================================
 
-Selector: :ref:`importers/selector-descriptions.imGetIndColorSpace`
+Selector: ``imGetIndColorSpace``
 
 Describes the colorspace in use with the media.
 

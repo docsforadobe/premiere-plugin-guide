@@ -12,7 +12,7 @@ Structures
 +-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`importers/structure-descriptions.imAsyncImporterCreationRec`          | :ref:`importers/selector-descriptions.imCreateAsyncImporter`                                                                 |
 +-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`importers/structure-descriptions.imAudioInfoRec7`                     | :ref:`importers/selector-descriptions.imGetInfo8` (member of ``imFileInfoRec7``)                                             |
+| :ref:`importers/structure-descriptions.imAudioInfoRec7`                     | :ref:`importers/selector-descriptions.imGetInfo8` (member of :ref:`importers/structure-descriptions.imFileInfoRec8`)         |
 +-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`importers/structure-descriptions.imCalcSizeRec`                       | :ref:`importers/selector-descriptions.imCalcSize8`                                                                           |
 +-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
@@ -32,7 +32,7 @@ Structures
 +-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`importers/structure-descriptions.imDeleteFileRec`                     | :ref:`importers/selector-descriptions.imDeleteFile`                                                                          |
 +-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`importers/structure-descriptions.imFileAccessRec8`                    | :ref:`importers/selector-descriptions.imGetInfo8` and :ref:`importers/selector-descriptions.imGetPrefs8`                                                        |
+| :ref:`importers/structure-descriptions.imFileAccessRec8`                    | :ref:`importers/selector-descriptions.imGetInfo8` and :ref:`importers/selector-descriptions.imGetPrefs8`                     |
 +-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`importers/structure-descriptions.imFileAttributesRec`                 | :ref:`importers/selector-descriptions.imGetFileAttributes`                                                                   |
 +-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
@@ -50,7 +50,7 @@ Structures
 |                                                                             | - :ref:`importers/selector-descriptions.imImportImage` ,                                                                     |
 |                                                                             | - :ref:`importers/selector-descriptions.imImportAudio7`                                                                      |
 +-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`importers/structure-descriptions.imFileSpec`                          | - :ref:`importers/selector-descriptions.imGetInfo8`,                                                                         |
+| ``imFileSpec``                                                              | - :ref:`importers/selector-descriptions.imGetInfo8`,                                                                         |
 |                                                                             | - :ref:`importers/selector-descriptions.imGetPrefs8`,                                                                        |
 |                                                                             | - :ref:`importers/selector-descriptions.imSaveFile8`,                                                                        |
 |                                                                             | - :ref:`importers/selector-descriptions.imDeleteFile`,                                                                       |
@@ -58,10 +58,10 @@ Structures
 |                                                                             |                                                                                                                              |
 |                                                                             | Member of:                                                                                                                   |
 |                                                                             |                                                                                                                              |
-|                                                                             | - :ref:`importers/selector-descriptions.imFileAccessRec8`,                                                                   |
-|                                                                             | - :ref:`importers/selector-descriptions.imSaveFileRec8`,                                                                     |
-|                                                                             | - :ref:`importers/selector-descriptions.imDeleteFileRec`,                                                                    |
-|                                                                             | - :ref:`importers/selector-descriptions.imTrimFileRec8`                                                                      |
+|                                                                             | - :ref:`importers/structure-descriptions.imFileAccessRec8`,                                                                  |
+|                                                                             | - :ref:`importers/structure-descriptions.imSaveFileRec8`,                                                                    |
+|                                                                             | - :ref:`importers/structure-descriptions.imDeleteFileRec`,                                                                   |
+|                                                                             | - :ref:`importers/structure-descriptions.imTrimFileRec8`                                                                     |
 +-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`importers/structure-descriptions.imFrameFormat`                       | :ref:`importers/selector-descriptions.imGetSourceVideo` (member of :ref:`importers/structure-descriptions.imSourceVideoRec`) |
 +-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
@@ -97,9 +97,9 @@ Structures
 +-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`importers/structure-descriptions.imQueryStreamLabelRec`               | :ref:`importers/selector-descriptions.imQueryStreamLabel`                                                                    |
 +-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`importers/structure-descriptions.imRollCrawlInfoRec`                  | :ref:`importers/selector-descriptions.imGetRollCrawlInfo`                                                                    |
+| ``imRollCrawlInfoRec``                                                      | ``imGetRollCrawlInfo``                                                                                                       |
 +-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`importers/structure-descriptions.imRollCrawlRenderRec`                | :ref:`importers/selector-descriptions.imRollCrawlRenderPage`                                                                 |
+| ``imRollCrawlRenderRec``                                                    | ``imRollCrawlRenderPage``                                                                                                    |
 +-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`importers/structure-descriptions.imSaveFileRec8`                      | :ref:`importers/selector-descriptions.imSaveFile8`                                                                           |
 +-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
