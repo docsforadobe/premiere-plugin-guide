@@ -19,15 +19,15 @@ In the Export Param Suite, a new function, MoveParam(), can be used to move an e
 What's New in CS6
 ================================================================================
 
-Exporters can now use the Exporter Utility Suite for "push" model compression. The exporter host can simply push frames to a thread-safe exporter-specified callback. This will cut down on the code previously required for render loop management. It should also yield substantial perfor- mance increases for exporters that haven't finely tuned their multithreaded rendering. The "pull" model is still supported, and required for Encore and legacy versions of Premiere Pro and Media Encoder.
+Exporters can now use the Exporter Utility Suite for "push" model compression. The exporter host can simply push frames to a thread-safe exporter-specified callback. This will cut down on the code previously required for render loop management. It should also yield substantial performance increases for exporters that haven't finely tuned their multithreaded rendering. The "pull" model is still supported, and required for Encore and legacy versions of Premiere Pro and Media Encoder.
 
 The new Export Standard Param Suite provides the standard parameters used in many built-in exporters. This can greatly reduce the amount of code needed to manage standard parameters for a typical exporter, and guarantee consistency with built-in exporters.
 
-Stereoscopic video is now supported when exporting directly from Premiere Pro. In other words, when exports are queued to run in Adobe Media Encoder, they can not get stereo- scopic video. Note that currently stereoscopic exporters must use the "pull" model and the new
+Stereoscopic video is now supported when exporting directly from Premiere Pro. In other words, when exports are queued to run in Adobe Media Encoder, they can not get stereoscopic video. Note that currently stereoscopic exporters must use the "pull" model and the new
 
 MakeVideoRendererForTimelineWithStreamLabel() to get rendered frames from multiple video streams.
 
-Export Param Suite now adds SetParamDescription(), to set tooltip strings for parameters. For the three line Export Summary description in the Export Settings dialog, we've swapped the 2nd and 3rd lines so that the bitrate summary comes after the audio summary. We've re- named the structure to make developers aware of this during a recompile.
+Export Param Suite now adds SetParamDescription(), to set tooltip strings for parameters. For the three line Export Summary description in the Export Settings dialog, we've swapped the 2nd and 3rd lines so that the bitrate summary comes after the audio summary. We've renamed the structure to make developers aware of this during a recompile.
 
 Adobe Media Encoder now includes a Preset Browser that provides more organization for presets. Make sure your presets take advantage of this organization, and are shown in your desired proper location in the Preset Browser.
 

@@ -16,7 +16,7 @@ Whenever the Capture panel is open, the recorder will receive ``recmod_SetActive
 
 When the user clicks Record, or starts an In/Out or Batch capture, ``recmod_PrepRecord8`` is sent. The recorder prepares to capture, and if a start timecode is provided, tells the device controller to get the device into position using preRollFunc. The preRollFunc will block until the device is exactly in the right position, and when it returns, the recorder should immediately return back to Premiere, open which ``recmod_StartRecord`` is then sent to the recorder, which should im- mediately starts capturing.
 
-When the recorder starts capturing and returns from ``recmod_StartRecord``, Premiere will repeat- edly call ``recmod_ServiceRecord`` to give the recorder processor time. During recording, report status to Premiere with StatusDispFunc.
+When the recorder starts capturing and returns from ``recmod_StartRecord``, Premiere will repeatedly call ``recmod_ServiceRecord`` to give the recorder processor time. During recording, report status to Premiere with StatusDispFunc.
 
 The capture may be stopped in several ways:
 

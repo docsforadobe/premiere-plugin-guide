@@ -13,7 +13,7 @@ A new return code was added, rmRequiresRoyaltyContent. Return this from recmod_S
 What's New in Premiere Pro CS6?
 ================================================================================
 
-The parent window handle is now properly passed in, during ``recmod_ShowOptions`` when a re- corder should display its modal setup dialog.
+The parent window handle is now properly passed in, during ``recmod_ShowOptions`` when a recorder should display its modal setup dialog.
 
 ----
 
@@ -32,7 +32,7 @@ Audio settings in the Capture Settings window are no longer supported. Any audio
 No More Project Presets
 ********************************************************************************
 
-Since Premiere Pro CS4 support sequence-specific settings, project presets have been replaced by sequence presets. The difference from project presets are that sequence presets do not contain information to initialize capture settings. This means that users will have to initialize capture set- tings manually the first time they use a recorder with custom settings.
+Since Premiere Pro CS4 support sequence-specific settings, project presets have been replaced by sequence presets. The difference from project presets are that sequence presets do not contain information to initialize capture settings. This means that users will have to initialize capture settings manually the first time they use a recorder with custom settings.
 
 When the Capture Panel is invoked, if the capture settings are invalid or uninitialized, the Capture Settings dialog is invoked. In the Capture Settings dialog: If the recorder requires private data, the user cannot continue past the Capture Settings dialog until they have opened the current recorder's settings dialog.
 

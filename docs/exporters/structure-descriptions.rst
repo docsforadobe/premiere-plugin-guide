@@ -496,7 +496,7 @@ exValidateOutputSettingsRec
 
 Selector: ``exSelValidateOutputSettings``
 
-Provides access to the privateData for the indicated filetype, so that the exporter can vali- date the current parameter settings.
+Provides access to the privateData for the indicated filetype, so that the exporter can validate the current parameter settings.
 
 ::
 

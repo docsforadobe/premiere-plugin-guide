@@ -71,7 +71,7 @@ exSelGetParamSummary
 - param1 - ``exParamSummaryRec*``
 - param2 - ``unused``
 
-Provide a text summary of the current parameter settings, which will be displayed in the sum- mary area of the Export Settings dialog.
+Provide a text summary of the current parameter settings, which will be displayed in the summary area of the Export Settings dialog.
 
 ----
 
@@ -153,7 +153,7 @@ exSelQueryOutputSettings
 - param1 - ``exQueryOutputSettingsRec*``
 - param2 - ``unused``
 
-The host application asks the exporter for general details about the current settings. This is a re- quired selector.
+The host application asks the exporter for general details about the current settings. This is a required selector.
 
 ----
 

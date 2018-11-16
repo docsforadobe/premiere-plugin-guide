@@ -7,7 +7,7 @@ The language used by Premiere Pro is decided by the user during installation.
 
 Plug-ins can determine this setting from the following locations:
 
-On Windows, in the registry at ``HKEY_CURRENT_USER\Software\Adobe\Premiere Pro\[ver- sion]``, in a key named ``"Language"``.
+On Windows, in the registry at ``HKEY_CURRENT_USER\Software\Adobe\Premiere Pro\[version]``, in a key named ``"Language"``.
 
 On macOS, at ``~/Library/Preferences/com.Adobe.Premiere Pro.[version].plist``, at ``Root > Language``.
 

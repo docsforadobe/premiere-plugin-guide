@@ -6,7 +6,7 @@ Getting Started
 Setting up the Sample Projects
 ================================================================================
 
-If you are developing an effect, begin with one of the two GPU effect sample projects, progressive- ly replacing its functionality with your own. Refer to chapter 1 for general instructions on how to build the SDK projects.
+If you are developing an effect, begin with one of the two GPU effect sample projects, progressively replacing its functionality with your own. Refer to chapter 1 for general instructions on how to build the SDK projects.
 
 In addition to those general instructions, the sample project is also dependent on the After Effects plug-in SDK. Download it here. On Windows, create an environment variable pointing to it named AE_SDK_BASE_PATH, so that the compiler will find the AE headers that the project includes. On macOS, in *Xcode > Preferences > Locations > Source Trees*, specify AE_SDK_BASE_PATH to be the root folder of the AE plug-in SDK you have downloaded and unzipped.
 
@@ -45,7 +45,7 @@ Calling GetDeviceInfo() in the GPU Device Suite, and checking ``outDevi­ceInfo.
 
 AcquireExclusiveDeviceAccess(), if the minimum requirements are not met.
 
-In emergency situations, when there is not enough GPU memory available to complete a render, an effect may call PurgeDeviceMemory in the GPU Device Suite to free up memory not ini- tially available. This will impact performance, and should be used only if absolutely necessary.
+In emergency situations, when there is not enough GPU memory available to complete a render, an effect may call PurgeDeviceMemory in the GPU Device Suite to free up memory not initially available. This will impact performance, and should be used only if absolutely necessary.
 
 ----
 
@@ -63,7 +63,7 @@ In Premiere Pro, OpenCL contexts are created with OpenGL interoperability. We ex
 
 For CUDA interoperability with OpenGL:
 
-CUDA -> OpenGL: Create an OpenGL buffer, map it into CUDA with cuGraphicsMapResources, get the mapped address with cuGraphicsResourceGetMappedPointer, copy from the CUDA address to the mapped address with cuMemcpyDtoDAsync, unmap with cuGraphicsUnmapRe- sources.
+CUDA -> OpenGL: Create an OpenGL buffer, map it into CUDA with cuGraphicsMapResources, get the mapped address with cuGraphicsResourceGetMappedPointer, copy from the CUDA address to the mapped address with cuMemcpyDtoDAsync, unmap with cuGraphicsUnmapResources.
 
 OpenGL -> CUDA: Map the OpenGL buffer into CUDA with cuGraphicsMapResources, get the mapped address with cuGraphicsResourceGetMappedPointer, copy from the mapped address to CUDA with cuMemcpyDtoDAsync, unmap with cuGraphicsUnmapResources.
 

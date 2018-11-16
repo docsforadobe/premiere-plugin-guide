@@ -17,7 +17,7 @@ It may be faster to developing exporters using Media Encoder, since it is a ligh
 Adding Parameters
 ================================================================================
 
-Starting in CS6, the Export Standard Param Suite provides a way to add several basic sets of pa- rameters, whether for video, audio, still sequences, etc. Beyond the standard parameters, custom defined parameters can be added using the Export Param Suite.
+Starting in CS6, the Export Standard Param Suite provides a way to add several basic sets of parameters, whether for video, audio, still sequences, etc. Beyond the standard parameters, custom defined parameters can be added using the Export Param Suite.
 
 First register the parameters during ``exSelGenerateDefaultParams``. Then provide the localized strings and min/max parameter values during ``exSelPostProcessParams``. When the exporter is sent ``exSelExport`` to export, get the user-specified parameter values using the Export Param Suite.
 
@@ -47,7 +47,7 @@ Starting in CS6, exporters can use the new push model, or the legacy pull model 
 Push Model
 ********************************************************************************
 
-Using the push model, the exporter host can simply push frames to a thread-safe exporter-spec- ified callback. Use DoMultiPassExportLoop in the Exporter Utility Suite to register the callback.
+Using the push model, the exporter host can simply push frames to a thread-safe exporter-specified callback. Use DoMultiPassExportLoop in the Exporter Utility Suite to register the callback.
 
 Compared with the pull model, this will cut down on the code previously required for render loop management. It should also yield substantial performance increases for exporters that haven't finely tuned their multithreaded rendering.
 
@@ -69,7 +69,7 @@ ton, which is only available in the Media Encoder UI. If the return value is ``e
 
 If UpdateProgressPercent returns ``suiteError_ExporterSuspended``, then the exporter should next call ``WaitForResume``, which will block until the user has unpaused the export.
 
-If UpdateProgressPercent returns ``exportReturn_Abort``, the exporter should take steps to abort the export and clean up. Note that the exporter can still continue to ask for video frames and audio samples after a cancel has been received, which is useful in certain circum- stances, such as if an exporter needs a few more frames to complete an MPEG GOP, or if it wants to include the audio for the video exported up to the point of cancel. This allows the exporter to generate well-formed output files, even in the case of a cancel.
+If UpdateProgressPercent returns ``exportReturn_Abort``, the exporter should take steps to abort the export and clean up. Note that the exporter can still continue to ask for video frames and audio samples after a cancel has been received, which is useful in certain circumstances, such as if an exporter needs a few more frames to complete an MPEG GOP, or if it wants to include the audio for the video exported up to the point of cancel. This allows the exporter to generate well-formed output files, even in the case of a cancel.
 
 ----
 
@@ -106,7 +106,7 @@ On Mac OS: ``~/Library/Preferences/Adobe/Adobe Premiere Pro/[version]/Presets/``
 
 AME Preset Browser
 
-Starting in CS6, Adobe Media Encoder has a Preset Browser with provides a structured organization of presets. Third-party presets can be added to any folder or subfolder within the main cat- egories. Once you have created a preset, it will default to the Other folder. You can set the desired folder location in the <FolderDisplayPath> tag in the preset XML.
+Starting in CS6, Adobe Media Encoder has a Preset Browser with provides a structured organization of presets. Third-party presets can be added to any folder or subfolder within the main categories. Once you have created a preset, it will default to the Other folder. You can set the desired folder location in the <FolderDisplayPath> tag in the preset XML.
 
 For example, if you set it to: ``<FolderDisplayPath>System Presets/Image Sequence/PNG</ FolderDisplayPath>`` then AME will display the preset in the ``System Presets > Image Sequence > PNG folder``.
 
@@ -142,14 +142,14 @@ Increment the Parameter Version
 
 If an older version of the exporter is already being used by customers, you'll need to use parameter versioning. During ``exSelGenerateDefaultParams``, you should call SetParamsVersion() in the Export Param Suite and increment the version number.
 
-After that, create new presets and sequence encoder presets (if needed) using the new set of pa- rameters. Make sure your installer removes the old presets, and installs the new ones.
+After that, create new presets and sequence encoder presets (if needed) using the new set of parameters. Make sure your installer removes the old presets, and installs the new ones.
 
 Flush the Parameter Cache
 ********************************************************************************
 
 If you don't increment the parameter version, you can manually flush the parameter cache in a few steps. After you've deleted the old presets, do the following:
 
-1) Delete hidden presets that were created by the hosts for the most recently used parameter set- tings. Look for a file called Placeholder Preset.epr in both the folders above the Media Encoder presets and the Premiere Pro presets.
+1) Delete hidden presets that were created by the hosts for the most recently used parameter settings. Look for a file called Placeholder Preset.epr in both the folders above the Media Encoder presets and the Premiere Pro presets.
 2) Delete batch.xml, used by Media Encoder. This is also in the folder above the Media Encoder presets. Deleting this is equivalent to deleting the items out of the Media Encoder render queue.
 3) Delete Premiere Pro sequence encoder presets that use the exporter, if any
 4) Even after deleting all the old presets, Media Encoder may initially show old cached parameter UI. In the Settings UI, just switch to a different format and then back to yours.
@@ -204,12 +204,12 @@ On Windows, they should be installed here: ``[App installation path]\Settings\En
 
 On MacOS, it is basically the same (inside the application package): ``[App installation path]/[Premiere Pro package]/Contents/Settings/EncoderPresets/ SequencePreview/[editing mode GUID]/*.epr``
 
-As you can see by the installation paths above, Premiere Pro associates the sequence preview pre- sets with the editing mode they go with, by using the presets in the folder that matches the GUID of the editing mode. The editing mode GUID is defined in the editing mode XML file, using the ``<EditingMode.ID>`` tag.
+As you can see by the installation paths above, Premiere Pro associates the sequence preview presets with the editing mode they go with, by using the presets in the folder that matches the GUID of the editing mode. The editing mode GUID is defined in the editing mode XML file, using the ``<EditingMode.ID>`` tag.
 
 Adding new Preview File Formats to Existing Editing Modes
 ********************************************************************************
 
-You can not only provide sequence preview presets for your own editing mode, but you could even add additional sequence preview presets for one of the built-in editing modes. Editing mode GUIDs for built-in editing modes can be found in the Adobe Editing Modes. xml file. For example, the Desktop editing mode on Windows has the GUID 9678AF98- A7B7-4bdb-B477-7AC9C8DF4A4E. On Mac OS it is 795454D9-D3C2-429d-9474- 923AB13B7018.
+You can not only provide sequence preview presets for your own editing mode, but you could even add additional sequence preview presets for one of the built-in editing modes. Editing mode GUIDs for built-in editing modes can be found in the Adobe Editing Modes. xml file. For example, the Desktop editing mode on Windows has the GUID 9678AF98A7B7-4bdb-B477-7AC9C8DF4A4E. On Mac OS it is 795454D9-D3C2-429d-9474- 923AB13B7018.
 
 You can additionally restrict the list and specify which one is chosen by default, by editing the ``<PresetComments>`` tag in the preset file.
 
@@ -224,7 +224,7 @@ Which restricts the codec selection of the exporter to be only the single codec 
 Stereoscopic Video
 ================================================================================
 
-Note that currently stereoscopic exporters must use the old "pull" model, and only receive ste- reoscopic video when exporting directly from Premiere Pro. In other words, when exports are queued to run in Adobe Media Encoder, they will not get stereoscopic video.
+Note that currently stereoscopic exporters must use the old "pull" model, and only receive stereoscopic video when exporting directly from Premiere Pro. In other words, when exports are queued to run in Adobe Media Encoder, they will not get stereoscopic video.
 
 To get rendered frames for both left and right eye, use the Video Segment Suite to request the left and right cutlists, and render frames from both. An exporter can tell if segments in both of them are identical (implying that they have nothing stereoscopic about them) by looking at the segment hashes, and you can tell if two frames are identical (by looking at the request identifiers).
 

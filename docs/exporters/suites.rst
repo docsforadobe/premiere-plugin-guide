@@ -60,7 +60,7 @@ Get information on the source currently being exported.
 +------------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``kExportInfo_SourceHasVideo``           | Bool        | Non-zero if source has video                                                                                                                                  |
 +------------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``kExportInfo_RenderAsPreview``          | Bool        | Returns a non-zero value if cur- rently rendering preview files.                                                                                              |
+| ``kExportInfo_RenderAsPreview``          | Bool        | Returns a non-zero value if currently rendering preview files.                                                                                                |
 +------------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``kExportInfo_SequenceGUID``             | Guid        | A PrPluginID, which is a unique GUID for the sequence.                                                                                                        |
 +------------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -230,7 +230,7 @@ Call during ``exSelGetParamSummary``.
 +-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``inDoAudio``           |                                                                                                                                                 |
 +-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``outVideoDescription`` | These will be filled out based on the standard parameter set- tings.                                                                            |
+| ``outVideoDescription`` | These will be filled out based on the standard parameter settings.                                                                              |
 +-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``outAudioDescription`` |                                                                                                                                                 |
 +-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -479,7 +479,7 @@ Returns the maximum number of audio sample frames that can be requested from one
 Sequence Render Suite
 ================================================================================
 
-Get rendered video from one of the renderers available to the host. This may use one of the host's built-in renderers, or a plug-in renderer, if available For best performance, use the asyn- chronous render requests with the source media prefetching calls, although synchronous rendering is available too.
+Get rendered video from one of the renderers available to the host. This may use one of the host's built-in renderers, or a plug-in renderer, if available For best performance, use the asynchronous render requests with the source media prefetching calls, although synchronous rendering is available too.
 
 Version 4, new in CS5.5, adds ``RenderVideoFrameAndConformToPixelFormat()``.
 

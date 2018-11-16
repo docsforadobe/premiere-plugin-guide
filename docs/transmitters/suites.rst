@@ -22,7 +22,7 @@ GetNextAudioBuffer
 
 Retrieves from the host the next contiguous requested number of audio sample frames, specified in inNumSampleFrames, in inInBuffers as arrays of uninterleaved floats.
 
-The plug-in must manage the memory allocation of inInBuffers, which must point to n buf- fers of floating point values of length inNumSampleFrames, where n is the number of channels. This call is only available if InitPluginAudio was used.
+The plug-in must manage the memory allocation of inInBuffers, which must point to n buffers of floating point values of length inNumSampleFrames, where n is the number of channels. This call is only available if InitPluginAudio was used.
 
 Returns:
 

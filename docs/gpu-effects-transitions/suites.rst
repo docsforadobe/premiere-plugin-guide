@@ -10,11 +10,11 @@ For information on how to acquire and manage suites, see the SweetPea Suites sec
 GPU Device Suite
 ================================================================================
 
-This suite provides info on any GPU devices available. For example, GetDeviceInfo() al- lows an effect/transition to see if the device supports OpenCL or CUDA.
+This suite provides info on any GPU devices available. For example, GetDeviceInfo() allows an effect/transition to see if the device supports OpenCL or CUDA.
 
 Use this suite to get exclusive access to a device using AcquireExclusiveDeviceAccess and ReleaseExclusiveDeviceAccess. If needed, you can reconcile devices using the outDeviceHandle passed back from GetDeviceInfo().
 
-Device memory should ideally be allocated through this suite. In some cases you may find it more efficient to use a texture / image object as the source. With CUDA, you can bind a texture reference to an existing linear buffer. With OpenCL, you can create an image object from an ex- isting 2D buffer object using image_2d_from_buffer. Temporary allocations are also fine but may be rather slow.
+Device memory should ideally be allocated through this suite. In some cases you may find it more efficient to use a texture / image object as the source. With CUDA, you can bind a texture reference to an existing linear buffer. With OpenCL, you can create an image object from an existing 2D buffer object using image_2d_from_buffer. Temporary allocations are also fine but may be rather slow.
 
 ----
 
@@ -23,7 +23,7 @@ Opaque Effect Data Suite
 
 This suite provides effects a way to share unflattened sequence data between instances of the same effect on a track item. The data is opaque to the host and effects are responsible for maintaining thread safety of the shared data. The host provides reference-counting that the effect can use to manage the lifetime of the shared data. Here's an overview of how this suite should be used:
 
-When the effect is applied, in ``PF_Cmd_SEQUENCE_SETUP``, the effect plug-in allo- cates and initializes the sequence data in PF_OutData->out_data. Then it calls
+When the effect is applied, in ``PF_Cmd_SEQUENCE_SETUP``, the effect plug-in allocates and initializes the sequence data in PF_OutData->out_data. Then it calls
 
 AcquireOpaqueEffectData(). The opaque effect data does not yet exist, so the plug-in allocates it, and calls RegisterOpaqueEffectData, and then copies over the data from the sequence data. So both sequence data and opaque effect data are allocated.
 

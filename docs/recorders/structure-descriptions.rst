@@ -53,7 +53,7 @@ Describes the recorder's capabilities to Premiere.
 +--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``recmodID``             | Premiere's internal identifier for the plug-in. Never change this value.                                                                                     |
 +--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``fileType``             | Four character code for the captured file (for ex- ample 'AVIV' for Video for Windows .AVI files, and 'MOOV' for QuickTime .MOV files).                      |
+| ``fileType``             | Four character code for the captured file (for example 'AVIV' for Video for Windows .AVI files, and 'MOOV' for QuickTime .MOV files).                        |
 |                          |                                                                                                                                                              |
 |                          | Invent a unique code for proprietary formats as necessary, but make sure an importer is installed that supports the fourcc.                                  |
 |                          |                                                                                                                                                              |
@@ -223,7 +223,7 @@ Provides capture session information; save this information in private instance 
 +-----------------------+-------------------------------------------------------------------------------------------------------------------------+
 | ``disp``              | Preview display area                                                                                                    |
 +-----------------------+-------------------------------------------------------------------------------------------------------------------------+
-| ``callbackID``        | Premiere's instance identifier for this recording session. Save this value for use with callback rou- tines.            |
+| ``callbackID``        | Premiere's instance identifier for this recording session. Save this value for use with callback routines.              |
 +-----------------------+-------------------------------------------------------------------------------------------------------------------------+
 | ``setup``             | If not null, points to settings saved from a previous recording session.                                                |
 +-----------------------+-------------------------------------------------------------------------------------------------------------------------+
@@ -251,19 +251,19 @@ Provide pixel aspect ratio and starting timecode of the captured clip.
     char            date[31];
   } recCapturedFileInfo;
 
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``pixelAspectRatioNum`` | Fill in the clip's pixel aspect ratio.                                                                                                                      |
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``pixelAspectRatioDen`` |                                                                                                                                                             |
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``timeCode``            | Provide the text representation of the starting timecode, as known by the recorder. If the record- er can provide it, and it is non-zero then fill this in. |
-|                         |                                                                                                                                                             |
-|                         | Don't fill this in if the timecode is zero. As of CS5.5, that will result in odd starting timecodes, such as "08;06;40;11".                                 |
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``tdb``                 | Timebase of the captured file.                                                                                                                              |
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``date``                | New in Premiere Elements 7. The date of the the captured file, formatted in one of the following ways: "d/m/y" or "d/m/y h:m" or "d/m/y h:m:s"              |
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
++-------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``pixelAspectRatioNum`` | Fill in the clip's pixel aspect ratio.                                                                                                                    |
++-------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``pixelAspectRatioDen`` |                                                                                                                                                           |
++-------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``timeCode``            | Provide the text representation of the starting timecode, as known by the recorder. If the recorder can provide it, and it is non-zero then fill this in. |
+|                         |                                                                                                                                                           |
+|                         | Don't fill this in if the timecode is zero. As of CS5.5, that will result in odd starting timecodes, such as "08;06;40;11".                               |
++-------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``tdb``                 | Timebase of the captured file.                                                                                                                            |
++-------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``date``                | New in Premiere Elements 7. The date of the the captured file, formatted in one of the following ways: "d/m/y" or "d/m/y h:m" or "d/m/y h:m:s"            |
++-------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ----
 
@@ -359,7 +359,7 @@ Specifies capture settings.
   } recCapParmsRec8;
 
 +---------------------------+-----------------------------------------------------------------------------------------------------------------------------+
-| ``callbackID``            | Premiere's instance identifier for this recording session. Save this value for use with callback rou- tines.                |
+| ``callbackID``            | Premiere's instance identifier for this recording session. Save this value for use with callback routines.                  |
 +---------------------------+-----------------------------------------------------------------------------------------------------------------------------+
 | ``stepcapture``           | Unused                                                                                                                      |
 +---------------------------+-----------------------------------------------------------------------------------------------------------------------------+
@@ -452,7 +452,7 @@ Allows the recorder to supply timecode information.
   } recGetTimecodeRec;
 
 +------------------------+---------------------------------------------------------------------------------------------------------------------------------------+
-| ``status``             | 0 indicates valid timecode, 1 indicates it's un- known or stale.                                                                      |
+| ``status``             | 0 indicates valid timecode, 1 indicates it's unknown or stale.                                                                        |
 +------------------------+---------------------------------------------------------------------------------------------------------------------------------------+
 | ``currate``            | 30 for NTSC timecode, 25 for PAL.                                                                                                     |
 +------------------------+---------------------------------------------------------------------------------------------------------------------------------------+

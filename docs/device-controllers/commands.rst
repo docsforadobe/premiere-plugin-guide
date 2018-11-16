@@ -83,7 +83,7 @@ Populate DeviceRec.features with the features of your device controller, using t
 +-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``fCanInsertNoUI``      | New in CC. Set if new Edit to Tape panel is supported. Otherwise, legacy device controllers can continue to function as previously built for CS6 and earlier.                                         |
 +-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``fCanUseCC``           | New in CC. Set if Closed Captioning is supported. This will en- able the Insert Closed Captioning Data checkbox in the Edit to Tape panel.                                                            |
+| ``fCanUseCC``           | New in CC. Set if Closed Captioning is supported. This will enable the Insert Closed Captioning Data checkbox in the Edit to Tape panel.                                                              |
 +-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``fCanPrintToTape``     | New in CC July 2013. Set to tell Premiere Pro that the device controller supports the "Print to Tape" option in the Export Type popup of the Edit to Tape panel.                                      |
 +-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -159,7 +159,7 @@ Puts the device into a new operating mode, specified in mode.
 cmdGoto
 ================================================================================
 
-This is sent, for example, when typing in a new timecode value into the current timecode hot- text control in the lower left hand corner of the Capture panel. It can also be sent when the user chooses Capture In/Out, if the device controller does not support ``cmdLocate``.
+This is sent, for example, when typing in a new timecode value into the current timecode hot-text control in the lower left hand corner of the Capture panel. It can also be sent when the user chooses Capture In/Out, if the device controller does not support ``cmdLocate``.
 
 Begin seeking to the timecode specified by timecode. Set up an asynchronous seek, save off the desired timecode in private data, and return immediately with mode set to modeGoto.
 

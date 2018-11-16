@@ -59,7 +59,7 @@ With some additional work, importers can now support growing files. The refresh 
 
 A new selector, *imQueryInputFileList*, was added to support Collect Files in After Effects for file types that use more than a single file. In imImportInfoRec, a new member, canProvide­ FileList, specifies whether the importer can provide a list of all files for a copy operation. If the importer does not implement this selector, the host will assume the media just uses a single file at the original imported media path.
 
-The Media Accelerator Suite is now at version 4. FindPathInDatabaseAndValidate- ContentState provides a new way to find existing media accelerators, making sure they are up-to-date.
+The Media Accelerator Suite is now at version 4. FindPathInDatabaseAndValidateContentState provides a new way to find existing media accelerators, making sure they are up-to-date.
 
 Importers can now choose whether or not they want to provide peak audio data on a clip-by-clip basis. The importer-wide setting still remains in imImportInfoRec.canProvidePeak­ Audio, but an importer can override the general setting by setting imFileInfoRec8.can­ ProvidePeakAudio appropriately.
 

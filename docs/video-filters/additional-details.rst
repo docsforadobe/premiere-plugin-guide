@@ -17,7 +17,7 @@ Respect the value of rowbytes when traversing data or the output will be incorre
 Frame Caching
 ================================================================================
 
-The rendered output of video filters is stored in the host media cache. For example, when the user scrubs over a frame with a filter on it, the filter will be called to render its effect on the frame and return the buffer to Premiere. Premiere caches the returned frame, so when the user scrubs over the same frame, Premiere will return the cached frame without having to call the filter again. If the user has modified the filter settings, the clip settings, the preview quality, etc, Premiere will call the filter to render with the new settings, but will keep the previously cache frame for a while. So if the changes are reversed, Premiere may still have the cached frame to return when appropri- ate.
+The rendered output of video filters is stored in the host media cache. For example, when the user scrubs over a frame with a filter on it, the filter will be called to render its effect on the frame and return the buffer to Premiere. Premiere caches the returned frame, so when the user scrubs over the same frame, Premiere will return the cached frame without having to call the filter again. If the user has modified the filter settings, the clip settings, the preview quality, etc, Premiere will call the filter to render with the new settings, but will keep the previously cache frame for a while. So if the changes are reversed, Premiere may still have the cached frame to return when appropriate.
 
 If the filter should generate random, non-deterministic output, or if it changes over time without keyframes, the randomness bit must be set in the ANIM_FilterInfo section in the PiPL (.r file). If you set the bit to noRandomness, Premiere will only render one frame of a still image.
 
@@ -37,7 +37,7 @@ Effect presets appear in the Presets bin in the Effects panel, and can be applie
 
 On Windows, newly created presets are saved in the hidden Application Data folder of the user's Documents and Settings (e.g. C:\Documents and Settings\[user]\Application Data\Adobe\\ Premiere Pro\[version]\Effect Presets and Custom Items.prfpset). On Mac OS, they are in the user folder, at ~/Library/Application Support/Adobe/Premiere Pro/[version]/Effect Presets and Custom Items.prfpset.
 
-Effect Presets should be installed as described in the section, "Plug-in Installation". Once they are installed in that folder, they will be read-only, and the user will not be able to move them to a dif- ferent folder or change their names. User-created presets will be modifiable.
+Effect Presets should be installed as described in the section, "Plug-in Installation". Once they are installed in that folder, they will be read-only, and the user will not be able to move them to a different folder or change their names. User-created presets will be modifiable.
 
 ----
 

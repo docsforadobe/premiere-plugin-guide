@@ -67,7 +67,7 @@ recmod_Open
 - param1 - ``PrivateData``
 - param2 - ``recOpenParms``
 
-Sent when Premiere's New Project Settings > Capture Settings dialog or the Movie Capture win- dow is displayed.
+Sent when Premiere's New Project Settings > Capture Settings dialog or the Movie Capture window is displayed.
 
 Initialize hardware, create a private data structure for instance data, and pass a pointer to it back in ``param1``.
 

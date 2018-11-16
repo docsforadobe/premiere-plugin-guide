@@ -9,6 +9,6 @@ An export controller adds its own custom menu item to the File > Export submenu.
 
 This UI will need to be provided by the export controller.
 
-The export controller should then call ExportFile in the Export Controller Suite, which takes the TimelineID, a path to an exporter preset, and a path for the output. This will tell Premiere Pro to handle the export, displaying progress. The call will return either a success value, an error, or that the user canceled. During the export, the UI will be blocked, just as when doing a stan- dard export that doesn't use the Adobe Media Encoder Render Queue.
+The export controller should then call ExportFile in the Export Controller Suite, which takes the TimelineID, a path to an exporter preset, and a path for the output. This will tell Premiere Pro to handle the export, displaying progress. The call will return either a success value, an error, or that the user canceled. During the export, the UI will be blocked, just as when doing a standard export that doesn't use the Adobe Media Encoder Render Queue.
 
 Once Premiere Pro completes the export, the call will return to the export controller. The plug-in can then perform any post-processing operations, such as transferring the newly exported file over the network, or registering the file in an asset management system.

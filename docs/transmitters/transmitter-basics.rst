@@ -8,7 +8,7 @@ Basic Organization
 
 A transmitter module can define multiple plug-ins. Each plug-in can appear in the Playback Preferences as an option for video playback and/or audio playback. Only one transmitter can be used for audio, since the transmitter used for audio drives the clock. Multiple transmitters may be selected for video simultaneously.
 
-When active, multiple instances of a single plug-in can be created. An instance is created to dis- play a clip or sequence. Hardware access is regulated through ActivateDeactivate. Only an active instance should access the hardware.
+When active, multiple instances of a single plug-in can be created. An instance is created to display a clip or sequence. Hardware access is regulated through ActivateDeactivate. Only an active instance should access the hardware.
 
 ----
 
@@ -17,7 +17,7 @@ Video Formats
 
 Specify which video format(s) you wish to receive during QueryVideoMode. To simplify your plug-in, be as specific as possible, and allow the host to perform the conversion asynchronously ahead of time. Packed and compressed formats are also supported. If multiple formats are specified, the closest will be selected at render time. If your transmitter would benefit from on-GPU frames, please let us know.
 
-When sent QueryVideoMode, the transmitter is informed about the clip/sequence video at- tributes by being passed a tmInstance pointer. So, for example, if the transmitter instance is constructed to support a 1920x1080 timeline, it can report that same size back to the host application, so that it will not have to handle any scaling. If, for example, it does handle scaling, and it is constructed to handle a 1440x1080 timeline, it can report 1440x1080 and handle the scaling itself. In this way you can choose a single fixed size depending on the timeline.
+When sent QueryVideoMode, the transmitter is informed about the clip/sequence video attributes by being passed a tmInstance pointer. So, for example, if the transmitter instance is constructed to support a 1920x1080 timeline, it can report that same size back to the host application, so that it will not have to handle any scaling. If, for example, it does handle scaling, and it is constructed to handle a 1440x1080 timeline, it can report 1440x1080 and handle the scaling itself. In this way you can choose a single fixed size depending on the timeline.
 
 When video frames are pushed to the transmitter, properties like pixel format may change on a segment-by-segment basis depending on the source footage. Other properties like size may change based on the current fractional resolution, which may differ between scrubbing and stopped.
 
@@ -26,7 +26,7 @@ When video frames are pushed to the transmitter, properties like pixel format ma
 Fractional Resolution
 ================================================================================
 
-In the Premiere Pro Source and Program Monitors, the user can choose independent resolutions for rendering during playback and paused modes. For example, it is common to have the play- back resolution set to half, and paused resolution set to full.
+In the Premiere Pro Source and Program Monitors, the user can choose independent resolutions for rendering during playback and paused modes. For example, it is common to have the playback resolution set to half, and paused resolution set to full.
 
 If an output card has a hardware scaler, the transmit plug-in can declare support for fractional resolutions. For example, for a 1920x1080 instance, it could declare support for not only
 
@@ -62,9 +62,9 @@ If the host cannot keep up rendering, it will send duplicate frames with PushVid
 Sync Between Application UI and Hardware Output
 ================================================================================
 
-Naturally there is some latency between the time the host sends frames to be displayed on the output, and the time it can actually be displayed. Use tmVideoMode.outLatency to specify the latency. For example, if a transmitter specifies 5 frames of latency, when the user starts play- back, the host will send 5 frames of video to the transmitter before sending StartPlaybackClock. This allows time for the transmitter to send frames to the hardware output in advance, so that the hardware output will be in sync with the monitor in the host application UI.
+Naturally there is some latency between the time the host sends frames to be displayed on the output, and the time it can actually be displayed. Use tmVideoMode.outLatency to specify the latency. For example, if a transmitter specifies 5 frames of latency, when the user starts playback, the host will send 5 frames of video to the transmitter before sending StartPlaybackClock. This allows time for the transmitter to send frames to the hardware output in advance, so that the hardware output will be in sync with the monitor in the host application UI.
 
-When the user is scrubbing in the timeline, send the video frames as fast as possible to the out- put. The host application UI will not wait for the hardware output to catch up, and currently as of
+When the user is scrubbing in the timeline, send the video frames as fast as possible to the output. The host application UI will not wait for the hardware output to catch up, and currently as of
 
 6.0.1 there may be a noticable latency. To reduce the scrubbing latency as much as possible, when scrubbing or stopped the transmitter should cancel any frames it has pending to immediately display the new one.
 
@@ -73,7 +73,7 @@ When the user is scrubbing in the timeline, send the video frames as fast as pos
 Dog Ears
 ================================================================================
 
-Turn on dog ears to view statistics about the frames being sent to the transmitter. This is useful to view information such as pixel formats and much more. Note that this mode may result it dupli- cate PushVideo calls made for a single frame.
+Turn on dog ears to view statistics about the frames being sent to the transmitter. This is useful to view information such as pixel formats and much more. Note that this mode may result it duplicate PushVideo calls made for a single frame.
 
 ----
 

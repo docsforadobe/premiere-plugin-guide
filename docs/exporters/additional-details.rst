@@ -30,7 +30,7 @@ In the case of the SDK Exporter sample, it adds two, which appear as a pair of r
 Guidelines for Exporters in Encore
 ================================================================================
 
-Starting in CS5, third-party exporters can now be used to transcode assets to MPEG-2 or Blu-ray compliant files. Currently, the option to choose a third-party exporter is only available on a per- clip basis, not on a project-wide basis. The user will need to right-click on an asset in the Project panel, choose Transcode Settings, and choose the third-party preset from the Quality Preset drop-down.
+Starting in CS5, third-party exporters can now be used to transcode assets to MPEG-2 or Blu-ray compliant files. Currently, the option to choose a third-party exporter is only available on a per-clip basis, not on a project-wide basis. The user will need to right-click on an asset in the Project panel, choose Transcode Settings, and choose the third-party preset from the Quality Preset drop-down.
 
 Prior to CS6, Encore was a 32-bit application. So if you are developing plug-ins for Encore CS5, use the CS5 headers to create 32-bit plug-ins. We have left the 32-bit configurations in the
 
@@ -39,14 +39,14 @@ sample projects to facilitate this. Install the exporter in the Encore applicati
 Naming Your Exporter
 ********************************************************************************
 
-Encore only uses the MPEG2-DVD and MPEG2 Blu-ray formats for transcoding to MPEG2- DVD and MPEG2 Blu-ray formats, respectively. Currently it looks for the substrings "MPEG2- DVD", "MPEG2 Blu-ray" and "H.264 Blu-ray" in the exporter name to identify the video format of the exporter, and to enable it within the Encore UI. So the format name returned from exporter plug-in should contain one of these as a substring, in order for it to be usable within Encore.
+Encore only uses the MPEG2-DVD and MPEG2 Blu-ray formats for transcoding to MPEG2-DVD and MPEG2 Blu-ray formats, respectively. Currently it looks for the substrings "MPEG2-DVD", "MPEG2 Blu-ray" and "H.264 Blu-ray" in the exporter name to identify the video format of the exporter, and to enable it within the Encore UI. So the format name returned from exporter plug-in should contain one of these as a substring, in order for it to be usable within Encore.
 
 For example "My MPEG2 Blu-ray", "Accelerated MPEG2-DVD", etc. Please avoid using the exact same names as the built-in formats to avoid conflict.
 
 Naming Your Output
 ********************************************************************************
 
-Encore uses the exporters to create elementary video and audio streams (muxing is switched to off during transcoding). The output file extensions should be standard ones: .m2v for MPEG2- DVD, MPEG2 Blu-ray video formats, .m4v for H.264 Blu-ray; .ac3 for Dolby audio, .wav for PCM, .mpa for MPEG-1 Layer 2.
+Encore uses the exporters to create elementary video and audio streams (muxing is switched to off during transcoding). The output file extensions should be standard ones: .m2v for MPEG2-DVD, MPEG2 Blu-ray video formats, .m4v for H.264 Blu-ray; .ac3 for Dolby audio, .wav for PCM, .mpa for MPEG-1 Layer 2.
 
 Parameters
 ********************************************************************************

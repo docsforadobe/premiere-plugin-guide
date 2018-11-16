@@ -42,7 +42,7 @@ Return Codes
 +-----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
 | ``exportReturn_IterateExporterDone``          | Return value from ``exSelStartup`` to indicate there are no more exporters.                                                 |
 +-----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
-| ``exportReturn_InternalErrorSilent``          | Return error code from ``exSelExport`` to put a cus- tom error message on screen just before returning control to the host. |
+| ``exportReturn_InternalErrorSilent``          | Return error code from ``exSelExport`` to put a custom error message on screen just before returning control to the host.   |
 +-----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
 | ``exportReturn_ErrCodecBadInput``             | A video codec refused the input format.                                                                                     |
 +-----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+

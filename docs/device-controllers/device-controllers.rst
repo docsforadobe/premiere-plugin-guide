@@ -3,7 +3,7 @@
 Device Controllers
 ################################################################################
 
-Device controllers drive hardware devices, such as cameras and tape decks, enabling timecode- accurate, hardware-assisted video capture and output to tape. Device controllers are used when working in the Capture and Edit to Tape panels. A device controller can implement one or more communication protocols, and should gracefully handle differences across various hardware that support the same protocol.
+Device controllers drive hardware devices, such as cameras and tape decks, enabling timecode-accurate, hardware-assisted video capture and output to tape. Device controllers are used when working in the Capture and Edit to Tape panels. A device controller can implement one or more communication protocols, and should gracefully handle differences across various hardware that support the same protocol.
 
 Device controllers are usually called by Premiere when the user is in the Capture panel or Edit to Tape panel, for example, when using the VTR transport controls in either panel to navigate through video on a VTR. But device controllers can also be driven by recorder plug-ins during
 

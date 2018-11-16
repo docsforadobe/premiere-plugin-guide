@@ -7,7 +7,7 @@ Starting in Premiere Pro CC 2014, a control surface plug-in can interface with a
 
 Compile the sample plug-in into a subfolder of the main application folder: ``Plug-ins\\ ControlSurface\\``
 
-You should see the plug-in in the PPro UI in Preferences > Control Surface, when you hit the Add button, as one of the options in the Device Class drop-down next to Mackie and EUCON (cur- rently shows as "SDK Control Surface Sample").
+You should see the plug-in in the PPro UI in Preferences > Control Surface, when you hit the Add button, as one of the options in the Device Class drop-down next to Mackie and EUCON (currently shows as "SDK Control Surface Sample").
 
 You'll want to implement handlers for any relevant functions defined in the plugin suites here: ``adobesdk\controlsurface\plugin``
 

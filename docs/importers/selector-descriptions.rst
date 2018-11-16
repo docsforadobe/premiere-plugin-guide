@@ -395,7 +395,7 @@ If the importer returns an error, it will not be called again.
 
 The second time, imCheckTrim­ Rec will have keepAudio set to a non-zero value, and the trim boundaries will represent the audio in and out points in the audio timebase, and Premiere is asking if the audio can be trimmed on these boundaries.
 
-The third time, imCheckTrimRec will have keepVideo set to a non- zero value, and the trim boundaries will represent the video in and out points in the video timebase, and Premiere is asking if the video can be trimmed on these boundaries.
+The third time, imCheckTrimRec will have keepVideo set to a non-zero value, and the trim boundaries will represent the video in and out points in the video timebase, and Premiere is asking if the video can be trimmed on these boundaries.
 
 If either the video or audio boundaries extend further than the other boundaries, Premiere will trim the file at the furthest boundary.
 

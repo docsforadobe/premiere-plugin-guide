@@ -3,7 +3,7 @@
 PrGPUFilter Function Table
 ################################################################################
 
-PrGPUFilter is a structure consisting of the following functions that a effect/transition can imple- ment.
+PrGPUFilter is a structure consisting of the following functions that a effect/transition can implement.
 
 +--------------------------+--------------+-------------------------------------------------------------------------------------------------------------------+
 |       **Selector**       | **Optional** |                                                  **Description**                                                  |

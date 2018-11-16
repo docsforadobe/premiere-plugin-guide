@@ -43,7 +43,7 @@ Abort on Dropped Frames
 
 New in CC, when using the Edit to Tape panel, this is handled transparently to the device controller. If a transmit plug-in or renderer reports dropped frames, Premiere will stop playback and send ``dsExecute``/modeStop to the device controller.
 
-In Premiere Pro CS6.0.1, or in CC if the device controller doesn't support the Edit to Tape panel, use the DroppedFrameProc callback to query the current number of frames dropped during an insert edit. A device controller can use this to provide the feature to abort an Export to Tape if frames are dropped. It can make the call regularly during Export to Tape, and if the value re- turned is non-zero, return dmExportToTapeFinished to abort playback.
+In Premiere Pro CS6.0.1, or in CC if the device controller doesn't support the Edit to Tape panel, use the DroppedFrameProc callback to query the current number of frames dropped during an insert edit. A device controller can use this to provide the feature to abort an Export to Tape if frames are dropped. It can make the call regularly during Export to Tape, and if the value returned is non-zero, return dmExportToTapeFinished to abort playback.
 
 ----
 

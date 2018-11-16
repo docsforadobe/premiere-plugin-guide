@@ -22,7 +22,7 @@ Return Codes
 +----------------------------+-----------------------------------------------------------------------------------+
 | ``dmExportToTapeFinished`` | The device controller is signaling the end of the export to tape operation.       |
 +----------------------------+-----------------------------------------------------------------------------------+
-| ``dmTapeWriteProtected``   | Return value during Export To Tape if tape is write pro- tected.                  |
+| ``dmTapeWriteProtected``   | Return value during Export To Tape if tape is write protected.                    |
 +----------------------------+-----------------------------------------------------------------------------------+
 | ``dmNoTape``               | Return value during Export To Tape if there is no tape in the deck.               |
 +----------------------------+-----------------------------------------------------------------------------------+
