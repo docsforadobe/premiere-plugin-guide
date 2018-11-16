@@ -46,32 +46,25 @@ The SDK importer demonstrates *imGetSourceVideo* because resolution dependent vi
 
 The synthetic importer sample demonstrates *imImportImage* because it generates video on-the-fly and doesn't have a preference as to video resolution.
 
-imImageInfoRec.supportsGetSourceVideo should be set to true if the importer wants to support *imGetSourceVideo*.
+``imImageInfoRec.supportsGetSourceVideo`` should be set to true if the importer wants to support *imGetSourceVideo*.
 
 ----
 
 Asynchronous Import
 ================================================================================
 
-Importers can optionally support asynchronous calls to read frames for better performance. imImageInfoRec.supportsAsyncIO should be set to true if the importer wants to support asynchronous import. The importer can implement *imCreateAsyncImporter*, which tells the importer to create an asynchronous importer object using the data provided, and store it in imA­ syncImporterCreationRec. This async importer object must implement a separate entry point from a standard importer because it does not follow the same rules as a standard importer.
+Importers can optionally support asynchronous calls to read frames for better performance. imImageInfoRec.supportsAsyncIO should be set to true if the importer wants to support asynchronous import. The importer can implement *imCreateAsyncImporter*, which tells the importer to create an asynchronous importer object using the data provided, and store it in ``imAsyncImporterCreationRec``.
+
+This async importer object must implement a separate entry point from a standard importer because it does not follow the same rules as a standard importer.
 
 All calls to AsyncImporterEntry are reentrant, except for the *aiClose* selector. *aiClose* will only be called once, but may be called while other calls are still executing. No calls will be made after *aiClose* is called.
 
 Here is an overview of the lifetime of an async importer:
 
-1.) The host calls *imOpenFile* and *imGetInfo* on the standard importer.
-
-2.) The host calls *imCreateAsyncImporter* on the standard importer. At this time, the standard importer creates the private data for the async
-
-importer. The async importer MUST NOT contain a link to the standard importer, as their lifetimes are now decoupled. The async importer, therefore, must contain copies of all relevant private data from the creator
-
-importer. The importer preferences are also guaranteed to not change during the lifetime of the async importer.
-
-3.) The host uses the async importer to perform i/o.
-
-4.) The host closes the async importer, forgetting about it. This will happen
-
-whenever the app loses focus, or when the async importer is no longer needed.
+1) The host calls *imOpenFile* and *imGetInfo* on the standard importer.
+2) The host calls *imCreateAsyncImporter* on the standard importer. At this time, the standard importer creates the private data for the async importer. The async importer MUST NOT contain a link to the standard importer, as their lifetimes are now decoupled. The async importer, therefore, must contain copies of all relevant private data from the creator importer. The importer preferences are also guaranteed to not change during the lifetime of the async importer.
+3) The host uses the async importer to perform i/o.
+4) The host closes the async importer, forgetting about it. This will happen whenever the app loses focus, or when the async importer is no longer needed.
 
 ----
 
@@ -80,7 +73,7 @@ privateData
 
 Don't use global variables to store data. Use privateData instead. Each clip can have its own privateData. The host application will automatically pass the correct privateData to the appropriate importer instance.
 
-For privateData, create a handle to the custom structure you wish to store (during *imGet­ Info8* or *imGetPrefs8*.) and save the handle to the privateData member of the structure passed in.
+For privateData, create a handle to the custom structure you wish to store (during ``imGetInfo8`` or ``imGetPrefs8``.) and save the handle to the privateData member of the structure passed in.
 
 The importer is responsible for allocating and deallocating the memory for privateData using Premiere's memory functions.
 
@@ -99,7 +92,7 @@ For a raw video clip, it could contain metadata that affects how the video is de
 
 Starting in Premiere Pro CC 2014, importers can now choose the format they are rendering in, which allows importers to change pixel formats and quality based on criteria like enabled hardware and other Clip Source Settings, such as HDR.
 
-To handle the negotiation, implement *imSe­ lectClipFrameDescriptor*.
+To handle the negotiation, implement ``imSelectClipFrameDescriptor``.
 
 Clip Source Settings can be shown on file creation (for synthetic or custom importers) or when a clip is double-clicked.
 
@@ -120,14 +113,14 @@ This is demonstrated in the SDK Custom Importer sample code.
 Showing a Video Preview in the Settings Dialog
 ********************************************************************************
 
-If a clip is placed in the timeline, and its settings dialog is opened by double-clicking in the timeline, then the import can get frames from the timeline of the settings dialog. Only the rendered frames on layers beneath the current clip or timeline location are available. Use the getPre­ viewFrameEx callback with the time given by tdbTimelocation in imGetPrefsRec. timelineData is also valid during *imGetPrefs8*.
+If a clip is placed in the timeline, and its settings dialog is opened by double-clicking in the timeline, then the import can get frames from the timeline of the settings dialog. Only the rendered frames on layers beneath the current clip or timeline location are available. Use the ``getPreviewFrameEx`` callback with the time given by tdbTimelocation in imGetPrefsRec. timelineData is also valid during *imGetPrefs8*.
 
 ----
 
 File Handling
 ================================================================================
 
-Basic importers that bring in media from a single file can rely on the host to provide basic file handling. If a clip has child files or a custom file system, an importer can provide its own file handling. Set canOpen, canSave, and canDelete to true during *imInit*, and respond to *imO­penFile8*, *imQuietFile*, *imCloseFile*, *imSaveFile8*, *imDeleteFile8*.
+Basic importers that bring in media from a single file can rely on the host to provide basic file handling. If a clip has child files or a custom file system, an importer can provide its own file handling. Set canOpen, canSave, and canDelete to true during ``imInit``, and respond to ``imOpenFile8``, *imQuietFile*, *imCloseFile*, *imSaveFile8*, *imDeleteFile8*.
 
 Use the :ref:`importers/suites.async-file-reader-suite` for cross-platform file operations.
 
@@ -158,7 +151,7 @@ Your importer would open the local video_proxy.abc file, check the header and fi
 
 https://github.com/Adobe-CEP/Samples/tree/master/PProPanel
 
-If the filetype is an existing filetype supported by Premiere Pro, then set a high value in imIm­ portInfoRec.priority to give your importer the first opportunity to handle the file.
+If the filetype is an existing filetype supported by Premiere Pro, then set a high value in ``imImportInfoRec.priority`` to give your importer the first opportunity to handle the file.
 
 For your filetype to be visible in the Proxy > Attach Proxies window, set imIndFormatRec. flags \|= xfIsMovie (this flag is labeled obsolete, but still needed for this case)
 
@@ -183,7 +176,7 @@ Starting in CS5.5, peak audio data can also optionally be provided by the import
 
 The location of the .cfa and .pek files is determined by the user-specified path in Edit > Preferences > Media > Media Cache Files. When the project is closed, the files will be cleaned up. If the source clip is not saved in the project, the associated conformed audio files will be deleted.
 
-Importers can get audio for scrubbing, playing and other timeline operations before conforming has completed, resulting in responsive audio feedback during conforming. To do this, they must support both random access and sequential access audio importing. The kSeparateSequen­ tialAudio access mode should be set in imFileInfoRec8.accessModes.
+Importers can get audio for scrubbing, playing and other timeline operations before conforming has completed, resulting in responsive audio feedback during conforming. To do this, they must support both random access and sequential access audio importing. The ``kSeparateSequentialAudio`` access mode should be set in imFileInfoRec8.accessModes.
 
 ----
 
@@ -199,11 +192,11 @@ Closed Captioning
 
 Starting in CC, importers can support closed captioning that is embedded in the source media. The built-in QuickTime importer provides this capability. Note that Premiere Pro can also import and export captions in a sidecar file (e.g. .mcc, .scc, or .xml) alongside any media file, regardless of the media file format. This does not require any specific work on the importer side.
 
-To support embedded closed captioning, set imImportInfoRec.canSupportClosed­ Captions to true. The importer should handle the following selectors: *imInitiateAsyncClosed­ CaptionScan*, *imGetNextClosedCaption*, and *imCompleteAsyncClosedCaptionScan*.
+To support embedded closed captioning, set ``imImportInfoRec.canSupportClosedCaptions`` to true. The importer should handle the following selectors: ``imInitiateAsyncClosedCaptionScan``, ``imGetNextClosedCaption``, and *imCompleteAsyncClosedCaptionScan*.
 
 *imInitiateAsyncClosedCaptionScan* will be called for every file that is imported through an importer that sets canSupportClosedCaptions to true. The plug-in should at this point determine whether or not there is closed captioning data for this file. If not, then the plug-in should simply return imNoCaptions, and everything is done. If the plug-in didn't report an error for that call, then *imGetNextClosedCaption* will be called until the plug-in returns imNoCaptions. After which, *imCompleteAsyncClosedCaptionScan* will be called informing the importer that the host is done requesting captions.
 
-Both *imGetNextClosedCaption* and *imCompleteAsyncClosedCaptionScan* may be called from a different thread from which *imInitiateAsyncClosedCaptionScan* was originally called. To help facilitate this, outAsyncCaptionScanPrivateData during *imInitiateAsyncClosedCaption­ Scan* can be allocated by the importer to be used for the upcoming calls, which can be deallocated
+Both *imGetNextClosedCaption* and *imCompleteAsyncClosedCaptionScan* may be called from a different thread from which ``imInitiateAsyncClosedCaptionScan`` was originally called. To help facilitate this, ``outAsyncCaptionScanPrivateData`` during ``imInitiateAsyncClosedCaptionScan`` can be allocated by the importer to be used for the upcoming calls, which can be deallocated
 
 in *imCompleteAsyncClosedCaptionScan*.
 
@@ -234,7 +227,7 @@ Stereoscopic Video
 
 First, an importer must advertise multiple video streams. During *imGetInfo8*, the host passes in the stream index in imFileInfoRec8.streamIdx. If the clip has a second stream, then on index 0 the importer should return imIterateStreams and it will be called again for the second stream. On the second one you return imNoErr, as before. The nice thing is that this works in Premiere Pro CS5.5 and earlier - when two video streams are present, on import, they will just appear as two different project items.
 
-Prior to CS6, an importer would need to have a prefs structure and on *imGetInfo8* it would need to store the stream index in that structure. With CS6 this is a lot simpler. Now, in the im­ SourceVideoRec (passed in *imGetSourceVideo*, and part of the *aiFrameRequest* for async importers), the host application passes in the currentStreamIndex (in the value formerly
+Prior to CS6, an importer would need to have a prefs structure and on *imGetInfo8* it would need to store the stream index in that structure. With CS6 this is a lot simpler. Now, in the ``imSourceVideoRec`` (passed in *imGetSourceVideo*, and part of the *aiFrameRequest* for async importers), the host application passes in the currentStreamIndex (in the value formerly
 
 known as unused1). This makes it much easier to just check when providing a PPix and differentiate the two streams.
 
@@ -267,9 +260,9 @@ This variant of the importer API allows importers to dynamically create disk-bas
 A Custom Importer **must** do the following:
 
 - Set the following flags true in imImportInfoRec; canCreate, canOpen, addToMenu, noFile. This tells Premiere your plug-in will create a clip on disk at *imGetPrefs8* time.
-- To determine when you need to create a new clip vs. modify an existing clip, check the im­ FileAccessRec filename. If it's identical to the plug-in display name (as set in the PiPL), create a new clip; otherwise modify the clip.
+- To determine when you need to create a new clip vs. modify an existing clip, check the ``imFileAccessRec`` filename. If it's identical to the plug-in display name (as set in the PiPL), create a new clip; otherwise modify the clip.
 - If the user cancels from your dialog when creating a new clip, return imCancel.
-- If the clip is modified, the importer needs to do a few things for Premiere to pick up the changes. Put your file access information in the supplied imFileAccessRec. Premiere will use this data to reference your clip from now on. Close the file handle after you create it. Return imSetFile after creating a file handle in *imGetPrefs8*., and call RefreshFileAsync() in the Importer
+- If the clip is modified, the importer needs to do a few things for Premiere to pick up the changes. Put your file access information in the supplied ``imFileAccessRec``. Premiere will use this data to reference your clip from now on. Close the file handle after you create it. Return imSetFile after creating a file handle in *imGetPrefs8*., and call RefreshFileAsync() in the Importer
 
 File Manager Suite to notify Premiere that the clip has been modified. Premiere will immediately call you to open the file and return a valid imFileRef. Respond to *imOpenFile8*, *imQuietFile*, *imCloseFile* at a minimum.
 
@@ -280,7 +273,7 @@ Real-Time Rolling and Crawling Titles
 
 For RT rolls and crawls, a player and importer must be specially designed to work together. An importer can implement the appropriate functionality, but it is up to the player to take advantage of it.
 
-Importers can make image data available for rolling and crawling titles, using imImageIn­ foRec.isRollCrawl. If the importer sets it to non-zero, this declares that the image is a title or other image that does roll/crawl, and that the importer supports the *imGetRollCrawlInfo* and *imRollCrawlRenderPage* selectors. *imGetRollCrawlInfo* is used to get info on the roll/crawl from the importer, and *imRollCrawlRenderPage* is used to get a rendered page of the roll/crawl.
+Importers can make image data available for rolling and crawling titles, using ``imImageInfoRec.isRollCrawl``. If the importer sets it to non-zero, this declares that the image is a title or other image that does roll/crawl, and that the importer supports the *imGetRollCrawlInfo* and *imRollCrawlRenderPage* selectors. *imGetRollCrawlInfo* is used to get info on the roll/crawl from the importer, and *imRollCrawlRenderPage* is used to get a rendered page of the roll/crawl.
 
 ----
 
@@ -381,9 +374,9 @@ Importer-Specific Callbacks
 +------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``importProgressFunc`` | Available in ``imSaveFileRec`` and ``imTrimFileRec`` during *imSaveFile8* and *imTrimFile8*.                                                         |
 |                        |                                                                                                                                                      |
-|                        | Callback function pointer for use during project archiving or trimming to call into Premiere and update the progress bar and check for cancell tion. |
+|                        | Callback function pointer for use during project archiving or trimming to call into Premiere and update the progress bar and check for cancellation. |
 |                        |                                                                                                                                                      |
-|                        | Either ``imProgressAbort`` or ``imProgressCon­`` tinue will be returned.                                                                             |
+|                        | Either ``imProgressAbort`` or ``imProgressCon`` tinue will be returned.                                                                              |
 |                        |                                                                                                                                                      |
 |                        | The trimCallbackID parameter is passed in the same structures.                                                                                       |
 +------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+

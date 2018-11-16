@@ -16,13 +16,13 @@ This table summarizes the various selector commands a video filter can receive.
 |                                |               |                                                                                                   |
 |                                |               | Display your modal setup dialog with default parameter values or previously stored values.        |
 |                                |               |                                                                                                   |
-|                                |               | Save the new values to ``spec­sHandle``.                                                          |
+|                                |               | Save the new values to ``specsHandle``.                                                           |
 +--------------------------------+---------------+---------------------------------------------------------------------------------------------------+
-| ``fsExecute``                  | No            | Filter the video using the stored parameters from ``spec­sHandle``.                               |
+| ``fsExecute``                  | No            | Filter the video using the stored parameters from ``specsHandle``.                                |
 |                                |               |                                                                                                   |
 |                                |               | Be aware of interlaced video, and don't overlook the alpha channel!                               |
 +--------------------------------+---------------+---------------------------------------------------------------------------------------------------+
-| ``fsDisposeData``              | Yes           | Dispose of any instance data created during ``fsEx­ecute``.                                       |
+| ``fsDisposeData``              | Yes           | Dispose of any instance data created during ``fsExecute``.                                        |
 +--------------------------------+---------------+---------------------------------------------------------------------------------------------------+
 | ``fsCanHandlePAR``             | Yes           | Tell Premiere how your effect handles pixel aspect ratio.                                         |
 +--------------------------------+---------------+---------------------------------------------------------------------------------------------------+

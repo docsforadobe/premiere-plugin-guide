@@ -214,16 +214,17 @@ Based on the request in ``inDesiredClipFrameDescriptor`` and the importer's Sour
     ClipFrameDescriptor  outBestFrameDescriptor;
   } imClipFrameDescriptorRec;
 
-+-----------------------------------+-------------------------------------------------------------------------+
-| ``inPrivatedata``                 | Instance data gathered from ``imGetInfo8`` or ``imGetPrefs8``.          |
-+-----------------------------------+-------------------------------------------------------------------------+
-| ``inPrefs``                       | Clip Source Settings gathered from ``imGetPrefs8`` (setup dialog info). |
-+-----------------------------------+-------------------------------------------------------------------------+
-| ``inDesiredClipFrameDe­scriptor`` | Requested frame properties, as described by the host.                   |
-|                                   | The ``ClipFrameDescriptor`` struct is defined in PrSDKImporterShared.h. |
-+-----------------------------------+-------------------------------------------------------------------------+
-| ``outBestFrameDescriptor``        | Frame properties to be produced, filled in with initial guesses         |
-+-----------------------------------+-------------------------------------------------------------------------+
++----------------------------------+-------------------------------------------------------------------------+
+| ``inPrivatedata``                | Instance data gathered from ``imGetInfo8`` or ``imGetPrefs8``.          |
++----------------------------------+-------------------------------------------------------------------------+
+| ``inPrefs``                      | Clip Source Settings gathered from ``imGetPrefs8`` (setup dialog info). |
++----------------------------------+-------------------------------------------------------------------------+
+| ``inDesiredClipFrameDescriptor`` | Requested frame properties, as described by the host.                   |
+|                                  |                                                                         |
+|                                  | The ``ClipFrameDescriptor`` struct is defined in PrSDKImporterShared.h. |
++----------------------------------+-------------------------------------------------------------------------+
+| ``outBestFrameDescriptor``       | Frame properties to be produced, filled in with initial guesses         |
++----------------------------------+-------------------------------------------------------------------------+
 
 ----
 
@@ -232,7 +233,7 @@ imCompleteAsyncClosedCaptionScanRec
 
 Selector: ``imCompleteAsyncClosedCaptionScan``
 
-This structure is passed to provide one last chance to cleanup and dispose of ``inAsyncCap­tionScanPrivateData``, and to mark whether the closed caption scan completed without error.
+This structure is passed to provide one last chance to cleanup and dispose of ``inAsyncCaptionScanPrivateData``, and to mark whether the closed caption scan completed without error.
 
 ::
 
@@ -243,17 +244,17 @@ This structure is passed to provide one last chance to cleanup and dispose of ``
     prBool       inScanCompletedWithoutError;
   } imCompleteAsyncClosedCaptionScanRec;
 
-+------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
-| ``inPrivatedata``                  | Instance data gathered from ``imGetInfo8`` or ``imGetPrefs8``.                                                                  |
-+------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
-| ``inPrefs``                        | Clip Source Settings gathered from ``imGetPrefs8`` (setup dialog info).                                                         |
-+------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
-| ``inAsyncCaption­ScanPrivateData`` | Cleanup and dispose of any data here that was allocated in ``imIni­tiateAsyncClosedCaptionScan`` or ``imGetNextClosedCaption``. |
-|                                    |                                                                                                                                 |
-|                                    | This data should not be accessed after returning from this call.                                                                |
-+------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
-| ``inScanCompleted­WithoutError``   | Set to true if no error.                                                                                                        |
-+------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
++-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
+| ``inPrivatedata``                 | Instance data gathered from ``imGetInfo8`` or ``imGetPrefs8``.                                                                 |
++-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
+| ``inPrefs``                       | Clip Source Settings gathered from ``imGetPrefs8`` (setup dialog info).                                                        |
++-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
+| ``inAsyncCaptionScanPrivateData`` | Cleanup and dispose of any data here that was allocated in ``imInitiateAsyncClosedCaptionScan`` or ``imGetNextClosedCaption``. |
+|                                   |                                                                                                                                |
+|                                   | This data should not be accessed after returning from this call.                                                               |
++-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
+| ``inScanCompletedWithoutError``   | Set to true if no error.                                                                                                       |
++-----------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
 
 ----
 
@@ -264,7 +265,7 @@ Selector: ``imGetIndColorProfile``
 
 Deprecated as of 13.0. Describes a color profile supported by a clip.
 
-The first time ``imGetIndColor­Profile`` is sent, ``inDestinationBuffer`` will be NULL, and ``ioBufferSize`` will be 0.
+The first time ``imGetIndColorProfile`` is sent, ``inDestinationBuffer`` will be NULL, and ``ioBufferSize`` will be 0.
 
 Set ``ioBufferSize`` to the required size for the buffer, and the host will allocate the memory and call the importer again, with a valid ``inDestinationBuffer``, and ``ioBufferSize`` set to the value just provided by the importer.
 
@@ -541,7 +542,7 @@ If importing stereoscopic footage, import the left-eye video channel for streamI
 |                        |                                                                                                                                                                                                                                                 |
 |                        | New in Premiere Pro 3.1, an importer may use this to set the clip name based on metadata rather than the filename.                                                                                                                              |
 |                        |                                                                                                                                                                                                                                                 |
-|                        | The importer should set ``imImportInfoRec.canSupplyMetadataClip­Name`` to true, and fill out the name here.                                                                                                                                     |
+|                        | The importer should set ``imImportInfoRec.canSupplyMetadataClipName`` to true, and fill out the name here.                                                                                                                                      |
 +------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``sessionPluginID``    | This ID should be used in the :ref:`universals/sweetpea-suites.file-registration-suite` for registering external files (such as textures, logos, etc) that are used by an importer instance but do not appear as footage in the Project Window. |
 |                        |                                                                                                                                                                                                                                                 |
@@ -555,7 +556,7 @@ If importing stereoscopic footage, import the left-eye video channel for streamI
 +------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``canProvidePeakData`` | New in Premiere Pro CS6. This allows an importer to toggle whether or not it wants to provide peak audio data on a clip-by-clip basis.                                                                                                          |
 |                        |                                                                                                                                                                                                                                                 |
-|                        | It defaults to the setting set in ``imImportInfoRec.canProvide­PeakAudio``.                                                                                                                                                                     |
+|                        | It defaults to the setting set in ``imImportInfoRec.canProvidePeakAudio``.                                                                                                                                                                      |
 +------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``mayBeGrowing``       | New in Premiere Pro CS6.0.2. Set to non-zero if this clip is growing and should be refreshed at the interval set in the Media Preferences.                                                                                                      |
 +------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -604,11 +605,21 @@ The file Premiere wants the importer to open.
 imFileRef
 ================================================================================
 
-Selectors: ``imAnalysis, imDataRateAnalysis, imOpenFile8, imQuietFile, imCloseFile, imGetTimeIn­ fo8, imSetTimeInfo8, imImportImage, imImportAudio7``
+Selectors:
+
+- ``imAnalysis``,
+- ``imDataRateAnalysis``,
+- ``imOpenFile8``,
+- ``imQuietFile``,
+- ``imCloseFile``,
+- ``imGetTimeInfo8``,
+- ``imSetTimeInfo8``,
+- ``imImportImage``,
+- ``imImportAudio7``
 
 A file HANDLE on Windows, or a void* on MacOS.
 
-``imFileRef`` is also a member of im­ ``FileAccessRec``.
+``imFileRef`` is also a member of ``imFileAccessRec``.
 
 Use OS-specific functions, rather than ANSI file functions, when manipulating imFileRef.
 
@@ -617,7 +628,9 @@ Use OS-specific functions, rather than ANSI file functions, when manipulating im
 imFrameFormat
 ================================================================================
 
-Selector: ``imGetSourceVideo`` (member of imSourceVideoRec) Describes the frame dimensions and pixel format.
+Selector: ``imGetSourceVideo`` (member of imSourceVideoRec)
+
+Describes the frame dimensions and pixel format.
 
 ::
 
@@ -686,38 +699,38 @@ This structure provides private data allocated in ``imInitiateAsyncClosedCaption
     csSDK_size_t           ioCaptionDataSize;
   } imGetNextClosedCaptionRec;
 
-+------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|         ``inPrivatedata``          |                                                                                                                                                                                              Instance data gathered from ``imGetInfo8`` or ``imGetPrefs8``.                                                                                                                                                                                              |
-+====================================+==========================================================================================================================================================================================================================================================================================================================================================================================================================================================+
-| ``inPrefs``                        | Clip Source Settings gathered from ``imGetPrefs8`` (setup dialog info).                                                                                                                                                                                                                                                                                                                                                                                  |
-+------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``inAsyncCaption­ScanPrivateData`` | This provides any private data that was allocated in ``imIniti­ateAsyncClosedCaptionScan``.                                                                                                                                                                                                                                                                                                                                                              |
-+------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``outProgress``                    | Update this value to denote the current progress iterating through all the captions. Valid values are between 0.0 and 1.0.                                                                                                                                                                                                                                                                                                                               |
-+------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``outScale``                       | The timebase of outPosition, represented as scale over sampleSize.                                                                                                                                                                                                                                                                                                                                                                                       |
-+------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``outSampleSize``                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-+------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``outPosition``                    | The position of the closed caption.                                                                                                                                                                                                                                                                                                                                                                                                                      |
-+------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``outClosedCaption­Format``        | The format of the closed captions. One of the following:                                                                                                                                                                                                                                                                                                                                                                                                 |
-|                                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-|                                    | - ``kPrClosedCaptionFormat_Undefined``                                                                                                                                                                                                                                                                                                                                                                                                                   |
-|                                    | - ``kPrClosedCaptionFormat_CEA608`` - CEA-608 byte stream                                                                                                                                                                                                                                                                                                                                                                                                |
-|                                    | - ``kPrClosedCaptionFormat_CEA708`` - CEA-708 byte stream (may contain 608 data wrapped in 708)                                                                                                                                                                                                                                                                                                                                                          |
-|                                    | - ``kPrClosedCaptionFormat_TTML`` - W3C TTML string that conforms to the W3C Timed Text Markup Language (TTML) 1.0: `http://www.w3.org/TR/ttaf1-dfxp <http://www.w3.org/TR/ttaf1-dfxp/>`__ or optionally conforming to SMPTE ST 2052-1:2010: `hhttp://store.smpte.org/ <http://store.smpte.org/>`__, or optionally conforming to EBU Tech 3350 `http://tech.ebu.ch/webdav/site/tech/shared/tech/ <http://tech.ebu.ch/webdav/site/tech/shared/tech/>`__). |
-|                                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-|                                    | If the TTML string contains tunneled data (e.g. CEA-608 data), then it is preferred that the plug-in provide that through the appropriate byte stream format (e.g. ``kPrClosedCaptionFor­mat_CEA608``).                                                                                                                                                                                                                                                  |
-+------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``outCaptionData``                 | Memory location to where the plug-in should write the closed caption bytes, if providing CEA-608 or CEA-708.                                                                                                                                                                                                                                                                                                                                             |
-+------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``outTTMLData``                    | UTF-8 String of valid W3C TTML data.                                                                                                                                                                                                                                                                                                                                                                                                                     |
-|                                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-|                                    | The entire string may be split into substrings (e.g. line by line) and the host will concatenate and decode them (only used when outCaptionData is kPrClosedCaptionFormat_TTML).                                                                                                                                                                                                                                                                         |
-+------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``ioCaptionDataSize``              | ``Size`` of outCaptionData buffer (in bytes) allocated from the host. The importer should set this variable to the actual number of bytes that were written to outCaptionData, or the length of the string (characters, not bytes) pointed by outTTMLData.                                                                                                                                                                                               |
-+------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|         ``inPrivatedata``         |                                                                                                                                                                                              Instance data gathered from ``imGetInfo8`` or ``imGetPrefs8``.                                                                                                                                                                                              |
++===================================+==========================================================================================================================================================================================================================================================================================================================================================================================================================================================+
+| ``inPrefs``                       | Clip Source Settings gathered from ``imGetPrefs8`` (setup dialog info).                                                                                                                                                                                                                                                                                                                                                                                  |
++-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``inAsyncCaptionScanPrivateData`` | This provides any private data that was allocated in ``imInitiateAsyncClosedCaptionScan``.                                                                                                                                                                                                                                                                                                                                                               |
++-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``outProgress``                   | Update this value to denote the current progress iterating through all the captions. Valid values are between 0.0 and 1.0.                                                                                                                                                                                                                                                                                                                               |
++-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``outScale``                      | The timebase of outPosition, represented as scale over sampleSize.                                                                                                                                                                                                                                                                                                                                                                                       |
++-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``outSampleSize``                 |                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
++-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``outPosition``                   | The position of the closed caption.                                                                                                                                                                                                                                                                                                                                                                                                                      |
++-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``outClosedCaptionFormat``        | The format of the closed captions. One of the following:                                                                                                                                                                                                                                                                                                                                                                                                 |
+|                                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+|                                   | - ``kPrClosedCaptionFormat_Undefined``                                                                                                                                                                                                                                                                                                                                                                                                                   |
+|                                   | - ``kPrClosedCaptionFormat_CEA608`` - CEA-608 byte stream                                                                                                                                                                                                                                                                                                                                                                                                |
+|                                   | - ``kPrClosedCaptionFormat_CEA708`` - CEA-708 byte stream (may contain 608 data wrapped in 708)                                                                                                                                                                                                                                                                                                                                                          |
+|                                   | - ``kPrClosedCaptionFormat_TTML`` - W3C TTML string that conforms to the W3C Timed Text Markup Language (TTML) 1.0: `http://www.w3.org/TR/ttaf1-dfxp <http://www.w3.org/TR/ttaf1-dfxp/>`__ or optionally conforming to SMPTE ST 2052-1:2010: `hhttp://store.smpte.org/ <http://store.smpte.org/>`__, or optionally conforming to EBU Tech 3350 `http://tech.ebu.ch/webdav/site/tech/shared/tech/ <http://tech.ebu.ch/webdav/site/tech/shared/tech/>`__). |
+|                                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+|                                   | If the TTML string contains tunneled data (e.g. CEA-608 data), then it is preferred that the plug-in provide that through the appropriate byte stream format (e.g. ``kPrClosedCaptionFormat_CEA608``).                                                                                                                                                                                                                                                   |
++-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``outCaptionData``                | Memory location to where the plug-in should write the closed caption bytes, if providing CEA-608 or CEA-708.                                                                                                                                                                                                                                                                                                                                             |
++-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``outTTMLData``                   | UTF-8 String of valid W3C TTML data.                                                                                                                                                                                                                                                                                                                                                                                                                     |
+|                                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+|                                   | The entire string may be split into substrings (e.g. line by line) and the host will concatenate and decode them (only used when outCaptionData is kPrClosedCaptionFormat_TTML).                                                                                                                                                                                                                                                                         |
++-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``ioCaptionDataSize``             | ``Size`` of outCaptionData buffer (in bytes) allocated from the host. The importer should set this variable to the actual number of bytes that were written to outCaptionData, or the length of the string (characters, not bytes) pointed by outTTMLData.                                                                                                                                                                                               |
++-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ----
 
@@ -752,7 +765,7 @@ If you are creating media, you can may generate a video preview that includes th
 +-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``prefs``               | A pointer to a private structure (which you allocate) for storing Clip Source Settings.                                                                                                                                                        |
 +-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``prefsLength``         | Prior to storing anything in the prefs member, set pref­ sLength to the size of your structure and return imNoErr; Premiere will re-size and call the plug-in again with ``imGet­Prefs8``.                                                     |
+| ``prefsLength``         | Prior to storing anything in the prefs member, set prefsLength to the size of your structure and return imNoErr; Premiere will re-size and call the plug-in again with ``imGetPrefs8``.                                                        |
 +-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``firstTime``           | If set, ``imGetPrefs8`` is being sent for the first time.                                                                                                                                                                                      |
 |                         |                                                                                                                                                                                                                                                |
@@ -911,74 +924,74 @@ Time Info
 Format Info
 ********************************************************************************
 
-+------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``depth``                    | Bits per pixel. This currently has no effect and should be left unchanged.                                                                         |
-+------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``subType``                  | The four character code of the file's codec; associates files with MAL plug-ins. For uncompressed files, set to imUncom­ pressed.                  |
-+------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``fieldType``                | One of the following:                                                                                                                              |
-|                              |                                                                                                                                                    |
-|                              | - ``prFieldsNone``                                                                                                                                 |
-|                              | - ``prFieldsUpperFirst``                                                                                                                           |
-|                              | - ``prFieldsLowerFirst``                                                                                                                           |
-|                              | - ``prFieldsUnknown``                                                                                                                              |
-+------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``fieldsStacked``            | Fields are present, and not interlaced.                                                                                                            |
-+------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``alphaType``                | Used when depth is 32 or greater. One of the following:                                                                                            |
-|                              |                                                                                                                                                    |
-|                              | - ``alphaNone`` - no alpha channel (the default)                                                                                                   |
-|                              | - ``alphaStraight`` - straight alpha channel                                                                                                       |
-|                              | - ``alphaBlackMatte`` - premultiplied with black                                                                                                   |
-|                              | - ``alphaWhiteMatte`` - premultiplied with white                                                                                                   |
-|                              | - ``alphaArbitrary`` - premultiplied with the color specified in matteColor                                                                        |
-|                              | - ``alphaOpaque`` - for video with alpha channel prefilled to opaque.                                                                              |
-|                              |                                                                                                                                                    |
-|                              | This gives Premiere the opportunity to make an optimization by skipping the fill to opaque that would otherwise be performed if alphaNone was set. |
-+------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``matteColor``               | ``Newly`` used in Premiere Pro CS3. Used to specify matte color if ``alphaType`` is set to ``alphaArbitrary``.                                     |
-+------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``alphaInverted``            | If non-zero, alpha is treated as inverted (e.g. black becomes transparent).                                                                        |
-+------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``canTransform``             | Set to non-zero value to specify this importer handles resolution independent files and can apply a transform matrix.                              |
-|                              |                                                                                                                                                    |
-|                              | The matrix will be passed during the import request in ``imImportImag­eRec.transform``.                                                            |
-|                              |                                                                                                                                                    |
-|                              | This code path is currently not called by Premiere Pro. After Effects uses this call to import Flash video.                                        |
-+------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``interpretationUn­certain`` | Use an 'or' operator to combine any of the following flags:                                                                                        |
-|                              |                                                                                                                                                    |
-|                              | - ``imPixelAspectRatioUncertain``                                                                                                                  |
-|                              | - ``imFieldTypeUncertain``                                                                                                                         |
-|                              | - ``imAlphaInfoUncertain``                                                                                                                         |
-|                              | - ``imEmbeddedColorProfileUncertain``                                                                                                              |
-+------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``colorProfileSupport``      | Deprecated as of 13.0. New in CS5.5.                                                                                                               |
-|                              |                                                                                                                                                    |
-|                              | Set to ``imColorProfileSupport_Fixed`` to support color management.                                                                                |
-|                              | If the importer is uncertain, it should use ``interpretationUncertain`` above instead.                                                             |
-+------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``codecDescription``         | Text description of the codec in use.                                                                                                              |
-+------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``ColorProfileRec``          | New in 13.0; describes the color profile being used by the importer, with this media.                                                              |
-+------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
++-----------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``depth``                   | Bits per pixel. This currently has no effect and should be left unchanged.                                                                         |
++-----------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``subType``                 | The four character code of the file's codec; associates files with MAL plug-ins. For uncompressed files, set to ``imUncompressed``.                |
++-----------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``fieldType``               | One of the following:                                                                                                                              |
+|                             |                                                                                                                                                    |
+|                             | - ``prFieldsNone``                                                                                                                                 |
+|                             | - ``prFieldsUpperFirst``                                                                                                                           |
+|                             | - ``prFieldsLowerFirst``                                                                                                                           |
+|                             | - ``prFieldsUnknown``                                                                                                                              |
++-----------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``fieldsStacked``           | Fields are present, and not interlaced.                                                                                                            |
++-----------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``alphaType``               | Used when depth is 32 or greater. One of the following:                                                                                            |
+|                             |                                                                                                                                                    |
+|                             | - ``alphaNone`` - no alpha channel (the default)                                                                                                   |
+|                             | - ``alphaStraight`` - straight alpha channel                                                                                                       |
+|                             | - ``alphaBlackMatte`` - premultiplied with black                                                                                                   |
+|                             | - ``alphaWhiteMatte`` - premultiplied with white                                                                                                   |
+|                             | - ``alphaArbitrary`` - premultiplied with the color specified in matteColor                                                                        |
+|                             | - ``alphaOpaque`` - for video with alpha channel prefilled to opaque.                                                                              |
+|                             |                                                                                                                                                    |
+|                             | This gives Premiere the opportunity to make an optimization by skipping the fill to opaque that would otherwise be performed if alphaNone was set. |
++-----------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``matteColor``              | ``Newly`` used in Premiere Pro CS3. Used to specify matte color if ``alphaType`` is set to ``alphaArbitrary``.                                     |
++-----------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``alphaInverted``           | If non-zero, alpha is treated as inverted (e.g. black becomes transparent).                                                                        |
++-----------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``canTransform``            | Set to non-zero value to specify this importer handles resolution independent files and can apply a transform matrix.                              |
+|                             |                                                                                                                                                    |
+|                             | The matrix will be passed during the import request in ``imImportImageRec.transform``.                                                             |
+|                             |                                                                                                                                                    |
+|                             | This code path is currently not called by Premiere Pro. After Effects uses this call to import Flash video.                                        |
++-----------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``interpretationUncertain`` | Use an 'or' operator to combine any of the following flags:                                                                                        |
+|                             |                                                                                                                                                    |
+|                             | - ``imPixelAspectRatioUncertain``                                                                                                                  |
+|                             | - ``imFieldTypeUncertain``                                                                                                                         |
+|                             | - ``imAlphaInfoUncertain``                                                                                                                         |
+|                             | - ``imEmbeddedColorProfileUncertain``                                                                                                              |
++-----------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``colorProfileSupport``     | Deprecated as of 13.0. New in CS5.5.                                                                                                               |
+|                             |                                                                                                                                                    |
+|                             | Set to ``imColorProfileSupport_Fixed`` to support color management.                                                                                |
+|                             | If the importer is uncertain, it should use ``interpretationUncertain`` above instead.                                                             |
++-----------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``codecDescription``        | Text description of the codec in use.                                                                                                              |
++-----------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``ColorProfileRec``         | New in 13.0; describes the color profile being used by the importer, with this media.                                                              |
++-----------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Unused
 ********************************************************************************
 
-+--------------------------+------------------------------------------------------------------------------------------------------------------+
-| ``pixelAspectV1``        | Obsolete. Maintained for backwards compatability.                                                                |
-|                          |                                                                                                                  |
-|                          | Plug-ins written for the Premiere 6.x or Premiere Pro API should use ``pix­elAspectNum`` and ``pixelAspectDen``. |
-+--------------------------+------------------------------------------------------------------------------------------------------------------+
-| ``isVectors``            | Use ``canTransform`` instead.                                                                                    |
-+--------------------------+------------------------------------------------------------------------------------------------------------------+
-| ``drawsExternal``        |                                                                                                                  |
-+--------------------------+------------------------------------------------------------------------------------------------------------------+
-| ``canForceInternalDraw`` |                                                                                                                  |
-+--------------------------+------------------------------------------------------------------------------------------------------------------+
-| ``dontObscure``          |                                                                                                                  |
-+--------------------------+------------------------------------------------------------------------------------------------------------------+
++--------------------------+-----------------------------------------------------------------------------------------------------------------+
+| ``pixelAspectV1``        | Obsolete. Maintained for backwards compatability.                                                               |
+|                          |                                                                                                                 |
+|                          | Plug-ins written for the Premiere 6.x or Premiere Pro API should use ``pixelAspectNum`` and ``pixelAspectDen``. |
++--------------------------+-----------------------------------------------------------------------------------------------------------------+
+| ``isVectors``            | Use ``canTransform`` instead.                                                                                   |
++--------------------------+-----------------------------------------------------------------------------------------------------------------+
+| ``drawsExternal``        |                                                                                                                 |
++--------------------------+-----------------------------------------------------------------------------------------------------------------+
+| ``canForceInternalDraw`` |                                                                                                                 |
++--------------------------+-----------------------------------------------------------------------------------------------------------------+
+| ``dontObscure``          |                                                                                                                 |
++--------------------------+-----------------------------------------------------------------------------------------------------------------+
 
 ----
 
@@ -1122,7 +1135,7 @@ Frame Info
 +--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``alphaBounds``    | This is the rect outside of which the alpha is always 0. Simply do not alter this field if the alpha bounds match the destination bounds.                                                                                             |
 |                    |                                                                                                                                                                                                                                       |
-|                    | If set, the alpha bounds must be contained by the destination bounds. This is only currently used when a plug-in calls ppixGetAlph­ aBounds, and not currently used by any native plug-ins.                                           |
+|                    | If set, the alpha bounds must be contained by the destination bounds. This is only currently used when a plug-in calls ``ppixGetAlphaBounds``, and not currently used by any native plug-ins.                                         |
 +--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``applyTransform`` | New in After Effects CS3. Not currently provided by Premiere.                                                                                                                                                                         |
 |                    |                                                                                                                                                                                                                                       |
@@ -1236,35 +1249,35 @@ Memory Handling Flags
 Other
 ********************************************************************************
 
-+--------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-| ``priority``                   | Determines priority levels for importers that handle the same filetype.                                                                     |
-|                                |                                                                                                                                             |
-|                                | Importers with higher numbers will override importers with lower numbers.                                                                   |
-|                                |                                                                                                                                             |
-|                                | For overriding importers that ship with Premiere, use a value of 100 or greater.                                                            |
-|                                |                                                                                                                                             |
-|                                | Higher-priority importers can defer files to lower-priority importers by returning imBad­ File during ``imOpenFile8`` or ``imGetInfo8``.    |
-+--------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-| ``importType``                 | Type identifier for the import module assigned based on the plug-in's IMPT resource.                                                        |
-|                                |                                                                                                                                             |
-|                                | Do not modify this field.                                                                                                                   |
-+--------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-| ``canProvideClosed­Captions``  | New in Premiere Pro CC. Set this to true if the importer supports media with embedded closed captioning.                                    |
-+--------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-| ``avoidAudioConform``          | Set this to true if the importer supports fast audio retrieval and does not need the audio clips it imports to be conformed.                |
-+--------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-| ``canProvidePeakAudio``        | New in Premiere Pro CS5.5. Set this to true if your non-synthetic importer wants to provide **peak audio data** using ``imGetPeakAu­dio``.  |
-+--------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-| ``acceleratorFileExt``         | Fill this prUTF16Char array of size 256 with the file extensions of accelerator files that the importer creates and uses.                   |
-+--------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-| ``canSupplyMetadata­ClipName`` | Allows file based importer to set clip name from metadata.                                                                                  |
-|                                |                                                                                                                                             |
-|                                | Set this in ``imFileInfoRec8.streamName``.                                                                                                  |
-+--------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-| ``canProvideFileList``         | New in CS6. Set this to true if the importer will provide a list of all files for a copy operation in response to ``imQueryInputFileList``. |
-+--------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-| ``fileInfoVersion``            | New in CC 2014. This is used by an optimization in an internal importer. Do not use.                                                        |
-+--------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| ``priority``                  | Determines priority levels for importers that handle the same filetype.                                                                     |
+|                               |                                                                                                                                             |
+|                               | Importers with higher numbers will override importers with lower numbers.                                                                   |
+|                               |                                                                                                                                             |
+|                               | For overriding importers that ship with Premiere, use a value of 100 or greater.                                                            |
+|                               |                                                                                                                                             |
+|                               | Higher-priority importers can defer files to lower-priority importers by returning ``imBadFile`` during ``imOpenFile8`` or ``imGetInfo8``.  |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| ``importType``                | Type identifier for the import module assigned based on the plug-in's IMPT resource.                                                        |
+|                               |                                                                                                                                             |
+|                               | Do not modify this field.                                                                                                                   |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| ``canProvideClosedCaptions``  | New in Premiere Pro CC. Set this to true if the importer supports media with embedded closed captioning.                                    |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| ``avoidAudioConform``         | Set this to true if the importer supports fast audio retrieval and does not need the audio clips it imports to be conformed.                |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| ``canProvidePeakAudio``       | New in Premiere Pro CS5.5. Set this to true if your non-synthetic importer wants to provide **peak audio data** using ``imGetPeakAudio``.   |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| ``acceleratorFileExt``        | Fill this prUTF16Char array of size 256 with the file extensions of accelerator files that the importer creates and uses.                   |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| ``canSupplyMetadataClipName`` | Allows file based importer to set clip name from metadata.                                                                                  |
+|                               |                                                                                                                                             |
+|                               | Set this in ``imFileInfoRec8.streamName``.                                                                                                  |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| ``canProvideFileList``        | New in CS6. Set this to true if the importer will provide a list of all files for a copy operation in response to ``imQueryInputFileList``. |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| ``fileInfoVersion``           | New in CC 2014. This is used by an optimization in an internal importer. Do not use.                                                        |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
 
 Unused
 ********************************************************************************
@@ -1371,13 +1384,13 @@ Describes the pixel format(s) supported by the importer.
     const void*    prefs;
   } imIndPixelFormatRec;
 
-+--------------------+---------------------------------------------------------------------------------------+
-| ``privatedata``    | Instance data from ``imGetInfo8`` or ``imGetPrefs8``.                                 |
-+--------------------+---------------------------------------------------------------------------------------+
-| ``outPixelFormat`` | One of the pixel formats supported by the importer                                    |
-+--------------------+---------------------------------------------------------------------------------------+
-| ``prefs``          | New in CC. Clip Source Settings data gathered during ``imGet­Prefs8`` (setup dialog). |
-+--------------------+---------------------------------------------------------------------------------------+
++--------------------+--------------------------------------------------------------------------------------+
+| ``privatedata``    | Instance data from ``imGetInfo8`` or ``imGetPrefs8``.                                |
++--------------------+--------------------------------------------------------------------------------------+
+| ``outPixelFormat`` | One of the pixel formats supported by the importer                                   |
++--------------------+--------------------------------------------------------------------------------------+
+| ``prefs``          | New in CC. Clip Source Settings data gathered during ``imGetPrefs8`` (setup dialog). |
++--------------------+--------------------------------------------------------------------------------------+
 
 ----
 
@@ -1388,7 +1401,7 @@ Selector: ``imInitiateAsyncClosedCaptionScan``
 
 Both ``imGetNextClosedCaption`` and ``imCompleteAsyncClosedCaptionScan`` may be called from a different thread from which imInitiateAsyncClosedCaptionScan was originally called.
 
-To help facilitate this, outAsyncCaptionScanPrivateData can be allocated by the importer to be used for the upcoming closed caption scan calls, which should then be deallocated in ``imComple­teAsyncClosedCaptionScan``.
+To help facilitate this, outAsyncCaptionScanPrivateData can be allocated by the importer to be used for the upcoming closed caption scan calls, which should then be deallocated in ``imCompleteAsyncClosedCaptionScan``.
 
 The estimated duration of all the closed captions can also be filled in.
 
@@ -1405,19 +1418,19 @@ This is useful for certain cases where the embedded captions contain many frames
     csSDK_int64  outEstimatedDuration;
   } imInitiateAsyncClosedCaptionScanRec;
 
-+-------------------------------------+-------------------------------------------------------------------------------------------------+
-| ``privatedata``                     | Instance data gathered during ``imGetInfo8`` or ``imGetPrefs8``.                                |
-+-------------------------------------+-------------------------------------------------------------------------------------------------+
-| ``prefs``                           | Clip Source Settings data gathered during ``imGetPrefs8`` (setup dialog).                       |
-+-------------------------------------+-------------------------------------------------------------------------------------------------+
-| ``outAsyncCaptionScan­PrivateData`` | The importer can allocate instance data for this closed caption scan, and pass it back here.    |
-+-------------------------------------+-------------------------------------------------------------------------------------------------+
-| ``outScale``                        | New in CC October 2013. The frame rate of the video clip, represented as scale over sampleSize. |
-+-------------------------------------+-------------------------------------------------------------------------------------------------+
-| ``outSampleSize``                   |                                                                                                 |
-+-------------------------------------+-------------------------------------------------------------------------------------------------+
-| ``outEstimatedDuration``            | New in CC October 2013. The estimated duration of all the captions, in the above timescale      |
-+-------------------------------------+-------------------------------------------------------------------------------------------------+
++------------------------------------+-------------------------------------------------------------------------------------------------+
+| ``privatedata``                    | Instance data gathered during ``imGetInfo8`` or ``imGetPrefs8``.                                |
++------------------------------------+-------------------------------------------------------------------------------------------------+
+| ``prefs``                          | Clip Source Settings data gathered during ``imGetPrefs8`` (setup dialog).                       |
++------------------------------------+-------------------------------------------------------------------------------------------------+
+| ``outAsyncCaptionScanPrivateData`` | The importer can allocate instance data for this closed caption scan, and pass it back here.    |
++------------------------------------+-------------------------------------------------------------------------------------------------+
+| ``outScale``                       | New in CC October 2013. The frame rate of the video clip, represented as scale over sampleSize. |
++------------------------------------+-------------------------------------------------------------------------------------------------+
+| ``outSampleSize``                  |                                                                                                 |
++------------------------------------+-------------------------------------------------------------------------------------------------+
+| ``outEstimatedDuration``           | New in CC October 2013. The estimated duration of all the captions, in the above timescale      |
++------------------------------------+-------------------------------------------------------------------------------------------------+
 
 ----
 
@@ -1546,7 +1559,7 @@ imQueryDestinationPathRec
 
 Selector: ``imQueryDestinationPath``
 
-Fill in the desired ``outActualDestinationPath``, based on the ``inSourcePath`` and in­ ``SuggestedDestinationPath``.
+Fill in the desired ``outActualDestinationPath``, based on the ``inSourcePath`` and ``inSuggestedDestinationPath``.
 
 ::
 
@@ -1558,17 +1571,17 @@ Fill in the desired ``outActualDestinationPath``, based on the ``inSourcePath`` 
     prUTF16Char        *outActualDestinationPath;
   } imQueryDestinationPathRec;
 
-+---------------------------------+------------------------------------------------------------------------------+
-| ``inPrivateData``               | Instance data gathered during ``imGetInfo8`` or ``imGetPrefs8``.             |
-+---------------------------------+------------------------------------------------------------------------------+
-| ``inPrefs``                     | Clip Source Settings data gathered during ``imGetPrefs8`` (setup dialog).    |
-+---------------------------------+------------------------------------------------------------------------------+
-| ``inSourcePath``                | The path of the source file to be trimmed                                    |
-+---------------------------------+------------------------------------------------------------------------------+
-| ``inSuggestedDesti­nationPath`` | The path suggested by Premiere where the destination file should be created. |
-+---------------------------------+------------------------------------------------------------------------------+
-| ``outActualDestina­tionPath``   | The path where the importer wants the destination file to be created.        |
-+---------------------------------+------------------------------------------------------------------------------+
++--------------------------------+------------------------------------------------------------------------------+
+| ``inPrivateData``              | Instance data gathered during ``imGetInfo8`` or ``imGetPrefs8``.             |
++--------------------------------+------------------------------------------------------------------------------+
+| ``inPrefs``                    | Clip Source Settings data gathered during ``imGetPrefs8`` (setup dialog).    |
++--------------------------------+------------------------------------------------------------------------------+
+| ``inSourcePath``               | The path of the source file to be trimmed                                    |
++--------------------------------+------------------------------------------------------------------------------+
+| ``inSuggestedDestinationPath`` | The path suggested by Premiere where the destination file should be created. |
++--------------------------------+------------------------------------------------------------------------------+
+| ``outActualDestinationPath``   | The path where the importer wants the destination file to be created.        |
++--------------------------------+------------------------------------------------------------------------------+
 
 ----
 

@@ -61,7 +61,7 @@ exSelValidateParamChanged
 
 Validate any parameters that have changed. Based on a change to a parameter value, the exporter may update other parameter values, or show/hide certain parameter controls, using the :ref:`exporters/suites.export-param-suite`.
 
-To notify the host that the plug-in is changing other parameters, set exParam­ ``ChangedRec.rebuildAllParams`` to a non-zero value.
+To notify the host that the plug-in is changing other parameters, set ``exParamChangedRec.rebuildAllParams`` to a non-zero value.
 
 ----
 
@@ -87,7 +87,7 @@ The ID of the button pressed is passed in ``exParamButtonRec.buttonParamIdentifi
 
 Display any dialog using platform-specific UI, collect any user input, and save any changes back to ``privateData``.
 
-If the user cancels the dialog, return ``expor­tReturn_ParamButtonCancel`` to signify that nothing in the ``privateData`` has changed.
+If the user cancels the dialog, return ``exportReturn_ParamButtonCancel`` to signify that nothing in the ``privateData`` has changed.
 
 ----
 
@@ -115,7 +115,7 @@ exSelQueryExportFileExtension
 
 For exporters that support more than one file extension, specify an extension given the file type.
 
-If this selector is not supported by the exporter, the extension is specified by the exporter in exEx­ porterInfoRec.fileTypeDefaultExtension.
+If this selector is not supported by the exporter, the extension is specified by the exporter in ``exExporterInfoRec.fileTypeDefaultExtension``.
 
 ----
 

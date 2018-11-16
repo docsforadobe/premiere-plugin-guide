@@ -57,18 +57,20 @@ Importers can now bring in stereoscopic footage as a single clip with separate l
 
 With some additional work, importers can now support growing files. The refresh rate for growing files is set by the user in Preferences > Media > Growing Files. The importer should get the refresh rate using the new call GetGrowingFileRefreshInterval() in the Importer File Manager Suite. It should call RefreshFileAsync() to refresh the file.
 
-A new selector, *imQueryInputFileList*, was added to support Collect Files in After Effects for file types that use more than a single file. In imImportInfoRec, a new member, canProvide­ FileList, specifies whether the importer can provide a list of all files for a copy operation. If the importer does not implement this selector, the host will assume the media just uses a single file at the original imported media path.
+A new selector, *imQueryInputFileList*, was added to support Collect Files in After Effects for file types that use more than a single file. In imImportInfoRec, a new member, ``canProvideFileList``, specifies whether the importer can provide a list of all files for a copy operation. If the importer does not implement this selector, the host will assume the media just uses a single file at the original imported media path.
 
 The Media Accelerator Suite is now at version 4. FindPathInDatabaseAndValidateContentState provides a new way to find existing media accelerators, making sure they are up-to-date.
 
-Importers can now choose whether or not they want to provide peak audio data on a clip-by-clip basis. The importer-wide setting still remains in imImportInfoRec.canProvidePeak­ Audio, but an importer can override the general setting by setting imFileInfoRec8.can­ ProvidePeakAudio appropriately.
+Importers can now choose whether or not they want to provide peak audio data on a clip-by-clip basis.
+
+The importer-wide setting still remains in ``imImportInfoRec.canProvidePeakAudio``, but an importer can override the general setting by setting ``imFileInfoRec8.canProvidePeakAudio`` appropriately.
 
 ----
 
 What's New in Premiere Pro CS5.5?
 ================================================================================
 
-Importers can now support color management, when running in After Effects. The importer should set imImageInfoRec.colorProfileSupport to imColorProfileSupport\_ Fixed, and then describe the color profiles supported by the clip using the new *imGetIndColor­ Profile* selector. When importing the frame, specify the color profile in imSourceVideoRec. selectedColorProfileName. The :ref:`universals/sweetpea-suites.ppix-cache-suite` has been updated to differentiate between color profiles as well.
+Importers can now support color management, when running in After Effects. The importer should set imImageInfoRec.colorProfileSupport to imColorProfileSupport\_ Fixed, and then describe the color profiles supported by the clip using the new ``imGetIndColorProfile`` selector. When importing the frame, specify the color profile in imSourceVideoRec. selectedColorProfileName. The :ref:`universals/sweetpea-suites.ppix-cache-suite` has been updated to differentiate between color profiles as well.
 
 New canProvidePeakAudio flag to allow an importer to provide peak audio data by responding to *imGetPeakAudio*.
 
@@ -87,9 +89,19 @@ RefreshFileAsync(), to be able to update a clip after it is modified in *imGetPr
 
 Two new selectors have been added. *imQueryDestinationPath* allows importers that trim or copy files to be able to change the destination path of the trimmed or copy file. *imQueryContentState* gives the host an alternate way of checking the state of a clip, for clips that have multiple source files. A new return value, inFileNotAvailable can be returned from *imQueryContentState* if the clip is no longer available because it is offline or has been deleted.
 
-As a convenience, when a file is opened, an importer can tell Premiere Pro how much memory to reserve for the importer's usage, rather than calling ReserveMemory in the :ref:`universals/sweetpea-suites.memory-manager-suite`. The importer should pass back this value in imFileOpenRec8.outExtraMemory­ Usage.
+As a convenience, when a file is opened, an importer can tell Premiere Pro how much memory to reserve for the importer's usage, rather than calling ReserveMemory in the :ref:`universals/sweetpea-suites.memory-manager-suite`. The importer should pass back this value in ``imFileOpenRec8.outExtraMemoryUsage``.
 
-Several new return values are available for more descriptive error reporting: imBadHeader, imUnsupportedCompression, imFileOpenFailed, imFileHasNoImporta­ bleStreams, imFileReadFailed, imUnsupportedAudioFormat, imUnsupport­ edVideoBitDepth, imDecompressionError, and imInvalidPreferences.
+Several new return values are available for more descriptive error reporting:
+
+- ``imBadHeader``,
+- ``imUnsupportedCompression``,
+- ``imFileOpenFailed``,
+- ``imFileHasNoImportableStreams``,
+- ``imFileReadFailed``,
+- ``imUnsupportedAudioFormat``,
+- ``imUnsupportedVideoBitDepth``,
+- ``imDecompressionError``, and
+- ``imInvalidPreferences``
 
 ----
 
@@ -98,7 +110,7 @@ What's New in Premiere Pro CS4?
 
 For CS4 only, importers are loaded and called from a separate process. As a result of being in a separate process, (1) all importers must do their own file handling, (2) privateData is no
 
-longer accessible from *imGetPrefs8*, and (3) the compressed frame selectors such as *imGetCom­ pressedFrame* are no longer supported (this may now be achieved using custom pixel formats and a renderer plug-in).
+longer accessible from *imGetPrefs8*, and (3) the compressed frame selectors such as ``imGetCompressedFrame`` are no longer supported (this may now be achieved using custom pixel formats and a renderer plug-in).
 
 To debug importers, attach to the ImporterProcessServer process. There is also a separate Importer Process Plugin Loading.log.
 
@@ -127,18 +139,18 @@ What's New in Premiere Pro CS3?
 
 Importers can specify an initial poster frame for a clip in imImageInfoRec.
 
-Importers can specify subtype names during the new *imGetSubTypeNames* selector. This selector is sent after each *imGetIndFormat*, which gives an importer the opportunity to enumerate all the fourCCs and display names (e.g. "Cinepak") of their known compression types for a specific filetype. The importer can return imUnsupported, or create an array of imSubTypeDe­ scriptionRec records (pairs of fourCCs and codec name strings) for all the codecs/subtypes it knows about.
+Importers can specify subtype names during the new *imGetSubTypeNames* selector. This selector is sent after each *imGetIndFormat*, which gives an importer the opportunity to enumerate all the fourCCs and display names (e.g. "Cinepak") of their known compression types for a specific filetype. The importer can return imUnsupported, or create an array of ``imSubTypeDescriptionRec`` records (pairs of fourCCs and codec name strings) for all the codecs/subtypes it knows about.
 
-Importers that open their own files should specify how many files they keep open between *imO­ penFile8* and *imQuietFile* using the new Importer File Manager Suite, if the number is not equal to one. Importers that don't open their own files, or importers that only open a single file should not use this suite. Premiere's File Manager now keeps track of the number of files held open by importers, and limits the number open at a time by closing the least recently used files when too many are open. On Windows, this helps memory usage, but on Mac OS this addresses a whole class of bugs that may occur when too many files are open.
+Importers that open their own files should specify how many files they keep open between ``imOpenFile8`` and ``imQuietFile`` using the new Importer File Manager Suite, if the number is not equal to one. Importers that don't open their own files, or importers that only open a single file should not use this suite. Premiere's File Manager now keeps track of the number of files held open by importers, and limits the number open at a time by closing the least recently used files when too many are open. On Windows, this helps memory usage, but on Mac OS this addresses a whole class of bugs that may occur when too many files are open.
 
-Importers can also specify that certain files have very high memory usage, by setting im­ FileInfoRec8.highMemUsage. The number of files allowed to be open with this flag set to true is currently capped at 5.
+Importers can also specify that certain files have very high memory usage, by setting ``imFileInfoRec8.highMemUsage``. The number of files allowed to be open with this flag set to true is currently capped at 5.
 
-Importers can now specify an arbitrary matte color for premultiplied alpha channels in imIm­ ageInfoRec.matteColor. Importers can state that they are uncertain about a clip's pixel aspect ratio, field type, or alpha info in imImageInfoRec.interpretationUncertain.
+Importers can now specify an arbitrary matte color for premultiplied alpha channels in ``imImageInfoRec.matteColor``. Importers can state that they are uncertain about a clip's pixel aspect ratio, field type, or alpha info in imImageInfoRec.interpretationUncertain.
 
 The imInvalidHandleValue is now -1 for Mac OS.
 
-Importers can specify a transform matrix for frames by setting imImageInfoRec.can­ Transform = kPrTrue, and then during *imImportImage*, when imImportImageRec. applyTransform is non-zero, use imImportImageRec.transform, and destClip­ Rect to calculate the transform - This code path is currently not called by Premiere Pro. After Effects uses this call to import Flash video.
+Importers can specify a transform matrix for frames by setting ``imImageInfoRec.canTransform = kPrTrue``, and then during *imImportImage*, when ``imImportImageRec.applyTransform`` is non-zero, use ``imImportImageRec.transform``, and ``destClipRect`` to calculate the transform - This code path is currently not called by Premiere Pro. After Effects uses this call to import Flash video.
 
-New in Premiere Pro 3.1, the new capability flag, imImportInfoRec.canSupplyMeta­ dataClipName, allows an importer to set the clip name from metadata, rather than the filename. The clip name should be set in imFileInfoRec8.streamName. This is useful for clips recorded by some new file-based cameras.
+New in Premiere Pro 3.1, the new capability flag, ``imImportInfoRec.canSupplyMetadataClipName``, allows an importer to set the clip name from metadata, rather than the filename. The clip name should be set in ``imFileInfoRec8.streamName``. This is useful for clips recorded by some new file-based cameras.
 
 New in Premiere Pro 3.1, the new *imGetFileAttributes* selector allows an importer to provide the clip creation date in the new imFileAttributesRec.

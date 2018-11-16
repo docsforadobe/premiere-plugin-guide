@@ -89,6 +89,6 @@ Render into an allocated outFrame allocated with ``PrSDKGPUDeviceSuite`` or oper
 
 Result must be in the same pixel format as the input. If the effect grows or shrinks the output area (e.g. rendering a drop shadow), it is allowable for the effect to allocate and return a different sized outFrame.
 
-For effects, inFrames[0] will always be the frame at the current time, other input frames will be in the same order as returned from GetFrameDependencies. For transitions in­ Frames[0] will be the incoming frame and inFrames[1] the outgoing frame. Transitions may not have other frame dependencies.
+For effects, inFrames[0] will always be the frame at the current time, other input frames will be in the same order as returned from GetFrameDependencies. For transitions inFrames[0] will be the incoming frame and inFrames[1] the outgoing frame. Transitions may not have other frame dependencies.
 
 Use the utility function GetParam to retrieve the parameter values at the current time.

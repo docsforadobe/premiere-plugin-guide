@@ -57,7 +57,7 @@ Below is a table of all suites available in Premiere Pro:
 +---------------------------------------------------------------+---------------------------------------------+
 | Importer File Manager Suite                                   | Importers                                   |
 +---------------------------------------------------------------+---------------------------------------------+
-| :ref:`universals/legacy-callback-suites`                                                  | All                                         |
+| :ref:`universals/legacy-callback-suites`                      | All                                         |
 +---------------------------------------------------------------+---------------------------------------------+
 | :ref:`universals/sweetpea-suites.marker-suite`                | Exporters                                   |
 +---------------------------------------------------------------+---------------------------------------------+
@@ -313,7 +313,7 @@ Render the overlay into an optionally provided BGRA PPixHand. RenderImage does n
 
 If the user has zoomed the video, it could be wasteful to render a full-sized overlay image and then scale it. For better performance, the overlay can be rendered at the actual display size. The inDisplayWidth, inDisplayHeight and inLogicalRegion parameters provide this extra information needed to optimize for scaling in the UI.
 
-As an example, let's say the sequence is 720x480 at 0.9091 PAR, and the Sequence Monitor is set to show the full frame at square PAR. Set inLogicalRegion to (0, 0, 720, 480), and inDis­ playWidth to 654 and inDisplayHeight to 480.
+As an example, let's say the sequence is 720x480 at 0.9091 PAR, and the Sequence Monitor is set to show the full frame at square PAR. Set inLogicalRegion to (0, 0, 720, 480), and inDisplayWidth to 654 and inDisplayHeight to 480.
 
 If the Monitor zoom level was set to 50%, then the inLogicalRegion should stay the same, but display width and height should be set to 327x240. If zoomed to 200%, display width and height should be set to 1308x960. To pan around (as opposed to showing the entire frame), the logical region should be adjusted to represent the part of the sequence frame currently being displayed.
 
@@ -390,7 +390,7 @@ PPix Cache Suite
 
 Used by an importer, player, or renderer to take advantage of the host application's PPix cache. See PrSDKPPixCacheSuite.h.
 
-Starting in version 2 of this suite, introduced in Premiere Pro 4.1, AddFrameToCache and GetFrameFromCache now have two extra parameters, inPreferences and inPrefer­ encesLength. Now frames are differentiated within the cache, based on the importer preferences, so when the preferences change, the host will not use the old frame when it gets a frame request.
+Starting in version 2 of this suite, introduced in Premiere Pro 4.1, AddFrameToCache and GetFrameFromCache now have two extra parameters, inPreferences and inPreferencesLength. Now frames are differentiated within the cache, based on the importer preferences, so when the preferences change, the host will not use the old frame when it gets a frame request.
 
 Version 4, new in CS5.0.3, adds ExpireNamedPPixFromCache() and ExpireAllPPixesFromCache(), which allow a plug-in to remove one or all PPixes from the Media Cache, which can be useful if the media is changing due to being edited in a separate application.
 
@@ -659,15 +659,15 @@ This will return the render time for this PPix.
     PPixHand      inPPixHand,
     csSDK_int32*  outRenderMilliseconds);
 
-+-----------------------------------------+-------------------------------------------------+
-|              **Parameter**              |                 **Description**                 |
-+=========================================+=================================================+
-| ``PPixHand inPPixHand``                 | The PPix handle to operate on.                  |
-+-----------------------------------------+-------------------------------------------------+
-| ``csSDK_int32* outRenderMillisec­onds`` | Returns the render time in milliseconds.        |
-|                                         |                                                 |
-|                                         | If the frame was cached, the time will be zero. |
-+-----------------------------------------+-------------------------------------------------+
++----------------------------------------+-------------------------------------------------+
+|             **Parameter**              |                 **Description**                 |
++========================================+=================================================+
+| ``PPixHand inPPixHand``                | The PPix handle to operate on.                  |
++----------------------------------------+-------------------------------------------------+
+| ``csSDK_int32* outRenderMilliseconds`` | Returns the render time in milliseconds.        |
+|                                        |                                                 |
+|                                        | If the frame was cached, the time will be zero. |
++----------------------------------------+-------------------------------------------------+
 
 ----
 
@@ -818,7 +818,7 @@ This suite uses the built-in software path for rendering, and supports subtree r
 
 In version 2, new in CS5.5, the new call ``SupportsInitiateClipPrefetch()`` can be used to query whether or not a clip supports prefetching.
 
-In version 3, new in CS6, the function signatures have been modernized, using ``inSequence­TicksPerFrame`` rather than ``inFrameRateScale`` and ``inFrameRateSampleSize``.
+In version 3, new in CS6, the function signatures have been modernized, using ``inSequenceTicksPerFrame`` rather than ``inFrameRateScale`` and ``inFrameRateSampleSize``.
 
 ----
 
@@ -833,7 +833,7 @@ In version 4, new in CS5.5, the new call ``AcquireNodeForTime()`` passes back a 
 
 In version 5, new in CC, a new video segment property is available: Effect_ClipName. In version 6, new in CC 2014, ``AcquireFirstNodeInTimeRange()`` and
 
-``AcquireOperatorOwnerNodeID()`` were added, along with the new node type kVid­ eoSegment_NodeType_AdjustmentEffect.
+``AcquireOperatorOwnerNodeID()`` were added, along with the new node type kVideoSegment_NodeType_AdjustmentEffect.
 
 The basic structure of the video segments is that of a tree structure. There is a Compositor node with n inputs. Each of those inputs is a Clip node, which has one input which is a Media node, and it also has n Operators, which are effects.
 

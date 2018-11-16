@@ -74,7 +74,7 @@ A video filter is passed a handle to a VideoRecord with almost every selector.
 +--------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``sizeFlags``            | Field-rendering information.                                                                                                                                                                                                                 |
 +--------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``flags``                | If doing a lower-quality render, Premiere will pass in ``kEf­fectFlags_DraftQuality`` during ``fsExecute``.                                                                                                                                  |
+| ``flags``                | If doing a lower-quality render, Premiere will pass in ``kEffectFlags_DraftQuality`` during ``fsExecute``.                                                                                                                                   |
 |                          |                                                                                                                                                                                                                                              |
 |                          | The filter can then optionally render a faster, lower-quality image for previewing.                                                                                                                                                          |
 +--------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -106,7 +106,7 @@ A video filter is passed a handle to a VideoRecord with almost every selector.
 +--------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``instanceID``           | The runtime instance ID uniquely identifies filters during a session.                                                                                                                                                                        |
 |                          |                                                                                                                                                                                                                                              |
-|                          | This is the same ID that is passed to players in ``prt­FilterRec``.                                                                                                                                                                          |
+|                          | This is the same ID that is passed to players in ``prtFilterRec``.                                                                                                                                                                           |
 +--------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``tdbTimelineLocation``  | A time database record describing the location of the filter in sequence.                                                                                                                                                                    |
 |                          |                                                                                                                                                                                                                                              |
@@ -145,7 +145,7 @@ Do not expect real-time performance from this callback.
 +-----------------+--------------------------------------------------------------------------------------------+
 | ``theBox``      | Bounds of the frame you want Premiere to retrieve.                                         |
 +-----------------+--------------------------------------------------------------------------------------------+
-| ``privateData`` | Handle provided by Premiere in ``VideoRecord.private­Data``                                |
+| ``privateData`` | Handle provided by Premiere in ``VideoRecord.privateData``                                 |
 +-----------------+--------------------------------------------------------------------------------------------+
 
 ----

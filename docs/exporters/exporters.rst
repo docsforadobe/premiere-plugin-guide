@@ -9,4 +9,4 @@ Exporters can be used from within Premiere Pro, or from Adobe Media Encoder. Fro
 
 Exporters can optionally provide hardware acceleration by coordinating with a renderer plug-in to render timeline segments. Legacy editing modes are formed by the combination of an exporter and a player; the exporter generates preview files and the player manages the cutlist.
 
-If you've never developed an exporter before, you can skip :ref:`exports/whats-new`, and go directly to :ref:`exports/getting-started`.
+If you've never developed an exporter before, you can skip :ref:`exporters/whats-new`, and go directly to :ref:`exporters/getting-started`.

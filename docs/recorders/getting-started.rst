@@ -8,7 +8,7 @@ Selector Calling Sequence
 
 The best ways to get familiar with the recorder API is to observe the messages sent between Pre- miere and the recorder plug-in.
 
-``recmod_Startup8`` is sent once when Premiere launches. When Project Settings > Capture Settings is opened, ``recmod_Open`` is sent to create a new recorder instance and open the capture driver. *rec­ mod_GetSetupInfo8* is then sent, so the recorder can specify which settings buttons (if any) should be enabled in the Capture Settings window when the recorder is selected.
+``recmod_Startup8`` is sent once when Premiere launches. When Project Settings > Capture Settings is opened, ``recmod_Open`` is sent to create a new recorder instance and open the capture driver. ``recmod_GetSetupInfo8`` is then sent, so the recorder can specify which settings buttons (if any) should be enabled in the Capture Settings window when the recorder is selected.
 
 If one or more settings buttons are enabled and then clicked by the user, ``recmod_ShowOptions`` is sent so the recorder can display a dialog (and save any user choices). When the Capture Settings window is closed, *recmod_Close* is sent to end the capture instance.
 
@@ -46,7 +46,7 @@ Now when you "capture" a file, it will use this file, and automatically import i
 Metadata
 ================================================================================
 
-Pixel aspect ratio and timecode are provided by the recorder by filling out ``recCaptured­FileInfo``. Starting in CS4, after a clip has been captured, if Premiere has an XMP handler that supports the clip's filetype, the XMP handler will open the captured file and inject the information. If no such XMP handler is provided, the recorder is responsible for embedding any pixel aspect ratio information to the file, but Premiere will send *imSetTimeInfo8* to the importer to stamp the file with timecode.
+Pixel aspect ratio and timecode are provided by the recorder by filling out ``recCapturedFileInfo``. Starting in CS4, after a clip has been captured, if Premiere has an XMP handler that supports the clip's filetype, the XMP handler will open the captured file and inject the information. If no such XMP handler is provided, the recorder is responsible for embedding any pixel aspect ratio information to the file, but Premiere will send *imSetTimeInfo8* to the importer to stamp the file with timecode.
 
 ----
 
@@ -74,7 +74,7 @@ Scene Capture
 
 Scene Capture enables a recorder to capture a continuous stream to multiple files divided up by scenes.
 
-To support scene capture, the recorder must set recInfoRec8.canCaptureScenes = kPrTrue during ``recmod_Startup8``. When the user captures with Scene Detect on, recCap­ ParmsRec8.captureScenes will be non-zero during ``recmod_PrepRecord8``. The recorder should begin capture, and when it detects the end of a scene, call SceneCapturedFunc8, to notify Premiere that a scene has been captured. Premiere passes back the recFileSpec8 to
+To support scene capture, the recorder must set ``recInfoRec8.canCaptureScenes`` = kPrTrue during ``recmod_Startup8``. When the user captures with Scene Detect on, ``recCapParmsRec8.captureScenes`` will be non-zero during ``recmod_PrepRecord8``. The recorder should begin capture, and when it detects the end of a scene, call SceneCapturedFunc8, to notify Premiere that a scene has been captured. Premiere passes back the recFileSpec8 to
 
 give the recorder the filepath to which the next scene should be captured. Premiere also reserves memory for and passes back recCapturedFileInfo for the next capture.
 
@@ -83,7 +83,7 @@ Scene Searching
 
 Scene Searching enables a recorder to fast forward or rewind to different scenes. The user can hit the Next Scene or Previous Scene buttons several times to seek several scenes away. Of course, this feature is only possible with the help of a device controller as well.
 
-To support scene capture, the recorder must set recInfoRec8.canSearchScenes = kPrTrue during ``recmod_Startup8``. When the user chooses Next Scene or Previous Scene, the recorder is sent ``recmod_StartSceneSearch``. The scene searching algorithm happens in two passes.
+To support scene capture, the recorder must set ``recInfoRec8.canSearchScenes = kPrTrue`` during ``recmod_Startup8``. When the user chooses Next Scene or Previous Scene, the recorder is sent ``recmod_StartSceneSearch``. The scene searching algorithm happens in two passes.
 
 The first pass is a play fast forward or backward in the initial direction. In this mode, when the recorder passes the scene boundary, it should call ReportSceneFunc to tell Premiere the approximate range where the scene boundary is and return rmEndOfScene. Premiere will call *recmod_StopSceneSearch*, followed by ``recmod_StartSceneSearch``, to start a new slow scan scene search in the opposite direction, passing back the approximate range reported by ReportSceneFunc. When the recorder reaches the scene boundary again, it should once again call ReportSceneFunc and return rmEndOfScene.
 
@@ -148,9 +148,9 @@ This structure is sent from Premiere to the plug-in with every selector.
 Recorder-Specific Callbacks
 ================================================================================
 
-Recorders have access to ClassData Functions and Memory Functions through the recCall­ backFuncs, which is a member of rmStdParms.
+Recorders have access to ClassData Functions and Memory Functions through the ``recCallbackFuncs``, which is a member of ``rmStdParms``.
 
-``StatusDispFunc``, ``PrerollFunc``, ``ReportSceneFunc``, and ``SceneCapturedFunc8`` are accessible through recCapParms­ Rec8, which is sent with ``recmod_PrepRecord8``.
+``StatusDispFunc``, ``PrerollFunc``, ``ReportSceneFunc``, and ``SceneCapturedFunc8`` are accessible through ``recCapParmsRec8``, which is sent with ``recmod_PrepRecord8``.
 
 ::
 
@@ -242,7 +242,7 @@ Recorders have access to ClassData Functions and Memory Functions through the re
 +---------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``SceneCapturedFunc8``    | New in Premiere Pro 2.0.                                                                                                                                                                                                                   |
 |                           |                                                                                                                                                                                                                                            |
-|                           | Available in recCapParms­ Rec8 during ``recmod_PrepRecord8``.                                                                                                                                                                              |
+|                           | Available in ``recCapParmsRec8`` during ``recmod_PrepRecord8``.                                                                                                                                                                            |
 |                           |                                                                                                                                                                                                                                            |
 |                           | Callback to notify Premiere that a scene has been captured.                                                                                                                                                                                |
 |                           |                                                                                                                                                                                                                                            |
@@ -262,9 +262,9 @@ Recorders have access to ClassData Functions and Memory Functions through the re
 |                           |                                                                                                                                                                                                                                            |
 |                           | This call can be made from any thread, at any time. Metering can be provided for up to 16 channels, in any configuration desired: 1, 2, 4, 6/5.1, 8, or 16.                                                                                |
 |                           |                                                                                                                                                                                                                                            |
-|                           | The recorder provides the peak amplitude in longAm­ plitude, and the current audio amplitude in short­ Amplitude.                                                                                                                          |
+|                           | The recorder provides the peak amplitude in ``longAmplitude``, and the current audio amplitude in ``shortAmplitude``.                                                                                                                      |
 |                           |                                                                                                                                                                                                                                            |
-|                           | The recorder can decide whether to pick a single value in longAmplitude, or do an average over the sound data.                                                                                                                             |
+|                           | The recorder can decide whether to pick a single value in ``longAmplitude``, or do an average over the sound data.                                                                                                                         |
 |                           |                                                                                                                                                                                                                                            |
 |                           | In Premiere Pro's built-in recorders, the long term peak data is currently buffered for 3 seconds at a time.                                                                                                                               |
 |                           |                                                                                                                                                                                                                                            |

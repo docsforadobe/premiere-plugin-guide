@@ -199,7 +199,7 @@ imCreateAsyncImporter
 - param1 - ``imAsyncImporterCreationRec*``
 - param2 - ``unused``
 
-Create an asynchronous importer object using the data provided, and store it in ``imAsyncIm­porterCreationRec``.
+Create an asynchronous importer object using the data provided, and store it in ``imAsyncImporterCreationRec``.
 
 ----
 
@@ -253,7 +253,7 @@ Storing preferences is a two step process.
 
 If the pointer in ``imGetPrefsRec.prefs`` is ``NULL``, set prefsLength to the size of your preferences structure and return ``imNoErr``.
 
-Premiere sends ``imGetPrefs`` again; display your dialog, and pass the preferences pointer back in ``imGet­PrefsRec.prefs``.
+Premiere sends ``imGetPrefs`` again; display your dialog, and pass the preferences pointer back in ``imGetPrefsRec.prefs``.
 
 Starting in Premiere Pro 1.5, the importer can get a frame from the timeline beneath the current clip or timeline location.
 
@@ -297,7 +297,7 @@ You may additionally need to respond to ``imDeleteFile`` and ``imSaveFile``; see
 
 Close any child files during ``imCloseFile``.
 
-Importers that open their own files should specify how many files they keep open between ``imO­penFile8`` and ``imQuietFile`` using the new Importer File Manager Suite, if the number is not equal to one.
+Importers that open their own files should specify how many files they keep open between ``imOpenFile8`` and ``imQuietFile`` using the new Importer File Manager Suite, if the number is not equal to one.
 
 Importers that don't open their own files, or importers that only open a single file should not use this suite.
 
@@ -319,7 +319,7 @@ Respond to this selector only if ``canOpen`` was set to true during imInit.
 
 A quieted file is closed (at the OS level), but associated privateData is maintained by Premiere.
 
-Do not deallocate private­ Data in response to ``imQuietFile``; do so during ``imCloseFile``.
+Do not deallocate ``privateData`` in response to ``imQuietFile``; do so during ``imCloseFile``.
 
 ----
 
@@ -331,7 +331,7 @@ imSaveFile8
 
 Save the file specified in ``imSaveFileRec8``.
 
-Only sent if canOpen was set to true during ``im­Init``.
+Only sent if canOpen was set to true during ``imInit``.
 
 ----
 
@@ -389,13 +389,13 @@ If the importer does not want the file trimmed (perhaps because the audio or vid
 
 For a file with both audio and video, the selector will be sent several times.
 
-The first time, im­ ``CheckTrimRec`` will have both ``keepAudio`` and ``keepVideo`` set to a non-zero value, and the trim boundaries will represent the entire file, and Premiere is asking if the file can be trimmed at all.
+The first time, ``imCheckTrimRec`` will have both ``keepAudio`` and ``keepVideo`` set to a non-zero value, and the trim boundaries will represent the entire file, and Premiere is asking if the file can be trimmed at all.
 
 If the importer returns an error, it will not be called again.
 
-The second time, imCheckTrim­ Rec will have keepAudio set to a non-zero value, and the trim boundaries will represent the audio in and out points in the audio timebase, and Premiere is asking if the audio can be trimmed on these boundaries.
+The second time, ``imCheckTrimRec`` will have keepAudio set to a non-zero value, and the trim boundaries will represent the audio in and out points in the audio timebase, and Premiere is asking if the audio can be trimmed on these boundaries.
 
-The third time, imCheckTrimRec will have keepVideo set to a non-zero value, and the trim boundaries will represent the video in and out points in the video timebase, and Premiere is asking if the video can be trimmed on these boundaries.
+The third time, ``imCheckTrimRec`` will have keepVideo set to a non-zero value, and the trim boundaries will represent the video in and out points in the video timebase, and Premiere is asking if the video can be trimmed on these boundaries.
 
 If either the video or audio boundaries extend further than the other boundaries, Premiere will trim the file at the furthest boundary.
 
@@ -433,7 +433,7 @@ imCopyFile
 - param1 - ``imCopyFileRec*``
 - param2 - ``unused``
 
-``imCopyFile`` is sent rather than ``imSaveFile`` to importers that have set ``imImportInfoRec`` can­ Copy when doing a copy operation using the Project Manager.
+``imCopyFile`` is sent rather than ``imSaveFile`` to importers that have set ``imImportInfoRec`` can Copy when doing a copy operation using the Project Manager.
 
 The importer should maintain data on the original file rather than the copy when it returns from the selector.
 
@@ -670,7 +670,7 @@ The importer should fill in the codec name for the specific subtype fourcc provi
 
 This selector will be sent repeatedly until names for all subtypes have been requested.
 
-The imSubTypeDescription­ Rec must be allocated by the importer, and will be released by the plug-in host.
+The ``imSubTypeDescriptionRec`` must be allocated by the importer, and will be released by the plug-in host.
 
 ----
 
@@ -682,7 +682,7 @@ imGetIndColorProfile
 
 New in After Effects CS5.5; not used in Premiere Pro.
 
-Only sent if the importer has set ``imIm­ageInfoRec.colorProfileSupport`` to ``imColorProfileSupport_Fixed``.
+Only sent if the importer has set ``imImageInfoRec.colorProfileSupport`` to ``imColorProfileSupport_Fixed``.
 
 This selector is sent iteratively for the importer to provide a description of each color profile supported by the clip.
 
@@ -702,6 +702,6 @@ If an importer supports media that uses more than a single file (i.e.
 
 a file structure with seperate files for metadata, or separate video and audio files), this is the way the importer can specify all of its source files, in order to support Collect Files in After Effects.
 
-In ``imImportInfoRec``, a new member, ``canProvideFileL­ist``, specifies whether the importer can provide a list of all files for a copy operation.
+In ``imImportInfoRec``, a new member, ``canProvideFileList``, specifies whether the importer can provide a list of all files for a copy operation.
 
 If the importer does not implement this selector, the host will assume the media just uses a single file at the original imported media path.

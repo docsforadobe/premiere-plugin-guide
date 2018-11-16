@@ -500,7 +500,7 @@ Allows the recorder to supply the resolution and pixel aspect ratio of the clip 
   } recCapInfoRec;
 
 +----------------------+----------------------------------------------------------------------------------------------------------------------------------+
-| ``version``          | The version of this structure. ``kRecCapInfoRecVersion``                                                                        |
+| ``version``          | The version of this structure. ``kRecCapInfoRecVersion``                                                                         |
 +----------------------+----------------------------------------------------------------------------------------------------------------------------------+
 | ``timeScale``        | Unused. A logged clip gets it's frame rate from the device controller in ``cmdStatus``.                                          |
 +----------------------+----------------------------------------------------------------------------------------------------------------------------------+

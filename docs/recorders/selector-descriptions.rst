@@ -53,7 +53,7 @@ Request settings buttons during ``recmod_GetSetupInfo8``.
 
 ``recSetupParms`` indicates which button was pushed.
 
-If the char* passed in ``recSet­upParms`` isn't NULL, it points to memory containing private data; otherwise, no previous settings are available.
+If the char* passed in ``recSetupParms`` isn't NULL, it points to memory containing private data; otherwise, no previous settings are available.
 
 All the setup dialogs share the same memory; only one record is preserved.
 
@@ -71,7 +71,7 @@ Sent when Premiere's New Project Settings > Capture Settings dialog or the Movie
 
 Initialize hardware, create a private data structure for instance data, and pass a pointer to it back in ``param1``.
 
-It will be sent back to you with subsequent selectors. ``recOpen­Parms`` contains information about the capture window and callbackID; store this information in private instance data.
+It will be sent back to you with subsequent selectors. ``recOpenParms`` contains information about the capture window and callbackID; store this information in private instance data.
 
 ----
 
@@ -107,13 +107,13 @@ Sent when the capture window is resized or moved. Update a proxy or overlay in t
 
 If they are unacceptable, modify them; the selector will be sent again with the new position.
 
-Set mustresize in ``rec­DisplayPos`` to resize the preview frame with the specified bounds.
+Set mustresize in ``recDisplayPos`` to resize the preview frame with the specified bounds.
 
 The plug-in is not allowed to resize the capture window, just the preview frame.
 
 If mustresize is set but the plug-in can't resize the frame, display something (black, grey, a graphic of your choice) for a preview.
 
-``mus­tresize`` will be set when the Capture Settings dialog is being displayed.
+``mustresize`` will be set when the Capture Settings dialog is being displayed.
 
 ----
 
@@ -149,7 +149,7 @@ recmod_StartRecord
 
 Sent after ``recmod_PrepRecord``. Start capturing immediately.
 
-The pointer to ``recCaptured­FileInfo`` is valid until the recording finishes.
+The pointer to ``recCapturedFileInfo`` is valid until the recording finishes.
 
 ----
 

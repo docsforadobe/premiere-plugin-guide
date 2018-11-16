@@ -14,7 +14,7 @@ Export File Suite
 
 A cross-platform suite for writing to files on disk. Also provides a call to get the file path, given the file object.
 
-Version 2 resolves a mismatch in seek modes in version 1, where ``fi­leSeekMode_End`` was handled as ``fileSeekMode_Current`` and visa versa.
+Version 2 resolves a mismatch in seek modes in version 1, where ``fileSeekMode_End`` was handled as ``fileSeekMode_Current`` and visa versa.
 
 See PrSDKExportFileSuite.h.
 
@@ -151,7 +151,7 @@ AddStandardParams
 
 Register a set of standard parameters to be used by the exporter.
 
-Call during *exSelGenerat­ eDefaultParams*.
+Call during ``exSelGenerateDefaultParams``.
 
 ::
 
@@ -233,19 +233,19 @@ Call during ``exSelGetParamSummary``.
     prUTF16Char*  outVideoDescription,
     prUTF16Char*  outAudioDescription);
 
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
-|      **Parameter**      |                                                                 **Description**                                                                 |
-+=========================+=================================================================================================================================================+
-| ``inExporterID``        | Pass in ``exporterPluginID`` from ``exDoExportRec``.                                                                                            |
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``inDoVideo``           | Pass in ``exParamSummaryRec.exportVideo`` / ``expor­tAudio`` so that the summary will be set based on whether video / audio are being exported. |
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``inDoAudio``           |                                                                                                                                                 |
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``outVideoDescription`` | These will be filled out based on the standard parameter settings.                                                                              |
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``outAudioDescription`` |                                                                                                                                                 |
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
++-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
+|      **Parameter**      |                                                                **Description**                                                                 |
++=========================+================================================================================================================================================+
+| ``inExporterID``        | Pass in ``exporterPluginID`` from ``exDoExportRec``.                                                                                           |
++-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``inDoVideo``           | Pass in ``exParamSummaryRec.exportVideo`` / ``exportAudio`` so that the summary will be set based on whether video / audio are being exported. |
++-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``inDoAudio``           |                                                                                                                                                |
++-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``outVideoDescription`` | These will be filled out based on the standard parameter settings.                                                                             |
++-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``outAudioDescription`` |                                                                                                                                                |
++-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ----
 
@@ -275,9 +275,9 @@ Register the callback to be made to push video frames to the exporter. This func
 +==========================+===========================================================================================================================================================================================================================================+
 | ``inExporterID``         | Pass in ``exporterPluginID`` from ``exDoExportRec``.                                                                                                                                                                                      |
 +--------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``inRenderParams``       | Pass in the parameters that will be used for the render loop that will push rendered frames via the provided callback in­ CompletionFunction.                                                                                             |
+| ``inRenderParams``       | Pass in the parameters that will be used for the render loop that will push rendered frames via the provided callback ``inCompletionFunction``.                                                                                           |
 |                          |                                                                                                                                                                                                                                           |
-|                          | ``inReservedProgressPreRender`` and ``inReserved­ProgressPostRender`` should be set to the amount of progress to be shown in any progress bar before starting the render loop, and how much is remaining after finishing the render loop. |
+|                          | ``inReservedProgressPreRender`` and ``inReservedProgressPostRender`` should be set to the amount of progress to be shown in any progress bar before starting the render loop, and how much is remaining after finishing the render loop.  |
 |                          |                                                                                                                                                                                                                                           |
 |                          | These values default to zero.                                                                                                                                                                                                             |
 |                          |                                                                                                                                                                                                                                           |
@@ -310,7 +310,7 @@ Register the callback to be made to push video frames to the exporter. This func
 |                          |                                                                                                                                                                                                                                           |
 |                          | If you are interested in this capability, please contact us and explain your need.                                                                                                                                                        |
 +--------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``inCompletionParam``    | Pass in a void * to the data you wish to send to your ``in­CompletionFunction`` above in ``inCallbackData``.                                                                                                                              |
+| ``inCompletionParam``    | Pass in a void * to the data you wish to send to your ``inCompletionFunction`` above in ``inCallbackData``.                                                                                                                               |
 +--------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ReportIntermediateProgressForRepeatedVideoFrame
@@ -329,7 +329,7 @@ This function assumes that your exporter supports ``exSelQueryOutputSettings``, 
 +-------------------------------------------+---------------------------------------------------------------------------------------+
 |               **Parameter**               |                                    **Description**                                    |
 +===========================================+=======================================================================================+
-| ``inExporterID``                          | Pass in ``exporterPluginID`` from ``exDo­ExportRec``.                                 |
+| ``inExporterID``                          | Pass in ``exporterPluginID`` from ``exDoExportRec``.                                  |
 +-------------------------------------------+---------------------------------------------------------------------------------------+
 | ``inRepetitionsProcessedSinceLastUpdate`` | Pass in the number of repeated frames processed since the last call was made, if any. |
 +-------------------------------------------+---------------------------------------------------------------------------------------+
@@ -401,7 +401,7 @@ Create an audio renderer, in preparation to get rendered audio from the host.
 +----------------------+---------------------------------------------------------------------------------------+
 |    **Parameter**     |                                    **Description**                                    |
 +======================+=======================================================================================+
-| ``inPluginID``       | Pass in ``exporterPluginID`` from ``exDo­ExportRec``.                                 |
+| ``inPluginID``       | Pass in ``exporterPluginID`` from ``exDoExportRec``.                                  |
 +----------------------+---------------------------------------------------------------------------------------+
 | ``inStartTime``      | Start time for the audio requests.                                                    |
 +----------------------+---------------------------------------------------------------------------------------+
@@ -428,7 +428,7 @@ Release the audio renderer when the exporter is done requesting audio.
 +---------------------+--------------------------------------------------------+
 |    **Parameter**    |                    **Description**                     |
 +=====================+========================================================+
-| ``inPluginID``      | Pass in ``exporterPluginID`` from ``exDo­ExportRec``.  |
+| ``inPluginID``      | Pass in ``exporterPluginID`` from ``exDoExportRec``.   |
 +---------------------+--------------------------------------------------------+
 | ``inAudioRenderID`` | The call will release the audio renderer with this ID. |
 +---------------------+--------------------------------------------------------+
@@ -438,9 +438,9 @@ GetAudio
 
 Returns from the host the next contiguous requested number of audio sample frames, specified in inFrameCount, in inBuffer as arrays of uninterleaved floating point values.
 
-Returns ``sui­teError_NoError`` if no error.
+Returns ``suiteError_NoError`` if no error.
 
-The plug-in must manage the memory allocation of inBuf­ fer, which must point to n buffers of floating point values of length inFrameCount, where n is the number of channels.
+The plug-in must manage the memory allocation of inBuffer, which must point to n buffers of floating point values of length inFrameCount, where n is the number of channels.
 
 When inClipAudio is non-zero, this parameter makes GetAudio clip the audio samples at +/- 1.0.
 
@@ -539,7 +539,7 @@ Release the video renderer when the exporter is done requesting video.
 +---------------------+--------------------------------------------------------+
 |    **Parameter**    |                    **Description**                     |
 +=====================+========================================================+
-| ``pluginID``        | Pass in ``exporterPluginID`` from ``exDo­ExportRec``.  |
+| ``pluginID``        | Pass in ``exporterPluginID`` from ``exDoExportRec``.   |
 +---------------------+--------------------------------------------------------+
 | ``inVideoRenderID`` | The call will release the video renderer with this ID. |
 +---------------------+--------------------------------------------------------+
@@ -567,31 +567,31 @@ Note that if the frame aspect ratio of the request does not match that of the se
     csSDK_int32           inCompositeOnBlack;
   } SequenceRender_ParamsRec;
 
-+---------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|              **Member**               |                                                                                    **Description**                                                                                     |
-+=======================================+========================================================================================================================================================================================+
-| ``inRequestedPixelFormatArray``       | An array of PrPixelFormats that list your format preferences in order.                                                                                                                 |
-+---------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``inRequestedPixelFormatArray­Count`` | Size of the pixel format array.                                                                                                                                                        |
-+---------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``inWidth``                           | Width to render at.                                                                                                                                                                    |
-+---------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``inHeight``                          | Height to render at.                                                                                                                                                                   |
-+---------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``inPixelAspectRatioNumerator``       | Numerator of the pixel aspect ratio.                                                                                                                                                   |
-+---------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``inPixelAspectRatioDenominator``     | Denominator of the pixel aspect ratio.                                                                                                                                                 |
-+---------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``inRenderQuality``                   | Use one of the PrRenderQuality enumerated values.                                                                                                                                      |
-+---------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``inFieldType``                       | Use one of the prFieldType constants.                                                                                                                                                  |
-+---------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``inDeinterlace``                     | Set to non-zero, to force an explicit deinterlace. Otherwise, the renderer will use the output field setting to determine whether to automatically deinterlace any interlaced sources. |
-+---------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``inDeinterlaceQuality``              | Use one of the PrRenderQuality enumerated values.                                                                                                                                      |
-+---------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``inCompositeOnBlack``                | Set to non-zero, to composite the render on black.                                                                                                                                     |
-+---------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|              **Member**              |                                                                                    **Description**                                                                                     |
++======================================+========================================================================================================================================================================================+
+| ``inRequestedPixelFormatArray``      | An array of PrPixelFormats that list your format preferences in order.                                                                                                                 |
++--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``inRequestedPixelFormatArrayCount`` | Size of the pixel format array.                                                                                                                                                        |
++--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``inWidth``                          | Width to render at.                                                                                                                                                                    |
++--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``inHeight``                         | Height to render at.                                                                                                                                                                   |
++--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``inPixelAspectRatioNumerator``      | Numerator of the pixel aspect ratio.                                                                                                                                                   |
++--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``inPixelAspectRatioDenominator``    | Denominator of the pixel aspect ratio.                                                                                                                                                 |
++--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``inRenderQuality``                  | Use one of the PrRenderQuality enumerated values.                                                                                                                                      |
++--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``inFieldType``                      | Use one of the prFieldType constants.                                                                                                                                                  |
++--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``inDeinterlace``                    | Set to non-zero, to force an explicit deinterlace. Otherwise, the renderer will use the output field setting to determine whether to automatically deinterlace any interlaced sources. |
++--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``inDeinterlaceQuality``             | Use one of the PrRenderQuality enumerated values.                                                                                                                                      |
++--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``inCompositeOnBlack``               | Set to non-zero, to composite the render on black.                                                                                                                                     |
++--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 struct SequenceRender_GetFrameReturnRec
 ********************************************************************************
@@ -710,7 +710,7 @@ PrSDKSequenceAsyncRenderCompletionProc()
 
 Use this function signature for your callback used for async frame notification, passed to ``SetAsyncRenderCompletionProc``.
 
-Error status (error or abort) is returned in ``inGet­FrameReturn``.
+Error status (error or abort) is returned in ``inGetFrameReturn``.
 
 ::
 

@@ -35,7 +35,7 @@ Exporters can now set events (error, warning, or info) for a specific encode in 
 
 Multiple exporters are now supported in a single plug-in. To support this, exExporterIn foRec is now set to exporters on *exShutdown*.
 
-exQueryOutputSettingsRec has a new member, outUseMaximumRenderPreci­ sion, moving knowledge of this render parameter to the exporter.
+exQueryOutputSettingsRec has a new member, outUseMaximumRenderPrecision, moving knowledge of this render parameter to the exporter.
 
 ----
 

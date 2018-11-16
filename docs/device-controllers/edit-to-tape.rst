@@ -8,20 +8,20 @@ Audio Channels
 
 The device controller should specify how many audio channels are supported by the connected device, so that the Edit to Tape panel will only enable valid audio channel controls. During cmdGetFeatures, the device controller should set the bits corresponding to the audio channels available on the device in DeviceRec.exportAudioChannels.
 
-Then later if performing an Insert Edit, during modeRecordInsert, if the device supports audio channel selection, the bits in exportAudioChannels will be set by the host corresponding to audio channels to export: A1 == bit 0, A2 == bit 1, etc.
+Then later if performing an Insert Edit, during ``modeRecordInsert``, if the device supports audio channel selection, the bits in exportAudioChannels will be set by the host corresponding to audio channels to export: A1 == bit 0, A2 == bit 1, etc.
 
 ----
 
 Record
 ================================================================================
 
-Starting in CC, the Edit to Tape panel provides three types of export modes: Insert, Assemble, and Print to Tape. The device controller should specify if it supports Assemble mode by setting fCa­ nAssembleEdit along with any other flags during dsExecute/cmdGetFeatures.
+Starting in CC, the Edit to Tape panel provides three types of export modes: Insert, Assemble, and Print to Tape. The device controller should specify if it supports Assemble mode by setting ``fCanAssembleEdit`` along with any other flags during dsExecute/cmdGetFeatures.
 
-When the user presses the Record button in the Edit to Tape Panel, Premiere will send ``dsExecute`` / ``cmdNewMode`` with either modeRecord, modeRecordInsert, or modeRecordAssem­ ble, depending on the Export Type set in the Edit to Tape panel.
+When the user presses the Record button in the Edit to Tape Panel, Premiere will send ``dsExecute`` / ``cmdNewMode`` with either ``modeRecord``, ``modeRecordInsert``, or ``modeRecordAssemble``, depending on the Export Type set in the Edit to Tape panel.
 
-Hitting the Record button with Export Type set to Print to Tape sends modeRecord. This record mode is a simple crash record that has no preroll before the in point and causes noticable breaks in the video signal. Setting Assemble sends modeRecordAssemble. This mode uses a preroll before the in point for a smooth transition at the in point, but the out point ends the recording abruptly which will leave a noticable break if there is any subsequent video.
+Hitting the Record button with Export Type set to Print to Tape sends ``modeRecord``. This record mode is a simple crash record that has no preroll before the in point and causes noticable breaks in the video signal. Setting Assemble sends modeRecordAssemble. This mode uses a preroll before the in point for a smooth transition at the in point, but the out point ends the recording abruptly which will leave a noticable break if there is any subsequent video.
 
-Setting Insert sends modeRecordInsert. This mode uses a preroll before the in point and also ends the recording at the outpoint without any breaks in the video signal. This is also the only mode that allows for selective replacement of specific video/audio channels.
+Setting Insert sends ``modeRecordInsert``. This mode uses a preroll before the in point and also ends the recording at the outpoint without any breaks in the video signal. This is also the only mode that allows for selective replacement of specific video/audio channels.
 
 DeviceRec.exportFlags will denote whether video and/or closed captioning should be exported or not, and DeviceRec.exportAudioChannels will denote which audio channels to export. DeviceRec.timecode provides the in point of the edit to tape operation, and DeviceRec.preroll provides the user-specified preroll.
 

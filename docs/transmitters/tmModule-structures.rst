@@ -18,21 +18,21 @@ This is passed to all calls. Most of it is allocated and filled in by the transm
     piSuitesPtr   piSuites;
   } tmStdParms;
 
-+---------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``inPluginIndex``               | If the plug-in has defined multiple transmitters in the same module, this index value tells them apart.                                                                                                           |
-+---------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``ioSerializedPluginData``      | This data should contain user-selectable settings for the transmitter, that would be shown in the transmitter settings dialog, and need to persist so they can be saved and restored from one session to another. |
-|                                 |                                                                                                                                                                                                                   |
-|                                 | When allocating this for the first time during Startup, this must be allocated using ``NewPtr`` so it can be disposed by the host on shutdown.                                                                    |
-|                                 |                                                                                                                                                                                                                   |
-|                                 | This must be flat memory that can be serialized by by the host and will be already filled in when Startup is called if previously available.                                                                      |
-+---------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``ioSerializedPluginData­Size`` | Size of the data above. Set this during Startup, if not already set.                                                                                                                                              |
-+---------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``ioPrivatePluginData``         | This data should contain any memory needed for use across calls to the transmitter, except the settings data stored in ``ioSerializedPluginData``.                                                                |
-|                                 |                                                                                                                                                                                                                   |
-|                                 | Allocate this during Startup. Unlike ``ioSerial­izedPluginData``, it does not need to be flat, and must be disposed of by the plug-in on Shutdown.                                                                |
-+---------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++--------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``inPluginIndex``              | If the plug-in has defined multiple transmitters in the same module, this index value tells them apart.                                                                                                           |
++--------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``ioSerializedPluginData``     | This data should contain user-selectable settings for the transmitter, that would be shown in the transmitter settings dialog, and need to persist so they can be saved and restored from one session to another. |
+|                                |                                                                                                                                                                                                                   |
+|                                | When allocating this for the first time during Startup, this must be allocated using ``NewPtr`` so it can be disposed by the host on shutdown.                                                                    |
+|                                |                                                                                                                                                                                                                   |
+|                                | This must be flat memory that can be serialized by by the host and will be already filled in when Startup is called if previously available.                                                                      |
++--------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``ioSerializedPluginDataSize`` | Size of the data above. Set this during Startup, if not already set.                                                                                                                                              |
++--------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``ioPrivatePluginData``        | This data should contain any memory needed for use across calls to the transmitter, except the settings data stored in ``ioSerializedPluginData``.                                                                |
+|                                |                                                                                                                                                                                                                   |
+|                                | Allocate this during Startup. Unlike ``ioSerializedPluginData``, it does not need to be flat, and must be disposed of by the plug-in on Shutdown.                                                                 |
++--------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ----
 
@@ -285,7 +285,7 @@ The transmitter uses the callback here to update the host at regular intervals.
 |                             |                                                                                                                                                                             |
 |                             | The transmitter will not receive any frames while using a negative time.                                                                                                    |
 |                             |                                                                                                                                                                             |
-|                             | After the first positive valued clock callback, the time will be in­ ``StartTime + inRelativeTimeAdjustment * inSpeed``.                                                    |
+|                             | After the first positive valued clock callback, the time will be in ``StartTime + inRelativeTimeAdjustment * inSpeed``.                                                     |
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``inCallbackContext``       | Pass this into the clock callback above.                                                                                                                                    |
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -305,7 +305,7 @@ The transmitter uses the callback here to update the host at regular intervals.
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``inLoop``                  |                                                                                                                                                                             |
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``inDroppedFrame­Callback`` | A pointer to a call with the following signature:                                                                                                                           |
+| ``inDroppedFrameCallback``  | A pointer to a call with the following signature:                                                                                                                           |
 |                             |                                                                                                                                                                             |
 |                             | ::                                                                                                                                                                          |
 |                             |                                                                                                                                                                             |
@@ -317,7 +317,7 @@ The transmitter uses the callback here to update the host at regular intervals.
 |                             |                                                                                                                                                                             |
 |                             | If every frame pushed to the transmitter is sent out to hardware on time, then this should never need to be called as the host will count frames not pushed to the plug-in. |
 |                             |                                                                                                                                                                             |
-|                             | ``inNewDroppedFrames`` should be the number of additional dropped frames since the last time ``tmDroppedFrameCall­`` back was called.                                       |
+|                             | ``inNewDroppedFrames`` should be the number of additional dropped frames since the last time ``tmDroppedFrameCall`` back was called.                                        |
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ----

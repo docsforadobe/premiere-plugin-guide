@@ -26,7 +26,7 @@ First register the parameters during ``exSelGenerateDefaultParams``. Then provid
 Updating Parameters Dynamically
 ================================================================================
 
-Parameters can be updated dynamically based on user interaction with any related parameter. The time to update is during the ``exSelValidateParamChanged`` selector. Use ChangeParam in the :ref:`exporters/suites.export-param-suite` to make the change. Then, set exParamChangedRec.rebuildAll­ Params to true before returning. If you don't set that flag, parameters may appear out of order after a change.
+Parameters can be updated dynamically based on user interaction with any related parameter. The time to update is during the ``exSelValidateParamChanged`` selector. Use ChangeParam in the :ref:`exporters/suites.export-param-suite` to make the change. Then, set ``exParamChangedRec.rebuildAllParams`` to true before returning. If you don't set that flag, parameters may appear out of order after a change.
 
 ----
 
@@ -35,7 +35,7 @@ Supporting "Match Source"
 
 The exporter must set ``exExporterInfoRec.canMatchSource`` to true. This will add the Match Source button to the Video tab in the Export Settings.
 
-Next, if the Match Source button is pressed in the Export Settings, exPostProcessParams­ Rec.doConformToMatchParams will be true. The exporter should respond by updating any parameter values it can to match the source settings.
+Next, if the Match Source button is pressed in the Export Settings, ``exPostProcessParamsRec.doConformToMatchParams`` will be true. The exporter should respond by updating any parameter values it can to match the source settings.
 
 ----
 
@@ -89,7 +89,7 @@ In CS4, where the files are saved depends on whether you've opened the Export Se
 Media Encoder presets
 ********************************************************************************
 
-On Windows Vista, presets are saved here: ``[User folder]\AppData\Roaming\Adobe\Adobe Media Encoder\[ver­ sion]\Presets\\``
+On Windows Vista, presets are saved here: ``[User folder]\AppData\Roaming\Adobe\Adobe Media Encoder\[version]\Presets\\``
 
 On Windows XP: ``[Documents and Settings folder]\[user name]\Application Data\\ Adobe\Adobe Media Encoder\[version]\Presets\\``
 
@@ -122,11 +122,9 @@ Installation in CS4
 
 For better performance, in CS4, we recommend you install any presets for your exporter in the application folder for Premiere Pro and Media Encoder.
 
-For both Windows and Mac OS: ``[App installation path]\MediaIO\systempresets\[exporter subfold­er]``
+For both Windows and Mac OS: ``[App installation path]\MediaIO\systempresets\[exporter subfolder]``
 
-The subfolder must be named based on the hexadecimal fourCCs of the ClassID and fi­
-
-letype of the exporter. For example, the SDK exporter has a ClassID of 'DTEK' or 0x4454454B, and a filetype of ``SDK`` or 0x53444B5F. So the subfolder must be named '4454454B_53444B5F'. For convenience, you can find the ClassID and filetype fourCCs in the preset file itself, in a decimal representation.
+The subfolder must be named based on the hexadecimal fourCCs of the ClassID and filetype of the exporter. For example, the SDK exporter has a ClassID of 'DTEK' or 0x4454454B, and a filetype of ``SDK`` or 0x53444B5F. So the subfolder must be named '4454454B_53444B5F'. For convenience, you can find the ClassID and filetype fourCCs in the preset file itself, in a decimal representation.
 
 ----
 

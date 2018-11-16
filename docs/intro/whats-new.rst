@@ -34,7 +34,7 @@ What's New in CC 2017.1
 Importers
 ********************************************************************************
 
-Importers that support captions can make use of the mayHaveCaptions flag in imFileIn­ foRec8, for better performance. Also, a imImageInfoRec is now added to *imInitiateAsync­ ClosedCaptionScanRec*, just for the width and height parameters.
+Importers that support captions can make use of the mayHaveCaptions flag in ``imFileInfoRec8``, for better performance. Also, a ``imImageInfoRec`` is now added to ``imInitiateAsyncClosedCaptionScanRec``, just for the width and height parameters.
 
 Exporters
 ********************************************************************************
@@ -173,7 +173,7 @@ Source Settings = Effect + Importer
 
 Source Settings for clips can now be implemented using effects that are tied to importers. This has the advantage of providing settings in the Effect Controls panel, rather than in a modal dialog. Editors can adjust Source Settings for multiple clips this way. These effects are used for the DPX source settings, CinemaDNG, etc.
 
-To implement this, an importer should set imImportInfoRec.hasSourceSettingsEf­ fect to true. Then in imFileInfoRec8, it should set sourceSettingsMatchName to the match name of the effect to be used for the Source Settings.
+To implement this, an importer should set ``imImportInfoRec.hasSourceSettingsEffect`` to true. Then in imFileInfoRec8, it should set sourceSettingsMatchName to the match name of the effect to be used for the Source Settings.
 
 On the effects side, a new PF Source Settings Suite has been added to PrSDKAESupport.h, for effects using the After Effects API. This is how an effect registers a function to handle the Source Settings command.
 
@@ -183,9 +183,13 @@ When a clip is first imported, the effect is called with *PF_Cmd_SEQUENCE_SETUP*
 
 When the source settings effect parameters are changed, the effect gets called with *PF_Cmd\_ TRANSLATE_PARAMS_TO_PREFS*. The function signature is:
 
-PF_Err TranslateParamsToPrefs( PF_InData\* in_data, PF_OutData\* out_data, PF_ParamDef\* params[],
+::
 
-PF_TranslateParamsToPrefsExtra \*extra)
+  PF_Err TranslateParamsToPrefs(
+    PF_InData*                      in_data,
+    PF_OutData*                     out_data,
+    PF_ParamDef*                    params[],
+    PF_TranslateParamsToPrefsExtra  *extra)
 
 With the new prefs, the importer will be sent *imOpenFile8, imGetInfo8, imGetIndPixelFormat, imGetPreferredFrameSize, imGetSourceVideo*, etc.
 
@@ -214,8 +218,11 @@ MakeAudioRenderer() to take PrAudioChannelLabel\* as a parameter.
 Transmitters
 ********************************************************************************
 
-Transmitters can get a few new bits of information to aid with A/V sync. In the :ref:`transmitters/suites.playmod-audio-suite`, the new function GetNextAudioBuffer2() returns the actual time the rendered buffer is from. Also, in tmPlaybackClock, the new members inAudioOffset and inVid­ eoOffset have been added to specify the offset chosen by the user in the preferences. The host accounts for these offsets automatically by sending frames early, but if a transmitter is manually trying to line up audio and video times, it can use this to know how far apart from each other they are supposed to be.
+Transmitters can get a few new bits of information to aid with A/V sync. In the :ref:`transmitters/suites.playmod-audio-suite`, the new function GetNextAudioBuffer2() returns the actual time the rendered buffer is from.
 
+Also, in ``tmPlaybackClock``, the new members ``inAudioOffset`` and ``inVideoOffset`` have been added to specify the offset chosen by the user in the preferences.
+
+The host accounts for these offsets automatically by sending frames early, but if a transmitter is manually trying to line up audio and video times, it can use this to know how far apart from each other they are supposed to be.
 
 Miscellaneous
 ********************************************************************************
@@ -387,7 +394,17 @@ For **Players**, pmPlayerSettings has a new member, mPrimaryDisplayFullScreen, w
 
 **Device controllers** have a new callback, DroppedFrameProc, to provide the feature to abort and Export to Tape if frames are dropped.
 
-New video segment properties were added: kVideoSegmentProperty_Media\_ ClipScaleToFramePolicy, kVideoSegmentProperty_Adjustment\_ AdjustmentMediaIsOpaque, kVideoSegmentProperty_Adjustment\_ OperatorsHash, kVideoSegmentProperty_Media_InPointMediaTimeAsTicks, kVideoSegmentProperty_Media_OutPointMediaTimeAsTicks, kVideoSegmentProperty_Clip_TrackItemStartAsTicks, kVid­ eoSegmentProperty_Clip_TrackItemEndAsTicks, kVideoSegment­ Property_Clip_EffectiveTrackItemStartAsTicks, and kVideoSegment­ Property_Clip_EffectiveTrackItemEndAsTicks.
+New video segment properties were added:
+
+- ``kVideoSegmentProperty_MediaClipScaleToFramePolicy``,
+- ``kVideoSegmentProperty_AdjustmentAdjustmentMediaIsOpaque``,
+- ``kVideoSegmentProperty_AdjustmentOperatorsHash``,
+- ``kVideoSegmentProperty_Media_InPointMediaTimeAsTicks``,
+- ``kVideoSegmentProperty_Media_OutPointMediaTimeAsTicks``,
+- ``kVideoSegmentProperty_Clip_TrackItemStartAsTicks``,
+- ``kVideoSegmentProperty_Clip_TrackItemEndAsTicks``,
+- ``kVideoSegmentProperty_Clip_EffectiveTrackItemStartAsTicks``,
+- ``kVideoSegmentProperty_Clip_EffectiveTrackItemEndAsTicks``
 
 The :ref:`universals/sweetpea-suites.memory-manager-suite` is now at version 4. AdjustReservedMemorySize provides a way to adjust the reserved memory size relative to the current size. This may be easier for the plug-in, rather than maintaining the absolute memory usage and updating it using the older ReserveMemory call.
 
