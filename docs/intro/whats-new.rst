@@ -137,7 +137,7 @@ Effects
 
 Source settings effects should use the updated Source Settings suite with new
 
-SetIsSourceSettingsEffect() function. They should make this call during *PF_Cmd\_*
+SetIsSourceSettingsEffect() function. They should make this call during *PF_Cmd*
 
 *GLOBAL_SETUP*. This function was added to handle the case when the effect is applied to proxy video.
 
@@ -177,11 +177,11 @@ To implement this, an importer should set ``imImportInfoRec.hasSourceSettingsEff
 
 On the effects side, a new PF Source Settings Suite has been added to PrSDKAESupport.h, for effects using the After Effects API. This is how an effect registers a function to handle the Source Settings command.
 
-A source settings effect is used primarily for the parameter UI and management. A source settings effect doesn't provide the actual frames. In fact, the effect isn't even called with *PF_Cmd\_ RENDER*. The frames come directly from the importer, which provides frames based on the settings as passed to the importer via prefs data.
+A source settings effect is used primarily for the parameter UI and management. A source settings effect doesn't provide the actual frames. In fact, the effect isn't even called with *PF_Cmd_RENDER*. The frames come directly from the importer, which provides frames based on the settings as passed to the importer via prefs data.
 
 When a clip is first imported, the effect is called with *PF_Cmd_SEQUENCE_SETUP*. It should call PerformSourceSettingsCommand() in the Source Settings Suite, to initialize the prefs. This causes the importer to get called with *imPerformSourceSettingsCommand*, where it can read the file and set the default prefs. param1 of that function is imFileAccessRec8*, and param2 is imSourceSettingsCommandRec*.
 
-When the source settings effect parameters are changed, the effect gets called with *PF_Cmd\_ TRANSLATE_PARAMS_TO_PREFS*. The function signature is:
+When the source settings effect parameters are changed, the effect gets called with *PF_Cmd_TRANSLATE_PARAMS_TO_PREFS*. The function signature is:
 
 ::
 
@@ -231,7 +231,7 @@ Starting in CC 2015, we now provide installer hints for Mac. You'll find a new p
 New Sample Projects
 ********************************************************************************
 
-This SDK includes updated GPU effect and transition samples that demonstrate GPU rendering. Thanks to Rama Hoetzlein from nVidia for the CUDA render path provided for the SDK\_ CrossDissolve sample!
+This SDK includes updated GPU effect and transition samples that demonstrate GPU rendering. Thanks to Rama Hoetzlein from nVidia for the CUDA render path provided for the SDK_CrossDissolve sample!
 
 A barebones Control Surface sample is now provided, too.
 
@@ -251,7 +251,7 @@ Importers that support growing files now get a hint if the host knows the file h
 
 imFileInfoRec8.ignoreGrowing.
 
-Exporters can now get the list of source pixel formats used by the clips in a sequence that is being smart rendered. GetExportSourceInfo(..., kExportInfo\_ SourcePixelFormat, ...) provides this information.
+Exporters can now get the list of source pixel formats used by the clips in a sequence that is being smart rendered. GetExportSourceInfo(..., kExportInfo_SourcePixelFormat, ...) provides this information.
 
 ----
 
@@ -419,7 +419,7 @@ What's New in CS5.5?
 
 We have opened up a new **Export Controller** API that can drive any exporter to output a file in any format and perform custom post-processing operations. Developers wanting to integrate Premiere Pro with an asset management system will want to use this API instead of the exporter API. See :ref:`export-controllers/export-controllers` for more details.
 
-A new pair of pixel formats was added to natively support full-range Rec. 601 4:2:0 YUV planar video, both progressive and interlaced: PrPixelFormat_YUV_420_MPEG2_FRAME\_ PICTURE_PLANAR_8u_601_FullRange and PrPixelFormat_YUV_420_MPEG2\_ FIELD_PICTURE_PLANAR_8u_601_FullRange.
+A new pair of pixel formats was added to natively support full-range Rec. 601 4:2:0 YUV planar video, both progressive and interlaced: PrPixelFormat_YUV_420_MPEG2_FRAME_PICTURE_PLANAR_8u_601_FullRange and PrPixelFormat_YUV_420_MPEG2_FIELD_PICTURE_PLANAR_8u_601_FullRange.
 
 The :ref:`universals/sweetpea-suites.video-segment-suite` now provides a new call to retrieve a segment node for a requested time. There are also a few new properties for media nodes:
 

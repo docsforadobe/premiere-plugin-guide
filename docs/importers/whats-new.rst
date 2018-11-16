@@ -70,7 +70,7 @@ The importer-wide setting still remains in ``imImportInfoRec.canProvidePeakAudio
 What's New in Premiere Pro CS5.5?
 ================================================================================
 
-Importers can now support color management, when running in After Effects. The importer should set imImageInfoRec.colorProfileSupport to imColorProfileSupport\_ Fixed, and then describe the color profiles supported by the clip using the new ``imGetIndColorProfile`` selector. When importing the frame, specify the color profile in imSourceVideoRec. selectedColorProfileName. The :ref:`universals/sweetpea-suites.ppix-cache-suite` has been updated to differentiate between color profiles as well.
+Importers can now support color management, when running in After Effects. The importer should set imImageInfoRec.colorProfileSupport to imColorProfileSupport_Fixed, and then describe the color profiles supported by the clip using the new ``imGetIndColorProfile`` selector. When importing the frame, specify the color profile in imSourceVideoRec. selectedColorProfileName. The :ref:`universals/sweetpea-suites.ppix-cache-suite` has been updated to differentiate between color profiles as well.
 
 New canProvidePeakAudio flag to allow an importer to provide peak audio data by responding to *imGetPeakAudio*.
 

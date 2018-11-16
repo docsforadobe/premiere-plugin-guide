@@ -23,7 +23,7 @@ On macOS:
 
 Another way to do this in Visual Studio is by placing a line of code::
 
-  \_asm int 3;
+  _asm int 3;
 
 or::
 

@@ -171,7 +171,7 @@ See a quickstart video on building an effect using a similar SDK (on macOS): ado
 
 We've combined the sample projects into a single master project, stored in the Examples folder of the SDK.
 
-For macOS it is BuildAll.xcodeproj; for Windows, it is \_BuildAll.sln.
+For macOS it is BuildAll.xcodeproj; for Windows, it is _BuildAll.sln.
 
 You'll need to specify some settings so that the plug-ins are built into a folder where they will be loaded by the application you are developing for.
 
