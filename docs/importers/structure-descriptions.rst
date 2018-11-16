@@ -3,10 +3,12 @@
 Structure Descriptions
 ################################################################################
 
+.. _importers/structure-descriptions.imAcceleratorRec:
+
 imAcceleratorRec
 ================================================================================
 
-Selector: ``imRetargetAccelerator``
+Selector: :ref:`importers/selector-descriptions.imRetargetAccelerator`
 
 Describes the path to the new media and new accelerator created when the Project Manager copies media and its accelerator.
 
@@ -25,10 +27,12 @@ Describes the path to the new media and new accelerator created when the Project
 
 ----
 
+.. _importers/structure-descriptions.imAnalysisRec:
+
 imAnalysisRec
 ================================================================================
 
-Selector: ``imAnalysis``
+Selector: :ref:`importers/selector-descriptions.imAnalysis`
 
 Sending back analysis data is a two step process. First, set buffersize to the size of your character buffer and return imNoErr.
 
@@ -58,10 +62,12 @@ Premiere will immediately send ``imAnalysis`` again; populate the buffer with te
 
 ----
 
+.. _importers/structure-descriptions.imAsyncImporterCreationRec:
+
 imAsyncImporterCreationRec
 ================================================================================
 
-Selector: ``imCreateAsyncImporter``
+Selector: :ref:`importers/selector-descriptions.imCreateAsyncImporter`
 
 Create an asynchronous importer object using the data provided, and store it here.
 
@@ -86,10 +92,12 @@ Create an asynchronous importer object using the data provided, and store it her
 
 ----
 
+.. _importers/structure-descriptions.imAudioInfoRec7:
+
 imAudioInfoRec7
 ================================================================================
 
-Selector: ```imGetInfo8``` (member of ``imFileInfoRec8``)
+Selector: :ref:`importers/selector-descriptions.mGetInfo8` (member of :ref:`importers/structure-descriptions.imFileInfoRec8`)
 
 Audio data properties of the file (or of the data you will generate, if synthetic).
 
@@ -109,15 +117,18 @@ Audio data properties of the file (or of the data you will generate, if syntheti
 | ``sampleRate``  | In hertz.                                                                                                                                                |
 +-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``sampleType``  | This is for informational use only, to disclose the format of the audio on disk, before it is converted to 32-bit float, uninterleaved, by the importer. |
+|                 |                                                                                                                                                          |
 |                 | The audio sample types are listed in :ref:`universals/universals`.                                                                                       |
 +-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ----
 
+.. _importers/structure-descriptions.imCalcSizeRec:
+
 imCalcSizeRec
 ================================================================================
 
-Selector: ``imCalcSize8``
+Selector: :ref:`importers/selector-descriptions.imCalcSize8`
 
 Asks the importer for an estimate of disk space used by the clip, given the provided trim boundaries.
 
@@ -141,6 +152,7 @@ Asks the importer for an estimate of disk space used by the clip, given the prov
 | ``trimIn``      | In point of the trimmed clip the importer should calculate the size for, in the timebase specified by scale over sampleSize. |
 +-----------------+------------------------------------------------------------------------------------------------------------------------------+
 | ``duration``    | Duration of the trimmed clip the importer should calculate the size for.                                                     |
+|                 |                                                                                                                              |
 |                 | If 0, then the importer should calculate the size of the untrimmed clip.                                                     |
 +-----------------+------------------------------------------------------------------------------------------------------------------------------+
 | ``sizeInBytes`` | Return the calculated size in bytes.                                                                                         |
@@ -152,10 +164,12 @@ Asks the importer for an estimate of disk space used by the clip, given the prov
 
 ----
 
+.. _importers/structure-descriptions.imCheckTrimRec:
+
 imCheckTrimRec
 ================================================================================
 
-Selector: ``imCheckTrim8``
+Selector: :ref:`importers/selector-descriptions.imCheckTrim8`
 
 Provides the requested trim boundaries to the importer, and allows adjusted trim boundaries to be passed back to Premiere.
 
@@ -198,10 +212,12 @@ Provides the requested trim boundaries to the importer, and allows adjusted trim
 
 ----
 
+.. _importers/structure-descriptions.imClipFrameDescriptorRec:
+
 imClipFrameDescriptorRec
 ================================================================================
 
-Selector: ``imSelectClipFrameDescriptor``
+Selector: :ref:`importers/selector-descriptions.imSelectClipFrameDescriptor`
 
 Based on the request in ``inDesiredClipFrameDescriptor`` and the importer's Source Settings, modify ``outBestFrameDescriptor`` as needed to describe what format the importer will provide.
 
@@ -228,10 +244,12 @@ Based on the request in ``inDesiredClipFrameDescriptor`` and the importer's Sour
 
 ----
 
+.. _importers/structure-descriptions.imCompleteAsyncClosedCaptionScanRec:
+
 imCompleteAsyncClosedCaptionScanRec
 ================================================================================
 
-Selector: ``imCompleteAsyncClosedCaptionScan``
+Selector: :ref:`importers/selector-descriptions.imCompleteAsyncClosedCaptionScan`
 
 This structure is passed to provide one last chance to cleanup and dispose of ``inAsyncCaptionScanPrivateData``, and to mark whether the closed caption scan completed without error.
 
@@ -258,10 +276,12 @@ This structure is passed to provide one last chance to cleanup and dispose of ``
 
 ----
 
+.. _importers/structure-descriptions.imIndColorProfileRec:
+
 imIndColorProfileRec
 ================================================================================
 
-Selector: ``imGetIndColorProfile``
+Selector: :ref:`importers/selector-descriptions.imGetIndColorProfile`
 
 Deprecated as of 13.0. Describes a color profile supported by a clip.
 
@@ -280,10 +300,12 @@ Set ``ioBufferSize`` to the required size for the buffer, and the host will allo
 
 ----
 
+.. _importers/structure-descriptions.imCopyFileRec:
+
 imCopyFileRec
 ================================================================================
 
-Selector: ``imCopyFile``
+Selector: :ref:`importers/selector-descriptions.imCopyFile`
 
 Describes how to copy a clip. Also provides a callback to update the progress bar and check if the user has cancelled.
 
@@ -315,10 +337,12 @@ Describes how to copy a clip. Also provides a callback to update the progress ba
 
 ----
 
+.. _importers/structure-descriptions.imDataRateAnalysisRec:
+
 imDataRateAnalysisRec
 ================================================================================
 
-Selector: ``imDataRateAnalysis``
+Selector: :ref:`importers/selector-descriptions.imDataRateAnalysis`
 
 Specify the desired buffersize, return to Premiere with ``imNoErr``; upon the next call fill buffer with ``imDataSamples``, and specify a base data rate for audio (if any).
 
@@ -341,7 +365,7 @@ This structure is used like ``imAnalysisRec``.
 +-----------------+---------------------------------------------------------------------------------------------+
 | ``buffersize``  | The size of the buffer you request from Premiere prior to passing data back data in buffer. |
 +-----------------+---------------------------------------------------------------------------------------------+
-| ``buffer``      | Pointer to the analysis buffer to be filled with imDataSamples (see structure below).       |
+| ``buffer``      | Pointer to the analysis buffer to be filled with ``imDataSamples`` (see structure below).   |
 +-----------------+---------------------------------------------------------------------------------------------+
 | ``baserate``    | ``Audio`` data rate (bytes per second) of the file.                                         |
 +-----------------+---------------------------------------------------------------------------------------------+
@@ -361,10 +385,12 @@ This structure is used like ``imAnalysisRec``.
 
 ----
 
+.. _importers/structure-descriptions.imDeferredProcessingRec:
+
 imDeferredProcessingRec
 ================================================================================
 
-Selector: ``imDeferredProcessing``
+Selector: :ref:`importers/selector-descriptions.imDeferredProcessing`
 
 Describes the current progress of the deferred processing on the clip referred to by inPrivateData.
 
@@ -389,10 +415,14 @@ Describes the current progress of the deferred processing on the clip referred t
 
 ----
 
+.. _importers/structure-descriptions.imDeleteFileRec:
+
 imDeleteFileRec
 ================================================================================
 
-Selector: ``imDeleteFile`` Describes the file to be deleted.
+Selector: :ref:`importers/selector-descriptions.imDeleteFile`
+
+Describes the file to be deleted.
 
 ::
 
@@ -409,10 +439,14 @@ Selector: ``imDeleteFile`` Describes the file to be deleted.
 
 ----
 
+.. _importers/structure-descriptions.imFileAccessRec8:
+
 imFileAccessRec8
 ================================================================================
 
-Selectors: ``imGetInfo8`` and ``imGetPrefs8`` Describes the file being imported.
+Selectors: ``imGetInfo8`` and ``imGetPrefs8``
+
+Describes the file being imported.
 
 ::
 
@@ -440,10 +474,12 @@ Selectors: ``imGetInfo8`` and ``imGetPrefs8`` Describes the file being imported.
 
 ----
 
+.. _importers/structure-descriptions.imFileAttributesRec:
+
 imFileAttributesRec
 ================================================================================
 
-Selector: ``imGetFileAttributes``
+Selector: :ref:`importers/selector-descriptions.imGetFileAttributes`
 
 New in Premiere Pro 3.1. Provide the clip creation date.
 
@@ -460,10 +496,12 @@ New in Premiere Pro 3.1. Provide the clip creation date.
 
 ----
 
+.. _importers/structure-descriptions.imFileInfoRec8:
+
 imFileInfoRec8
 ================================================================================
 
-Selector: ```imGetInfo8```
+Selector: :ref:`importers/selector-descriptions.mGetInfo8`
 
 Describes the clip, or the stream with the ID streamIdx. Set the clip or stream attributes from the file header or data source. Create and store any privateData.
 
@@ -563,10 +601,12 @@ If importing stereoscopic footage, import the left-eye video channel for streamI
 
 ----
 
+.. _importers/structure-descriptions.imFileOpenRec8:
+
 imFileOpenRec8
 ================================================================================
 
-Selector: ``imOpenFile8``
+Selector: :ref:`importers/selector-descriptions.imOpenFile8`
 
 The file Premiere wants the importer to open.
 
@@ -602,20 +642,22 @@ The file Premiere wants the importer to open.
 
 ----
 
+.. _importers/structure-descriptions.imFileRef:
+
 imFileRef
 ================================================================================
 
 Selectors:
 
-- ``imAnalysis``,
-- ``imDataRateAnalysis``,
-- ``imOpenFile8``,
-- ``imQuietFile``,
-- ``imCloseFile``,
-- ``imGetTimeInfo8``,
-- ``imSetTimeInfo8``,
-- ``imImportImage``,
-- ``imImportAudio7``
+- :ref:`importers/selector-descriptions.imAnalysis`,
+- :ref:`importers/selector-descriptions.imDataRateAnalysis`,
+- :ref:`importers/selector-descriptions.imOpenFile8`,
+- :ref:`importers/selector-descriptions.imQuietFile`,
+- :ref:`importers/selector-descriptions.imCloseFile`,
+- :ref:`importers/selector-descriptions.imGetTimeInfo8`,
+- :ref:`importers/selector-descriptions.imSetTimeInfo8`,
+- :ref:`importers/selector-descriptions.imImportImage`,
+- :ref:`importers/selector-descriptions.imImportAudio7`
 
 A file HANDLE on Windows, or a void* on MacOS.
 
@@ -625,10 +667,12 @@ Use OS-specific functions, rather than ANSI file functions, when manipulating im
 
 ----
 
+.. _importers/structure-descriptions.imFrameFormat:
+
 imFrameFormat
 ================================================================================
 
-Selector: ``imGetSourceVideo`` (member of imSourceVideoRec)
+Selector: :ref:`importers/selector-descriptions.imGetSourceVideo` (member of :ref:`importers/structure-descriptions.imSourceVideoRec`)
 
 Describes the frame dimensions and pixel format.
 
@@ -650,10 +694,12 @@ Describes the frame dimensions and pixel format.
 
 ----
 
+.. _importers/structure-descriptions.imGetAudioChannelLayoutRec:
+
 imGetAudioChannelLayoutRec
 ================================================================================
 
-Selector: ``imGetAudioChannelLayout``
+Selector: :ref:`importers/selector-descriptions.imGetAudioChannelLayout`
 
 The importer should label each audio channel in the clip being imported.
 
@@ -676,10 +722,12 @@ If no labels are specified, the channel layout will be assumed to be discrete.
 
 ----
 
+.. _importers/structure-descriptions.imGetNextClosedCaptionRec:
+
 imGetNextClosedCaptionRec
 ================================================================================
 
-Selector: ``imGetNextClosedCaption``
+Selector: :ref:`importers/selector-descriptions.imGetNextClosedCaption`
 
 This structure provides private data allocated in ``imInitiateAsyncClosedCaptionScan``, and should be filled out to pass back a closed caption, it's time, format, size, and overall progress in the closed caption scan.
 
@@ -734,10 +782,12 @@ This structure provides private data allocated in ``imInitiateAsyncClosedCaption
 
 ----
 
+.. _importers/structure-descriptions.imGetPrefsRec:
+
 imGetPrefsRec
 ================================================================================
 
-Selector: ```imGetPrefs8```
+Selector: :ref:`importers/selector-descriptions.mGetPrefs8`
 
 Contains settings/prefs data gathered from (or defaults to populate) a setup dialog.
 
@@ -802,10 +852,14 @@ If you are creating media, you can may generate a video preview that includes th
 
 ----
 
+.. _importers/structure-descriptions.imImageInfoRec:
+
 imImageInfoRec
 ================================================================================
 
-Selector: ```imGetInfo8``` (member of imFileInfoRec8) Describes the video to be imported.
+Selector: :ref:`importers/selector-descriptions.mGetInfo8` (member of :ref:`importers/structure-descriptions.imFileInfoRec8`)
+
+Describes the video to be imported.
 
 ::
 
@@ -995,10 +1049,12 @@ Unused
 
 ----
 
+.. _importers/structure-descriptions.imImportAudioRec7:
+
 imImportAudioRec7
 ================================================================================
 
-Selector: ``imImportAudio7``
+Selector: :ref:`importers/selector-descriptions.imImportAudio7`
 
 Describes the audio samples to be returned, and contains an allocated buffer for the importer to fill in.
 
@@ -1032,10 +1088,12 @@ Provide the audio in 32-bit float, uninterleaved audio format.
 
 ----
 
+.. _importers/structure-descriptions.imImportImageRec:
+
 imImportImageRec
 ================================================================================
 
-Selector: ``imImportImage``
+Selector: :ref:`importers/selector-descriptions.imImportImage`
 
 Describes the frame to be returned.
 
@@ -1148,10 +1206,12 @@ Frame Info
 
 ----
 
+.. _importers/structure-descriptions.imImportInfoRec:
+
 imImportInfoRec
 ================================================================================
 
-Selector: ``imInit``
+Selector: :ref:`importers/selector-descriptions.imInit`
 
 Describes the importer's capabilities to Premiere.
 
@@ -1292,10 +1352,12 @@ Unused
 
 ----
 
+.. _importers/structure-descriptions.imIndFormatRec:
+
 imIndFormatRec
 ================================================================================
 
-Selector: ``imGetIndFormat``
+Selector: :ref:`importers/selector-descriptions.imGetIndFormat`
 
 Describes the format(s) supported by the importer. Synthetic files can only have one format.
 
@@ -1369,10 +1431,12 @@ The flags listed below are only for legacy plug-ins and should not be used.
 
 ----
 
+.. _importers/structure-descriptions.imIndPixelFormatRec:
+
 imIndPixelFormatRec
 ================================================================================
 
-Selector: ``imGetIndPixelFormat``
+Selector: :ref:`importers/selector-descriptions.imGetIndPixelFormat`
 
 Describes the pixel format(s) supported by the importer.
 
@@ -1394,10 +1458,12 @@ Describes the pixel format(s) supported by the importer.
 
 ----
 
+.. _importers/structure-descriptions.imInitiateAsyncClosedCaptionScanRec:
+
 imInitiateAsyncClosedCaptionScanRec
 ================================================================================
 
-Selector: ``imInitiateAsyncClosedCaptionScan``
+Selector: :ref:`importers/selector-descriptions.imInitiateAsyncClosedCaptionScan`
 
 Both ``imGetNextClosedCaption`` and ``imCompleteAsyncClosedCaptionScan`` may be called from a different thread from which imInitiateAsyncClosedCaptionScan was originally called.
 
@@ -1434,10 +1500,12 @@ This is useful for certain cases where the embedded captions contain many frames
 
 ----
 
+.. _importers/structure-descriptions.imMetaDataRec:
+
 imMetaDataRec
 ================================================================================
 
-Selector: ``imGetMetaData`` and ``imSetMetaData``
+Selector: :ref:`importers/selector-descriptions.imGetMetaData` and :ref:`importers/selector-descriptions.imSetMetaData`
 
 Describes the metadata specific to a given four character code.
 
@@ -1465,10 +1533,12 @@ Describes the metadata specific to a given four character code.
 
 ----
 
+.. _importers/structure-descriptions.imPeakAudioRec:
+
 imPeakAudioRec
 ================================================================================
 
-Selector: ``imGetPeakAudio``
+Selector: :ref:`importers/selector-descriptions.imGetPeakAudio`
 
 Describes the peak values of the audio at the specified position.
 
@@ -1502,10 +1572,12 @@ Describes the peak values of the audio at the specified position.
 
 ----
 
+.. _importers/structure-descriptions.imPreferredFrameSizeRec:
+
 imPreferredFrameSizeRec
 ================================================================================
 
-Selector: ``imGetPreferredFrameSize``
+Selector: :ref:`importers/selector-descriptions.imGetPreferredFrameSize`
 
 Describes a frame size preferred by the importer.
 
@@ -1536,10 +1608,12 @@ Describes a frame size preferred by the importer.
 
 ----
 
+.. _importers/structure-descriptions.imQueryContentStateRec:
+
 imQueryContentStateRec
 ================================================================================
 
-Selector: ``imQueryContentState``
+Selector: :ref:`importers/selector-descriptions.imQueryContentState`
 
 Fill in the outContentStateID, which should be a GUID calculated based on the content state of the clip at inSourcePath.
 
@@ -1554,10 +1628,12 @@ If the state hasn't changed since the last call, the GUID returned should be the
 
 ----
 
+.. _importers/structure-descriptions.imQueryDestinationPathRec:
+
 imQueryDestinationPathRec
 ================================================================================
 
-Selector: ``imQueryDestinationPath``
+Selector: :ref:`importers/selector-descriptions.imQueryDestinationPath`
 
 Fill in the desired ``outActualDestinationPath``, based on the ``inSourcePath`` and ``inSuggestedDestinationPath``.
 
@@ -1585,10 +1661,12 @@ Fill in the desired ``outActualDestinationPath``, based on the ``inSourcePath`` 
 
 ----
 
+.. _importers/structure-descriptions.imQueryInputFileListRec:
+
 imQueryInputFileListRec
 ================================================================================
 
-Selector: ``imQueryInputFileList``
+Selector: :ref:`importers/selector-descriptions.imQueryInputFileList`
 
 Fill in the outContentStateID, which should be a GUID calculated based on the content state of the clip at ``inSourcePath``.
 
@@ -1620,10 +1698,12 @@ If the state hasn't changed since the last call, the GUID returned should be the
 
 ----
 
+.. _importers/structure-descriptions.imQueryStreamLabelRec:
+
 imQueryStreamLabelRec
 ================================================================================
 
-Selector: ``imQueryStreamLabel``
+Selector: :ref:`importers/selector-descriptions.imQueryStreamLabel`
 
 New in CS6. Based on the stream ID passed in, allocate and pass back a label for the stream.
 
@@ -1650,10 +1730,12 @@ For stereoscopic importers, use the predefined labels in PrSDKStreamLabel.h.
 
 ----
 
+.. _importers/structure-descriptions.imSaveFileRec8:
+
 imSaveFileRec8
 ================================================================================
 
-Selector: ``imSaveFile8``
+Selector: :ref:`importers/selector-descriptions.imSaveFile8`
 
 Describes the file to be saved.
 
@@ -1687,10 +1769,12 @@ Describes the file to be saved.
 
 ----
 
+.. _importers/structure-descriptions.imSourceVideoRec:
+
 imSourceVideoRec
 ================================================================================
 
-Selector: ``imGetSourceVideo``, ``aiInitiateAsyncRead``, ``aiGetFrame``
+Selector: :ref:`importers/selector-descriptions.imGetSourceVideo`, ``aiInitiateAsyncRead``, ``aiGetFrame``
 
 Describes the requested frame, to be passed back in outFrame.
 
@@ -1736,10 +1820,12 @@ Describes the requested frame, to be passed back in outFrame.
 
 ----
 
+.. _importers/structure-descriptions.imSubTypeDescriptionRec:
+
 imSubTypeDescriptionRec
 ================================================================================
 
-Selector: ``imGetSubTypeNames``
+Selector: :ref:`importers/selector-descriptions.imGetSubTypeNames`
 
 Added in Premiere Pro CS3. Describes the codec name associated with a given fourcc.
 
@@ -1752,10 +1838,12 @@ Added in Premiere Pro CS3. Describes the codec name associated with a given four
 
 ----
 
+.. _importers/structure-descriptions.imTimeInfoRec8:
+
 imTimeInfoRec8
 ================================================================================
 
-Selector: ``imGetTimeInfo8`` and ``imSetTimeInfo8``
+Selector: :ref:`importers/selector-descriptions.imGetTimeInfo8` and :ref:`importers/selector-descriptions.imSetTimeInfo8`
 
 Describes the timecode and timecode rate associated with a clip.
 
@@ -1808,10 +1896,12 @@ Describes the timecode and timecode rate associated with a clip.
 
 ----
 
+.. _importers/structure-descriptions.imTrimFileRec8:
+
 imTrimFileRec8
 ================================================================================
 
-Selector: ``imGetIndColorSpace``
+Selector: :ref:`importers/selector-descriptions.imGetIndColorSpace`
 
 Describes how to trim a clip, based on information returned by the importer during ``imCheckTrim8``.
 
@@ -1861,10 +1951,12 @@ Also provides a callback to update the progress bar and check if the user has ca
 
 ----
 
+.. _importers/structure-descriptions.ColorSpaceRec:
+
 ColorSpaceRec
 ================================================================================
 
-Selector: ``imGetIndColorSpace``
+Selector: :ref:`importers/selector-descriptions.imGetIndColorSpace`
 
 Describes the colorspace in use with the media.
 

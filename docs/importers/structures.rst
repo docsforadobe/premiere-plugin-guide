@@ -3,111 +3,111 @@
 Structures
 ################################################################################
 
-+-----------------------------------------+-------------------------------------------------------+
-|              **Structure**              |                **Sent with selector**                 |
-+=========================================+=======================================================+
-| ``imAcceleratorRec``                    | ``imRetargetAccelerator``                             |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imAnalysisRec``                       | ``imAnalysis``                                        |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imAsyncImporterCreationRec``          | ``imCreateAsyncImporter``                             |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imAudioInfoRec7``                     | ``imGetInfo8`` (member of ``imFileInfoRec7``)         |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imCalcSizeRec``                       | ``imCalcSize8``                                       |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imCheckTrimRec``                      | ``imCheckTrim8``                                      |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imClipFrameDescriptorRec``            | ``imSelectClipFrameDescriptor``                       |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imCompleteAsyncClosedCaptionScanRec`` | ``imCompleteAsyncClosedCaptionScan``                  |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imIndColorProfileRec``                | ``imGetIndColorProfile``                              |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imCopyFileRec``                       | ``imCopyFile``                                        |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imDataRateAnalysisRec``               | ``imDataRateAnalysis``                                |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imDeferredProcessingRec``             | ``imDeferredProcessing``                              |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imDeleteFileRec``                     | ``imDeleteFile``                                      |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imFileAccessRec8``                    | ``imGetInfo8`` and ``imGetPrefs8``                    |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imFileAttributesRec``                 | ``imGetFileAttributes``                               |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imFileInfoRec8``                      | ``imGetInfo8``                                        |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imFileOpenRec8``                      | ``imOpenFile8``                                       |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imFileRef``                           | - ``imAnalysis``,                                     |
-|                                         | - ``imDataRateAnalysis``,                             |
-|                                         | - ``imOpenFile8``,                                    |
-|                                         | - ``imQuietFile``,                                    |
-|                                         | - ``imCloseFile``,                                    |
-|                                         | - ``imGetTimeInfo8``,                                 |
-|                                         | - ``imSetTimeInfo8``,                                 |
-|                                         | - ``imImportImage`` ,                                 |
-|                                         | - ``imImportAudio7*``                                 |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imFileSpec``                          | - ``imGetInfo8``,                                     |
-|                                         | - ``imGetPrefs8``,                                    |
-|                                         | - ``imSaveFile8``,                                    |
-|                                         | - ``imDeleteFile*``,                                  |
-|                                         | - ``imTrimFile8``                                     |
-|                                         |                                                       |
-|                                         | Member of:                                            |
-|                                         |                                                       |
-|                                         | - ``imFileAccessRec8``,                               |
-|                                         | - ``imSaveFileRec8``,                                 |
-|                                         | - ``imDeleteFileRec``,                                |
-|                                         | - ``imTrimFileRec8``                                  |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imFrameFormat``                       | ``imGetSourceVideo`` (member of ``imSourceVideoRec``) |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imGetNextClosedCaptionRec``           | ``imGetNextClosedCaption``                            |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imGetPrefsRec``                       | ``imGetPrefs8``                                       |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imImageInfoRec``                      | ``imGetInfo8`` (member of ``imFileInfoRec8``)         |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imImportAudioRec7``                   | ``imImportAudio7``                                    |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imImportImageRec``                    | ``imImportImage``                                     |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imImportInfoRec``                     | ``imInit``                                            |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imIndFormatRec``                      | ``imGetIndFormat``                                    |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imIndPixelFormatRec``                 | ``imGetIndPixelFormat``                               |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imInitiateAsyncClosedCaptionScanRec`` | ``imInitiateAsyncClosedCaptionScan``                  |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imMetaDataRec``                       | ``imGetMetaData`` and ``imSetMetaData``               |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imPeakAudioRec``                      | ``imGetPeakAudio``                                    |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imPreferredFrameSizeRec``             | ``imGetPreferredFrameSize``                           |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imQueryContentStateRec``              | ``imQueryContentState``                               |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imQueryDestinationPathRec``           | ``imQueryDestinationPath``                            |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imQueryInputFileListRec``             | ``imQueryInputFileList``                              |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imQueryStreamLabelRec``               | ``imQueryStreamLabel``                                |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imRollCrawlInfoRec``                  | ``imGetRollCrawlInfo``                                |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imRollCrawlRenderRec``                | ``imRollCrawlRenderPage``                             |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imSaveFileRec8``                      | ``imSaveFile8``                                       |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imSourceVideoRec``                    | ``imGetSourceVideo``                                  |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imSubTypeDescriptionRec``             | ``imGetSubTypeNames``                                 |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imTimeInfoRec8``                      | ``imGetTimeInfo8`` and ``imSetTimeInfo8``             |
-+-----------------------------------------+-------------------------------------------------------+
-| ``imTrimFileRec8``                      | ``imTrimFile8``                                       |
-+-----------------------------------------+-------------------------------------------------------+
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+|                                **Structure**                                |                                                    **Sent with selector**                                                    |
++=============================================================================+==============================================================================================================================+
+| :ref:`importers/structure-descriptions.imAcceleratorRec`                    | :ref:`importers/selector-descriptions.imRetargetAccelerator`                                                                 |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imAnalysisRec`                       | :ref:`importers/selector-descriptions.imAnalysis`                                                                            |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imAsyncImporterCreationRec`          | :ref:`importers/selector-descriptions.imCreateAsyncImporter`                                                                 |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imAudioInfoRec7`                     | :ref:`importers/selector-descriptions.imGetInfo8` (member of ``imFileInfoRec7``)                                             |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imCalcSizeRec`                       | :ref:`importers/selector-descriptions.imCalcSize8`                                                                           |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imCheckTrimRec`                      | :ref:`importers/selector-descriptions.imCheckTrim8`                                                                          |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imClipFrameDescriptorRec`            | :ref:`importers/selector-descriptions.imSelectClipFrameDescriptor`                                                           |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imCompleteAsyncClosedCaptionScanRec` | :ref:`importers/selector-descriptions.imCompleteAsyncClosedCaptionScan`                                                      |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imIndColorProfileRec`                | :ref:`importers/selector-descriptions.imGetIndColorProfile`                                                                  |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imCopyFileRec`                       | :ref:`importers/selector-descriptions.imCopyFile`                                                                            |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imDataRateAnalysisRec`               | :ref:`importers/selector-descriptions.imDataRateAnalysis`                                                                    |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imDeferredProcessingRec`             | :ref:`importers/selector-descriptions.imDeferredProcessing`                                                                  |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imDeleteFileRec`                     | :ref:`importers/selector-descriptions.imDeleteFile`                                                                          |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imFileAccessRec8`                    | :ref:`importers/selector-descriptions.imGetInfo8` and :ref:`importers/selector-descriptions.imGetPrefs8`                                                        |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imFileAttributesRec`                 | :ref:`importers/selector-descriptions.imGetFileAttributes`                                                                   |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imFileInfoRec8`                      | :ref:`importers/selector-descriptions.imGetInfo8`                                                                            |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imFileOpenRec8`                      | :ref:`importers/selector-descriptions.imOpenFile8`                                                                           |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imFileRef`                           | - :ref:`importers/selector-descriptions.imAnalysis`,                                                                         |
+|                                                                             | - :ref:`importers/selector-descriptions.imDataRateAnalysis`,                                                                 |
+|                                                                             | - :ref:`importers/selector-descriptions.imOpenFile8`,                                                                        |
+|                                                                             | - :ref:`importers/selector-descriptions.imQuietFile`,                                                                        |
+|                                                                             | - :ref:`importers/selector-descriptions.imCloseFile`,                                                                        |
+|                                                                             | - :ref:`importers/selector-descriptions.imGetTimeInfo8`,                                                                     |
+|                                                                             | - :ref:`importers/selector-descriptions.imSetTimeInfo8`,                                                                     |
+|                                                                             | - :ref:`importers/selector-descriptions.imImportImage` ,                                                                     |
+|                                                                             | - :ref:`importers/selector-descriptions.imImportAudio7`                                                                      |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imFileSpec`                          | - :ref:`importers/selector-descriptions.imGetInfo8`,                                                                         |
+|                                                                             | - :ref:`importers/selector-descriptions.imGetPrefs8`,                                                                        |
+|                                                                             | - :ref:`importers/selector-descriptions.imSaveFile8`,                                                                        |
+|                                                                             | - :ref:`importers/selector-descriptions.imDeleteFile`,                                                                       |
+|                                                                             | - :ref:`importers/selector-descriptions.imTrimFile8`                                                                         |
+|                                                                             |                                                                                                                              |
+|                                                                             | Member of:                                                                                                                   |
+|                                                                             |                                                                                                                              |
+|                                                                             | - :ref:`importers/selector-descriptions.imFileAccessRec8`,                                                                   |
+|                                                                             | - :ref:`importers/selector-descriptions.imSaveFileRec8`,                                                                     |
+|                                                                             | - :ref:`importers/selector-descriptions.imDeleteFileRec`,                                                                    |
+|                                                                             | - :ref:`importers/selector-descriptions.imTrimFileRec8`                                                                      |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imFrameFormat`                       | :ref:`importers/selector-descriptions.imGetSourceVideo` (member of :ref:`importers/structure-descriptions.imSourceVideoRec`) |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imGetNextClosedCaptionRec`           | :ref:`importers/selector-descriptions.imGetNextClosedCaption`                                                                |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imGetPrefsRec`                       | :ref:`importers/selector-descriptions.imGetPrefs8`                                                                           |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imImageInfoRec`                      | :ref:`importers/selector-descriptions.imGetInfo8` (member of :ref:`importers/structure-descriptions.imFileInfoRec8`)         |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imImportAudioRec7`                   | :ref:`importers/selector-descriptions.imImportAudio7`                                                                        |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imImportImageRec`                    | :ref:`importers/selector-descriptions.imImportImage`                                                                         |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imImportInfoRec`                     | :ref:`importers/selector-descriptions.imInit`                                                                                |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imIndFormatRec`                      | :ref:`importers/selector-descriptions.imGetIndFormat`                                                                        |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imIndPixelFormatRec`                 | :ref:`importers/selector-descriptions.imGetIndPixelFormat`                                                                   |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imInitiateAsyncClosedCaptionScanRec` | :ref:`importers/selector-descriptions.imInitiateAsyncClosedCaptionScan`                                                      |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imMetaDataRec`                       | :ref:`importers/selector-descriptions.imGetMetaData` and :ref:`importers/selector-descriptions.imSetMetaData`                |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imPeakAudioRec`                      | :ref:`importers/selector-descriptions.imGetPeakAudio`                                                                        |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imPreferredFrameSizeRec`             | :ref:`importers/selector-descriptions.imGetPreferredFrameSize`                                                               |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imQueryContentStateRec`              | :ref:`importers/selector-descriptions.imQueryContentState`                                                                   |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imQueryDestinationPathRec`           | :ref:`importers/selector-descriptions.imQueryDestinationPath`                                                                |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imQueryInputFileListRec`             | :ref:`importers/selector-descriptions.imQueryInputFileList`                                                                  |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imQueryStreamLabelRec`               | :ref:`importers/selector-descriptions.imQueryStreamLabel`                                                                    |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imRollCrawlInfoRec`                  | :ref:`importers/selector-descriptions.imGetRollCrawlInfo`                                                                    |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imRollCrawlRenderRec`                | :ref:`importers/selector-descriptions.imRollCrawlRenderPage`                                                                 |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imSaveFileRec8`                      | :ref:`importers/selector-descriptions.imSaveFile8`                                                                           |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imSourceVideoRec`                    | :ref:`importers/selector-descriptions.imGetSourceVideo`                                                                      |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imSubTypeDescriptionRec`             | :ref:`importers/selector-descriptions.imGetSubTypeNames`                                                                     |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imTimeInfoRec8`                      | :ref:`importers/selector-descriptions.imGetTimeInfo8` and :ref:`importers/selector-descriptions.imSetTimeInfo8`              |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`importers/structure-descriptions.imTrimFileRec8`                      | :ref:`importers/selector-descriptions.imTrimFile8`                                                                           |
++-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
