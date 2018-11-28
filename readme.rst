@@ -1,7 +1,7 @@
 Description
 ################################################################################
 
-Repo hosting the Premiere Pro CC SDK Guide RST docs, linked into a http://readthedocs.io system hosted at http://pprosdk.aenhancers.com
+Repo hosting the Premiere Pro CC SDK Guide RST docs, linked into a http://readthedocs.io system hosted at http://ppro-plugin-sdk.aenhancers.com
 
 ----
 
