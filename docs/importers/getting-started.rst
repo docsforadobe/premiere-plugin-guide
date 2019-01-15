@@ -132,9 +132,7 @@ When the application loses focus, importers receive *imQuietFile* for each file 
 Growing Files
 ********************************************************************************
 
-Starting in CS6.0.2, an importer should set imFileInfoRec8.mayBeGrowing to true if it may grow after it has been imported. If an importer reports that a certain clip may be growing, Premiere Pro adds it to a list of files that are called back periodically, where the period is based on the user preference in the Media Preferences > Growing Files. The Growing File Manager then wakes up at the interval and refreshes the clip if the media state is different.
-
-In CS6.0.0 and CS6.0.1, the importer should get the refresh rate using the new call GetGrowingFileRefreshInterval() in the Importer File Manager Suite. It should call RefreshFileAsync() to refresh the file.
+When Premiere Pro attempts to refresh a growing file (after N seconds, as determined by the preferences value), it quiets the existing importer instance, and opens a new one pointing to the same file. In response, the Importer should report the current (new) duration and, once it's determined whether the file is still growing, set  ``imFileInfoRec.mayBeGrowing`` appropriately.
 
 Importing from Streaming Sources
 ********************************************************************************

@@ -46,7 +46,7 @@ The clip preferences are now passed with imIndPixelFormatRec, so that an importe
 What's New in Premiere Pro CS6.0.2?
 ================================================================================
 
-This release adds more support for growing files by adding a new flag, imFileInfoRec8. mayBeGrowing.
+This release adds more support for growing files by adding a new flag, ``imFileInfoRec8.mayBeGrowing``.
 
 ----
 
@@ -55,7 +55,7 @@ What's New in Premiere Pro CS6?
 
 Importers can now bring in stereoscopic footage as a single clip with separate left and right channels.
 
-With some additional work, importers can now support growing files. The refresh rate for growing files is set by the user in Preferences > Media > Growing Files. The importer should get the refresh rate using the new call GetGrowingFileRefreshInterval() in the Importer File Manager Suite. It should call RefreshFileAsync() to refresh the file.
+With some additional work, importers can now support growing files. The refresh rate for growing files is set by the user in Preferences > Media > Growing Files. The importer should get the refresh rate using the new call GetGrowingFileRefreshInterval() in the Importer File Manager Suite. Call RefreshFileAsync() to refresh the file.
 
 A new selector, *imQueryInputFileList*, was added to support Collect Files in After Effects for file types that use more than a single file. In imImportInfoRec, a new member, ``canProvideFileList``, specifies whether the importer can provide a list of all files for a copy operation. If the importer does not implement this selector, the host will assume the media just uses a single file at the original imported media path.
 
