@@ -11,4 +11,8 @@ To report a bug or submit a feature request for Premiere Pro, please visit: http
 
 Since this form can be used to submit bugs and features for all Adobe products, make sure you have the right product selected.
 
-We encourage you to use the Premiere Pro SDK forum to ask questions on the API and general integration. For development questions that you'd rather keep confidential, you may contact API Engineering directly. Your feedback can improve the API and SDK to streamline future development.
+We encourage you to use the Premiere Pro SDK forum to ask questions on the API and general integration. 
+
+https://community.adobe.com/t5/forums/filteredbylabelpage/board-id/premiere-pro/label-name/sdk
+
+For development questions that you'd rather keep confidential, you may contact API Engineering directly. Your feedback can improve the API and SDK to streamline future development.

@@ -42,14 +42,14 @@ Starting in CC 2015.3, **control surface plug-ins** should be installed here:
 
 Value name: ``SequencePresetsPath``
 
-Value data: ``[Adobe Premiere Pro installation path]\Settings\SequencePresets\\``
+Value data: ``[Adobe Premiere Pro installation path]\Settings\SequencePresets\``
 
 
 **For sequence preview presets:**
 
 Value name: ``SequencePreviewPresetsPath``
 
-Value data: ``[Adobe Premiere Pro installation path]\Settings\EncoderPresets\SequencePreview\\``
+Value data: ``[Adobe Premiere Pro installation path]\Settings\EncoderPresets\SequencePreview\``
 
 
 **For exporter presets:**
@@ -76,7 +76,7 @@ Value name: ``Plug-InsDir``
 
 Value data: ``REG_SZ`` containing the full path of the plug-in folder.
 
-As an example: ``C:\Program Files\Adobe\Common\Plug-ins\CS6\MediaCore\\``
+As an example: ``C:\Program Files\Adobe\Common\Plug-ins\CS6\MediaCore\``
 
 
 The best way to locate other preset folders was to start from the root path for Premiere Pro in the registry at

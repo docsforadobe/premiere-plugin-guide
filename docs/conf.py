@@ -17,11 +17,11 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Premere Pro CC SDK Guide'
-copyright = u'1992–2017 Adobe Systems Incorporated'
+project = u'Premere Pro C++ SDK Guide'
+copyright = u'1992–2020 Adobe Systems Incorporated'
 author = u'Adobe Systems Incorporated'
 
-version = u'13.0.0'
+version = u'14.2.0'
 release = u'1.0.0'
 
 pygments_style = 'sphinx'

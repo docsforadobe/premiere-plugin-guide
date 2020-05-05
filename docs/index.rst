@@ -1,4 +1,4 @@
-Welcome to the Adobe Premiere Pro CC SDK Guide!
+Welcome to the Adobe Premiere Pro SDK Guide!
 ###############################################
 
 .. toctree::

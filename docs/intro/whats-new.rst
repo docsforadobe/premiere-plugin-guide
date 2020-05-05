@@ -3,6 +3,18 @@
 Whats New
 ################################################################################
 
+What's New in 14.2
+================================================================================
+
+Cleared the dust and debris off of the SDK source files. ;) The primary motivation for this new SDK release is to provided updated headers. Example code utilizing those new headers, as well as documentation of their new contents, will (regrettably) need to wait for another day.
+
+What's New in 13.1
+================================================================================
+
+Removed "CC" from the product name.
+
+----
+
 What's New in 13.0
 ================================================================================
 
