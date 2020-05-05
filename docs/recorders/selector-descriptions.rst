@@ -114,6 +114,8 @@ param2 indicates whether the plug-in should activate. When a capture window is o
 recmod_SetDisp
 ================================================================================
 
+ Note: 30 January, 2020, Currently there is a bug in the implementation and recmod_SetDisp is being sent on every repaint event from the OS.
+
 - param1 - ``PrivateData``
 - param2 - :ref:`recorders/structure-descriptions.recDisplayPos`
 
