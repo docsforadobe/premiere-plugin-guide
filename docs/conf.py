@@ -17,7 +17,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Premere Pro C++ SDK Guide'
+project = u'Premiere Pro C++ SDK Guide'
 copyright = u'1992–2020 Adobe Systems Incorporated'
 author = u'Adobe Systems Incorporated'
 
