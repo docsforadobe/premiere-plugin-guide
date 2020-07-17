@@ -704,6 +704,8 @@ This is used for synthetic clips longer than five minutes.
 
 Providing peak data can significantly improve waveform rendering performance when the user views audio waveform of the clip in the Source Monitor.
 
+The values provided are ``floats``, in the range 0.0 to 1.0 in amplitude. There is an array which has an array of ``float *`` for each audio channel the importer reported for this stream. The ``float *`` point to ``float[inNumSampleFrames]`` which needs to be filled in by the importer. The ``inSampleRate`` is the sample rate of the returned data; in the case that ``inNumSampleFrame = 1000`` and ``inSampleRate = 10``, the importer would fill in 1000 min values and 1000 max values per channel, with 10 values per second of original audio.
+
 ----
 
 .. _importers/selector-descriptions.imQueryContentState:
