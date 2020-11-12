@@ -990,7 +990,7 @@ Format Info
 |                             | - ``prFieldsLowerFirst``                                                                                                                           |
 |                             | - ``prFieldsUnknown``                                                                                                                              |
 +-----------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``fieldsStacked``           | Fields are present, and not interlaced.                                                                                                            |
+| ``fieldsStacked``           | Fields are present, and not interlaced. Deprecated since Premiere Pro 7.0.                                                                         |
 +-----------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``alphaType``               | Used when depth is 32 or greater. One of the following:                                                                                            |
 |                             |                                                                                                                                                    |
