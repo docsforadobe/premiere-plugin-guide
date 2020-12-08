@@ -123,6 +123,18 @@ Save render time by checking to see if frames are repeated. Inspect the Sequence
 
 ----
 
+.. _exporters/selector-descriptions.exSelExport2:
+
+exSelExport2
+================================================================================
+
+- param1 - :ref:`exDoExportRec2* <exporters/structure-descriptions.exDoExportRec2>`
+- param2 - ``unused``
+
+Do the export! Identical to exSelExport, except that exDoExportRec2 (which contains a LUT description) is passed. 
+
+----
+
 .. _exporters/selector-descriptions.exSelQueryExportFileExtension:
 
 exSelQueryExportFileExtension
@@ -216,3 +228,20 @@ exSelShutdown
 - param2 - ``unused``
 
 Sent immediately before shutdown. Free all remaining memory and close any open file handles.
+
+----
+
+.. _exporters/selector-descriptions.exSelQueryExportColorSpace:
+
+exSelQueryExportColorSpace
+================================================================================
+
+- param1 - :ref:`exExporterInstanceRec* <exporters/structure-descriptions.exQueryExportColorSpaceRec>`
+- param2 - ``unused``
+
+Describe the color space to be used during export.
+
+
+
+
+

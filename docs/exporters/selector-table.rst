@@ -34,7 +34,9 @@ This table summarizes the various selector commands an exporter can receive.
 +----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+------------+
 | :ref:`exporters/selector-descriptions.exSelValidateOutputSettings`   | :ref:`exValidateOutputSettingsRec* <exporters/structure-descriptions.exValidateOutputSettingsRec>`     | unused     |
 +----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+------------+
-| :ref:`exporters/selector-descriptions.exSelEndInstance`              | :ref:`exExporterInstanceRec* <exporters/structure-descriptions.exExporterInstanceRec>`                 | unused     |
+| :ref:`exporters/selector-descriptions.exSelExport2`                  | :ref:`exDoExportRec2* <exporters/structure-descriptions.exDoExportRec2>`                               | unused     |
++----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+------------+
+| :ref:`exporters/selector-descriptions.exSelQueryExportColorSpace`    | :ref:`exQueryExportColorSpaceRec* <exporters/structure-descriptions.exQueryExportColorSpaceRec>`       | unused     |
 +----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+------------+
 | :ref:`exporters/selector-descriptions.exSelShutdown`                 | :ref:`exExporterInfoRec* <exporters/structure-descriptions.exExporterInfoRec>`                         | unused     |
 +----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+------------+

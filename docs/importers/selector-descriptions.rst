@@ -793,3 +793,16 @@ a file structure with seperate files for metadata, or separate video and audio f
 In ``imImportInfoRec``, a new member, ``canProvideFileList``, specifies whether the importer can provide a list of all files for a copy operation.
 
 If the importer does not implement this selector, the host will assume the media just uses a single file at the original imported media path.
+
+
+----
+
+.. _importers/selector-descriptions.imgetembeddedlut:
+
+imgetembeddedlut
+================================================================================
+
+- param1 - Embedded LUT profile to return, from 0 to N.
+- param2 - :ref:`EmbeddedLUTRec* <importers/structure-descriptions.EmbeddedLUTRec>`
+
+Sent if Importer reported that it has embedded LUT. The first time it is called, the inDestinationBuffer will be NULL. Fill in the required size for the buffer, set the correct space type, and Premiere Pro will call your importer back with enough memory.

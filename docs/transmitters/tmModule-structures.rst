@@ -207,6 +207,7 @@ Transmitter should fill in this information during ``QueryVideoMode``.
     PrPixelFormat  outPixelFormat;
     PrSDKString    outStreamLabel;
     PrTime         outLatency;
+    ColorSpaceRec  outColorSpaceRec;
   } tmVideoMode;
 
 +--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -244,6 +245,10 @@ Transmitter should fill in this information during ``QueryVideoMode``.
 |                    |                                                                                                                                                                     |
 |                    | Take care to not set this value any higher than necessary, since playback start will delayed by this amount. A value equivalent to 5 frames or less is recommended. |
 +--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|``outColorSpaceRec``| New in 14.x. Definition of the colorspace in use; defaults to BT 709 full range 32f.                                                                                |
+|                    |                                                                                                                                                                     |
++--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
 
 ----
 

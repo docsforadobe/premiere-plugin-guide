@@ -898,7 +898,9 @@ Describes the video to be imported.
     csSDK_int32   colorProfileSupport;
     PrSDKString   codecDescription;
     csSDK_int32   colorSpaceSupport;
-    csSDK_int32   reserved[15];
+  	PrTime			  frameRate;	
+	  prBool			  hasEmbeddedLUT;
+    csSDK_int32   reserved[12];
   } imImageInfoRec;
 
 Plug-in Info
@@ -1781,17 +1783,19 @@ Describes the requested frame, to be passed back in outFrame.
 ::
 
   typedef struct {
-    void             *inPrivateData;
-    csSDK_int32      currentStreamIdx;
-    PrTime           inFrameTime;
-    imFrameFormat    *inFrameFormats;
-    csSDK_int32      inNumFrameFormats;
-    bool             removePulldown;
-    PPixHand         *outFrame;
-    void             *prefs;
-    csSDK_int32      prefsSize;
-    PrSDKString      selectedColorProfileName;
-    PrRenderQuality  inQuality;
+    void              *inPrivateData;
+    csSDK_int32       currentStreamIdx;
+    PrTime            inFrameTime;
+    imFrameFormat     *inFrameFormats;
+    csSDK_int32       inNumFrameFormats;
+    bool              removePulldown;
+    PPixHand          *outFrame;
+    void              *prefs;
+    csSDK_int32       prefsSize;
+    PrSDKString       selectedColorProfileName;
+    PrRenderQuality   inQuality;
+    imRenderContext   inRenderContext;
+    PrSDKColorSpaceID	opaqueColorSpaceIdentifier;	
   } imSourceVideoRec;
 
 +------------------------------+--------------------------------------------------------------------------------------------------------------------------+
@@ -1814,6 +1818,10 @@ Describes the requested frame, to be passed back in outFrame.
 | ``prefsSize``                | New in Premiere Pro 4.1. Size of prefs data.                                                                             |
 +------------------------------+--------------------------------------------------------------------------------------------------------------------------+
 | ``selectedColorProfileName`` | New in Premiere Pro CS5.5. A string that specifies the color profile of the imported frame.                              |
++------------------------------+--------------------------------------------------------------------------------------------------------------------------+
+| ``inQuality``                | New in Premiere Pro CC 2014.                                                                                             |
++------------------------------+--------------------------------------------------------------------------------------------------------------------------+
+| ``inQuality``                | New in Premiere Pro CC 2014.                                                                                             |
 +------------------------------+--------------------------------------------------------------------------------------------------------------------------+
 | ``inQuality``                | New in Premiere Pro CC 2014.                                                                                             |
 +------------------------------+--------------------------------------------------------------------------------------------------------------------------+
@@ -1976,7 +1984,7 @@ Describes the colorspace in use with the media.
 |                       |                                                                                        |
 |                       | - ``kPrSDKColorSpaceType_Undefined``                                                   |
 |                       | - ``kPrSDKColorSpaceType_ICC``                                                         |
-|                       | - ``kPrSDKColorSpaceType_LUT``                                                         |
+|                       | - ``kPrSDKColorSpaceType_LUT``  // DO NOT USE after 14.x.                              |
 |                       | - ``kPrSDKColorSpaceType_SEITags``                                                     |
 |                       | - ``kPrSDKColorSpaceType_MXFTags``                                                     |
 +-----------------------+----------------------------------------------------------------------------------------+
@@ -2000,3 +2008,116 @@ Describes the colorspace in use with the media.
 |                       |   prBool       isRGB;                                                                  |
 +-----------------------+----------------------------------------------------------------------------------------+
 
+.. _importers/structure-descriptions.RawColorSpaceRec:
+
+RawColorSpaceRec
+================================================================================
+
+Selector: ``imGetIndColorSpace``
+
+Describes the colorspace in use with the media.
+
+::
+
+  typedef struct
+  {
+	  PrSDKColorSpaceType		colorSpaceType;
+	  RawColorProfileRec		profileRec;	  // for ICC, LUTs and Predefined Color Spaces
+	  prSEIColorCodesRec		seiCodesRec;	// H-265 codes for HEVC, AVC, ProRes
+  } RawColorSpaceRec;
+
++-----------------------+----------------------------------------------------------------------------------------+
+| ``colorSpaceType`` | One of the following:                                                                     |
+|                       |                                                                                        |
+|                       | - ``kPrSDKColorSpaceType_Undefined``                                                   |
+|                       | - ``kPrSDKColorSpaceType_ICC``                                                         |
+|                       | - ``kPrSDKColorSpaceType_LUT``  // DO NOT USE after 14.x.                              |
+|                       | - ``kPrSDKColorSpaceType_SEITags``                                                     |
+|                       | - ``kPrSDKColorSpaceType_MXFTags``                                                     |
++-----------------------+----------------------------------------------------------------------------------------+
+| profileRec            | A structure describing the color profile.                                              |
+|                       |                                                                                        |
+|                       | ::                                                                                     |
+|                       |                                                                                        |
+|                       |   csSDK_int32  ioBufferSize;                                                           |
+|                       |   void*        inDestinationBuffer;                                                    |
+|                       |   PrSDKString  outName;                                                                |
++-----------------------+----------------------------------------------------------------------------------------+
+| ``seiCodesRec``       | A structure describing the color profile; used with H.265, HEVC, AVC and ProRes media. |
+|                       |                                                                                        |
+|                       | ::                                                                                     |
+|                       |                                                                                        |
+|                       |   csSDK_int32  colorPrimariesCode;                                                     |
+|                       |   csSDK_int32  transferCharacteristicCode;                                             |
+|                       |   csSDK_int32  matrixEquationsCode;                                                    |
+|                       |   csSDK_int32  bitDepth;                                                               |
+|                       |   prBool       isFullRange;                                                            |
+|                       |   prBool       isRGB;                                                                  |
++-----------------------+----------------------------------------------------------------------------------------+
+
+.. _importers/structure-descriptions.EmbeddedLUTRec:
+
+EmbeddedLUTRec
+================================================================================
+
+Selector: ``imGetIndColorSpace``
+
+Describes the LUT embedded with the media.
+
+::
+
+  typedef struct
+  {
+    void*					      privateData;
+    RawColorProfileRec 	lutBlobRec;
+    RawColorSpaceRec 		lutInColorSpaceRec;
+    RawColorSpaceRec 		lutOutColorSpaceRec;
+  } EmbeddedLUTRec;
+
++-----------------------+----------------------------------------------------------------------------------------+
+| ``privatedata``       | Private.                                                                               |
++-----------------------+----------------------------------------------------------------------------------------+
+| ``lutBlobRec``        | Describes the embedded LUT.                                                            |
++-----------------------+----------------------------------------------------------------------------------------+
+|``lutInColorSpaceRec`` | Describes the input colorspace rec.                                                    |
++-----------------------+----------------------------------------------------------------------------------------+
+|``lutOutColorSpaceRec``| Describes the output colorspace rec.                                                   |
++-----------------------+----------------------------------------------------------------------------------------+
+
+
+.. _importers/structure-descriptions.imRenderContext:
+
+imRenderContext
+================================================================================
+
+Selector: :ref:`importers/selector-descriptions.imGetSourceVideo` (member of :ref:`importers/structure-descriptions.imSourceVideoRec`)
+
+Describes the context of the render; why it's occurring, and what rate and ratio is in use.
+
+::
+
+  typedef struct 
+  {
+    imRenderIntent inIntent;
+    double inPlaybackRatio;
+    double inPlaybackRate;
+  } imRenderContext;
+
++-----------------------+----------------------------------------------------------------------------------------+
+| ``inIntent``          | The intent of the render being requested.                                              |
+|                       | - ``imRenderIntent_Unknown``  (-1)                                                     |
+|                       | - ``imRenderIntent_Export``    0                                                       |
+|                       | - ``imRenderIntent_Stopped``  // DO NOT USE after 14.x.                                |
+|                       | - ``imRenderIntent_Scrubbing``                                                         |
+|                       | - ``imRenderIntent_Preroll``                                                           |
+|                       | - ``imRenderIntent_Playing``                                                           |
+|                       | - ``imRenderIntent_SpeculativePrefetch``                                               |
+|                       | - ``imRenderIntent_Thumbnail``  // DO NOT USE after 14.x.                              |
+|                       | - ``imRenderIntent_Analysis``                                                          |
+|                       | - ``imRenderIntent_ExportPreview``                                                     |
+|                       | - ``imRenderIntent_ExportProxies``                                                     |
++-----------------------+----------------------------------------------------------------------------------------+
+| ``inPlaybackRatio``   | 1.0 means full framerate, lower values indicate deteriorating playback.                |
++-----------------------+----------------------------------------------------------------------------------------+
+|``inPlaybackRate``     | 1.0 means 1x forward, -1.0 means 1x backward.                                          |
++-----------------------+----------------------------------------------------------------------------------------+

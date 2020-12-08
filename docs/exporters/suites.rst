@@ -291,6 +291,7 @@ Register the callback to be made to push video frames to the exporter. This func
 |                          |     PrTime         inEndTime;                                                                                                                                                                                                             |
 |                          |     float          inReservedProgressPreRender;                                                                                                                                                                                           |
 |                          |     float          inReservedProgressPostRender;                                                                                                                                                                                          |
+|                          |     bool           inHardwareResidentFrameOutputSupported;  // new in 14.x                                                                                                                                                                |
 |                          |   } ExportLoopRenderParams;                                                                                                                                                                                                               |
 +--------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``inNumberOfPasses``     | Set to 1, unless you need multipass encoding such as two-pass or three-pass encoding.                                                                                                                                                     |
@@ -593,6 +594,115 @@ Note that if the frame aspect ratio of the request does not match that of the se
 | ``inCompositeOnBlack``               | Set to non-zero, to composite the render on black.                                                                                                                                     |
 +--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
+struct SequenceRender_ParamsRecExt
+********************************************************************************
+
+Fill this structure in before calling ``RenderVideoFrame()``, ``QueueAsyncVideoFrameRender()``, or ``PrefetchMediaWithRenderParameters()``.
+
+Note that if the frame aspect ratio of the request does not match that of the sequence, the frame will be letterboxed or pillarboxed, rather than stretched to fit the frame.
+
+::
+
+  typedef struct {
+    const PrPixelFormat*  inRequestedPixelFormatArray;
+    csSDK_int32           inRequestedPixelFormatArrayCount;
+    csSDK_int32           inWidth;
+    csSDK_int32           inHeight;
+    csSDK_int32           inPixelAspectRatioNumerator;
+    csSDK_int32           inPixelAspectRatioDenominator;
+    PrRenderQuality       inRenderQuality;
+    prFieldType           inFieldType;
+    csSDK_int32           inDeinterlace;
+    PrRenderQuality       inDeinterlaceQuality;
+    csSDK_int32           inCompositeOnBlack;
+    PrSDKColorSpaceID	    inPrSDKColorSpaceID;
+  } SequenceRender_ParamsRecExt;
+
++--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|              **Member**              |                                                                                    **Description**                                                                                     |
++======================================+========================================================================================================================================================================================+
+| ``inRequestedPixelFormatArray``      | An array of PrPixelFormats that list your format preferences in order.                                                                                                                 |
++--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``inRequestedPixelFormatArrayCount`` | Size of the pixel format array.                                                                                                                                                        |
++--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``inWidth``                          | Width to render at.                                                                                                                                                                    |
++--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``inHeight``                         | Height to render at.                                                                                                                                                                   |
++--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``inPixelAspectRatioNumerator``      | Numerator of the pixel aspect ratio.                                                                                                                                                   |
++--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``inPixelAspectRatioDenominator``    | Denominator of the pixel aspect ratio.                                                                                                                                                 |
++--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``inRenderQuality``                  | Use one of the PrRenderQuality enumerated values.                                                                                                                                      |
++--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``inFieldType``                      | Use one of the prFieldType constants.                                                                                                                                                  |
++--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``inDeinterlace``                    | Set to non-zero, to force an explicit deinterlace. Otherwise, the renderer will use the output field setting to determine whether to automatically deinterlace any interlaced sources. |
++--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``inDeinterlaceQuality``             | Use one of the PrRenderQuality enumerated values.                                                                                                                                      |
++--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``inCompositeOnBlack``               | Set to non-zero, to composite the render on black.                                                                                                                                     |
++--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``inPrSDKColorSpaceID``              | Identifies the color space being used.                                                                                                                                                 |
++--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
+struct SequenceRender_ParamsRecExt2
+********************************************************************************
+
+Fill this structure in before calling ``RenderVideoFrame()``, ``QueueAsyncVideoFrameRender()``, or ``PrefetchMediaWithRenderParameters()``.
+
+Note that if the frame aspect ratio of the request does not match that of the sequence, the frame will be letterboxed or pillarboxed, rather than stretched to fit the frame.
+
+::
+
+  typedef struct {
+    const PrPixelFormat*  inRequestedPixelFormatArray;
+    csSDK_int32           inRequestedPixelFormatArrayCount;
+    csSDK_int32           inWidth;
+    csSDK_int32           inHeight;
+    csSDK_int32           inPixelAspectRatioNumerator;
+    csSDK_int32           inPixelAspectRatioDenominator;
+    PrRenderQuality       inRenderQuality;
+    prFieldType           inFieldType;
+    csSDK_int32           inDeinterlace;
+    PrRenderQuality       inDeinterlaceQuality;
+    csSDK_int32           inCompositeOnBlack;
+    PrSDKColorSpaceID	    inPrSDKColorSpaceID;
+  	PrSDKLUTID			inPrSDKLUTID;			// Added to support export LUT
+  } SequenceRender_ParamsRecExt2;
+
++--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|              **Member**              |                                                                                    **Description**                                                                                     |
++======================================+========================================================================================================================================================================================+
+| ``inRequestedPixelFormatArray``      | An array of PrPixelFormats that list your format preferences in order.                                                                                                                 |
++--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``inRequestedPixelFormatArrayCount`` | Size of the pixel format array.                                                                                                                                                        |
++--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``inWidth``                          | Width to render at.                                                                                                                                                                    |
++--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``inHeight``                         | Height to render at.                                                                                                                                                                   |
++--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``inPixelAspectRatioNumerator``      | Numerator of the pixel aspect ratio.                                                                                                                                                   |
++--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``inPixelAspectRatioDenominator``    | Denominator of the pixel aspect ratio.                                                                                                                                                 |
++--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``inRenderQuality``                  | Use one of the PrRenderQuality enumerated values.                                                                                                                                      |
++--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``inFieldType``                      | Use one of the prFieldType constants.                                                                                                                                                  |
++--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``inDeinterlace``                    | Set to non-zero, to force an explicit deinterlace. Otherwise, the renderer will use the output field setting to determine whether to automatically deinterlace any interlaced sources. |
++--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``inDeinterlaceQuality``             | Use one of the PrRenderQuality enumerated values.                                                                                                                                      |
++--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``inCompositeOnBlack``               | Set to non-zero, to composite the render on black.                                                                                                                                     |
++--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``inPrSDKColorSpaceID``              | New in 13.0. Identifies the color space being used.                                                                                                                                    |
++--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``inPrSDKLUTID``                     | New in 14.4. Identifies the color space being used.                                                                                                                                    |
++--------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
 struct SequenceRender_GetFrameReturnRec
 ********************************************************************************
 
@@ -890,3 +1000,132 @@ Allows an exporter to request rendered frames from multiple video streams.
     PrTimelineID      inTimeline,
     PrSDKStreamLabel  inStreamLabel,
     csSDK_uint32*     outVideoRendererID);
+
+RenderColorManagedVideoFrame()
+********************************************************************************
+
+Renders a frame of video, using the specified color management.
+
+::
+
+	prSuiteError (*RenderColorManagedVideoFrame)(
+		csSDK_uint32					inVideoRenderID,
+		PrTime							inTime,
+		SequenceRender_ParamsRecExt*	inRenderParamsExt,
+		PrRenderCacheType				inCacheFlags,
+		SequenceRender_GetFrameReturnRec*	getFrameReturn);
+	
+QueueAsyncColorManagedVideoFrameRender()
+********************************************************************************
+
+Queues a render for a frame of video, using the specified color management.
+
+::
+
+	prSuiteError (*QueueAsyncColorManagedVideoFrameRender)(
+		csSDK_uint32					inVideoRenderID,
+		PrTime							inTime,
+		csSDK_uint32*					outRequestID,
+		SequenceRender_ParamsRecExt*	inRenderParamsExt,
+		PrRenderCacheType				inCacheFlags,
+		void*							inAsyncCompletionData);
+	
+
+PrefetchColorManagedMedia()
+********************************************************************************
+
+Pre-fetches a frame of color-managed media.
+
+::
+
+	prSuiteError (*PrefetchColorManagedMedia)(
+		csSDK_uint32		inVideoRenderID,
+		PrTime				inFrame,
+		PrSDKColorSpaceID inPrSDKColorSpaceID);
+	
+PrefetchColorManagedMediaWithRenderParameters()
+********************************************************************************
+
+Pre-fetches a frame of color-managed media, using the specified render parameters.
+
+::
+
+	prSuiteError (*PrefetchColorManagedMediaWithRenderParameters)(
+		csSDK_uint32					inVideoRenderID,
+		PrTime							inTime,
+		SequenceRender_ParamsRecExt*	inRenderParamsExt);
+	
+
+RenderColorManagedVideoFrameAndConformToPixelFormat()
+********************************************************************************
+
+Renders a frame of color-managed media, to the specified pixel format.
+
+
+::
+
+	prSuiteError (*RenderColorManagedVideoFrameAndConformToPixelFormat)(
+		csSDK_uint32					inVideoRenderID,
+		PrTime							inTime,
+		SequenceRender_ParamsRecExt*	inRenderParamsExt,
+		PrRenderCacheType				inCacheFlags,
+		PrPixelFormat					inConformToFormat,
+		SequenceRender_GetFrameReturnRec*	getFrameReturn);
+
+RenderColorManagedVideoFrame2()
+********************************************************************************
+
+Renders a frame of color-managed media, to the specified pixel format, using settings specified in SequenceRender_ParamsRecExt2.
+
+::
+
+	prSuiteError (*RenderColorManagedVideoFrame2)(
+		csSDK_uint32                    inVideoRenderID,
+		PrTime                          inTime,
+		SequenceRender_ParamsRecExt2*   inRenderParamsExt2,
+		PrRenderCacheType               inCacheFlags,
+		SequenceRender_GetFrameReturnRec*   outGetFrameReturn);
+	
+
+QueueAsyncColorManagedVideoFrameRender2()
+********************************************************************************
+
+Queues a request for a frame of color-managed media, to the specified pixel format, using settings specified in SequenceRender_ParamsRecExt2.
+
+
+::
+
+	prSuiteError (*QueueAsyncColorManagedVideoFrameRender2)(
+		csSDK_uint32                    inVideoRenderID,
+		PrTime                          inTime,
+		csSDK_uint32*                   outRequestID,
+		SequenceRender_ParamsRecExt2*   inRenderParamsExt2,
+		PrRenderCacheType               inCacheFlags,
+		void*                           inAsyncCompletionData);
+	
+PrefetchColorManagedMediaWithRenderParameters2()
+********************************************************************************
+
+Pre-fetches a request for a frame of color-managed media, to the specified pixel format, using settings specified in SequenceRender_ParamsRecExt2.
+
+::
+
+	prSuiteError(*PrefetchColorManagedMediaWithRenderParameters2)(
+		csSDK_uint32                    inVideoRenderID,
+		PrTime                          inTime,
+		SequenceRender_ParamsRecExt2*   inRenderParamsExt2);
+
+RenderColorManagedVideoFrameAndConformToPixelFormat2()
+********************************************************************************
+
+Renders a frame of color-managed media, to the specified pixel format, using settings specified in SequenceRender_ParamsRecExt2.
+
+::
+
+	prSuiteError (*RenderColorManagedVideoFrameAndConformToPixelFormat2)(
+		csSDK_uint32                    inVideoRenderID,
+		PrTime                          inTime,
+		SequenceRender_ParamsRecExt2*   inRenderParamsExt2,
+		PrRenderCacheType               inCacheFlags,
+		PrPixelFormat                   inConformToFormat,
+		SequenceRender_GetFrameReturnRec*   outGetFrameReturn);
