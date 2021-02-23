@@ -1416,7 +1416,7 @@ The flags listed below are only for legacy plug-ins and should not be used.
 +------------------------+---------------------------------------------------------------------------------------+
 | ``xfCanImport``        | Unused: The PiPL resource describes the file as an importer.                          |
 +------------------------+---------------------------------------------------------------------------------------+
-| ``xfIsStill``          | Unused: Use ``imFileInfoRec.imImageInfoRec.isStill`` instead.                         |
+| ``xfIsStill``          | Indicates that the importer handles still images.                                     |
 +------------------------+---------------------------------------------------------------------------------------+
 | ``xfIsSound``          | Unused: Use ``imFileInfoRec.hasAudio`` instead.                                       |
 +------------------------+---------------------------------------------------------------------------------------+
