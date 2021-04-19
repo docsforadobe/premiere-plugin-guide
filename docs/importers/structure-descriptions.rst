@@ -1132,7 +1132,7 @@ Describes the frame to be returned.
     prRect         destClipRect;
   } imImportImageRec;
 
-Bounds Info
+Bounds Info (for imImportImageRec)
 ********************************************************************************
 
 +----------------+------------------------------------------------------------+
@@ -1341,7 +1341,7 @@ Other
 | ``fileInfoVersion``           | New in CC 2014. This is used by an optimization in an internal importer. Do not use.                                                        |
 +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
 
-Unused
+Unused (in imImportInfoRec)
 ********************************************************************************
 
 +------------------+
@@ -1987,6 +1987,7 @@ Describes the colorspace in use with the media.
 |                       | - ``kPrSDKColorSpaceType_LUT``  // DO NOT USE after 14.x.                              |
 |                       | - ``kPrSDKColorSpaceType_SEITags``                                                     |
 |                       | - ``kPrSDKColorSpaceType_MXFTags``                                                     |
+|                       | - ``kPrSDKColorSpaceType_Predefined``                                                  |
 +-----------------------+----------------------------------------------------------------------------------------+
 | ioProfileRec          | A structure describing the color profile.                                              |
 |                       |                                                                                        |
@@ -2034,6 +2035,7 @@ Describes the colorspace in use with the media.
 |                       | - ``kPrSDKColorSpaceType_LUT``  // DO NOT USE after 14.x.                              |
 |                       | - ``kPrSDKColorSpaceType_SEITags``                                                     |
 |                       | - ``kPrSDKColorSpaceType_MXFTags``                                                     |
+|                       | - ``kPrSDKColorSpaceType_Predefined``                                                  |
 +-----------------------+----------------------------------------------------------------------------------------+
 | profileRec            | A structure describing the color profile.                                              |
 |                       |                                                                                        |

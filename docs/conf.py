@@ -21,8 +21,8 @@ project = u'Premiere Pro C++ SDK Guide'
 copyright = u'1992–2020 Adobe Systems Incorporated'
 author = u'Adobe Systems Incorporated'
 
-version = u'14.2.0'
-release = u'14.2.0'
+version = u'15.2.0'
+release = u'1.0'
 
 pygments_style = 'sphinx'
 

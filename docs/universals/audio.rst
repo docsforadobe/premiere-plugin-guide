@@ -114,6 +114,8 @@ Starting in CC, the audio channel support is increased to 32 channels.
 |                                    | - ``kPrAudioChannelLabel_BackRight``,                       |
 |                                    | - ``kPrAudioChannelLabel_FrontCenter``,                     |
 |                                    | - ``kPrAudioChannelLabel_LowFrequency``                     |
+|                                    | - ``kPrAudioChannelLabel_BackLeft``                         |
+|                                    | - ``kPrAudioChannelLabel_BackRight``                        |
 +------------------------------------+-------------------------------------------------------------+
 | ``kPrAudioChannelType_MaxChannel`` | New in CC.                                                  |
 |                                    |                                                             |

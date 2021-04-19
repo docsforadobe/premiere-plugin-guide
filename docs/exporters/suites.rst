@@ -1129,3 +1129,678 @@ Renders a frame of color-managed media, to the specified pixel format, using set
 		PrRenderCacheType               inCacheFlags,
 		PrPixelFormat                   inConformToFormat,
 		SequenceRender_GetFrameReturnRec*   outGetFrameReturn);
+
+
+  ----
+
+.. _exporters/suites.pf-utility-suite:
+
+PF Utility Suite
+================================================================================
+
+Utility functions for use by AE style effect plug-ins, running in Premiere Pro.
+
+Version 11, new in 15.0, adds GetVideoResolutionString.
+
+GetFilterInstanceID()
+********************************************************************************
+
+Gets the filter ID for the current effect reference.
+
+::
+
+  prSuiteError(*GetFilterInstanceID)(
+    PF_ProgPtr    effect_ref,
+    A_long*       outFilterInstanceID);
+
+GetMediaTimecode()
+********************************************************************************
+
+Retrieves formatted timecode, as well as the currently active video frame.
+
+::
+
+  prSuiteError(*GetMediaTimecode)(
+    PF_ProgPtr      effect_ref,
+    A_long*         outCurrentFrame,
+    PF_TimeDisplay* outTimeDisplay);
+
+GetClipSpeed()
+********************************************************************************
+
+Retrieves the speed multiplier of the clip.
+    
+::
+
+  prSuiteError(*GetClipSpeed)(
+		PF_ProgPtr effect_ref,
+		double* speed);
+
+GetClipDuration()
+********************************************************************************
+
+Retrieves the duration of the clip.
+
+::
+
+  prSuiteError(*GetClipDuration)(
+		PF_ProgPtr effect_ref,
+		A_long* frameDuration);
+
+GetClipStart()
+********************************************************************************
+
+Retrieves the start time of the clip.
+
+::
+
+	prSuiteError(*GetClipStart)(
+		PF_ProgPtr effect_ref,
+		A_long* frameDuration);
+
+GetUnscaledClipDuration()
+********************************************************************************
+
+Retrieves the duration of the clip, unaffected by any speed or retiming changes.
+    
+::
+
+  prSuiteError(*GetUnscaledClipDuration)(
+		PF_ProgPtr effect_ref,
+		A_long* frameDuration);
+
+GetUnscaledClipStart()
+********************************************************************************
+
+Retrives the start time of the clip, unaffected by any speed or retiming changes.
+
+::
+
+  prSuiteError(*GetUnscaledClipStart)(
+		PF_ProgPtr effect_ref,
+		A_long* frameDuration);
+
+GetTrackItemStart()
+*********************************************************************************
+
+Gets the start time of the track item.
+
+::
+
+  prSuiteError(*GetTrackItemStart)(
+		PF_ProgPtr    effect_ref,
+		A_long*       frameDuration);
+
+GetMediaFieldType()
+*********************************************************************************
+
+Retrieves the filed type in use with the media.
+
+::
+
+  prSuiteError(*GetMediaFieldType)(
+		PF_ProgPtr    effect_ref,
+		prFieldType*  outFieldType); // prFieldsNone, prFieldsUpperFirst, prFieldsLowerFirst, prFieldsUnknown
+
+GetMediaFrameRate()
+*********************************************************************************
+
+Gets the number of ticks per frame, for the media. 
+
+::
+
+  prSuiteError(*GetMediaFrameRate)(
+    PF_ProgPtr  effect_ref,
+    PrTime*     outTicksPerFrame);
+
+
+GetContainingTimelineID()
+********************************************************************************
+
+Gets the ID of the timeline containing the clip to which the effect is applied. 
+
+
+::
+
+  prSuiteError(*GetContainingTimelineID)(
+		PF_ProgPtr    effect_ref,
+		PrTimelineID* outTimelineID);
+
+GetClipName()
+*********************************************************************************
+
+Gets the name of the clip to which the effect is applied (or the master clip).
+::
+
+  prSuiteError(*GetClipName)(
+		PF_ProgPtr    effect_ref,
+		A_Boolean     inGetMasterClipName,
+		PrSDKString*  outSDKString);
+
+EffectWantsCheckedOutFramesToMatchRenderPixelFormat()
+*********************************************************************************
+
+Indicates that the effect wants to received checked out frames, in the same format used for destination rendering.
+
+::
+
+	prSuiteError(*EffectWantsCheckedOutFramesToMatchRenderPixelFormat)(
+		PF_ProgPtr  effect_ref);
+
+EffectDependsOnClipName()
+*********************************************************************************
+
+Indicates (based on second parameter) whether the effect depends on the name of the clip to which it is applied.
+::
+
+  prSuiteError(*EffectDependsOnClipName)(
+		PF_ProgPtr    effect_ref,
+		A_Boolean     inDependsOnClipName);
+
+SetEffectInstanceName()
+*********************************************************************************
+
+::
+
+  prSuiteError(*SetEffectInstanceName)(
+		PF_ProgPtr effect_ref,
+		const PrSDKString* inSDKString);
+
+GetFileName()
+*********************************************************************************
+
+Retrieves the name of the media file to which the effect instance is applied.
+
+::
+
+  prSuiteError(*GetFileName)(
+		PF_ProgPtr      effect_ref,
+		PrSDKString*    outSDKString);
+
+GetOriginalClipFrameRate()
+*********************************************************************************
+
+Retrieves the original (non-interpreted, un-re-timed) frame rate, of the media to which the effect instance is applied.
+
+::
+
+  prSuiteError(*GetOriginalClipFrameRate)(
+		PF_ProgPtr    effect_ref,
+		PrTime*       outTicksPerFrame);
+
+GetSourceTrackMediaTimecode()
+*********************************************************************************
+
+Retrieves the source media timecode for the specified frame within the specified layer, with or without transforms and start time offsets applied.
+
+::
+
+  prSuiteError(*GetSourceTrackMediaTimecode)(
+		PF_ProgPtr      effect_ref,
+		csSDK_uint32    inLayerParamIndex,
+		bool            inApplyTransform,
+		bool            inAddStartTimeOffset,
+		A_long*         outCurrentFrame);
+
+GetSourceTrackClipName()
+*********************************************************************************
+
+Retrieves the name of the layer in use by the effect instance.
+
+::
+
+  prSuiteError(*GetSourceTrackClipName)(
+		PF_ProgPtr      effect_ref,
+		csSDK_uint32    inLayerParamIndex,
+		A_Boolean       inGetMasterClipName,
+		PrSDKString*    outSDKString);
+
+
+GetSourceTrackFileName()
+*********************************************************************************
+
+Retrieves the file name of the source track item for the specified layer parameter.
+
+::
+
+  prSuiteError(*GetSourceTrackFileName)(
+		PF_ProgPtr      effect_ref,
+		csSDK_uint32    inLayerParamIndex,
+		PrSDKString*    outSDKString);
+	
+
+    
+EffectDependsOnClipName2()
+*********************************************************************************
+
+Specifies whether the effect instance depends on the specified layer parameter.
+
+::
+
+  prSuiteError(*EffectDependsOnClipName2)(
+		PF_ProgPtr    effect_ref,
+		A_Boolean     inDependsOnClipName,
+		csSDK_uint32  inLayerParamIndex);
+
+GetMediaTimecode2()
+*********************************************************************************
+
+Retrieves formatted timecode and current frame number, with or without trims applied.
+
+::
+
+  prSuiteError(*GetMediaTimecode2)(
+		PF_ProgPtr      effect_ref,
+		bool            inApplyTrim,
+		A_long*         outCurrentFrame,
+		PF_TimeDisplay* outTimeDisplay);
+
+GetSourceTrackMediaTimecode2()
+*********************************************************************************
+
+Given a specific sequence time, retrieves the source track media timecode for the specified layer parameter.
+
+::
+
+  prSuiteError(*GetSourceTrackMediaTimecode2)(
+		PF_ProgPtr      effect_ref,
+		csSDK_uint32    inLayerParamIndex,
+		bool            inApplyTransform,
+		bool            inAddStartTimeOffset,
+		PrTime          inSequenceTime,
+		A_long*         outCurrentFrame);
+
+GetSourceTrackClipName2()
+*********************************************************************************
+
+Retrieves the clip name used by the specific layer parameter.
+
+
+::
+
+  prSuiteError(*GetSourceTrackClipName2)(
+		PF_ProgPtr      effect_ref,
+		csSDK_uint32    inLayerParamIndex,
+		A_Boolean       inGetMasterClipName,
+		PrSDKString*    outSDKString,
+		PrTime          inSequenceTime);
+
+GetSourceTrackFileName2()
+*********************************************************************************
+
+Retreives the clip name in use by the specified layer parameter.
+
+::
+
+  prSuiteError(*GetSourceTrackFileName2)(
+		PF_ProgPtr    effect_ref,
+		csSDK_uint32  inLayerParamIndex,
+		PrSDKString*  outSDKString,
+		PrTime        inSequenceTime);
+
+GetCommentString()
+*********************************************************************************
+
+Retrieves the comment string associated with the specified source track item, at the specified time.
+
+::
+
+  prSuiteError(*GetCommentString)(
+		PF_ProgPtr    inEffectRef,
+		int32_t       inSourceTrack,
+		PrTime        inSequenceTime,
+		PrSDKString*  outSDKString);
+
+GetLogNoteString()
+********************************
+
+Retrieves the log note associated with the source track, at the specified time.
+
+
+::
+
+  prSuiteError(*GetLogNoteString)(
+		PF_ProgPtr    inEffectRef,
+		int32_t       inSourceTrack,
+		PrTime        inSequenceTime,
+		PrSDKString*  outSDKString);
+
+GetCameraRollString()
+*********************************************************************************
+
+Retrieves the log note associated with the source track, at the specified time.
+
+::
+
+  prSuiteError(*GetCameraRollString)(
+		PF_ProgPtr    inEffectRef,
+		int32_t       inSourceTrack,
+		PrTime        inSequenceTime,
+		PrSDKString*  outSDKString);
+
+GetClientMetadataString()
+**********************************************************************************
+
+Retrieves the metadata string associated with the source track, at the specified time.
+
+::
+
+  prSuiteError(*GetClientMetadataString)(
+		PF_ProgPtr    inEffectRef,
+		int32_t       inSourceTrack,
+		PrTime        inSequenceTime,
+		PrSDKString*  outSDKString);
+
+GetDailyRollString()
+**********************************************************************************
+
+Retrieves the daily roll string associated with the source track, at the specified time.
+
+
+::
+
+  prSuiteError(*GetDailyRollString)(
+		PF_ProgPtr    inEffectRef,
+		int32_t       inSourceTrack,
+		PrTime        inSequenceTime,
+		PrSDKString*  outSDKString);
+
+
+GetDescriptionString()
+*******************************
+
+Retrieves the daily roll string associated with the source track, at the specified time.
+
+::
+
+  prSuiteError(*GetDescriptionString)(
+		PF_ProgPtr    inEffectRef,
+		int32_t       inSourceTrack,
+		PrTime        inSequenceTime,
+		PrSDKString*  outSDKString);
+
+GetLabRollString()
+*******************************
+
+Retrieves the lab roll string associated with the source track, at the specified time.
+
+::
+
+  prSuiteError(*GetLabRollString)(
+		PF_ProgPtr    inEffectRef,
+		int32_t       inSourceTrack,
+		PrTime        inSequenceTime,
+		PrSDKString*  outSDKString);
+
+GetSceneString()
+*******************************
+
+Retrieves the scene string associated with the source track, at the specified time.
+
+
+::
+
+  prSuiteError(*GetSceneString)(
+		PF_ProgPtr    inEffectRef,
+		int32_t       inSourceTrack,
+		PrTime        inSequenceTime,
+		PrSDKString*  outSDKString);
+
+GetShotString()
+*******************************
+
+Retrieves the shot string associated with the source track item, at the specified time.
+    
+::
+
+  prSuiteError(*GetShotString)(
+		PF_ProgPtr    inEffectRef,
+		int32_t       inSourceTrack,
+		PrTime        inSequenceTime,
+		PrSDKString*  outSDKString);
+
+GetTapeNameString()
+*******************************
+
+Retrieves the tape name string associated with the source track item, at the specified time.
+    
+::
+
+  prSuiteError(*GetTapeNameString)(
+		PF_ProgPtr    inEffectRef,
+		int32_t       inSourceTrack,
+		PrTime        inSequenceTime,
+		PrSDKString*  outSDKString);
+
+GetVideoCodecString()
+*******************************
+
+Retrieves a string representing the video codec associated with the source track item, at the specified time.
+
+:: 
+
+  prSuiteError(*GetVideoCodecString)(
+		PF_ProgPtr    inEffectRef,
+		int32_t       inSourceTrack,
+		PrTime        inSequenceTime,
+		PrSDKString*  outSDKString);
+
+
+GetGoodMetadataString()
+*******************************
+
+Retrieves a string representing the "good" state of the source track item, at the specified time.
+
+
+::
+
+  prSuiteError(*GetGoodMetadataString)(
+		PF_ProgPtr    inEffectRef,
+		int32_t       inSourceTrack,
+		PrTime        inSequenceTime,
+		PrSDKString*  outSDKString);
+
+GetSoundRollString()
+*******************************
+
+Retrieves a string representing the "sound roll" state of the source track item, at the specified time.
+
+::
+
+  prSuiteError(*GetSoundRollString)(
+		PF_ProgPtr    inEffectRef,
+		int32_t       inSourceTrack,
+		PrTime        inSequenceTime,
+		PrSDKString*  outSDKString);
+
+GetSequenceTime()
+*******************************
+
+Retrieves the timebase of the sequence in which the effect is applied.
+
+::
+
+  prSuiteError(*GetSequenceTime)(
+		PF_ProgPtr  inEffectRef,
+		PrTime*     outSequenceTime);
+
+
+GetSoundTimecode()
+*******************************
+
+Retrieves the frame of the specified source time.
+
+::
+
+  prSuiteError(*GetSoundTimecode)(
+		PF_ProgPtr    inEffectRef,
+		int32_t       inSourceTrack,
+		PrTime        inSequenceTime,
+		A_long*       outCurrentFrame);
+
+
+GetOriginalClipFrameRateForSourceTrack()
+******************************************************************************
+
+Retrieves the original "ticks per frame" for the specified source track.
+
+::
+
+
+
+  prSuiteError(*GetOriginalClipFrameRateForSourceTrack)(
+		PF_ProgPtr    inEffectRef,
+		int32_t       inSourceTrack,
+		PrTime*       outTicksPerFrame);
+
+GetMediaFrameRateForSourceTrack()
+******************************************************************************
+
+Retrieves the media frame rate for the specified source track.
+
+::
+
+  prSuiteError(*GetMediaFrameRateForSourceTrack)(
+		PF_ProgPtr    inEffectRef,
+		int32_t       inSourceTrack,
+		PrTime        inSequenceTime,
+		PrTime*       outTicksPerFrame);
+
+
+
+GetSourceTrackMediaActualStartTime()
+**************************************************************
+
+Retrieves the start time of the specified layer parameter.
+
+::
+
+  prSuiteError(*GetSourceTrackMediaActualStartTime)(
+		PF_ProgPtr      inEffectRef,
+		csSDK_uint32    inLayerParamIndex,
+		PrTime          inSequenceTime,
+		PrTime*         outClipActualStartTime);
+
+
+IsSourceTrackMediaTrimmed()
+*********************************************************************************
+
+Retrieves whether the source track item has been trimmed. 
+
+::
+
+  prSuiteError(*IsSourceTrackMediaTrimmed)(
+		PF_ProgPtr      inEffectRef,
+		csSDK_uint32    inLayerParamIndex,
+		PrTime          inSequenceTime,
+		bool*           outTrimApplied);
+
+IsMediaTrimmed()
+*********************************************************************************
+
+Retrieves whether the track item has been trimmed. 
+
+::
+
+  prSuiteError(*IsMediaTrimmed)(
+		PF_ProgPtr    inEffectRef,
+		PrTime        inSequenceTime,
+		bool*         outTrimApplied);
+
+IsTrackEmpty()
+*********************************************************************************
+
+Retrieves whether, for the specified layer parameter, the track is empty.
+
+::
+
+  prSuiteError(*IsTrackEmpty)(
+		PF_ProgPtr      inEffectRef,
+		csSDK_uint32    inLayerParamIndex,
+		PrTime          inSequenceTime,
+		bool*           outIsTrackEmpty);
+
+IsTrackItemEffectAppliedToSynthetic()
+********************************************************************************
+
+Retrieves whether the effect is applied to a track item backed by a synthetic importer.
+
+::
+
+  prSuiteError(*IsTrackItemEffectAppliedToSynthetic)(
+		PF_ProgPtr    inEffectRef,
+		bool*         outIsTrackItemEffectAppliedToSynthetic);
+
+GetSourceTrackCurrentMediaTimeInfo()
+********************************************************************************
+
+Retrieves the current media time, including ticks per frame and a formatted string representing that time.
+
+::
+
+  prSuiteError(*GetSourceTrackCurrentMediaTimeInfo)(
+		PF_ProgPtr      effect_ref,
+		csSDK_uint32    inLayerParamIndex,
+		bool            inUseSoundTimecodeAsStartTime,
+		PrTime          inSequenceTime,
+		PrTime*         outCurrentMediaTime,
+		PrTime*         outMediaTicksPerFrame,
+		PF_TimeDisplay* outMediaTimeDisplay);
+
+
+GetSequenceZeroPoint()
+***************************************************************************
+
+Retrieves the zero point (start time) of the sequence in which the effect is applied. 
+
+::
+
+  prSuiteError(*GetSequenceZeroPoint)(
+		PF_ProgPtr    inEffectRef,
+		PrTime*       outZeroPointTime);
+
+
+
+GetSourceTrackCurrentClipDuration()
+**************************************************************************
+	
+Retrieves the duration of the clip, at the specified layer index, at inSequenceTime.
+
+
+::
+
+  prSuiteError(*GetSourceTrackCurrentClipDuration)(
+		PF_ProgPtr        inEffectRef,
+		csSDK_uint32      inLayerParamIndex,
+		PrTime            inSequenceTime,
+		PrTime*           outClipDuration);
+
+GetSequenceDuration()
+*******************************
+
+Retrieves the duration of the sequence in which the effect is applied.
+
+::
+
+  prSuiteError(*GetSequenceDuration)(
+		PF_ProgPtr    inEffectRef,
+		PrTime*       outSequenceDuration);
+		
+	/*
+	** Get the video resolution string, formatted as a 'width x height',
+	** of the clip (ie, track item) at inSequenceTime on inSourceTrack.
+	** Set inSourceTrack to -1 to query the top-most clip at inSequenceTime
+	** (only if effect is on an adjustment layer)
+	*/
+
+GetVideoResolutionString()
+*******************************************************************************
+
+Retrieve a string representing the dimensions of the track item to which the effect is applied.
+::
+
+  prSuiteError(*GetVideoResolutionString)(
+		PF_ProgPtr    inEffectRef,
+		int32_t       inSourceTrack,
+		PrTime        inSequenceTime,
+		PrSDKString*  outSDKString);
