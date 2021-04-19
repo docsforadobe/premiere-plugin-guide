@@ -58,6 +58,12 @@ Provides general export settings. The exporter should retrieve the parameter set
 +--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``embedCaptions``        | New in CC. If non-zero, the exporter should embed captions obtained from the :ref:`universals/sweetpea-suites.captioning-suite`.                                                               |
 +--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``colorProfile``         | Amount to reserve in a file for metadata storage.                                                                                                                                              |
++--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``exportColorSpaceID``   | Amount to reserve in a file for metadata storage.                                                                                                                                              |
++--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``maximumFileSize``      | Amount to reserve in a file for metadata storage.                                                                                                                                              |
++--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ----
 
@@ -73,19 +79,22 @@ Provides general export settings. The exporter should retrieve the parameter set
 ::
 
   typedef struct {
-    csSDK_uint32  exporterPluginID;
-    void*         privateData;
-    csSDK_uint32  fileType;
-    csSDK_int32   exportAudio;
-    csSDK_int32   exportVideo;
-    PrTime        startTime;
-    PrTime        endTime;
-    csSDK_uint32  fileObject;
-    PrTimelineID  timelineData;
-    csSDK_int32   reserveMetaDataSpace;
-    csSDK_int32   maximumRenderQuality;
-    csSDK_int32   embedCaptions
-   	PrSDKLUTID		exportLUTID;				
+    csSDK_uint32      exporterPluginID;
+    void*             privateData;
+    csSDK_uint32      fileType;
+    csSDK_int32       exportAudio;
+    csSDK_int32       exportVideo;
+    PrTime            startTime;
+    PrTime            endTime;
+    csSDK_uint32      fileObject;
+    PrTimelineID      timelineData;
+    csSDK_int32       reserveMetaDataSpace;
+    csSDK_int32       maximumRenderQuality;
+    csSDK_int32       embedCaptions;
+    ColorProfileRec	  colorProfile;				// if color profile is valid, exporter should embed into output per format standards; for formats that set canEmbedColorProfile to True
+    PrSDKColorSpaceID exportColorSpaceID;		// opaque color space ID that exporter should pass to the host when using color managed APIs
+    csSDK_int32		    maximumFileSize;			// if non-0, try to export a file not exceeding this size an possible adjust the TragetBitrate for this.
+    PrSDKLUTID		    exportLUTID;				
   } exDoExportRec2;
 
 +--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -116,6 +125,12 @@ Provides general export settings. The exporter should retrieve the parameter set
 | ``maximumRenderQuality`` | If non-zero, the exporter should set ``SequenceRender_ParamsRec.inRenderQuality`` and ``inDeinterlaceQuality`` to ``kPrRenderQuality_Max``.                                                    |
 +--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``embedCaptions``        | New in CC. If non-zero, the exporter should embed captions obtained from the :ref:`universals/sweetpea-suites.captioning-suite`.                                                               |
++--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``colorProfile``         | New in 13.1.  Color profile, to be embedded into output per format standards. For formats which have set ``canEmbedColorProfile`` to true.                                                     |
++--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``exportColorSpaceID``   | New in 13.1.  ID of the color space to be used. Must not be ``kPrSDKColorSpaceID_Invalid``.                                                                                                    |
++--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``maximumFileSize``      | New in 15.x.  If non-zero, the Exporter should consider this as a ceiling for file size, and re-compress as needed in order to meet that target.                                               |
 +--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``exportLUTID``          | New in 14.x. the LUT being used for export.                                                                                                                                                    |
 +--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -195,6 +210,16 @@ The fileType indicates which format the exporter should currently work with in s
 | ``canConformToMatchParams``  | New in CC. Set this to non-zero if the exporter wants to support the Match Source button.                                                                                                                               |
 +------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``canEmbedCaptions``         | New in CC. Set this to non-zero if the exporter can embed Closed Captioning directly in the file.                                                                                                                       |
++------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``flags``                    | New in 13.0. Will be some combination of the following flag:                                                                                                                                                            |
+|                              |                                                                                                                                                                                                                         |
+|                              |  ``kExInfoRecFlag_None``                                                                                                                                                                                                |
+|                              |  ``kExInfoRecFlag_VideoOnlyExportNotSupported``      exports only video and audio together                                                                                                                              |
+|                              |  ``kExInfoRecFlag_PostEncodePublishNotSupported``    exported result is a complex folder structure or otherwise unsuitable for enabling upload options                                                                  |
++------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``canEmbedColorProfile``     | New in 11.1. Set this to non-zero if the exporter can embed color profile into the resulting media file                                                                                                                 |
++------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``supportsColorManagement``  | New in 13.0. Set this to non-zero if the exporter supports color management.                                                                                                                                            |
 +------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ----
