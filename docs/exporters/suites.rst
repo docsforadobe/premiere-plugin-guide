@@ -30,7 +30,7 @@ GetExportSourceInfo
 
 Get information on the source currently being exported.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*GetExportSourceInfo)(
     csSDK_uint32                inExporterPluginID,
@@ -89,7 +89,7 @@ Get information on the source currently being exported.
 |                                          |             | This can be used to automatically initialize the audio channel parameter in the Audio tab of the Export Settings to match the source.                                                           |
 +------------------------------------------+-------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-::
+.. code-block:: cpp
 
   typedef struct {
     csSDK_int64  mTimecodeTicks;
@@ -153,7 +153,7 @@ Register a set of standard parameters to be used by the exporter.
 
 Call during ``exSelGenerateDefaultParams``.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*AddStandardParams)(
     csSDK_uint32       inExporterID,
@@ -166,7 +166,7 @@ Call during ``exSelGenerateDefaultParams``.
 +-----------------------+------------------------------------------------------+
 | ``inSDKStdParamType`` | Use one of the following:                            |
 |                       |                                                      |
-|                       | ::                                                   |
+|                       | .. code-block:: cpp                                  |
 |                       |                                                      |
 |                       |   enum PrSDKStdParamType {                           |
 |                       |     SDKStdParams_Video,                              |
@@ -186,7 +186,7 @@ PostProcessParamNames
 
 Call during ``exSelPostProcessParams``.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*PostProcessParamNames)(
     csSDK_uint32        inExporterID,
@@ -205,7 +205,7 @@ QueryOutputSettings
 
 Call during ``exSelQueryOutputSettings``.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*QueryOutputSettings)(
     csSDK_uint32               inExporterID,
@@ -224,7 +224,7 @@ MakeParamSummary
 
 Call during ``exSelGetParamSummary``.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*MakeParamSummary)(
     csSDK_uint32  inExporterID,
@@ -261,7 +261,7 @@ DoMultiPassExportLoop
 
 Register the callback to be made to push video frames to the exporter. This function assumes that your exporter supports ``exSelQueryOutputSettings``, which will be called.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*DoMultiPassExportLoop)(
     csSDK_uint32                                     inExporterID,
@@ -281,7 +281,7 @@ Register the callback to be made to push video frames to the exporter. This func
 |                          |                                                                                                                                                                                                                                           |
 |                          | These values default to zero.                                                                                                                                                                                                             |
 |                          |                                                                                                                                                                                                                                           |
-|                          | ::                                                                                                                                                                                                                                        |
+|                          | .. code-block:: cpp                                                                                                                                                                                                                       |
 |                          |                                                                                                                                                                                                                                           |
 |                          |   typedef struct {                                                                                                                                                                                                                        |
 |                          |     csSDK_int32    inRenderParamsSize;                                                                                                                                                                                                    |
@@ -298,7 +298,7 @@ Register the callback to be made to push video frames to the exporter. This func
 +--------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``inCompletionFunction`` | Provide your own callback here, which will be called when the host pushes rendered frames. Use the following function signature:                                                                                                          |
 |                          |                                                                                                                                                                                                                                           |
-|                          | ::                                                                                                                                                                                                                                        |
+|                          | .. code-block:: cpp                                                                                                                                                                                                                       |
 |                          |                                                                                                                                                                                                                                           |
 |                          |   typedef prSuiteError (*PrSDKMultipassExportLoop FrameCompletionFunction)(                                                                                                                                                               |
 |                          |     csSDK_uint32  inWhichPass,                                                                                                                                                                                                            |
@@ -321,7 +321,7 @@ Register the callback to be made to push video frames to the exporter.
 
 This function assumes that your exporter supports ``exSelQueryOutputSettings``, which will be called.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*ReportIntermediateProgressForRepeatedVideoFrame)(
     csSDK_uint32  inExporterID,
@@ -342,7 +342,7 @@ Report an event to the host, for a specific encode in progress in the Adobe Medi
 
 These events are displayed in the application UI, and are also added to the AME encoding log.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*ReportEvent)(
     csSDK_uint32        inExporterID,
@@ -389,7 +389,7 @@ MakeAudioRenderer
 
 Create an audio renderer, in preparation to get rendered audio from the host.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*MakeAudioRenderer)(
     csSDK_uint32        inPluginID,
@@ -420,7 +420,7 @@ ReleaseAudioRenderer
 
 Release the audio renderer when the exporter is done requesting audio.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*ReleaseAudioRenderer)(
     csSDK_uint32  inPluginID,
@@ -445,7 +445,7 @@ The plug-in must manage the memory allocation of inBuffer, which must point to n
 
 When inClipAudio is non-zero, this parameter makes GetAudio clip the audio samples at +/- 1.0.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*GetAudio)(
     csSDK_uint32  inAudioRenderID,
@@ -476,7 +476,7 @@ ResetAudioToBeginning
 
 This call will reset the position on the audio generation to time zero. This can be used for multipass encoding.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*ResetAudioToBeginning)(
     csSDK_uint32  inAudioRenderID);
@@ -486,7 +486,7 @@ GetMaxBlip
 
 Returns the maximum number of audio sample frames that can be requested from one call to ``GetAudio`` in ``maxBlipSize``.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*GetMaxBlip)(
     csSDK_uint32  inAudioRenderID,
@@ -509,7 +509,7 @@ MakeVideoRenderer()
 
 Create a video renderer, in preparation to get rendered video.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*MakeVideoRenderer)(
     csSDK_uint32   pluginID,
@@ -531,7 +531,7 @@ ReleaseVideoRenderer()
 
 Release the video renderer when the exporter is done requesting video.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*ReleaseVideoRenderer)(
     csSDK_uint32  pluginID,
@@ -552,7 +552,7 @@ Fill this structure in before calling ``RenderVideoFrame()``, ``QueueAsyncVideoF
 
 Note that if the frame aspect ratio of the request does not match that of the sequence, the frame will be letterboxed or pillarboxed, rather than stretched to fit the frame.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     const PrPixelFormat*  inRequestedPixelFormatArray;
@@ -601,7 +601,7 @@ Fill this structure in before calling ``RenderVideoFrame()``, ``QueueAsyncVideoF
 
 Note that if the frame aspect ratio of the request does not match that of the sequence, the frame will be letterboxed or pillarboxed, rather than stretched to fit the frame.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     const PrPixelFormat*  inRequestedPixelFormatArray;
@@ -654,7 +654,7 @@ Fill this structure in before calling ``RenderVideoFrame()``, ``QueueAsyncVideoF
 
 Note that if the frame aspect ratio of the request does not match that of the sequence, the frame will be letterboxed or pillarboxed, rather than stretched to fit the frame.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     const PrPixelFormat*  inRequestedPixelFormatArray;
@@ -708,7 +708,7 @@ struct SequenceRender_GetFrameReturnRec
 
 Returned from ``RenderVideoFrame()`` and passed by ``PrSDKSequenceAsyncRenderCompletionProc()``.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     void*        asyncCompletionData;
@@ -748,7 +748,7 @@ Returns:
 - ``exportReturn_Done`` if the export has finished, or
 - an error code.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*RenderVideoFrame)(
     csSDK_uint32                       inVideoRenderID,
@@ -780,7 +780,7 @@ Gets information about a given frame.
 
 Currently, ``SequenceRender_FrameInfoRec`` only contains ``repeatCount``, which is the number of repeated frames from this frame forward.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*GetFrameInfo)(
     csSDK_uint32                 inVideoRenderID,
@@ -794,7 +794,7 @@ Register a notification callback for getting asynchronously rendered frames when
 
 ``asyncGetFrameCallback`` should have the signature described in ``PrSDKSequenceAsyncRenderCompletionProc`` below.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*SetAsyncRenderCompletionProc)(
     csSDK_uint32                            inVideoRenderID,
@@ -822,7 +822,7 @@ Use this function signature for your callback used for async frame notification,
 
 Error status (error or abort) is returned in ``inGetFrameReturn``.
 
-::
+.. code-block:: cpp
 
   void (*PrSDKSequenceAsyncRenderCompletionProc)(
     csSDK_uint32                      inVideoRenderID,
@@ -856,7 +856,7 @@ The rendering can happen on a separate thread or processor.
 
 When the render is completed, the ``PrSDKSequenceAsyncRenderCompletionProc`` that was set using ``SetAsyncRenderCompletionProc`` will be called.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*QueueAsyncVideoFrameRender)(
     csSDK_uint32               inVideoRenderID,
@@ -889,7 +889,7 @@ PrefetchMedia()
 
 Prefetch the media needed to render this frame. This is a hint to the importers to begin reading media needed to render this video frame.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*PrefetchMedia)(
     csSDK_uint32  inVideoRenderID,
@@ -902,7 +902,7 @@ Prefetch the media needed to render this frame, using all of the parameters used
 
 This is a hint to the importers to begin reading media needed to render this video frame.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*PrefetchMediaWithRenderParameters)(
     csSDK_uint32               inVideoRenderID,
@@ -914,7 +914,7 @@ CancelAllOutstandingMediaPrefetches()
 
 Cancel all media prefetches that are still outstanding.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*PrefetchMedia)(
     csSDK_uint32  inVideoRenderID);
@@ -924,7 +924,7 @@ IsPrefetchedMediaReady()
 
 Check on the status of a prefetch request.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*IsPrefetchedMediaReady)(
     csSDK_uint32  inVideoRenderID,
@@ -940,7 +940,7 @@ Creates a video renderer, in preparation to get rendered video from the host.
 
 The ``TimelineID`` in question must refer to a top-level sequence.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*MakeVideoRendererForTimeline)(
     PrTimelineID   inTimeline,
@@ -953,7 +953,7 @@ Similar to MakeVideoRendererForTimeline, with an additional frame rate parameter
 
 This is useful for the case of a nested multicam sequence.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*MakeVideoRendererForTimelineWithFrameRate)(
     PrTimelineID   inTimeline,
@@ -965,7 +965,7 @@ ReleaseVideoRendererForTimeline()
 
 Similar to ReleaseVideoRenderer, but for use by renderer plug-ins. Release the video renderer when the renderer plug-in is done requesting video.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*ReleaseVideoRendererForTimeline)(
     csSDK_uint32  inVideoRendererID);
@@ -977,7 +977,7 @@ New in CS5.5. Similar to RenderVideoFrame., but conforms the resulting frame to 
 
 Allows an exporter to request a frame in a specific pixel format.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*RenderVideoFrameAndConformToPixelFormat)(
     csSDK_uint32                       inVideoRenderID,
@@ -994,7 +994,7 @@ New in CS6. Similar to ``MakeVideoRenderer``, but is stream label-aware.
 
 Allows an exporter to request rendered frames from multiple video streams.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*MakeVideoRendererForTimelineWithStreamLabel)(
     PrTimelineID      inTimeline,
@@ -1006,7 +1006,7 @@ RenderColorManagedVideoFrame()
 
 Renders a frame of video, using the specified color management.
 
-::
+.. code-block:: cpp
 
 	prSuiteError (*RenderColorManagedVideoFrame)(
 		csSDK_uint32					inVideoRenderID,
@@ -1020,7 +1020,7 @@ QueueAsyncColorManagedVideoFrameRender()
 
 Queues a render for a frame of video, using the specified color management.
 
-::
+.. code-block:: cpp
 
 	prSuiteError (*QueueAsyncColorManagedVideoFrameRender)(
 		csSDK_uint32					inVideoRenderID,
@@ -1036,7 +1036,7 @@ PrefetchColorManagedMedia()
 
 Pre-fetches a frame of color-managed media.
 
-::
+.. code-block:: cpp
 
 	prSuiteError (*PrefetchColorManagedMedia)(
 		csSDK_uint32		inVideoRenderID,
@@ -1048,7 +1048,7 @@ PrefetchColorManagedMediaWithRenderParameters()
 
 Pre-fetches a frame of color-managed media, using the specified render parameters.
 
-::
+.. code-block:: cpp
 
 	prSuiteError (*PrefetchColorManagedMediaWithRenderParameters)(
 		csSDK_uint32					inVideoRenderID,
@@ -1062,7 +1062,7 @@ RenderColorManagedVideoFrameAndConformToPixelFormat()
 Renders a frame of color-managed media, to the specified pixel format.
 
 
-::
+.. code-block:: cpp
 
 	prSuiteError (*RenderColorManagedVideoFrameAndConformToPixelFormat)(
 		csSDK_uint32					inVideoRenderID,
@@ -1077,7 +1077,7 @@ RenderColorManagedVideoFrame2()
 
 Renders a frame of color-managed media, to the specified pixel format, using settings specified in SequenceRender_ParamsRecExt2.
 
-::
+.. code-block:: cpp
 
 	prSuiteError (*RenderColorManagedVideoFrame2)(
 		csSDK_uint32                    inVideoRenderID,
@@ -1093,7 +1093,7 @@ QueueAsyncColorManagedVideoFrameRender2()
 Queues a request for a frame of color-managed media, to the specified pixel format, using settings specified in SequenceRender_ParamsRecExt2.
 
 
-::
+.. code-block:: cpp
 
 	prSuiteError (*QueueAsyncColorManagedVideoFrameRender2)(
 		csSDK_uint32                    inVideoRenderID,
@@ -1108,7 +1108,7 @@ PrefetchColorManagedMediaWithRenderParameters2()
 
 Pre-fetches a request for a frame of color-managed media, to the specified pixel format, using settings specified in SequenceRender_ParamsRecExt2.
 
-::
+.. code-block:: cpp
 
 	prSuiteError(*PrefetchColorManagedMediaWithRenderParameters2)(
 		csSDK_uint32                    inVideoRenderID,
@@ -1120,7 +1120,7 @@ RenderColorManagedVideoFrameAndConformToPixelFormat2()
 
 Renders a frame of color-managed media, to the specified pixel format, using settings specified in SequenceRender_ParamsRecExt2.
 
-::
+.. code-block:: cpp
 
 	prSuiteError (*RenderColorManagedVideoFrameAndConformToPixelFormat2)(
 		csSDK_uint32                    inVideoRenderID,
@@ -1147,7 +1147,7 @@ GetFilterInstanceID()
 
 Gets the filter ID for the current effect reference.
 
-::
+.. code-block:: cpp
 
   prSuiteError(*GetFilterInstanceID)(
     PF_ProgPtr    effect_ref,
@@ -1158,7 +1158,7 @@ GetMediaTimecode()
 
 Retrieves formatted timecode, as well as the currently active video frame.
 
-::
+.. code-block:: cpp
 
   prSuiteError(*GetMediaTimecode)(
     PF_ProgPtr      effect_ref,
@@ -1170,7 +1170,7 @@ GetClipSpeed()
 
 Retrieves the speed multiplier of the clip.
     
-::
+.. code-block:: cpp
 
   prSuiteError(*GetClipSpeed)(
 		PF_ProgPtr effect_ref,
@@ -1181,7 +1181,7 @@ GetClipDuration()
 
 Retrieves the duration of the clip.
 
-::
+.. code-block:: cpp
 
   prSuiteError(*GetClipDuration)(
 		PF_ProgPtr effect_ref,
@@ -1192,7 +1192,7 @@ GetClipStart()
 
 Retrieves the start time of the clip.
 
-::
+.. code-block:: cpp
 
 	prSuiteError(*GetClipStart)(
 		PF_ProgPtr effect_ref,
@@ -1203,7 +1203,7 @@ GetUnscaledClipDuration()
 
 Retrieves the duration of the clip, unaffected by any speed or retiming changes.
     
-::
+.. code-block:: cpp
 
   prSuiteError(*GetUnscaledClipDuration)(
 		PF_ProgPtr effect_ref,
@@ -1214,7 +1214,7 @@ GetUnscaledClipStart()
 
 Retrives the start time of the clip, unaffected by any speed or retiming changes.
 
-::
+.. code-block:: cpp
 
   prSuiteError(*GetUnscaledClipStart)(
 		PF_ProgPtr effect_ref,
@@ -1225,7 +1225,7 @@ GetTrackItemStart()
 
 Gets the start time of the track item.
 
-::
+.. code-block:: cpp
 
   prSuiteError(*GetTrackItemStart)(
 		PF_ProgPtr    effect_ref,
@@ -1236,7 +1236,7 @@ GetMediaFieldType()
 
 Retrieves the filed type in use with the media.
 
-::
+.. code-block:: cpp
 
   prSuiteError(*GetMediaFieldType)(
 		PF_ProgPtr    effect_ref,
@@ -1247,7 +1247,7 @@ GetMediaFrameRate()
 
 Gets the number of ticks per frame, for the media. 
 
-::
+.. code-block:: cpp
 
   prSuiteError(*GetMediaFrameRate)(
     PF_ProgPtr  effect_ref,
@@ -1260,7 +1260,7 @@ GetContainingTimelineID()
 Gets the ID of the timeline containing the clip to which the effect is applied. 
 
 
-::
+.. code-block:: cpp
 
   prSuiteError(*GetContainingTimelineID)(
 		PF_ProgPtr    effect_ref,
@@ -1270,7 +1270,8 @@ GetClipName()
 *********************************************************************************
 
 Gets the name of the clip to which the effect is applied (or the master clip).
-::
+
+.. code-block:: cpp
 
   prSuiteError(*GetClipName)(
 		PF_ProgPtr    effect_ref,
@@ -1282,16 +1283,17 @@ EffectWantsCheckedOutFramesToMatchRenderPixelFormat()
 
 Indicates that the effect wants to received checked out frames, in the same format used for destination rendering.
 
-::
+.. code-block:: cpp
 
 	prSuiteError(*EffectWantsCheckedOutFramesToMatchRenderPixelFormat)(
 		PF_ProgPtr  effect_ref);
 
 EffectDependsOnClipName()
-*********************************************************************************
+*******************************
 
 Indicates (based on second parameter) whether the effect depends on the name of the clip to which it is applied.
-::
+
+.. code-block:: cpp
 
   prSuiteError(*EffectDependsOnClipName)(
 		PF_ProgPtr    effect_ref,
@@ -1300,7 +1302,7 @@ Indicates (based on second parameter) whether the effect depends on the name of 
 SetEffectInstanceName()
 *********************************************************************************
 
-::
+.. code-block:: cpp
 
   prSuiteError(*SetEffectInstanceName)(
 		PF_ProgPtr effect_ref,
@@ -1311,7 +1313,7 @@ GetFileName()
 
 Retrieves the name of the media file to which the effect instance is applied.
 
-::
+.. code-block:: cpp
 
   prSuiteError(*GetFileName)(
 		PF_ProgPtr      effect_ref,
@@ -1322,7 +1324,7 @@ GetOriginalClipFrameRate()
 
 Retrieves the original (non-interpreted, un-re-timed) frame rate, of the media to which the effect instance is applied.
 
-::
+.. code-block:: cpp
 
   prSuiteError(*GetOriginalClipFrameRate)(
 		PF_ProgPtr    effect_ref,
@@ -1333,7 +1335,7 @@ GetSourceTrackMediaTimecode()
 
 Retrieves the source media timecode for the specified frame within the specified layer, with or without transforms and start time offsets applied.
 
-::
+.. code-block:: cpp
 
   prSuiteError(*GetSourceTrackMediaTimecode)(
 		PF_ProgPtr      effect_ref,
@@ -1347,7 +1349,7 @@ GetSourceTrackClipName()
 
 Retrieves the name of the layer in use by the effect instance.
 
-::
+.. code-block:: cpp
 
   prSuiteError(*GetSourceTrackClipName)(
 		PF_ProgPtr      effect_ref,
@@ -1361,7 +1363,7 @@ GetSourceTrackFileName()
 
 Retrieves the file name of the source track item for the specified layer parameter.
 
-::
+.. code-block:: cpp
 
   prSuiteError(*GetSourceTrackFileName)(
 		PF_ProgPtr      effect_ref,
@@ -1375,7 +1377,7 @@ EffectDependsOnClipName2()
 
 Specifies whether the effect instance depends on the specified layer parameter.
 
-::
+.. code-block:: cpp
 
   prSuiteError(*EffectDependsOnClipName2)(
 		PF_ProgPtr    effect_ref,
@@ -1387,7 +1389,7 @@ GetMediaTimecode2()
 
 Retrieves formatted timecode and current frame number, with or without trims applied.
 
-::
+.. code-block:: cpp
 
   prSuiteError(*GetMediaTimecode2)(
 		PF_ProgPtr      effect_ref,
@@ -1400,7 +1402,7 @@ GetSourceTrackMediaTimecode2()
 
 Given a specific sequence time, retrieves the source track media timecode for the specified layer parameter.
 
-::
+.. code-block:: cpp
 
   prSuiteError(*GetSourceTrackMediaTimecode2)(
 		PF_ProgPtr      effect_ref,
@@ -1416,7 +1418,7 @@ GetSourceTrackClipName2()
 Retrieves the clip name used by the specific layer parameter.
 
 
-::
+.. code-block:: cpp
 
   prSuiteError(*GetSourceTrackClipName2)(
 		PF_ProgPtr      effect_ref,
@@ -1430,7 +1432,7 @@ GetSourceTrackFileName2()
 
 Retreives the clip name in use by the specified layer parameter.
 
-::
+.. code-block:: cpp
 
   prSuiteError(*GetSourceTrackFileName2)(
 		PF_ProgPtr    effect_ref,
@@ -1443,7 +1445,7 @@ GetCommentString()
 
 Retrieves the comment string associated with the specified source track item, at the specified time.
 
-::
+.. code-block:: cpp
 
   prSuiteError(*GetCommentString)(
 		PF_ProgPtr    inEffectRef,
@@ -1457,7 +1459,7 @@ GetLogNoteString()
 Retrieves the log note associated with the source track, at the specified time.
 
 
-::
+.. code-block:: cpp
 
   prSuiteError(*GetLogNoteString)(
 		PF_ProgPtr    inEffectRef,
@@ -1470,7 +1472,7 @@ GetCameraRollString()
 
 Retrieves the log note associated with the source track, at the specified time.
 
-::
+.. code-block:: cpp
 
   prSuiteError(*GetCameraRollString)(
 		PF_ProgPtr    inEffectRef,
@@ -1483,7 +1485,7 @@ GetClientMetadataString()
 
 Retrieves the metadata string associated with the source track, at the specified time.
 
-::
+.. code-block:: cpp
 
   prSuiteError(*GetClientMetadataString)(
 		PF_ProgPtr    inEffectRef,
@@ -1497,7 +1499,7 @@ GetDailyRollString()
 Retrieves the daily roll string associated with the source track, at the specified time.
 
 
-::
+.. code-block:: cpp
 
   prSuiteError(*GetDailyRollString)(
 		PF_ProgPtr    inEffectRef,
@@ -1511,7 +1513,7 @@ GetDescriptionString()
 
 Retrieves the daily roll string associated with the source track, at the specified time.
 
-::
+.. code-block:: cpp
 
   prSuiteError(*GetDescriptionString)(
 		PF_ProgPtr    inEffectRef,
@@ -1524,7 +1526,7 @@ GetLabRollString()
 
 Retrieves the lab roll string associated with the source track, at the specified time.
 
-::
+.. code-block:: cpp
 
   prSuiteError(*GetLabRollString)(
 		PF_ProgPtr    inEffectRef,
@@ -1538,7 +1540,7 @@ GetSceneString()
 Retrieves the scene string associated with the source track, at the specified time.
 
 
-::
+.. code-block:: cpp
 
   prSuiteError(*GetSceneString)(
 		PF_ProgPtr    inEffectRef,
@@ -1551,7 +1553,7 @@ GetShotString()
 
 Retrieves the shot string associated with the source track item, at the specified time.
     
-::
+.. code-block:: cpp
 
   prSuiteError(*GetShotString)(
 		PF_ProgPtr    inEffectRef,
@@ -1564,7 +1566,7 @@ GetTapeNameString()
 
 Retrieves the tape name string associated with the source track item, at the specified time.
     
-::
+.. code-block:: cpp
 
   prSuiteError(*GetTapeNameString)(
 		PF_ProgPtr    inEffectRef,
@@ -1577,7 +1579,7 @@ GetVideoCodecString()
 
 Retrieves a string representing the video codec associated with the source track item, at the specified time.
 
-:: 
+.. code-block:: cpp 
 
   prSuiteError(*GetVideoCodecString)(
 		PF_ProgPtr    inEffectRef,
@@ -1592,7 +1594,7 @@ GetGoodMetadataString()
 Retrieves a string representing the "good" state of the source track item, at the specified time.
 
 
-::
+.. code-block:: cpp
 
   prSuiteError(*GetGoodMetadataString)(
 		PF_ProgPtr    inEffectRef,
@@ -1605,7 +1607,7 @@ GetSoundRollString()
 
 Retrieves a string representing the "sound roll" state of the source track item, at the specified time.
 
-::
+.. code-block:: cpp
 
   prSuiteError(*GetSoundRollString)(
 		PF_ProgPtr    inEffectRef,
@@ -1618,7 +1620,7 @@ GetSequenceTime()
 
 Retrieves the timebase of the sequence in which the effect is applied.
 
-::
+.. code-block:: cpp
 
   prSuiteError(*GetSequenceTime)(
 		PF_ProgPtr  inEffectRef,
@@ -1630,7 +1632,7 @@ GetSoundTimecode()
 
 Retrieves the frame of the specified source time.
 
-::
+.. code-block:: cpp
 
   prSuiteError(*GetSoundTimecode)(
 		PF_ProgPtr    inEffectRef,
@@ -1644,7 +1646,7 @@ GetOriginalClipFrameRateForSourceTrack()
 
 Retrieves the original "ticks per frame" for the specified source track.
 
-::
+.. code-block:: cpp
 
 
 
@@ -1658,7 +1660,7 @@ GetMediaFrameRateForSourceTrack()
 
 Retrieves the media frame rate for the specified source track.
 
-::
+.. code-block:: cpp
 
   prSuiteError(*GetMediaFrameRateForSourceTrack)(
 		PF_ProgPtr    inEffectRef,
@@ -1673,7 +1675,7 @@ GetSourceTrackMediaActualStartTime()
 
 Retrieves the start time of the specified layer parameter.
 
-::
+.. code-block:: cpp
 
   prSuiteError(*GetSourceTrackMediaActualStartTime)(
 		PF_ProgPtr      inEffectRef,
@@ -1687,7 +1689,7 @@ IsSourceTrackMediaTrimmed()
 
 Retrieves whether the source track item has been trimmed. 
 
-::
+.. code-block:: cpp
 
   prSuiteError(*IsSourceTrackMediaTrimmed)(
 		PF_ProgPtr      inEffectRef,
@@ -1700,7 +1702,7 @@ IsMediaTrimmed()
 
 Retrieves whether the track item has been trimmed. 
 
-::
+.. code-block:: cpp
 
   prSuiteError(*IsMediaTrimmed)(
 		PF_ProgPtr    inEffectRef,
@@ -1712,7 +1714,7 @@ IsTrackEmpty()
 
 Retrieves whether, for the specified layer parameter, the track is empty.
 
-::
+.. code-block:: cpp
 
   prSuiteError(*IsTrackEmpty)(
 		PF_ProgPtr      inEffectRef,
@@ -1725,7 +1727,7 @@ IsTrackItemEffectAppliedToSynthetic()
 
 Retrieves whether the effect is applied to a track item backed by a synthetic importer.
 
-::
+.. code-block:: cpp
 
   prSuiteError(*IsTrackItemEffectAppliedToSynthetic)(
 		PF_ProgPtr    inEffectRef,
@@ -1736,7 +1738,7 @@ GetSourceTrackCurrentMediaTimeInfo()
 
 Retrieves the current media time, including ticks per frame and a formatted string representing that time.
 
-::
+.. code-block:: cpp
 
   prSuiteError(*GetSourceTrackCurrentMediaTimeInfo)(
 		PF_ProgPtr      effect_ref,
@@ -1753,7 +1755,7 @@ GetSequenceZeroPoint()
 
 Retrieves the zero point (start time) of the sequence in which the effect is applied. 
 
-::
+.. code-block:: cpp
 
   prSuiteError(*GetSequenceZeroPoint)(
 		PF_ProgPtr    inEffectRef,
@@ -1767,7 +1769,7 @@ GetSourceTrackCurrentClipDuration()
 Retrieves the duration of the clip, at the specified layer index, at inSequenceTime.
 
 
-::
+.. code-block:: cpp
 
   prSuiteError(*GetSourceTrackCurrentClipDuration)(
 		PF_ProgPtr        inEffectRef,
@@ -1780,7 +1782,7 @@ GetSequenceDuration()
 
 Retrieves the duration of the sequence in which the effect is applied.
 
-::
+.. code-block:: cpp
 
   prSuiteError(*GetSequenceDuration)(
 		PF_ProgPtr    inEffectRef,
@@ -1797,9 +1799,9 @@ GetVideoResolutionString()
 *******************************************************************************
 
 Retrieve a string representing the dimensions of the track item to which the effect is applied.
-::
+.. code-block:: cpp
 
-  prSuiteError(*GetVideoResolutionString)(
+  prSuiteError(\*GetVideoResolutionString)(
 		PF_ProgPtr    inEffectRef,
 		int32_t       inSourceTrack,
 		PrTime        inSequenceTime,

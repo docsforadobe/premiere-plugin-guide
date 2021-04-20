@@ -12,7 +12,7 @@ Selector: :ref:`exporters/selector-descriptions.exSelExport`
 
 Provides general export settings. The exporter should retrieve the parameter settings from the :ref:`exporters/suites.export-param-suite`.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     csSDK_uint32  exporterPluginID;
@@ -76,7 +76,7 @@ Selector: :ref:`exporters/selector-descriptions.exSelExport`
 
 Provides general export settings. The exporter should retrieve the parameter settings from the :ref:`exporters/suites.export-param-suite`.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     csSDK_uint32      exporterPluginID;
@@ -152,7 +152,7 @@ For each filetype, populate exExporterInfoRec and return ``exportReturnIterateEx
 
 The fileType indicates which format the exporter should currently work with in subsequent calls.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     csSDK_uint32  unused;
@@ -233,7 +233,7 @@ Selector: :ref:`exporters/selector-descriptions.exSelBeginInstance` and :ref:`ex
 
 Provides access to the privateData for the indicated filetype, so that the exporter can allocate privateData and pass it to the host, or deallocate it.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     csSDK_uint32  exporterPluginID;
@@ -260,7 +260,7 @@ Selector: :ref:`exporters/selector-descriptions.exSelGenerateDefaultParams`
 
 Provides access to the privateData for the indicated filetype, so that the exporter can generate the default parameter set.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     csSDK_uint32  exporterPluginID;
@@ -287,7 +287,7 @@ Selector: :ref:`exporters/selector-descriptions.exSelParamButton`
 
 Provides access to the privateData for the indicated filetype, and discloses the specific button hit by the user, since there can be multiple button parameters.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     csSDK_uint32       exporterPluginID;
@@ -328,7 +328,7 @@ Provides access to the privateData for the indicated filetype, and discloses the
 
 To notify the host that the plug-in is changing other parameters, set ``rebuildAllParams`` to a non-zero value.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     csSDK_uint32       exporterPluginID;
@@ -374,7 +374,7 @@ Selector: :ref:`exporters/selector-descriptions.exSelGetParamSummary`
 
 Provides access to the privateData for the indicated filetype, and provides buffers for the exporter to fill in with a localized summary of the parameters.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     csSDK_uint32  exporterPluginID;
@@ -413,7 +413,7 @@ Selector: :ref:`exporters/selector-descriptions.exSelPostProcessParams`
 
 Provides access to the privateData for the indicated filetype.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     csSDK_uint32  exporterPluginID;
@@ -449,7 +449,7 @@ Selector: :ref:`exporters/selector-descriptions.exSelQueryExportFileExtension`
 
 Provides access to the privateData for the indicated filetype, and provides a buffer for the exporter to fill in with the file extension.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     csSDK_uint32  exporterPluginID;
@@ -479,7 +479,7 @@ Selector: :ref:`exporters/selector-descriptions.exSelQueryOutputFileList`
 
 Provides access to the privateData for the indicated filetype, and provides a pointer to a array of ``exOutputFileRecs`` for the exporter to fill in with the file paths.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     csSDK_uint32     exporterPluginID;
@@ -507,7 +507,7 @@ Provides access to the privateData for the indicated filetype, and provides a po
 |                      |                                                                                                                     |
 |                      | On the third call, fill in the path of each exOutputFileRec.                                                        |
 |                      |                                                                                                                     |
-|                      | ::                                                                                                                  |
+|                      | .. code-block:: cpp                                                                                                 |
 |                      |                                                                                                                     |
 |                      |   typedef struct {                                                                                                  |
 |                      |     int           pathLength;                                                                                       |
@@ -526,7 +526,7 @@ Selector: :ref:`exporters/selector-descriptions.exSelQueryOutputSettings`
 
 Provides access to the privateData for the indicated filetype, and provides a set of members for the exporter to fill in with the current export settings.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     csSDK_uint32        exporterPluginID;
@@ -579,7 +579,7 @@ Selector: :ref:`exporters/selector-descriptions.exSelQueryStillSequence`
 
 Provides access to the privateData for the indicated filetype, and provides a set of members for the exporter to provide information on how it would export the sequence of stills.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     csSDK_uint32  exporterPluginID;
@@ -612,7 +612,7 @@ Selector: :ref:`exporters/selector-descriptions.exSelValidateOutputSettings`
 
 Provides access to the privateData for the indicated filetype, so that the exporter can validate the current parameter settings.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     csSDK_uint32  exporterPluginID;
@@ -628,7 +628,7 @@ Provides access to the privateData for the indicated filetype, so that the expor
 | ``fileType``         | The file format four character code set by the exporter during :ref:`exporters/selector-descriptions.exSelStartup`. |
 +----------------------+---------------------------------------------------------------------------------------------------------------------+
 
-::
+.. code-block:: cpp
 
   typedef struct
   {
@@ -648,7 +648,7 @@ Selector: :ref:`exporters/selector-descriptions.exSelQueryExportColorSpace`
 
 Provides access to the privateData for the indicated filetype, so that the exporter can validate the current parameter settings.
 
-::
+.. code-block:: cpp
 
   typedef struct
   {

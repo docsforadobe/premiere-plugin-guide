@@ -13,25 +13,27 @@ Contributors are welcome and encouraged to suggest fixes, adjustments, notes/war
 ----
 
 Internal References
-********************************************************************************
+*******************
 
-Anchors should be defined at each page setting relative to the root folder; the anchor for the "Application" page within the JS Object Reference should be::
+
+
+Anchors should be defined at each page setting relative to the root folder; the anchor for the "Application" page within the JS Object Reference should be.. code-block:: cpp
 
   .. _jsobjref/Application
 
-And the anchor for a child item (property, method or example)::
+And the anchor for a child item (property, method or example).. code-block:: cpp
 
   .. _jsobjref/Application.open
 
-Then, to link to these items from other pages, we use::
+Then, to link to these items from other pages, we use.. code-block:: cpp
 
   :ref:`jsobjref/Application`
 
-or::
+or.. code-block:: cpp
 
   :ref:`jsobjref/Application.open`
 
-If you want different text than the title the anchor points to::
+If you want different text than the title the anchor points to.. code-block:: cpp
 
   :ref:`Check this out! <jsobjref/Application.open>`
 
@@ -40,7 +42,7 @@ If you want different text than the title the anchor points to::
 External Links
 ********************************************************************************
 
-These should follow the following structure::
+These should follow the following structure.. code-block:: cpp
 
   `Link Text <http://www.aenhancers.com>`__
 
@@ -49,7 +51,7 @@ These should follow the following structure::
 Tables
 ********************************************************************************
 
-Function parameter tables should have following order::
+Function parameter tables should have following order.. code-block:: cpp
 
   +---------------+------+-----------------------------+
   |   Parameter   | Type |         Description         |
@@ -68,15 +70,15 @@ Currently, the following `admonitions <http://docutils.sourceforge.net/docs/ref/
 
 Try to keep one piece of data per note, for easier parsing.
 
-::
+.. code-block:: cpp
 
-  .. note::
+  .. note.. code-block:: cpp
     Notes detail version added, and/or relevant pieces of information.
 
-  .. tip::
+  .. tip.. code-block:: cpp
     Tips supply helpful suggestions on usage or behaviours.
 
-  .. warning::
+  .. warning.. code-block:: cpp
     Warnings convey negative behaviours, or when something won't work the way you'd expect.
 
 ----

@@ -302,7 +302,7 @@ Importers must contain a IMPT resource. Premiere uses this to identify the plug-
 Entry Point
 ================================================================================
 
-::
+.. code-block:: cpp
 
   csSDK_int32 xImportEntry (
     csSDK_int32  selector,
@@ -321,7 +321,7 @@ Standard Parameters
 
 A pointer to this structure is sent from the host application to the plug-in with every selector.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     csSDK_int32      imInterfaceVer;
@@ -352,7 +352,7 @@ A pointer to this structure is sent from the host application to the plug-in wit
 Importer-Specific Callbacks
 ================================================================================
 
-::
+.. code-block:: cpp
 
   typedef struct {
     ClassDataFuncsPtr  classFuncs;

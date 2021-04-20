@@ -19,7 +19,7 @@ Device controllers use a basic PiPL to specify their name and the match name tha
 Entry Point
 ================================================================================
 
-::
+.. code-block:: cpp
 
   short xDevice (
     short       selector,

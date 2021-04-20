@@ -12,7 +12,7 @@ Selector: :ref:`importers/selector-descriptions.imRetargetAccelerator`
 
 Describes the path to the new media and new accelerator created when the Project Manager copies media and its accelerator.
 
-::
+.. code-block.. code-block:: cpp cpp
 
   typedef struct {
     const prUTF16Char *inOriginalPath;
@@ -38,7 +38,7 @@ Sending back analysis data is a two step process. First, set buffersize to the s
 
 Premiere will immediately send ``imAnalysis`` again; populate the buffer with text. Previously-stored preferences and privateData are returned in this structure.
 
-::
+.. code-block.. code-block:: cpp cpp
 
   typedef struct {
     void         *privatedata;
@@ -71,7 +71,7 @@ Selector: :ref:`importers/selector-descriptions.imCreateAsyncImporter`
 
 Create an asynchronous importer object using the data provided, and store it here.
 
-::
+.. code-block.. code-block:: cpp cpp
 
   typedef struct {
     void                *inPrivateData;
@@ -101,7 +101,7 @@ Selector: :ref:`importers/selector-descriptions.imGetInfo8` (member of :ref:`imp
 
 Audio data properties of the file (or of the data you will generate, if synthetic).
 
-::
+.. code-block.. code-block:: cpp cpp
 
   typedef struct {
     csSDK_int32        numChannels;
@@ -132,7 +132,7 @@ Selector: :ref:`importers/selector-descriptions.imCalcSize8`
 
 Asks the importer for an estimate of disk space used by the clip, given the provided trim boundaries.
 
-::
+.. code-block.. code-block:: cpp cpp
 
   typedef struct {
     void         *privatedata;
@@ -173,7 +173,7 @@ Selector: :ref:`importers/selector-descriptions.imCheckTrim8`
 
 Provides the requested trim boundaries to the importer, and allows adjusted trim boundaries to be passed back to Premiere.
 
-::
+.. code-block.. code-block:: cpp cpp
 
   typedef struct {
     void         *privatedata;
@@ -221,7 +221,7 @@ Selector: :ref:`importers/selector-descriptions.imSelectClipFrameDescriptor`
 
 Based on the request in ``inDesiredClipFrameDescriptor`` and the importer's Source Settings, modify ``outBestFrameDescriptor`` as needed to describe what format the importer will provide.
 
-::
+.. code-block.. code-block:: cpp cpp
 
   typedef struct {
     void*                inPrivateData;
@@ -253,7 +253,7 @@ Selector: :ref:`importers/selector-descriptions.imCompleteAsyncClosedCaptionScan
 
 This structure is passed to provide one last chance to cleanup and dispose of ``inAsyncCaptionScanPrivateData``, and to mark whether the closed caption scan completed without error.
 
-::
+.. code-block.. code-block:: cpp cpp
 
   typedef struct {
     void*        inPrivateData;
@@ -289,7 +289,7 @@ The first time ``imGetIndColorProfile`` is sent, ``inDestinationBuffer`` will be
 
 Set ``ioBufferSize`` to the required size for the buffer, and the host will allocate the memory and call the importer again, with a valid ``inDestinationBuffer``, and ``ioBufferSize`` set to the value just provided by the importer.
 
-::
+.. code-block.. code-block:: cpp cpp
 
   typedef struct {
     void         *inPrivateData;
@@ -309,7 +309,7 @@ Selector: :ref:`importers/selector-descriptions.imCopyFile`
 
 Describes how to copy a clip. Also provides a callback to update the progress bar and check if the user has cancelled.
 
-::
+.. code-block.. code-block:: cpp cpp
 
   typedef struct {
     void                *inPrivateData;
@@ -348,7 +348,7 @@ Specify the desired buffersize, return to Premiere with ``imNoErr``; upon the ne
 
 This structure is used like ``imAnalysisRec``.
 
-::
+.. code-block.. code-block:: cpp cpp
 
   typedef struct {
     void         *privatedata;
@@ -370,7 +370,7 @@ This structure is used like ``imAnalysisRec``.
 | ``baserate``    | ``Audio`` data rate (bytes per second) of the file.                                         |
 +-----------------+---------------------------------------------------------------------------------------------+
 
-::
+.. code-block:: cpp
 
   typedef struct {
     csSDK_uint32  sampledur;
@@ -394,7 +394,7 @@ Selector: :ref:`importers/selector-descriptions.imDeferredProcessing`
 
 Describes the current progress of the deferred processing on the clip referred to by inPrivateData.
 
-::
+.. code-block.. code-block:: cpp cpp
 
   typedef struct {
     void   *inPrivateData;
@@ -424,7 +424,7 @@ Selector: :ref:`importers/selector-descriptions.imDeleteFile`
 
 Describes the file to be deleted.
 
-::
+.. code-block.. code-block:: cpp cpp
 
   typedef struct {
     csSDK_int32        filetype;
@@ -448,7 +448,7 @@ Selectors: ``imGetInfo8`` and ``imGetPrefs8``
 
 Describes the file being imported.
 
-::
+.. code-block.. code-block:: cpp cpp
 
   typedef struct {
     void               *importID;
@@ -483,7 +483,7 @@ Selector: :ref:`importers/selector-descriptions.imGetFileAttributes`
 
 New in Premiere Pro 3.1. Provide the clip creation date.
 
-::
+.. code-block.. code-block:: cpp cpp
 
   typedef struct {
     prDateStamp  creationDateStamp;
@@ -509,7 +509,7 @@ When a synthetic clip is created, and the user provides the desired resolution, 
 
 If importing stereoscopic footage, import the left-eye video channel for streamID 0, and the right-eye video channel for streamID 1.
 
-::
+.. code-block.. code-block:: cpp cpp
 
   typedef struct {
     char             hasVideo;
@@ -610,7 +610,7 @@ Selector: :ref:`importers/selector-descriptions.imOpenFile8`
 
 The file Premiere wants the importer to open.
 
-::
+.. code-block.. code-block:: cpp cpp
 
   typedef struct {
     imFileAccessRec8  fileinfo;
@@ -676,7 +676,7 @@ Selector: :ref:`importers/selector-descriptions.imGetSourceVideo` (member of :re
 
 Describes the frame dimensions and pixel format.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     csSDK_int32    inFrameWidth;
@@ -705,7 +705,7 @@ The importer should label each audio channel in the clip being imported.
 
 If no labels are specified, the channel layout will be assumed to be discrete.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     void*                inPrivateData;
@@ -731,7 +731,7 @@ Selector: :ref:`importers/selector-descriptions.imGetNextClosedCaption`
 
 This structure provides private data allocated in ``imInitiateAsyncClosedCaptionScan``, and should be filled out to pass back a closed caption, it's time, format, size, and overall progress in the closed caption scan.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     void*                  inPrivateData;
@@ -793,7 +793,7 @@ Contains settings/prefs data gathered from (or defaults to populate) a setup dia
 
 If you are creating media, you can may generate a video preview that includes the background frame from the timeline.
 
-::
+.. code-block.. code-block:: cpp cpp
 
   typedef struct {
     char            *prefs;
@@ -861,7 +861,7 @@ Selector: :ref:`importers/selector-descriptions.imGetInfo8` (member of :ref:`imp
 
 Describes the video to be imported.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     csSDK_int32   imageWidth;
@@ -1062,7 +1062,7 @@ Describes the audio samples to be returned, and contains an allocated buffer for
 
 Provide the audio in 32-bit float, uninterleaved audio format.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     PrAudioSample  position;
@@ -1099,7 +1099,7 @@ Selector: :ref:`importers/selector-descriptions.imImportImage`
 
 Describes the frame to be returned.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     csSDK_int32    onscreen;
@@ -1217,7 +1217,7 @@ Selector: :ref:`importers/selector-descriptions.imInit`
 
 Describes the importer's capabilities to Premiere.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     csSDK_uint32  importerType;
@@ -1363,7 +1363,7 @@ Selector: :ref:`importers/selector-descriptions.imGetIndFormat`
 
 Describes the format(s) supported by the importer. Synthetic files can only have one format.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     csSDK_int32  filetype;
@@ -1442,7 +1442,7 @@ Selector: :ref:`importers/selector-descriptions.imGetIndPixelFormat`
 
 Describes the pixel format(s) supported by the importer.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     void           *privatedata;
@@ -1475,7 +1475,7 @@ The estimated duration of all the closed captions can also be filled in.
 
 This is useful for certain cases where the embedded captions contain many frames of empty data.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     void*        privatedata;
@@ -1511,7 +1511,7 @@ Selector: :ref:`importers/selector-descriptions.imGetMetaData` and :ref:`importe
 
 Describes the metadata specific to a given four character code.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     void          *privatedata;
@@ -1544,7 +1544,7 @@ Selector: :ref:`importers/selector-descriptions.imGetPeakAudio`
 
 Describes the peak values of the audio at the specified position.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     void           *inPrivateData;
@@ -1583,7 +1583,7 @@ Selector: :ref:`importers/selector-descriptions.imGetPreferredFrameSize`
 
 Describes a frame size preferred by the importer.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     void           *inPrivateData;
@@ -1621,7 +1621,7 @@ Fill in the outContentStateID, which should be a GUID calculated based on the co
 
 If the state hasn't changed since the last call, the GUID returned should be the same.
 
-::
+.. code-block.. code-block:: cpp cpp
 
   typedef struct {
     const prUTF16Char*  inSourcePath;
@@ -1639,7 +1639,7 @@ Selector: :ref:`importers/selector-descriptions.imQueryDestinationPath`
 
 Fill in the desired ``outActualDestinationPath``, based on the ``inSourcePath`` and ``inSuggestedDestinationPath``.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     void               *inPrivateData;
@@ -1674,7 +1674,7 @@ Fill in the outContentStateID, which should be a GUID calculated based on the co
 
 If the state hasn't changed since the last call, the GUID returned should be the same.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     void*        inPrivateData;
@@ -1711,7 +1711,7 @@ New in CS6. Based on the stream ID passed in, allocate and pass back a label for
 
 For stereoscopic importers, use the predefined labels in PrSDKStreamLabel.h.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     void          *inPrivateData;
@@ -1741,7 +1741,7 @@ Selector: :ref:`importers/selector-descriptions.imSaveFile8`
 
 Describes the file to be saved.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     void                *privatedata;
@@ -1780,7 +1780,7 @@ Selector: :ref:`importers/selector-descriptions.imGetSourceVideo`, ``aiInitiateA
 
 Describes the requested frame, to be passed back in outFrame.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     void              *inPrivateData;
@@ -1837,7 +1837,7 @@ Selector: :ref:`importers/selector-descriptions.imGetSubTypeNames`
 
 Added in Premiere Pro CS3. Describes the codec name associated with a given fourcc.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     csSDK_int32  subType;
@@ -1855,7 +1855,7 @@ Selector: :ref:`importers/selector-descriptions.imGetTimeInfo8` and :ref:`import
 
 Describes the timecode and timecode rate associated with a clip.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     void         *privatedata;
@@ -1915,7 +1915,7 @@ Describes how to trim a clip, based on information returned by the importer duri
 
 Also provides a callback to update the progress bar and check if the user has cancelled.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     void                *privatedata;
@@ -1968,7 +1968,7 @@ Selector: ``imGetIndColorSpace``
 
 Describes the colorspace in use with the media.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     void                 *privatedata;
@@ -1991,7 +1991,7 @@ Describes the colorspace in use with the media.
 +-----------------------+----------------------------------------------------------------------------------------+
 | ioProfileRec          | A structure describing the color profile.                                              |
 |                       |                                                                                        |
-|                       | ::                                                                                     |
+|                       | .. code-block:: cpp                                                                    |
 |                       |                                                                                        |
 |                       |   csSDK_int32  ioBufferSize;                                                           |
 |                       |   void*        inDestinationBuffer;                                                    |
@@ -1999,7 +1999,7 @@ Describes the colorspace in use with the media.
 +-----------------------+----------------------------------------------------------------------------------------+
 | ``outSEICodesRec``    | A structure describing the color profile; used with H.265, HEVC, AVC and ProRes media. |
 |                       |                                                                                        |
-|                       | ::                                                                                     |
+|                       | .. code-block:: cpp                                                                    |
 |                       |                                                                                        |
 |                       |   csSDK_int32  colorPrimariesCode;                                                     |
 |                       |   csSDK_int32  transferCharacteristicCode;                                             |
@@ -2018,7 +2018,7 @@ Selector: ``imGetIndColorSpace``
 
 Describes the colorspace in use with the media.
 
-::
+.. code-block:: cpp
 
   typedef struct
   {
@@ -2039,7 +2039,7 @@ Describes the colorspace in use with the media.
 +-----------------------+----------------------------------------------------------------------------------------+
 | profileRec            | A structure describing the color profile.                                              |
 |                       |                                                                                        |
-|                       | ::                                                                                     |
+|                       | .. code-block:: cpp                                                                    |
 |                       |                                                                                        |
 |                       |   csSDK_int32  ioBufferSize;                                                           |
 |                       |   void*        inDestinationBuffer;                                                    |
@@ -2047,7 +2047,7 @@ Describes the colorspace in use with the media.
 +-----------------------+----------------------------------------------------------------------------------------+
 | ``seiCodesRec``       | A structure describing the color profile; used with H.265, HEVC, AVC and ProRes media. |
 |                       |                                                                                        |
-|                       | ::                                                                                     |
+|                       | .. code-block:: cpp                                                                    |
 |                       |                                                                                        |
 |                       |   csSDK_int32  colorPrimariesCode;                                                     |
 |                       |   csSDK_int32  transferCharacteristicCode;                                             |
@@ -2066,7 +2066,7 @@ Selector: ``imGetIndColorSpace``
 
 Describes the LUT embedded with the media.
 
-::
+.. code-block:: cpp
 
   typedef struct
   {
@@ -2096,7 +2096,7 @@ Selector: :ref:`importers/selector-descriptions.imGetSourceVideo` (member of :re
 
 Describes the context of the render; why it's occurring, and what rate and ratio is in use.
 
-::
+.. code-block:: cpp
 
   typedef struct 
   {

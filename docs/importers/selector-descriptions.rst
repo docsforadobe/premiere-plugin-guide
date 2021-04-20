@@ -41,11 +41,11 @@ To create a custom importer, the following capabilities must be set.
 
 See Additional Details for more info on custom importers.
 
-::
+.. code-block:: cpp
 
-  noFile = kPrTrue;
-  hasSetup = kPrTrue;
-  canOpen = kPrTrue;
+  noFile    = kPrTrue;
+  hasSetup  = kPrTrue;
+  canOpen   = kPrTrue;
   canCreate = kPrTrue;
   addToMenu = imMenuNew;
 
@@ -77,7 +77,7 @@ When finished, return imBadFormatIndex.
 
 imIndFormatRec.flags are obsolete and should not be used.
 
-Synthetic Importers
+Synthetic Importer selectors
 ********************************************************************************
 
 Because they have no file, synthetic importers only need to respond with the filetype established in their resource.

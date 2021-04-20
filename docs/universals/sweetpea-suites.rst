@@ -121,25 +121,23 @@ Below is a table of all suites available in Premiere Pro:
 Acquiring and Releasing the Suites
 ================================================================================
 
-All SweetPea suites are accessed through the Utilities Suite. Plug-ins can acquire the suites like so:
+All SweetPea suites are accessed through the Utilities Suite. Plug-ins can acquire the suites.
 
-::
+.. code-block:: cpp
 
-  SPBasicSuite *SPBasic = NULL;
+  SPBasicSuite SPBasic = NULL;
   PrSDKPixelFormatSuite *PixelFormatSuite = NULL;
 
   SPBasic = stdParmsP->piSuites->utilFuncs->getSPBasicSuite();
 
-  if (SPBasic)
-  {
-  SPBasic->AcquireSuite ( kPrSDKPixelFormatSuite,
-                          kPrSDKPixelFormatSuiteVersion,
-                          (const void**)&PixelFormatSuite);
+  if (SPBasic) {
+  SPBasic->AcquireSuite ( kPrSDKPixelFormatSuite, kPrSDKPixelFormatSuiteVersion, (const void**)&PixelFormatSuite);
   }
+
 
 Don't forget to release the suites when finished!
 
-::
+.. code-block:: cpp
 
   if (SPBasic && PixelFormatSuite)
   {
@@ -317,7 +315,7 @@ As an example, let's say the sequence is 720x480 at 0.9091 PAR, and the Sequence
 
 If the Monitor zoom level was set to 50%, then the inLogicalRegion should stay the same, but display width and height should be set to 327x240. If zoomed to 200%, display width and height should be set to 1308x960. To pan around (as opposed to showing the entire frame), the logical region should be adjusted to represent the part of the sequence frame currently being displayed.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*RenderImage)(
     PrPlayID       inPlayID,
@@ -347,7 +345,7 @@ If the Monitor zoom level was set to 50%, then the inLogicalRegion should stay t
 GetIdentifier
 ********************************************************************************
 
-::
+.. code-block:: cpp
 
   prSuiteError (*GetIdentifier)(
     PrPlayID       inPlayID,
@@ -361,7 +359,7 @@ GetIdentifier
 HasVisibleRegions
 ********************************************************************************
 
-::
+.. code-block:: cpp
 
   prSuiteError (*HasVisibleRegions)(
     PrPlayID       inPlayID,
@@ -375,7 +373,7 @@ HasVisibleRegions
 VariesOverTime
 ********************************************************************************
 
-::
+.. code-block:: cpp
 
   prSuiteError (*VariesOverTime)(
     PrPlayID  inPlayID,
@@ -418,7 +416,7 @@ Creates a new PPix. The advantage of using this callback is that frames allocate
 
 ``ppixNew`` and ``newPtr`` don't allocate memory in the media cache, or perform any alignment.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*CreatePPix)(
     PPixHand*           outPPixHand,
@@ -447,7 +445,7 @@ Clones an existing PPix.
 
 It will ref-count the PPix if only read access is requested and the PPix to copy from is read-only as well, otherwise it will create a new one and copy.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*ClonePPix)(
     PPixHand            inPPixToClone,
@@ -504,7 +502,7 @@ Dispose
 
 This will free this PPix. The PPix is no longer valid after this function is called.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*Dispose)(
     PPixHand  inPPixHand);
@@ -520,7 +518,7 @@ GetPixels
 
 This will return a pointer to the pixel buffer.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*GetPixels)(
     PPixHand            inPPixHand,
@@ -547,7 +545,7 @@ GetBounds
 
 This will return the bounding rect.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*GetBounds)(
     PPixHand  inPPixHand,
@@ -566,7 +564,7 @@ GetRowBytes
 
 This will return the row bytes of the PPix.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*GetRowBytes)(
     PPixHand      inPPixHand,
@@ -585,7 +583,7 @@ GetPixelAspectRatio
 
 This will return the pixel aspect ratio of this PPix.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*GetPixelAspectRatio)(
     PPixHand       inPPixHand,
@@ -615,7 +613,7 @@ This will return the unique key for this PPix.
 | success     | the key data was filled in                                                       |
 +-------------+----------------------------------------------------------------------------------+
 
-::
+.. code-block:: cpp
 
   prSuiteError (*GetUniqueKey)(
     PPixHand        inPPixHand,
@@ -637,7 +635,7 @@ GetUniqueKeySize
 
 This will return the unique key size. This will not change for the entire run of the application.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*GetUniqueKeySize)(
     size_t*  outKeyBufferSize);
@@ -653,7 +651,7 @@ GetRenderTime
 
 This will return the render time for this PPix.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*GetRenderTime)(
     PPixHand      inPPixHand,
@@ -772,7 +770,7 @@ GetTicksPerSecond
 
 Get the current ticks per second. This is guaranteed to be constant for the duration of the runtime.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*GetTicksPerSecond)(
     PrTime*  outTicksPerSec);
@@ -782,7 +780,7 @@ GetTicksPerVideoFrame
 
 Get the current ticks in a video frame rate. inVideoFrameRate may be any of the ``PrVideoFrameRates`` enum.
 
-::
+.. code-block:: cpp
 
   prSuiteError (*GetTicksPerVideoFrame)(
     PrVideoFrameRates  inVideoFrameRate,
@@ -801,7 +799,7 @@ Get the current ticks in an audio sample rate.
 | ``kPrTimeSuite_Success``          | otherwise                                                                                                                         |
 +-----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
 
-::
+.. code-block:: cpp
 
   prSuiteError (*GetTicksPerAudioSample)(
     float    inSampleRate,
@@ -839,7 +837,7 @@ The basic structure of the video segments is that of a tree structure. There is 
 
 So, a simple example, three clips in a stack, the top one with three effects looks like this:
 
-::
+.. code-block:: cpp
 
   Segment
     Compositor Node

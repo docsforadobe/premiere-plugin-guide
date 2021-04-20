@@ -8,7 +8,7 @@ Multiplexer Tab Ordering
 
 If your exporter provides a Multiplexer tab like some of the built-in exporters do, you may find that it appears after the Video and Audio tab, rather than before those tabs as in the case of our exporters. The key is to use the following define as the parameter identifer for the multiplexer tab group:
 
-::
+.. code-block:: cpp
 
   #define ADBEMultiplexerTabGroup "ADBEAudienceTabGroup"
 
@@ -150,7 +150,7 @@ Return Values
 
 Premiere Elements 8 uses a slightly different definition of the return values. Use the following definition instead:
 
-::
+.. code-block:: cpp
 
   enum {
     exportReturn_ErrNone = 0,
