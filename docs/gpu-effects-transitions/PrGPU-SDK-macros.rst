@@ -56,7 +56,7 @@ Header Files
 
 You'll want to include them like this in your kernel:
 
-::
+.. code-block:: cpp
 
   #include "PrGPU/KernelSupport/KernelCore.h"
 
@@ -87,25 +87,25 @@ The ProcAmp plug-in example uses a preprocessing step for OpenCL and Metal.
 Declaring Kernels
 ================================================================================
 
-Metal kernels require syntax that is quite different than OpenCL or CUDA, and the PrGPU macros use the Boost preprocessing package to express parameters. This is by far the most complicated part of the package, so grab a fresh cup of coffee and sit back for a read.
+Metal kernels require syntax that is quite different than CUDA, and the PrGPU macros use the Boost preprocessing package to express parameters. This is by far the most complicated part of the package, so grab a fresh cup of coffee and sit back for a read.
 
-The GF_KERNEL_FUNCTION macro is used to pass values as parameters (OpenCL/CUDA) or in a struct (metal). The macro will create an API-specific kernel entry point which will call a
+The GF_KERNEL_FUNCTION macro is used to pass values as parameters (CUDA) or in a struct (metal). The macro will create an API-specific kernel entry point which will call a
 
 function that it defines, leaving you to fill in the body. The macro uses Boost preprocessor sequences to express a type/name pair:
 
-::
+.. code-block:: cpp
 
   (float)(inValue)
 
 These pairs are then nested into a sequence of parameters:
 
-::
+.. code-block:: cpp
 
   ((float)(inAge))((int)(inMarbles))
 
 There are different categories of parameters, such as buffers, values, and kernel position. Each category sequence is a separate macro parameter. Example usage:
 
-::
+.. code-block:: cpp
 
   GF_KERNEL_FUNCTION(RemoveFlicker,
 
@@ -139,7 +139,7 @@ Declaring Device Functions
 
 By comparison, device functions are a snap to write:
 
-::
+.. code-block:: cpp
 
   GF_DEVICE_FUNCTION float Average(float a, float b) {...
 

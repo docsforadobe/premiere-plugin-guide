@@ -96,7 +96,7 @@ Entry Point
 
 This entry point function will be called once on load, and once on unload.
 
-::
+.. code-block:: cpp
 
   tmResult (*tmEntryFunc)(
     csSDK_int32  inInterfaceVersion,

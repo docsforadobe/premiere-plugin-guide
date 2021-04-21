@@ -208,7 +208,7 @@ No longer needed starting in CC, if the Edit to Tape panel is supported. Otherwi
 
 When the user invokes Export To Tape, Premiere prepares to play the chosen clip and sets the following in the DeviceHand:
 
-::
+.. code-block:: cpp
 
   command = *cmdInsertEdit*
   mode = modeRecord

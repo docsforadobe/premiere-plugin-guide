@@ -8,7 +8,7 @@ tmStdParms
 
 This is passed to all calls. Most of it is allocated and filled in by the transmitter on Startup, and may be modified during SetupDialog.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     csSDK_int32   inPluginIndex;
@@ -41,7 +41,7 @@ tmPluginInfo
 
 This is to be filled in by the transmitter on Startup.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     prPluginID    outIdentifier;
@@ -90,7 +90,7 @@ tmInstance
 
 This structure contains information for the transmitter to use for initializing an instance.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     csSDK_int32          inInstanceID;
@@ -154,7 +154,7 @@ A full description of an audio mode that the transmitter will support.
 
 The transmitter should fill in this information during ``QueryAudioMode``.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     float                outAudioSampleRate;
@@ -196,7 +196,7 @@ A full description of a video mode that the transmitter will support.
 
 Transmitter should fill in this information during ``QueryVideoMode``.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     csSDK_int32    outWidth;
@@ -259,7 +259,7 @@ This structure is filled out by the host and sent to the transmitter to describe
 
 The transmitter uses the callback here to update the host at regular intervals.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     tmClockCallback         inClockCallback;
@@ -332,7 +332,7 @@ tmPushVideo
 
 Describes a frame of video to be transmitted.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     PrTime                 inTime;

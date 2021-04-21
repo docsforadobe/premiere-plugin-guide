@@ -160,7 +160,7 @@ For Windows 7 restricted user accounts, the only place that code has guaranteed 
 
 This means that you cannot save data or documents in the application folder. There is currently no plug-in level API for storing preferences in the application prefs folder. Plug-ins can create their own preferences file in the user's Premiere prefs directory like so:
 
-::
+.. code-block:: cpp
 
   HRESULT herr = SHGetKnownFolderPath(FOLDERID_RoamingAppData, 0, NULL, preferencesPath);
   strcat(preferencesPath, "\\Adobe\\Premiere Pro\\[version]\\MyPlugin.preferences");
@@ -180,13 +180,13 @@ Premiere Pro's built-in player has a mode to display statistics, historically kn
 
 You can bring up the debug console in Premiere Pro. You can do this via Ctrl/Cmd-F12. To enable the dog ears, type this:
 
-::
+.. code-block:: cpp
 
   debug.set EnableDogEars=true
 
 to disable, use this:
 
-::
+.. code-block:: cpp
 
   debug.set EnableDogEars=false
 

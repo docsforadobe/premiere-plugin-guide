@@ -19,7 +19,7 @@ The 'no UI' UI type is for non-keyframeable parameters. After making changes to 
 A Filter PiPL Example
 ********************************************************************************
 
-::
+.. code-block:: cpp
 
   #include "PrSDKPiPLVer.h"
   #ifndef PRWIN_ENV
@@ -163,7 +163,7 @@ A Filter PiPL Example
 Entry Point
 ================================================================================
 
-::
+.. code-block:: cpp
 
   short xFilter (
     short        selector,

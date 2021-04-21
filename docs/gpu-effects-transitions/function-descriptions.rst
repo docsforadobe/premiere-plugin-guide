@@ -8,7 +8,7 @@ Function Descriptions
 CreateInstance
 ================================================================================
 
-::
+.. code-block:: cpp
 
   prSuiteError (*CreateInstance)(
     PrGPUFilterInstance*  ioInstanceData);
@@ -28,7 +28,7 @@ This allows an effect have more flexibility about opting-in for GPU rendering, d
 DisposeInstance
 ================================================================================
 
-::
+.. code-block:: cpp
 
   prSuiteError (*DisposeInstance)(
     PrGPUFilterInstance*  ioInstanceData);
@@ -42,7 +42,7 @@ Cleanup any resources allocated during CreateInstance.
 GetFrameDependencies
 ================================================================================
 
-::
+.. code-block:: cpp
 
   prSuiteError (*GetFrameDependencies)(
     PrGPUFilterInstance*            inInstanceData,
@@ -61,7 +61,7 @@ Increment ``ioQueryIndex`` for additional dependencies.
 PreCompute
 ================================================================================
 
-::
+.. code-block:: cpp
 
   prSuiteError (*Precompute)(
     PrGPUFilterInstance*            inInstanceData,
@@ -86,7 +86,7 @@ If outPrecomputePixelFormat is not custom, frames will be converted to the GPU p
 Render
 ================================================================================
 
-::
+.. code-block:: cpp
 
   prSuiteError (*Render)(
     PrGPUFilterInstance*            inInstanceData,

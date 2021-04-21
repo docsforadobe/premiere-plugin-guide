@@ -8,7 +8,7 @@ PrGPUFilterInfo
 
 This structure contains some basic info about a GPU filter. It provides access to various suites, and access to private data where the instance can allocate memory and store data which will be passed to subsequent functions.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     csSDK_uint32  outInterfaceVersion;
@@ -30,7 +30,7 @@ PrGPUFilterInstance
 
 This structure contains some basic info about a GPU filter. It provides access to various suites, and access to private data where the instance can allocate memory and store data which will be passed to subsequent functions.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     piSuitesPtr   piSuites;
@@ -64,7 +64,7 @@ PrGPUFilterRenderParams
 
 This structure describes the current render request.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     PrTime  inClipTime;
@@ -122,7 +122,7 @@ PrGPUFilterFrameDependency
 
 This structure describes any dependencies for a rendered frame.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     PrGPUFilterFrameDependencyType  outDependencyType;

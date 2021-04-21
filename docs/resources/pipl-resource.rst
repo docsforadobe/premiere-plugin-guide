@@ -31,7 +31,7 @@ For more information on the ``ANIM_FilterInfo`` and ``ANIM_ParamAtom``, see the 
 A Basic PiPL Example
 ================================================================================
 
-::
+.. code-block:: cpp
 
   #define plugInName "SDK Custom Import"
   #define plugInMatchName "SDK Custom Import"

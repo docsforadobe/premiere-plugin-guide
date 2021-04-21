@@ -10,7 +10,7 @@ piSuites
 
 These callbacks are available to all plug-ins, although many of these callbacks are only appropriate for specific plug-in types.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     int                   piInterfaceVer;
@@ -440,7 +440,7 @@ These functions are not aware of different pixel formats, and are intended only 
 
 Sample usage:
 
-::
+.. code-block:: cpp
 
   ((*theData)->bottleNecks->StretchBits) (*srcpix,
                                           *dstpix,

@@ -14,7 +14,7 @@ The samples also use Boost, which may be downloaded at boost.org. Download that,
 
 Finally, install Python, if you do not have it already. It may be downloaded at python.org. The sample projects use this as part of the custom build steps.
 
-Depending on whether your effect will use OpenCL or CUDA or both, you'll need to download the CUDA SDK. On Windows, create an environment variable pointing to it named CUDA_SDK_BASE_PATH, so that the linker will find the right libraries.
+Depending on whether your effect will use CUDA, you'll need to download the CUDA SDK. On Windows, create an environment variable pointing to it named CUDA_SDK_BASE_PATH, so that the linker will find the right libraries.
 
 ----
 
@@ -52,14 +52,7 @@ In emergency situations, when there is not enough GPU memory available to comple
 OpenGL Interoperability
 ================================================================================
 
-If you want, you have the ability to transfer frames from CUDA/OpenCL to OpenGL (though not always efficiently).
-
-In Premiere Pro, OpenCL contexts are created with OpenGL interoperability. We expose info about it through PrGPUDeviceInfo available through PrSDKGPUDeviceSuite.h:
-
-::
-
-  void* outOffscreenOpenGLContextHandle; // CGLContextObj or HGLRC
-  void* outOffscreenOpenGLDeviceHandle; // HDC
+If you want, you have the ability to transfer frames from CUDA to OpenGL (though not always efficiently).
 
 For CUDA interoperability with OpenGL:
 
@@ -78,7 +71,7 @@ The GPU entry point function will only be called if the current project is using
 
 Make sure GPU acceleration is activated in File > Project Settings > General > Video Rendering and Playback > Renderer. If a GPU option is not available, then you will need to install a suitable video card in your system.
 
-::
+.. code-block:: cpp
 
   prSuiteError xGPUFilterEntry (
     csSDK_uint32      inHostInterfaceVersion,

@@ -15,8 +15,6 @@ Contributors are welcome and encouraged to suggest fixes, adjustments, notes/war
 Internal References
 *******************
 
-
-
 Anchors should be defined at each page setting relative to the root folder; the anchor for the "Application" page within the JS Object Reference should be.. code-block:: cpp
 
   .. _jsobjref/Application

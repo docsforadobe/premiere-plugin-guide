@@ -257,7 +257,7 @@ These compressed frames are not guaranteed, however, so the exporter should be p
 Entry Point
 ================================================================================
 
-::
+.. code-block:: cpp
 
   DllExport PREMPLUGENTRY xSDKExport (
     csSDK_int32      selector,
@@ -280,7 +280,7 @@ Standard Parameters
 
 A pointer to this structure is sent from the host to the plug-in with every selector.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     csSDK_int32               interfaceVer;

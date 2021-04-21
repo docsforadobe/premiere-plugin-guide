@@ -8,7 +8,7 @@ Audio
 
 All audio calls to and from Premiere use arrays of buffers of 32-bit floats to pass audio. Audio is not interleaved, rather separate channels are stored in separate buffers. So the structure for stereo audio looks like this:
 
-::
+.. code-block:: cpp
 
   float* audio[2];
 
@@ -18,7 +18,7 @@ Since Premiere uses 32-bit floats for each audio sample, it can represent values
 
 E.g.:
 
-::
+.. code-block:: cpp
 
   sample16bit[n] = (short int) (sample32bit[n] * 32767.0)
 

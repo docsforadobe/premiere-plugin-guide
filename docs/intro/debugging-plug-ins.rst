@@ -21,11 +21,15 @@ On macOS:
 4) From there you can either hit the Play button to build and run the current scheme, or you can launch the application and later at any point choose Debug > Attach to Process.
 
 
-Another way to do this in Visual Studio is by placing a line of code::
+Another way to do this in Visual Studio is by placing a line of code
+
+.. code-block:: cpp
 
   _asm int 3;
 
-or::
+or
+
+.. code-block:: cpp
 
   DebugBreak();
 

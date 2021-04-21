@@ -12,7 +12,7 @@ In addition to those general instructions, the sample project is also dependent 
 
 MacOS, in XCode > Preferences > Locations > Source Trees, specify AE_SDK_BASE_PATH to be the root folder of the AE SDK you have downloaded and unzipped.
 
-Depending on whether your transition will use OpenCL or CUDA or both, you'll need to download the CUDA SDK. On Windows, create an environment variable pointing to it named "CUDA_SDK_BASE_PATH", so that the linker will find the right libraries.
+As of Summer 2021, because of removal of OS-level support for OpenCL, Premiere Pro will no longer support OpenCL. If your transition will use CUDA, you'll need to download the CUDA SDK. On Windows, create an environment variable pointing to it named "CUDA_SDK_BASE_PATH", so that the linker will find the right libraries.
 
 ----
 

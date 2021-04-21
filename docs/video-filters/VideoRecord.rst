@@ -5,7 +5,7 @@ VideoRecord
 
 A video filter is passed a handle to a VideoRecord with almost every selector.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     PrMemoryHandle          specsHandle;
@@ -126,7 +126,7 @@ Pointer to a callback for retrieving frames (or fields, for interlaced video) fr
 
 Do not expect real-time performance from this callback.
 
-::
+.. code-block:: cpp
 
   typedef short (CALLBACK *VFilterCallBackProcPtr)(
     csSDK_int32  frame;

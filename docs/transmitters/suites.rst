@@ -32,7 +32,7 @@ Returns:
 - ``suiteError_PlayModuleAudioNotInitialized``, or
 - ``suiteError_PlayModuleAudioNotStarted``
 
-::
+.. code-block:: cpp
 
   prSuiteError (*GetNextAudioBuffer)(
     csSDK_int32   inPlayID,

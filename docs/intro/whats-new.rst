@@ -3,6 +3,10 @@
 Whats New
 ################################################################################
 
+What's New in 15.3
+
+We've updated the PrSetEnv.h, to allow building ARM-native plug-ins.
+
 What's New in 14.2
 ================================================================================
 
@@ -30,7 +34,7 @@ Effects and Transitions
 
 :ref:`gpu-effects-transitions/gpu-effects-transitions` built using this SDK are now compatible with After Effects 15.0 and later. The sample GPU effect projects have been updated so that they load in both Premiere Pro and After Effects.
 
-The newly provided :ref:`gpu-effects-transitions/PrGPU-SDK-macros` and device functions allow you to write kernels that will compile on multiple GPU compute languages - OpenCL, CUDA, and Metal.
+The newly provided :ref:`gpu-effects-transitions/PrGPU-SDK-macros` and device functions allow you to write kernels that will compile on CUDA, and Metal.
 
 Multiple effects and transitions can now be implemented in a single plug-in binary, by defining multiple entry points in software at runtime. The new method for registering entry points will be a replacement for the PiPL resource, and is currently only supported in Premiere Pro. The sample effects and transitions demonstrate this new method, while :ref:`resources/pipl-resource` remains, for backwards-compatibility in PPro, and compatibility with AE.
 
@@ -70,7 +74,7 @@ The Playmod Immersive Video Suite can be used to query whether or not ambisonics
 What's New in CC 2017
 ================================================================================
 
-VR Video Support
+VR Video Support added
 ********************************************************************************
 
 Transmit plug-ins can have the VR perspective in the desktop Monitor driven by the Head-Mounted Display, so when the person with the Head-Mounted Display looks in a different direction, the desktop Monitor shows that same perspective. To do this, the transmit plug-in can use the new Playmod Immersive Video Suite to indicate that it supports tracking.
@@ -109,7 +113,7 @@ In :ref:`universals/sweetpea-suites.video-segment-render-suite`, new versions of
 What's New in CC 2015.4
 ================================================================================
 
-Effects and Transitions
+Metal rendering for Effects and Transitions
 ********************************************************************************
 
 GPU-accelerated rendering using Metal is now supported for third-party effects and transitions. PrGPUDeviceFramework_Metal has been added as one of the enum values in PrGPUDeviceFramework.
@@ -195,7 +199,7 @@ When a clip is first imported, the effect is called with *PF_Cmd_SEQUENCE_SETUP*
 
 When the source settings effect parameters are changed, the effect gets called with *PF_Cmd_TRANSLATE_PARAMS_TO_PREFS*. The function signature is:
 
-::
+.. code-block:: cpp
 
   PF_Err TranslateParamsToPrefs(
     PF_InData*                      in_data,

@@ -12,7 +12,7 @@ Selector: :ref:`recorders/selector-descriptions.recmod_Startup8`
 
 Describes the recorder's capabilities to Premiere.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     csSDK_int32   recmodID;
@@ -151,7 +151,7 @@ Selector: :ref:`recorders/selector-descriptions.recmod_GetSetupInfo8`
 
 Enumerate custom setup buttons for the Capture Settings dialog, and pull-down menu items in the Capture panel.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     int            customSetups;
@@ -182,7 +182,7 @@ Selector: :ref:`recorders/selector-descriptions.recmod_SetDisp`, :ref:`recorders
 
 Describes the display position for preview frames.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     prWnd  wind;
@@ -218,7 +218,7 @@ Selector: :ref:`recorders/selector-descriptions.recmod_Open`
 
 Provides capture session information; save this information in private instance data.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     recDisplayPos      disp;
@@ -251,7 +251,7 @@ Selector: :ref:`recorders/selector-descriptions.recmod_StartRecord`
 
 Provide pixel aspect ratio and starting timecode of the captured clip.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     unsigned        int pixelAspectRatioNum;
@@ -286,7 +286,7 @@ Selector: :ref:`recorders/selector-descriptions.recmod_PrepRecord8` (member of :
 
 Used to describe the capture destination file.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     short        volID;
@@ -313,7 +313,7 @@ Selector: :ref:`recorders/selector-descriptions.recmod_ShowOptions`
 
 Indicates which settings dialog should be displayed, and provides any previously saved settings.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     uintptr_t  parentwind;
@@ -340,7 +340,7 @@ Selector: :ref:`recorders/selector-descriptions.recmod_PrepRecord8`
 
 Specifies capture settings.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     void                   *callbackID;
@@ -459,7 +459,7 @@ Selector: :ref:`recorders/selector-descriptions.recmod_Idle`
 
 Allows the recorder to supply timecode information.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     csSDK_int32  status;
@@ -498,7 +498,7 @@ Selector: :ref:`recorders/selector-descriptions.recmod_QueryInfo`
 
 Allows the recorder to supply the resolution and pixel aspect ratio of the clip being logged.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     csSDK_int32  version;
@@ -562,7 +562,7 @@ Selectors: ``recmod_StartSceneSearch``
 
 Used for scene searching. searchingForward is provided as a hint as the state of the device, and the reportSceneFunc should be used to notify Premiere of a scene boundary.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     void             *callbackID;

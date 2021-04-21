@@ -12,7 +12,7 @@ Selector: :ref:`importers/selector-descriptions.imRetargetAccelerator`
 
 Describes the path to the new media and new accelerator created when the Project Manager copies media and its accelerator.
 
-.. code-block.. code-block:: cpp cpp
+.. code-block:: cpp
 
   typedef struct {
     const prUTF16Char *inOriginalPath;
@@ -38,7 +38,7 @@ Sending back analysis data is a two step process. First, set buffersize to the s
 
 Premiere will immediately send ``imAnalysis`` again; populate the buffer with text. Previously-stored preferences and privateData are returned in this structure.
 
-.. code-block.. code-block:: cpp cpp
+.. code-block:: cpp
 
   typedef struct {
     void         *privatedata;
@@ -71,7 +71,7 @@ Selector: :ref:`importers/selector-descriptions.imCreateAsyncImporter`
 
 Create an asynchronous importer object using the data provided, and store it here.
 
-.. code-block.. code-block:: cpp cpp
+.. code-block:: cpp
 
   typedef struct {
     void                *inPrivateData;
@@ -101,7 +101,7 @@ Selector: :ref:`importers/selector-descriptions.imGetInfo8` (member of :ref:`imp
 
 Audio data properties of the file (or of the data you will generate, if synthetic).
 
-.. code-block.. code-block:: cpp cpp
+.. code-block:: cpp
 
   typedef struct {
     csSDK_int32        numChannels;
@@ -132,7 +132,7 @@ Selector: :ref:`importers/selector-descriptions.imCalcSize8`
 
 Asks the importer for an estimate of disk space used by the clip, given the provided trim boundaries.
 
-.. code-block.. code-block:: cpp cpp
+.. code-block:: cpp
 
   typedef struct {
     void         *privatedata;
@@ -173,7 +173,7 @@ Selector: :ref:`importers/selector-descriptions.imCheckTrim8`
 
 Provides the requested trim boundaries to the importer, and allows adjusted trim boundaries to be passed back to Premiere.
 
-.. code-block.. code-block:: cpp cpp
+.. code-block:: cpp
 
   typedef struct {
     void         *privatedata;
@@ -221,7 +221,7 @@ Selector: :ref:`importers/selector-descriptions.imSelectClipFrameDescriptor`
 
 Based on the request in ``inDesiredClipFrameDescriptor`` and the importer's Source Settings, modify ``outBestFrameDescriptor`` as needed to describe what format the importer will provide.
 
-.. code-block.. code-block:: cpp cpp
+.. code-block:: cpp
 
   typedef struct {
     void*                inPrivateData;
@@ -253,7 +253,7 @@ Selector: :ref:`importers/selector-descriptions.imCompleteAsyncClosedCaptionScan
 
 This structure is passed to provide one last chance to cleanup and dispose of ``inAsyncCaptionScanPrivateData``, and to mark whether the closed caption scan completed without error.
 
-.. code-block.. code-block:: cpp cpp
+.. code-block:: cpp
 
   typedef struct {
     void*        inPrivateData;
@@ -289,7 +289,7 @@ The first time ``imGetIndColorProfile`` is sent, ``inDestinationBuffer`` will be
 
 Set ``ioBufferSize`` to the required size for the buffer, and the host will allocate the memory and call the importer again, with a valid ``inDestinationBuffer``, and ``ioBufferSize`` set to the value just provided by the importer.
 
-.. code-block.. code-block:: cpp cpp
+.. code-block:: cpp
 
   typedef struct {
     void         *inPrivateData;
@@ -309,7 +309,7 @@ Selector: :ref:`importers/selector-descriptions.imCopyFile`
 
 Describes how to copy a clip. Also provides a callback to update the progress bar and check if the user has cancelled.
 
-.. code-block.. code-block:: cpp cpp
+.. code-block:: cpp
 
   typedef struct {
     void                *inPrivateData;
@@ -348,7 +348,7 @@ Specify the desired buffersize, return to Premiere with ``imNoErr``; upon the ne
 
 This structure is used like ``imAnalysisRec``.
 
-.. code-block.. code-block:: cpp cpp
+.. code-block:: cpp
 
   typedef struct {
     void         *privatedata;
@@ -394,7 +394,7 @@ Selector: :ref:`importers/selector-descriptions.imDeferredProcessing`
 
 Describes the current progress of the deferred processing on the clip referred to by inPrivateData.
 
-.. code-block.. code-block:: cpp cpp
+.. code-block:: cpp
 
   typedef struct {
     void   *inPrivateData;
@@ -424,7 +424,7 @@ Selector: :ref:`importers/selector-descriptions.imDeleteFile`
 
 Describes the file to be deleted.
 
-.. code-block.. code-block:: cpp cpp
+.. code-block:: cpp
 
   typedef struct {
     csSDK_int32        filetype;
@@ -448,7 +448,7 @@ Selectors: ``imGetInfo8`` and ``imGetPrefs8``
 
 Describes the file being imported.
 
-.. code-block.. code-block:: cpp cpp
+.. code-block:: cpp
 
   typedef struct {
     void               *importID;
@@ -483,7 +483,7 @@ Selector: :ref:`importers/selector-descriptions.imGetFileAttributes`
 
 New in Premiere Pro 3.1. Provide the clip creation date.
 
-.. code-block.. code-block:: cpp cpp
+.. code-block:: cpp
 
   typedef struct {
     prDateStamp  creationDateStamp;
@@ -509,7 +509,7 @@ When a synthetic clip is created, and the user provides the desired resolution, 
 
 If importing stereoscopic footage, import the left-eye video channel for streamID 0, and the right-eye video channel for streamID 1.
 
-.. code-block.. code-block:: cpp cpp
+.. code-block:: cpp
 
   typedef struct {
     char             hasVideo;
@@ -610,7 +610,7 @@ Selector: :ref:`importers/selector-descriptions.imOpenFile8`
 
 The file Premiere wants the importer to open.
 
-.. code-block.. code-block:: cpp cpp
+.. code-block:: cpp
 
   typedef struct {
     imFileAccessRec8  fileinfo;
@@ -793,7 +793,7 @@ Contains settings/prefs data gathered from (or defaults to populate) a setup dia
 
 If you are creating media, you can may generate a video preview that includes the background frame from the timeline.
 
-.. code-block.. code-block:: cpp cpp
+.. code-block:: cpp
 
   typedef struct {
     char            *prefs;
@@ -1621,7 +1621,7 @@ Fill in the outContentStateID, which should be a GUID calculated based on the co
 
 If the state hasn't changed since the last call, the GUID returned should be the same.
 
-.. code-block.. code-block:: cpp cpp
+.. code-block:: cpp
 
   typedef struct {
     const prUTF16Char*  inSourcePath;

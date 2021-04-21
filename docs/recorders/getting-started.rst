@@ -94,7 +94,7 @@ Entry Point
 
 Below is the entry point function prototype for all recorder plug-ins. Premiere calls this entry point function to drive the recorder based on user input.
 
-::
+.. code-block:: cpp
 
   int RecEntry (
     csSDK_int32  selector,
@@ -117,7 +117,7 @@ Standard Parameters
 
 This structure is sent from Premiere to the plug-in with every selector.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     int               rmInterfaceVer;
@@ -152,7 +152,7 @@ Recorders have access to ClassData Functions and Memory Functions through the ``
 
 ``StatusDispFunc``, ``PrerollFunc``, ``ReportSceneFunc``, and ``SceneCapturedFunc8`` are accessible through ``recCapParmsRec8``, which is sent with ``recmod_PrepRecord8``.
 
-::
+.. code-block:: cpp
 
   typedef struct {
     ClassDataFuncsPtr   classFuncs;

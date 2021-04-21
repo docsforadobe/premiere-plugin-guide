@@ -1799,6 +1799,7 @@ GetVideoResolutionString()
 *******************************************************************************
 
 Retrieve a string representing the dimensions of the track item to which the effect is applied.
+
 .. code-block:: cpp
 
   prSuiteError(\*GetVideoResolutionString)(
