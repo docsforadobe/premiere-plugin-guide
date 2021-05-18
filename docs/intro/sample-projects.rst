@@ -3,6 +3,17 @@
 Sample Projects
 ################################################################################
 
+Note: To compile GPU effects in Premiere SDK, we highly recommend using CUDA SDK 10.1 or 10.2. To compile them with CUDA SDK 11 follow the instructions below.
+
+Caution: GPU Effects built using CUDA SDK 11 will not work Kepler cards on CUDA 3.0 arch
+
+Instructions :
+Open the project file (.vcxproj) in any text editor. For the provided examples, project file can be found in `Examples\Projects\GPUVideoFilter\SDK_XXX\Win`.
+Search for `<CustomBuild Include="..\SDK_XXX.cu">` block in the project XML.
+Edit the `-arch=sm_30` in the `Command` tag to `-arch=sm_35`.
+Save the project and the build should succeed.
+
+
 Descriptions
 ================================================================================
 
