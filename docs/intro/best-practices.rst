@@ -12,6 +12,6 @@ In this way, new selectors can be added to the API and legacy plugins will autom
 Structure Alignment
 ================================================================================
 
-All the sample projects include PrSDKTypes.h.
+All the sample projects include ``PrSDKTypes.h``.
 
 This header sets the proper (single-byte) structure alignment and specifies the necessary (C-style) external linkage.
