@@ -8,7 +8,7 @@ Setting up the Sample Projects
 
 If you are developing an effect, begin with one of the two GPU effect sample projects, progressively replacing its functionality with your own. Refer to :ref:`intro/intro` for general instructions on how to build the SDK projects.
 
-In addition to those general instructions, the sample project is also dependent on the After Effects plug-in SDK. Download it here. On Windows, create an environment variable pointing to it named AE_SDK_BASE_PATH, so that the compiler will find the AE headers that the project includes. On macOS, in *Xcode > Preferences > Locations > Source Trees*, specify AE_SDK_BASE_PATH to be the root folder of the AE plug-in SDK you have downloaded and unzipped.
+In addition to those general instructions, the sample project is also dependent on the After Effects plugin SDK. Download it here. On Windows, create an environment variable pointing to it named AE_SDK_BASE_PATH, so that the compiler will find the AE headers that the project includes. On macOS, in *Xcode > Preferences > Locations > Source Trees*, specify AE_SDK_BASE_PATH to be the root folder of the AE plugin SDK you have downloaded and unzipped.
 
 The samples also use Boost, which may be downloaded at boost.org. Download that, and create a variable named BOOST_BASE_PATH just as you did with AE_SDK_BASE_PATH above.
 
@@ -21,7 +21,7 @@ Depending on whether your effect will use CUDA, you'll need to download the CUDA
 Querying for Parameters and other Attributes of a Effect or Transition
 ================================================================================
 
-You'll notice that PrGPUFilterRenderParams has some attributes about an effect or transition, but many things, such as the parameters or duration of the clip to which the plug-in is applied, are not found in that structure. These attributes will need to be queried using the GetParam() and GetProperty() helper functions in PrGPUFilterModule.h. For example:
+You'll notice that PrGPUFilterRenderParams has some attributes about an effect or transition, but many things, such as the parameters or duration of the clip to which the plugin is applied, are not found in that structure. These attributes will need to be queried using the GetParam() and GetProperty() helper functions in PrGPUFilterModule.h. For example:
 
 GetProperty(kVideoSegmentProperty_Effect_EffectDuration, duration);
 
@@ -87,4 +87,4 @@ If ``inStartup`` is false, then the effect/transition should shutdown, unloading
 
 As of CC, inHostInterfaceVersion is PrSDKGPUFilterInterfaceVersion1 == 1.
 
-If a single plug-in supports multiple effects, increment ioIndex to the next value before returning, in order to be called again to describe the next effect.
+If a single plugin supports multiple effects, increment ioIndex to the next value before returning, in order to be called again to describe the next effect.

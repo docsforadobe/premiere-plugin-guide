@@ -3,14 +3,14 @@
 ClassID, Filetype and Subtype
 ################################################################################
 
-All plug-in types that support media must identify unique classID, filetype, and subtype.
+All plugin types that support media must identify unique classID, filetype, and subtype.
 
 These are all four character codes, or 'fourCCs'.
 
 +----------------+----------------------------------------------------------------------------------------------------------------------------------------+
 | **Identifier** |                                                              **Purpose**                                                               |
 +================+========================================================================================================================================+
-| ``filetype``   | Identifies the plug-in's associated file type(s).                                                                                      |
+| ``filetype``   | Identifies the plugin's associated file type(s).                                                                                       |
 |                |                                                                                                                                        |
 |                | plugins create lists of filetypes they support.                                                                                        |
 +----------------+----------------------------------------------------------------------------------------------------------------------------------------+

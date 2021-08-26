@@ -3,7 +3,7 @@
 ClassData Functions
 ################################################################################
 
-All plug-in types that support media can use these callbacks to share information associated with their classID.
+All plugin types that support media can use these callbacks to share information associated with their classID.
 
 For example, these plugins can confirm their hardware is present and operational using the ClassData functions.
 

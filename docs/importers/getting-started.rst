@@ -192,7 +192,7 @@ Starting in CC, importers can support closed captioning that is embedded in the 
 
 To support embedded closed captioning, set ``imImportInfoRec.canSupportClosedCaptions`` to true. The importer should handle the following selectors: ``imInitiateAsyncClosedCaptionScan``, ``imGetNextClosedCaption``, and *imCompleteAsyncClosedCaptionScan*.
 
-*imInitiateAsyncClosedCaptionScan* will be called for every file that is imported through an importer that sets canSupportClosedCaptions to true. The plug-in should at this point determine whether or not there is closed captioning data for this file. If not, then the plug-in should simply return imNoCaptions, and everything is done. If the plug-in didn't report an error for that call, then *imGetNextClosedCaption* will be called until the plug-in returns imNoCaptions. After which, *imCompleteAsyncClosedCaptionScan* will be called informing the importer that the host is done requesting captions.
+*imInitiateAsyncClosedCaptionScan* will be called for every file that is imported through an importer that sets canSupportClosedCaptions to true. The plugin should at this point determine whether or not there is closed captioning data for this file. If not, then the plugin should simply return imNoCaptions, and everything is done. If the plugin didn't report an error for that call, then *imGetNextClosedCaption* will be called until the plugin returns imNoCaptions. After which, *imCompleteAsyncClosedCaptionScan* will be called informing the importer that the host is done requesting captions.
 
 Both *imGetNextClosedCaption* and *imCompleteAsyncClosedCaptionScan* may be called from a different thread from which ``imInitiateAsyncClosedCaptionScan`` was originally called. To help facilitate this, ``outAsyncCaptionScanPrivateData`` during ``imInitiateAsyncClosedCaptionScan`` can be allocated by the importer to be used for the upcoming calls, which can be deallocated
 
@@ -253,12 +253,12 @@ External files, such as textures, logos, etc. that are used by an importer insta
 Creating a Custom Importer
 ================================================================================
 
-This variant of the importer API allows importers to dynamically create disk-based media while working within Premiere. A titler plug-in or similar should use this API. Once your clip is created, it is treated like any other standard file and will receive all standard missing file handling.
+This variant of the importer API allows importers to dynamically create disk-based media while working within Premiere. A titler plugin or similar should use this API. Once your clip is created, it is treated like any other standard file and will receive all standard missing file handling.
 
 A Custom Importer **must** do the following:
 
-- Set the following flags true in imImportInfoRec; canCreate, canOpen, addToMenu, noFile. This tells Premiere your plug-in will create a clip on disk at *imGetPrefs8* time.
-- To determine when you need to create a new clip vs. modify an existing clip, check the ``imFileAccessRec`` filename. If it's identical to the plug-in display name (as set in the PiPL), create a new clip; otherwise modify the clip.
+- Set the following flags true in imImportInfoRec; canCreate, canOpen, addToMenu, noFile. This tells Premiere your plugin will create a clip on disk at *imGetPrefs8* time.
+- To determine when you need to create a new clip vs. modify an existing clip, check the ``imFileAccessRec`` filename. If it's identical to the plugin display name (as set in the PiPL), create a new clip; otherwise modify the clip.
 - If the user cancels from your dialog when creating a new clip, return imCancel.
 - If the clip is modified, the importer needs to do a few things for Premiere to pick up the changes. Put your file access information in the supplied ``imFileAccessRec``. Premiere will use this data to reference your clip from now on. Close the file handle after you create it. Return imSetFile after creating a file handle in *imGetPrefs8*., and call RefreshFileAsync() in the Importer
 
@@ -295,7 +295,7 @@ To avoid having your importer appear multiple times in the file formats supporte
 Resources
 ================================================================================
 
-Importers must contain a IMPT resource. Premiere uses this to identify the plug-in as an importer. Also, depending on the type of importer (standard, synthetic, or custom), a PiPL may be required.
+Importers must contain a IMPT resource. Premiere uses this to identify the plugin as an importer. Also, depending on the type of importer (standard, synthetic, or custom), a PiPL may be required.
 
 ----
 
@@ -319,7 +319,7 @@ Entry Point
 Standard Parameters
 ================================================================================
 
-A pointer to this structure is sent from the host application to the plug-in with every selector.
+A pointer to this structure is sent from the host application to the plugin with every selector.
 
 .. code-block:: cpp
 

@@ -6,13 +6,13 @@ Getting Started
 Selector Calling Sequence
 ================================================================================
 
-The best ways to get familiar with the recorder API is to observe the messages sent between Pre- miere and the recorder plug-in.
+The best ways to get familiar with the recorder API is to observe the messages sent between Pre- miere and the recorder plugin.
 
 ``recmod_Startup8`` is sent once when Premiere launches. When Project Settings > Capture Settings is opened, ``recmod_Open`` is sent to create a new recorder instance and open the capture driver. ``recmod_GetSetupInfo8`` is then sent, so the recorder can specify which settings buttons (if any) should be enabled in the Capture Settings window when the recorder is selected.
 
 If one or more settings buttons are enabled and then clicked by the user, ``recmod_ShowOptions`` is sent so the recorder can display a dialog (and save any user choices). When the Capture Settings window is closed, *recmod_Close* is sent to end the capture instance.
 
-Whenever the Capture panel is open, the recorder will receive ``recmod_SetActive`` calls, with a parameter telling it to become active or inactive (based on user activity). ``recmod_SetDisp`` provides the plug-in the dimensions of the preview area in the Capture panel. *recmod_Idle* is repeatedly sent until the Record button is pushed, to give the recorder time to update the preview area and play audio coming from the capture hardware.
+Whenever the Capture panel is open, the recorder will receive ``recmod_SetActive`` calls, with a parameter telling it to become active or inactive (based on user activity). ``recmod_SetDisp`` provides the plugin the dimensions of the preview area in the Capture panel. *recmod_Idle* is repeatedly sent until the Record button is pushed, to give the recorder time to update the preview area and play audio coming from the capture hardware.
 
 When the user clicks Record, or starts an In/Out or Batch capture, ``recmod_PrepRecord8`` is sent. The recorder prepares to capture, and if a start timecode is provided, tells the device controller to get the device into position using preRollFunc. The preRollFunc will block until the device is exactly in the right position, and when it returns, the recorder should immediately return back to Premiere, open which ``recmod_StartRecord`` is then sent to the recorder, which should im- mediately starts capturing.
 
@@ -33,7 +33,7 @@ Finally, ``recmod_Close`` is sent when the Capture panel is closed to destroy th
 Try the Sample Recorder Plug-in
 ================================================================================
 
-Now that you've read the overview of the selector calling sequence above, build the sample re- corder plug-in included with this SDK, and give it a whirl. To properly simulate a capture, you'll also need to create an .sdk media file and place it in the proper location.
+Now that you've read the overview of the selector calling sequence above, build the sample re- corder plugin included with this SDK, and give it a whirl. To properly simulate a capture, you'll also need to create an .sdk media file and place it in the proper location.
 
 1) Build the recorder, importer, and exporter into the plugins directory
 2) Launch Premiere Pro and use the exporter to transcode any media file into the .sdk file format.
@@ -115,7 +115,7 @@ Return ``rmNoErr`` if successful, or an appropriate return code.
 Standard Parameters
 ================================================================================
 
-This structure is sent from Premiere to the plug-in with every selector.
+This structure is sent from Premiere to the plugin with every selector.
 
 .. code-block:: cpp
 

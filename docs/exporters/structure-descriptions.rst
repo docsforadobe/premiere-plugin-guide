@@ -203,7 +203,7 @@ The fileType indicates which format the exporter should currently work with in s
 +------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``maxAudiences``             |                                                                                                                                                                                                                         |
 +------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``interfaceVersion``         | Exporter API version that the plug-in supports.                                                                                                                                                                         |
+| ``interfaceVersion``         | Exporter API version that the plugin supports.                                                                                                                                                                          |
 +------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``isCacheable``              | New in CS5. Set this non-zero to have Premiere Pro cache this exporter.                                                                                                                                                 |
 +------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -326,7 +326,7 @@ Selector: :ref:`exporters/selector-descriptions.exSelValidateParamChanged`
 
 Provides access to the privateData for the indicated filetype, and discloses the specific parameter changed by the user.
 
-To notify the host that the plug-in is changing other parameters, set ``rebuildAllParams`` to a non-zero value.
+To notify the host that the plugin is changing other parameters, set ``rebuildAllParams`` to a non-zero value.
 
 .. code-block:: cpp
 

@@ -23,7 +23,7 @@ The similarly named flags in imIndFormatRec.flags are obsolete and should not be
 
 Set hasSetup to kPrTrue if the importer has a setup dialog, and setupOnDblClk to kPrTrue to have that dialog display when the user double-clicks a file in the Project Panel; Premiere throws away any preview files generated for a file imported with this setting, even if no setup dialog is displayed.
 
-Return imIsCacheable from *imInit* if a plug-in does not need to be called to initialize every time Premiere launched.
+Return imIsCacheable from *imInit* if a plugin does not need to be called to initialize every time Premiere launched.
 
 This will help reduce the time to launch the application.
 
@@ -71,7 +71,7 @@ imGetIndFormat
 - param1 - ``(int) index``
 - param2 - :ref:`imIndFormatRec* <importers/structure-descriptions.imIndFormatRec>`
 
-Sent repeatedly, immediately after imInit; enumerate the filetypes the plug-in supports by populating the imIndFormatRec.
+Sent repeatedly, immediately after imInit; enumerate the filetypes the plugin supports by populating the imIndFormatRec.
 
 When finished, return imBadFormatIndex.
 
@@ -82,7 +82,7 @@ Synthetic Importer selectors
 
 Because they have no file, synthetic importers only need to respond with the filetype established in their resource.
 
-Create a separate plug-in for each synthetic file type.
+Create a separate plugin for each synthetic file type.
 
 ----
 
@@ -94,7 +94,7 @@ imGetSupports8
 - param1 - ``unused``
 - param2 - ``unused``
 
-A plug-in that supports the Premiere Pro 2.0 API (and beyond) must return ``malSupports8``.
+A plugin that supports the Premiere Pro 2.0 API (and beyond) must return ``malSupports8``.
 
 ----
 
@@ -106,7 +106,7 @@ imGetSupports7
 - param1 - ``unused``
 - param2 - ``unused``
 
-A plug-in that supports the Premiere Pro 1.0 API (and beyond) must return ``malSupports7``.
+A plugin that supports the Premiere Pro 1.0 API (and beyond) must return ``malSupports7``.
 
 ----
 
@@ -505,7 +505,7 @@ imQueryDestinationPath
 
 New in CS5.
 
-This allows the plug-in to modify the path that will be used for a trimmed clip, so the trimmed project is written with the correct path.
+This allows the plugin to modify the path that will be used for a trimmed clip, so the trimmed project is written with the correct path.
 
 ----
 
@@ -646,7 +646,7 @@ imGetMetaData
 
 Called to get a metadata chunk specified by a fourcc code.
 
-If imMetaDataRec->buffer is null, the plug-in should set buffersize to the required buffer size and return imNoErr.
+If imMetaDataRec->buffer is null, the plugin should set buffersize to the required buffer size and return imNoErr.
 
 Premiere will then call again with the appropriate buffer already allocated.
 
@@ -754,7 +754,7 @@ The importer should fill in the codec name for the specific subtype fourcc provi
 
 This selector will be sent repeatedly until names for all subtypes have been requested.
 
-The ``imSubTypeDescriptionRec`` must be allocated by the importer, and will be released by the plug-in host.
+The ``imSubTypeDescriptionRec`` must be allocated by the importer, and will be released by the plugin host.
 
 ----
 

@@ -21,4 +21,4 @@ If your transition uses CUDA, you'll need to download the CUDA SDK. On Windows, 
 Compatibility Considerations
 ================================================================================
 
-For compatibility with plug-in hosts that doesn't support the AE Transition Extensions, a plug-in should check first for the existence of the PF_TransitionSuite suite. If it isn't available, the plug-in should act as a normal effect. This is demonstrated in the SDK_CrossDissolve sample project.
+For compatibility with plugin hosts that doesn't support the AE Transition Extensions, a plugin should check first for the existence of the PF_TransitionSuite suite. If it isn't available, the plugin should act as a normal effect. This is demonstrated in the SDK_CrossDissolve sample project.

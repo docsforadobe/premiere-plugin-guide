@@ -3,7 +3,7 @@
 Suites
 ################################################################################
 
-For information on how to acquire and manage suites, as well as information on more suites that are available to other plug-in types beyond just transmitters, see :ref:`universals/sweetpea-suites`.
+For information on how to acquire and manage suites, as well as information on more suites that are available to other plugin types beyond just transmitters, see :ref:`universals/sweetpea-suites`.
 
 ----
 
@@ -24,7 +24,7 @@ GetNextAudioBuffer
 
 Retrieves from the host the next contiguous requested number of audio sample frames, specified in inNumSampleFrames, in inInBuffers as arrays of uninterleaved floats.
 
-The plug-in must manage the memory allocation of inInBuffers, which must point to n buffers of floating point values of length inNumSampleFrames, where n is the number of channels. This call is only available if InitPluginAudio was used.
+The plugin must manage the memory allocation of inInBuffers, which must point to n buffers of floating point values of length inNumSampleFrames, where n is the number of channels. This call is only available if InitPluginAudio was used.
 
 Returns:
 

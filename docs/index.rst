@@ -18,11 +18,11 @@ Welcome to the Adobe Premiere Pro SDK Guide!
   intro/where-do-i-start
   intro/document-overview
   intro/getting-support
-  intro/premiere-pro-plug-in-types
+  intro/premiere-pro-plugin-types
   intro/sample-projects
   intro/debugging-plugins
   intro/load-em-up
-  intro/plug-in-installation
+  intro/plugin-installation
   intro/localization
   intro/best-practices
 

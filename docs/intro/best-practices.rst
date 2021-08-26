@@ -3,7 +3,7 @@
 Best Practices
 ################################################################################
 
-When a plug-in receives a selector it doesn't recognize, it should always return the code specific to the plug-in type that means the selector is not supported (i.e. imUnsupported, rmUnsupported, etc).
+When a plugin receives a selector it doesn't recognize, it should always return the code specific to the plugin type that means the selector is not supported (i.e. imUnsupported, rmUnsupported, etc).
 
 In this way, new selectors can be added to the API and legacy plugins will automatically answer whether or not they support it.
 

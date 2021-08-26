@@ -109,10 +109,6 @@ This chart shows which third-party plugins are supported by the various Video an
 | VST audio effects           | X                |                   |                   | X            |                        |             |
 +-----------------------------+------------------+-------------------+-------------------+--------------+------------------------+-------------+
 
-Encore can use third-party exporters to transcode assets to MPEG-2 or Blu-ray compliant files.
-
-Please refer to :ref:`exporters/additional-details.guidelines-for-exporters-in-encore` for instructions on how to set up your exporter so that Encore can use it for transcoding.
-
 ----
 
 Premiere Elements Plug-in Support
@@ -145,11 +141,11 @@ What Exactly Is a Premiere Plug-in?
 
 Premiere plugins contain a single entry point of a type specific to each API.
 
-Plug-ins are DLLs on Windows, and Carbon or Cocoa Bundles on macOS.
+Plugins are DLLs on Windows, and Carbon or Cocoa Bundles on macOS.
 
 Plug-ins in the \\Plug-ins\[language] folder, and any of its subfolders, will be loaded at launch.
 
-Plug-ins can have private resources.
+Plugins can have private resources.
 
 Only one plug-in per file is parsed, unlike After Effects and Photoshop plugins, which can contain multiple entry points.
 

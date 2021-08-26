@@ -19,7 +19,7 @@ This is passed to all calls. Most of it is allocated and filled in by the transm
   } tmStdParms;
 
 +--------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``inPluginIndex``              | If the plug-in has defined multiple transmitters in the same module, this index value tells them apart.                                                                                                           |
+| ``inPluginIndex``              | If the plugin has defined multiple transmitters in the same module, this index value tells them apart.                                                                                                            |
 +--------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``ioSerializedPluginData``     | This data should contain user-selectable settings for the transmitter, that would be shown in the transmitter settings dialog, and need to persist so they can be saved and restored from one session to another. |
 |                                |                                                                                                                                                                                                                   |
@@ -31,7 +31,7 @@ This is passed to all calls. Most of it is allocated and filled in by the transm
 +--------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``ioPrivatePluginData``        | This data should contain any memory needed for use across calls to the transmitter, except the settings data stored in ``ioSerializedPluginData``.                                                                |
 |                                |                                                                                                                                                                                                                   |
-|                                | Allocate this during Startup. Unlike ``ioSerializedPluginData``, it does not need to be flat, and must be disposed of by the plug-in on Shutdown.                                                                 |
+|                                | Allocate this during Startup. Unlike ``ioSerializedPluginData``, it does not need to be flat, and must be disposed of by the plugin on Shutdown.                                                                  |
 +--------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ----
@@ -66,7 +66,7 @@ This is to be filled in by the transmitter on Startup.
 +----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``outAudioDefaultEnabled`` | Set this to ``kPrTrue`` if you want to be turned on to handle audio by default.                                                                                                   |
 +----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``outClockAvailable``      | Set this to ``kPrTrue`` if providing plug-in based audio.                                                                                                                         |
+| ``outClockAvailable``      | Set this to ``kPrTrue`` if providing plugin based audio.                                                                                                                          |
 |                            |                                                                                                                                                                                   |
 |                            | Currently, even if using host-based audio, a transmitter must provide a clock - please let us know if you would like to use host-based audio only, and we will log a bug on this. |
 +----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -142,7 +142,7 @@ This structure contains information for the transmitter to use for initializing 
 +---------------------------+--------------------------------------------------------------------------------------------------------------------------------+
 | ``inVideoFieldType``      | The field dominance of the video.                                                                                              |
 +---------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| ``ioPrivateInstanceData`` | May be written by plug-in in ``CreateInstance``, and disposed of by ``DisposeInstance``. Need not be serializable by the host. |
+| ``ioPrivateInstanceData`` | May be written by plugin in ``CreateInstance``, and disposed of by ``DisposeInstance``. Need not be serializable by the host.  |
 +---------------------------+--------------------------------------------------------------------------------------------------------------------------------+
 
 ----
@@ -168,7 +168,7 @@ The transmitter should fill in this information during ``QueryAudioMode``.
 +-----------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``outAudioSampleRate``      | The preferred audio sample rate.                                                                                                                                                                                                                                         |
 +-----------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``outMaxBufferSize``        | The maximum audio buffer size needed if the transmitter uses plug-in-based audio to request audio buffers using the :ref:`transmitters/suites.playmod-audio-suite`.                                                                                                      |
+| ``outMaxBufferSize``        | The maximum audio buffer size needed if the transmitter uses plugin-based audio to request audio buffers using the :ref:`transmitters/suites.playmod-audio-suite`.                                                                                                       |
 +-----------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``outNumChannels``          | The maximum number of audio channels supported.                                                                                                                                                                                                                          |
 +-----------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -184,7 +184,7 @@ The transmitter should fill in this information during ``QueryAudioMode``.
 +-----------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``outAudioOutputNames[16]`` | New in CS6.0.2. These must be displayable names of physical audio outputs like "XYZ HD Speaker 1"                                                                                                                                                                        |
 |                             |                                                                                                                                                                                                                                                                          |
-|                             | The audio output names in tmAudioMode should be allocated by the plug-in using the :ref:`universals/sweetpea-suites.string-suite` and NOT disposed by the plugin. The host will take care of disposing these strings.                                                    |
+|                             | The audio output names in tmAudioMode should be allocated by the plugin using the :ref:`universals/sweetpea-suites.string-suite` and NOT disposed by the plugin. The host will take care of disposing these strings.                                                     |
 +-----------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ----
@@ -318,9 +318,9 @@ The transmitter uses the callback here to update the host at regular intervals.
 |                             |     void*        inContext,                                                                                                                                                 |
 |                             |     csSDK_int64  inNewDroppedFrames);                                                                                                                                       |
 |                             |                                                                                                                                                                             |
-|                             | Use this call to report frames pushed to the transmit plug-in on PushVideo but not delivered to the device.                                                                 |
+|                             | Use this call to report frames pushed to the transmit plugin on PushVideo but not delivered to the device.                                                                  |
 |                             |                                                                                                                                                                             |
-|                             | If every frame pushed to the transmitter is sent out to hardware on time, then this should never need to be called as the host will count frames not pushed to the plug-in. |
+|                             | If every frame pushed to the transmitter is sent out to hardware on time, then this should never need to be called as the host will count frames not pushed to the plugin.  |
 |                             |                                                                                                                                                                             |
 |                             | ``inNewDroppedFrames`` should be the number of additional dropped frames since the last time ``tmDroppedFrameCall`` back was called.                                        |
 +-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+

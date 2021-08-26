@@ -35,7 +35,7 @@ Adobe Media Encoder now includes a Preset Browser that provides more organizatio
 
 Exporters can now set events (error, warning, or info) for a specific encode in progress in the Adobe Media Encoder render queue. The existing call in the :ref:`universals/sweetpea-suites.error-suite` is not sufficient for AME to relate the event to a specific encode. So the new :ref:`exporters/suites.exporter-utility-suite` provides a way for exporters running either in Premiere Pro or Adobe Media Encoder to log events. These events are displayed in the application UI, and are also added to the AME encoding log.
 
-Multiple exporters are now supported in a single plug-in. To support this, exExporterIn foRec is now set to exporters on *exShutdown*.
+Multiple exporters are now supported in a single plugin. To support this, exExporterIn foRec is now set to exporters on *exShutdown*.
 
 exQueryOutputSettingsRec has a new member, outUseMaximumRenderPrecision, moving knowledge of this render parameter to the exporter.
 
@@ -64,7 +64,7 @@ We've also fixed a few bugs, such as bug 1925419, where all sliders would be giv
 
 We've made a couple new attributes available to exporters via the ``GetExportSourceInfo()`` call - the video poster frame time, and the source timecode.
 
-3rd-party exporters can now be used to transcode assets to MPEG-2 or Blu-ray compliant files. Please refer to the Guidelines for Exporters in Encore for instructions on how to set up your exporter so that Encore can use it for transcoding.
+3rd-party exporters can now be used to transcode assets to MPEG-2 or Blu-ray compliant files. 
 
 ----
 

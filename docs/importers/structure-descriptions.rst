@@ -53,7 +53,7 @@ Premiere will immediately send ``imAnalysis`` again; populate the buffer with te
 +--------------------+------------------------------------------------------------------------------------------------------------------------------------------+
 | ``prefs``          | Clip Source Settings data from ``imGetPrefs8`` (setup dialog info).                                                                      |
 +--------------------+------------------------------------------------------------------------------------------------------------------------------------------+
-| ``buffersize``     | Set to the desired size and return imNoErr to Premiere, which will re-size and call the plug-in again with the ``imGetPrefs8`` selector. |
+| ``buffersize``     | Set to the desired size and return imNoErr to Premiere, which will re-size and call the plugin again with the ``imGetPrefs8`` selector.  |
 +--------------------+------------------------------------------------------------------------------------------------------------------------------------------+
 | ``buffer``         | Text buffer. Terminate lines with line endings (CR and LF).                                                                              |
 +--------------------+------------------------------------------------------------------------------------------------------------------------------------------+
@@ -770,9 +770,9 @@ This structure provides private data allocated in ``imInitiateAsyncClosedCaption
 |                                   | - ``kPrClosedCaptionFormat_CEA708`` - CEA-708 byte stream (may contain 608 data wrapped in 708)                                                                                                                                                                                                                                                                                                                                                          |
 |                                   | - ``kPrClosedCaptionFormat_TTML`` - W3C TTML string that conforms to the W3C Timed Text Markup Language (TTML) 1.0: `http://www.w3.org/TR/ttaf1-dfxp <http://www.w3.org/TR/ttaf1-dfxp/>`__ or optionally conforming to SMPTE ST 2052-1:2010: `hhttp://store.smpte.org/ <http://store.smpte.org/>`__, or optionally conforming to EBU Tech 3350 `http://tech.ebu.ch/webdav/site/tech/shared/tech/ <http://tech.ebu.ch/webdav/site/tech/shared/tech/>`__). |
 |                                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-|                                   | If the TTML string contains tunneled data (e.g. CEA-608 data), then it is preferred that the plug-in provide that through the appropriate byte stream format (e.g. ``kPrClosedCaptionFormat_CEA608``).                                                                                                                                                                                                                                                   |
+|                                   | If the TTML string contains tunneled data (e.g. CEA-608 data), then it is preferred that the plugin provide that through the appropriate byte stream format (e.g. ``kPrClosedCaptionFormat_CEA608``).                                                                                                                                                                                                                                                    |
 +-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``outCaptionData``                | Memory location to where the plug-in should write the closed caption bytes, if providing CEA-608 or CEA-708.                                                                                                                                                                                                                                                                                                                                             |
+| ``outCaptionData``                | Memory location to where the plugin should write the closed caption bytes, if providing CEA-608 or CEA-708.                                                                                                                                                                                                                                                                                                                                              |
 +-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``outTTMLData``                   | UTF-8 String of valid W3C TTML data.                                                                                                                                                                                                                                                                                                                                                                                                                     |
 |                                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
@@ -816,7 +816,7 @@ If you are creating media, you can may generate a video preview that includes th
 +-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``prefs``               | A pointer to a private structure (which you allocate) for storing Clip Source Settings.                                                                                                                                                        |
 +-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``prefsLength``         | Prior to storing anything in the prefs member, set prefsLength to the size of your structure and return imNoErr; Premiere will re-size and call the plug-in again with ``imGetPrefs8``.                                                        |
+| ``prefsLength``         | Prior to storing anything in the prefs member, set prefsLength to the size of your structure and return imNoErr; Premiere will re-size and call the plugin again with ``imGetPrefs8``.                                                         |
 +-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``firstTime``           | If set, ``imGetPrefs8`` is being sent for the first time.                                                                                                                                                                                      |
 |                         |                                                                                                                                                                                                                                                |
@@ -1039,7 +1039,7 @@ Unused
 +--------------------------+-----------------------------------------------------------------------------------------------------------------+
 | ``pixelAspectV1``        | Obsolete. Maintained for backwards compatability.                                                               |
 |                          |                                                                                                                 |
-|                          | Plug-ins written for the Premiere 6.x or Premiere Pro API should use ``pixelAspectNum`` and ``pixelAspectDen``. |
+|                          | Plugins written for the Premiere 6.x or Premiere Pro API should use ``pixelAspectNum`` and ``pixelAspectDen``.  |
 +--------------------------+-----------------------------------------------------------------------------------------------------------------+
 | ``isVectors``            | Use ``canTransform`` instead.                                                                                   |
 +--------------------------+-----------------------------------------------------------------------------------------------------------------+
@@ -1082,7 +1082,7 @@ Provide the audio in 32-bit float, uninterleaved audio format.
 +-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``buffer``      | An array of buffers, one buffer for each channel, with length specified in size.                                                                                                                                                                    |
 |                 |                                                                                                                                                                                                                                                     |
-|                 | These buffers are allocated by the host application, for the plug-in to fill in with audio data.                                                                                                                                                    |
+|                 | These buffers are allocated by the host application, for the plugin to fill in with audio data.                                                                                                                                                     |
 +-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``privatedata`` | Instance data gathered from ``imGetInfo8`` or ``imGetPrefs8``.                                                                                                                                                                                      |
 +-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1196,7 +1196,7 @@ Frame Info
 +--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``alphaBounds``    | This is the rect outside of which the alpha is always 0. Simply do not alter this field if the alpha bounds match the destination bounds.                                                                                             |
 |                    |                                                                                                                                                                                                                                       |
-|                    | If set, the alpha bounds must be contained by the destination bounds. This is only currently used when a plug-in calls ``ppixGetAlphaBounds``, and not currently used by any native plugins.                                          |
+|                    | If set, the alpha bounds must be contained by the destination bounds. This is only currently used when a plugin calls ``ppixGetAlphaBounds``, and not currently used by any native plugins.                                           |
 +--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``applyTransform`` | New in After Effects CS3. Not currently provided by Premiere.                                                                                                                                                                         |
 |                    |                                                                                                                                                                                                                                       |
@@ -1272,13 +1272,13 @@ File Handling Flags
 
 +------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
 | ``canOpen``      | If set, the importer handles open and close operations.                                                                                 |
-|                  | Set if the plug-in needs to be called to handle ``imOpenFile``, ``imQuietFile``, and ``imCloseFile``.                                   |
+|                  | Set if the plugin needs to be called to handle ``imOpenFile``, ``imQuietFile``, and ``imCloseFile``.                                    |
 +------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
 | ``canSave``      | If set, the importer handles File > Save and File > Save As after a clip has been captured and must handle the ``imSaveFile`` selector. |
 +------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
 | ``canDelete``    | If set, the importer can delete its own files.                                                                                          |
 |                  |                                                                                                                                         |
-|                  | The plug-in must handle the ``imDeleteFile`` selector.                                                                                  |
+|                  | The plugin must handle the ``imDeleteFile`` selector.                                                                                   |
 +------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
 | ``canCalcSizes`` | If set, the importer can calculate the disk space used by a clip during imCalcSize.                                                     |
 |                  |                                                                                                                                         |
@@ -1295,7 +1295,7 @@ Setup Flags
 +-------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
 | ``hasSetup``      | If set, the importer has a setup dialog. The dialog should be presented in response to ``imGetPrefs``                                        |
 +-------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-| ``setupOnDblClk`` | If set, the setup dialog should be opened whenever the user double clicks on a file imported by the plug-in the timeline or the project bin. |
+| ``setupOnDblClk`` | If set, the setup dialog should be opened whenever the user double clicks on a file imported by the plugin the timeline or the project bin.  |
 +-------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
 
 Memory Handling Flags
@@ -1304,7 +1304,7 @@ Memory Handling Flags
 +----------------+--------------------------------------------------------------------------+
 | ``dontCache``  | Unused.                                                                  |
 +----------------+--------------------------------------------------------------------------+
-| ``keepLoaded`` | If set, the importer plug-in should never be unloaded.                   |
+| ``keepLoaded`` | If set, the importer plugin should never be unloaded.                    |
 |                |                                                                          |
 |                | Don't set this flag unless it's absolutely necessary (it usually isn't). |
 +----------------+--------------------------------------------------------------------------+
@@ -1321,7 +1321,7 @@ Other
 |                               |                                                                                                                                             |
 |                               | Higher-priority importers can defer files to lower-priority importers by returning ``imBadFile`` during ``imOpenFile8`` or ``imGetInfo8``.  |
 +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-| ``importType``                | Type identifier for the import module assigned based on the plug-in's IMPT resource.                                                        |
+| ``importType``                | Type identifier for the import module assigned based on the plugin's IMPT resource.                                                         |
 |                               |                                                                                                                                             |
 |                               | Do not modify this field.                                                                                                                   |
 +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1391,7 +1391,7 @@ Describes the format(s) supported by the importer. Synthetic files can only have
 +----------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
 | ``FormatName[256]``                    | The descriptive importer name.                                                                                              |
 +----------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
-| ``FormatShortName[256]``               | The short name for the plug-in, appears in the format menu.                                                                 |
+| ``FormatShortName[256]``               | The short name for the plugin, appears in the format menu.                                                                  |
 +----------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
 | ``PlatformExtension[256]``             | List of all the file extensions supported by this importer.                                                                 |
 |                                        |                                                                                                                             |

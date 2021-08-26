@@ -53,7 +53,7 @@ Describes the recorder's capabilities to Premiere.
   } recInfoRec, *recInfoPtr;
 
 +--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``recmodID``             | Premiere's internal identifier for the plug-in. Never change this value.                                                                                     |
+| ``recmodID``             | Premiere's internal identifier for the plugin. Never change this value.                                                                                      |
 +--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``fileType``             | Four character code for the captured file (for example 'AVIV' for Video for Windows .AVI files, and 'MOOV' for QuickTime .MOV files).                        |
 |                          |                                                                                                                                                              |
@@ -77,7 +77,7 @@ Describes the recorder's capabilities to Premiere.
 |                          |                                                                                                                                                              |
 |                          | The recorder will receive the user-specified record limit in ``recCapParmsRec.record`` limit.                                                                |
 |                          |                                                                                                                                                              |
-|                          | The plug-in must enforce the time limit during capture.                                                                                                      |
+|                          | The plugin must enforce the time limit during capture.                                                                                                       |
 +--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``acceptsTimebase``      | If set, the recorder can capture to an arbitrary timebase.                                                                                                   |
 +--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -111,7 +111,7 @@ Describes the recorder's capabilities to Premiere.
 +--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``prefSamplesize``       |                                                                                                                                                              |
 +--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``minWidth``             | Define the minimum and maximum frame sizes the plug-in can capture. If the plug-in can only capture to a single fixed size, then set them to the same value. |
+| ``minWidth``             | Define the minimum and maximum frame sizes the plugin can capture. If the plugin can only capture to a single fixed size, then set them to the same value.   |
 +--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``minHeight``            |                                                                                                                                                              |
 +--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -385,7 +385,7 @@ Specifies capture settings.
 +---------------------------+-----------------------------------------------------------------------------------------------------------------------------+
 | ``width``                 | Dimensions of the video frames to capture. These are only sent if ``acceptsBounds`` was set in the ``recInfoRec``.          |
 |                           |                                                                                                                             |
-|                           | If the plug-in doesn't accept bounds, capture to the preferred dimensions we previously set in ``recInfoRec8``.             |
+|                           | If the plugin doesn't accept bounds, capture to the preferred dimensions we previously set in ``recInfoRec8``.              |
 +---------------------------+-----------------------------------------------------------------------------------------------------------------------------+
 | ``height``                |                                                                                                                             |
 +---------------------------+-----------------------------------------------------------------------------------------------------------------------------+
@@ -411,7 +411,7 @@ Specifies capture settings.
 +---------------------------+-----------------------------------------------------------------------------------------------------------------------------+
 | ``recordlimit``           | Recording time limit, in seconds, only valid if ``canRecordLimit`` was set in ``recInfoRec8``.                              |
 |                           |                                                                                                                             |
-|                           | Value passed in by Premiere. The plug-in must enforce the limit during capture.                                             |
+|                           | Value passed in by Premiere. The plugin must enforce the limit during capture.                                              |
 +---------------------------+-----------------------------------------------------------------------------------------------------------------------------+
 | ``thefile``               | Structure of type recFileSpec8 describing the capture destination file, only valid during ``recmod_PrepRecord8``.           |
 +---------------------------+-----------------------------------------------------------------------------------------------------------------------------+

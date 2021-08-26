@@ -14,7 +14,7 @@ Filter plugins can use PiPL resources to define their behaviors and supported pr
 
 To provide any parameters in the Effect Controls panel, they must be defined in the PiPL in ANIM_ParamAtom sections, as demonstrated in the example below.
 
-The 'no UI' UI type is for non-keyframeable parameters. After making changes to the PiPL, rebuild the plug-in each time, so that the PiPL will be recompiled.
+The 'no UI' UI type is for non-keyframeable parameters. After making changes to the PiPL, rebuild the plugin each time, so that the PiPL will be recompiled.
 
 A Filter PiPL Example
 ********************************************************************************
@@ -35,16 +35,16 @@ A Filter PiPL Example
 
   resource 'PiPL' (16000) {
     {
-      // The plug-in type
+      // The plugin type
       Kind {PrEffect},
 
-      // The plug-in name as it will appear to the user
+      // The plugin name as it will appear to the user
       Name {plugInName},
 
-      // The internal name of this plug-in
+      // The internal name of this plugin
       AE_Effect_Match_Name {plugInMatchName},
 
-      // The folder containing the plug-in in the Effects Panel
+      // The folder containing the plugin in the Effects Panel
       Category {plugInCategory},
 
       // The version of the PiPL resource definition
