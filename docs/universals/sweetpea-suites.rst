@@ -159,7 +159,7 @@ For a plug-in to support multiple versions, it may choose to use a specific olde
 App Info Suite
 ================================================================================
 
-Useful for plug-i that are shared between different applications, such as After Effects plug-ins, Premiere exporters, transmitters, and importers, where it may be important to know which host, version, or language the plug-in is currently running in. Note that this suite is not available to AE effects running in AE.
+Useful for plug-i that are shared between different applications, such as After Effects plugins, Premiere exporters, transmitters, and importers, where it may be important to know which host, version, or language the plug-in is currently running in. Note that this suite is not available to AE effects running in AE.
 
 This suite provides the host application and version number. For a version such as 6.0.3, it will return major = 6, minor = 0, and patch = 3. See PrSDKAppInfoSuite.h.
 

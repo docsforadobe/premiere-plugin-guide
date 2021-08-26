@@ -6,9 +6,9 @@ Load Em Up
 Plug-in Caching
 ================================================================================
 
-On its first launch, Premiere Pro loads all the plug-ins, reads the :ref:`resources/pipl-resource`, and sends any startup selectors to determine the plug-ins' capabilities. To speed up future application launches, it saves some of these capabilities in what we call the plug-in cache (the registry on Windows, a Property List file on macOS).
+On its first launch, Premiere Pro loads all the plugins, reads the :ref:`resources/pipl-resource`, and sends any startup selectors to determine the plugins' capabilities. To speed up future application launches, it saves some of these capabilities in what we call the plug-in cache (the registry on Windows, a Property List file on macOS).
 
-The next time the application is launched, the cached data is used wherever possible, rather than loading all the plug-ins on startup. Using this changed data will make the application launch faster, but for a small set of plug-ins that need to be initialized every time, it may be undesirable. These include plug-ins that need to get run-time information that might change in between app launches (i.e. installed codec lists), and plug-ins that check for hardware and need to be able to fail. So we give your plug-in control final say over whether or not it is reloaded each time.
+The next time the application is launched, the cached data is used wherever possible, rather than loading all the plugins on startup. Using this changed data will make the application launch faster, but for a small set of plugins that need to be initialized every time, it may be undesirable. These include plugins that need to get run-time information that might change in between app launches (i.e. installed codec lists), and plugins that check for hardware and need to be able to fail. So we give your plug-in control final say over whether or not it is reloaded each time.
 
 By default, importers, recorders, and exporters are not cached. Exporters can be cached by setting exExporterInfoRec.isCacheable to non-zero during *exSelStartup*. Importers and recorders can be cached by returning ``*IsCacheable`` instead of ``*NoError`` (e.g. for importers, imIsCacheable instead of imNoError) on the startup selector.
 
@@ -21,7 +21,7 @@ Resolving Plug-in Loading Problems
 
 There are various tools to help in the development process.
 
-On Windows only, you can force Premiere to reload all the plug-ins by holding down shift on startup. The plug-in cache on macOS may be deleted manually from the user folder, at ``~/Library/Preferences/com.Adobe.Premiere Pro [version].plist.``
+On Windows only, you can force Premiere to reload all the plugins by holding down shift on startup. The plug-in cache on macOS may be deleted manually from the user folder, at ``~/Library/Preferences/com.Adobe.Premiere Pro [version].plist.``
 
 For plug-in loading issues, you may first check one of the plug-in loading logs.
 
@@ -42,15 +42,15 @@ On Windows, we strongly recommend dynamically linking to libraries, rather than 
 
 We ask developers to compile with the /MD flag (or /MDd for debug builds), and not with the /MT flag.
 
-Failure to do so can contribute to the problem where the Premiere Pro process can run out of fiber-local storage slots, and subsequent plug-ins fail to load.
+Failure to do so can contribute to the problem where the Premiere Pro process can run out of fiber-local storage slots, and subsequent plugins fail to load.
 
 ----
 
 No Shortcuts
 ================================================================================
 
-The Premiere Pro plug-in loader does not follow Windows shortcuts. Although it does follow macOS symbolic links, we recommend against using symbolic links in the plug-ins folder, since the plug-in loader checks the timestamp of the symbolic link rather than the timestamp of the plug-in pointed to.
+The Premiere Pro plug-in loader does not follow Windows shortcuts. Although it does follow macOS symbolic links, we recommend against using symbolic links in the plugins folder, since the plug-in loader checks the timestamp of the symbolic link rather than the timestamp of the plug-in pointed to.
 
 Explanation: If you use a symbolic link and the plug-in fails to load once (for example, if the plug-in pointed to isn't there) it will be marked to ignore when Premiere launches. Even if the plug-in is restored to the proper location, the plug-in loader will check the modification time of
 
-the symbolic link, rather than the plug-in pointed to, and continue to ignore the plug-in until the modification date of the symbolic link is updated. So plug-ins should be placed directly in a plug-ins folder or subfolder.
+the symbolic link, rather than the plug-in pointed to, and continue to ignore the plug-in until the modification date of the symbolic link is updated. So plugins should be placed directly in a plugins folder or subfolder.

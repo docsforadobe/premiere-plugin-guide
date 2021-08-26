@@ -3,11 +3,9 @@
 DeviceRec
 ################################################################################
 
-A device controller is passed a handle to a DeviceRec with every selector.
+A device controller is passed a handle to a DeviceRec with every selector. Yes, we know, it's a monster.
 
-Yes, we know, it's a monster.
-
-.. code-block:: cpp
+.. code-block:: none
 
   typedef struct {
     PrMemoryHandle        deviceData;

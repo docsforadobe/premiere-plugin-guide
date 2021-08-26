@@ -285,7 +285,7 @@ Premiere sends ``imGetPrefs`` again; display your dialog, and pass the preferenc
 
 Starting in Premiere Pro 1.5, the importer can get a frame from the timeline beneath the current clip or timeline location.
 
-This is useful for titler plug-ins.
+This is useful for titler plugins.
 
 Use the ``getPreviewFrameEx`` callback with the time given by ``TDB_TimeRecord`` ``tdbTimelocation`` in ``imGetPrefsRec``.
 
@@ -461,7 +461,7 @@ If a file has video and audio, the trim time is in the video's timebase.
 
 For audio only, the trim times are in the audio timebase.
 
-A simple callback and ``callbackID`` is passed to ``imTrimFile8`` and ``imSaveFile8`` that allows plug-ins to query whether or not the user has cancelled the operation.
+A simple callback and ``callbackID`` is passed to ``imTrimFile8`` and ``imSaveFile8`` that allows plugins to query whether or not the user has cancelled the operation.
 
 If non-zero (and they can be nil), the callback pointer should be called to check for cancellation.
 

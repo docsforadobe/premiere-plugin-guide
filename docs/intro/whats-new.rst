@@ -3,9 +3,10 @@
 Whats New
 ################################################################################
 
-What's New in 15.3
+What's New in 15.4
+================================================================================
 
-We've updated the PrSetEnv.h, to allow building ARM-native plug-ins.
+We've updated the ``PrSetEnv.h`` header, to allow building ARM-native plugins.
 
 What's New in 14.2
 ================================================================================
@@ -62,7 +63,7 @@ Transmit
 
 New 10-bit and 12-bit RGB HLG formats have been added for expanded HDR support.
 
-In :ref:`universals/sweetpea-suites.app-info-suite`, a new identifier has been added for Character Animator, which now supports transmit plug-ins.
+In :ref:`universals/sweetpea-suites.app-info-suite`, a new identifier has been added for Character Animator, which now supports transmit plugins.
 
 VR Video Support
 ********************************************************************************
@@ -77,7 +78,7 @@ What's New in CC 2017
 VR Video Support added
 ********************************************************************************
 
-Transmit plug-ins can have the VR perspective in the desktop Monitor driven by the Head-Mounted Display, so when the person with the Head-Mounted Display looks in a different direction, the desktop Monitor shows that same perspective. To do this, the transmit plug-in can use the new Playmod Immersive Video Suite to indicate that it supports tracking.
+Transmit plugins can have the VR perspective in the desktop Monitor driven by the Head-Mounted Display, so when the person with the Head-Mounted Display looks in a different direction, the desktop Monitor shows that same perspective. To do this, the transmit plug-in can use the new Playmod Immersive Video Suite to indicate that it supports tracking.
 
 Once Premiere sees the transmitter supports tracking, when the user activates the VR viewer, the new menu item, "Track Head-Mounted Display" will become active, and can be toggled to begin tracking. The transmitter should call NotifyDirection() as frequently it wants with updated info. Premiere will pick up the new position on the next frame draw.
 
@@ -128,7 +129,7 @@ Control Surfaces
 
 New suites have been added for Control Surfaces to support the Lumetri Color panel. Most controls are supported, including the color wheels, but not including the Curves controls.
 
-There is now a shared location for Control Surface plug-ins. On Mac:
+There is now a shared location for Control Surface plugins. On Mac:
 
 /Library/Application Support/Adobe/Common/Plug-ins/ControlSurface, and
 
@@ -239,9 +240,9 @@ The host accounts for these offsets automatically by sending frames early, but i
 Miscellaneous
 ********************************************************************************
 
-Legacy callbacks bottlenecks->ConvolvePtr() and IndexMapPtr() have had their parameter types updated to fix a bug. Any plug-ins that use these in both previous versions and CC 2015 will need to do a runtime check before calling this function.
+Legacy callbacks bottlenecks->ConvolvePtr() and IndexMapPtr() have had their parameter types updated to fix a bug. Any plugins that use these in both previous versions and CC 2015 will need to do a runtime check before calling this function.
 
-Starting in CC 2015, we now provide installer hints for Mac. You'll find a new plist file "com. Adobe.Premiere Pro.paths.plist" at "/Library/Preferences". This contains hints for your Mac installer to know where to install plug-ins, and is similar to the registry entries we have been providing on Win.
+Starting in CC 2015, we now provide installer hints for Mac. You'll find a new plist file "com. Adobe.Premiere Pro.paths.plist" at "/Library/Preferences". This contains hints for your Mac installer to know where to install plugins, and is similar to the registry entries we have been providing on Win.
 
 
 New Sample Projects
@@ -345,7 +346,7 @@ Miscellaneous Improvements
 ********************************************************************************
 
 - A new pixel format for native 10-bit RGB support - PrPixelFormat_RGB_444_10u, as well as ``PrPixelFormat_UYVY_422_32f_*`` formats
-- VST 3 support allows many more audio plug-ins to run in Premiere Pro
+- VST 3 support allows many more audio plugins to run in Premiere Pro
 - Windows installer improvements, by adding new registry values for preset and settings locations.
 - Get the current build number via the :ref:`universals/sweetpea-suites.app-info-suite`
 - Importers can now support audio beyond basic mono, stereo, and 5.1, without implementing multiple streams, and importers can return varying pixel formats depending on the clip settings. Read more about what's new for importers.
@@ -373,7 +374,7 @@ What's New in CS6?
 Transmit API
 ********************************************************************************
 
-We are introducing the Transmit API as the preferred means for external hardware monitoring. This new API provides vastly simplified support for monitoring on external hardware. Transmit plug-ins offer more flexible usage, since they are not tied to the sequence Editing Mode, which cannot be changed once a sequence has been edited. Transmitters can be specified by the user in Preferences > Playback. Other plug-ins such as importers and effects with settings preview dialogs can send video out to the active transmitter, opening up new possibilities for hardware monitoring. For this first release, transmit plug-ins are supported in Premiere Pro, Encore, and Prelude. Not far down the road, we intend to stop supporting the player API, but we will continue to support it for CS6. See :ref:`transmitters/transmitters` for more details.
+We are introducing the Transmit API as the preferred means for external hardware monitoring. This new API provides vastly simplified support for monitoring on external hardware. Transmit plugins offer more flexible usage, since they are not tied to the sequence Editing Mode, which cannot be changed once a sequence has been edited. Transmitters can be specified by the user in Preferences > Playback. Other plugins such as importers and effects with settings preview dialogs can send video out to the active transmitter, opening up new possibilities for hardware monitoring. For this first release, transmit plugins are supported in Premiere Pro, Encore, and Prelude. Not far down the road, we intend to stop supporting the player API, but we will continue to support it for CS6. See :ref:`transmitters/transmitters` for more details.
 
 Exporter Enhancements
 ********************************************************************************
@@ -470,7 +471,7 @@ Encore CS5
 Mac 64-Bit and Cocoa
 ********************************************************************************
 
-It is invalid to unload any bundle that uses Cocoa because of restrictions in the Objective-C runtime which do not support unregistering classes. If a plugin uses Cocoa, it must call CFRetain on its own bundle, otherwise it will cause a crash when the application is closing and tries to unload the plug-ins.
+It is invalid to unload any bundle that uses Cocoa because of restrictions in the Objective-C runtime which do not support unregistering classes. If a plugin uses Cocoa, it must call CFRetain on its own bundle, otherwise it will cause a crash when the application is closing and tries to unload the plugins.
 
 ----
 
@@ -494,7 +495,7 @@ Separate Processes During Export
 
 When choosing export settings, the settings UI is displayed by Premiere Pro. When the user confirms the settings, the clip or sequence is passed to Media Encoder. From Media Encoder, frames from the clip or sequence can be retrieved and rendered without further participation from Premiere Pro. For a clip export, Media Encoder uses any installed importers to get source frames. For sequence export, Media Encoder uses a process called PProHeadless, to import and render frames to be exported.
 
-Since there are so many processes involved during export, it is important that plug-ins be accessible to all processes, by being installed in the common plug-ins folder. PProHeadless Plugin Loading.log provides information on the PProHeadless process. PProHeadless is also used when the user creates a dynamic link to a .prproj that is not opened in Premiere Pro.
+Since there are so many processes involved during export, it is important that plugins be accessible to all processes, by being installed in the common plugins folder. PProHeadless Plugin Loading.log provides information on the PProHeadless process. PProHeadless is also used when the user creates a dynamic link to a .prproj that is not opened in Premiere Pro.
 
 XMP metadata
 ********************************************************************************

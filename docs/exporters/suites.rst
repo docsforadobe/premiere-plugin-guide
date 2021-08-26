@@ -934,7 +934,7 @@ Check on the status of a prefetch request.
 MakeVideoRendererForTimeline()
 ********************************************************************************
 
-Similar to MakeVideoRenderer, but for use by renderer plug-ins.
+Similar to MakeVideoRenderer, but for use by renderer plugins.
 
 Creates a video renderer, in preparation to get rendered video from the host.
 
@@ -963,7 +963,7 @@ This is useful for the case of a nested multicam sequence.
 ReleaseVideoRendererForTimeline()
 ********************************************************************************
 
-Similar to ReleaseVideoRenderer, but for use by renderer plug-ins. Release the video renderer when the renderer plug-in is done requesting video.
+Similar to ReleaseVideoRenderer, but for use by renderer plugins. Release the video renderer when the renderer plug-in is done requesting video.
 
 .. code-block:: cpp
 
@@ -1138,7 +1138,7 @@ Renders a frame of color-managed media, to the specified pixel format, using set
 PF Utility Suite
 ================================================================================
 
-Utility functions for use by AE style effect plug-ins, running in Premiere Pro.
+Utility functions for use by AE style effect plugins, running in Premiere Pro.
 
 Version 11, new in 15.0, adds GetVideoResolutionString.
 
@@ -1800,7 +1800,7 @@ GetVideoResolutionString()
 
 Retrieve a string representing the dimensions of the track item to which the effect is applied.
 
-.. code-block:: cpp
+.. code-block:: none
 
   prSuiteError(\*GetVideoResolutionString)(
 		PF_ProgPtr    inEffectRef,

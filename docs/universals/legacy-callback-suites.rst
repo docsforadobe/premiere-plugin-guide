@@ -8,7 +8,7 @@ Legacy Callback Suites
 piSuites
 ================================================================================
 
-These callbacks are available to all plug-ins, although many of these callbacks are only appropriate for specific plug-in types.
+These callbacks are available to all plugins, although many of these callbacks are only appropriate for specific plug-in types.
 
 .. code-block:: cpp
 
@@ -278,7 +278,7 @@ Utility Functions
 |                        |     prFileSpec *filespec,                                                                                                                                                   |
 |                        |     prRect *bounds);                                                                                                                                                        |
 +------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``getSPBasicSuite``    | This very important call returns the SweetPea suite that allows plug-ins to acquire and release all other :ref:`universals/sweetpea-suites`.                                |
+| ``getSPBasicSuite``    | This very important call returns the SweetPea suite that allows plugins to acquire and release all other :ref:`universals/sweetpea-suites`.                                 |
 |                        |                                                                                                                                                                             |
 |                        | ::                                                                                                                                                                          |
 |                        |                                                                                                                                                                             |
@@ -296,7 +296,7 @@ Utility Functions
 |                        | - ``kFileTypes_Still``: still media                                                                                                                                         |
 |                        | - ``kFileTypes_AudioOnly``: audio-only media                                                                                                                                |
 |                        | - ``kFileTypes_AudioVideo``: audio and video media                                                                                                                          |
-|                        | - ``kFileTypes_AllNoIntrinsics``: all importable media types via importer plug-ins (no prproj, txt, etc)                                                                    |
+|                        | - ``kFileTypes_AllNoIntrinsics``: all importable media types via importer plugins (no prproj, txt, etc)                                                                     |
 +------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. _universals/legacy-callback-suites.piSuites.timeline-functions:

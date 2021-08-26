@@ -34,7 +34,7 @@ Guidelines for Exporters in Encore
 
 Starting in CS5, third-party exporters can now be used to transcode assets to MPEG-2 or Blu-ray compliant files. Currently, the option to choose a third-party exporter is only available on a per-clip basis, not on a project-wide basis. The user will need to right-click on an asset in the Project panel, choose Transcode Settings, and choose the third-party preset from the Quality Preset drop-down.
 
-Prior to CS6, Encore was a 32-bit application. So if you are developing plug-ins for Encore CS5, use the CS5 headers to create 32-bit plug-ins. We have left the 32-bit configurations in the
+Prior to CS6, Encore was a 32-bit application. So if you are developing plugins for Encore CS5, use the CS5 headers to create 32-bit plugins. We have left the 32-bit configurations in the
 
 sample projects to facilitate this. Install the exporter in the Encore application folder at Plug-ins/ Common/. Note that on Mac OS, this subfolder is in within the application package.
 

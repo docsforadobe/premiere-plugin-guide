@@ -6,7 +6,7 @@ Transmitter Basics
 Basic Organization
 ================================================================================
 
-A transmitter module can define multiple plug-ins. Each plug-in can appear in the Playback Preferences as an option for video playback and/or audio playback. Only one transmitter can be used for audio, since the transmitter used for audio drives the clock. Multiple transmitters may be selected for video simultaneously.
+A transmitter module can define multiple plugins. Each plug-in can appear in the Playback Preferences as an option for video playback and/or audio playback. Only one transmitter can be used for audio, since the transmitter used for audio drives the clock. Multiple transmitters may be selected for video simultaneously.
 
 When active, multiple instances of a single plug-in can be created. An instance is created to display a clip or sequence. Hardware access is regulated through ActivateDeactivate. Only an active instance should access the hardware.
 
@@ -87,7 +87,7 @@ This captioning data is attached to a sequence by the user via menu items in the
 Driving Transmitters from Other Plug-ins
 ================================================================================
 
-Transmitters can be driven by many areas of the Premiere Pro interface. Currently, they are called to show frames from the Program Monitor and Source Monitor. But other types of plug-ins can use the :ref:`transmitters/suites.transmit-invocation-suite` to push frames to transmitters. For example, an effect or titler with a modal setup dialog could push frames to the output.
+Transmitters can be driven by many areas of the Premiere Pro interface. Currently, they are called to show frames from the Program Monitor and Source Monitor. But other types of plugins can use the :ref:`transmitters/suites.transmit-invocation-suite` to push frames to transmitters. For example, an effect or titler with a modal setup dialog could push frames to the output.
 
 ----
 

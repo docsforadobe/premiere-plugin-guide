@@ -61,6 +61,6 @@ Returns:
 Transmit Invocation Suite
 ================================================================================
 
-This suite can be used by other types of plug-ins to push frames to transmitters.
+This suite can be used by other types of plugins to push frames to transmitters.
 
 For example, an effect or titler with a modal setup dialog could push frames to the output.

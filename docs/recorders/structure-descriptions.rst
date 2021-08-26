@@ -61,9 +61,9 @@ Describes the recorder's capabilities to Premiere.
 |                          |                                                                                                                                                              |
 |                          | If no such importer is installed, pressing the record button will result in a recorder error before the ``recmod_PrepRecord`` selector is even sent.         |
 +--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``classID``              | Class identifier, used to differentiate between plug-ins that support the same fileType.                                                                     |
+| ``classID``              | Class identifier, used to differentiate between plugins that support the same fileType.                                                                      |
 |                          |                                                                                                                                                              |
-|                          | ClassID is the identifying characteristic of plug-ins which form a media abstraction layer.                                                                  |
+|                          | ClassID is the identifying characteristic of plugins which form a media abstraction layer.                                                                   |
 +--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``canVideoCap``          | If set, the recorder can capture video.                                                                                                                      |
 +--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+

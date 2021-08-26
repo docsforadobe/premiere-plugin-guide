@@ -10,7 +10,7 @@ Begin with one of the two video filter sample projects, progressively replacing 
 Resources
 ================================================================================
 
-Filter plug-ins can use PiPL resources to define their behaviors and supported properties.
+Filter plugins can use PiPL resources to define their behaviors and supported properties.
 
 To provide any parameters in the Effect Controls panel, they must be defined in the PiPL in ANIM_ParamAtom sections, as demonstrated in the example below.
 
@@ -19,7 +19,7 @@ The 'no UI' UI type is for non-keyframeable parameters. After making changes to 
 A Filter PiPL Example
 ********************************************************************************
 
-.. code-block:: cpp
+.. code-block:: none
 
   #include "PrSDKPiPLVer.h"
   #ifndef PRWIN_ENV
@@ -163,7 +163,7 @@ A Filter PiPL Example
 Entry Point
 ================================================================================
 
-.. code-block:: cpp
+.. code-block:: none
 
   short xFilter (
     short        selector,

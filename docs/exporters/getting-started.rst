@@ -246,7 +246,7 @@ Smart Rendering
 
 Under very specific circumstances, an exporter can request compressed frames, avoiding unnecessary de/recompression.
 
-This would be done by providing both exporter and renderer plug-ins that parse timeline segments.
+This would be done by providing both exporter and renderer plugins that parse timeline segments.
 
 If the source can be copied over to the destination, the compressed frames can be passed in a custom pixel format.
 
@@ -278,7 +278,7 @@ Return  ``exportReturn_ErrNone`` if successful, or an appropriate return code.
 Standard Parameters
 ================================================================================
 
-A pointer to this structure is sent from the host to the plug-in with every selector.
+A pointer to this structure is sent from the host to the plugin with every selector.
 
 .. code-block:: cpp
 
@@ -299,7 +299,7 @@ A pointer to this structure is sent from the host to the plug-in with every sele
 |                     | - Premiere Pro 4.0.1 through 4.2.1 - prExportVersion101                                                                                      |
 |                     | - Premiere Pro CS4 - prExportVersion100                                                                                                      |
 +---------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-| ``getSPBasicSuite`` | This very important call returns the SweetPea suite that allows plug-ins to acquire and release all other :ref:`universals/sweetpea-suites`. |
+| ``getSPBasicSuite`` | This very important call returns the SweetPea suite that allows plugins to acquire and release all other :ref:`universals/sweetpea-suites`.  |
 |                     |                                                                                                                                              |
 |                     | ::                                                                                                                                           |
 |                     |                                                                                                                                              |

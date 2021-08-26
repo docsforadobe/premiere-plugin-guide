@@ -14,9 +14,9 @@ Compressed formats are great for storing raw frames, but bad for effects process
 What Format Should I Use?
 ================================================================================
 
-Starting in CS4, plug-ins no longer need to support 8-bit BGRA at a minimum. If required, Premiere can make intermediate format conversions in the render pipeline, although these intermediate conversions will be avoided if possible.
+Starting in CS4, plugins no longer need to support 8-bit BGRA at a minimum. If required, Premiere can make intermediate format conversions in the render pipeline, although these intermediate conversions will be avoided if possible.
 
-Previously in CS3 and earlier, all plug-ins except importers needed to support 8-bit per channel BGRA, even if they supported other formats.
+Previously in CS3 and earlier, all plugins except importers needed to support 8-bit per channel BGRA, even if they supported other formats.
 
 When choosing which pixel formats to support, there are different factors to consider, depending on the plug-in type.
 
@@ -56,7 +56,7 @@ Other Considerations
 
 For high-bit depth support, the 32f formats are the recommended route, rather than the 16u formats. For example, an exporter that supports 10-bit Y'UV should ask for frames in 32f Y'UV format, and then convert the 32f to 10u.
 
-The ARGB formats can be natively used in the After Effects render pipeline, and are used by After Effects effect plug-ins that do not specifically support any other pixel format. However, in Premiere Pro, these ARGB formats will require byte-swapping, and shouldn't be used.
+The ARGB formats can be natively used in the After Effects render pipeline, and are used by After Effects effect plugins that do not specifically support any other pixel format. However, in Premiere Pro, these ARGB formats will require byte-swapping, and shouldn't be used.
 
 ----
 

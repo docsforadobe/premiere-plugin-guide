@@ -7,7 +7,7 @@ This introduction information is common to all the plug-in types.
 
 All developers should read this chapter, and browse through chapters two and three before diving too deep into plug-in development.
 
-:ref:`resources/resources` is a short chapter that describes the Premiere Pro-specific resources used by plug-ins, including the Plug-in Property List (PiPL).
+:ref:`resources/resources` is a short chapter that describes the Premiere Pro-specific resources used by plugins, including the Plug-in Property List (PiPL).
 
 :ref:`universals/universals` documents concepts, data types, and structures used throughout the APIs. It also describes suites and functions used by more than one type of plug-in.
 

@@ -822,7 +822,7 @@ If you are creating media, you can may generate a video preview that includes th
 |                         |                                                                                                                                                                                                                                                |
 |                         | Instead, check to see if prefs has been allocated. If not, ``imGetPrefs8`` is being sent for the first time. Set up default values for the prefsLength buffer and present any setup dialog.                                                    |
 +-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``timelineData``        | ``Can`` be passed to getPreviewFrameEx callback along with tdbTimelineLocation to get a frame from the timeline beneath the current clip or timeline location. This is useful for titler plug-ins.                                             |
+| ``timelineData``        | ``Can`` be passed to getPreviewFrameEx callback along with tdbTimelineLocation to get a frame from the timeline beneath the current clip or timeline location. This is useful for titler plugins.                                              |
 +-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``privatedata``         | Private instance data.                                                                                                                                                                                                                         |
 |                         |                                                                                                                                                                                                                                                |
@@ -830,7 +830,7 @@ If you are creating media, you can may generate a video preview that includes th
 |                         |                                                                                                                                                                                                                                                |
 |                         | Premiere will return the handle with subsequent selectors.                                                                                                                                                                                     |
 +-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``tdbTimelineLocation`` | ``Can`` be passed to getPreviewFrameEx callback along with timelineData to get a frame from the timeline beneath the current clip or timeline location. This is useful for titler plug-ins.                                                    |
+| ``tdbTimelineLocation`` | ``Can`` be passed to getPreviewFrameEx callback along with timelineData to get a frame from the timeline beneath the current clip or timeline location. This is useful for titler plugins.                                                     |
 +-------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``sessionPluginID``     | This ID should be used in the :ref:`universals/sweetpea-suites.file-registration-suite` for registering external files (such as textures, logos, etc) that are used by a importer instance but do not appear as footage in the Project Window. |
 |                         |                                                                                                                                                                                                                                                |
@@ -984,7 +984,7 @@ Format Info
 +-----------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``depth``                   | Bits per pixel. This currently has no effect and should be left unchanged.                                                                         |
 +-----------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``subType``                 | The four character code of the file's codec; associates files with MAL plug-ins. For uncompressed files, set to ``imUncompressed``.                |
+| ``subType``                 | The four character code of the file's codec; associates files with MAL plugins. For uncompressed files, set to ``imUncompressed``.                 |
 +-----------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``fieldType``               | One of the following:                                                                                                                              |
 |                             |                                                                                                                                                    |
@@ -1196,7 +1196,7 @@ Frame Info
 +--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``alphaBounds``    | This is the rect outside of which the alpha is always 0. Simply do not alter this field if the alpha bounds match the destination bounds.                                                                                             |
 |                    |                                                                                                                                                                                                                                       |
-|                    | If set, the alpha bounds must be contained by the destination bounds. This is only currently used when a plug-in calls ``ppixGetAlphaBounds``, and not currently used by any native plug-ins.                                         |
+|                    | If set, the alpha bounds must be contained by the destination bounds. This is only currently used when a plug-in calls ``ppixGetAlphaBounds``, and not currently used by any native plugins.                                          |
 +--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``applyTransform`` | New in After Effects CS3. Not currently provided by Premiere.                                                                                                                                                                         |
 |                    |                                                                                                                                                                                                                                       |
@@ -1404,7 +1404,7 @@ Describes the format(s) supported by the importer. Synthetic files can only have
 | ``canWriteMetaData``                   | New in 6.0. If set, imSetMetaData is supported for the filetype                                                             |
 +----------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
 
-The flags listed below are only for legacy plug-ins and should not be used.
+The flags listed below are only for legacy plugins and should not be used.
 
 +------------------------+---------------------------------------------------------------------------------------+
 |        **Flag**        |                                       **Usage**                                       |

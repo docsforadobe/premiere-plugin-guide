@@ -12,7 +12,7 @@ These are all four character codes, or 'fourCCs'.
 +================+========================================================================================================================================+
 | ``filetype``   | Identifies the plug-in's associated file type(s).                                                                                      |
 |                |                                                                                                                                        |
-|                | Plug-ins create lists of filetypes they support.                                                                                       |
+|                | plugins create lists of filetypes they support.                                                                                        |
 +----------------+----------------------------------------------------------------------------------------------------------------------------------------+
 | ``subtype``    | Differentiates between files of the same filetype.                                                                                     |
 |                |                                                                                                                                        |
@@ -22,5 +22,5 @@ These are all four character codes, or 'fourCCs'.
 |                |                                                                                                                                        |
 |                | It is used as part of the identification for exporters in the Editing Mode XML.                                                        |
 |                |                                                                                                                                        |
-|                | And plug-ins may share information with most other plug-ins running in the same process using the :ref:`hardware/classdata-functions`. |
+|                | And plugins may share information with most other plugins running in the same process using the :ref:`hardware/classdata-functions`.   |
 +----------------+----------------------------------------------------------------------------------------------------------------------------------------+

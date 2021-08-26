@@ -31,7 +31,7 @@ For more information on the ``ANIM_FilterInfo`` and ``ANIM_ParamAtom``, see the 
 A Basic PiPL Example
 ================================================================================
 
-.. code-block:: cpp
+.. code-block:: none
 
   #define plugInName "SDK Custom Import"
   #define plugInMatchName "SDK Custom Import"
@@ -45,7 +45,7 @@ A Basic PiPL Example
     // The name as it will appear in a Premiere menu, this can be localized
     Name {plugInName},
 
-    // The internal name of this plug-in - do not localize this. This is used for both Premiere and After Effects plug-ins.
+    // The internal name of this plug-in - do not localize this. This is used for both Premiere and After Effects plugins.
     AE_Effect_Match_Name {plugInMatchName}
 
     // Transitions and video filters define more PiPL attributes here

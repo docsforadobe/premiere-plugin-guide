@@ -7,7 +7,7 @@ Plug-ins must have an installer. This simplifies installation by the user, provi
 
 Create a container folder for your plug-in(s) to minimize user confusion.
 
-Don't unintentionally overwrite existing plug-ins, or replace newer versions.
+Don't unintentionally overwrite existing plugins, or replace newer versions.
 
 The installer should find the default installation directories as described below.
 
@@ -15,7 +15,7 @@ It is also appreciated when an installer allows the user to specify an alternate
 
 Plug-ins should be installed in the common plug-in location.
 
-Supported Premiere and After Effects plug-ins installed here will be loaded by Premiere Pro, After Effects, Audition, and Media Encoder.
+Supported Premiere and After Effects plugins installed here will be loaded by Premiere Pro, After Effects, Audition, and Media Encoder.
 
 Other plug-in types, such as QuickTime and VfW codecs should be installed at the operating system level.
 
@@ -32,9 +32,9 @@ Key: ``HKEY_LOCAL_MACHINE/Software/Adobe/Premiere Pro/10.0/``
 
 Value name: ``CommonPluginInstallPath``
 
-Value data: ``C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore\\`` (or whatever the proper MediaCore plug-ins folder is; note that this is the same as what the After Effects installer provides for a corresponding registry key)
+Value data: ``C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore\\`` (or whatever the proper MediaCore plugins folder is; note that this is the same as what the After Effects installer provides for a corresponding registry key)
 
-Starting in CC 2015.3, **control surface plug-ins** should be installed here:
+Starting in CC 2015.3, **control surface plugins** should be installed here:
 
 ``/Library/Application Support/Adobe/Common/Plug-ins/ControlSurface/``
 
@@ -90,17 +90,17 @@ Then, just add the proper subdirectories as described in the macOS section.
 macOS
 ================================================================================
 
-Starting in CC 2015, we now provide installer hints for Mac. You'll find a new plist file "com. Adobe.Premiere Pro.paths.plist" at "/Library/Preferences". This contains hints for your Mac installer to know where to install plug-ins, and is similar to the registry entries we have been providing on Win.
+Starting in CC 2015, we now provide installer hints for Mac. You'll find a new plist file "com. Adobe.Premiere Pro.paths.plist" at "/Library/Preferences". This contains hints for your Mac installer to know where to install plugins, and is similar to the registry entries we have been providing on Win.
 
 The **common plug-in location** is at:
 
 ``/Library/Application Support/Adobe/Common/Plug-ins/[version]/MediaCore/``
 
-Starting in CC 2015.3, **control surface plug-ins** should be installed here:
+Starting in CC 2015.3, **control surface plugins** should be installed here:
 
 ``/Library/Application Support/Adobe/Common/Plug-ins/ControlSurface/``
 
-Following OS X Code Signing guidelines, plug-ins should be installed in this separate shared location rather than in the application bundle.
+Following OS X Code Signing guidelines, plugins should be installed in this separate shared location rather than in the application bundle.
 
 **For sequence presets:**
 
@@ -127,18 +127,18 @@ Following OS X Code Signing guidelines, plug-ins should be installed in this sep
 Plug-in Naming Conventions
 ================================================================================
 
-On Windows, Premiere Pro plug-ins must have the file extension ".prm". On macOS, they have the file extension ".bundle". Other supported plug-in standards use their conventional file extensions: ".aex" for After Effects plug-ins, ".dll" for VST plug-ins.
+On Windows, Premiere Pro plugins must have the file extension ".prm". On macOS, they have the file extension ".bundle". Other supported plug-in standards use their conventional file extensions: ".aex" for After Effects plugins, ".dll" for VST plugins.
 
-While it is not required for your plug-in to load, naming your plug-ins using the plug-in type as a prefix (e.g. ImporterSDK, FilterSDK, etc.) will help reduce user confusion.
+While it is not required for your plug-in to load, naming your plugins using the plug-in type as a prefix (e.g. ImporterSDK, FilterSDK, etc.) will help reduce user confusion.
 
 ----
 
 Plug-in Blacklisting
 ================================================================================
 
-Have a plug-in that works fine in one CS application, but has problems in another CS application? Now, specific plug-ins can be blocked from being loaded by MediaCore in specific applications, using blacklists. Note that this does not work for After Effects plug-ins loaded by AE, although it does work for AE plug-ins loaded in Premiere Pro.
+Have a plug-in that works fine in one CS application, but has problems in another CS application? Now, specific plugins can be blocked from being loaded by MediaCore in specific applications, using blacklists. Note that this does not work for After Effects plugins loaded by AE, although it does work for AE plugins loaded in Premiere Pro.
 
-In the plug-ins folder, look for the appropriate blacklist file, and append the the filename of the plug-in to the file (e.g. BadPlugin, not BadPlugin.prm). If the file doesn't exist, create it first. "Blacklist.txt" contains names of plug-ins blacklisted from all apps. Plug-ins can be blocked from loading in specific apps by including them in "Blacklist Adobe Premiere Pro.txt", or "Blacklist After Effects.txt", etc.
+In the plugins folder, look for the appropriate blacklist file, and append the the filename of the plug-in to the file (e.g. BadPlugin, not BadPlugin.prm). If the file doesn't exist, create it first. "Blacklist.txt" contains names of plugins blacklisted from all apps. Plug-ins can be blocked from loading in specific apps by including them in "Blacklist Adobe Premiere Pro.txt", or "Blacklist After Effects.txt", etc.
 
 ----
 

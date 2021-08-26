@@ -35,7 +35,7 @@ Try the Sample Recorder Plug-in
 
 Now that you've read the overview of the selector calling sequence above, build the sample re- corder plug-in included with this SDK, and give it a whirl. To properly simulate a capture, you'll also need to create an .sdk media file and place it in the proper location.
 
-1) Build the recorder, importer, and exporter into the plug-ins directory
+1) Build the recorder, importer, and exporter into the plugins directory
 2) Launch Premiere Pro and use the exporter to transcode any media file into the .sdk file format.
 3) Place the newly created media file at "C:\premiere.sdk" on Windows, or "premiere.sdk" on the Desktop on Mac OS.
 
@@ -92,7 +92,7 @@ The first pass is a play fast forward or backward in the initial direction. In t
 Entry Point
 ================================================================================
 
-Below is the entry point function prototype for all recorder plug-ins. Premiere calls this entry point function to drive the recorder based on user input.
+Below is the entry point function prototype for all recorder plugins. Premiere calls this entry point function to drive the recorder based on user input.
 
 .. code-block:: cpp
 
