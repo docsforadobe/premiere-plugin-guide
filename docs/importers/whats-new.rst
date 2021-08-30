@@ -8,6 +8,8 @@ What's New in Premiere Pro CC 2019 (13.0)
 
 We've begun adding colorspace support to Premiere Pro's APIs, beginning with Importers.
 
+Adding APIs AddFrameToCacheWithColorSpace() and GetFrameFromCacheWithColorSpace() which will deprecate AddFrameToCacheWithColorProfile2() and GetFrameFromCacheWithColorProfile2().
+
 ----
 
 What's New in Premiere Pro CC 2014
