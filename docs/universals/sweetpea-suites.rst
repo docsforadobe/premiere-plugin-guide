@@ -400,6 +400,8 @@ Version 5, new in CS5.5, adds the new color profile-aware calls AddFrameToCacheW
 
 Version 6, new in CC 2014, adds AddFrameToCacheWithColorProfile2() and GetFrameFromCacheWithColorProfile2(), which are the same as the ones added in version 5 with the addition of a PrRenderQuality parameter.
 
+Version 7, adds AddFrameToCacheWithColorSpace() and GetFrameFromCacheWithColorSpace(), these APIs deprecate AddFrameToCacheWithColorProfile2() and GetFrameFromCacheWithColorProfile2().
+
 ----
 
 .. _universals/sweetpea-suites.ppix-creator-suite:
@@ -477,7 +479,9 @@ PPix Creator 2 Suite
 
 More callbacks to create PPixs, including raw PPixs.
 
-Starting in version 2 of this suite, introduced in Premiere Pro 4.0.1, there is a new CreateCustomPPix call to create a PPix in a custom pixel format. See PrSDKPPixCreator2Suite.h.
+Starting in version 2 of this suite, introduced in Premiere Pro 4.0.1, there is a new CreateCustomPPix call to create a PPix in a custom pixel format. 
+
+New APIs added to create PPix with specific color space. Color aware Importers should use new color managed APIs for PPix creation. See PrSDKPPixCreator2Suite.h.
 
 ----
 

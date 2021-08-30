@@ -766,13 +766,31 @@ imGetIndColorProfile
 - param1 - ``(int) index``
 - param2 - :ref:`imIndColorProfileRec* <importers/structure-descriptions.imIndColorProfileRec>`
 
-New in After Effects CS5.5; not used in Premiere Pro.
 
 Only sent if the importer has set ``imImageInfoRec.colorProfileSupport`` to ``imColorProfileSupport_Fixed``.
 
 This selector is sent iteratively for the importer to provide a description of each color profile supported by the clip.
 
 After all color profiles have been described, return a non-zero value.
+
+----
+
+
+.. _importers/selector-descriptions.imGetIndColorSpace:
+
+imGetIndColorSpace
+================================================================================
+
+- param1 - ``(int) index``
+- param2 - :ref:`imIndColorSpaceRec* <importers/structure-descriptions.imIndColorSpaceRec>`
+
+This is new selector for enumerating color spaces of media.
+
+Only sent if the importer has set ``imImageInfoRec.colorSpaceSupport`` to ``imColorSpaceSupport_Fixed``.
+
+This selector is sent iteratively for the importer to provide a description of each color space supported by the clip.
+
+After all color spaces have been described, return a non-zero value.
 
 ----
 
@@ -797,12 +815,14 @@ If the importer does not implement this selector, the host will assume the media
 
 ----
 
-.. _importers/selector-descriptions.imgetembeddedlut:
+.. _importers/selector-descriptions.imGetEmbeddedLUT:
 
-imgetembeddedlut
+imGetEmbeddedLUT
 ================================================================================
 
-- param1 - Embedded LUT profile to return, from 0 to N.
+This is a selector for enumerating the LUTs embedded in the media.
+
+- param1 - ``(int) index``.
 - param2 - :ref:`EmbeddedLUTRec* <importers/structure-descriptions.EmbeddedLUTRec>`
 
 Sent if Importer reported that it has embedded LUT. The first time it is called, the inDestinationBuffer will be NULL. Fill in the required size for the buffer, set the correct space type, and Premiere Pro will call your importer back with enough memory.
