@@ -3,7 +3,7 @@
 Transmitters
 ################################################################################
 
-This new API provides support for pushing video, audio, and closed captions to external hardware. Transmitters can be specified by the user in Preferences > Playback. Other plugins such as importers and effects with settings preview dialogs can send video out to the active transmitter, opening up new possibilities for hardware monitoring. Transmit plugins are supported in Premiere Pro, After Effects (starting in CC 2014), SpeedGrade, Encore, Prelude, and Character Animator.
+This API provides support for pushing video, audio, and closed captions to external hardware. Transmitters can be specified by the user in Preferences > Playback. Other plugins such as importers and effects with settings preview dialogs can send video out to the active transmitter, opening up new possibilities for hardware monitoring. Transmit plugins are supported in Premiere Pro, After Effects (starting in CC 2014), SpeedGrade, Encore, Prelude, and Character Animator.
 
 When a new transmitter instance is created, it is asked to describe the format(s) it wishes to receive the rendered video in. A transmitter plugin can request different formats depending on the source clip or timeline format. The host application will handle all the conversions to the desired video format. As an example, a transmitter instance may specify that it can only handle a fixed width and height, but any pixel format. Besides video conversions, the host handles scheduling for prefetching the media and asynchronous rendering.
 

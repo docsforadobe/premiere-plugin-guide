@@ -46,7 +46,7 @@ Now when you "capture" a file, it will use this file, and automatically import i
 Metadata
 ================================================================================
 
-Pixel aspect ratio and timecode are provided by the recorder by filling out ``recCapturedFileInfo``. Starting in CS4, after a clip has been captured, if Premiere has an XMP handler that supports the clip's filetype, the XMP handler will open the captured file and inject the information. If no such XMP handler is provided, the recorder is responsible for embedding any pixel aspect ratio information to the file, but Premiere will send *imSetTimeInfo8* to the importer to stamp the file with timecode.
+Pixel aspect ratio and timecode are provided by the recorder by filling out ``recCapturedFileInfo``. Starting in CS4, after a clip has been captured, if Premiere Pro has an XMP handler that supports the clip's filetype, the XMP handler will open the captured file and inject the information. If no such XMP handler is provided, the recorder is responsible for embedding any pixel aspect ratio information to the file, but Premiere will send *imSetTimeInfo8* to the importer to stamp the file with timecode.
 
 ----
 

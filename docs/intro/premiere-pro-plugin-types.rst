@@ -136,7 +136,7 @@ Check out :ref:`exporters/additional-details.guidelines-for-exporters-in-premier
 
 ----
 
-What Exactly Is a Premiere Plug-in?
+What Exactly Is a Premiere Pro Plugin?
 ================================================================================
 
 Premiere plugins contain a single entry point of a type specific to each API.

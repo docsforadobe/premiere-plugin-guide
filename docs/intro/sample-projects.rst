@@ -3,16 +3,6 @@
 Sample Projects
 ################################################################################
 
-Note: To compile GPU effects in Premiere SDK, we highly recommend using CUDA SDK 10.1 or 10.2. To compile them with CUDA SDK 11 follow the instructions below.
-
-Caution: GPU Effects built using CUDA SDK 11 will not work Kepler cards on CUDA 3.0 arch
-
-Instructions :
-Open the project file (.vcxproj) in any text editor. For the provided examples, project file can be found in ``Examples\Projects\GPUVideoFilter\SDK_XXX\Win``.
-Search for ``<CustomBuild Include="..\SDK_XXX.cu">`` block in the project XML.
-Edit the ``-arch=sm_30`` in the ``Command`` tag to ``-arch=sm_35``.
-Save the project and the build should succeed.
-
 
 Descriptions
 ================================================================================
@@ -156,17 +146,13 @@ Descriptions
 |                          |                                                                                                                                                                                                                                          |
 |                          | It reports status in the status area of the Capture panel, and a simulated timecode location in response to the transport controls.                                                                                                      |
 |                          |                                                                                                                                                                                                                                          |
-|                          | Since the device controller and recorder sample plugins both only simulate hardware, they will return different timecode values to the app.                                                                                              |
-|                          |                                                                                                                                                                                                                                          |
 |                          | You can set the Capture panel to only display device controller timecode by going to Preferences > Capture, and check "Use device control timecode"                                                                                      |
 |                          |                                                                                                                                                                                                                                          |
 |                          | When the device control Options button is pressed or Export To Tape is selected, it displays a message box on Windows, and an alert on macOS.                                                                                            |
 |                          |                                                                                                                                                                                                                                          |
 |                          | It demonstrates a sample error message when using the Step Back button at time zero.                                                                                                                                                     |
 +--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ControlSurface           | Currently Win-only.                                                                                                                                                                                                                      |
-|                          |                                                                                                                                                                                                                                          |
-|                          | You should see the plugin in the PPro UI in Preferences > Control Surface, when you hit the Add button, as one of the options in the Device Class drop-down next to Mackie and EUCON (currently shows as "SDK Control Surface Sample").  |
+| ControlSurface           | You should see the plugin in the PPro UI in Preferences > Control Surface, when you hit the Add button, as one of the options in the Device Class drop-down next to Mackie and EUCON (currently shows as "SDK Control Surface Sample").  |
 |                          |                                                                                                                                                                                                                                          |
 |                          | Just a starting point for you to add your functionality.                                                                                                                                                                                 |
 +--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
