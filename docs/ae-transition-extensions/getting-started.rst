@@ -10,7 +10,7 @@ If you are developing an transition, begin with the SDK_CrossDissolve sample pro
 
 In addition to those general instructions, the sample project is also dependent on the After Effects SDK. Download it here. On Windows, create an environment variable pointing to it named "AE_SDK_BASE_PATH", so that the compiler will find the AE headers that the project includes. On
 
-MacOS, in XCode > Preferences > Locations > Source Trees, specify AE_SDK_BASE_PATH to be the root folder of the AE SDK you have downloaded and unzipped.
+MacOS, in XCode > Preferences > Locations > Custom Paths, specify AE_SDK_BASE_PATH to be the root folder of the AE SDK you have downloaded and unzipped.
 
 As of version 15.4, Premiere Pro no longer supports OpenCL. 
 
