@@ -76,7 +76,7 @@ You can organize your code and projects as you like, but we find it convenient t
 Preprocessing as a Separate Step
 ================================================================================
 
-If you compile the kernel source on the customer machine, you may wish to preprocess the kernel at plugin compile time, and store the kernel source in your plugin. A python script is provided that will convert preprocessed source to a character array. The script is in Examples/Projects/GPUVideoFilter/Utils/CreateCString.py. See the ProcAmp example for usage.
+If you compile the kernel source on the customer machine, you may wish to preprocess the kernel at plugin compile time, and store the kernel source in your plugin. A python script (Python version 3 or greater required) is provided that will convert preprocessed source to a character array. The script is in Examples/Projects/GPUVideoFilter/Utils/CreateCString.py. See the ProcAmp example for usage.
 
 You can also compile kernels (which is always the case for CUDA) at plugin compile time, in which case you don't need the python script, or a separate preprocessing run. You will need to package the compiled kernel in your plugin if you go this route.
 

@@ -12,7 +12,7 @@ In addition to those general instructions, the sample project is also dependent 
 
 The samples also use Boost, which may be downloaded at boost.org. Download that, and create a variable named BOOST_BASE_PATH just as you did with AE_SDK_BASE_PATH above.
 
-Finally, install Python, if you do not have it already. It may be downloaded at python.org. The sample projects use this as part of the custom build steps.
+Finally, install Python 3 or greater, if you do not have it already. It may be downloaded at python.org. The sample projects use this as part of the custom build steps.
 
 Depending on whether your effect will use CUDA, you'll need to download the CUDA SDK. On Windows, create an environment variable pointing to it named CUDA_SDK_BASE_PATH, so that the linker will find the right libraries.
 
