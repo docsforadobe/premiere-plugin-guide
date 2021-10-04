@@ -71,7 +71,7 @@ exSelValidateParamChanged
 
 Validate any parameters that have changed. Based on a change to a parameter value, the exporter may update other parameter values, or show/hide certain parameter controls, using the :ref:`exporters/suites.export-param-suite`.
 
-To notify the host that the plug-in is changing other parameters, set ``exParamChangedRec.rebuildAllParams`` to a non-zero value.
+To notify the host that the plugin is changing other parameters, set ``exParamChangedRec.rebuildAllParams`` to a non-zero value.
 
 ----
 
@@ -161,11 +161,11 @@ For exporters that export to more than one file. This is called before an export
 
 It is called after an export so the host will know about all the files created, for any post encoding tasks, such as FTP. If this selector is not supported by the exporter, the host application will only know about the original path.
 
-This selector will be called three times. On the first call, the plug-in fills out numOutputFiles. The host will then make numOutputFiles count of outputFileRecs, but empty.
+This selector will be called three times. On the first call, the plugin fills out numOutputFiles. The host will then make numOutputFiles count of outputFileRecs, but empty.
 
-On the second call, the plug-in fills out the path length (incl trailing null) for each exOutputFileRec element in outputFileRecs. The host will then allocate all paths in each outputFileRec.
+On the second call, the plugin fills out the path length (incl trailing null) for each exOutputFileRec element in outputFileRecs. The host will then allocate all paths in each outputFileRec.
 
-On the third call, the plug-in fills in the path members of the outputFileRecs.
+On the third call, the plugin fills in the path members of the outputFileRecs.
 
 ----
 

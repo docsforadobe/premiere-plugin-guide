@@ -28,7 +28,7 @@ Premiere Pro Plug-In Types
 +--------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`transmitters/transmitters`                       | Sends video, audio, and closed captioning to any external device during playback and editing.                                                               |
 +--------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`video-filters/video-filters`                     | **We strongly recommend using the After Effects SDK to develop effects plug-ins. Most of the effects included in Premiere Pro are After Effects plug-ins.** |
+| :ref:`video-filters/video-filters`                     | **We strongly recommend using the After Effects SDK to develop effects plugins. Most of the effects included in Premiere Pro are After Effects plugins.**   |
 |                                                        |                                                                                                                                                             |
 |                                                        | Process a series of video frames with parameters that can be animated over time.                                                                            |
 +--------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -69,7 +69,7 @@ Other Supported Plug-In Standards
 Plug-in Support Across Adobe Video and Audio Applications
 ================================================================================
 
-This chart shows which third-party plug-ins are supported by the various Video and Audio applications.
+This chart shows which third-party plugins are supported by the various Video and Audio applications.
 
 +-----------------------------+------------------+-------------------+-------------------+--------------+------------------------+-------------+
 |                             | **Premiere Pro** | **After Effects** | **Media Encoder** | **Audition** | **Character Animator** | **Prelude** |
@@ -109,10 +109,6 @@ This chart shows which third-party plug-ins are supported by the various Video a
 | VST audio effects           | X                |                   |                   | X            |                        |             |
 +-----------------------------+------------------+-------------------+-------------------+--------------+------------------------+-------------+
 
-Encore can use third-party exporters to transcode assets to MPEG-2 or Blu-ray compliant files.
-
-Please refer to :ref:`exporters/additional-details.guidelines-for-exporters-in-encore` for instructions on how to set up your exporter so that Encore can use it for transcoding.
-
 ----
 
 Premiere Elements Plug-in Support
@@ -140,16 +136,16 @@ Check out :ref:`exporters/additional-details.guidelines-for-exporters-in-premier
 
 ----
 
-What Exactly Is a Premiere Plug-in?
+What Exactly Is a Premiere Pro Plugin?
 ================================================================================
 
-Premiere plug-ins contain a single entry point of a type specific to each API.
+Premiere plugins contain a single entry point of a type specific to each API.
 
-Plug-ins are DLLs on Windows, and Carbon or Cocoa Bundles on macOS.
+Plugins are DLLs on Windows, and Carbon or Cocoa Bundles on macOS.
 
 Plug-ins in the \\Plug-ins\[language] folder, and any of its subfolders, will be loaded at launch.
 
-Plug-ins can have private resources.
+Plugins can have private resources.
 
-Only one plug-in per file is parsed, unlike After Effects and Photoshop plug-ins, which can contain multiple entry points.
+Only one plug-in per file is parsed, unlike After Effects and Photoshop plugins, which can contain multiple entry points.
 

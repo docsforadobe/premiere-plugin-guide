@@ -15,7 +15,7 @@ What's New in CC July 2013?
 
 In the July 2013 release of CC, the new capability flag fCanPrintToTape was added for a device controller supporting Edit to Tape using the new panel to specify whether or not it supports Print to Tape mode. fCanDelayMovieStart was added for a device controller to optionally specify that it wants to handle Delay Movie Start on its own. If the flag is set, the value as set by
 
-the user will be passed in DeviceRec.delayFrames during an Edit to Tape. The DeviceRec. version has been incremented to kDeviceControlAPIVersion13 for plug-ins to distinguish which version they are running in.
+the user will be passed in DeviceRec.delayFrames during an Edit to Tape. The DeviceRec. version has been incremented to kDeviceControlAPIVersion13 for plugins to distinguish which version they are running in.
 
 ----
 

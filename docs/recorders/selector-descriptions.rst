@@ -15,7 +15,7 @@ recmod_Startup8
 - param1 - :ref:`recorders/structure-descriptions.recInfoRec8`
 - param2 - ``unused``
 
-Sent once when Premiere launches so the plug-in can initialize and return its attributes to Premiere.
+Sent once when Premiere launches so the plugin can initialize and return its attributes to Premiere.
 
 The module should connect to any required capture hardware or drivers and fill in the ``recInfoRec8``.
 
@@ -105,7 +105,7 @@ recmod_SetActive
 - param1 - ``PrivateData``
 - param2 - ``boolean toggle``
 
-param2 indicates whether the plug-in should activate. When a capture window is opened or receives the focus, it will be activated.
+param2 indicates whether the plugin should activate. When a capture window is opened or receives the focus, it will be activated.
 
 ----
 
@@ -127,9 +127,9 @@ If they are unacceptable, modify them; the selector will be sent again with the 
 
 Set mustresize in ``recDisplayPos`` to resize the preview frame with the specified bounds.
 
-The plug-in is not allowed to resize the capture window, just the preview frame.
+The plugin is not allowed to resize the capture window, just the preview frame.
 
-If mustresize is set but the plug-in can't resize the frame, display something (black, grey, a graphic of your choice) for a preview.
+If mustresize is set but the plugin can't resize the frame, display something (black, grey, a graphic of your choice) for a preview.
 
 ``mustresize`` will be set when the Capture Settings dialog is being displayed.
 
@@ -143,7 +143,7 @@ recmod_Idle
 - param1 - ``PrivateData``
 - param2 - :ref:`recorders/structure-descriptions.recGetTimecodeRec`
 
-Sent to give the plug-in processing time.
+Sent to give the plugin processing time.
 
 ----
 
@@ -185,7 +185,7 @@ recmod_ServiceRecord
 - param1 - ``PrivateData``
 - param2 - ``unused``
 
-Sent repeatedly to give the plug-in processor time while recording.
+Sent repeatedly to give the plugin processor time while recording.
 
 ----
 

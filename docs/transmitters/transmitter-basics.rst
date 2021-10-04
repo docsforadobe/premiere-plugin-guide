@@ -6,16 +6,16 @@ Transmitter Basics
 Basic Organization
 ================================================================================
 
-A transmitter module can define multiple plug-ins. Each plug-in can appear in the Playback Preferences as an option for video playback and/or audio playback. Only one transmitter can be used for audio, since the transmitter used for audio drives the clock. Multiple transmitters may be selected for video simultaneously.
+A transmitter module can define multiple plugins. Each plugin can appear in the Playback Preferences as an option for video playback and/or audio playback. Only one transmitter can be used for audio, since the transmitter used for audio drives the clock. Multiple transmitters may be selected for video simultaneously.
 
-When active, multiple instances of a single plug-in can be created. An instance is created to display a clip or sequence. Hardware access is regulated through ActivateDeactivate. Only an active instance should access the hardware.
+When active, multiple instances of a single plugin can be created. An instance is created to display a clip or sequence. Hardware access is regulated through ActivateDeactivate. Only an active instance should access the hardware.
 
 ----
 
 Video Formats
 ================================================================================
 
-Specify which video format(s) you wish to receive during QueryVideoMode. To simplify your plug-in, be as specific as possible, and allow the host to perform the conversion asynchronously ahead of time. Packed and compressed formats are also supported. If multiple formats are specified, the closest will be selected at render time. If your transmitter would benefit from on-GPU frames, please let us know.
+Specify which video format(s) you wish to receive during QueryVideoMode. To simplify your plugin, be as specific as possible, and allow the host to perform the conversion asynchronously ahead of time. Packed and compressed formats are also supported. If multiple formats are specified, the closest will be selected at render time. If your transmitter would benefit from on-GPU frames, please let us know.
 
 When sent QueryVideoMode, the transmitter is informed about the clip/sequence video attributes by being passed a tmInstance pointer. So, for example, if the transmitter instance is constructed to support a 1920x1080 timeline, it can report that same size back to the host application, so that it will not have to handle any scaling. If, for example, it does handle scaling, and it is constructed to handle a 1440x1080 timeline, it can report 1440x1080 and handle the scaling itself. In this way you can choose a single fixed size depending on the timeline.
 
@@ -28,9 +28,9 @@ Fractional Resolution
 
 In the Premiere Pro Source and Program Monitors, the user can choose independent resolutions for rendering during playback and paused modes. For example, it is common to have the playback resolution set to half, and paused resolution set to full.
 
-If an output card has a hardware scaler, the transmit plug-in can declare support for fractional resolutions. For example, for a 1920x1080 instance, it could declare support for not only
+If an output card has a hardware scaler, the transmit plugin can declare support for fractional resolutions. For example, for a 1920x1080 instance, it could declare support for not only
 
-1920x1080, but also 960x540, 480x270, etc. This will allow the renderer to skip the step of rescaling back up to full resolution after rendering at a fractional resolution. If however, the plug-in only declares support for full resolution, the renderer will scale the video back up before pushing it to the transmitter.
+1920x1080, but also 960x540, 480x270, etc. This will allow the renderer to skip the step of rescaling back up to full resolution after rendering at a fractional resolution. If however, the plugin only declares support for full resolution, the renderer will scale the video back up before pushing it to the transmitter.
 
 ----
 
@@ -84,10 +84,10 @@ This captioning data is attached to a sequence by the user via menu items in the
 
 ----
 
-Driving Transmitters from Other Plug-ins
+Driving Transmitters from Other Plugins
 ================================================================================
 
-Transmitters can be driven by many areas of the Premiere Pro interface. Currently, they are called to show frames from the Program Monitor and Source Monitor. But other types of plug-ins can use the :ref:`transmitters/suites.transmit-invocation-suite` to push frames to transmitters. For example, an effect or titler with a modal setup dialog could push frames to the output.
+Transmitters can be driven by many areas of the Premiere Pro interface. Currently, they are called to show frames from the Program Monitor and Source Monitor. But other types of plugins can use the :ref:`transmitters/suites.transmit-invocation-suite` to push frames to transmitters. For example, an effect or titler with a modal setup dialog could push frames to the output.
 
 ----
 

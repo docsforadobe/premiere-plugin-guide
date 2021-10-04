@@ -3,9 +3,9 @@
 Video Filters
 ################################################################################
 
-We strongly recommend using the **After Effects SDK** to develop effects plug-ins.
+We strongly recommend using the **After Effects SDK** to develop effects plugins.
 
-Almost all of the effects included in Premiere Pro are After Effects plug-ins, and future development will be based on the After Effects API.
+Almost all of the effects included in Premiere Pro are After Effects plugins, and future development will be based on the After Effects API.
 
 Video filters process a video frame into a destination frame. Filter parameters can vary with time.
 

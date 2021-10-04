@@ -3,7 +3,7 @@
 Commands
 ################################################################################
 
-When the plug-in receives ``dsExecute``, DeviceRec.command indicates the behavior requested.
+When the plugin receives ``dsExecute``, DeviceRec.command indicates the behavior requested.
 
 +------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
 |                        **Command**                         |                                                                   **Description**                                                                    |
@@ -32,7 +32,7 @@ When the plug-in receives ``dsExecute``, DeviceRec.command indicates the behavio
 +------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``cmdGetCurrentDeviceIdentifier``                          | For internal use only.                                                                                                                               |
 +------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`device-controllers/commands.cmdSetDeviceHandler`     | New in CC October 2013. Optional. Tells the plug-in which panel is using the device controller -- either the Capture panel, or Export to Tape panel. |
+| :ref:`device-controllers/commands.cmdSetDeviceHandler`     | New in CC October 2013. Optional. Tells the plugin which panel is using the device controller -- either the Capture panel, or Export to Tape panel.  |
 +------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ----
@@ -216,7 +216,7 @@ When the user invokes Export To Tape, Premiere prepares to play the chosen clip 
 
 Premiere then enters a loop, calling the device controller with the above DeviceHand. When the device controller returns, Premiere sends the PrintProc specified in ``DeviceHand.setupWaitProc``. Premiere will have already performed the preroll; everything is ready to play.
 
-When the device controller returns, Premiere plays the clip, sending idle to PrintProc once per frame. Premiere again calls the plug-in's entry point with the DeviceHand, allowing the device controller to perform any cue operations. Premiere calls PrintProc with complete when finished. If *cmdInsertEdit* is proceeding correctly PrintProc should always return 0.
+When the device controller returns, Premiere plays the clip, sending idle to PrintProc once per frame. Premiere again calls the plugin's entry point with the DeviceHand, allowing the device controller to perform any cue operations. Premiere calls PrintProc with complete when finished. If *cmdInsertEdit* is proceeding correctly PrintProc should always return 0.
 
 ----
 
@@ -243,4 +243,4 @@ Sent only if DeviceRec.autoDetectDropness is set to true. This selector tells th
 cmdSetDeviceHandler
 ================================================================================
 
-New in CC October 2013. Optional. Tells the plug-in which panel is using the device controller -- either the Capture panel, or Export to Tape panel. DeviceRec.mode will contain either handlerCapture or handlerEditToTape.
+New in CC October 2013. Optional. Tells the plugin which panel is using the device controller -- either the Capture panel, or Export to Tape panel. DeviceRec.mode will contain either handlerCapture or handlerEditToTape.

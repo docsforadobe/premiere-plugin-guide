@@ -3,11 +3,9 @@
 DeviceRec
 ################################################################################
 
-A device controller is passed a handle to a DeviceRec with every selector.
+A device controller is passed a handle to a DeviceRec with every selector. Yes, we know, it's a monster.
 
-Yes, we know, it's a monster.
-
-.. code-block:: cpp
+.. code-block:: none
 
   typedef struct {
     PrMemoryHandle        deviceData;
@@ -136,7 +134,7 @@ Yes, we know, it's a monster.
 +--------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``PrintProc``            | New in 7.0, this callback is no longer needed as the host drives the Edit to Tape rather than the device controller.                                                                                                                                    |
 |                          |                                                                                                                                                                                                                                                         |
-|                          | A pointer to a plug-in function Premiere calls to print to tape.                                                                                                                                                                                        |
+|                          | A pointer to a plugin function Premiere calls to print to tape.                                                                                                                                                                                         |
 |                          |                                                                                                                                                                                                                                                         |
 |                          | .. code-block:: cpp                                                                                                                                                                                                                                     |
 |                          |                                                                                                                                                                                                                                                         |
@@ -144,13 +142,13 @@ Yes, we know, it's a monster.
 |                          |     PrMemoryHandle  deviceHand,                                                                                                                                                                                                                         |
 |                          |     long            selector);                                                                                                                                                                                                                          |
 |                          |                                                                                                                                                                                                                                                         |
-|                          | ``deviceHand`` is passed to the plug-in in DeviceRec. selector can be *setupWaitProc*, *idle*, or *complete*.                                                                                                                                           |
+|                          | ``deviceHand`` is passed to the plugin in DeviceRec. selector can be *setupWaitProc*, *idle*, or *complete*.                                                                                                                                            |
 |                          |                                                                                                                                                                                                                                                         |
 |                          | See *cmdInsertEdit*.                                                                                                                                                                                                                                    |
 +--------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``piSuites``             | Pointer to universal callback suites.                                                                                                                                                                                                                   |
 +--------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``displayName``          | A 255 character string to display the name of the device the plug-in is currently controlling.                                                                                                                                                          |
+| ``displayName``          | A 255 character string to display the name of the device the plugin is currently controlling.                                                                                                                                                           |
 +--------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``TimecodeUpdateProc``   | During ``cmdLocate``, use this to report timecode.                                                                                                                                                                                                      |
 |                          |                                                                                                                                                                                                                                                         |
@@ -162,7 +160,7 @@ Yes, we know, it's a monster.
 +--------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``classID``              | Used for ``TimecodeUpdateProc``                                                                                                                                                                                                                         |
 +--------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``version``              | Premiere informs the device controller of the API version, so the plug-in can modify it's behavior to support multiple versions, if desired.                                                                                                            |
+| ``version``              | Premiere informs the device controller of the API version, so the plugin can modify it's behavior to support multiple versions, if desired.                                                                                                             |
 |                          |                                                                                                                                                                                                                                                         |
 |                          | - Premiere Pro CC, October 2013 update - kDeviceControlAPIVersion14                                                                                                                                                                                     |
 |                          | - Premiere Pro CC, July 2013 update - kDeviceControlAPIVersion13                                                                                                                                                                                        |

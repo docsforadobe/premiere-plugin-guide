@@ -3,7 +3,7 @@
 Plug-In Property Lists (PiPL) Resource
 ################################################################################
 
-For many plug-in types, Premiere loads a PiPL (Plug-in Property List) resource. The PiPL is described in a file with a ".r" extension.
+For many plugin types, Premiere loads a PiPL (Plug-in Property List) resource. The PiPL is described in a file with a ".r" extension.
 
 The complete PiPL syntax is described in PiPL.r.
 
@@ -13,7 +13,7 @@ However, if you develop from the sample projects, you shouldn't have to do anyth
 
 ----
 
-Which Types of Plug-ins Need PiPLs?
+Which Types of Plugins Need PiPLs?
 ================================================================================
 
 Exporters, players, and recorders do not need PiPLs.
@@ -31,7 +31,7 @@ For more information on the ``ANIM_FilterInfo`` and ``ANIM_ParamAtom``, see the 
 A Basic PiPL Example
 ================================================================================
 
-.. code-block:: cpp
+.. code-block:: none
 
   #define plugInName "SDK Custom Import"
   #define plugInMatchName "SDK Custom Import"
@@ -39,13 +39,13 @@ A Basic PiPL Example
   resource 'PiPL' (16000) {
   {
 
-    // The plug-in type
+    // The plugin type
     Kind {PrImporter},
 
     // The name as it will appear in a Premiere menu, this can be localized
     Name {plugInName},
 
-    // The internal name of this plug-in - do not localize this. This is used for both Premiere and After Effects plug-ins.
+    // The internal name of this plugin - do not localize this. This is used for both Premiere and After Effects plugins.
     AE_Effect_Match_Name {plugInMatchName}
 
     // Transitions and video filters define more PiPL attributes here
@@ -60,7 +60,7 @@ How PiPLs Are Processed By Resource Compilers
 
 On macOS, .r files are processed natively by Xcode, as a Build Phase of type Build Carbon Resources. This step is already set for the sample projects.
 
-On Windows, .r files are processed with CnvtPiPL.exe, which creates an .rcp file based upon custom build steps in the project. The .rcp file is then included in the .rc file along with any other resources the plug-in uses. These custom build steps are already in place in the sample projects.
+On Windows, .r files are processed with CnvtPiPL.exe, which creates an .rcp file based upon custom build steps in the project. The .rcp file is then included in the .rc file along with any other resources the plugin uses. These custom build steps are already in place in the sample projects.
 
 To view them, open up the sample project in .NET. In the Solution Explorer, right-click the .r file and choose Properties. In the dialog, choose the Custom Build Step folder. The Command
 

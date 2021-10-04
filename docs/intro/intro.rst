@@ -3,7 +3,7 @@
 Introduction
 ################################################################################
 
-Welcome to the Adobe® Premiere® Pro CC Software Development Kit!
+Welcome to the Adobe® Premiere® Pro Software Development Kit!
 
 This is a living document, and is constantly being updated and edited. The latest release of the SDK is available at: `https://www.adobe.io/apis/creativecloud/premierepro.html <http://www.adobe.io/apis/creativecloud/premierepro.html>`__.
 

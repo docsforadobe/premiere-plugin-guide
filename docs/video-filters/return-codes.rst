@@ -10,7 +10,7 @@ Return Codes
 +------------------------+-----------------------------------------------------------------------------------------+
 | ``fsBadFormatIndex``   | Return from ``fsGetPixelFormatsSupported`` when all pixel formats have been enumerated. |
 +------------------------+-----------------------------------------------------------------------------------------+
-| ``fsDoNotCacheOnLoad`` | Return from ``fsCacheOnLoad`` to disable plug-in caching for this filter.               |
+| ``fsDoNotCacheOnLoad`` | Return from ``fsCacheOnLoad`` to disable plugin caching for this filter.                |
 +------------------------+-----------------------------------------------------------------------------------------+
 | ``fsHasNoSetupDialog`` | Return from ``fsHasSetupDialog`` to disable setup button in Effect Controls panel       |
 +------------------------+-----------------------------------------------------------------------------------------+

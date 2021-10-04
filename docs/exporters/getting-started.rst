@@ -3,7 +3,7 @@
 Getting Started
 ################################################################################
 
-Start your plug-in by modifying the SDK sample. Step through the code in your debugger to learn the order of events.
+Start your plugin by modifying the SDK sample. Step through the code in your debugger to learn the order of events.
 
 ----
 
@@ -42,9 +42,10 @@ Next, if the Match Source button is pressed in the Export Settings, ``exPostProc
 Get Video Frames and Audio Samples
 ================================================================================
 
-Starting in CS6, exporters can use the new push model, or the legacy pull model for obtaining frames. The new push model is supported starting in CS6, and the pull model is still supported. Developing for Encore and previous versions of Premiere Pro and Media Encoder requires using the pull model.
+Starting in CS6, exporters can use the new push model, or the legacy pull model for obtaining frames. The new push model is supported starting in CS6, and the pull model is still supported. 
 
 Push Model
+
 ********************************************************************************
 
 Using the push model, the exporter host can simply push frames to a thread-safe exporter-specified callback. Use DoMultiPassExportLoop in the :ref:`exporters/suites.exporter-utility-suite` to register the callback.
@@ -131,7 +132,7 @@ The subfolder must be named based on the hexadecimal fourCCs of the ClassID and 
 Parameter Caching
 ================================================================================
 
-During development, when you modify parameters in your exporter and reload the plug-in into the host, the Settings UI may continue to show stale parameter data. New parameters that you have added may not appear, or old ones may continue to appear. Or if you have changed the UI for an existing parameter, it may not take effect.
+During development, when you modify parameters in your exporter and reload the plugin into the host, the Settings UI may continue to show stale parameter data. New parameters that you have added may not appear, or old ones may continue to appear. Or if you have changed the UI for an existing parameter, it may not take effect.
 
 At a minimum, any old presets must be deleted. This includes Media Encoder presets and Premiere Pro presets. After deleting the old presets, there are two options, depending on whether the an older version of the exporter has already been distributed and is in use.
 
@@ -233,9 +234,9 @@ To get rendered frames for both left and right eye, use the :ref:`universals/swe
 Timeline Segments in Exporters
 ================================================================================
 
-The timeline segments available to exporters do not always fully describe the sequence being exported. To consistently get timeline segments that fully describe the sequence, an exporter needs to work along with a renderer plug-in.
+The timeline segments available to exporters do not always fully describe the sequence being exported. To consistently get timeline segments that fully describe the sequence, an exporter needs to work along with a renderer plugin.
 
-During a sequence export, Premiere Pro makes a copy of the project file and passes it to Media Encoder. Media Encoder takes that project and uses the PProHeadless process to generate rendered frames. So when an exporter, which is running in Media Encoder, parses the sequence, it only has a very high-level view. It sees the entire sequence as a single clip, and sees any optional cropping or filters as applied effects. So when parsing that simple, high-level sequence, if there are no effects, an exporter can just use the MediaNode's ClipID with the :ref:`universals/sweetpea-suites.clip-render-suite` to get frames directly from the PProHeadless process. In the PProHeadless process, a renderer plug-in can step in, parse the real sequence in all its glory, and optionally provide frames in a custom pixel format.
+During a sequence export, Premiere Pro makes a copy of the project file and passes it to Media Encoder. Media Encoder takes that project and uses the PProHeadless process to generate rendered frames. So when an exporter, which is running in Media Encoder, parses the sequence, it only has a very high-level view. It sees the entire sequence as a single clip, and sees any optional cropping or filters as applied effects. So when parsing that simple, high-level sequence, if there are no effects, an exporter can just use the MediaNode's ClipID with the :ref:`universals/sweetpea-suites.clip-render-suite` to get frames directly from the PProHeadless process. In the PProHeadless process, a renderer plugin can step in, parse the real sequence in all its glory, and optionally provide frames in a custom pixel format.
 
 When rendering preview files, Premiere Pro does the rendering without Media Encoder, so an exporter can get the individual segments for each clip, similar to before.
 
@@ -246,7 +247,7 @@ Smart Rendering
 
 Under very specific circumstances, an exporter can request compressed frames, avoiding unnecessary de/recompression.
 
-This would be done by providing both exporter and renderer plug-ins that parse timeline segments.
+This would be done by providing both exporter and renderer plugins that parse timeline segments.
 
 If the source can be copied over to the destination, the compressed frames can be passed in a custom pixel format.
 
@@ -278,7 +279,7 @@ Return  ``exportReturn_ErrNone`` if successful, or an appropriate return code.
 Standard Parameters
 ================================================================================
 
-A pointer to this structure is sent from the host to the plug-in with every selector.
+A pointer to this structure is sent from the host to the plugin with every selector.
 
 .. code-block:: cpp
 
@@ -299,7 +300,7 @@ A pointer to this structure is sent from the host to the plug-in with every sele
 |                     | - Premiere Pro 4.0.1 through 4.2.1 - prExportVersion101                                                                                      |
 |                     | - Premiere Pro CS4 - prExportVersion100                                                                                                      |
 +---------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-| ``getSPBasicSuite`` | This very important call returns the SweetPea suite that allows plug-ins to acquire and release all other :ref:`universals/sweetpea-suites`. |
+| ``getSPBasicSuite`` | This very important call returns the SweetPea suite that allows plugins to acquire and release all other :ref:`universals/sweetpea-suites`.  |
 |                     |                                                                                                                                              |
 |                     | ::                                                                                                                                           |
 |                     |                                                                                                                                              |

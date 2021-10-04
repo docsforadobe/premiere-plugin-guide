@@ -3,7 +3,7 @@
 IMPT Resource
 ################################################################################
 
-Premiere Pro looks for an IMPT resource to identify a plug-in as an importer.
+Premiere Pro looks for an IMPT resource to identify a plugin as an importer.
 
 Before Premiere Pro 1.0, the IMPT resource was also used to declare the file extension supported by an importer.
 

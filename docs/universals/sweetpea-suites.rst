@@ -6,9 +6,9 @@ SweetPea Suites
 Overview
 ================================================================================
 
-Suites common to more than one plug-in type are documented in this chapter below.
+Suites common to more than one plugin type are documented in this chapter below.
 
-Suites that are only used by one plug-in type are documented in the chapter on that plug-in type.
+Suites that are only used by one plugin type are documented in the chapter on that plugin type.
 
 Below is a table of all suites available in Premiere Pro:
 
@@ -121,7 +121,7 @@ Below is a table of all suites available in Premiere Pro:
 Acquiring and Releasing the Suites
 ================================================================================
 
-All SweetPea suites are accessed through the Utilities Suite. Plug-ins can acquire the suites.
+All SweetPea suites are accessed through the Utilities Suite. Plugins can acquire the suites.
 
 .. code-block:: cpp
 
@@ -150,7 +150,7 @@ Versioning
 
 Generally from version to version, the changes made to a suite are additive, so it is recommended to work with the most recent version of a suite if possible. However the latest version of a suite may not be supported by older versions of Premiere Pro or other host applications. Attempting to acquire suites that are unsupported by the host application will result in a NULL pointer being returned from AcquireSuite.
 
-For a plug-in to support multiple versions, it may choose to use a specific older version of the suite that is supported across those multiple versions. Alternatively, it may check the version of the host application (using the :ref:`universals/sweetpea-suites.app-info-suite`), and use the new suites where available, or the older suites when running in an older version. To acquire a specific older version of a suite, rather than requesting kPrSDKPixelFormatSuiteVersion in the example above, use a specific version number instead.
+For a plugin to support multiple versions, it may choose to use a specific older version of the suite that is supported across those multiple versions. Alternatively, it may check the version of the host application (using the :ref:`universals/sweetpea-suites.app-info-suite`), and use the new suites where available, or the older suites when running in an older version. To acquire a specific older version of a suite, rather than requesting kPrSDKPixelFormatSuiteVersion in the example above, use a specific version number instead.
 
 ----
 
@@ -159,7 +159,7 @@ For a plug-in to support multiple versions, it may choose to use a specific olde
 App Info Suite
 ================================================================================
 
-Useful for plug-i that are shared between different applications, such as After Effects plug-ins, Premiere exporters, transmitters, and importers, where it may be important to know which host, version, or language the plug-in is currently running in. Note that this suite is not available to AE effects running in AE.
+Useful for plug-i that are shared between different applications, such as After Effects plugins, Premiere exporters, transmitters, and importers, where it may be important to know which host, version, or language the plugin is currently running in. Note that this suite is not available to AE effects running in AE.
 
 This suite provides the host application and version number. For a version such as 6.0.3, it will return major = 6, minor = 0, and patch = 3. See PrSDKAppInfoSuite.h.
 
@@ -225,7 +225,7 @@ Starting in version 3 of the suite, introduced in CS4, the suite supports UTF-16
 File Registration Suite
 ================================================================================
 
-Used for registering external files (such as textures, logos, etc) that are used by a plug-in instance but do not appear as footage in the Project Window. Registered files will be taken into account when trimming or copying a project using the Project Manager. See PrSDKFileRegistrationSuite.h.
+Used for registering external files (such as textures, logos, etc) that are used by a plugin instance but do not appear as footage in the Project Window. Registered files will be taken into account when trimming or copying a project using the Project Manager. See PrSDKFileRegistrationSuite.h.
 
 ----
 
@@ -245,7 +245,7 @@ Image Processing Suite
 
 New in CS5. Various calls to get information on pixel formats and process frames. The ScaleConvert() call is the way to copy-convert from a buffer of any supported pixel format to a separate memory buffer.
 
-In version 2, new in CS5.5, we have added StampDVFrameAspect(), which allows a plug-in to set the aspect ratio of a DV frame. This was added to supplement ScaleConvert(), which doesn't have an aspect ratio parameter.
+In version 2, new in CS5.5, we have added StampDVFrameAspect(), which allows a plugin to set the aspect ratio of a DV frame. This was added to supplement ScaleConvert(), which doesn't have an aspect ratio parameter.
 
 ----
 
@@ -265,14 +265,14 @@ Memory Manager Suite
 
 New in Premiere Pro 2.0. Calls to allocate and deallocate memory, and to reserve an amount of memory so that it is not used by the host. See PrSDKMemoryManagerSuite.h.
 
-In CS6, the suite is now at version 4. AdjustReservedMemorySize provides a way to adjust the reserved memory size relative to the current size. This may be easier for the plug-in, rather than maintaining the absolute memory usage and updating it using the older ReserveMemory call.
+In CS6, the suite is now at version 4. AdjustReservedMemorySize provides a way to adjust the reserved memory size relative to the current size. This may be easier for the plugin, rather than maintaining the absolute memory usage and updating it using the older ReserveMemory call.
 
 ReserveMemory
 ********************************************************************************
 
-A plug-in instance can call ReserveMemory as a request to reserve space so that Premiere's media cache does not use it. Each time ReserveMemory is called, it updates Premiere Pro on how many bytes the plug-in instance is currently reserving. The amount specified is absolute, rather than cumulative. So to release any reserved memory to be made available to Premiere Pro's media cache, call it with a size of 0. However, it's not needed to reset this when exporters are destructed on *exSDK_EndInstance*, since the media manager will be deleting all the references anyways.
+A plugin instance can call ReserveMemory as a request to reserve space so that Premiere's media cache does not use it. Each time ReserveMemory is called, it updates Premiere Pro on how many bytes the plugin instance is currently reserving. The amount specified is absolute, rather than cumulative. So to release any reserved memory to be made available to Premiere Pro's media cache, call it with a size of 0. However, it's not needed to reset this when exporters are destructed on *exSDK_EndInstance*, since the media manager will be deleting all the references anyways.
 
-ReserveMemory changes the maximum size of Premiere's Media Cache. So if the cache size starts at 10 GB, and you reserve 1 GB, then the cache will not grow beyond 9 GB. ReserveMemory will reserve a different amount of memory, depending on the amount of available memory in the system, and what other plug-in instances have already reserved. The media cache needs a minimum amount of memory to play audio, render, etc.
+ReserveMemory changes the maximum size of Premiere's Media Cache. So if the cache size starts at 10 GB, and you reserve 1 GB, then the cache will not grow beyond 9 GB. ReserveMemory will reserve a different amount of memory, depending on the amount of available memory in the system, and what other plugin instances have already reserved. The media cache needs a minimum amount of memory to play audio, render, etc.
 
 Starting in version 2 of the suite, introduced in CS4, there are calls to allocate/deallocate memory. This is necessary for exporters, which are not passed the legacy memFuncs.
 
@@ -390,9 +390,9 @@ Used by an importer, player, or renderer to take advantage of the host applicati
 
 Starting in version 2 of this suite, introduced in Premiere Pro 4.1, AddFrameToCache and GetFrameFromCache now have two extra parameters, inPreferences and inPreferencesLength. Now frames are differentiated within the cache, based on the importer preferences, so when the preferences change, the host will not use the old frame when it gets a frame request.
 
-Version 4, new in CS5.0.3, adds ExpireNamedPPixFromCache() and ExpireAllPPixesFromCache(), which allow a plug-in to remove one or all PPixes from the Media Cache, which can be useful if the media is changing due to being edited in a separate application.
+Version 4, new in CS5.0.3, adds ExpireNamedPPixFromCache() and ExpireAllPPixesFromCache(), which allow a plugin to remove one or all PPixes from the Media Cache, which can be useful if the media is changing due to being edited in a separate application.
 
-To expire an individual frames expired using ExpireNamedPPixFromCache(), the identifier must be known. The plug-in may specify an identifier using AddNamedPPixToCache(). If a frame is in the cache with multiple names, and you expire any one of those names, then the frame will be expired. Alternatively, for rendered frames, the identifier may be retrieved using GetIdentifierForProduceFrameAsync() in the :ref:`universals/sweetpea-suites.video-segment-render-suite`.
+To expire an individual frames expired using ExpireNamedPPixFromCache(), the identifier must be known. The plugin may specify an identifier using AddNamedPPixToCache(). If a frame is in the cache with multiple names, and you expire any one of those names, then the frame will be expired. Alternatively, for rendered frames, the identifier may be retrieved using GetIdentifierForProduceFrameAsync() in the :ref:`universals/sweetpea-suites.video-segment-render-suite`.
 
 Clearing the cache will not interfere with any outstanding requests, because each request holds dependencies on the needed frames.
 
@@ -812,7 +812,7 @@ Get the current ticks in an audio sample rate.
 Video Segment Render Suite
 ================================================================================
 
-This suite uses the built-in software path for rendering, and supports subtree rendering. This means the plug-in can ask the host to render a part of the segment, and then still handle the rest of the rendering. This is useful if, for example, one of the layers has an effect that the plug-in cannot render itself. The plug-in can have the host render that layer, but then handle the other layers along with the compositing.
+This suite uses the built-in software path for rendering, and supports subtree rendering. This means the plugin can ask the host to render a part of the segment, and then still handle the rest of the rendering. This is useful if, for example, one of the layers has an effect that the plugin cannot render itself. The plugin can have the host render that layer, but then handle the other layers along with the compositing.
 
 In version 2, new in CS5.5, the new call ``SupportsInitiateClipPrefetch()`` can be used to query whether or not a clip supports prefetching.
 

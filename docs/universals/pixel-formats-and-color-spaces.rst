@@ -14,11 +14,11 @@ Compressed formats are great for storing raw frames, but bad for effects process
 What Format Should I Use?
 ================================================================================
 
-Starting in CS4, plug-ins no longer need to support 8-bit BGRA at a minimum. If required, Premiere can make intermediate format conversions in the render pipeline, although these intermediate conversions will be avoided if possible.
+Starting in CS4, plugins no longer need to support 8-bit BGRA at a minimum. If required, Premiere can make intermediate format conversions in the render pipeline, although these intermediate conversions will be avoided if possible.
 
-Previously in CS3 and earlier, all plug-ins except importers needed to support 8-bit per channel BGRA, even if they supported other formats.
+Previously in CS3 and earlier, all plugins except importers needed to support 8-bit per channel BGRA, even if they supported other formats.
 
-When choosing which pixel formats to support, there are different factors to consider, depending on the plug-in type.
+When choosing which pixel formats to support, there are different factors to consider, depending on the plugin type.
 
 Importers
 ********************************************************************************
@@ -41,7 +41,7 @@ Exporters and Transmitters
 
 Exporters and transmitters should request frames in a format closest to the output format. New in CS5, PrPixelFormat_Any can be used in exporter render requests.
 
-Any render function that takes a list of pixel formats can now be called with just two formats - the desired 4:4:4:4 pixel format, and PrPixelFormat_Any. This allows the host to avoid frame conversions and decompressions in many very common cases. The best part is that the plug-in doesn't need to
+Any render function that takes a list of pixel formats can now be called with just two formats - the desired 4:4:4:4 pixel format, and PrPixelFormat_Any. This allows the host to avoid frame conversions and decompressions in many very common cases. The best part is that the plugin doesn't need to
 
 understand all the possible pixel formats to make use of this. It can use the :ref:`universals/sweetpea-suites.image-processing-suite` to copy/convert from any a PPix of any format to a separate memory buffer, which is a copy that would likely need to be done anyway.
 
@@ -56,7 +56,7 @@ Other Considerations
 
 For high-bit depth support, the 32f formats are the recommended route, rather than the 16u formats. For example, an exporter that supports 10-bit Y'UV should ask for frames in 32f Y'UV format, and then convert the 32f to 10u.
 
-The ARGB formats can be natively used in the After Effects render pipeline, and are used by After Effects effect plug-ins that do not specifically support any other pixel format. However, in Premiere Pro, these ARGB formats will require byte-swapping, and shouldn't be used.
+The ARGB formats can be natively used in the After Effects render pipeline, and are used by After Effects effect plugins that do not specifically support any other pixel format. However, in Premiere Pro, these ARGB formats will require byte-swapping, and shouldn't be used.
 
 ----
 
@@ -109,7 +109,7 @@ Unpacked, Uncompressed, with implicit alpha
 +-------------------+--------------------+---------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | **PrPixelFormat** | **Bits / Channel** | **Format / FourCC** |                                                                                                       **Additional Details**                                                                                                       |
 +===================+====================+=====================+====================================================================================================================================================================================================================================+
-| BGRX_4444_8u      | 8                  | RGB                 | Implicitly opaque alpha channel. The actual data may be left filled with garbage, which allows optimized processing by both the plug-in and host, with the understanding the the alpha channel is opaque. New in Premiere Pro CS5. |
+| BGRX_4444_8u      | 8                  | RGB                 | Implicitly opaque alpha channel. The actual data may be left filled with garbage, which allows optimized processing by both the plugin and host, with the understanding the the alpha channel is opaque. New in Premiere Pro CS5.  |
 +-------------------+--------------------+---------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | VUYX_4444_8u      | 8                  | Y'UV                |                                                                                                                                                                                                                                    |
 +-------------------+--------------------+---------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -279,7 +279,7 @@ Miscellaneous
 Custom Pixel Formats
 ================================================================================
 
-New in CS4, custom pixel formats are supported. Plug-ins can define a pixel format which can pass through various aspects of our pipeline, but remain completely opaque to the built-in renderers. Use the macro MAKE_THIRD_PARTY_CUSTOM_PIXEL_FORMAT_FOURCC in the :ref:`universals/sweetpea-suites.pixel-format-suite`. Please use a unique name to avoid collisions.
+New in CS4, custom pixel formats are supported. Plugins can define a pixel format which can pass through various aspects of our pipeline, but remain completely opaque to the built-in renderers. Use the macro MAKE_THIRD_PARTY_CUSTOM_PIXEL_FORMAT_FOURCC in the :ref:`universals/sweetpea-suites.pixel-format-suite`. Please use a unique name to avoid collisions.
 
 The format doesn't need to be registered in any sense. They can just be used in the same way the current pixel formats are used, though in many cases they will be ignored.
 

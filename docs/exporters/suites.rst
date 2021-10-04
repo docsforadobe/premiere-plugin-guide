@@ -144,7 +144,7 @@ For pull-model exporters. Report progress during the export. Also, handle the ca
 Export Standard Param Suite
 ================================================================================
 
-New in CS6. A suite for registering one of several common parameter sets, reducing parameter management code on the plug-in side.
+New in CS6. A suite for registering one of several common parameter sets, reducing parameter management code on the plugin side.
 
 AddStandardParams
 ********************************************************************************
@@ -441,7 +441,7 @@ Returns from the host the next contiguous requested number of audio sample frame
 
 Returns ``suiteError_NoError`` if no error.
 
-The plug-in must manage the memory allocation of inBuffer, which must point to n buffers of floating point values of length inFrameCount, where n is the number of channels.
+The plugin must manage the memory allocation of inBuffer, which must point to n buffers of floating point values of length inFrameCount, where n is the number of channels.
 
 When inClipAudio is non-zero, this parameter makes GetAudio clip the audio samples at +/- 1.0.
 
@@ -500,7 +500,7 @@ Returns the maximum number of audio sample frames that can be requested from one
 Sequence Render Suite
 ================================================================================
 
-Get rendered video from one of the renderers available to the host. This may use one of the host's built-in renderers, or a plug-in renderer, if available For best performance, use the asynchronous render requests with the source media prefetching calls, although synchronous rendering is available too.
+Get rendered video from one of the renderers available to the host. This may use one of the host's built-in renderers, or a plugin renderer, if available For best performance, use the asynchronous render requests with the source media prefetching calls, although synchronous rendering is available too.
 
 Version 4, new in CS5.5, adds ``RenderVideoFrameAndConformToPixelFormat()``.
 
@@ -934,7 +934,7 @@ Check on the status of a prefetch request.
 MakeVideoRendererForTimeline()
 ********************************************************************************
 
-Similar to MakeVideoRenderer, but for use by renderer plug-ins.
+Similar to MakeVideoRenderer, but for use by renderer plugins.
 
 Creates a video renderer, in preparation to get rendered video from the host.
 
@@ -963,7 +963,7 @@ This is useful for the case of a nested multicam sequence.
 ReleaseVideoRendererForTimeline()
 ********************************************************************************
 
-Similar to ReleaseVideoRenderer, but for use by renderer plug-ins. Release the video renderer when the renderer plug-in is done requesting video.
+Similar to ReleaseVideoRenderer, but for use by renderer plugins. Release the video renderer when the renderer plugin is done requesting video.
 
 .. code-block:: cpp
 
@@ -1138,7 +1138,7 @@ Renders a frame of color-managed media, to the specified pixel format, using set
 PF Utility Suite
 ================================================================================
 
-Utility functions for use by AE style effect plug-ins, running in Premiere Pro.
+Utility functions for use by AE style effect plugins, running in Premiere Pro.
 
 Version 11, new in 15.0, adds GetVideoResolutionString.
 
@@ -1800,7 +1800,7 @@ GetVideoResolutionString()
 
 Retrieve a string representing the dimensions of the track item to which the effect is applied.
 
-.. code-block:: cpp
+.. code-block:: none
 
   prSuiteError(\*GetVideoResolutionString)(
 		PF_ProgPtr    inEffectRef,

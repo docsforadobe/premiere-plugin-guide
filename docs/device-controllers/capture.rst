@@ -6,7 +6,7 @@ Capture
 Timecode
 ================================================================================
 
-Since the device controller and recorder sample plug-ins both only simulate hardware, they will return different timecode values to the app. You can set the Capture panel to only display device controller timecode by going to Preferences > Capture, and check "Use device control timecode". On the other hand, leaving this box unchecked and observing the different timecodes returned is a good way to get a feel for when the device controller timecode is used, and when the recorder timecode is used.
+Since the device controller and recorder sample plugins both only simulate hardware, they will return different timecode values to the app. You can set the Capture panel to only display device controller timecode by going to Preferences > Capture, and check "Use device control timecode". On the other hand, leaving this box unchecked and observing the different timecodes returned is a good way to get a feel for when the device controller timecode is used, and when the recorder timecode is used.
 
 ----
 

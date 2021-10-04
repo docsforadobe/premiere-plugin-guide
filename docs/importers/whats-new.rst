@@ -110,7 +110,7 @@ What's New in Premiere Pro CS4?
 
 For CS4 only, importers are loaded and called from a separate process. As a result of being in a separate process, (1) all importers must do their own file handling, (2) privateData is no
 
-longer accessible from *imGetPrefs8*, and (3) the compressed frame selectors such as ``imGetCompressedFrame`` are no longer supported (this may now be achieved using custom pixel formats and a renderer plug-in).
+longer accessible from *imGetPrefs8*, and (3) the compressed frame selectors such as ``imGetCompressedFrame`` are no longer supported (this may now be achieved using custom pixel formats and a renderer plugin).
 
 To debug importers, attach to the ImporterProcessServer process. There is also a separate Importer Process Plugin Loading.log.
 

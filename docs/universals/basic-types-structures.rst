@@ -5,7 +5,7 @@ Basic Types Structures
 
 These types and structures are defined in PrSDKTypes.h and PrSDKStructs.h, and are used throughout the Premiere API.
 
-Premiere defines cross-platform types for convenience when developing plug-ins for both Windows and Mac OS.
+Premiere defines cross-platform types for convenience when developing plugins for both Windows and Mac OS.
 
 +----------------------------------------+--------------------------------------------------------------------------------------------------------------+
 |                **Name**                |                                               **Description**                                                |

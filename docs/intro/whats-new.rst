@@ -3,9 +3,10 @@
 Whats New
 ################################################################################
 
-What's New in 15.3
+What's New in 15.4
+================================================================================
 
-We've updated the PrSetEnv.h, to allow building ARM-native plug-ins.
+We've updated the ``PrSetEnv.h`` header, to allow building ARM-native plugins.
 
 What's New in 14.2
 ================================================================================
@@ -36,7 +37,7 @@ Effects and Transitions
 
 The newly provided :ref:`gpu-effects-transitions/PrGPU-SDK-macros` and device functions allow you to write kernels that will compile on CUDA, and Metal.
 
-Multiple effects and transitions can now be implemented in a single plug-in binary, by defining multiple entry points in software at runtime. The new method for registering entry points will be a replacement for the PiPL resource, and is currently only supported in Premiere Pro. The sample effects and transitions demonstrate this new method, while :ref:`resources/pipl-resource` remains, for backwards-compatibility in PPro, and compatibility with AE.
+Multiple effects and transitions can now be implemented in a single plugin binary, by defining multiple entry points in software at runtime. The new method for registering entry points will be a replacement for the PiPL resource, and is currently only supported in Premiere Pro. The sample effects and transitions demonstrate this new method, while :ref:`resources/pipl-resource` remains, for backwards-compatibility in PPro, and compatibility with AE.
 
 :ref:`universals/sweetpea-suites.sequence-info-suite` is now at version 5, adding the new call GetImmersiveVideoVRConfiguration(), which returns the VR video settings of the specified sequence.
 
@@ -62,7 +63,7 @@ Transmit
 
 New 10-bit and 12-bit RGB HLG formats have been added for expanded HDR support.
 
-In :ref:`universals/sweetpea-suites.app-info-suite`, a new identifier has been added for Character Animator, which now supports transmit plug-ins.
+In :ref:`universals/sweetpea-suites.app-info-suite`, a new identifier has been added for Character Animator, which now supports transmit plugins.
 
 VR Video Support
 ********************************************************************************
@@ -77,7 +78,7 @@ What's New in CC 2017
 VR Video Support added
 ********************************************************************************
 
-Transmit plug-ins can have the VR perspective in the desktop Monitor driven by the Head-Mounted Display, so when the person with the Head-Mounted Display looks in a different direction, the desktop Monitor shows that same perspective. To do this, the transmit plug-in can use the new Playmod Immersive Video Suite to indicate that it supports tracking.
+Transmit plugins can have the VR perspective in the desktop Monitor driven by the Head-Mounted Display, so when the person with the Head-Mounted Display looks in a different direction, the desktop Monitor shows that same perspective. To do this, the transmit plugin can use the new Playmod Immersive Video Suite to indicate that it supports tracking.
 
 Once Premiere sees the transmitter supports tracking, when the user activates the VR viewer, the new menu item, "Track Head-Mounted Display" will become active, and can be toggled to begin tracking. The transmitter should call NotifyDirection() as frequently it wants with updated info. Premiere will pick up the new position on the next frame draw.
 
@@ -128,15 +129,15 @@ Control Surfaces
 
 New suites have been added for Control Surfaces to support the Lumetri Color panel. Most controls are supported, including the color wheels, but not including the Curves controls.
 
-There is now a shared location for Control Surface plug-ins. On Mac:
+There is now a shared location for Control Surface plugins. On Mac:
 
-/Library/Application Support/Adobe/Common/Plug-ins/ControlSurface, and
+/Library/Application Support/Adobe/Common/Plugins/ControlSurface, and
 
-~/Library/Application Support/Adobe/Common/Plug-ins/ControlSurface
+~/Library/Application Support/Adobe/Common/Plugins/ControlSurface
 
 On Win:
 
-C:\Program Files\Adobe\Common\Plug-ins\ControlSurface
+C:\Program Files\Adobe\Common\Plugins\ControlSurface
 
 Importers
 ********************************************************************************
@@ -160,7 +161,7 @@ SetIsSourceSettingsEffect() function. They should make this call during *PF_Cmd*
 Misc
 ********************************************************************************
 
-Using the :ref:`universals/sweetpea-suites.sequence-info-suite`, a new call has been added, GetProxyFlag(), for a plug-in to know whether the proxy mode is on or off.
+Using the :ref:`universals/sweetpea-suites.sequence-info-suite`, a new call has been added, GetProxyFlag(), for a plugin to know whether the proxy mode is on or off.
 
 ----
 
@@ -180,7 +181,7 @@ What's New in CC 2015?
 After Effects-Style Transitions
 ********************************************************************************
 
-AE-style Transitions can now get and set transition start and end percentages. The user can change the start and end parameters in the Effect Controls panel. To allow a plugin to be informed of changes to these values, there are two new functions in the PF TransitionSuite: RegisterTransitionStartParam() and RegisterTransitionEndParam(), which register these parameters with the plug-in as float parameters. Once registered, the plug-in will receive *PF_Cmd_USER_CHANGED_PARAM* when these params change, as well as when the transition is first applied, so the plug-in can initialize them to the desired value.
+AE-style Transitions can now get and set transition start and end percentages. The user can change the start and end parameters in the Effect Controls panel. To allow a plugin to be informed of changes to these values, there are two new functions in the PF TransitionSuite: RegisterTransitionStartParam() and RegisterTransitionEndParam(), which register these parameters with the plugin as float parameters. Once registered, the plugin will receive *PF_Cmd_USER_CHANGED_PARAM* when these params change, as well as when the transition is first applied, so the plugin can initialize them to the desired value.
 
 AE-style Transitions can now retrieve GPU frames from arbitrary locations in the underlying clips. There is a new PrGPUDependency_TransitionInputFrame, and PrGPUFilterFrameDependency has a new member to specify whether frames from the incoming or outgoing clips are needed.
 
@@ -239,9 +240,9 @@ The host accounts for these offsets automatically by sending frames early, but i
 Miscellaneous
 ********************************************************************************
 
-Legacy callbacks bottlenecks->ConvolvePtr() and IndexMapPtr() have had their parameter types updated to fix a bug. Any plug-ins that use these in both previous versions and CC 2015 will need to do a runtime check before calling this function.
+Legacy callbacks bottlenecks->ConvolvePtr() and IndexMapPtr() have had their parameter types updated to fix a bug. Any plugins that use these in both previous versions and CC 2015 will need to do a runtime check before calling this function.
 
-Starting in CC 2015, we now provide installer hints for Mac. You'll find a new plist file "com. Adobe.Premiere Pro.paths.plist" at "/Library/Preferences". This contains hints for your Mac installer to know where to install plug-ins, and is similar to the registry entries we have been providing on Win.
+Starting in CC 2015, we now provide installer hints for Mac. You'll find a new plist file "com. Adobe.Premiere Pro.paths.plist" at "/Library/Preferences". This contains hints for your Mac installer to know where to install plugins, and is similar to the registry entries we have been providing on Win.
 
 
 New Sample Projects
@@ -295,7 +296,7 @@ recmod_Startup8 or recmod_StartRecord, if the codec used is unlicensed.
 
 OpenCL rendering now also uses the half-precision 16-bit floating point pixel format for rendering. GPU effects and transitions that support OpenCL should implement both 16f and 32f rendering.
 
-A new plug-in API has been introduced for hardware Control Surfaces. This is the API that allows support for EUCON and Mackie devices to control audio mixing and basic transport controls. The API supports two-way communication with Premiere Pro, so that hardware faders, VU meters, etc are in sync with the application.
+A new plugin API has been introduced for hardware Control Surfaces. This is the API that allows support for EUCON and Mackie devices to control audio mixing and basic transport controls. The API supports two-way communication with Premiere Pro, so that hardware faders, VU meters, etc are in sync with the application.
 
 Premiere Pro is now localized in Russian and Brazilian Portugese.
 
@@ -345,7 +346,7 @@ Miscellaneous Improvements
 ********************************************************************************
 
 - A new pixel format for native 10-bit RGB support - PrPixelFormat_RGB_444_10u, as well as ``PrPixelFormat_UYVY_422_32f_*`` formats
-- VST 3 support allows many more audio plug-ins to run in Premiere Pro
+- VST 3 support allows many more audio plugins to run in Premiere Pro
 - Windows installer improvements, by adding new registry values for preset and settings locations.
 - Get the current build number via the :ref:`universals/sweetpea-suites.app-info-suite`
 - Importers can now support audio beyond basic mono, stereo, and 5.1, without implementing multiple streams, and importers can return varying pixel formats depending on the clip settings. Read more about what's new for importers.
@@ -373,7 +374,7 @@ What's New in CS6?
 Transmit API
 ********************************************************************************
 
-We are introducing the Transmit API as the preferred means for external hardware monitoring. This new API provides vastly simplified support for monitoring on external hardware. Transmit plug-ins offer more flexible usage, since they are not tied to the sequence Editing Mode, which cannot be changed once a sequence has been edited. Transmitters can be specified by the user in Preferences > Playback. Other plug-ins such as importers and effects with settings preview dialogs can send video out to the active transmitter, opening up new possibilities for hardware monitoring. For this first release, transmit plug-ins are supported in Premiere Pro, Encore, and Prelude. Not far down the road, we intend to stop supporting the player API, but we will continue to support it for CS6. See :ref:`transmitters/transmitters` for more details.
+We are introducing the Transmit API as the preferred means for external hardware monitoring. This new API provides vastly simplified support for monitoring on external hardware. Transmit plugins offer more flexible usage, since they are not tied to the sequence Editing Mode, which cannot be changed once a sequence has been edited. Transmitters can be specified by the user in Preferences > Playback. Other plugins such as importers and effects with settings preview dialogs can send video out to the active transmitter, opening up new possibilities for hardware monitoring. See :ref:`transmitters/transmitters` for more details.
 
 Exporter Enhancements
 ********************************************************************************
@@ -382,7 +383,7 @@ Exporters can now use "push" model compression. This can simplify export code an
 
 We've added the :ref:`exporters/suites.export-standard-param-suite`, which provides the standard parameters used in many built-in exporters. This can greatly reduce the amount of code needed to manage standard parameters for a typical exporter, and guarantee consistency with built-in exporters.
 
-Exporters can now set tooltip strings for parameters. Multiple exporters are now supported in a single plug-in. And the Maximum Render Precision flag is now queried from the exporter, rather than being handled without the exporter's knowledge.
+Exporters can now set tooltip strings for parameters. Multiple exporters are now supported in a single plugin. And the Maximum Render Precision flag is now queried from the exporter, rather than being handled without the exporter's knowledge.
 
 Exporters can now set events (error, warning, or info) for a specific encode in progress in the Adobe Media Encoder render queue, using the new :ref:`exporters/suites.exporter-utility-suite`. These events are displayed in the application UI, and are also added to the AME encoding log.
 
@@ -418,7 +419,7 @@ New video segment properties were added:
 - ``kVideoSegmentProperty_Clip_EffectiveTrackItemStartAsTicks``,
 - ``kVideoSegmentProperty_Clip_EffectiveTrackItemEndAsTicks``
 
-The :ref:`universals/sweetpea-suites.memory-manager-suite` is now at version 4. AdjustReservedMemorySize provides a way to adjust the reserved memory size relative to the current size. This may be easier for the plug-in, rather than maintaining the absolute memory usage and updating it using the older ReserveMemory call.
+The :ref:`universals/sweetpea-suites.memory-manager-suite` is now at version 4. AdjustReservedMemorySize provides a way to adjust the reserved memory size relative to the current size. This may be easier for the plugin, rather than maintaining the absolute memory usage and updating it using the older ReserveMemory call.
 
 MPEG-4 pixel formats and full-range Rec. 709 MPEG-2 and MPEG-4 formats have now been added for native support in the render pipeline.
 
@@ -462,15 +463,10 @@ Exporters and players can now handle any pixel format, with the new :ref:`univer
 
 If you provide an installer for an exporter, note that custom presets created in Premiere Pro are now visible in AME and vice-versa.
 
-Encore CS5
-********************************************************************************
-
-3rd-party exporters can now be used to transcode assets to MPEG-2 or Blu-ray compliant files. Please refer to the Guidelines for Exporters in Encore for instructions on how to set up your exporter so that Encore can use it for transcoding.
-
 Mac 64-Bit and Cocoa
 ********************************************************************************
 
-It is invalid to unload any bundle that uses Cocoa because of restrictions in the Objective-C runtime which do not support unregistering classes. If a plugin uses Cocoa, it must call CFRetain on its own bundle, otherwise it will cause a crash when the application is closing and tries to unload the plug-ins.
+It is invalid to unload any bundle that uses Cocoa because of restrictions in the Objective-C runtime which do not support unregistering classes. If a plugin uses Cocoa, it must call CFRetain on its own bundle, otherwise it will cause a crash when the application is closing and tries to unload the plugins.
 
 ----
 
@@ -494,7 +490,7 @@ Separate Processes During Export
 
 When choosing export settings, the settings UI is displayed by Premiere Pro. When the user confirms the settings, the clip or sequence is passed to Media Encoder. From Media Encoder, frames from the clip or sequence can be retrieved and rendered without further participation from Premiere Pro. For a clip export, Media Encoder uses any installed importers to get source frames. For sequence export, Media Encoder uses a process called PProHeadless, to import and render frames to be exported.
 
-Since there are so many processes involved during export, it is important that plug-ins be accessible to all processes, by being installed in the common plug-ins folder. PProHeadless Plugin Loading.log provides information on the PProHeadless process. PProHeadless is also used when the user creates a dynamic link to a .prproj that is not opened in Premiere Pro.
+Since there are so many processes involved during export, it is important that plugins be accessible to all processes, by being installed in the common plugins folder. PProHeadless Plugin Loading.log provides information on the PProHeadless process. PProHeadless is also used when the user creates a dynamic link to a .prproj that is not opened in Premiere Pro.
 
 XMP metadata
 ********************************************************************************

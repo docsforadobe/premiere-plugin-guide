@@ -28,5 +28,5 @@ This table summarizes the various selector commands a video filter can receive.
 +-----------------------------------------------------------------------+---------------+---------------------------------------------------------------------------------------------------+
 | :ref:`video-filters/selector-descriptions.fsGetPixelFormatsSupported` | Yes           | Gets pixel formats supported. Called iteratively until all formats have been given.               |
 +-----------------------------------------------------------------------+---------------+---------------------------------------------------------------------------------------------------+
-| :ref:`video-filters/selector-descriptions.fsCacheOnLoad`              | Yes           | Return fsDoNotCacheOnLoad to disable plug-in caching for this filter.                             |
+| :ref:`video-filters/selector-descriptions.fsCacheOnLoad`              | Yes           | Return fsDoNotCacheOnLoad to disable plugin caching for this filter.                              |
 +-----------------------------------------------------------------------+---------------+---------------------------------------------------------------------------------------------------+

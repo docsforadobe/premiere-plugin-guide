@@ -3,16 +3,6 @@
 Sample Projects
 ################################################################################
 
-Note: To compile GPU effects in Premiere SDK, we highly recommend using CUDA SDK 10.1 or 10.2. To compile them with CUDA SDK 11 follow the instructions below.
-
-Caution: GPU Effects built using CUDA SDK 11 will not work Kepler cards on CUDA 3.0 arch
-
-Instructions :
-Open the project file (.vcxproj) in any text editor. For the provided examples, project file can be found in `Examples\Projects\GPUVideoFilter\SDK_XXX\Win`.
-Search for `<CustomBuild Include="..\SDK_XXX.cu">` block in the project XML.
-Edit the `-arch=sm_30` in the `Command` tag to `-arch=sm_35`.
-Save the project and the build should succeed.
-
 
 Descriptions
 ================================================================================
@@ -80,13 +70,13 @@ Descriptions
 |                          |                                                                                                                                                                                                                                          |
 |                          | To write files with v410 compression using 8-bit RGB sources, this sample uses routines to convert the 8-bit RGB data to 32-bit RGB, then to 32-bit YUV, and finally to v410.                                                            |
 |                          |                                                                                                                                                                                                                                          |
-|                          | These same routines may be adapted for transitions, filters, and other plug-in types.                                                                                                                                                    |
+|                          | These same routines may be adapted for transitions, filters, and other plugin types.                                                                                                                                                     |
 +--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Transmitter              | The sample transmit plug-in does not output to any hardware, but can be used to step through interactions between the host and plug-in in the debugger.                                                                                  |
+| Transmitter              | The sample transmit plugin does not output to any hardware, but can be used to step through interactions between the host and plugin in the debugger.                                                                                    |
 |                          |                                                                                                                                                                                                                                          |
 |                          | To use it, go the the Preferences > Playback, and choose the SDK Transmitter as the Audio Device, and as a Video Device.                                                                                                                 |
 |                          |                                                                                                                                                                                                                                          |
-|                          | This transmit plug-in provides the basic structure, separating concepts of plug-in and instance. For video, it declares support for any pixel format and resolution.                                                                     |
+|                          | This transmit plugin provides the basic structure, separating concepts of plugin and instance. For video, it declares support for any pixel format and resolution.                                                                       |
 |                          |                                                                                                                                                                                                                                          |
 |                          | For audio, it declares support for 2 channels. It also declares a small latency value for demonstrative purposes.                                                                                                                        |
 |                          |                                                                                                                                                                                                                                          |
@@ -156,17 +146,13 @@ Descriptions
 |                          |                                                                                                                                                                                                                                          |
 |                          | It reports status in the status area of the Capture panel, and a simulated timecode location in response to the transport controls.                                                                                                      |
 |                          |                                                                                                                                                                                                                                          |
-|                          | Since the device controller and recorder sample plug-ins both only simulate hardware, they will return different timecode values to the app.                                                                                             |
-|                          |                                                                                                                                                                                                                                          |
 |                          | You can set the Capture panel to only display device controller timecode by going to Preferences > Capture, and check "Use device control timecode"                                                                                      |
 |                          |                                                                                                                                                                                                                                          |
 |                          | When the device control Options button is pressed or Export To Tape is selected, it displays a message box on Windows, and an alert on macOS.                                                                                            |
 |                          |                                                                                                                                                                                                                                          |
 |                          | It demonstrates a sample error message when using the Step Back button at time zero.                                                                                                                                                     |
 +--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ControlSurface           | Currently Win-only.                                                                                                                                                                                                                      |
-|                          |                                                                                                                                                                                                                                          |
-|                          | You should see the plug-in in the PPro UI in Preferences > Control Surface, when you hit the Add button, as one of the options in the Device Class drop-down next to Mackie and EUCON (currently shows as "SDK Control Surface Sample"). |
+| ControlSurface           | You should see the plugin in the PPro UI in Preferences > Control Surface, when you hit the Add button, as one of the options in the Device Class drop-down next to Mackie and EUCON (currently shows as "SDK Control Surface Sample").  |
 |                          |                                                                                                                                                                                                                                          |
 |                          | Just a starting point for you to add your functionality.                                                                                                                                                                                 |
 +--------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -184,9 +170,9 @@ We've combined the sample projects into a single master project, stored in the E
 
 For macOS it is BuildAll.xcodeproj; for Windows, it is _BuildAll.sln.
 
-You'll need to specify some settings so that the plug-ins are built into a folder where they will be loaded by the application you are developing for.
+You'll need to specify some settings so that the plugins are built into a folder where they will be loaded by the application you are developing for.
 
-We recommend plug-ins be built into the following folder for macOS: ``/Library/Application Support/Adobe/Common/Plug-ins/[version]/MediaCore/``
+We recommend plugins be built into the following folder for macOS: ``/Library/Application Support/Adobe/Common/Plug-ins/[version]/MediaCore/``
 
 Version is locked at 7.0 for all CC versions, or CSx for earlier versions.
 
@@ -221,8 +207,8 @@ In Visual Studio, for convenience, we have set the Output File for all sample pr
 
 ..
 
-When compiling the plug-ins, if you see a link error such as:
+When compiling the plugins, if you see a link error such as:
 
-"Cannot open file "[MediaCore plug-ins path]\plugin.prm", make sure to launch Visual Studio in administrator mode. In your Visual Studio installation, right-click devenv.exe, Properties > Compatibility > Privilege Level, click "Run this program as an administrator".
+"Cannot open file "[MediaCore plugins path]\plugin.prm", make sure to launch Visual Studio in administrator mode. In your Visual Studio installation, right-click devenv.exe, Properties > Compatibility > Privilege Level, click "Run this program as an administrator".
 
-It's not recommended to copy plug-ins into the plug-in folder after you've built them, because that won't allow you to debug the plug-ins while the host application is running.
+It's not recommended to copy plugins into the plugin folder after you've built them, because that won't allow you to debug the plugins while the host application is running.

@@ -91,10 +91,10 @@ Return Codes
 +----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``imNoCaptions``                 | New in CC. Return from ``imInitiateAsyncClosedCaptionScan`` if the clip has no closed captions, or return from ``imGetNextClosedCaption`` when there are no more captions. |
 +----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``imCancel``                     | Return from ``imGetPrefs8`` if user cancels or the plug-in cannot open the file (custom/synthetic importer).                                                               |
+| ``imCancel``                     | Return from ``imGetPrefs8`` if user cancels or the plugin cannot open the file (custom/synthetic importer).                                                                |
 +----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``imBadFormatIndex``             | Return this when given an out of range format index, and from ``imGetIndFormat`` when plug-in has no more formats to enumerate.                                            |
+| ``imBadFormatIndex``             | Return this when given an out of range format index, and from ``imGetIndFormat`` when plugin has no more formats to enumerate.                                             |
 +----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``imIsCacheable``                | Return from ``imInit`` if a plug-in does not need to be called to initialize every time Premiere is launched.                                                              |
+| ``imIsCacheable``                | Return from ``imInit`` if a plugin does not need to be called to initialize every time Premiere is launched.                                                               |
 |                                  | This will help reduce the time to launch the application.                                                                                                                  |
 +----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+

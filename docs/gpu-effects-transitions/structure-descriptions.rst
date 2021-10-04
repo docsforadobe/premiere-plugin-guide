@@ -52,9 +52,9 @@ This structure contains some basic info about a GPU filter. It provides access t
 +-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
 | ``inNodeID``            | For use with ``PrSDKVideoSegmentSuite``.                                                                                                  |
 +-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-| ``ioPrivatePluginData`` | Used by a plug-in to store instance data, never touched by the host.                                                                      |
+| ``ioPrivatePluginData`` | Used by a plugin to store instance data, never touched by the host.                                                                       |
 +-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-| ``outIsRealtime``       | Specify if the plug-in is likely to play in real-time, used to determine whether the segment is red, yellow, or unmarked in the timeline. |
+| ``outIsRealtime``       | Specify if the plugin is likely to play in real-time, used to determine whether the segment is red, yellow, or unmarked in the timeline.  |
 +-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
 
 ----
@@ -171,5 +171,5 @@ This structure describes any dependencies for a rendered frame.
 +--------------------------------------+----------------------------------------------------------------------------------------------------------+
 | ``outPrecomputeCustomDataSize``      | Only needed if ``outPrecomputePixelFormat`` is custom                                                    |
 +--------------------------------------+----------------------------------------------------------------------------------------------------------+
-| ``outNeedsFieldSeparation``          | Indicates if the plug-in may operate on both fields simultaneously (eg non-spatial and non-time varying) |
+| ``outNeedsFieldSeparation``          | Indicates the plugin may operate on both fields simultaneously (eg non-spatial and non-time varying)     |
 +--------------------------------------+----------------------------------------------------------------------------------------------------------+
