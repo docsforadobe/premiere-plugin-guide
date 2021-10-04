@@ -247,6 +247,7 @@ Transmitter should fill in this information during ``QueryVideoMode``.
 +--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 |``outColorSpaceRec``| New in 14.x. Definition of the colorspace in use; defaults to BT 709 full range 32f.                                                                                |
 |                    |                                                                                                                                                                     |
+|                    | Transmitter can request host application to send frame in specific colorspace. See to ``ColorSpaceRec`` for detailed description.                                   |
 +--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 

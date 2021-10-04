@@ -133,6 +133,11 @@ exSelExport2
 
 Do the export! Identical to exSelExport, except that exDoExportRec2 (which contains a LUT description) is passed. 
 
+Exporter can specify the ID of the LUT that needs to be applied as last step in export processing. This is for including LUT for doing color space conversion in export path.
+
+In case LUT is specified, ``ExportColorSpace`` signifies the output color space of LUT.
+
+
 ----
 
 .. _exporters/selector-descriptions.exSelQueryExportFileExtension:

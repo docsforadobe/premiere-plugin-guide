@@ -628,14 +628,6 @@ Provides access to the privateData for the indicated filetype, so that the expor
 | ``fileType``         | The file format four character code set by the exporter during :ref:`exporters/selector-descriptions.exSelStartup`. |
 +----------------------+---------------------------------------------------------------------------------------------------------------------+
 
-.. code-block:: cpp
-
-  typedef struct
-  {
-    csSDK_uint32	exporterPluginID;
-    void*			privateData;
-    ColorSpaceRec	outExportColorSpace;
-  } exQueryExportColorSpaceRec;
 
 ----
 
@@ -662,5 +654,5 @@ Provides access to the privateData for the indicated filetype, so that the expor
 +------------------------+---------------------------------------------------------------------------------------------------------------------+
 | ``privateData``        | Data allocated and managed by the exporter.                                                                         |
 +------------------------+---------------------------------------------------------------------------------------------------------------------+
-| ``outExportColorSpace``| Structure describing the colorspace to be used during export.                                                       |
+| ``outExportColorSpace``| Structure describing the colorspace to be used during export. Check ``ColorSpaceRec`` for details.                  |
 +------------------------+---------------------------------------------------------------------------------------------------------------------+

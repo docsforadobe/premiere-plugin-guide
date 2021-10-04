@@ -899,8 +899,8 @@ Describes the video to be imported.
     csSDK_int32   colorProfileSupport;
     PrSDKString   codecDescription;
     csSDK_int32   colorSpaceSupport;
-  	PrTime			  frameRate;	
-	  prBool			  hasEmbeddedLUT;
+    PrTime        frameRate;	
+    prBool        hasEmbeddedLUT;
     csSDK_int32   reserved[12];
   } imImageInfoRec;
 
@@ -1031,6 +1031,13 @@ Format Info
 | ``codecDescription``        | Text description of the codec in use.                                                                                                              |
 +-----------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
 | ``ColorProfileRec``         | New in 13.0; describes the color profile being used by the importer, with this media.                                                              |
++-----------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``colorSpaceSupport``       |                                                                                                                                                    |
+|                             | Set to ``imColorSpaceSupport_Fixed`` to support color management.                                                                                  |
+|                             |                                                                                                                                                    |
+|                             | If importer is uncertain, it should use ``imColorSpaceSupport_None`` above instead.                                                                |
++-----------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+| ``hasEmbeddedLUT``          | Set to ``kPrTrue`` if media contains embedded LUT. Else set to ``kPrFalse``.                                                                       |
 +-----------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Unused
@@ -1910,7 +1917,7 @@ Describes the timecode and timecode rate associated with a clip.
 imTrimFileRec8
 ================================================================================
 
-Selector: ``imGetIndColorSpace``
+Selector: :ref:`importers/selector-descriptions.imTrimFileRec8`
 
 Describes how to trim a clip, based on information returned by the importer during ``imCheckTrim8``.
 
@@ -1960,16 +1967,18 @@ Also provides a callback to update the progress bar and check if the user has ca
 
 ----
 
-.. _importers/structure-descriptions.ColorSpaceRec:
+.. _importers/structure-descriptions.imIndColorSpaceRec:
 
-ColorSpaceRec
+imIndColorSpaceRec
 ================================================================================
 
-Selector: ``imGetIndColorSpace``
+Selector: :ref:`importers/selector-descriptions.imGetIndColorSpace`
 
-Describes the colorspace in use with the media.
+Describes the colorspace of the media.
 
 .. code-block:: cpp
+
+  typedef ColorSpaceRec	imIndColorSpaceRec;	
 
   typedef struct {
     void                 *privatedata;
@@ -1985,12 +1994,12 @@ Describes the colorspace in use with the media.
 |                       |                                                                                        |
 |                       | - ``kPrSDKColorSpaceType_Undefined``                                                   |
 |                       | - ``kPrSDKColorSpaceType_ICC``                                                         |
-|                       | - ``kPrSDKColorSpaceType_LUT``  // DO NOT USE after 14.x.                              |
+|                       | - ``kPrSDKColorSpaceType_LUT``      // DO NOT USE after 14.x.                          |
 |                       | - ``kPrSDKColorSpaceType_SEITags``                                                     |
-|                       | - ``kPrSDKColorSpaceType_MXFTags``                                                     |
+|                       | - ``kPrSDKColorSpaceType_MXFTags``  // DO NOT USE, Not supported.                      |
 |                       | - ``kPrSDKColorSpaceType_Predefined``                                                  |
 +-----------------------+----------------------------------------------------------------------------------------+
-| ioProfileRec          | A structure describing the color profile.                                              |
+| ``ioProfileRec``      | A structure describing the color profile.                                              |
 |                       |                                                                                        |
 |                       | .. code-block:: cpp                                                                    |
 |                       |                                                                                        |
@@ -1998,7 +2007,8 @@ Describes the colorspace in use with the media.
 |                       |   void*        inDestinationBuffer;                                                    |
 |                       |   PrSDKString  outName;                                                                |
 +-----------------------+----------------------------------------------------------------------------------------+
-| ``outSEICodesRec``    | A structure describing the color profile; used with H.265, HEVC, AVC and ProRes media. |
+| ``outSEICodesRec``    | A structure describing the color space using codes; used with H.265, HEVC, AVC and     |
+|                       | ProRes media.                                                                          |
 |                       |                                                                                        |
 |                       | .. code-block:: cpp                                                                    |
 |                       |                                                                                        |
@@ -2024,21 +2034,21 @@ Describes the colorspace in use with the media.
   typedef struct
   {
 	  PrSDKColorSpaceType		colorSpaceType;
-	  RawColorProfileRec		profileRec;	  // for ICC, LUTs and Predefined Color Spaces
-	  prSEIColorCodesRec		seiCodesRec;	// H-265 codes for HEVC, AVC, ProRes
+	  RawColorProfileRec		profileRec;   // for ICC and Predefined Color Spaces
+	  prSEIColorCodesRec		seiCodesRec;  // H-265 codes for HEVC, AVC, ProRes
   } RawColorSpaceRec;
 
 +-----------------------+----------------------------------------------------------------------------------------+
-| ``colorSpaceType`` | One of the following:                                                                     |
+| ``colorSpaceType``    | One of the following:                                                                  |
 |                       |                                                                                        |
 |                       | - ``kPrSDKColorSpaceType_Undefined``                                                   |
 |                       | - ``kPrSDKColorSpaceType_ICC``                                                         |
-|                       | - ``kPrSDKColorSpaceType_LUT``  // DO NOT USE after 14.x.                              |
+|                       | - ``kPrSDKColorSpaceType_LUT``      // DO NOT USE after 14.x.                          |
 |                       | - ``kPrSDKColorSpaceType_SEITags``                                                     |
-|                       | - ``kPrSDKColorSpaceType_MXFTags``                                                     |
+|                       | - ``kPrSDKColorSpaceType_MXFTags``  // DO NOT USE, Not supported.                      |
 |                       | - ``kPrSDKColorSpaceType_Predefined``                                                  |
 +-----------------------+----------------------------------------------------------------------------------------+
-| profileRec            | A structure describing the color profile.                                              |
+| profileRec            | A structure describing the color space.                                                |
 |                       |                                                                                        |
 |                       | .. code-block:: cpp                                                                    |
 |                       |                                                                                        |
@@ -2046,7 +2056,7 @@ Describes the colorspace in use with the media.
 |                       |   void*        inDestinationBuffer;                                                    |
 |                       |   PrSDKString  outName;                                                                |
 +-----------------------+----------------------------------------------------------------------------------------+
-| ``seiCodesRec``       | A structure describing the color profile; used with H.265, HEVC, AVC and ProRes media. |
+| ``seiCodesRec``       | A structure describing the color space; used with H.265, HEVC, AVC and ProRes media.   |
 |                       |                                                                                        |
 |                       | .. code-block:: cpp                                                                    |
 |                       |                                                                                        |
@@ -2058,6 +2068,16 @@ Describes the colorspace in use with the media.
 |                       |   prBool       isRGB;                                                                  |
 +-----------------------+----------------------------------------------------------------------------------------+
 
+Colorspace can be described via multiple way, type depends on ``colorSpaceType``.
+
+If type is ``kPrSDKColorSpaceType_Predefined`` - Color space is specified via predefined strings from ``PrSDKColorSpaces.h``.
+
+If type is ``kPrSDKColorSpaceType_ICC`` - Color space is specified via ICC profile in ``profileRec``.
+
+If type is ``kPrSDKColorSpaceType_SEITags`` - Color space is specified via enums codes for color primaries (C), transfer characteristic (T),  matrix equation (M). Supported C-T-M enums are defined in ``PrSDKColorSEICodes.h``.
+
+----
+
 .. _importers/structure-descriptions.EmbeddedLUTRec:
 
 EmbeddedLUTRec
@@ -2065,16 +2085,16 @@ EmbeddedLUTRec
 
 Selector: ``imGetIndColorSpace``
 
-Describes the LUT embedded with the media.
+Describes the LUT embedded with in the media.
 
 .. code-block:: cpp
 
   typedef struct
   {
-    void*					      privateData;
-    RawColorProfileRec 	lutBlobRec;
-    RawColorSpaceRec 		lutInColorSpaceRec;
-    RawColorSpaceRec 		lutOutColorSpaceRec;
+    void*               privateData;
+    RawColorProfileRec  lutBlobRec;
+    RawColorSpaceRec    lutInColorSpaceRec;
+    RawColorSpaceRec    lutOutColorSpaceRec;
   } EmbeddedLUTRec;
 
 +-----------------------+----------------------------------------------------------------------------------------+
@@ -2082,11 +2102,12 @@ Describes the LUT embedded with the media.
 +-----------------------+----------------------------------------------------------------------------------------+
 | ``lutBlobRec``        | Describes the embedded LUT.                                                            |
 +-----------------------+----------------------------------------------------------------------------------------+
-|``lutInColorSpaceRec`` | Describes the input colorspace rec.                                                    |
+|``lutInColorSpaceRec`` | Describes the LUT input colorspace rec.                                                |
 +-----------------------+----------------------------------------------------------------------------------------+
-|``lutOutColorSpaceRec``| Describes the output colorspace rec.                                                   |
+|``lutOutColorSpaceRec``| Describes the LUT output colorspace rec.                                               |
 +-----------------------+----------------------------------------------------------------------------------------+
 
+----
 
 .. _importers/structure-descriptions.imRenderContext:
 
