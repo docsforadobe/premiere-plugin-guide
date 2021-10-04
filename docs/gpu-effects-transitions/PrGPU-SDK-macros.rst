@@ -80,7 +80,7 @@ If you compile the kernel source on the customer machine, you may wish to prepro
 
 You can also compile kernels (which is always the case for CUDA) at plugin compile time, in which case you don't need the python script, or a separate preprocessing run. You will need to package the compiled kernel in your plugin if you go this route.
 
-The ProcAmp plugin example uses a preprocessing step for OpenCL and Metal.
+The ProcAmp example uses a preprocessing step for OpenCL.
 
 ----
 

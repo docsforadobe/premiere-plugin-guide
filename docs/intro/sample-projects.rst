@@ -188,7 +188,7 @@ for example: ``C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore\\``
 
 or: ``C:\Program Files\Adobe\Common\Plug-ins\CS6\MediaCore\\``
 
-Note that this Windows path is only recommended for development purposes. Windows installers should follow the guidelines here.
+Note that this Windows path is only recommended for development purposes. 
 
 In Xcode, set the build location for the project in File > Project Settings. Press the Advanced button. Under Build Location choose Custom, select Absolute, and set the Products path.
 
@@ -197,7 +197,7 @@ In Visual Studio, for convenience, we have set the Output File for all sample pr
 .. image:: ../_static/env-vars.png
    :alt: Setting Environment Variables
 
-1) On Windows 7, right-click *My Computer > Properties*, and in the left sidebar choose *Advanced System Settings*.
+1) On Windows, right-click *My Computer > Properties*, and in the left sidebar choose *Advanced System Settings*.
 
 2) In the dialog that appears, hit the *Environment Variables* button.
 
