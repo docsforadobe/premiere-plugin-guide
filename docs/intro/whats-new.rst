@@ -3,6 +3,11 @@
 Whats New
 ################################################################################
 
+What's New in 24.0
+================================================================================
+
+With the removal of Capture functionality from Premiere Pro, support for Record modules and Device Control plug-ins have been removed from the SDK.  
+
 What's New in 15.4
 ================================================================================
 
@@ -460,7 +465,7 @@ What's New in CS5?
 
 **Importers** now have access to the resolution, pixel aspect ratio, timebase, and audio sample rate of the source clip from a setup dialog. Custom importers can use a new call to update a clip after it has modified by the user in the setup dialog. Please refer to :ref:`importers/importers` for more info on what's new.
 
-**Recorders** can now provide audio metering during preview and capture. Read more about what's new in :ref:`recorders/recorders`.
+**Recorders** can now provide audio metering during preview and capture.
 
 **Exporters** and **players** can automatically take advantage of GPU acceleration, if available on the end-user's system. Each project now has a setting for the renderer that the user can choose in the project settings dialog. When renders occur through the :ref:`exporters/suites.sequence-render-suite` or the Playmod Render Suite, they now go through the renderer chosen for the current project. This allows third-party exporters and players to use the built-in GPU acceleration available in the new Mercury Playback Engine.
 
