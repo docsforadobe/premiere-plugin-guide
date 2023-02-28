@@ -13,7 +13,7 @@ Importers are used whenever frames of video or audio from a clip are needed. To 
 Recorders
 ================================================================================
 
-Users may choose a recorder in Project > Project Settings > General > Capture Format. Recorders are used to grab frames from a hardware source and write them to a file, to be imported for editing. See :ref:`recorders/recorders` for more information.
+Users may choose a recorder in Project > Project Settings > General > Capture Format. Recorders are used to grab frames from a hardware source and write them to a file, to be imported for editing.
 
 ----
 
