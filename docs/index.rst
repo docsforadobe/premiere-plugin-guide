@@ -76,6 +76,19 @@ Welcome to the Adobe Premiere Pro SDK Guide!
 
 .. toctree::
   :maxdepth: 1
+  :caption: Recorders
+
+  recorders/recorders
+  recorders/whats-new
+  recorders/getting-started
+  recorders/selector-table
+  recorders/selector-descriptions
+  recorders/return-codes
+  recorders/structures
+  recorders/structure-descriptions
+
+.. toctree::
+  :maxdepth: 1
   :caption: Export Controllers
 
   export-controllers/export-controllers
@@ -142,6 +155,21 @@ Welcome to the Adobe Premiere Pro SDK Guide!
   ae-transition-extensions/ae-transition-extensions
   ae-transition-extensions/PF_TransitionSuite
   ae-transition-extensions/getting-started
+
+.. toctree::
+  :maxdepth: 1
+  :caption: Device Controllers
+
+  device-controllers/device-controllers
+  device-controllers/whats-new
+  device-controllers/getting-started
+  device-controllers/capture
+  device-controllers/edit-to-tape
+  device-controllers/selector-table
+  device-controllers/selector-descriptions
+  device-controllers/return-codes
+  device-controllers/DeviceRec
+  device-controllers/commands
 
 .. toctree::
   :maxdepth: 1
