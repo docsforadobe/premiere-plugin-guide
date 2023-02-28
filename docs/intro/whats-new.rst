@@ -111,6 +111,11 @@ In :ref:`universals/sweetpea-suites.video-segment-render-suite`, new versions of
 
 ----
 
+What's New in CC 2024.0
+================================================================================
+
+The Transmit API has been expanded to enable multiple audio outputs, and plug-ins which stream video and audio information.
+
 What's New in CC 2015.4
 ================================================================================
 
