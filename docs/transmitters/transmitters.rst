@@ -17,13 +17,6 @@ Transmitters do not need to call the Playmod Device Controller suite to handle E
 
 ----
 
-What's New in Premiere Pro 24.0? 
-================================================================================
-
-Support for additional audio output devices has been added.
-
-----
-
 What's New in Premiere Pro CS6.0.2?
 ================================================================================
 

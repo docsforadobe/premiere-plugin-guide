@@ -3,6 +3,7 @@
 import sys
 import os
 import sphinx_rtd_theme
+#from better import better_theme_path
 
 # -- General configuration ------------------------------------------------
 
@@ -28,8 +29,8 @@ project = u'Premiere Pro C++ SDK Guide'
 copyright = u'1992–2020 Adobe Systems Incorporated'
 author = u'Adobe Systems Incorporated'
 
-version = u'24.0.0'
-release = u'24.0'
+version = u'22.0.0'
+release = u'22.0'
 
 pygments_style = 'sphinx'
 
