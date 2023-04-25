@@ -1917,7 +1917,7 @@ Describes the timecode and timecode rate associated with a clip.
 imTrimFileRec8
 ================================================================================
 
-Selector: :ref:`importers/selector-descriptions.imTrimFileRec8`
+Selector: :ref:`importers/selector-descriptions.imTrimFile8`
 
 Describes how to trim a clip, based on information returned by the importer during ``imCheckTrim8``.
 
