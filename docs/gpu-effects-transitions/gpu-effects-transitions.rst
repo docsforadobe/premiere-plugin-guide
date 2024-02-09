@@ -23,13 +23,14 @@ The CUDA SDK is also needed for CUDA rendering development.
 Compilation notes
 ================================================================================
 
-####CUDA
+**CUDA**
 
 To compile GPU effects in Premiere SDK, we highly recommend using CUDA SDK 11.8.
 
 Caution: GPU Effects built using CUDA SDK 11.8 will not work with NVIDIA Kepler generation cards. The minimum CUDA Compute Capability has been increased to sm_50.
 
-####CUDA Runtime API vs. Driver API
+**CUDA Runtime API vs. Driver API**
+
 
 `1.` Utilize CUDA Driver API
 
@@ -43,11 +44,11 @@ If you must stick to CUDA Runtime API, we recommend you statically link to the C
 
 This also works but would be prone to compatibility issues. A compatible CUDA Runtime DLL needs to be available on users’ systems so that driver can understand and be backward compatible. Currently Premiere Pro ships a copy of CUDA Runtime DLL of our recommended CUDA SDK version. This may change in future. If you must dynamically link to CUDA Runtime, we recommend you ship a copy of the CUDA Runtime DLL with your plugin and leverage dlopen/LoadLibrary to explicitly load the desired runtimes. For more details, see the CUDA Compatibility section of NVIDIA's GPU Management and Deployment guide: <https://docs.nvidia.com/deploy/cuda-compatibility/>
 
-#### DirectX
+**DirectX**
 
 We would like to announce that we have been working on introducing support for DirectX 12 in our rendering pipeline. We will soon be sharing unlock instructions to enable DirectX in your application.
 
-#### Why?
+**Why?**
 
 - Performance - DirectX 12 is a thin wrapper over the hardware which would provide us with more control than OpenCL/CUDA over the execution of our shaders. This translates to a higher ceiling for performance
 
@@ -55,10 +56,10 @@ We would like to announce that we have been working on introducing support for D
 
 - Interoperability - Seamless interoperability with our display module which already uses DirectX12
 
-#### Direction
+**Direction**
 
 Adding a new rendering engine to Premiere is a massive undertaking. Although we have made significant progress, it is still under development and will have an update for you soon.
 
-#### Feedback & Support
+**Feedback & Support**
 
 We will be happy to receive any thoughts regarding DirectX or answer any questions. I am reachable at, <pusingha@adobe.com> or you can post them on `ae_api_nda@adobe.com`
