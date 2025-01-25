@@ -21,7 +21,7 @@
 
 The required development environment is described in [SDK Audience](sdk-audience.md).
 
-See a quickstart video on building an effect using a similar SDK (on macOS): adobe.ly/2sjMDwM
+See a quickstart video on building an effect using a similar SDK (on macOS) [here](https://assets.adobe.com/public/08c43fb7-4633-4007-5201-b3b77405d770?scid=social_20180227_75678337).
 
 We've combined the sample projects into a single master project, stored in the Examples folder of the SDK.
 
