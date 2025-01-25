@@ -14,7 +14,7 @@ The 'no UI' UI type is for non-keyframeable parameters. After making changes to 
 
 ### A Filter PiPL Example
 
-```none
+```cpp
 #include "PrSDKPiPLVer.h"
 #ifndef PRWIN_ENV
 #include "PrSDKPiPL.r"
@@ -157,7 +157,7 @@ resource 'PiPL' (16000) {
 
 ## Entry Point
 
-```none
+```cpp
 short xFilter (
   short        selector,
   VideoHandle  theData)
