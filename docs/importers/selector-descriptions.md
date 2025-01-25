@@ -11,7 +11,7 @@ Additional implementation details are at the end of the chapter.
 
 Sent during application startup.
 
-Describe the importer’s capabilities in the imImportInfoRec; all options are false by default.
+Describe the importer's capabilities in the imImportInfoRec; all options are false by default.
 
 The similarly named flags in imIndFormatRec.flags are obsolete and should not be used.
 
@@ -102,7 +102,7 @@ Importer checks file validity, optionally allocates file instance data, and desc
 
 ### Synthetic Importers
 
-You can create a still frame, a movie of a set duration, or an ‘infinite’ length movie, but cannot change the properties of a synthetic file once imported.
+You can create a still frame, a movie of a set duration, or an 'infinite' length movie, but cannot change the properties of a synthetic file once imported.
 
 ---
 
@@ -192,7 +192,7 @@ Create an asynchronous importer object using the data provided, and store it in 
 
 Before going down this route, read the discussion here.
 
-Give the host a frame of video; populate the imImportImageRec buffer with pixel data, or (if you’ve set canDraw to true during `imInit`) draw to the screen in the provided window using platform-specific calls to do so.
+Give the host a frame of video; populate the imImportImageRec buffer with pixel data, or (if you've set canDraw to true during `imInit`) draw to the screen in the provided window using platform-specific calls to do so.
 
 You must scale the image data to fit the window; Premiere relies on the import module for properly scaled frames.
 
@@ -273,9 +273,9 @@ Close any child files during `imCloseFile`.
 
 Importers that open their own files should specify how many files they keep open between `imOpenFile8` and `imQuietFile` using the new Importer File Manager Suite, if the number is not equal to one.
 
-Importers that don’t open their own files, or importers that only open a single file should not use this suite.
+Importers that don't open their own files, or importers that only open a single file should not use this suite.
 
-Premiere’s File Manager now keeps track of the number of files held open by importers, and limits the number open at a time by closing the least recently used files when too many are open.
+Premiere's File Manager now keeps track of the number of files held open by importers, and limits the number open at a time by closing the least recently used files when too many are open.
 
 On Windows, this helps memory usage, but on Mac OS this addresses a whole class of bugs that may occur when too many files are open.
 
@@ -383,7 +383,7 @@ Called when Premiere trims a clip.
 
 The current file, inPoint, and new duration are given and a destination file path.
 
-If a file has video and audio, the trim time is in the video’s timebase.
+If a file has video and audio, the trim time is in the video's timebase.
 
 For audio only, the trim times are in the audio timebase.
 
@@ -513,7 +513,7 @@ Supercedes `imSetTimeInfo`.
 
 Timecode rate is important for files that have timecode, but not an implicit frame rate, or where the sampling rate might differ from the timecode rate.
 
-For example, audio captured from a tape uses the video’s frame rate for timecode, although its sampling rate is not equal to the timecode rate.
+For example, audio captured from a tape uses the video's frame rate for timecode, although its sampling rate is not equal to the timecode rate.
 
 Another example is capturing a still from tape, which could be stamped with timecode, yet not have a media frame rate.
 
@@ -595,7 +595,7 @@ New in CS5.
 
 This is used by streaming importers and folder based importers (P2, XDCAM, etc) that have multiple files that comprise the content.
 
-If an importer doesn’t support the selector then the host checks the last modification time for the main file.
+If an importer doesn't support the selector then the host checks the last modification time for the main file.
 
 ---
 
@@ -617,7 +617,7 @@ This is used by stereoscopic importers to specify which stream IDs represent the
 
 New optional selector added for After Effects CS3.
 
-As of CS4, this info still isn’t used in Premiere Pro, but is used in After Effects to display the codec name in the Project Panel.
+As of CS4, this info still isn't used in Premiere Pro, but is used in After Effects to display the codec name in the Project Panel.
 
 The importer should fill in the codec name for the specific subtype fourcc provided.
 

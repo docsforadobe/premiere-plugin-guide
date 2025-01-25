@@ -1,6 +1,6 @@
 # PrGPU SDK Macros
 
-The PrGPU SDK macros and device functions allow you to write kernels that will compile on multiple GPU compute languages - CUDA, OpenCL, and Metal. These languages have an enormous overlap - a C98 language subset, and by using the porting macros and functions to abstract out the differences, you can write portable code. You can still access API specific features not covered by the porting set but you’ll need to include an alternate code path for the other APIs.
+The PrGPU SDK macros and device functions allow you to write kernels that will compile on multiple GPU compute languages - CUDA, OpenCL, and Metal. These languages have an enormous overlap - a C98 language subset, and by using the porting macros and functions to abstract out the differences, you can write portable code. You can still access API specific features not covered by the porting set but you'll need to include an alternate code path for the other APIs.
 
 Currently the SDK does not provide host side code to compile or launch arbitrary kernels, but there are SDK examples that show how to do this for the different APIs.
 
@@ -12,7 +12,7 @@ The macros are not part of the plugin API - they are provided as a utility if yo
 
 The macros do add one external source dependency - Boost (boost.org). We use the Boost preprocessor package to manipulate kernel definitions.
 
-Depending on how you choose to compile and deploy your kernels, we also provide a small python script that may be useful (See “Preprocessing as a Separate Step”)
+Depending on how you choose to compile and deploy your kernels, we also provide a small python script that may be useful (See "Preprocessing as a Separate Step")
 
 ---
 
@@ -32,20 +32,20 @@ You will also need to define a symbol to tell the header file what API to proces
 - Metal: -DGF_DEVICE_TARGET_METAL=1
 - OpenCL:
   - DGF_DEVICE_TARGET_OPENCL=1
-  - DGF_OPENCL_SUPPORTS_16F=1 or 0, depending on whether you will support half (16-bit float) access for this device. Some older cards are quite slow at half support, or just don’t support it.
+  - DGF_OPENCL_SUPPORTS_16F=1 or 0, depending on whether you will support half (16-bit float) access for this device. Some older cards are quite slow at half support, or just don't support it.
 - CUDA: the KernelCore.h header will automatically sense the cuda compiler and will #define GF_DEVICE_TARGET_CUDA 1 for you.
 
-Only one device target flag will be active in any given compilation. The header the define the device target macros to 0 for the inactive APIs. Feel free to use these macros in your code for any API specializations. Outside of the header, we don’t need to do this much.
+Only one device target flag will be active in any given compilation. The header the define the device target macros to 0 for the inactive APIs. Feel free to use these macros in your code for any API specializations. Outside of the header, we don't need to do this much.
 
 ---
 
 ## Header Files
 
-- KernelCore.h - basic header macros. You’ll certainly want these
+- KernelCore.h - basic header macros. You'll certainly want these
 - KernelMemory.h - global device memory access abstractions for float and half
 - FloatingPoint.h - common floating point routines. These mostly hide naming differences across APIs.
 
-You’ll want to include them like this in your kernel:
+You'll want to include them like this in your kernel:
 
 ```cpp
 #include "PrGPU/KernelSupport/KernelCore.h"
@@ -53,7 +53,7 @@ You’ll want to include them like this in your kernel:
 
 The folder contains additional files used by the above files.
 
-One thing to watch out for is whether your projects are tracking header dependencies properly. If not, you’ll need to manually recompile kernels when include files change. This is true whether or not you use the SDK porting set, so you’ve likely already sorted this out.
+One thing to watch out for is whether your projects are tracking header dependencies properly. If not, you'll need to manually recompile kernels when include files change. This is true whether or not you use the SDK porting set, so you've likely already sorted this out.
 
 ---
 
@@ -67,7 +67,7 @@ You can organize your code and projects as you like, but we find it convenient t
 
 If you compile the kernel source on the customer machine, you may wish to preprocess the kernel at plugin compile time, and store the kernel source in your plugin. A python script (Python version 3 or greater required) is provided that will convert preprocessed source to a character array. The script is in Examples/Projects/GPUVideoFilter/Utils/CreateCString.py. See the ProcAmp example for usage.
 
-You can also compile kernels (which is always the case for CUDA) at plugin compile time, in which case you don’t need the python script, or a separate preprocessing run. You will need to package the compiled kernel in your plugin if you go this route.
+You can also compile kernels (which is always the case for CUDA) at plugin compile time, in which case you don't need the python script, or a separate preprocessing run. You will need to package the compiled kernel in your plugin if you go this route.
 
 The ProcAmp example uses a preprocessing step for OpenCL.
 
@@ -134,4 +134,4 @@ GF_DEVICE_FUNCTION float Average(float a, float b) {...
 
 ## Other Macros and Functions
 
-There’s a variety of other macros and functions in the KernelSupport headers. Please see the Headers and examples for details.
+There's a variety of other macros and functions in the KernelSupport headers. Please see the Headers and examples for details.

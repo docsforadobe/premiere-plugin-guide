@@ -4,7 +4,7 @@ Plug-ins must have an installer. This simplifies installation by the user, provi
 
 Create a container folder for your plug-in(s) to minimize user confusion.
 
-Don’t unintentionally overwrite existing plugins, or replace newer versions.
+Don't unintentionally overwrite existing plugins, or replace newer versions.
 
 The installer should find the default installation directories as described below.
 
@@ -20,7 +20,7 @@ Other plugin types, such as QuickTime and VfW codecs should be installed at the 
 
 ## Windows
 
-As of Premiere Pro version 22.0, the `\Plug-ins` directories have been renamed `\Plugins`, to better coincide with Apple’s Human Interface Guidelines. Premiere Pro will continue to attempt to load plugins from `\Plug-Ins` directories as well, for the foreseeable future. We will continue to specify
+As of Premiere Pro version 22.0, the `\Plug-ins` directories have been renamed `\Plugins`, to better coincide with Apple's Human Interface Guidelines. Premiere Pro will continue to attempt to load plugins from `\Plug-Ins` directories as well, for the foreseeable future. We will continue to specify
 
 Starting in CC, each version of Premiere Pro will create a unique registry key that provide locations of folders of interest for third-party installations for that version.
 
@@ -90,7 +90,7 @@ Starting in CC 2015.3, **control surface plugins** should be installed here:
 
 `/Library/Application Support/Adobe/Common/Plugins/ControlSurface/`
 
-Previously, starting in CC 2015, Premiere Pro provided installer hints for Mac. You’ll find `com.Adobe.Premiere Pro.paths.plist` at `/Library/Preferences`, which contains hints for your Mac installer to know where to install plugins, and is similar to the registry entries we have been providing on Win.
+Previously, starting in CC 2015, Premiere Pro provided installer hints for Mac. You'll find `com.Adobe.Premiere Pro.paths.plist` at `/Library/Preferences`, which contains hints for your Mac installer to know where to install plugins, and is similar to the registry entries we have been providing on Win.
 
 The **common plugin location** was at:
 
@@ -126,7 +126,7 @@ Following OS X Code Signing guidelines, plugins should be installed in this sepa
 
 ## Plugin Naming Conventions
 
-On Windows, Premiere Pro plugins must have the file extension “.prm”. On macOS, they have the file extension “.bundle”. Other supported plug-in standards use their conventional file extensions: “.aex” for After Effects plugins, “.dll” for VST plugins.
+On Windows, Premiere Pro plugins must have the file extension ".prm". On macOS, they have the file extension ".bundle". Other supported plug-in standards use their conventional file extensions: ".aex" for After Effects plugins, ".dll" for VST plugins.
 
 While it is not required for your plugin to load, naming your plugins using the plugin type as a prefix (e.g. ImporterSDK, FilterSDK, etc.) will help reduce user confusion.
 
@@ -139,7 +139,7 @@ Specific plugins can be blocked from being loaded by MediaCore in specific appli
 !!! note
     This does not work for After Effects plugins loaded by AE, although it does work for AE plugins loaded in Premiere Pro.
 
-In the plugins folder, look for the appropriate blacklist file, and append the the filename of the plugin to the file (e.g. BadPlugin, not BadPlugin.prm). If the file doesn’t exist, create it first. “Blocklist.txt” contains names of plugins blacklisted from all apps. Plugins can be blocked from loading in specific apps by including them in “Blocklist Adobe Premiere Pro.txt”, or “Blocklist After Effects.txt”, etc.
+In the plugins folder, look for the appropriate blacklist file, and append the the filename of the plugin to the file (e.g. BadPlugin, not BadPlugin.prm). If the file doesn't exist, create it first. "Blocklist.txt" contains names of plugins blacklisted from all apps. Plugins can be blocked from loading in specific apps by including them in "Blocklist Adobe Premiere Pro.txt", or "Blocklist After Effects.txt", etc.
 
 ---
 
@@ -157,7 +157,7 @@ For Windows 7 restricted user accounts, the only place that code has guaranteed 
 
 ..Users[user name]AppDataRoamingAdobePremiere Pro[version]\\
 
-This means that you cannot save data or documents in the application folder. There is currently no plugin API for storing preferences in the application prefs folder. Plugins can create their own preferences file in the user’s Premiere prefs directory like so:
+This means that you cannot save data or documents in the application folder. There is currently no plugin API for storing preferences in the application prefs folder. Plugins can create their own preferences file in the user's Premiere prefs directory like so:
 
 ```cpp
 HRESULT herr = SHGetKnownFolderPath(FOLDERID_RoamingAppData, 0, NULL, preferencesPath);
@@ -174,7 +174,7 @@ This should get you started getting the Application Support folder which you can
 
 ## Dog Ears
 
-Premiere Pro’s built-in player has a mode to display statistics, historically known as “dog ears”, which can be useful in debugging and tuning performance of importers, effects, transitions, and transmitters. The statistics include frames per second, frames dropped during playback, pixel format rendered, render size, and field type being rendered.
+Premiere Pro's built-in player has a mode to display statistics, historically known as "dog ears", which can be useful in debugging and tuning performance of importers, effects, transitions, and transmitters. The statistics include frames per second, frames dropped during playback, pixel format rendered, render size, and field type being rendered.
 
 You can bring up the debug console in Premiere Pro. You can do this via Ctrl/Cmd-F12. To enable the dog ears, type this:
 
@@ -193,4 +193,4 @@ If the enter keystroke seems to go to the wrong panel, this is an intermittent p
 Once enabled, the player displays the statistics as black text on a partially transparent background. This allows you to still see the underlying video (to some extent) and yet also read the text. When you turn off dog ears, the setting may not take effect until you switch or reopen your current sequence.
 
 !!! note
-    If you are developing a transmitter, displaying dog ears will result in duplicate calls to PushVideo for the same frame. This happens because the player routinely updates the dog ears on a timer even when the frame hasn’t changed for updated stats. As of CS6, this triggers a PushVideo to active transmitters as a side effect.
+    If you are developing a transmitter, displaying dog ears will result in duplicate calls to PushVideo for the same frame. This happens because the player routinely updates the dog ears on a timer even when the frame hasn't changed for updated stats. As of CS6, this triggers a PushVideo to active transmitters as a side effect.

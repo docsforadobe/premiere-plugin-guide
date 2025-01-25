@@ -8,7 +8,7 @@ The GPU extensions work on top of effects and transitions built using the After 
 
 ## System Requirements
 
-The system requirements for developing GPU effects & transitions are higher than developing other plugins. You’ll need a video card that supports Mercury Playback Engine GPU-
+The system requirements for developing GPU effects & transitions are higher than developing other plugins. You'll need a video card that supports Mercury Playback Engine GPU-
 
 acceleration. Make sure your video card supports the type of video acceleration you are developing, on the platform you are developing on. See this page for the latest supported video cards: [https://helpx.adobe.com/premiere-pro/system-requirements.html](https://helpx.adobe.com/premiere-pro/system-requirements.html)
 
@@ -32,11 +32,11 @@ For best compatibility, we highly recommend utilizing CUDA Driver API only. Unli
 
 2. Statically Link to CUDA Runtime
 
-If you must stick to CUDA Runtime API, we recommend you statically link to the CUDA Runtime. That’s an alternative way for leveraging the backwards compatibility of the driver into the future. This can be done by linking cudart_static.lib.
+If you must stick to CUDA Runtime API, we recommend you statically link to the CUDA Runtime. That's an alternative way for leveraging the backwards compatibility of the driver into the future. This can be done by linking cudart_static.lib.
 
 3. Dynamically Link to CUDA Runtime
 
-This also works but would be prone to compatibility issues. A compatible CUDA Runtime DLL needs to be available on users’ systems so that driver can understand and be backward compatible. Currently Premiere Pro ships a copy of CUDA Runtime DLL of our recommended CUDA SDK version. This may change in future. If you must dynamically link to CUDA Runtime, we recommend you ship a copy of the CUDA Runtime DLL with your plugin and leverage dlopen/LoadLibrary to explicitly load the desired runtimes. For more details, see the CUDA Compatibility section of NVIDIA’s GPU Management and Deployment guide: <[https://docs.nvidia.com/deploy/cuda-compatibility/](https://docs.nvidia.com/deploy/cuda-compatibility/)>
+This also works but would be prone to compatibility issues. A compatible CUDA Runtime DLL needs to be available on users' systems so that driver can understand and be backward compatible. Currently Premiere Pro ships a copy of CUDA Runtime DLL of our recommended CUDA SDK version. This may change in future. If you must dynamically link to CUDA Runtime, we recommend you ship a copy of the CUDA Runtime DLL with your plugin and leverage dlopen/LoadLibrary to explicitly load the desired runtimes. For more details, see the CUDA Compatibility section of NVIDIA's GPU Management and Deployment guide: <[https://docs.nvidia.com/deploy/cuda-compatibility/](https://docs.nvidia.com/deploy/cuda-compatibility/)>
 
 **DirectX**
 

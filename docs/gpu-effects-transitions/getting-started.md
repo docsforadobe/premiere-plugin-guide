@@ -10,13 +10,13 @@ The samples also use Boost, which may be downloaded at boost.org. Download that,
 
 Finally, install Python (version 3.6 or greater), if you do not have it already. It may be downloaded at python.org. The sample projects use this as part of the custom build steps.
 
-Depending on whether your effect will use CUDA, you’ll need to download the CUDA SDK. On Windows, create an environment variable pointing to it named CUDA_SDK_BASE_PATH, so that the linker will find the right libraries.
+Depending on whether your effect will use CUDA, you'll need to download the CUDA SDK. On Windows, create an environment variable pointing to it named CUDA_SDK_BASE_PATH, so that the linker will find the right libraries.
 
 ---
 
 ## Querying for Parameters and other Attributes of a Effect or Transition
 
-You’ll notice that PrGPUFilterRenderParams has some attributes about an effect or transition, but many things, such as the parameters or duration of the clip to which the plugin is applied, are not found in that structure. These attributes will need to be queried using the GetParam() and GetProperty() helper functions in PrGPUFilterModule.h. For example:
+You'll notice that PrGPUFilterRenderParams has some attributes about an effect or transition, but many things, such as the parameters or duration of the clip to which the plugin is applied, are not found in that structure. These attributes will need to be queried using the GetParam() and GetProperty() helper functions in PrGPUFilterModule.h. For example:
 
 GetProperty(kVideoSegmentProperty_Effect_EffectDuration, duration);
 
@@ -26,7 +26,7 @@ GetProperty(kVideoSegmentProperty_Transition_TransitionDuration, duration);
 
 ## Lifetime of a GPU Effect / Transition
 
-A new GPU effect instance is created when an effect/transition is applied in the timeline, or when an effect parameter is changed. When rendering a series of frames it won’t needlessly be recreated. The [Opaque Effect Data Suite](suites.md#gpu-effects-transitions-suites-opaque-effect-data-suite) should be used to share unflattened sequence data between instances of the same effect on a track item.
+A new GPU effect instance is created when an effect/transition is applied in the timeline, or when an effect parameter is changed. When rendering a series of frames it won't needlessly be recreated. The [Opaque Effect Data Suite](suites.md#gpu-effects-transitions-suites-opaque-effect-data-suite) should be used to share unflattened sequence data between instances of the same effect on a track item.
 
 ---
 

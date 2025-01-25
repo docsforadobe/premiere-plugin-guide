@@ -59,7 +59,7 @@ Premiere Elements uses the same core libraries for plug-in support that Premiere
 |                               9 | CS5                                       |
 |                               8 | CS4                                       |
 
-It’s always important to test the plug-in fully in each application before advertising compatibility.
+It's always important to test the plug-in fully in each application before advertising compatibility.
 
 Check out [Guidelines for Exporters in Premiere Elements](../exporters/additional-details.md#exporters-additional-details-guidelines-for-exporters-in-premiere-elements) for instructions on how to set up your exporter to be used in Premiere Elements.
 

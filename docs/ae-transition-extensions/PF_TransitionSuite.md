@@ -1,6 +1,6 @@
 # PF_TransitionSuite
 
-In PrSDKAESupport.h, we’ve added `PF_TransitionSuite::RegisterTransitionInputParam()`.
+In PrSDKAESupport.h, we've added `PF_TransitionSuite::RegisterTransitionInputParam()`.
 
 This call must be made before the `PF_ADD_PARAM()` call during `PF_Cmd_PARAM_SETUP`.
 

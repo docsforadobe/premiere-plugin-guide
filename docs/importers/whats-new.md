@@ -1,14 +1,14 @@
-# What’s New
+# What's New
 
-## What’s New in Premiere Pro CC 2019 (13.0)
+## What's New in Premiere Pro CC 2019 (13.0)
 
-We’ve begun adding colorspace support to Premiere Pro’s APIs, beginning with Importers.
+We've begun adding colorspace support to Premiere Pro's APIs, beginning with Importers.
 
 Adding APIs AddFrameToCacheWithColorSpace() and GetFrameFromCacheWithColorSpace() which will deprecate AddFrameToCacheWithColorProfile2() and GetFrameFromCacheWithColorProfile2().
 
 ---
 
-## What’s New in Premiere Pro CC 2014
+## What's New in Premiere Pro CC 2014
 
 Importers can now choose the format they are rendering in, which allows importers to change pixel formats and quality based on criteria like enabled hardware and other Clip Source Settings, such as HDR. To handle the negotiation, implement *imSelectClipFrameDescriptor*.
 
@@ -20,13 +20,13 @@ imFileInfoRec8.highMemUsage is no longer supported.
 
 ---
 
-## What’s New in Premiere Pro CC October 2013 release?
+## What's New in Premiere Pro CC October 2013 release?
 
 imInitiateAsyncClosedCaptionScanRec now provides extra fields for the importer to fill in the estimated duration of all the captions. This is useful for certain cases where the embedded captions contain many frames of empty data.
 
 ---
 
-## What’s New in Premiere Pro CC?
+## What's New in Premiere Pro CC?
 
 Starting in CC, importers can support closed captioning that is embedded in the source media. Note that Premiere Pro can also import and export captions in a sidecar file (e.g. .mcc, .scc, or
 
@@ -38,13 +38,13 @@ The clip preferences are now passed with imIndPixelFormatRec, so that an importe
 
 ---
 
-## What’s New in Premiere Pro CS6.0.2?
+## What's New in Premiere Pro CS6.0.2?
 
 This release adds more support for growing files by adding a new flag, `imFileInfoRec8.mayBeGrowing`.
 
 ---
 
-## What’s New in Premiere Pro CS6?
+## What's New in Premiere Pro CS6?
 
 Importers can now bring in stereoscopic footage as a single clip with separate left and right channels.
 
@@ -60,7 +60,7 @@ The importer-wide setting still remains in `imImportInfoRec.canProvidePeakAudio`
 
 ---
 
-## What’s New in Premiere Pro CS5.5?
+## What's New in Premiere Pro CS5.5?
 
 Importers can now support color management, when running in After Effects. The importer should set imImageInfoRec.colorProfileSupport to imColorProfileSupport_Fixed, and then describe the color profiles supported by the clip using the new `imGetIndColorProfile` selector. When importing the frame, specify the color profile in imSourceVideoRec. selectedColorProfileName. The [PPix Cache Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-ppix-cache-suite) has been updated to differentiate between color profiles as well.
 
@@ -70,9 +70,9 @@ The new return value, imRequiresProtectedContent, allows an importer to be disab
 
 ---
 
-## What’s New in Premiere Pro CS5?
+## What's New in Premiere Pro CS5?
 
-When an importer’s settings dialog is opened, the importer now has access to the resolution, pixel aspect ratio, timebase, and audio sample rate of the source clip, in imGetPrefsRec.
+When an importer's settings dialog is opened, the importer now has access to the resolution, pixel aspect ratio, timebase, and audio sample rate of the source clip, in imGetPrefsRec.
 
 Custom importers can now use a new call in the Importer File Manager Suite,
 
@@ -80,7 +80,7 @@ RefreshFileAsync(), to be able to update a clip after it is modified in *imGetPr
 
 Two new selectors have been added. *imQueryDestinationPath* allows importers that trim or copy files to be able to change the destination path of the trimmed or copy file. *imQueryContentState* gives the host an alternate way of checking the state of a clip, for clips that have multiple source files. A new return value, inFileNotAvailable can be returned from *imQueryContentState* if the clip is no longer available because it is offline or has been deleted.
 
-As a convenience, when a file is opened, an importer can tell Premiere Pro how much memory to reserve for the importer’s usage, rather than calling ReserveMemory in the [Memory Manager Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-memory-manager-suite). The importer should pass back this value in `imFileOpenRec8.outExtraMemoryUsage`.
+As a convenience, when a file is opened, an importer can tell Premiere Pro how much memory to reserve for the importer's usage, rather than calling ReserveMemory in the [Memory Manager Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-memory-manager-suite). The importer should pass back this value in `imFileOpenRec8.outExtraMemoryUsage`.
 
 Several new return values are available for more descriptive error reporting:
 
@@ -96,7 +96,7 @@ Several new return values are available for more descriptive error reporting:
 
 ---
 
-## What’s New in Premiere Pro CS4?
+## What's New in Premiere Pro CS4?
 
 For CS4 only, importers are loaded and called from a separate process. As a result of being in a separate process, (1) all importers must do their own file handling, (2) privateData is no
 
@@ -124,17 +124,17 @@ New in Premiere Pro 4.1, there is a new filepath member in imFileInfoRec8. For c
 
 ---
 
-## What’s New in Premiere Pro CS3?
+## What's New in Premiere Pro CS3?
 
 Importers can specify an initial poster frame for a clip in imImageInfoRec.
 
-Importers can specify subtype names during the new *imGetSubTypeNames* selector. This selector is sent after each *imGetIndFormat*, which gives an importer the opportunity to enumerate all the fourCCs and display names (e.g. “Cinepak”) of their known compression types for a specific filetype. The importer can return imUnsupported, or create an array of `imSubTypeDescriptionRec` records (pairs of fourCCs and codec name strings) for all the codecs/subtypes it knows about.
+Importers can specify subtype names during the new *imGetSubTypeNames* selector. This selector is sent after each *imGetIndFormat*, which gives an importer the opportunity to enumerate all the fourCCs and display names (e.g. "Cinepak") of their known compression types for a specific filetype. The importer can return imUnsupported, or create an array of `imSubTypeDescriptionRec` records (pairs of fourCCs and codec name strings) for all the codecs/subtypes it knows about.
 
-Importers that open their own files should specify how many files they keep open between `imOpenFile8` and `imQuietFile` using the new Importer File Manager Suite, if the number is not equal to one. Importers that don’t open their own files, or importers that only open a single file should not use this suite. Premiere’s File Manager now keeps track of the number of files held open by importers, and limits the number open at a time by closing the least recently used files when too many are open. On Windows, this helps memory usage, but on Mac OS this addresses a whole class of bugs that may occur when too many files are open.
+Importers that open their own files should specify how many files they keep open between `imOpenFile8` and `imQuietFile` using the new Importer File Manager Suite, if the number is not equal to one. Importers that don't open their own files, or importers that only open a single file should not use this suite. Premiere's File Manager now keeps track of the number of files held open by importers, and limits the number open at a time by closing the least recently used files when too many are open. On Windows, this helps memory usage, but on Mac OS this addresses a whole class of bugs that may occur when too many files are open.
 
 Importers can also specify that certain files have very high memory usage, by setting `imFileInfoRec8.highMemUsage`. The number of files allowed to be open with this flag set to true is currently capped at 5.
 
-Importers can now specify an arbitrary matte color for premultiplied alpha channels in `imImageInfoRec.matteColor`. Importers can state that they are uncertain about a clip’s pixel aspect ratio, field type, or alpha info in imImageInfoRec.interpretationUncertain.
+Importers can now specify an arbitrary matte color for premultiplied alpha channels in `imImageInfoRec.matteColor`. Importers can state that they are uncertain about a clip's pixel aspect ratio, field type, or alpha info in imImageInfoRec.interpretationUncertain.
 
 The imInvalidHandleValue is now -1 for Mac OS.
 

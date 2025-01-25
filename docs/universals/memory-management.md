@@ -10,7 +10,7 @@ Premiere Pro manages this cache itself, so as it adds new items to the cache, it
 
 ## What Really is a Memory Problem?
 
-Often, users monitoring memory usage are alarmed when they see memory growing to a specific point during a render or playback. When the memory doesn’t drop right back down after a render or playback, they might think they have found a memory leak. However, keeping in mind the function of the Premiere Pro media cache, this behavior is to be expected.
+Often, users monitoring memory usage are alarmed when they see memory growing to a specific point during a render or playback. When the memory doesn't drop right back down after a render or playback, they might think they have found a memory leak. However, keeping in mind the function of the Premiere Pro media cache, this behavior is to be expected.
 
 On the other hand, memory contention between plugins and the rest of Premiere Pro can lead to memory problems. If a plugin allocates a significant amount of memory and the Premiere Pro media cache has not accounted for it, this means there is less free memory available after the media cache grows to the predefined size. Even if Premiere Pro does not completely run out of memory, limited memory can cause memory thrashing as memory is moved around to make room for video frames, which in turn can cause poor performance.
 

@@ -23,7 +23,7 @@ typedef struct {
 } exDoExportRec;
 ```
 
-| `exporterPluginID`     | The host’s internal identifier for this exporter, used for various suite calls, such as in the [Sequence Render Suite](suites.md#exporters-suites-sequence-render-suite) and [Sequence Audio Suite](suites.md#exporters-suites-sequence-audio-suite).          |
+| `exporterPluginID`     | The host's internal identifier for this exporter, used for various suite calls, such as in the [Sequence Render Suite](suites.md#exporters-suites-sequence-render-suite) and [Sequence Audio Suite](suites.md#exporters-suites-sequence-audio-suite).          |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `privateData`          | Data allocated and managed by the exporter.                                                                                                                                                                                                                    |
 | `fileType`             | The file format four character code set by the exporter during [exSelStartup](selector-descriptions.md#exporters-selector-descriptions-exselstartup).<br/><br/>Indicates which format the exporter should write, since exporters can support multiple formats. |
@@ -69,7 +69,7 @@ typedef struct {
 } exDoExportRec2;
 ```
 
-| `exporterPluginID`     | The host’s internal identifier for this exporter, used for various suite calls, such as in the [Sequence Render Suite](suites.md#exporters-suites-sequence-render-suite) and [Sequence Audio Suite](suites.md#exporters-suites-sequence-audio-suite).          |
+| `exporterPluginID`     | The host's internal identifier for this exporter, used for various suite calls, such as in the [Sequence Render Suite](suites.md#exporters-suites-sequence-render-suite) and [Sequence Audio Suite](suites.md#exporters-suites-sequence-audio-suite).          |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `privateData`          | Data allocated and managed by the exporter.                                                                                                                                                                                                                    |
 | `fileType`             | The file format four character code set by the exporter during [exSelStartup](selector-descriptions.md#exporters-selector-descriptions-exselstartup).<br/><br/>Indicates which format the exporter should write, since exporters can support multiple formats. |
@@ -93,7 +93,7 @@ typedef struct {
 
 Selector: [exSelStartup](selector-descriptions.md#exporters-selector-descriptions-exselstartup) and [exSelShutdown](selector-descriptions.md#exporters-selector-descriptions-exselshutdown) (starting in CS6)
 
-Describe the exporter’s capabilities by filling out this structure during [exSelStartup](selector-descriptions.md#exporters-selector-descriptions-exselstartup).
+Describe the exporter's capabilities by filling out this structure during [exSelStartup](selector-descriptions.md#exporters-selector-descriptions-exselstartup).
 
 For each filetype, populate exExporterInfoRec and return `exportReturnIterateExporter`.
 
@@ -123,13 +123,13 @@ typedef struct {
 } exExporterInfoRec;
 ```
 
-| `fileType`                 | The file format four character code (e.g. ‘AVIV’ = Video for Windows, ‘MooV’ = QuickTime).                                                                                                                                                                                                                                                                 |
+| `fileType`                 | The file format four character code (e.g. 'AVIV' = Video for Windows, 'MooV' = QuickTime).                                                                                                                                                                                                                                                                 |
 |----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `fileTypeName`             | The localized display name for the fileype.                                                                                                                                                                                                                                                                                                                |
 | `fileTypeDefaultExtension` | The default extension for the filetype. An exporter can support multiple extensions per filetype, by implementing `exSelQueryExportFileExtension`.                                                                                                                                                                                                         |
 | `classID`                  | Class identifier for the module, differentiates between exporters that support the same filetype and creates associations between different Media Abstraction Layer plugins.                                                                                                                                                                               |
 | `exportReqIndex`           | If an exporter supports multiple filetypes, this index will be incremented by the host for each call, as the exporter is requested to describe its capabilities for each filetype.<br/><br/>Initially zero, incremented by the host each time the exporter returns `exportReturn_IterateExporter`.                                                         |
-| `wantsNoProgressBar`       | If non-zero, the default exporter progress dialog will be turned off, allowing the exporter to display its own progress dialog.<br/><br/>The exporter also will not get `exportReturn_Abort` errors from the host during callbacks – it must detect an abort on its own, and return `exportReturn_Abort` from `exSelExport` if the user aborts the export. |
+| `wantsNoProgressBar`       | If non-zero, the default exporter progress dialog will be turned off, allowing the exporter to display its own progress dialog.<br/><br/>The exporter also will not get `exportReturn_Abort` errors from the host during callbacks - it must detect an abort on its own, and return `exportReturn_Abort` from `exSelExport` if the user aborts the export. |
 | `hideInUI`                 | Set this to non-zero if this filetype should only be used for making preview files, and should not be visible as a general export choice.                                                                                                                                                                                                                  |
 | `doesNotSupportAudioOnly`  | Set this to non-zero for filetypes that do not support audio-only exports.                                                                                                                                                                                                                                                                                 |
 | `canExportVideo`           | Set this to non-zero if the exporter can output video.                                                                                                                                                                                                                                                                                                     |
@@ -160,7 +160,7 @@ typedef struct {
 } exExporterInstanceRec;
 ```
 
-| `exporterPluginID`   | The host’s internal identifier for this exporter. Do not modify.                                                                                      |
+| `exporterPluginID`   | The host's internal identifier for this exporter. Do not modify.                                                                                      |
 |----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `fileType`           | The file format four character code set by the exporter during [exSelStartup](selector-descriptions.md#exporters-selector-descriptions-exselstartup). |
 | `privateData`        | Data allocated and managed by the exporter.                                                                                                           |
@@ -181,7 +181,7 @@ typedef struct {
 } exExporterInstanceRec;
 ```
 
-| `exporterPluginID`   | The host’s internal identifier for this exporter. Do not modify.                                                                                      |
+| `exporterPluginID`   | The host's internal identifier for this exporter. Do not modify.                                                                                      |
 |----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `privateData`        | Data allocated and managed by the exporter.                                                                                                           |
 | `fileType`           | The file format four character code set by the exporter during [exSelStartup](selector-descriptions.md#exporters-selector-descriptions-exselstartup). |
@@ -206,7 +206,7 @@ typedef struct {
 } exParamButtonRec;
 ```
 
-| `exporterPluginID`      | The host’s internal identifier for this exporter. Do not modify.                                                                                      |
+| `exporterPluginID`      | The host's internal identifier for this exporter. Do not modify.                                                                                      |
 |-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `privateData`           | Data allocated and managed by the exporter.                                                                                                           |
 | `fileType`              | The file format four character code set by the exporter during [exSelStartup](selector-descriptions.md#exporters-selector-descriptions-exselstartup). |
@@ -238,7 +238,7 @@ typedef struct {
 } exParamChangedRec;
 ```
 
-| `exporterPluginID`       | The host’s internal identifier for this exporter. Do not modify.                                                                                                                                                   |
+| `exporterPluginID`       | The host's internal identifier for this exporter. Do not modify.                                                                                                                                                   |
 |--------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `privateData`            | Data allocated and managed by the exporter.                                                                                                                                                                        |
 | `fileType`               | The file format four character code set by the exporter during [exSelStartup](selector-descriptions.md#exporters-selector-descriptions-exselstartup).                                                              |
@@ -268,7 +268,7 @@ typedef struct {
 } exParamSummaryRec;
 ```
 
-| `exporterPluginID`   | The host’s internal identifier for this exporter. Do not modify.    |
+| `exporterPluginID`   | The host's internal identifier for this exporter. Do not modify.    |
 |----------------------|---------------------------------------------------------------------|
 | `privateData`        | Data allocated and managed by the exporter.                         |
 | `exportAudio`        | If non-zero, the current settings are set to export audio.          |
@@ -296,7 +296,7 @@ typedef struct {
 } exPostProcessParamsRec;
 ```
 
-| `exporterPluginID`       | The host’s internal identifier for this exporter. Do not modify.                                                                                      |
+| `exporterPluginID`       | The host's internal identifier for this exporter. Do not modify.                                                                                      |
 |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `privateData`            | Data allocated and managed by the exporter.                                                                                                           |
 | `fileType`               | The file format four character code set by the exporter during [exSelStartup](selector-descriptions.md#exporters-selector-descriptions-exselstartup). |
@@ -321,7 +321,7 @@ typedef struct {
 } exQueryExportFileExtensionRec;
 ```
 
-| `exporterPluginID`   | The host’s internal identifier for this exporter. Do not modify.                                                                                      |
+| `exporterPluginID`   | The host's internal identifier for this exporter. Do not modify.                                                                                      |
 |----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `privateData`        | Data allocated and managed by the exporter.                                                                                                           |
 | `fileType`           | The file format four character code set by the exporter during [exSelStartup](selector-descriptions.md#exporters-selector-descriptions-exselstartup). |
@@ -346,7 +346,7 @@ typedef struct {
 } exQueryOutputFileListRec;
 ```
 
-| `exporterPluginID`   | The host’s internal identifier for this exporter. Do not modify.                                                                                                                                                                                                                                                                                        |
+| `exporterPluginID`   | The host's internal identifier for this exporter. Do not modify.                                                                                                                                                                                                                                                                                        |
 |----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `privateData`        | Data allocated and managed by the exporter.                                                                                                                                                                                                                                                                                                             |
 | `fileType`           | The file format four character code set by the exporter during [exSelStartup](selector-descriptions.md#exporters-selector-descriptions-exselstartup).                                                                                                                                                                                                   |
@@ -384,7 +384,7 @@ typedef struct {
 } exQueryOutputSettingsRec;
 ```
 
-| `exporterPluginID`                   | The host’s internal identifier for this exporter. Do not modify.                                                                                                                                                                                                                              |
+| `exporterPluginID`                   | The host's internal identifier for this exporter. Do not modify.                                                                                                                                                                                                                              |
 |--------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `privateData`                        | Data allocated and managed by the exporter.                                                                                                                                                                                                                                                   |
 | `fileType`                           | The file format four character code set by the exporter during [exSelStartup](selector-descriptions.md#exporters-selector-descriptions-exselstartup).                                                                                                                                         |
@@ -412,7 +412,7 @@ typedef struct {
 } exQueryStillSequenceRec;
 ```
 
-| `exporterPluginID`      | The host’s internal identifier for this exporter. Do not modify.                                                                                      |
+| `exporterPluginID`      | The host's internal identifier for this exporter. Do not modify.                                                                                      |
 |-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `privateData`           | Data allocated and managed by the exporter.                                                                                                           |
 | `fileType`              | The file format four character code set by the exporter during [exSelStartup](selector-descriptions.md#exporters-selector-descriptions-exselstartup). |
@@ -435,7 +435,7 @@ typedef struct {
 } exExporterInstanceRec;
 ```
 
-| `exporterPluginID`   | The host’s internal identifier for this exporter. Do not modify.                                                                                      |
+| `exporterPluginID`   | The host's internal identifier for this exporter. Do not modify.                                                                                      |
 |----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `privateData`        | Data allocated and managed by the exporter.                                                                                                           |
 | `fileType`           | The file format four character code set by the exporter during [exSelStartup](selector-descriptions.md#exporters-selector-descriptions-exselstartup). |
@@ -457,7 +457,7 @@ typedef struct
 } exQueryExportColorSpaceRec;
 ```
 
-| `exporterPluginID`    | The host’s internal identifier for this exporter. Do not modify.                                 |
+| `exporterPluginID`    | The host's internal identifier for this exporter. Do not modify.                                 |
 |-----------------------|--------------------------------------------------------------------------------------------------|
 | `privateData`         | Data allocated and managed by the exporter.                                                      |
 | `outExportColorSpace` | Structure describing the colorspace to be used during export. Check `ColorSpaceRec` for details. |

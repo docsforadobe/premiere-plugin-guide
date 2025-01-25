@@ -15,4 +15,4 @@ Here are some examples of pixel aspect ratios:
 
 In certain legacy structures, PAR is represented as a single 32-bit integer, such as in `recCapInfoRec.pixelAspectRatio`.
 
-This uses a representation where the numerator is bit-shifted 16 to the left, and OR’d with the denominator. For example NTSC DV 0.9091 PAR is `(10 << 16) \| 11`.
+This uses a representation where the numerator is bit-shifted 16 to the left, and OR'd with the denominator. For example NTSC DV 0.9091 PAR is `(10 << 16) \| 11`.

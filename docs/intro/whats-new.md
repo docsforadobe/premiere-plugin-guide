@@ -1,30 +1,30 @@
 # Whats New
 
-## What’s New in 24.0
+## What's New in 24.0
 
 With the removal of Capture functionality from Premiere Pro, support for Record modules and Device Control plug-ins have been removed from the SDK.
 
-## What’s New in 15.4
+## What's New in 15.4
 
-We’ve updated the `PrSetEnv.h` header, to allow building ARM-native plugins.
+We've updated the `PrSetEnv.h` header, to allow building ARM-native plugins.
 
-## What’s New in 14.2
+## What's New in 14.2
 
 Cleared the dust and debris off of the SDK source files. ;) The primary motivation for this new SDK release is to provided updated headers. Example code utilizing those new headers, as well as documentation of their new contents, will (regrettably) need to wait for another day.
 
-## What’s New in 13.1
+## What's New in 13.1
 
-Removed “CC” from the product name.
-
----
-
-## What’s New in 13.0
-
-The only significant change to Premiere Pro’s C++ APIs for 13.0 is the addition of color-space specifiers to the Importer API. The ColorProfileRec structure is deprecated; instead, Importers will describe supported colorspaces (in response to imGetIndColorSpace ) using a ColorSpaceRec.
+Removed "CC" from the product name.
 
 ---
 
-## What’s New in 12.0
+## What's New in 13.0
+
+The only significant change to Premiere Pro's C++ APIs for 13.0 is the addition of color-space specifiers to the Importer API. The ColorProfileRec structure is deprecated; instead, Importers will describe supported colorspaces (in response to imGetIndColorSpace ) using a ColorSpaceRec.
+
+---
+
+## What's New in 12.0
 
 ### Effects and Transitions
 
@@ -36,11 +36,11 @@ Multiple effects and transitions can now be implemented in a single plugin binar
 
 [Sequence Info Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-sequence-info-suite) is now at version 5, adding the new call GetImmersiveVideoVRConfiguration(), which returns the VR video settings of the specified sequence.
 
-New selector available for [Export Info Suite](../exporters/suites.md#exporters-suites-export-info-suite): kExportInfo_SourceBitrate. This returns the source’s bitrate in kbps, and is not available for all source types. exParamType can now be of type exParamType_thumbnail. A new flag exParamFlag_verticalAlignment can now be set so that property name and value controls are displayed vertically rather than side-by-side.
+New selector available for [Export Info Suite](../exporters/suites.md#exporters-suites-export-info-suite): kExportInfo_SourceBitrate. This returns the source's bitrate in kbps, and is not available for all source types. exParamType can now be of type exParamType_thumbnail. A new flag exParamFlag_verticalAlignment can now be set so that property name and value controls are displayed vertically rather than side-by-side.
 
 ---
 
-## What’s New in CC 2017.1
+## What's New in CC 2017.1
 
 ### Importers
 
@@ -62,13 +62,13 @@ The Playmod Immersive Video Suite can be used to query whether or not ambisonics
 
 ---
 
-## What’s New in CC 2017
+## What's New in CC 2017
 
 ### VR Video Support added
 
 Transmit plugins can have the VR perspective in the desktop Monitor driven by the Head-Mounted Display, so when the person with the Head-Mounted Display looks in a different direction, the desktop Monitor shows that same perspective. To do this, the transmit plugin can use the new Playmod Immersive Video Suite to indicate that it supports tracking.
 
-Once Premiere sees the transmitter supports tracking, when the user activates the VR viewer, the new menu item, “Track Head-Mounted Display” will become active, and can be toggled to begin tracking. The transmitter should call NotifyDirection() as frequently it wants with updated info. Premiere will pick up the new position on the next frame draw.
+Once Premiere sees the transmitter supports tracking, when the user activates the VR viewer, the new menu item, "Track Head-Mounted Display" will become active, and can be toggled to begin tracking. The transmitter should call NotifyDirection() as frequently it wants with updated info. Premiere will pick up the new position on the next frame draw.
 
 For importers, imFileInfoRec8 has now been expanded so that if an importer detects that a clip contains VR video, it can inform Premiere.
 
@@ -76,7 +76,7 @@ For importers, imFileInfoRec8 has now been expanded so that if an importer detec
 
 This SDK includes a new render path for the ProcAmp sample for Metal. This sample requires macOS 10.11.4 and later.
 
-We’ve also added a sample GPU effect called Vignette, donated by Bart Walczak. This effect has OpenCL, CUDA, and software render paths. Software rendering in Premiere Pro includes
+We've also added a sample GPU effect called Vignette, donated by Bart Walczak. This effect has OpenCL, CUDA, and software render paths. Software rendering in Premiere Pro includes
 
 8-bit/32-bit RGB/YUV software render paths. Software rendering in After Effects includes 8-bit and 32-bit smart rendering.
 
@@ -84,7 +84,7 @@ And lastly, the Control Surface sample is now cross-platform.
 
 ### New Panel/Scripting Capabilities
 
-Scripting, the processing underlying HTML5 panels, is consistently being improved upon. In this release, we’ve added scripting functions to add/modify effect keyframes. See the sample panel code on GitHub:
+Scripting, the processing underlying HTML5 panels, is consistently being improved upon. In this release, we've added scripting functions to add/modify effect keyframes. See the sample panel code on GitHub:
 
 [https://github.com/Adobe-CEP/Samples/tree/master/PProPanel](https://github.com/Adobe-CEP/Samples/tree/master/PProPanel)
 
@@ -96,11 +96,11 @@ In [Video Segment Render Suite](../universals/sweetpea-suites.md#universals-swee
 
 ---
 
-## What’s New in CC 2024.0
+## What's New in CC 2024.0
 
 The Transmit API has been expanded to enable multiple audio outputs, and plug-ins which stream video and audio information.
 
-## What’s New in CC 2015.4
+## What's New in CC 2015.4
 
 ### Metal rendering for Effects and Transitions
 
@@ -108,7 +108,7 @@ GPU-accelerated rendering using Metal is now supported for third-party effects a
 
 ---
 
-## What’s New in CC 2015.3?
+## What's New in CC 2015.3?
 
 ### Control Surfaces
 
@@ -130,7 +130,7 @@ Video duration can now be reported as a 64-bit integer, using the new imFileInfo
 
 ### Exporters
 
-New flags can be set in exExporterInfoRec.flags, to restrict an exporter from being used in a way that doesn’t make sense. Now, an exporter can specify that video-only export is not supported. Also, an exporter can turn off the Publish tab if it chooses to.
+New flags can be set in exExporterInfoRec.flags, to restrict an exporter from being used in a way that doesn't make sense. Now, an exporter can specify that video-only export is not supported. Also, an exporter can turn off the Publish tab if it chooses to.
 
 ### Effects
 
@@ -146,7 +146,7 @@ Using the [Sequence Info Suite](../universals/sweetpea-suites.md#universals-swee
 
 ---
 
-## What’s New in CC 2015.1?
+## What's New in CC 2015.1?
 
 ### Transmit
 
@@ -154,7 +154,7 @@ Native support for 12-bit Dolby PQ pixel formats, with Rec. 709, P3, and Rec. 20
 
 ---
 
-## What’s New in CC 2015?
+## What's New in CC 2015?
 
 ### After Effects-Style Transitions
 
@@ -170,7 +170,7 @@ To implement this, an importer should set `imImportInfoRec.hasSourceSettingsEffe
 
 On the effects side, a new PF Source Settings Suite has been added to PrSDKAESupport.h, for effects using the After Effects API. This is how an effect registers a function to handle the Source Settings command.
 
-A source settings effect is used primarily for the parameter UI and management. A source settings effect doesn’t provide the actual frames. In fact, the effect isn’t even called with *PF_Cmd_RENDER*. The frames come directly from the importer, which provides frames based on the settings as passed to the importer via prefs data.
+A source settings effect is used primarily for the parameter UI and management. A source settings effect doesn't provide the actual frames. In fact, the effect isn't even called with *PF_Cmd_RENDER*. The frames come directly from the importer, which provides frames based on the settings as passed to the importer via prefs data.
 
 When a clip is first imported, the effect is called with *PF_Cmd_SEQUENCE_SETUP*. It should call PerformSourceSettingsCommand() in the Source Settings Suite, to initialize the prefs. This causes the importer to get called with *imPerformSourceSettingsCommand*, where it can read the file and set the default prefs. param1 of that function is imFileAccessRec8\*, and param2 is imSourceSettingsCommandRec\*.
 
@@ -212,7 +212,7 @@ The host accounts for these offsets automatically by sending frames early, but i
 
 Legacy callbacks bottlenecks->ConvolvePtr() and IndexMapPtr() have had their parameter types updated to fix a bug. Any plugins that use these in both previous versions and CC 2015 will need to do a runtime check before calling this function.
 
-Starting in CC 2015, we now provide installer hints for Mac. You’ll find a new plist file “com. Adobe.Premiere Pro.paths.plist” at “/Library/Preferences”. This contains hints for your Mac installer to know where to install plugins, and is similar to the registry entries we have been providing on Win.
+Starting in CC 2015, we now provide installer hints for Mac. You'll find a new plist file "com. Adobe.Premiere Pro.paths.plist" at "/Library/Preferences". This contains hints for your Mac installer to know where to install plugins, and is similar to the registry entries we have been providing on Win.
 
 ### New Sample Projects
 
@@ -222,13 +222,13 @@ A barebones Control Surface sample is now provided, too.
 
 ---
 
-## What’s New in CC 2014 (8.2)?
+## What's New in CC 2014 (8.2)?
 
-Importers now have more visibility into the player’s intent on a given async request, since the render context info is now passed in imSourceVideoRec.inRenderContext. Async importers can implement *aiSelectEfficientRenderTime* to specify if a frame request would be more efficient at another frame time, for example at I-frame boundaries. The [Video Segment Render Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-video-segment-render-suite) has been updated to version 4, adding new calls that include imRenderContext as a parameter.
+Importers now have more visibility into the player's intent on a given async request, since the render context info is now passed in imSourceVideoRec.inRenderContext. Async importers can implement *aiSelectEfficientRenderTime* to specify if a frame request would be more efficient at another frame time, for example at I-frame boundaries. The [Video Segment Render Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-video-segment-render-suite) has been updated to version 4, adding new calls that include imRenderContext as a parameter.
 
 ---
 
-## What’s New in CC 2014 (8.1)?
+## What's New in CC 2014 (8.1)?
 
 Importers that support growing files now get a hint if the host knows the file has stopped growing:
 
@@ -238,13 +238,13 @@ Exporters can now get the list of source pixel formats used by the clips in a se
 
 ---
 
-## What’s New in CC 2014 (8.0.1)?
+## What's New in CC 2014 (8.0.1)?
 
 Importers can fill in imImageInfoRec.codecDescription to provide a string that will be displayed for clips in the Video Codec column of the Project panel.
 
 ---
 
-## What’s New in CC 2014?
+## What's New in CC 2014?
 
 Importers can now choose the format they are rendering in, which allows importers to change pixel formats and quality based on criteria like enabled hardware and other source settings, such as HDR. To handle the negotiation, implement *imSelectClipFrameDescriptor*.
 
@@ -266,11 +266,11 @@ Premiere Pro is now localized in Russian and Brazilian Portugese.
 
 ---
 
-## What’s New in CC October 2013?
+## What's New in CC October 2013?
 
-We’ve extended the After Effects API to support native transitions in Premiere Pro.
+We've extended the After Effects API to support native transitions in Premiere Pro.
 
-For device controllers, the new command *cmdSetDeviceHandler* was added. This command tells the device controller which panel is using the device controller – either the Capture panel, or Export to Tape panel.
+For device controllers, the new command *cmdSetDeviceHandler* was added. This command tells the device controller which panel is using the device controller - either the Capture panel, or Export to Tape panel.
 
 For importers, imInitiateAsyncClosedCaptionScanRec now provides extra fields for the importer to fill in the estimated duration of all the captions. This is useful for certain cases where the embedded captions contain many frames of empty data.
 
@@ -278,17 +278,17 @@ We added version 2 of the [Export File Suite](../exporters/suites.md#exporters-s
 
 ---
 
-## What’s New in CC July 2013?
+## What's New in CC July 2013?
 
 The only significant additions made in the July 2013 update to version CC are in the device controller API.
 
 ---
 
-## What’s New in CC?
+## What's New in CC?
 
 ### New Edit to Tape Panel
 
-You can think of this as the Export to Tape equivalent of the Capture panel for capturing, which provides a video preview and various settings in the PPro UI. Among the benefits are more seamless integration, a more familiar UI for users, integrated device presets, and some new capabilities like adding Bars and Tone / Black Video / Universal Counting Leader to the start of your layoff to tape. To use this new feature, read more about what’s new in the device controller API.
+You can think of this as the Export to Tape equivalent of the Capture panel for capturing, which provides a video preview and various settings in the PPro UI. Among the benefits are more seamless integration, a more familiar UI for users, integrated device presets, and some new capabilities like adding Bars and Tone / Black Video / Universal Counting Leader to the start of your layoff to tape. To use this new feature, read more about what's new in the device controller API.
 
 ### New GPU Extensions for Effects and Transitions
 
@@ -307,8 +307,8 @@ The importer and exporter APIs have been extended to support closed captioning e
 - VST 3 support allows many more audio plugins to run in Premiere Pro
 - Windows installer improvements, by adding new registry values for preset and settings locations.
 - Get the current build number via the [App Info Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-app-info-suite)
-- Importers can now support audio beyond basic mono, stereo, and 5.1, without implementing multiple streams, and importers can return varying pixel formats depending on the clip settings. Read more about what’s new for importers.
-- Exporters can get the number of audio channels in the source, and check if the user has checked “Use Previews” in the Export Settings dialog. They can also move an existing settings parameter to a different location. Read more about what’s new for exporters.
+- Importers can now support audio beyond basic mono, stereo, and 5.1, without implementing multiple streams, and importers can return varying pixel formats depending on the clip settings. Read more about what's new for importers.
+- Exporters can get the number of audio channels in the source, and check if the user has checked "Use Previews" in the Export Settings dialog. They can also move an existing settings parameter to a different location. Read more about what's new for exporters.
 - The [Sequence Info Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-sequence-info-suite) can retrieve the field type, zero point, and whether or not the timecode is drop-frame
 - New flags to the transition API as a hint to optimize rendering when a transition only has an input on one side
 - The [Video Segment Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-video-segment-suite) provides access to a new property: Effect_ClipName
@@ -317,7 +317,7 @@ Premiere Pro is now localized in Chinese.
 
 ---
 
-## What’s New in CS6.0.x?
+## What's New in CS6.0.x?
 
 CS6.0.2 adds more support for growing files in importers. A transmitter can now label its audio channels for the Audio Output Mapping preferences.
 
@@ -325,7 +325,7 @@ CS6.0.1 gives device controllers a way to get the number of frames dropped durin
 
 ---
 
-## What’s New in CS6?
+## What's New in CS6?
 
 ### Transmit API
 
@@ -333,15 +333,15 @@ We are introducing the Transmit API as the preferred means for external hardware
 
 ### Exporter Enhancements
 
-Exporters can now use “push” model compression. This can simplify export code and improve performance. The “pull” model is still supported, and required for legacy versions and Encore.
+Exporters can now use "push" model compression. This can simplify export code and improve performance. The "pull" model is still supported, and required for legacy versions and Encore.
 
-We’ve added the [Export Standard Param Suite](../exporters/suites.md#exporters-suites-export-standard-param-suite), which provides the standard parameters used in many built-in exporters. This can greatly reduce the amount of code needed to manage standard parameters for a typical exporter, and guarantee consistency with built-in exporters.
+We've added the [Export Standard Param Suite](../exporters/suites.md#exporters-suites-export-standard-param-suite), which provides the standard parameters used in many built-in exporters. This can greatly reduce the amount of code needed to manage standard parameters for a typical exporter, and guarantee consistency with built-in exporters.
 
-Exporters can now set tooltip strings for parameters. Multiple exporters are now supported in a single plugin. And the Maximum Render Precision flag is now queried from the exporter, rather than being handled without the exporter’s knowledge.
+Exporters can now set tooltip strings for parameters. Multiple exporters are now supported in a single plugin. And the Maximum Render Precision flag is now queried from the exporter, rather than being handled without the exporter's knowledge.
 
 Exporters can now set events (error, warning, or info) for a specific encode in progress in the Adobe Media Encoder render queue, using the new [Exporter Utility Suite](../exporters/suites.md#exporters-suites-exporter-utility-suite). These events are displayed in the application UI, and are also added to the AME encoding log.
 
-Make sure your presets go in the right location in the new AME Preset Browser. Read additional details of what’s new in [Exporters](../exporters/exporters.md#exporters-exporters).
+Make sure your presets go in the right location in the new AME Preset Browser. Read additional details of what's new in [Exporters](../exporters/exporters.md#exporters-exporters).
 
 ### Stereoscopic Video Pipeline
 
@@ -349,7 +349,7 @@ We are also adding API support for stereoscopic video throughout the render pipe
 
 ### Other Changes
 
-**Importers** can now support growing files in Premiere Pro. We have also added a way for importers to specify all their source files to be copied by Collect Files in After Effects. There is also a new function in the Media Accelerator Suite to validate the content state of a media accelerator. See additional details of what’s new in [Importers](../importers/importers.md#importers-importers).
+**Importers** can now support growing files in Premiere Pro. We have also added a way for importers to specify all their source files to be copied by Collect Files in After Effects. There is also a new function in the Media Accelerator Suite to validate the content state of a media accelerator. See additional details of what's new in [Importers](../importers/importers.md#importers-importers).
 
 For **Recorders**, the parent window handle is now properly passed in during *recmod_ShowOptions*
 
@@ -377,13 +377,13 @@ MPEG-4 pixel formats and full-range Rec. 709 MPEG-2 and MPEG-4 formats have now 
 
 ---
 
-## What’s New in CS5.5?
+## What's New in CS5.5?
 
-**Importers** can now support color management, when running in After Effects. Now, even nonsynthetic importers can explicitly provide peak audio data. And a new return value allows an importer to specify that it is dependent on a library that needs to be activated. See additional details of what’s new in [Importers](../importers/importers.md#importers-importers).
+**Importers** can now support color management, when running in After Effects. Now, even nonsynthetic importers can explicitly provide peak audio data. And a new return value allows an importer to specify that it is dependent on a library that needs to be activated. See additional details of what's new in [Importers](../importers/importers.md#importers-importers).
 
-**Players** can now support closed captioning. See additional details of what’s new in the players chapter.
+**Players** can now support closed captioning. See additional details of what's new in the players chapter.
 
-**Exporters** now have a call to request a rendered frame and then conform it to a specific pixel format. See additional details of what’s new in [Exporters](../exporters/exporters.md#exporters-exporters).
+**Exporters** now have a call to request a rendered frame and then conform it to a specific pixel format. See additional details of what's new in [Exporters](../exporters/exporters.md#exporters-exporters).
 
 We have opened up a new **Export Controller** API that can drive any exporter to output a file in any format and perform custom post-processing operations. Developers wanting to integrate Premiere Pro with an asset management system will want to use this API instead of the exporter API. See [Export Controllers](../export-controllers/export-controllers.md#export-controllers-export-controllers) for more details.
 
@@ -401,13 +401,13 @@ The [Image Processing Suite](../universals/sweetpea-suites.md#universals-sweetpe
 
 ---
 
-## What’s New in CS5?
+## What's New in CS5?
 
-**Importers** now have access to the resolution, pixel aspect ratio, timebase, and audio sample rate of the source clip from a setup dialog. Custom importers can use a new call to update a clip after it has modified by the user in the setup dialog. Please refer to [Importers](../importers/importers.md#importers-importers) for more info on what’s new.
+**Importers** now have access to the resolution, pixel aspect ratio, timebase, and audio sample rate of the source clip from a setup dialog. Custom importers can use a new call to update a clip after it has modified by the user in the setup dialog. Please refer to [Importers](../importers/importers.md#importers-importers) for more info on what's new.
 
 **Recorders** can now provide audio metering during preview and capture.
 
-**Exporters** and **players** can automatically take advantage of GPU acceleration, if available on the end-user’s system. Each project now has a setting for the renderer that the user can choose in the project settings dialog. When renders occur through the [Sequence Render Suite](../exporters/suites.md#exporters-suites-sequence-render-suite) or the Playmod Render Suite, they now go through the renderer chosen for the current project. This allows third-party exporters and players to use the built-in GPU acceleration available in the new Mercury Playback Engine.
+**Exporters** and **players** can automatically take advantage of GPU acceleration, if available on the end-user's system. Each project now has a setting for the renderer that the user can choose in the project settings dialog. When renders occur through the [Sequence Render Suite](../exporters/suites.md#exporters-suites-sequence-render-suite) or the Playmod Render Suite, they now go through the renderer chosen for the current project. This allows third-party exporters and players to use the built-in GPU acceleration available in the new Mercury Playback Engine.
 
 Exporters and players can now handle any pixel format, with the new [Image Processing Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-image-processing-suite). Exporters and players that parse segments and perform their own rendering can now call the host for subtree rendering. See the [Video Segment Render Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-video-segment-render-suite) for details.
 
@@ -420,7 +420,7 @@ It is invalid to unload any bundle that uses Cocoa because of restrictions in th
 
 ---
 
-## What’s New in CS4?
+## What's New in CS4?
 
 ### New Renderer API and Custom Pixel Formats
 

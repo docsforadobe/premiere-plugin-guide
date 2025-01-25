@@ -28,16 +28,16 @@ First, make sure you are building the exporter using the right SDK. Premiere Ele
 
 ### Exporter Preset
 
-For an exporter to show up in the Premiere Elements UI, you’ll need to create and install a preset in a specific location:
+For an exporter to show up in the Premiere Elements UI, you'll need to create and install a preset in a specific location:
 
-1. Create a folder named “OTHERS” in [App installation folder]/sharingcenter/Presets/pc/
+1. Create a folder named "OTHERS" in [App installation folder]/sharingcenter/Presets/pc/
 2. Create a sub-folder with your name (e.g. MyCompany) under OTHERS and place the preset file (.epr) in it. The final path of the preset file should be something like [App installation folder]/ sharingcenter/Presets/pc/OTHERS/MyCompany/MyPreset.epr
 3. Relaunch Premiere Elements.
 
 1. Add a clip to the timeline
-2. Goto the “Share” tab
-3. Under that choose “Personal Computer”
-4. You should see the “Others – 3rd Party Plugins” in the list of formats. Select this.
+2. Goto the "Share" tab
+3. Under that choose "Personal Computer"
+4. You should see the "Others - 3rd Party Plugins" in the list of formats. Select this.
 5. Your preset should be seen in the drop-down.
 
 ### Return Values

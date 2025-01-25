@@ -78,7 +78,7 @@ SPBasic->AcquireSuite ( kPrSDKPixelFormatSuite, kPrSDKPixelFormatSuiteVersion, (
 }
 ```
 
-Don’t forget to release the suites when finished!
+Don't forget to release the suites when finished!
 
 ```cpp
 if (SPBasic && PixelFormatSuite)
@@ -107,7 +107,7 @@ This suite provides the host application and version number. For a version such 
 
 Starting in version 2 of the suite, introduced in CC, the suite has a new selector to retrieve the build number. SpeedGrade CC supports this suite starting with the July 2013 update.
 
-In version 3, starting in CC 2014, the suite has a new selector to retrieve the language as a NULL-terminated string identifying the locale used in the host application. For example: “en_US”, “ja_JP”, “zh_CN”.
+In version 3, starting in CC 2014, the suite has a new selector to retrieve the language as a NULL-terminated string identifying the locale used in the host application. For example: "en_US", "ja_JP", "zh_CN".
 
 ---
 
@@ -125,7 +125,7 @@ Calls to convert to and from the native audio format used by the Premiere API, a
 
 ## Captioning Suite
 
-This suite enables a device controller, exporter, player, or transmitter to get the closed captioning data attached to a sequence. This suite provides the data in either Scenarist (CEA-608, \*.scc) and MacCaption (CEA-708, \*.mcc) formats. In the case of CEA-708, it includes not just the text to display, but it’s also the position information, and background, font, etc. If the transmitter or player just wants to overlay the captioning data on a frame, it can use the [Playmod Overlay Suite](#universals-sweetpea-suites-playmod-overlay-suite) instead.
+This suite enables a device controller, exporter, player, or transmitter to get the closed captioning data attached to a sequence. This suite provides the data in either Scenarist (CEA-608, \*.scc) and MacCaption (CEA-708, \*.mcc) formats. In the case of CEA-708, it includes not just the text to display, but it's also the position information, and background, font, etc. If the transmitter or player just wants to overlay the captioning data on a frame, it can use the [Playmod Overlay Suite](#universals-sweetpea-suites-playmod-overlay-suite) instead.
 
 ---
 
@@ -163,7 +163,7 @@ New in CS4. Specific utilities to read Flash cue points. Use in conjunction with
 
 New in CS5. Various calls to get information on pixel formats and process frames. The ScaleConvert() call is the way to copy-convert from a buffer of any supported pixel format to a separate memory buffer.
 
-In version 2, new in CS5.5, we have added StampDVFrameAspect(), which allows a plugin to set the aspect ratio of a DV frame. This was added to supplement ScaleConvert(), which doesn’t have an aspect ratio parameter.
+In version 2, new in CS5.5, we have added StampDVFrameAspect(), which allows a plugin to set the aspect ratio of a DV frame. This was added to supplement ScaleConvert(), which doesn't have an aspect ratio parameter.
 
 ---
 
@@ -181,9 +181,9 @@ In CS6, the suite is now at version 4. AdjustReservedMemorySize provides a way t
 
 ### ReserveMemory
 
-A plugin instance can call ReserveMemory as a request to reserve space so that Premiere’s media cache does not use it. Each time ReserveMemory is called, it updates Premiere Pro on how many bytes the plugin instance is currently reserving. The amount specified is absolute, rather than cumulative. So to release any reserved memory to be made available to Premiere Pro’s media cache, call it with a size of 0. However, it’s not needed to reset this when exporters are destructed on *exSDK_EndInstance*, since the media manager will be deleting all the references anyways.
+A plugin instance can call ReserveMemory as a request to reserve space so that Premiere's media cache does not use it. Each time ReserveMemory is called, it updates Premiere Pro on how many bytes the plugin instance is currently reserving. The amount specified is absolute, rather than cumulative. So to release any reserved memory to be made available to Premiere Pro's media cache, call it with a size of 0. However, it's not needed to reset this when exporters are destructed on *exSDK_EndInstance*, since the media manager will be deleting all the references anyways.
 
-ReserveMemory changes the maximum size of Premiere’s Media Cache. So if the cache size starts at 10 GB, and you reserve 1 GB, then the cache will not grow beyond 9 GB. ReserveMemory will reserve a different amount of memory, depending on the amount of available memory in the system, and what other plugin instances have already reserved. The media cache needs a minimum amount of memory to play audio, render, etc.
+ReserveMemory changes the maximum size of Premiere's Media Cache. So if the cache size starts at 10 GB, and you reserve 1 GB, then the cache will not grow beyond 9 GB. ReserveMemory will reserve a different amount of memory, depending on the amount of available memory in the system, and what other plugin instances have already reserved. The media cache needs a minimum amount of memory to play audio, render, etc.
 
 Starting in version 2 of the suite, introduced in CS4, there are calls to allocate/deallocate memory. This is necessary for exporters, which are not passed the legacy memFuncs.
 
@@ -205,17 +205,17 @@ New in CS5.5. A transmitter can ask Premiere Pro to render the overlay for a spe
 
 To render the closed captioning overlay, it is not necessary to know anything about the closed captioning data, whether it is CEA-608 or CEA-708. RenderImage will simply produce a PPixHand.
 
-The reason why it’s not called Closed Captioning Overlay Suite is because going forward we want to use it as a general suite that provides all kinds of overlays. That way, when we add more overlay types in the future, you don’t need to worry about updating your player each time to mirror the implementation on your side. In the future, we will likely use this same suite to render static overlays, such as safe areas. To support those, even if VariesOverTime returns false, you can call HasVisibleRegions at time 0.
+The reason why it's not called Closed Captioning Overlay Suite is because going forward we want to use it as a general suite that provides all kinds of overlays. That way, when we add more overlay types in the future, you don't need to worry about updating your player each time to mirror the implementation on your side. In the future, we will likely use this same suite to render static overlays, such as safe areas. To support those, even if VariesOverTime returns false, you can call HasVisibleRegions at time 0.
 
 Version 2 in CC 2014 removes `CalculateVisibleRegions()`.
 
 ### RenderImage
 
-Render the overlay into an optionally provided BGRA PPixHand. RenderImage does not composite the overlay onto an existing frame, it just renders the overlay into the visible regions. After rendering the overlay at the player’s display size, you will then need to composite that result over the frame.
+Render the overlay into an optionally provided BGRA PPixHand. RenderImage does not composite the overlay onto an existing frame, it just renders the overlay into the visible regions. After rendering the overlay at the player's display size, you will then need to composite that result over the frame.
 
 If the user has zoomed the video, it could be wasteful to render a full-sized overlay image and then scale it. For better performance, the overlay can be rendered at the actual display size. The inDisplayWidth, inDisplayHeight and inLogicalRegion parameters provide this extra information needed to optimize for scaling in the UI.
 
-As an example, let’s say the sequence is 720x480 at 0.9091 PAR, and the Sequence Monitor is set to show the full frame at square PAR. Set inLogicalRegion to (0, 0, 720, 480), and inDisplayWidth to 654 and inDisplayHeight to 480.
+As an example, let's say the sequence is 720x480 at 0.9091 PAR, and the Sequence Monitor is set to show the full frame at square PAR. Set inLogicalRegion to (0, 0, 720, 480), and inDisplayWidth to 654 and inDisplayHeight to 480.
 
 If the Monitor zoom level was set to 50%, then the inLogicalRegion should stay the same, but display width and height should be set to 327x240. If zoomed to 200%, display width and height should be set to 1308x960. To pan around (as opposed to showing the entire frame), the logical region should be adjusted to represent the part of the sequence frame currently being displayed.
 
@@ -275,7 +275,7 @@ prSuiteError (*VariesOverTime)(
 
 ## PPix Cache Suite
 
-Used by an importer, player, or renderer to take advantage of the host application’s PPix cache. See PrSDKPPixCacheSuite.h.
+Used by an importer, player, or renderer to take advantage of the host application's PPix cache. See PrSDKPPixCacheSuite.h.
 
 Starting in version 2 of this suite, introduced in Premiere Pro 4.1, AddFrameToCache and GetFrameFromCache now have two extra parameters, inPreferences and inPreferencesLength. Now frames are differentiated within the cache, based on the importer preferences, so when the preferences change, the host will not use the old frame when it gets a frame request.
 
@@ -301,7 +301,7 @@ Includes callbacks to create and copy PPixs. See also the [PPix Creator 2 Suite]
 
 Creates a new PPix. The advantage of using this callback is that frames allocated are accounted for in the media cache, and are 16-byte aligned.
 
-`ppixNew` and `newPtr` don’t allocate memory in the media cache, or perform any alignment.
+`ppixNew` and `newPtr` don't allocate memory in the media cache, or perform any alignment.
 
 ```cpp
 prSuiteError (*CreatePPix)(
@@ -314,7 +314,7 @@ prSuiteError (*CreatePPix)(
 | **Parameter**                          | **Description**                                                                                                                                                                  |
 |----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `PPixHand *outPPixHand`                | The new PPix handle if the creation was successful.<br/><br/>NULL otherwise.                                                                                                     |
-| `PrPPixBufferAccess inRequestedAccess` | Requested pixel access. Read-only is not allowed (doesn’t make sense).<br/><br/>`PrPPixBufferAccess` values are defined in [PPix Suite](#universals-sweetpea-suites-ppix-suite). |
+| `PrPPixBufferAccess inRequestedAccess` | Requested pixel access. Read-only is not allowed (doesn't make sense).<br/><br/>`PrPPixBufferAccess` values are defined in [PPix Suite](#universals-sweetpea-suites-ppix-suite). |
 | `PrPixelFormat inPixelFormat`          | The pixel format of this PPix                                                                                                                                                    |
 
 ### ClonePPix
@@ -520,7 +520,7 @@ New in CS4. Calls to allocate, copy, and dispose of PrSDKStrings. See PrSDKStrin
 
 ## Threaded Work Suite
 
-New in CS4. Calls to register and queue up a threaded work callback for processing on a render thread. If you queue multiple times, it is possible for multiple threads to call your callback. If this is a problem, you’ll need to handle this on your end.
+New in CS4. Calls to register and queue up a threaded work callback for processing on a render thread. If you queue multiple times, it is possible for multiple threads to call your callback. If this is a problem, you'll need to handle this on your end.
 
 ---
 
@@ -577,9 +577,9 @@ Get the current ticks in an audio sample rate.
 | **Returns**                       | **If**                                                                                                                            |
 +===================================+===================================================================================================================================+
 | `kPrTimeSuite_RoundedAudioRate` | the requested audio sample rate is not an even divisor of the base tick count and therefore times in this rate will not be exact. |
-+———————————–+———————————————————————————————————————————–+
++———————————-+———————————————————————————————————————————-+
 | `kPrTimeSuite_Success`          | otherwise                                                                                                                         |
-+———————————–+———————————————————————————————————————————–+
++———————————-+———————————————————————————————————————————-+
 
 ```cpp
 prSuiteError (*GetTicksPerAudioSample)(
@@ -633,4 +633,4 @@ See PrSDKVideoSegmentSuite.h and PrSDKVideoSegmentProperties.h.
 
 ## Window Suite
 
-New in CS4. This is the new preferred way to get the handle of the mainframe window, especially for exporters, who don’t have access to the legacy [piSuites](legacy-callback-suites.md#universals-legacy-callback-suites-pisuites).
+New in CS4. This is the new preferred way to get the handle of the mainframe window, especially for exporters, who don't have access to the legacy [piSuites](legacy-callback-suites.md#universals-legacy-callback-suites-pisuites).

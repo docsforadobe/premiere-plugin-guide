@@ -19,7 +19,7 @@
 | `imSaveErr`                    | Error saving file.                                                                                                                                                       |
 | `imDeleteErr`                  | Error deleting file.                                                                                                                                                     |
 | `imNotFoundErr`                | The requested metadata chunk was not found.                                                                                                                              |
-| `imSetFile`                    | Return this from `imGetPrefs8` only if you are a custom importer and you need Premiere to alter it’s file access information (e.g. a new path or filename is created).   |
+| `imSetFile`                    | Return this from `imGetPrefs8` only if you are a custom importer and you need Premiere to alter it's file access information (e.g. a new path or filename is created).   |
 | `imIterateStreams`             | Return from `imGetInfo8` to indicate that there are more streams to describe.<br/>Premiere will send `imGetInfo8` for the next stream.                                   |
 | `imBadStreamIndex`             | Return from `imGetInfo8` after interating through streams to indicate that there are no more streams to describe.                                                        |
 | `imCantTrim`                   | Return from `imCheckTrim` if the file cannot be trimmed by the importer.                                                                                                 |

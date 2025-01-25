@@ -15,7 +15,7 @@ Sent during application launch, unless the exporter has been cached.
 
 A single exporter can support multiple codecs and file extensions.
 
-`exExporterInfoRec` describes the exporter’s attributes, such as the format display name.
+`exExporterInfoRec` describes the exporter's attributes, such as the format display name.
 
 ---
 
@@ -33,7 +33,7 @@ Allocate any private data.
 - param1 - [exGenerateDefaultParamRec\*](structure-descriptions.md#exporters-structure-descriptions-exgeneratedefaultparamrec)
 - param2 - `unused`
 
-Set the exporter’s default parameters using the [Export Param Suite](suites.md#exporters-suites-export-param-suite).
+Set the exporter's default parameters using the [Export Param Suite](suites.md#exporters-suites-export-param-suite).
 
 ---
 

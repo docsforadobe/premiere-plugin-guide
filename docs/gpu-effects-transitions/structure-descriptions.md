@@ -14,7 +14,7 @@ typedef struct {
 | **Member**            | **Description**                                                                                        |
 |-----------------------|--------------------------------------------------------------------------------------------------------|
 | `outInterfaceVersion` | Set to the GPU API version corresponding to the version defined in the SDK you are using.              |
-| `outMatchName`        | outMatchName must be equal to a registered software filter, if NULL will default to the module’s PiPL. |
+| `outMatchName`        | outMatchName must be equal to a registered software filter, if NULL will default to the module's PiPL. |
 
 ---
 

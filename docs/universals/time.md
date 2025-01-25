@@ -22,4 +22,4 @@ Sometimes, as when handling audio-only media, `sampleSize` refers to a sample of
 
 Most newer areas of the API use a tick-based time value that is stored in a signed 64-bit integer. Variables that use this new format are of type PrTime. When a frame rate is represented as a PrTime, the frame rate is the number of ticks in a frame duration.
 
-The current number of ticks per second must be retrieved using the callback in the [Time Suite](sweetpea-suites.md#universals-sweetpea-suites-time-suite). This rate is guaranteed to be constant for the duration of the application’s run-time.
+The current number of ticks per second must be retrieved using the callback in the [Time Suite](sweetpea-suites.md#universals-sweetpea-suites-time-suite). This rate is guaranteed to be constant for the duration of the application's run-time.

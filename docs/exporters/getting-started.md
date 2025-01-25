@@ -20,11 +20,11 @@ First register the parameters during `exSelGenerateDefaultParams`. Then provide 
 
 ## Updating Parameters Dynamically
 
-Parameters can be updated dynamically based on user interaction with any related parameter. The time to update is during the `exSelValidateParamChanged` selector. Use ChangeParam in the [Export Param Suite](suites.md#exporters-suites-export-param-suite) to make the change. Then, set `exParamChangedRec.rebuildAllParams` to true before returning. If you don’t set that flag, parameters may appear out of order after a change.
+Parameters can be updated dynamically based on user interaction with any related parameter. The time to update is during the `exSelValidateParamChanged` selector. Use ChangeParam in the [Export Param Suite](suites.md#exporters-suites-export-param-suite) to make the change. Then, set `exParamChangedRec.rebuildAllParams` to true before returning. If you don't set that flag, parameters may appear out of order after a change.
 
 ---
 
-## Supporting “Match Source”
+## Supporting "Match Source"
 
 The exporter must set `exExporterInfoRec.canMatchSource` to true. This will add the Match Source button to the Video tab in the Export Settings.
 
@@ -42,7 +42,7 @@ Push Model
 
 Using the push model, the exporter host can simply push frames to a thread-safe exporter-specified callback. Use DoMultiPassExportLoop in the [Exporter Utility Suite](suites.md#exporters-suites-exporter-utility-suite) to register the callback.
 
-Compared with the pull model, this will cut down on the code previously required for render loop management. It should also yield substantial performance increases for exporters that haven’t finely tuned their multithreaded rendering.
+Compared with the pull model, this will cut down on the code previously required for render loop management. It should also yield substantial performance increases for exporters that haven't finely tuned their multithreaded rendering.
 
 ### Pull Model
 
@@ -66,7 +66,7 @@ If UpdateProgressPercent returns `exportReturn_Abort`, the exporter should take 
 
 ## Creating Presets
 
-Create your own presets using the Export Settings UI, either from within Premiere Pro, or Media Encoder. Just modify the parameters the way you want, and hit the Save icon to save the preset to disk. The presets are saved with the extension ‘.epr’.
+Create your own presets using the Export Settings UI, either from within Premiere Pro, or Media Encoder. Just modify the parameters the way you want, and hit the Save icon to save the preset to disk. The presets are saved with the extension '.epr'.
 
 Starting in CS5, all the presets are saved to the same location, regardless of whether saved from Premiere Pro or Media Encoder:
 
@@ -74,7 +74,7 @@ On Windows 7, presets are saved here: `[User folder]\AppData\Roaming\Adobe\Commo
 
 On Mac OS: `~/Library/Preferences/Adobe/Common/AME/[version]/Presets/`
 
-In CS4, where the files are saved depends on whether you’ve opened the Export Settings UI in Premiere Pro or Media Encoder:
+In CS4, where the files are saved depends on whether you've opened the Export Settings UI in Premiere Pro or Media Encoder:
 
 ### Media Encoder presets
 
@@ -98,7 +98,7 @@ Starting in CS6, Adobe Media Encoder has a Preset Browser with provides a struct
 
 For example, if you set it to: `<FolderDisplayPath>System Presets/Image Sequence/PNG</ FolderDisplayPath>` then AME will display the preset in the `System Presets > Image Sequence > PNG folder`.
 
-It is essential to use: “System Presets/xxx/” where the xxx must be any of the existing main categories (use the English name for this). Only one level below can you can create a custom-named folder. If the folder doesn’t already exist, it will be created.
+It is essential to use: "System Presets/xxx/" where the xxx must be any of the existing main categories (use the English name for this). Only one level below can you can create a custom-named folder. If the folder doesn't already exist, it will be created.
 
 The Preset Browser data is cached in a file at: `[User Folder]\AppData\Roaming\Adobe\Common\AME\[version]\Presets\\ PresetTree.xml`
 
@@ -110,7 +110,7 @@ For better performance, in CS4, we recommend you install any presets for your ex
 
 For both Windows and Mac OS: `[App installation path]\MediaIO\systempresets\[exporter subfolder]`
 
-The subfolder must be named based on the hexadecimal fourCCs of the ClassID and filetype of the exporter. For example, the SDK exporter has a ClassID of ‘DTEK’ or 0x4454454B, and a filetype of `SDK` or 0x53444B5F. So the subfolder must be named ‘4454454B_53444B5F’. For convenience, you can find the ClassID and filetype fourCCs in the preset file itself, in a decimal representation.
+The subfolder must be named based on the hexadecimal fourCCs of the ClassID and filetype of the exporter. For example, the SDK exporter has a ClassID of 'DTEK' or 0x4454454B, and a filetype of `SDK` or 0x53444B5F. So the subfolder must be named '4454454B_53444B5F'. For convenience, you can find the ClassID and filetype fourCCs in the preset file itself, in a decimal representation.
 
 ---
 
@@ -122,13 +122,13 @@ At a minimum, any old presets must be deleted. This includes Media Encoder prese
 
 ### Increment the Parameter Version
 
-If an older version of the exporter is already being used by customers, you’ll need to use parameter versioning. During `exSelGenerateDefaultParams`, you should call SetParamsVersion() in the [Export Param Suite](suites.md#exporters-suites-export-param-suite) and increment the version number.
+If an older version of the exporter is already being used by customers, you'll need to use parameter versioning. During `exSelGenerateDefaultParams`, you should call SetParamsVersion() in the [Export Param Suite](suites.md#exporters-suites-export-param-suite) and increment the version number.
 
 After that, create new presets and sequence encoder presets (if needed) using the new set of parameters. Make sure your installer removes the old presets, and installs the new ones.
 
 ### Flush the Parameter Cache
 
-If you don’t increment the parameter version, you can manually flush the parameter cache in a few steps. After you’ve deleted the old presets, do the following:
+If you don't increment the parameter version, you can manually flush the parameter cache in a few steps. After you've deleted the old presets, do the following:
 
 1. Delete hidden presets that were created by the hosts for the most recently used parameter settings. Look for a file called Placeholder Preset.epr in both the folders above the Media Encoder presets and the Premiere Pro presets.
 2. Delete batch.xml, used by Media Encoder. This is also in the folder above the Media Encoder presets. Deleting this is equivalent to deleting the items out of the Media Encoder render queue.
@@ -143,9 +143,9 @@ To support multichannel audio layouts, kPrAudioChannelType_MaxChannel should be 
 
 The audio buffers you use for GetAudio() should likewise be an array of kPrAudioChannelType_MaxChannel channels, and yes, this means you may be allocating more space than actually used.
 
-In the exporter’s Audio tab UI, you can provide a parameter to choose between various multi-channel audio layouts. You can compare your settings to what we have with the built-in formats, QuickTime and MXF (such as MXF OP1a and DNxHD). From the user selection in your audio export settings (e.g., 2x stereo, etc), you will know how many of those channels passed back in GetAudio() should actually be written to the file.
+In the exporter's Audio tab UI, you can provide a parameter to choose between various multi-channel audio layouts. You can compare your settings to what we have with the built-in formats, QuickTime and MXF (such as MXF OP1a and DNxHD). From the user selection in your audio export settings (e.g., 2x stereo, etc), you will know how many of those channels passed back in GetAudio() should actually be written to the file.
 
-Here’s a helpful video on audio track mapping: [http://www.video2brain.com/en/lessons/changes-in-audio-tracks-and-merged-clip-audio](http://www.video2brain.com/en/lessons/changes-in-audio-tracks-and-merged-clip-audio)
+Here's a helpful video on audio track mapping: [http://www.video2brain.com/en/lessons/changes-in-audio-tracks-and-merged-clip-audio](http://www.video2brain.com/en/lessons/changes-in-audio-tracks-and-merged-clip-audio)
 
 ---
 
@@ -159,7 +159,7 @@ Starting in CC, the Export Settings includes a new Captions tab, for Closed Capt
 
 To support more than one file format in a single exporter, describe one format at a time during `exSelStartup`. After describing the first one, return exportReturn_IterateExporter from `exSelStartup`, and the exporter will be called again to describe the second format, and so on. After describing the last format, return exportReturn_IterateExporter, and the exporter will be called yet again. This time, return exportReturn_IterateExporterDone.
 
-Use a unique fileType for each format. When you are later sent `exSelGenerateDefaultParams`, `exSelPostProcessParams`, etc, you’ll want to pay attention to the fileType, and respond according to the format.
+Use a unique fileType for each format. When you are later sent `exSelGenerateDefaultParams`, `exSelPostProcessParams`, etc, you'll want to pay attention to the fileType, and respond according to the format.
 
 ---
 
@@ -188,7 +188,7 @@ You can not only provide sequence preview presets for your own editing mode, but
 
 You can additionally restrict the list and specify which one is chosen by default, by editing the `<PresetComments>` tag in the preset file.
 
-If the value of the tag starts with “IsConstrained,”, then a comma delimited list of 4ccs follows that dictates which codecs are available, and the first one is chosen by default.
+If the value of the tag starts with "IsConstrained,", then a comma delimited list of 4ccs follows that dictates which codecs are available, and the first one is chosen by default.
 
 For example, QuickTime DV NTSC.epr for the Mac DV NTSC editing mode has this: `<PresetComments>IsConstrained,dvc </PresetComments>`
 
@@ -199,7 +199,7 @@ Which restricts the codec selection of the exporter to be only the single codec 
 ## Stereoscopic Video
 
 !!! note
-    Currently stereoscopic exporters must use the old “pull” model, and only receive stereoscopic video when exporting directly from Premiere Pro. In other words, when exports are queued to run in Adobe Media Encoder, they will not get stereoscopic video.
+    Currently stereoscopic exporters must use the old "pull" model, and only receive stereoscopic video when exporting directly from Premiere Pro. In other words, when exports are queued to run in Adobe Media Encoder, they will not get stereoscopic video.
 
 To get rendered frames for both left and right eye, use the [Video Segment Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-video-segment-suite) to request the left and right cutlists, and render frames from both. An exporter can tell if segments in both of them are identical (implying that they have nothing stereoscopic about them) by looking at the segment hashes, and you can tell if two frames are identical (by looking at the request identifiers).
 
@@ -209,7 +209,7 @@ To get rendered frames for both left and right eye, use the [Video Segment Suite
 
 The timeline segments available to exporters do not always fully describe the sequence being exported. To consistently get timeline segments that fully describe the sequence, an exporter needs to work along with a renderer plugin.
 
-During a sequence export, Premiere Pro makes a copy of the project file and passes it to Media Encoder. Media Encoder takes that project and uses the PProHeadless process to generate rendered frames. So when an exporter, which is running in Media Encoder, parses the sequence, it only has a very high-level view. It sees the entire sequence as a single clip, and sees any optional cropping or filters as applied effects. So when parsing that simple, high-level sequence, if there are no effects, an exporter can just use the MediaNode’s ClipID with the [Clip Render Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-clip-render-suite) to get frames directly from the PProHeadless process. In the PProHeadless process, a renderer plugin can step in, parse the real sequence in all its glory, and optionally provide frames in a custom pixel format.
+During a sequence export, Premiere Pro makes a copy of the project file and passes it to Media Encoder. Media Encoder takes that project and uses the PProHeadless process to generate rendered frames. So when an exporter, which is running in Media Encoder, parses the sequence, it only has a very high-level view. It sees the entire sequence as a single clip, and sees any optional cropping or filters as applied effects. So when parsing that simple, high-level sequence, if there are no effects, an exporter can just use the MediaNode's ClipID with the [Clip Render Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-clip-render-suite) to get frames directly from the PProHeadless process. In the PProHeadless process, a renderer plugin can step in, parse the real sequence in all its glory, and optionally provide frames in a custom pixel format.
 
 When rendering preview files, Premiere Pro does the rendering without Media Encoder, so an exporter can get the individual segments for each clip, similar to before.
 

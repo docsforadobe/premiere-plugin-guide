@@ -1,6 +1,6 @@
 # Whats New
 
-## What’s New in Premiere Pro CS5?
+## What's New in Premiere Pro CS5?
 
 In the Effects panel, video filters now appear with badges to advertise if they support YUV, 32- bit, and accelerated rendering.
 
@@ -10,7 +10,7 @@ Custom badges can also be created. See Effect Badging for more information.
 
 ---
 
-## What’s New in Premiere Pro CS3?
+## What's New in Premiere Pro CS3?
 
 Checkbox controls are now supported directly in the Effect Controls panel.
 

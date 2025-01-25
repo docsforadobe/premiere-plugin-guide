@@ -10,7 +10,7 @@ Filter plugins can use PiPL resources to define their behaviors and supported pr
 
 To provide any parameters in the Effect Controls panel, they must be defined in the PiPL in ANIM_ParamAtom sections, as demonstrated in the example below.
 
-The ‘no UI’ UI type is for non-keyframeable parameters. After making changes to the PiPL, rebuild the plugin each time, so that the PiPL will be recompiled.
+The 'no UI' UI type is for non-keyframeable parameters. After making changes to the PiPL, rebuild the plugin each time, so that the PiPL will be recompiled.
 
 ### A Filter PiPL Example
 

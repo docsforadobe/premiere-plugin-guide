@@ -38,7 +38,7 @@ Choose the one that fits the media your importer will support.
 
 The SDK importer demonstrates *imGetSourceVideo* because resolution dependent video is much more common.
 
-The synthetic importer sample demonstrates *imImportImage* because it generates video on-the-fly and doesn’t have a preference as to video resolution.
+The synthetic importer sample demonstrates *imImportImage* because it generates video on-the-fly and doesn't have a preference as to video resolution.
 
 `imImageInfoRec.supportsGetSourceVideo` should be set to true if the importer wants to support *imGetSourceVideo*.
 
@@ -63,11 +63,11 @@ Here is an overview of the lifetime of an async importer:
 
 ## privateData
 
-Don’t use global variables to store data. Use privateData instead. Each clip can have its own privateData. The host application will automatically pass the correct privateData to the appropriate importer instance.
+Don't use global variables to store data. Use privateData instead. Each clip can have its own privateData. The host application will automatically pass the correct privateData to the appropriate importer instance.
 
 For privateData, create a handle to the custom structure you wish to store (during `imGetInfo8` or `imGetPrefs8`.) and save the handle to the privateData member of the structure passed in.
 
-The importer is responsible for allocating and deallocating the memory for privateData using Premiere’s memory functions.
+The importer is responsible for allocating and deallocating the memory for privateData using Premiere's memory functions.
 
 Free the allocated privateData during *imCloseFile or imShutdown*, as appropriate.
 
@@ -115,11 +115,11 @@ Use the [Async File Reader Suite](suites.md#importers-suites-async-file-reader-s
 
 ### Quieting versus Closing a File
 
-When the application loses focus, importers receive *imQuietFile* for each file it has been asked to open. Update any PrivateData and close the file. If the project is closed, *imCloseFile* is sent, telling the importer to free any PrivateData. If the importer didn’t store any PrivateData, it will not receive *imCloseFile*.
+When the application loses focus, importers receive *imQuietFile* for each file it has been asked to open. Update any PrivateData and close the file. If the project is closed, *imCloseFile* is sent, telling the importer to free any PrivateData. If the importer didn't store any PrivateData, it will not receive *imCloseFile*.
 
 ### Growing Files
 
-When Premiere Pro attempts to refresh a growing file (after N seconds, as determined by the preferences value), it quiets the existing importer instance, and opens a new one pointing to the same file. In response, the Importer should report the current (new) duration and, once it’s determined whether the file is still growing, set  `imFileInfoRec.mayBeGrowing` appropriately.
+When Premiere Pro attempts to refresh a growing file (after N seconds, as determined by the preferences value), it quiets the existing importer instance, and opens a new one pointing to the same file. In response, the Importer should report the current (new) duration and, once it's determined whether the file is still growing, set  `imFileInfoRec.mayBeGrowing` appropriately.
 
 ### Importing from Streaming Sources
 
@@ -127,7 +127,7 @@ For importing video from a streaming source, in order to pretend that the file i
 
 Inside this file, include info that lets your importer know it is your own type, and the http path, like this:
 
-“MyCompany ABC streaming format placeholder file [https://myurl.com/video.abc](https://myurl.com/video.abc)”
+"MyCompany ABC streaming format placeholder file [https://myurl.com/video.abc](https://myurl.com/video.abc)"
 
 Your importer would open the local video_proxy.abc file, check the header and find it is your own placeholder file, and then access the real contents at the http location included. To create the local
 
@@ -178,7 +178,7 @@ Starting in CC, importers can support closed captioning that is embedded in the 
 
 To support embedded closed captioning, set `imImportInfoRec.canSupportClosedCaptions` to true. The importer should handle the following selectors: `imInitiateAsyncClosedCaptionScan`, `imGetNextClosedCaption`, and *imCompleteAsyncClosedCaptionScan*.
 
-*imInitiateAsyncClosedCaptionScan* will be called for every file that is imported through an importer that sets canSupportClosedCaptions to true. The plugin should at this point determine whether or not there is closed captioning data for this file. If not, then the plugin should simply return imNoCaptions, and everything is done. If the plugin didn’t report an error for that call, then *imGetNextClosedCaption* will be called until the plugin returns imNoCaptions. After which, *imCompleteAsyncClosedCaptionScan* will be called informing the importer that the host is done requesting captions.
+*imInitiateAsyncClosedCaptionScan* will be called for every file that is imported through an importer that sets canSupportClosedCaptions to true. The plugin should at this point determine whether or not there is closed captioning data for this file. If not, then the plugin should simply return imNoCaptions, and everything is done. If the plugin didn't report an error for that call, then *imGetNextClosedCaption* will be called until the plugin returns imNoCaptions. After which, *imCompleteAsyncClosedCaptionScan* will be called informing the importer that the host is done requesting captions.
 
 Both *imGetNextClosedCaption* and *imCompleteAsyncClosedCaptionScan* may be called from a different thread from which `imInitiateAsyncClosedCaptionScan` was originally called. To help facilitate this, `outAsyncCaptionScanPrivateData` during `imInitiateAsyncClosedCaptionScan` can be allocated by the importer to be used for the upcoming calls, which can be deallocated
 
@@ -212,7 +212,7 @@ Prior to CS6, an importer would need to have a prefs structure and on *imGetInfo
 
 known as unused1). This makes it much easier to just check when providing a PPix and differentiate the two streams.
 
-Now, obviously, it is not desirable to have two project items. In order to get them merged, an importer needs to label the streams (the logic here is pretty simple, if there are multiple labeled video streams, it will appear as a single project item, and all views on that item will show the first stream). For this there is a new selector: *imQueryStreamLabel*. The struct passed to the importer has its privateData, prefs data, and the stream index, and the label needs to be passed back in a PrSDKString. If you’re not familiar with PrSDKStringSuite, it’s fairly obvious how to use. In this case you’ll be allocating a string, passing either UTF-8 data, or UTF-16 data.
+Now, obviously, it is not desirable to have two project items. In order to get them merged, an importer needs to label the streams (the logic here is pretty simple, if there are multiple labeled video streams, it will appear as a single project item, and all views on that item will show the first stream). For this there is a new selector: *imQueryStreamLabel*. The struct passed to the importer has its privateData, prefs data, and the stream index, and the label needs to be passed back in a PrSDKString. If you're not familiar with PrSDKStringSuite, it's fairly obvious how to use. In this case you'll be allocating a string, passing either UTF-8 data, or UTF-16 data.
 
 In PrSDKStreamLabel.h we define two labels: kPrSDK_StreamLabelStereoscopicLeft and kPrSDKStreamLabel_Stereoscopic_Right. By convention, we expect Left to be stream 0 and Right to be stream 1. This is purely for consistency - if we have multiple stereo clips from multiple importers, we would want the thumbnails to all be consistent. If we stick to this convention, then the thumbnails will all be Left.
 
@@ -222,7 +222,7 @@ To integrate well with other third-parties, we strongly encourage using these la
 
 ## Project Manager Support
 
-The Project Manager in Premiere Pro allows users to archive projects, trim out unused media, or collect all source files to a single location. Importers are the most knowledgable about the sources they work with. So Premiere Pro doesn’t make any assumptions about the source media, but instead relies on the importers to handle the trimming and file size estimates. Only importers that specifically support trimming will trim and not copy when the Project Manager trims projects.
+The Project Manager in Premiere Pro allows users to archive projects, trim out unused media, or collect all source files to a single location. Importers are the most knowledgable about the sources they work with. So Premiere Pro doesn't make any assumptions about the source media, but instead relies on the importers to handle the trimming and file size estimates. Only importers that specifically support trimming will trim and not copy when the Project Manager trims projects.
 
 To support trimming, importers will want to set the canCalcSizes and canTrim flags during *imInit*, and support *imCalcSize8*, *imCheckTrim8*, and *imTrimFile8*.
 
@@ -239,7 +239,7 @@ This variant of the importer API allows importers to dynamically create disk-bas
 A Custom Importer **must** do the following:
 
 - Set the following flags true in imImportInfoRec; canCreate, canOpen, addToMenu, noFile. This tells Premiere your plugin will create a clip on disk at *imGetPrefs8* time.
-- To determine when you need to create a new clip vs. modify an existing clip, check the `imFileAccessRec` filename. If it’s identical to the plugin display name (as set in the PiPL), create a new clip; otherwise modify the clip.
+- To determine when you need to create a new clip vs. modify an existing clip, check the `imFileAccessRec` filename. If it's identical to the plugin display name (as set in the PiPL), create a new clip; otherwise modify the clip.
 - If the user cancels from your dialog when creating a new clip, return imCancel.
 - If the clip is modified, the importer needs to do a few things for Premiere to pick up the changes. Put your file access information in the supplied `imFileAccessRec`. Premiere will use this data to reference your clip from now on. Close the file handle after you create it. Return imSetFile after creating a file handle in *imGetPrefs8*., and call RefreshFileAsync() in the Importer
 
@@ -261,7 +261,7 @@ Importers can make image data available for rolling and crawling titles, using `
 
 To get the first opportunity to import a filetype also supported by a built-in importer (e.g. MPEG, AVI, QuickTime, etc), provide a different subtype and classID in order for your importer to be called for the types of files you support. imImportInfoRec.priority must be higher than any of the other importers for that filetype. Set this value to 100 or higher to override all built-in importers. Premiere Pro has more than one type of AVI importer and MPEG importer, which use this same prioritization mechanism. So your importer can override all of them and get the first shot at a filetype.
 
-Just because you want to take over handling some files of a given filetype, it doesn’t mean you have to handle all of them. To defer an unsupported subtype to a lower priority importer, return imBadFile during *imOpenFile8* or *imGetInfo8*. See the Media Abstraction chapter for more information on filetypes, subtypes, and classIDs.
+Just because you want to take over handling some files of a given filetype, it doesn't mean you have to handle all of them. To defer an unsupported subtype to a lower priority importer, return imBadFile during *imOpenFile8* or *imGetInfo8*. See the Media Abstraction chapter for more information on filetypes, subtypes, and classIDs.
 
 ### Format repeated in menu?
 

@@ -37,7 +37,7 @@ prSuiteError (*GetExportSourceInfo)(
 | `kExportInfo_PixelAspectNumerator`     | Int32       | Pixel aspect ratio (PAR) numerator                                                                                                                                                                                                                                                                                                                                                  |
 | `kExportInfo_PixelAspectDenominator`   | Int32       | Pixel aspect ratio denominator                                                                                                                                                                                                                                                                                                                                                      |
 | `kExportInfo_AudioDuration`            | Int64       | A PrTime value                                                                                                                                                                                                                                                                                                                                                                      |
-| `kExportInfo_AudioChannelsType`        | Int32       | One of the `PrAudioChannelType` values.<br/><br/>Returns 0 (which is undefined) if there’s no audio.                                                                                                                                                                                                                                                                                |
+| `kExportInfo_AudioChannelsType`        | Int32       | One of the `PrAudioChannelType` values.<br/><br/>Returns 0 (which is undefined) if there's no audio.                                                                                                                                                                                                                                                                                |
 | `kExportInfo_AudioSampleRate`          | Float64     |                                                                                                                                                                                                                                                                                                                                                                                     |
 | `kExportInfo_SourceHasAudio`           | Bool        | Non-zero if source has audio                                                                                                                                                                                                                                                                                                                                                        |
 | `kExportInfo_SourceHasVideo`           | Bool        | Non-zero if source has video                                                                                                                                                                                                                                                                                                                                                        |
@@ -46,7 +46,7 @@ prSuiteError (*GetExportSourceInfo)(
 | `kExportInfo_SessionFilePath`          | PrMemoryPtr | A `prUTF16Char` array. The exporter should release the pointer using the [Memory Manager Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-memory-manager-suite).                                                                                                                                                                                                  |
 | `kExportInfo_VideoPosterFrameTickTime` | Int64       | New in CS5. A PrTime value.                                                                                                                                                                                                                                                                                                                                                         |
 | `kExportInfo_SourceTimecode`           | PrMemoryPtr | New in CS5.0.2. The timecode of the source clip or sequence.<br/><br/>The sequence timecode is set by the Start Time of a sequence using the sequence wing-menu. A pointer to a ExporterTimecodeRec structure.<br/><br/>The exporter should release the pointer using the [Memory Manager Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-memory-manager-suite). |
-| `kExportInfo_UsePreviewFiles`          | Bool        | New in CC. Use this to check if the user has checked “Use Previews” in the Export Settings dialog.<br/><br/>If so, if possible, reuse any preview files already rendered, which can be retrieved using `AcquireVideoSegmentsWithPreviewsID` in the [Video Segment Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-video-segment-suite).                          |
+| `kExportInfo_UsePreviewFiles`          | Bool        | New in CC. Use this to check if the user has checked "Use Previews" in the Export Settings dialog.<br/><br/>If so, if possible, reuse any preview files already rendered, which can be retrieved using `AcquireVideoSegmentsWithPreviewsID` in the [Video Segment Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-video-segment-suite).                          |
 | `kExportInfo_NumAudioChannels`         | Int32       | New in CC. Get the number of audio channels in a given source.<br/><br/>This can be used to automatically initialize the audio channel parameter in the Audio tab of the Export Settings to match the source.                                                                                                                                                                       |
 ```cpp
 typedef struct {
@@ -72,7 +72,7 @@ Three or more choices will be displayed as a drop-down box.
 
 Adding only one value will result in a hard-coded string.
 
-In CS5, and later fixed in 5.0.2, there is an issue where width and height ranges aren’t correctly set.
+In CS5, and later fixed in 5.0.2, there is an issue where width and height ranges aren't correctly set.
 
 You may notice this when adjusting the width and height in the Export Settings UI.
 
@@ -328,7 +328,7 @@ prSuiteError (*GetMaxBlip)(
 
 ## Sequence Render Suite
 
-Get rendered video from one of the renderers available to the host. This may use one of the host’s built-in renderers, or a plugin renderer, if available For best performance, use the asynchronous render requests with the source media prefetching calls, although synchronous rendering is available too.
+Get rendered video from one of the renderers available to the host. This may use one of the host's built-in renderers, or a plugin renderer, if available For best performance, use the asynchronous render requests with the source media prefetching calls, although synchronous rendering is available too.
 
 Version 4, new in CS5.5, adds `RenderVideoFrameAndConformToPixelFormat()`.
 
@@ -499,7 +499,7 @@ typedef struct {
 |-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `asyncCompletionData` | Passed to `PrSDKSequenceAsyncRenderCompletionProc()` from `QueueAsyncVideoFrameRender()`.<br/><br/>Not used by `RenderVideoFrame()`.                                                                             |
 | `returnVal`           | `ErrNone`, `Abort`, `Done`, or an error code.                                                                                                                                                                    |
-| `repeatCount`         | The number of repeated frames from this frame forward.<br/><br/>In the output file, this could be writing NULL frames, changing the current frame’s duration, or whatever is appropriate according to the codec. |
+| `repeatCount`         | The number of repeated frames from this frame forward.<br/><br/>In the output file, this could be writing NULL frames, changing the current frame's duration, or whatever is appropriate according to the codec. |
 | `onMarker`            | If non-zero, there is a marker on this frame.                                                                                                                                                                    |
 | `outFrame`            | Returned from `RenderVideoFrame()`. Not returned from `PrSDKSequenceAsyncRenderCompletionProc()`                                                                                                                 |
 
@@ -608,7 +608,7 @@ prSuiteError (*QueueAsyncVideoFrameRender)(
 |-------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
 | `inVideoRenderID`       | Pass in the `outVideoRenderID` returned from `MakeVideoRenderer()`.<br/><br/>This gives the host the context of the video render. |
 | `inTime`                | The frame time requested.                                                                                                         |
-| `outRequestID`          | Passes back a request ID, which… doesn’t seem to have any use.                                                                    |
+| `outRequestID`          | Passes back a request ID, which… doesn't seem to have any use.                                                                    |
 | `inRenderParams`        | The details of the render.                                                                                                        |
 | `inCacheFlags`          | One or more cache flags.                                                                                                          |
 | `inAsyncCompletionData` | This data will be passed to the `PrSDKSequenceAsyncRenderCompletionProc` in `inGetFrameReturn.asyncCompletionData`.               |
@@ -1246,7 +1246,7 @@ prSuiteError(*GetVideoCodecString)(
 
 ### GetGoodMetadataString()
 
-Retrieves a string representing the “good” state of the source track item, at the specified time.
+Retrieves a string representing the "good" state of the source track item, at the specified time.
 
 ```cpp
 prSuiteError(*GetGoodMetadataString)(
@@ -1258,7 +1258,7 @@ prSuiteError(*GetGoodMetadataString)(
 
 ### GetSoundRollString()
 
-Retrieves a string representing the “sound roll” state of the source track item, at the specified time.
+Retrieves a string representing the "sound roll" state of the source track item, at the specified time.
 
 ```cpp
 prSuiteError(*GetSoundRollString)(
@@ -1292,7 +1292,7 @@ prSuiteError(*GetSoundTimecode)(
 
 ### GetOriginalClipFrameRateForSourceTrack()
 
-Retrieves the original “ticks per frame” for the specified source track.
+Retrieves the original "ticks per frame" for the specified source track.
 
 ```cpp
 prSuiteError(*GetOriginalClipFrameRateForSourceTrack)(

@@ -26,14 +26,14 @@ Effect presets appear in the Presets bin in the Effects panel, and can be applie
 
 1. Apply a filter to a clip
 2. Set the parameters of the filter, adding keyframes if desired
-3. Right-click on the filter name in the Effect Controls panel, and select “Save Preset…”
-4. Create preset bins if desired by right-clicking in the Effects panel and choosing “New Presets Bin”
+3. Right-click on the filter name in the Effect Controls panel, and select "Save Preset…"
+4. Create preset bins if desired by right-clicking in the Effects panel and choosing "New Presets Bin"
 5. Organize the presets in the preset folders
-6. Select the bins and/or presets you wish to export, right-click, and choose “Export Preset”
+6. Select the bins and/or presets you wish to export, right-click, and choose "Export Preset"
 
-On Windows, newly created presets are saved in the hidden Application Data folder of the user’s Documents and Settings (e.g. C:Documents and Settings[user]Application DataAdobe\\ Premiere Pro[version]Effect Presets and Custom Items.prfpset). On Mac OS, they are in the user folder, at ~/Library/Application Support/Adobe/Premiere Pro/[version]/Effect Presets and Custom Items.prfpset.
+On Windows, newly created presets are saved in the hidden Application Data folder of the user's Documents and Settings (e.g. C:Documents and Settings[user]Application DataAdobe\\ Premiere Pro[version]Effect Presets and Custom Items.prfpset). On Mac OS, they are in the user folder, at ~/Library/Application Support/Adobe/Premiere Pro/[version]/Effect Presets and Custom Items.prfpset.
 
-Effect Presets should be installed as described in the section, “Plug-in Installation”. Once they are installed in that folder, they will be read-only, and the user will not be able to move them to a different folder or change their names. User-created presets will be modifiable.
+Effect Presets should be installed as described in the section, "Plug-in Installation". Once they are installed in that folder, they will be read-only, and the user will not be able to move them to a different folder or change their names. User-created presets will be modifiable.
 
 ---
 
@@ -49,12 +49,12 @@ On Mac OS: `Adobe Premiere Pro CS5.app/Contents/Settings/BadgeIcons/`
 
 In that folder are the PNG graphics that are loaded at runtime for various badges, and an additional set of `'Sample-*.png'` and `'Sample.xml'` files.
 
-1. Make copies of the Sample- *.png files, replacing the “Sample” prefix with the prefix that matches whatever you want to call the new badge (like ‘NewBadge-*.png’). Edit the PNG as you’d like, but don’t change the image dimensions.
-2. Copy the Sample.xml file to a new name that matches whatever you want to call the new badge (like ‘NewBadge.xml’). Edit the list of match names that you want to be decorated with your badge. Change the <Name> tag to the name you chose in step 1 (like ‘NewBadge’). You can also add your tooltip text as the <DescriptionItem> tags. These tags act as a localization map with the langid as the key. If a language isn’t found, ‘en_US’ is used by default. Provide your own GUID in the <Guid> tag.
-3. Relaunch the application. You’ll get a badge filter icon next to the others and a badge icons next to each effect that was listed in the XML file.
+1. Make copies of the Sample- *.png files, replacing the "Sample" prefix with the prefix that matches whatever you want to call the new badge (like 'NewBadge-*.png'). Edit the PNG as you'd like, but don't change the image dimensions.
+2. Copy the Sample.xml file to a new name that matches whatever you want to call the new badge (like 'NewBadge.xml'). Edit the list of match names that you want to be decorated with your badge. Change the <Name> tag to the name you chose in step 1 (like 'NewBadge'). You can also add your tooltip text as the <DescriptionItem> tags. These tags act as a localization map with the langid as the key. If a language isn't found, 'en_US' is used by default. Provide your own GUID in the <Guid> tag.
+3. Relaunch the application. You'll get a badge filter icon next to the others and a badge icons next to each effect that was listed in the XML file.
 
 !!! note
-    ‘Sample’ is a special case that is intentionally excluded. Any other set of  *.xml/*.png files will be used.
+    'Sample' is a special case that is intentionally excluded. Any other set of  *.xml/*.png files will be used.
 
 ---
 
@@ -64,4 +64,4 @@ Premiere Elements (but not Premiere Pro) displays visual icons for each effect. 
 
 [Program Files]AdobeAdobe Premiere Elements [version]Plug-insCommonEffectPreviews\\
 
-The filename should be the match name of the effect, which you specify in the PiPL, prefixed with “PR.” So if the match name was “MatchName”, then the filename should be “PR.MatchName.png”
+The filename should be the match name of the effect, which you specify in the PiPL, prefixed with "PR." So if the match name was "MatchName", then the filename should be "PR.MatchName.png"
