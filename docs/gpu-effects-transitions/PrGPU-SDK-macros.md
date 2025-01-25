@@ -29,7 +29,8 @@ You need to add some include paths to your kernel compilation environment:
 
 You will also need to define a symbol to tell the header file what API to process when compiling the kernel:
 
-- Metal: -DGF_DEVICE_TARGET_METAL=1
+- Metal:
+  - DGF_DEVICE_TARGET_METAL=1
 - OpenCL:
   - DGF_DEVICE_TARGET_OPENCL=1
   - DGF_OPENCL_SUPPORTS_16F=1 or 0, depending on whether you will support half (16-bit float) access for this device. Some older cards are quite slow at half support, or just don't support it.
