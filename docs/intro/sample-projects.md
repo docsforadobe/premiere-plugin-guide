@@ -53,7 +53,9 @@ In Xcode, set the build location for the project in File > Project Settings. Pre
 
 In Visual Studio, for convenience, we have set the Output File for all sample projects to use the base path set by the environment variable PREMSDKBUILDPATH. You’ll need to set this as a user environment variable for your system, and shown in the screenshot below.
 
-![Setting Environment Variables](_static/env-vars.png)
+![Setting Environment Variables](../_static/env-vars.png "Setting Environment Variables")
+*Setting Environment Variables*
+
 1. On Windows, right-click *My Computer > Properties*, and in the left sidebar choose *Advanced System Settings*.
 2. In the dialog that appears, hit the *Environment Variables* button.
 3. In the *User variables*, create a new variable named PREMSDKBUILDPATH, with the path as described above. (e.g. “C:Program FilesAdobeCommonPlug-ins[version]MediaCore").

@@ -4,7 +4,7 @@
 
 ## Setting up the Sample Project
 
-If you are developing an transition, begin with the SDK_CrossDissolve sample project, progressively replacing its functionality with your own. Refer to [Introduction](../intro/intro.md#intro-intro) for general instructions on how to build sample projects.
+If you are developing an transition, begin with the SDK_CrossDissolve sample project, progressively replacing its functionality with your own. Refer to [Introduction](../index.md) for general instructions on how to build sample projects.
 
 In addition to those general instructions, the sample project is also dependent on the After Effects SDK. Download it here. On Windows, create an environment variable pointing to it named “AE_SDK_BASE_PATH”, so that the compiler will find the AE headers that the project includes. On
 

@@ -10,17 +10,17 @@ nav:
     - History:
         - Version History: history.md
     - Introduction:
-        - What Premiere Plug-Ins Do: introwhat-premiere-plugins-do.md)
+        - What Premiere Plug-Ins Do: intro/what-premiere-plugins-do.md
         - SDK Audience: intro/sdk-audience.md
         - Whats New: intro/whats-new.md
         - Where Do I Start: intro/where-do-i-start.md
         - Document Overview: intro/document-overview.md
-        - Getting Support and Providing Feedback: introgetting-support.md)
-        - Premiere Pro Plug-In Types: intropremiere-pro-plugin-types.md)
+        - Getting Support and Providing Feedback: intro/getting-support.md
+        - Premiere Pro Plug-In Types: intro/premiere-pro-plugin-types.md
         - Sample Projects: intro/sample-projects.md
         - Debugging Plug-Ins: intro/debugging-plugins.md
         - Load Em Up: intro/load-em-up.md
-        - Plug In Installation: intro/plugin-installationmd)
+        - Plug In Installation: intro/plugin-installation.md
         - Localization: intro/localization.md
         - Best Practices: intro/best-practices.md
     - Resources:
@@ -31,78 +31,77 @@ nav:
         - Universals: universals/universals.md
         - Time: universals/time.md
         - Video Frames: universals/video-frames.md
-        - Pixel Formats And Color Spaces: universalspixel-formats-and-color-spaces.md)
-        - Pixel Aspect Ratio: universalspixel-aspect-ratio.md)
+        - Pixel Formats And Color Spaces: universals/pixel-formats-and-color-spaces.md
+        - Pixel Aspect Ratio: universals/pixel-aspect-ratio.md
         - Fields: universals/fields.md
         - Audio: universals/audio.md
-        - Memory Management: universals/memory-managementmd)
-        - Basic Types Structures: universalsbasic-types-structures.md)
+        - Memory Management: universals/memory-management.md
+        - Basic Types Structures: universals/basic-types-structures.md
         - Suites: universals/suites.md
         - SweetPea Suites: universals/sweetpea-suites.md
-        - Legacy Callback Suites: universalslegacy-callback-suites.md)
+        - Legacy Callback Suites: universals/legacy-callback-suites.md
     - Hardware Integration:
         - Hardware: hardware/hardware.md
-        - Hardware Integration Components: hardwarehardware-integration-components.md)
-        - ClassID, Filetype and Subtype: hardwareclassid-filetype-subtype.md)
-        - ClassData Functions: hardwareclassdata-functions.md)
+        - Hardware Integration Components: hardware/hardware-integration-components.md
+        - ClassID, Filetype and Subtype: hardware/classid-filetype-subtype.md
+        - ClassData Functions: hardware/classdata-functions.md
     - Importers:
         - Importers: importers/importers.md
         - What’s New: importers/whats-new.md
         - Getting Started: importers/getting-started.md
         - Selector Table: importers/selector-table.md
-        - Selector Descriptions: importersselector-descriptions.md)
+        - Selector Descriptions: importers/selector-descriptions.md
         - Return Codes: importers/return-codes.md
         - Structures: importers/structures.md
-        - Structure Descriptions: importersstructure-descriptions.md)
+        - Structure Descriptions: importers/structure-descriptions.md
         - Suites: importers/suites.md
     - Export Controllers:
-        - Export Controllers: export-controllersexport-controllers.md)
+        - Export Controllers: export-controllers/export-controllers.md
     - Exporters:
         - Exporters: exporters/exporters.md
         - Whats New: exporters/whats-new.md
         - Getting Started: exporters/getting-started.md
         - Selector Table: exporters/selector-table.md
-        - Selector Descriptions: exportersselector-descriptions.md)
+        - Selector Descriptions: exporters/selector-descriptions.md
         - Return Codes: exporters/return-codes.md
         - Structures: exporters/structures.md
-        - Structure Descriptions: exportersstructure-descriptions.md)
+        - Structure Descriptions: exporters/structure-descriptions.md
         - Suites: exporters/suites.md
-        - Additional Details: exporters/additional-detailsmd)
+        - Additional Details: exporters/additional-details.md
     - Transmitters:
         - Transmitters: transmitters/transmitters.md
-        - Transmitter Basics: transmitterstransmitter-basics.md)
-        - tmModule Functions: transmitterstmModule-functions.md)
-        - tmModule Structures: transmitterstmModule-structures.md)
+        - Transmitter Basics: transmitters/transmitter-basics.md
+        - tmModule Functions: transmitters/tmModule-functions.md
+        - tmModule Structures: transmitters/tmModule-structures.md
         - Suites: transmitters/suites.md
     - Video Filters:
         - Video Filters: video-filters/video-filters.md
         - Whats New: video-filters/whats-new.md
-        - Getting Started: video-filters/getting-startedmd)
+        - Getting Started: video-filters/getting-started.md
         - Selector Table: video-filters/selector-table.md
-        - Selector Descriptions: video-filtersselector-descriptions.md)
+        - Selector Descriptions: video-filters/selector-descriptions.md
         - Return Codes: video-filters/return-codes.md
         - VideoRecord: video-filters/VideoRecord.md
-        - Additional Details: video-filtersadditional-details.md)
+        - Additional Details: video-filters/additional-details.md
     - GPU Effects & Transitions:
         - GPU Effects & Transitions: gpu-effects-transitions/gpu-effects-transitions.md
-        - CUDA, OpenCL, Metal, or OpenGL?: gpu-effects-transitions/cuda-opencl-metal-openglmd)
+        - CUDA, OpenCL, Metal, or OpenGL?: gpu-effects-transitions/cuda-opencl-metal-opengl.md
         - What’s New in Premiere Pro 12.0?: gpu-effects-transitions/whats-new-in-ppro-12.md
-        - What’s New in Premiere Pro CC 2015.4?: gpu-effects-transitions/whats-new-in-ppro-cc2015md)
-        - What’s New in Premiere Pro CC 2014?: gpu-effects-transitions/whats-new-in-ppro-cc2014md)
-        - Getting Started: gpu-effects-transitionsgetting-started.md)
-        - PrGPUFilter Function Table: gpu-effects-transitions/PrGPUFilter-function-tablemd)
-        - Function Descriptions: gpu-effects-transitionsfunction-descriptions.md)
-        - Return Codes: gpu-effects-transitionsreturn-codes.md)
-        - Structure Descriptions: gpu-effects-transitionsstructure-descriptions.md)
-        - PrGPU SDK Macros: gpu-effects-transitionsPrGPU-SDK-macros.md)
+        - What’s New in Premiere Pro CC 2015.4?: gpu-effects-transitions/whats-new-in-ppro-cc2015.md
+        - What’s New in Premiere Pro CC 2014?: gpu-effects-transitions/whats-new-in-ppro-cc2014.md
+        - Getting Started: gpu-effects-transitions/getting-started.md
+        - PrGPUFilter Function Table: gpu-effects-transitions/PrGPUFilter-function-table.md
+        - Function Descriptions: gpu-effects-transitions/function-descriptions.md
+        - Return Codes: gpu-effects-transitions/return-codes.md
+        - Structure Descriptions: gpu-effects-transitions/structure-descriptions.md
+        - PrGPU SDK Macros: gpu-effects-transitions/PrGPU-SDK-macros.md
         - Suites: gpu-effects-transitions/suites.md
     - AE Transition Extensions:
-        - AE Transition Extensions: ae-transition-extensions/ae-transition-extensionsmd)
-        - PF_TransitionSuite: ae-transition-extensionsPF_TransitionSuite.md)
-        - Getting Started: ae-transition-extensionsgetting-started.md)
+        - AE Transition Extensions: ae-transition-extensions/ae-transition-extensions.md
+        - PF_TransitionSuite: ae-transition-extensions/PF_TransitionSuite.md
+        - Getting Started: ae-transition-extensions/getting-started.md
     - Control Surfaces:
-        - Control Surfaces: control-surfacescontrol-surfaces.md)
-
+        - Control Surfaces: control-surfaces/control-surfaces.md
 
 
 # Do not touch below-- shared for all docs

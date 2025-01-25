@@ -4,7 +4,7 @@
 
 ## Setting up the Sample Projects
 
-If you are developing an effect, begin with one of the two GPU effect sample projects, progressively replacing its functionality with your own. Refer to [Introduction](../intro/intro.md#intro-intro) for general instructions on how to build the SDK projects.
+If you are developing an effect, begin with one of the two GPU effect sample projects, progressively replacing its functionality with your own. Refer to [Introduction](../index.md) for general instructions on how to build the SDK projects.
 
 In addition to those general instructions, the sample project is also dependent on the After Effects plugin SDK. On Windows, create an environment variable pointing to it named AE_SDK_BASE_PATH, so that the compiler will find the AE headers that the project includes. On macOS, in *Xcode > Preferences > Locations > Custom Paths*, specify AE_SDK_BASE_PATH to be the root folder of the AE plugin SDK you have downloaded and unzipped.
 
