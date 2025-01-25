@@ -163,8 +163,7 @@ short xFilter (
   VideoHandle  theData)
 ```
 
-*selector* is the action Premiere wants the video filter to perform.
-
-`EffectHandle` provides source and destination buffers, and other useful information.
+- `selector` is the action Premiere wants the video filter to perform.
+- `EffectHandle` provides source and destination buffers, and other useful information.
 
 Return `fsNoErr` if successful, or an appropriate return code.

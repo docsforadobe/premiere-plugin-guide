@@ -31,7 +31,7 @@ Effect presets appear in the Presets bin in the Effects panel, and can be applie
 5. Organize the presets in the preset folders
 6. Select the bins and/or presets you wish to export, right-click, and choose "Export Preset"
 
-On Windows, newly created presets are saved in the hidden Application Data folder of the user's Documents and Settings (e.g. C:Documents and Settings[user]Application DataAdobe\\ Premiere Pro[version]Effect Presets and Custom Items.prfpset). On Mac OS, they are in the user folder, at ~/Library/Application Support/Adobe/Premiere Pro/[version]/Effect Presets and Custom Items.prfpset.
+On Windows, newly created presets are saved in the hidden Application Data folder of the user's Documents and Settings (e.g. `C:/Documents and Settings/[user]/Application Data/Adobe Premiere Pro/[version]/Effect Presets and Custom Items.prfpset`). On Mac OS, they are in the user folder, at `~/Library/Application Support/Adobe/Premiere Pro/[version]/Effect Presets and Custom Items.prfpset.`
 
 Effect Presets should be installed as described in the section, "Plug-in Installation". Once they are installed in that folder, they will be read-only, and the user will not be able to move them to a different folder or change their names. User-created presets will be modifiable.
 
@@ -62,6 +62,6 @@ In that folder are the PNG graphics that are loaded at runtime for various badge
 
 Premiere Elements (but not Premiere Pro) displays visual icons for each effect. You will need to provide icons for your effects, or else an empty black icon will be shown for your effects, or even worse behavior in Premiere Elements 8. The icons are 60x45 PNG files, and are placed here:
 
-[Program Files]AdobeAdobe Premiere Elements [version]Plug-insCommonEffectPreviews\\
+`/[Program Files]/Adobe/Adobe Premiere Elements [version]/Plug-ins/Common/Effect/Previews/`
 
 The filename should be the match name of the effect, which you specify in the PiPL, prefixed with "PR." So if the match name was "MatchName", then the filename should be "PR.MatchName.png"
