@@ -10,7 +10,6 @@ nav:
     - History:
         - Version History: history.md
     - Introduction:
-        - Introduction: intro/intro.md
         - What Premiere Plug-Ins Do: introwhat-premiere-plugins-do.md)
         - SDK Audience: intro/sdk-audience.md
         - Whats New: intro/whats-new.md
