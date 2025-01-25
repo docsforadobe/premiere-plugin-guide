@@ -92,7 +92,7 @@ On Windows XP: `[Documents and Settings folder]\[user name]\Application Data\\ A
 
 On Mac OS: `~/Library/Preferences/Adobe/Adobe Premiere Pro/[version]/Presets/`
 
-AME Preset Browser
+#### AME Preset Browser
 
 Starting in CS6, Adobe Media Encoder has a Preset Browser with provides a structured organization of presets. Third-party presets can be added to any folder or subfolder within the main categories. Once you have created a preset, it will default to the Other folder. You can set the desired folder location in the <FolderDisplayPath> tag in the preset XML.
 
@@ -237,13 +237,11 @@ DllExport PREMPLUGENTRY xSDKExport (
   void*            param2)
 ```
 
-*selector* is the action the host wants the exporter to perform.
+- `selector` is the action the host wants the exporter to perform.
+- `stdParms` provides callbacks to obtain additional information from the host or to have the host perform tasks.
+- Parameters 1 and 2 vary with the selector; they may contain a specific value or a pointer to a structure.
 
-stdParms provides callbacks to obtain additional information from the host or to have the host perform tasks.
-
-Parameters 1 and 2 vary with the selector; they may contain a specific value or a pointer to a structure.
-
-Return  `exportReturn_ErrNone` if successful, or an appropriate return code.
+Return `exportReturn_ErrNone` if successful, or an appropriate return code.
 
 ---
 

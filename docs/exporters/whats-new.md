@@ -6,11 +6,11 @@ A new Captions tab has been added to the Export Settings, for Closed Captioning 
 
 To learn how exporters can optionally embed Closed Captioning directly in the output file, see [Closed Captioning](getting-started.md#closed-captioning).
 
-Two new selectors have been added to GetExportSourceInfo in the [Export Info Suite](suites.md#export-info-suite). You can use kExportInfo_UsePreviewFiles to check if the user has checked "Use Previews" in the Export Settings dialog. If so, if possible, reuse any preview files already rendered. You can use kExportInfo_NumAudioChannels to get the number of audio channels in a given source.
+Two new selectors have been added to GetExportSourceInfo in the [Export Info Suite](suites.md#export-info-suite). You can use `kExportInfo_UsePreviewFiles` to check if the user has checked "Use Previews" in the Export Settings dialog. If so, if possible, reuse any preview files already rendered. You can use `kExportInfo_NumAudioChannels` to get the number of audio channels in a given source.
 
 This can be used to automatically initialize the audio channel parameter in the Audio tab of the Export Settings to match the source.
 
-In the [Export Param Suite](suites.md#export-param-suite), a new function, MoveParam(), can be used to move an existing parameter to a new location.
+In the [Export Param Suite](suites.md#export-param-suite), a new function, `MoveParam()`, can be used to move an existing parameter to a new location.
 
 ---
 
@@ -31,9 +31,9 @@ Adobe Media Encoder now includes a Preset Browser that provides more organizatio
 
 Exporters can now set events (error, warning, or info) for a specific encode in progress in the Adobe Media Encoder render queue. The existing call in the [Error Suite](../universals/sweetpea-suites.md#error-suite) is not sufficient for AME to relate the event to a specific encode. So the new [Exporter Utility Suite](suites.md#exporter-utility-suite) provides a way for exporters running either in Premiere Pro or Adobe Media Encoder to log events. These events are displayed in the application UI, and are also added to the AME encoding log.
 
-Multiple exporters are now supported in a single plugin. To support this, exExporterIn foRec is now set to exporters on *exShutdown*.
+Multiple exporters are now supported in a single plugin. To support this, `exExporterInfoRec` is now set to exporters on *exShutdown*.
 
-exQueryOutputSettingsRec has a new member, outUseMaximumRenderPrecision, moving knowledge of this render parameter to the exporter.
+`exQueryOutputSettingsRec` has a new member, `outUseMaximumRenderPrecision`, moving knowledge of this render parameter to the exporter.
 
 ---
 
