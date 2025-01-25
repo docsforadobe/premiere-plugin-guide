@@ -26,7 +26,7 @@ For more information on the `ANIM_FilterInfo` and `ANIM_ParamAtom`, see the reso
 
 ## A Basic PiPL Example
 
-```none
+```cpp
 #define plugInName "SDK Custom Import"
 #define plugInMatchName "SDK Custom Import"
 
@@ -58,4 +58,4 @@ On Windows, .r files are processed with CnvtPiPL.exe, which creates an .rcp file
 
 To view them, open up the sample project in .NET. In the Solution Explorer, right-click the .r file and choose Properties. In the dialog, choose the Custom Build Step folder. The Command
 
-Line contains the script for executing the CnvtPiPL.exe. Unless you are using a different compiler than the support compiler, or adding support for Asian languages, you should not need to modify the custom build steps. This script may also be found as a text file in the SDK at \\Examples\\ ResourcesWinCustom Build Steps.txt. This text file also describes the additional switches used for Asian languages.
+Line contains the script for executing the CnvtPiPL.exe. Unless you are using a different compiler than the support compiler, or adding support for Asian languages, you should not need to modify the custom build steps. This script may also be found as a text file in the SDK at `\\Examples\\Resources\\Win\\Custom Build Steps.txt`. This text file also describes the additional switches used for Asian languages.
