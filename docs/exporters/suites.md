@@ -27,7 +27,7 @@ prSuiteError (*GetExportSourceInfo)(
   PrParam                     *outSourceInfo);
 ```
 
-|               **Value**                |  **Type**   |                                                                                                                                                                     **Description**                                                                                                                                                                      |
+|                 Value                  |    Type     |                                                                                                                                                                       Description                                                                                                                                                                        |
 | -------------------------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `kExportInfo_VideoWidth`               | Int32       | Width of source video                                                                                                                                                                                                                                                                                                                                    |
 | `kExportInfo_VideoHeight`              | Int32       | Height of source video                                                                                                                                                                                                                                                                                                                                   |
@@ -109,7 +109,7 @@ prSuiteError (*AddStandardParams)(
   PrSDKStdParamType  inSDKStdParamType);
 ```
 
-|    **Parameter**    |                                                                                                                                                                                  **Description**                                                                                                                                                                                  |
+|      Parameter      |                                                                                                                                                                                    Description                                                                                                                                                                                    |
 | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `inExporterID`      | Pass in `exporterPluginID` from `exDoExportRec`.                                                                                                                                                                                                                                                                                                                                  |
 | `inSDKStdParamType` | Use one of the following:<pre>enum PrSDKStdParamType {<br/>  SDKStdParams_Video,<br/>  SDKStdParams_Audio,<br/>  SDKStdParams_Still,<br/>  SDKStdParams_VideoBitrateGroup,<br/>  SDKStdParams_Video_NoRenderMax,<br/>  SDKStdParams_Video_AddRenderMax,<br/>  SDKStdParams_AudioTabOnly,<br/>  SDKStdParams_AudioBitrateGroup,<br/>  SDKStdParams_VideoWithSizePopup<br/>};</pre> |
@@ -124,7 +124,7 @@ prSuiteError (*PostProcessParamNames)(
   PrAudioChannelType  inSourceAudioChannelType);
 ```
 
-|       **Parameter**        |                                                           **Description**                                                            |
+|         Parameter          |                                                             Description                                                              |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | `inExporterID`             | Pass in `exporterPluginID` from `exDoExportRec`.                                                                                     |
 | `inSourceAudioChannelType` | Pass in the source audio channel type, which can be queried from GetExportSourceInfo in the [Export Info Suite](#export-info-suite). |
@@ -139,7 +139,7 @@ prSuiteError (*QueryOutputSettings)(
   exQueryOutputSettingsRec*  outOutputSettings);
 ```
 
-|    **Parameter**    |                               **Description**                               |
+|      Parameter      |                                 Description                                 |
 | ------------------- | --------------------------------------------------------------------------- |
 | `inExporterID`      | Pass in exporterPluginID from exDoExportRec.                                |
 | `outOutputSettings` | This structure will be filled out based on the standard parameter settings. |
@@ -157,7 +157,7 @@ prSuiteError (*MakeParamSummary)(
   prUTF16Char*  outAudioDescription);
 ```
 
-|     **Parameter**     |                                                              **Description**                                                               |
+|       Parameter       |                                                                Description                                                                 |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | `inExporterID`        | Pass in `exporterPluginID` from `exDoExportRec`.                                                                                           |
 | `inDoVideo`           | Pass in `exParamSummaryRec.exportVideo` / `exportAudio` so that the summary will be set based on whether video / audio are being exported. |
@@ -184,7 +184,7 @@ prSuiteError (*DoMultiPassExportLoop)(
   void*                                            inCompletionParam);
 ```
 
-|     **Parameter**      |                                                                                                                                                                                                                                                                                                                                                                                                                                **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                |
+|       Parameter        |                                                                                                                                                                                                                                                                                                                                                                                                                                  Description                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `inExporterID`         | Pass in `exporterPluginID` from `exDoExportRec`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | `inRenderParams`       | Pass in the parameters that will be used for the render loop that will push rendered frames via the provided callback `inCompletionFunction`.<br/><br/>`inReservedProgressPreRender` and `inReservedProgressPostRender` should be set to the amount of progress to be shown in any progress bar before starting the render loop, and how much is remaining after finishing the render loop.<br/><br/>These values default to zero.<pre>typedef struct {<br/>  csSDK_int32    inRenderParamsSize;<br/>  csSDK_int32    inRenderParamsVersion;<br/>  PrPixelFormat  inFinalPixelFormat;<br/>  PrTime         inStartTime;<br/>  PrTime         inEndTime;<br/>  float          inReservedProgressPreRender;<br/>  float          inReservedProgressPostRender;<br/>  bool           inHardwareResidentFrameOutputSupported;  // new in 14.x<br/>} ExportLoopRenderParams;</pre> |
@@ -204,7 +204,7 @@ prSuiteError (*ReportIntermediateProgressForRepeatedVideoFrame)(
   csSDK_uint32  inRepetitionsProcessedSinceLastUpdate);
 ```
 
-|              **Parameter**              |                                    **Description**                                    |
+|                Parameter                |                                      Description                                      |
 | --------------------------------------- | ------------------------------------------------------------------------------------- |
 | `inExporterID`                          | Pass in `exporterPluginID` from `exDoExportRec`.                                      |
 | `inRepetitionsProcessedSinceLastUpdate` | Pass in the number of repeated frames processed since the last call was made, if any. |
@@ -223,7 +223,7 @@ prSuiteError (*ReportEvent)(
   const prUTF16Char*  inEventDescription);
 ```
 
-|    **Parameter**     |                                                                                       **Description**                                                                                       |
+|      Parameter       |                                                                                         Description                                                                                         |
 | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `inExporterID`       | Pass in `exporterPluginID` from `exDoExportRec`.                                                                                                                                            |
 | `inEventType`        | Use one of the types from the [Error Suite](../universals/sweetpea-suites.md#error-suite):<ul><li>`kEventTypeInformational`</li><li>`kEventTypeWarning`</li><li>`kEventTypeError`</li></ul> |
@@ -256,7 +256,7 @@ prSuiteError (*MakeAudioRenderer)(
   csSDK_uint32*       outAudioRenderID);
 ```
 
-|   **Parameter**    |                                   **Description**                                   |
+|     Parameter      |                                     Description                                     |
 | ------------------ | ----------------------------------------------------------------------------------- |
 | `inPluginID`       | Pass in `exporterPluginID` from `exDoExportRec`.                                    |
 | `inStartTime`      | Start time for the audio requests.                                                  |
@@ -275,7 +275,7 @@ prSuiteError (*ReleaseAudioRenderer)(
   csSDK_uint32  inAudioRenderID);
 ```
 
-|   **Parameter**   |                    **Description**                     |
+|     Parameter     |                      Description                       |
 | ----------------- | ------------------------------------------------------ |
 | `inPluginID`      | Pass in `exporterPluginID` from `exDoExportRec`.       |
 | `inAudioRenderID` | The call will release the audio renderer with this ID. |
@@ -298,7 +298,7 @@ prSuiteError (*GetAudio)(
   char          inClipAudio);
 ```
 
-|   **Parameter**   |                                                                              **Description**                                                                              |
+|     Parameter     |                                                                                Description                                                                                |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `inAudioRenderID` | Pass in the `outAudioRenderID` returned from `MakeAudioRenderer()`.<br/><br/>This gives the host the context of the audio render.                                         |
 | `inFrameCount`    | The number of audio frames to return in inBuffer.<br/><br/>The next contiguous audio frames will always be returned, unless `ResetAudioToBeginning` has just been called. |
@@ -344,7 +344,7 @@ prSuiteError (*MakeVideoRenderer)(
   PrTime         inFrameRate);
 ```
 
-|   **Parameter**    |                          **Description**                          |
+|     Parameter      |                            Description                            |
 | ------------------ | ----------------------------------------------------------------- |
 | `pluginID`         | Pass in `exporterPluginID` from `exDoExportRec`.                  |
 | `outVideoRenderID` | This ID passed back is needed for subsequent calls to this suite. |
@@ -360,7 +360,7 @@ prSuiteError (*ReleaseVideoRenderer)(
   csSDK_uint32  inVideoRenderID);
 ```
 
-|   **Parameter**   |                    **Description**                     |
+|     Parameter     |                      Description                       |
 | ----------------- | ------------------------------------------------------ |
 | `pluginID`        | Pass in `exporterPluginID` from `exDoExportRec`.       |
 | `inVideoRenderID` | The call will release the video renderer with this ID. |
@@ -388,7 +388,7 @@ typedef struct {
 } SequenceRender_ParamsRec;
 ```
 
-|             **Member**             |                                                                                    **Description**                                                                                     |
+|               Member               |                                                                                      Description                                                                                       |
 | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `inRequestedPixelFormatArray`      | An array of PrPixelFormats that list your format preferences in order.                                                                                                                 |
 | `inRequestedPixelFormatArrayCount` | Size of the pixel format array.                                                                                                                                                        |
@@ -426,7 +426,7 @@ typedef struct {
 } SequenceRender_ParamsRecExt;
 ```
 
-|             **Member**             |                                                                                    **Description**                                                                                     |
+|               Member               |                                                                                      Description                                                                                       |
 | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `inRequestedPixelFormatArray`      | An array of PrPixelFormats that list your format preferences in order.                                                                                                                 |
 | `inRequestedPixelFormatArrayCount` | Size of the pixel format array.                                                                                                                                                        |
@@ -466,7 +466,7 @@ typedef struct {
 } SequenceRender_ParamsRecExt2;
 ```
 
-|             **Member**             |                                                                                    **Description**                                                                                     |
+|               Member               |                                                                                      Description                                                                                       |
 | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `inRequestedPixelFormatArray`      | An array of PrPixelFormats that list your format preferences in order.                                                                                                                 |
 | `inRequestedPixelFormatArrayCount` | Size of the pixel format array.                                                                                                                                                        |
@@ -496,7 +496,7 @@ typedef struct {
 } SequenceRender_GetFrameReturnRec;
 ```
 
-|      **Member**       |                                                                                                 **Description**                                                                                                  |
+|        Member         |                                                                                                   Description                                                                                                    |
 | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `asyncCompletionData` | Passed to `PrSDKSequenceAsyncRenderCompletionProc()` from `QueueAsyncVideoFrameRender()`.<br/><br/>Not used by `RenderVideoFrame()`.                                                                             |
 | `returnVal`           | `ErrNone`, `Abort`, `Done`, or an error code.                                                                                                                                                                    |
@@ -524,7 +524,7 @@ prSuiteError (*RenderVideoFrame)(
   SequenceRender_GetFrameReturnRec*  getFrameReturn);
 ```
 
-|   **Parameter**   |                                                          **Description**                                                          |
+|     Parameter     |                                                            Description                                                            |
 | ----------------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | `inVideoRenderID` | Pass in the `outVideoRenderID` returned from `MakeVideoRenderer()`.<br/><br/>This gives the host the context of the video render. |
 | `inTime`          | The frame time requested.                                                                                                         |
@@ -558,7 +558,7 @@ prSuiteError (*SetAsyncRenderCompletionProc)(
   long                                    callbackRef);
 ```
 
-|      **Parameter**      |                                                                                        **Description**                                                                                        |
+|        Parameter        |                                                                                          Description                                                                                          |
 | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `inVideoRenderID`       | Pass in the `outVideoRenderID` returned from `MakeVideoRenderer()`.<br/><br/>This will be passed to `PrSDKSequenceAsyncRenderCompletionProc`.                                                 |
 | `asyncGetFrameCallback` | The notification callback.                                                                                                                                                                    |
@@ -579,7 +579,7 @@ void (*PrSDKSequenceAsyncRenderCompletionProc)(
   SequenceRender_GetFrameReturnRec  *inGetFrameReturn);
 ```
 
-|   **Parameter**    |                                                                               **Description**                                                                                |
+|     Parameter      |                                                                                 Description                                                                                  |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `inVideoRenderID`  | The outVideoRenderID that the exporter passed to `SetAsyncRenderCompletionProc` earlier.                                                                                     |
 | `inCallbackRef`    | A pointer that the exporter sets using `SetAsyncRenderCompletionProc()`.<br/><br/>This could be, for example, a pointer to an exporter instance.                             |
@@ -605,7 +605,7 @@ prSuiteError (*QueueAsyncVideoFrameRender)(
   void*                      inAsyncCompletionData);
 ```
 
-|      **Parameter**      |                                                          **Description**                                                          |
+|        Parameter        |                                                            Description                                                            |
 | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | `inVideoRenderID`       | Pass in the `outVideoRenderID` returned from `MakeVideoRenderer()`.<br/><br/>This gives the host the context of the video render. |
 | `inTime`                | The frame time requested.                                                                                                         |

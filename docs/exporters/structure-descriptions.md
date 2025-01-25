@@ -23,7 +23,7 @@ typedef struct {
 } exDoExportRec;
 ```
 
-|       **Member**       |                                                                                                        **Description**                                                                                                         |
+|         Member         |                                                                                                          Description                                                                                                           |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `exporterPluginID`     | The host's internal identifier for this exporter, used for various suite calls, such as in the [Sequence Render Suite](suites.md#sequence-render-suite) and [Sequence Audio Suite](suites.md#sequence-audio-suite).            |
 | `privateData`          | Data allocated and managed by the exporter.                                                                                                                                                                                    |
@@ -70,7 +70,7 @@ typedef struct {
 } exDoExportRec2;
 ```
 
-|       **Member**       |                                                                                                        **Description**                                                                                                         |
+|         Member         |                                                                                                          Description                                                                                                           |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `exporterPluginID`     | The host's internal identifier for this exporter, used for various suite calls, such as in the [Sequence Render Suite](suites.md#sequence-render-suite) and [Sequence Audio Suite](suites.md#sequence-audio-suite).            |
 | `privateData`          | Data allocated and managed by the exporter.                                                                                                                                                                                    |
@@ -125,7 +125,7 @@ typedef struct {
 } exExporterInfoRec;
 ```
 
-|         **Member**         |                                                                                                                                                                       **Description**                                                                                                                                                                       |
+|           Member           |                                                                                                                                                                         Description                                                                                                                                                                         |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `fileType`                 | The file format four character code (e.g. 'AVIV' = Video for Windows, 'MooV' = QuickTime).                                                                                                                                                                                                                                                                  |
 | `fileTypeName`             | The localized display name for the fileype.                                                                                                                                                                                                                                                                                                                 |
@@ -163,7 +163,7 @@ typedef struct {
 } exExporterInstanceRec;
 ```
 
-|     **Member**     |                                                    **Description**                                                    |
+|       Member       |                                                      Description                                                      |
 | ------------------ | --------------------------------------------------------------------------------------------------------------------- |
 | `exporterPluginID` | The host's internal identifier for this exporter. Do not modify.                                                      |
 | `fileType`         | The file format four character code set by the exporter during [exSelStartup](selector-descriptions.md#exselstartup). |
@@ -186,7 +186,7 @@ typedef struct {
 ```
 
 
-|     **Member**     |                                                    **Description**                                                    |
+|       Member       |                                                      Description                                                      |
 | ------------------ | --------------------------------------------------------------------------------------------------------------------- |
 | `exporterPluginID` | The host's internal identifier for this exporter. Do not modify.                                                      |
 | `privateData`      | Data allocated and managed by the exporter.                                                                           |
@@ -212,7 +212,7 @@ typedef struct {
 } exParamButtonRec;
 ```
 
-|       **Member**        |                                                    **Description**                                                    |
+|         Member          |                                                      Description                                                      |
 | ----------------------- | --------------------------------------------------------------------------------------------------------------------- |
 | `exporterPluginID`      | The host's internal identifier for this exporter. Do not modify.                                                      |
 | `privateData`           | Data allocated and managed by the exporter.                                                                           |
@@ -245,7 +245,7 @@ typedef struct {
 } exParamChangedRec;
 ```
 
-|        **Member**        |                                                                                                  **Description**                                                                                                   |
+|          Member          |                                                                                                    Description                                                                                                     |
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `exporterPluginID`       | The host's internal identifier for this exporter. Do not modify.                                                                                                                                                   |
 | `privateData`            | Data allocated and managed by the exporter.                                                                                                                                                                        |
@@ -276,7 +276,7 @@ typedef struct {
 } exParamSummaryRec;
 ```
 
-|     **Member**     |                           **Description**                           |
+|       Member       |                             Description                             |
 | ------------------ | ------------------------------------------------------------------- |
 | `exporterPluginID` | The host's internal identifier for this exporter. Do not modify.    |
 | `privateData`      | Data allocated and managed by the exporter.                         |
@@ -305,7 +305,7 @@ typedef struct {
 } exPostProcessParamsRec;
 ```
 
-|        **Member**        |                                                    **Description**                                                    |
+|          Member          |                                                      Description                                                      |
 | ------------------------ | --------------------------------------------------------------------------------------------------------------------- |
 | `exporterPluginID`       | The host's internal identifier for this exporter. Do not modify.                                                      |
 | `privateData`            | Data allocated and managed by the exporter.                                                                           |
@@ -331,7 +331,7 @@ typedef struct {
 } exQueryExportFileExtensionRec;
 ```
 
-|     **Member**     |                                                    **Description**                                                    |
+|       Member       |                                                      Description                                                      |
 | ------------------ | --------------------------------------------------------------------------------------------------------------------- |
 | `exporterPluginID` | The host's internal identifier for this exporter. Do not modify.                                                      |
 | `privateData`      | Data allocated and managed by the exporter.                                                                           |
@@ -357,7 +357,7 @@ typedef struct {
 } exQueryOutputFileListRec;
 ```
 
-|     **Member**     |                                                                                                                                                            **Description**                                                                                                                                                            |
+|       Member       |                                                                                                                                                              Description                                                                                                                                                              |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `exporterPluginID` | The host's internal identifier for this exporter. Do not modify.                                                                                                                                                                                                                                                                      |
 | `privateData`      | Data allocated and managed by the exporter.                                                                                                                                                                                                                                                                                           |
@@ -396,7 +396,7 @@ typedef struct {
 } exQueryOutputSettingsRec;
 ```
 
-|              **Member**              |                                                                                                                               **Description**                                                                                                                                |
+|                Member                |                                                                                                                                 Description                                                                                                                                  |
 | ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `exporterPluginID`                   | The host's internal identifier for this exporter. Do not modify.                                                                                                                                                                                                             |
 | `privateData`                        | Data allocated and managed by the exporter.                                                                                                                                                                                                                                  |
@@ -425,7 +425,7 @@ typedef struct {
 } exQueryStillSequenceRec;
 ```
 
-|       **Member**        |                                                    **Description**                                                    |
+|         Member          |                                                      Description                                                      |
 | ----------------------- | --------------------------------------------------------------------------------------------------------------------- |
 | `exporterPluginID`      | The host's internal identifier for this exporter. Do not modify.                                                      |
 | `privateData`           | Data allocated and managed by the exporter.                                                                           |
@@ -449,7 +449,7 @@ typedef struct {
 } exExporterInstanceRec;
 ```
 
-|     **Member**     |                                                    **Description**                                                    |
+|       Member       |                                                      Description                                                      |
 | ------------------ | --------------------------------------------------------------------------------------------------------------------- |
 | `exporterPluginID` | The host's internal identifier for this exporter. Do not modify.                                                      |
 | `privateData`      | Data allocated and managed by the exporter.                                                                           |
@@ -472,7 +472,7 @@ typedef struct
 } exQueryExportColorSpaceRec;
 ```
 
-|      **Member**       |                                         **Description**                                          |
+|        Member         |                                           Description                                            |
 | --------------------- | ------------------------------------------------------------------------------------------------ |
 | `exporterPluginID`    | The host's internal identifier for this exporter. Do not modify.                                 |
 | `privateData`         | Data allocated and managed by the exporter.                                                      |

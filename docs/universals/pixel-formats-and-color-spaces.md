@@ -62,108 +62,108 @@ The 16-bit formats use channels that go from black at 0 to white at 32768, like 
 
 ### Unpacked, Uncompressed
 
-| **PrPixelFormat**   |   **Bits / Channel** | **Format / FourCC**   | **Additional Details**                         |
-|---------------------|----------------------|-----------------------|------------------------------------------------|
-| BGRA_4444_8u        |                    8 | RGB                   |                                                |
-| VUYA_4444_8u        |                    8 | Y'UV                  |                                                |
-| VUYA_4444_8u_709    |                    8 | Y'UV                  | Rec. 709 color space. New in Premiere Pro 4.1. |
-| BGRA_4444_16u       |                   16 | RGB                   |                                                |
-| BGRA_4444_32f       |                   32 | RGB                   |                                                |
-| VUYA_4444_32f       |                   32 | Y'UV                  |                                                |
-| VUYA_4444_32f_709   |                   32 | Y'UV                  | Rec. 709 color space. New in Premiere Pro 4.1. |
+|   PrPixelFormat   | Bits / Channel | Format / FourCC |               Additional Details               |
+| ----------------- | -------------- | --------------- | ---------------------------------------------- |
+| BGRA_4444_8u      | 8              | RGB             |                                                |
+| VUYA_4444_8u      | 8              | Y'UV            |                                                |
+| VUYA_4444_8u_709  | 8              | Y'UV            | Rec. 709 color space. New in Premiere Pro 4.1. |
+| BGRA_4444_16u     | 16             | RGB             |                                                |
+| BGRA_4444_32f     | 32             | RGB             |                                                |
+| VUYA_4444_32f     | 32             | Y'UV            |                                                |
+| VUYA_4444_32f_709 | 32             | Y'UV            | Rec. 709 color space. New in Premiere Pro 4.1. |
 
 ### Unpacked, Uncompressed, native After Effects support only
 
-| **PrPixelFormat**   |   **Bits / Channel** | **Format / FourCC**   | **Additional Details**                                                       |
-|---------------------|----------------------|-----------------------|------------------------------------------------------------------------------|
-| ARGB_4444_8u        |                    8 | RGB                   | For native After Effects support. For native Premiere Pro support, use BGRA. |
-| ARGB_4444_16u       |                   16 | RGB                   |                                                                              |
-| ARGB_4444_32f       |                   32 | RGB                   |                                                                              |
+| PrPixelFormat | Bits / Channel | Format / FourCC |                              Additional Details                              |
+| ------------- | -------------- | --------------- | ---------------------------------------------------------------------------- |
+| ARGB_4444_8u  | 8              | RGB             | For native After Effects support. For native Premiere Pro support, use BGRA. |
+| ARGB_4444_16u | 16             | RGB             |                                                                              |
+| ARGB_4444_32f | 32             | RGB             |                                                                              |
 
 ### Unpacked, Uncompressed, with implicit alpha
 
-| **PrPixelFormat**   |   **Bits / Channel** | **Format / FourCC**   | **Additional Details**                                                                                                                                                                                                            |
-|---------------------|----------------------|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| BGRX_4444_8u        |                    8 | RGB                   | Implicitly opaque alpha channel. The actual data may be left filled with garbage, which allows optimized processing by both the plugin and host, with the understanding the the alpha channel is opaque. New in Premiere Pro CS5. |
-| VUYX_4444_8u        |                    8 | Y'UV                  |                                                                                                                                                                                                                                   |
-| VUYX_4444_8u_709    |                    8 | Y'UV                  |                                                                                                                                                                                                                                   |
-| XRGB_4444_8u        |                    8 | RGB                   |                                                                                                                                                                                                                                   |
-| BGRX_4444_16u       |                   16 | RGB                   |                                                                                                                                                                                                                                   |
-| XRGB_4444_16u       |                   16 | RGB                   |                                                                                                                                                                                                                                   |
-| BGRX_4444_32f       |                   32 | RGB                   |                                                                                                                                                                                                                                   |
-| VUYX_4444_32f       |                   32 | Y'UV                  |                                                                                                                                                                                                                                   |
-| VUYX_4444_32f_709   |                   32 | Y'UV                  |                                                                                                                                                                                                                                   |
-| XRGB_4444_32f       |                   32 | RGB                   |                                                                                                                                                                                                                                   |
-| BGRP_4444_8u        |                    8 | RGB                   | Premultiplied alpha. New in Premiere Pro CS5.                                                                                                                                                                                     |
-| VUYP_4444_8u        |                    8 | Y'UV                  |                                                                                                                                                                                                                                   |
-| VUYP_4444_8u_709    |                    8 | Y'UV                  |                                                                                                                                                                                                                                   |
-| PRGB_4444_8u        |                    8 | RGB                   |                                                                                                                                                                                                                                   |
-| BGRP_4444_16u       |                   16 | RGB                   |                                                                                                                                                                                                                                   |
-| PRGB_4444_16u       |                   16 | RGB                   |                                                                                                                                                                                                                                   |
-| BGRP_4444_32f       |                   32 | RGB                   |                                                                                                                                                                                                                                   |
-| VUYP_4444_32f       |                   32 | Y'UV                  |                                                                                                                                                                                                                                   |
-| VUYP_4444_32f_709   |                   32 | Y'UV                  |                                                                                                                                                                                                                                   |
-| PRGB_4444_32f       |                   32 | RGB                   |                                                                                                                                                                                                                                   |
+|   PrPixelFormat   | Bits / Channel | Format / FourCC |                                                                                                        Additional Details                                                                                                         |
+| ----------------- | -------------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| BGRX_4444_8u      | 8              | RGB             | Implicitly opaque alpha channel. The actual data may be left filled with garbage, which allows optimized processing by both the plugin and host, with the understanding the the alpha channel is opaque. New in Premiere Pro CS5. |
+| VUYX_4444_8u      | 8              | Y'UV            |                                                                                                                                                                                                                                   |
+| VUYX_4444_8u_709  | 8              | Y'UV            |                                                                                                                                                                                                                                   |
+| XRGB_4444_8u      | 8              | RGB             |                                                                                                                                                                                                                                   |
+| BGRX_4444_16u     | 16             | RGB             |                                                                                                                                                                                                                                   |
+| XRGB_4444_16u     | 16             | RGB             |                                                                                                                                                                                                                                   |
+| BGRX_4444_32f     | 32             | RGB             |                                                                                                                                                                                                                                   |
+| VUYX_4444_32f     | 32             | Y'UV            |                                                                                                                                                                                                                                   |
+| VUYX_4444_32f_709 | 32             | Y'UV            |                                                                                                                                                                                                                                   |
+| XRGB_4444_32f     | 32             | RGB             |                                                                                                                                                                                                                                   |
+| BGRP_4444_8u      | 8              | RGB             | Premultiplied alpha. New in Premiere Pro CS5.                                                                                                                                                                                     |
+| VUYP_4444_8u      | 8              | Y'UV            |                                                                                                                                                                                                                                   |
+| VUYP_4444_8u_709  | 8              | Y'UV            |                                                                                                                                                                                                                                   |
+| PRGB_4444_8u      | 8              | RGB             |                                                                                                                                                                                                                                   |
+| BGRP_4444_16u     | 16             | RGB             |                                                                                                                                                                                                                                   |
+| PRGB_4444_16u     | 16             | RGB             |                                                                                                                                                                                                                                   |
+| BGRP_4444_32f     | 32             | RGB             |                                                                                                                                                                                                                                   |
+| VUYP_4444_32f     | 32             | Y'UV            |                                                                                                                                                                                                                                   |
+| VUYP_4444_32f_709 | 32             | Y'UV            |                                                                                                                                                                                                                                   |
+| PRGB_4444_32f     | 32             | RGB             |                                                                                                                                                                                                                                   |
 
 ### Linear RGB
 
-| **PrPixelFormat**    |   **Bits / Channel** | **Format / FourCC**   | **Additional Details**                                                                      |
-|----------------------|----------------------|-----------------------|---------------------------------------------------------------------------------------------|
-| BGRA_4444_32f_Linear |                   32 | RGB                   | These RGB formats have a gamma of 1, rather than the standard 2.2. New in Premiere Pro CS5. |
-| BGRP_4444_32f_Linear |                   32 | RGB                   |                                                                                             |
-| BGRX_4444_32f_Linear |                   32 | RGB                   |                                                                                             |
-| ARGB_4444_32f_Linear |                   32 | RGB                   |                                                                                             |
-| PRGB_4444_32f_Linear |                   32 | RGB                   |                                                                                             |
-| XRGB_4444_32f_Linear |                   32 | RGB                   |                                                                                             |
+|    PrPixelFormat     | Bits / Channel | Format / FourCC |                                     Additional Details                                      |
+| -------------------- | -------------- | --------------- | ------------------------------------------------------------------------------------------- |
+| BGRA_4444_32f_Linear | 32             | RGB             | These RGB formats have a gamma of 1, rather than the standard 2.2. New in Premiere Pro CS5. |
+| BGRP_4444_32f_Linear | 32             | RGB             |                                                                                             |
+| BGRX_4444_32f_Linear | 32             | RGB             |                                                                                             |
+| ARGB_4444_32f_Linear | 32             | RGB             |                                                                                             |
+| PRGB_4444_32f_Linear | 32             | RGB             |                                                                                             |
+| XRGB_4444_32f_Linear | 32             | RGB             |                                                                                             |
 
 ### Packed, Uncompressed formats
 
-| **PrPixelFormat**   | **Bits / Channel**   | **Format / FourCC**   | **Additional Details**                                          |
-|---------------------|----------------------|-----------------------|-----------------------------------------------------------------|
-| RGB_444_10u         |                      |                       | New in Premiere Pro CC. Full range 10-bit 444 RGB little-endian |
-| YUYV_422_8u_601     | 8                    | 'YUY2'                | New in Premiere Pro CS4.                                        |
-| YUYV_422_8u_709     | 8                    | 'YUY2'                | Rec. 709 color space. New in Premiere Pro CS4.                  |
-| UYVY_422_8u_601     | 8                    | 'UYVY'                | New in Premiere Pro CS4.                                        |
-| UYVY_422_8u_709     | 8                    | 'UYVY'                | Rec. 709 color space. New in Premiere Pro CS4.                  |
-| V210_422_10u_601    | 10                   | 'v210'                | New in Premiere Pro CS4.                                        |
-| V210_422_10u_709    | 10                   | 'v210'                | Rec. 709 color space. New in Premiere Pro CS4.                  |
-| UYVY_422_32f_601    | 32                   | 'UYVY'                | New in Premiere Pro CC.                                         |
-| UYVY_422_32f_709    | 32                   | 'UYVY'                | New in Premiere Pro CC.                                         |
+|  PrPixelFormat   | Bits / Channel | Format / FourCC |                       Additional Details                        |
+| ---------------- | -------------- | --------------- | --------------------------------------------------------------- |
+| RGB_444_10u      |                |                 | New in Premiere Pro CC. Full range 10-bit 444 RGB little-endian |
+| YUYV_422_8u_601  | 8              | 'YUY2'          | New in Premiere Pro CS4.                                        |
+| YUYV_422_8u_709  | 8              | 'YUY2'          | Rec. 709 color space. New in Premiere Pro CS4.                  |
+| UYVY_422_8u_601  | 8              | 'UYVY'          | New in Premiere Pro CS4.                                        |
+| UYVY_422_8u_709  | 8              | 'UYVY'          | Rec. 709 color space. New in Premiere Pro CS4.                  |
+| V210_422_10u_601 | 10             | 'v210'          | New in Premiere Pro CS4.                                        |
+| V210_422_10u_709 | 10             | 'v210'          | Rec. 709 color space. New in Premiere Pro CS4.                  |
+| UYVY_422_32f_601 | 32             | 'UYVY'          | New in Premiere Pro CC.                                         |
+| UYVY_422_32f_709 | 32             | 'UYVY'          | New in Premiere Pro CC.                                         |
 
 ### Compressed Y'UV
 
-| **PrPixelFormat**                                                 |   **Bits / Channel** | **Format / FourCC**   | **Additional Details**                                                                                                                                                                |
-|-------------------------------------------------------------------|----------------------|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| NTSCDV25                                                          |                    8 | DV25 / 'dvsd'         |                                                                                                                                                                                       |
-| PALDV25                                                           |                    8 | DV25 / 'dvsd'         |                                                                                                                                                                                       |
-| NTSCDV50                                                          |                    8 | DV50 / 'dv50'         |                                                                                                                                                                                       |
-| PALDV50                                                           |                    8 | DV50 / 'dv50'         |                                                                                                                                                                                       |
-| NTSCDV100_720p                                                    |                    8 | DV100 720p / 'dvh1'   |                                                                                                                                                                                       |
-| PALDV100_720p                                                     |                    8 | DV100 720p / 'dvh1'   |                                                                                                                                                                                       |
-| NTSCDV100_1080i                                                   |                    8 | DV100 1080i / 'dvh1'  |                                                                                                                                                                                       |
-| PALDV100_1080i                                                    |                    8 | DV100 1080i / 'dvh1'  |                                                                                                                                                                                       |
-| YUV_420_MPEG2_FRAME_PICTURE_PLANAR_8u_601                         |                    8 | Y'UV 4:2:0 / 'YV12'   | Progressive Rec. 601 color space                                                                                                                                                      |
-| YUV_420_MPEG2_FIELD_PICTURE_PLANAR_8u_601                         |                    8 | Y'UV 4:2:0 / 'YV12'   | Interlaced Rec. 601 color space                                                                                                                                                       |
-| YUV_420_MPEG2_FRAME_PICTURE_PLANAR_8u_601_FullRange               |                    8 | Y'UV 4:2:0 / 'YV12'   | New in Premiere Pro CS5.5. Progressive Rec. 601 color space, full range Y'UV                                                                                                          |
-| YUV_420_MPEG2_FIELD_PICTURE_PLANAR_8u_601_FullRange               |                    8 | Y'UV 4:2:0 / 'YV12'   | New in Premiere Pro CS5.5. Interlaced Rec. 601 color space, full range Y'UV                                                                                                           |
-| YUV_420_MPEG2_FRAME_PICTURE_PLANAR_8u_709                         |                    8 | Y'UV 4:2:0 / 'YV12'   | Progressive Rec. 709 color space                                                                                                                                                      |
-| YUV_420_MPEG2_FIELD_PICTURE_PLANAR_8u_709                         |                    8 | Y'UV 4:2:0 / 'YV12'   | Interlaced Rec. 709 color space                                                                                                                                                       |
-| YUV_420_MPEG2_FRAME_PICTURE_PLANAR_8u_709_FullRange               |                    8 | Y'UV 4:2:0 / 'YV12'   | New in Premiere Pro CS6. Progressive Rec. 709 color space, full range Y'UV. Matricies scaled from 709 by each component's excursion (Y is scaled by 219/255 and UV scaled by 224/256) |
-| YUV_420_MPEG2_FIELD_PICTURE_PLANAR_8u_709_FullRange               |                    8 | Y'UV 4:2:0 / 'YV12'   | New in Premiere Pro CS6. Interlaced Rec. 709 color space, full range Y'UV                                                                                                             |
-| YUV_420_MPEG4_FRAME_PICTURE_PLANAR_8u_601                         |                    8 | Y'UV 4:2:0 / 'YV12'   | New in Premiere Pro CS6. Progressive Rec. 601 color space                                                                                                                             |
-| YUV_420_MPEG4_FIELD_PICTURE_PLANAR_8u_601                         |                    8 | Y'UV 4:2:0 / 'YV12'   | New in Premiere Pro CS6. Interlaced Rec. 601 color space                                                                                                                              |
-| YUV_420_MPEG4_FRAME_PICTURE_PLANAR_8u_601_FullRange               |                    8 | Y'UV 4:2:0 / 'YV12'   | New in Premiere Pro CS6. Progressive Rec. 601 color space, full range Y'UV                                                                                                            |
-| YUV_420_MPEG4_FIELD_PICTURE_PLANAR_8u_601_FullRange               |                    8 | Y'UV 4:2:0 / 'YV12'   | New in Premiere Pro CS6. Interlaced Rec. 601 color space, full range Y'UV                                                                                                             |
-| YUV_420_MPEG4_FRAME_PICTURE_PLANAR_8u_709                         |                    8 | Y'UV 4:2:0 / 'YV12'   | New in Premiere Pro CS6. Progressive Rec. 709 color space                                                                                                                             |
-| YUV_420_MPEG4_FIELD_PICTURE_PLANAR_8u_709                         |                    8 | Y'UV 4:2:0 / 'YV12'   | New in Premiere Pro CS6. Interlaced Rec. 709 color space                                                                                                                              |
-| YUV_420_MPEG4_FRAME_PICTURE_PLANAR_8u_709_FullRange               |                    8 | Y'UV 4:2:0 / 'YV12'   | New in Premiere Pro CS6. Progressive Rec. 709 color space, full range Y'UV. Matricies scaled from 709 by each component's excursion (Y is scaled by 219/255 and UV scaled by 224/256) |
-| PrPixelFormat_YUV_420_MPEG4_FIELD_PICTURE_PLANAR_8u_709_FullRange |                    8 | Y'UV 4:2:0 / 'YV12'   | New in Premiere Pro CS6. Interlaced Rec. 709 color space, full range Y'UV                                                                                                             |
+|                           PrPixelFormat                           | Bits / Channel |   Format / FourCC    |                                                                                  Additional Details                                                                                   |
+| ----------------------------------------------------------------- | -------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| NTSCDV25                                                          | 8              | DV25 / 'dvsd'        |                                                                                                                                                                                       |
+| PALDV25                                                           | 8              | DV25 / 'dvsd'        |                                                                                                                                                                                       |
+| NTSCDV50                                                          | 8              | DV50 / 'dv50'        |                                                                                                                                                                                       |
+| PALDV50                                                           | 8              | DV50 / 'dv50'        |                                                                                                                                                                                       |
+| NTSCDV100_720p                                                    | 8              | DV100 720p / 'dvh1'  |                                                                                                                                                                                       |
+| PALDV100_720p                                                     | 8              | DV100 720p / 'dvh1'  |                                                                                                                                                                                       |
+| NTSCDV100_1080i                                                   | 8              | DV100 1080i / 'dvh1' |                                                                                                                                                                                       |
+| PALDV100_1080i                                                    | 8              | DV100 1080i / 'dvh1' |                                                                                                                                                                                       |
+| YUV_420_MPEG2_FRAME_PICTURE_PLANAR_8u_601                         | 8              | Y'UV 4:2:0 / 'YV12'  | Progressive Rec. 601 color space                                                                                                                                                      |
+| YUV_420_MPEG2_FIELD_PICTURE_PLANAR_8u_601                         | 8              | Y'UV 4:2:0 / 'YV12'  | Interlaced Rec. 601 color space                                                                                                                                                       |
+| YUV_420_MPEG2_FRAME_PICTURE_PLANAR_8u_601_FullRange               | 8              | Y'UV 4:2:0 / 'YV12'  | New in Premiere Pro CS5.5. Progressive Rec. 601 color space, full range Y'UV                                                                                                          |
+| YUV_420_MPEG2_FIELD_PICTURE_PLANAR_8u_601_FullRange               | 8              | Y'UV 4:2:0 / 'YV12'  | New in Premiere Pro CS5.5. Interlaced Rec. 601 color space, full range Y'UV                                                                                                           |
+| YUV_420_MPEG2_FRAME_PICTURE_PLANAR_8u_709                         | 8              | Y'UV 4:2:0 / 'YV12'  | Progressive Rec. 709 color space                                                                                                                                                      |
+| YUV_420_MPEG2_FIELD_PICTURE_PLANAR_8u_709                         | 8              | Y'UV 4:2:0 / 'YV12'  | Interlaced Rec. 709 color space                                                                                                                                                       |
+| YUV_420_MPEG2_FRAME_PICTURE_PLANAR_8u_709_FullRange               | 8              | Y'UV 4:2:0 / 'YV12'  | New in Premiere Pro CS6. Progressive Rec. 709 color space, full range Y'UV. Matricies scaled from 709 by each component's excursion (Y is scaled by 219/255 and UV scaled by 224/256) |
+| YUV_420_MPEG2_FIELD_PICTURE_PLANAR_8u_709_FullRange               | 8              | Y'UV 4:2:0 / 'YV12'  | New in Premiere Pro CS6. Interlaced Rec. 709 color space, full range Y'UV                                                                                                             |
+| YUV_420_MPEG4_FRAME_PICTURE_PLANAR_8u_601                         | 8              | Y'UV 4:2:0 / 'YV12'  | New in Premiere Pro CS6. Progressive Rec. 601 color space                                                                                                                             |
+| YUV_420_MPEG4_FIELD_PICTURE_PLANAR_8u_601                         | 8              | Y'UV 4:2:0 / 'YV12'  | New in Premiere Pro CS6. Interlaced Rec. 601 color space                                                                                                                              |
+| YUV_420_MPEG4_FRAME_PICTURE_PLANAR_8u_601_FullRange               | 8              | Y'UV 4:2:0 / 'YV12'  | New in Premiere Pro CS6. Progressive Rec. 601 color space, full range Y'UV                                                                                                            |
+| YUV_420_MPEG4_FIELD_PICTURE_PLANAR_8u_601_FullRange               | 8              | Y'UV 4:2:0 / 'YV12'  | New in Premiere Pro CS6. Interlaced Rec. 601 color space, full range Y'UV                                                                                                             |
+| YUV_420_MPEG4_FRAME_PICTURE_PLANAR_8u_709                         | 8              | Y'UV 4:2:0 / 'YV12'  | New in Premiere Pro CS6. Progressive Rec. 709 color space                                                                                                                             |
+| YUV_420_MPEG4_FIELD_PICTURE_PLANAR_8u_709                         | 8              | Y'UV 4:2:0 / 'YV12'  | New in Premiere Pro CS6. Interlaced Rec. 709 color space                                                                                                                              |
+| YUV_420_MPEG4_FRAME_PICTURE_PLANAR_8u_709_FullRange               | 8              | Y'UV 4:2:0 / 'YV12'  | New in Premiere Pro CS6. Progressive Rec. 709 color space, full range Y'UV. Matricies scaled from 709 by each component's excursion (Y is scaled by 219/255 and UV scaled by 224/256) |
+| PrPixelFormat_YUV_420_MPEG4_FIELD_PICTURE_PLANAR_8u_709_FullRange | 8              | Y'UV 4:2:0 / 'YV12'  | New in Premiere Pro CS6. Interlaced Rec. 709 color space, full range Y'UV                                                                                                             |
 
 ### Miscellaneous
 
-| **PrPixelFormat**   | **Bits / Channel**   | **Format / FourCC**   | **Additional Details**                       |
-|---------------------|----------------------|-----------------------|----------------------------------------------|
-| Raw                 | ?                    | ?                     | Raw, opaque data, with no rowbytes or height |
+| PrPixelFormat | Bits / Channel | Format / FourCC |              Additional Details              |
+| ------------- | -------------- | --------------- | -------------------------------------------- |
+| Raw           | ?              | ?               | Raw, opaque data, with no rowbytes or height |
 
 ---
 

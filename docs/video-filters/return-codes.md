@@ -1,6 +1,6 @@
 # Return Codes
 
-| **Return Code**      | **Reason**                                                                            |
+| Return Code      | Reason                                                                            |
 |----------------------|---------------------------------------------------------------------------------------|
 | `fsNoErr`            | Operation has completed without error.                                                |
 | `fsBadFormatIndex`   | Return from `fsGetPixelFormatsSupported` when all pixel formats have been enumerated. |

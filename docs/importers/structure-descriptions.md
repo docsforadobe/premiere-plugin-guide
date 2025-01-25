@@ -13,8 +13,8 @@ typedef struct {
 } imAcceleratorRec;
 ```
 
-| `inOriginalPath`    | The unicode path and name of the copied media.       |
-|---------------------|------------------------------------------------------|
+|  `inOriginalPath`   |    The unicode path and name of the copied media.    |
+| ------------------- | ---------------------------------------------------- |
 | `inAcceleratorPath` | The unicode path and name of the copied accelerator. |
 
 ---
@@ -37,8 +37,8 @@ typedef struct {
 } imAnalysisRec;
 ```
 
-| `privatedata`    | Instance data from `imGetInfo8` or `imGetPrefs8`.                                                                                     |
-|------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+|  `privatedata`   |                                           Instance data from `imGetInfo8` or `imGetPrefs8`.                                           |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | `prefs`          | Clip Source Settings data from `imGetPrefs8` (setup dialog info).                                                                     |
 | `buffersize`     | Set to the desired size and return imNoErr to Premiere, which will re-size and call the plugin again with the `imGetPrefs8` selector. |
 | `buffer`         | Text buffer. Terminate lines with line endings (CR and LF).                                                                           |
@@ -61,8 +61,8 @@ typedef struct {
 }
 ```
 
-| `inPrivateData`       | Instance data from `imGetInfo8` or `imGetPrefs8`.                                     |
-|-----------------------|---------------------------------------------------------------------------------------|
+|    `inPrivateData`    |                   Instance data from `imGetInfo8` or `imGetPrefs8`.                   |
+| --------------------- | ------------------------------------------------------------------------------------- |
 | `inPrefs`             | Clip Source Settings from `imGetPrefs8` (setup dialog info).                          |
 | `outAsyncEntry`       | Provide the entry point for async selectors sent to the asynchronous importer object. |
 | `outAsyncPrivateData` | `PrivateData` for the asynchronous importer object.                                   |
@@ -83,10 +83,10 @@ typedef struct {
 }
 ```
 
-| `numChannels`   | Number of audio channels in the audio stream.<br/><br/>Either 1, 2, or 6.                                                                                                                                                                                               |
-|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `sampleRate`    | In hertz.                                                                                                                                                                                                                                                               |
-| `sampleType`    | This is for informational use only, to disclose the format of the audio on disk, before it is converted to 32-bit float, uninterleaved, by the importer.<br/><br/>The audio sample types are listed in [Universals](../universals/universals.md). |
+| `numChannels` |                                                                                     Number of audio channels in the audio stream.<br/><br/>Either 1, 2, or 6.                                                                                     |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `sampleRate`  | In hertz.                                                                                                                                                                                                                                         |
+| `sampleType`  | This is for informational use only, to disclose the format of the audio on disk, before it is converted to 32-bit float, uninterleaved, by the importer.<br/><br/>The audio sample types are listed in [Universals](../universals/universals.md). |
 
 ---
 
@@ -108,14 +108,14 @@ typedef struct {
 } imCalcSizeRec;
 ```
 
-| `privatedata`   | Instance data gathered from `imGetInfo8` or `imGetPrefs8`.                                                                                                 |
-|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `prefs`         | Clip Source Settings gathered from `imGetPrefs8` (setup dialog info).                                                                                      |
-| `trimIn`        | In point of the trimmed clip the importer should calculate the size for, in the timebase specified by scale over sampleSize.                               |
-| `duration`      | Duration of the trimmed clip the importer should calculate the size for.<br/><br/>If 0, then the importer should calculate the size of the untrimmed clip. |
-| `sizeInBytes`   | Return the calculated size in bytes.                                                                                                                       |
-| `scale`         | The frame rate of the video clip, represented as scale over sampleSize.                                                                                    |
-| `sampleSize`    |                                                                                                                                                            |
+| `privatedata` |                                                 Instance data gathered from `imGetInfo8` or `imGetPrefs8`.                                                 |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `prefs`       | Clip Source Settings gathered from `imGetPrefs8` (setup dialog info).                                                                                      |
+| `trimIn`      | In point of the trimmed clip the importer should calculate the size for, in the timebase specified by scale over sampleSize.                               |
+| `duration`    | Duration of the trimmed clip the importer should calculate the size for.<br/><br/>If 0, then the importer should calculate the size of the untrimmed clip. |
+| `sizeInBytes` | Return the calculated size in bytes.                                                                                                                       |
+| `scale`       | The frame rate of the video clip, represented as scale over sampleSize.                                                                                    |
+| `sampleSize`  |                                                                                                                                                            |
 
 ---
 
@@ -140,17 +140,17 @@ typedef struct {
 } imCheckTrimRec;
 ```
 
-| `privatedata`   | Instance data gathered from `imGetInfo8` or `imGetPrefs8`.                                             |
-|-----------------|--------------------------------------------------------------------------------------------------------|
-| `prefs`         | Clip Source Settings gathered from `imGetPrefs8` (setup dialog info).                                  |
-| `trimIn`        | Requested in point of the trimmed clip, in the timebase specified by scale over sampleSize.            |
-| `duration`      | Requested duration. If 0, then the request is to leave the clip untrimmed, and at the current duration |
-| `keepAudio`     | If non-zero, the request is to keep the audio in the trimmed result.                                   |
-| `keepVideo`     | If non-zero, the request is to keep the video in the trimmed result.                                   |
-| `newTrimIn`     | Return the acceptable in point of the trimmed clip. It must be at or before the requested in point.    |
-| `newDuration`   | Return the acceptable duration. newTrimIn + newDuration must be at or after the trimIn + duration.     |
-| `scale`         | The frame rate of the video clip, represented as scale over sampleSize.                                |
-| `sampleSize`    |                                                                                                        |
+| `privatedata` |                       Instance data gathered from `imGetInfo8` or `imGetPrefs8`.                       |
+| ------------- | ------------------------------------------------------------------------------------------------------ |
+| `prefs`       | Clip Source Settings gathered from `imGetPrefs8` (setup dialog info).                                  |
+| `trimIn`      | Requested in point of the trimmed clip, in the timebase specified by scale over sampleSize.            |
+| `duration`    | Requested duration. If 0, then the request is to leave the clip untrimmed, and at the current duration |
+| `keepAudio`   | If non-zero, the request is to keep the audio in the trimmed result.                                   |
+| `keepVideo`   | If non-zero, the request is to keep the video in the trimmed result.                                   |
+| `newTrimIn`   | Return the acceptable in point of the trimmed clip. It must be at or before the requested in point.    |
+| `newDuration` | Return the acceptable duration. newTrimIn + newDuration must be at or after the trimIn + duration.     |
+| `scale`       | The frame rate of the video clip, represented as scale over sampleSize.                                |
+| `sampleSize`  |                                                                                                        |
 
 ---
 
@@ -169,8 +169,8 @@ typedef struct {
 } imClipFrameDescriptorRec;
 ```
 
-| `inPrivatedata`                | Instance data gathered from `imGetInfo8` or `imGetPrefs8`.                                                                           |
-|--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+|        `inPrivatedata`         |                                      Instance data gathered from `imGetInfo8` or `imGetPrefs8`.                                      |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
 | `inPrefs`                      | Clip Source Settings gathered from `imGetPrefs8` (setup dialog info).                                                                |
 | `inDesiredClipFrameDescriptor` | Requested frame properties, as described by the host.<br/><br/>The `ClipFrameDescriptor` struct is defined in PrSDKImporterShared.h. |
 | `outBestFrameDescriptor`       | Frame properties to be produced, filled in with initial guesses                                                                      |
@@ -192,8 +192,8 @@ typedef struct {
 } imCompleteAsyncClosedCaptionScanRec;
 ```
 
-| `inPrivatedata`                 | Instance data gathered from `imGetInfo8` or `imGetPrefs8`.                                                                                                                                           |
-|---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|         `inPrivatedata`         |                                                                      Instance data gathered from `imGetInfo8` or `imGetPrefs8`.                                                                      |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `inPrefs`                       | Clip Source Settings gathered from `imGetPrefs8` (setup dialog info).                                                                                                                                |
 | `inAsyncCaptionScanPrivateData` | Cleanup and dispose of any data here that was allocated in `imInitiateAsyncClosedCaptionScan` or `imGetNextClosedCaption`.<br/><br/>This data should not be accessed after returning from this call. |
 | `inScanCompletedWithoutError`   | Set to true if no error.                                                                                                                                                                             |
@@ -238,8 +238,8 @@ typedef struct {
 } imTrimFileRec;
 ```
 
-| `inPrivateData`        | Instance data gathered during `imGetInfo8` or `imGetPrefs8`.                                                                                                                              |
-|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    `inPrivateData`     |                                                               Instance data gathered during `imGetInfo8` or `imGetPrefs8`.                                                                |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `inPrefs`              | Clip Source Settings gathered during `imGetPrefs8` (setup dialog).                                                                                                                        |
 | `inSourcePath`         | Full unicode path of the source file.                                                                                                                                                     |
 | `inDestPath`           | Full unicode path of the destination file.                                                                                                                                                |
@@ -266,12 +266,12 @@ typedef struct {
 } imDataRateAnalysisRec;
 ```
 
-| `privatedata`   | Instance data gathered from `imGetInfo8` or `imGetPrefs8`.                                  |
-|-----------------|---------------------------------------------------------------------------------------------|
-| `prefs`         | Clip Source Settings gathered from `imGetPrefs8` (setup dialog info).                       |
-| `buffersize`    | The size of the buffer you request from Premiere prior to passing data back data in buffer. |
-| `buffer`        | Pointer to the analysis buffer to be filled with `imDataSamples` (see structure below).     |
-| `baserate`      | `Audio` data rate (bytes per second) of the file.                                           |
+| `privatedata` |                 Instance data gathered from `imGetInfo8` or `imGetPrefs8`.                  |
+| ------------- | ------------------------------------------------------------------------------------------- |
+| `prefs`       | Clip Source Settings gathered from `imGetPrefs8` (setup dialog info).                       |
+| `buffersize`  | The size of the buffer you request from Premiere prior to passing data back data in buffer. |
+| `buffer`      | Pointer to the analysis buffer to be filled with `imDataSamples` (see structure below).     |
+| `baserate`    | `Audio` data rate (bytes per second) of the file.                                           |
 ```cpp
 typedef struct {
   csSDK_uint32  sampledur;
@@ -279,9 +279,9 @@ typedef struct {
 } imDataSample;
 ```
 
-| `sampledur`   | Duration of one sample in video timebase, in samplesize increments; set the high bit if this is a keyframe.   |
-|---------------|---------------------------------------------------------------------------------------------------------------|
-| `samplesize`  | `Size` of this sample in bytes.                                                                               |
+| `sampledur`  | Duration of one sample in video timebase, in samplesize increments; set the high bit if this is a keyframe. |
+| ------------ | ----------------------------------------------------------------------------------------------------------- |
+| `samplesize` | `Size` of this sample in bytes.                                                                             |
 
 ---
 
@@ -300,8 +300,8 @@ typedef struct {
 } imDeferredProcessingRec;
 ```
 
-| `inPrivateData`     | Instance data gathered from `imGetInfo8` or `imGetPrefs8`.                 |
-|---------------------|----------------------------------------------------------------------------|
+|   `inPrivateData`   |         Instance data gathered from `imGetInfo8` or `imGetPrefs8`.         |
+| ------------------- | -------------------------------------------------------------------------- |
 | `outProgress`       | Set this to the current progress, from 0.0 to 1.0.                         |
 | `outInvalidateFile` | The importer has updated information about the file.                       |
 | `outCallAgain`      | Set this to true to request that the importer be called again immediately. |
@@ -321,9 +321,9 @@ typedef struct {
 } imDeleteFileRec;
 ```
 
-| `filetype`   | The file's unique four character code, defined in the IMPT resource   |
-|--------------|-----------------------------------------------------------------------|
-| `deleteFile` | Specifies the name (and path) of the file to be deleted.              |
+|  `filetype`  | The file's unique four character code, defined in the IMPT resource |
+| ------------ | ------------------------------------------------------------------- |
+| `deleteFile` | Specifies the name (and path) of the file to be deleted.            |
 
 ---
 
@@ -343,8 +343,8 @@ typedef struct {
 } imFileAccessRec;
 ```
 
-| `importID`    | Unique ID provided by Premiere. Do not modify!                                                                                                                                                                       |
-|---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  `importID`   |                                                                                    Unique ID provided by Premiere. Do not modify!                                                                                    |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `filetype`    | The file's unique four character code, defined in the IMPT resource.                                                                                                                                                 |
 | `filepath`    | The unicode file path and name.                                                                                                                                                                                      |
 | `fileref`     | A Windows HANDLE. Premiere does not overload this value by using it internally, although setting it to the constant kBadFileRef may cause Premiere to think the file is closed.<br/><br/>This value is always valid. |
@@ -365,8 +365,8 @@ typedef struct {
 } imFileAttributesRec;
 ```
 
-| `creationDateStamp`   | Structure to store when the clip was created   |
-|-----------------------|------------------------------------------------|
+| `creationDateStamp` | Structure to store when the clip was created |
+| ------------------- | -------------------------------------------- |
 
 ---
 
@@ -406,8 +406,8 @@ typedef struct {
 } imFileInfoRec8;
 ```
 
-| `hasVideo`           | If non-zero, the file contains video.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-|----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|      `hasVideo`      |                                                                                                                                                                                                                                                                                    If non-zero, the file contains video.                                                                                                                                                                                                                                                                                    |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `hasAudio`           | If non-zero, the file contains audio.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | `vidInfo`            | If there is video in the file, fill out the imImageInfoRec structure (e.g. height, width, alpha info, etc.).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | `vidScale`           | The frame rate of the video, represented as scale over sampleSize.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
@@ -422,7 +422,7 @@ typedef struct {
 | `streamIdx`          | The Premiere-specified stream index number.<br/>Only useful if clip uses multiple streams.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | `streamsAsComp`      | If multiple streams and this is stream zero, indicate whether to import as a composition or multiple clips.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | `streamName`         | Optional. The unicode name of this stream if there are multiple streams.<br/><br/>New in Premiere Pro 3.1, an importer may use this to set the clip name based on metadata rather than the filename.<br/><br/>The importer should set `imImportInfoRec.canSupplyMetadataClipName` to true, and fill out the name here.                                                                                                                                                                                                                                                                                      |
-| `sessionPluginID`    | This ID should be used in the [File Registration Suite](../universals/sweetpea-suites.md#file-registration-suite) for registering external files (such as textures, logos, etc) that are used by an importer instance but do not appear as footage in the Project Window.<br/><br/>Registered files will be taken into account when trimming or copying a project using the Project Manager.<br/><br/>The `sessionPluginID` is valid only for the call that it is passed on.                                                                                                     |
+| `sessionPluginID`    | This ID should be used in the [File Registration Suite](../universals/sweetpea-suites.md#file-registration-suite) for registering external files (such as textures, logos, etc) that are used by an importer instance but do not appear as footage in the Project Window.<br/><br/>Registered files will be taken into account when trimming or copying a project using the Project Manager.<br/><br/>The `sessionPluginID` is valid only for the call that it is passed on.                                                                                                                                |
 | `alwaysUnquiet`      | Set to non-zero to tell Premiere if the clip should always be unquieted immediately when the application regains focus.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | `filepath`           | Added in Premiere Pro 4.1. For clips that have audio in files separate from the video file, set the filename here, so that UMIDs can properly be generated when exporting sequences to AAF.                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | `canProvidePeakData` | New in Premiere Pro CS6. This allows an importer to toggle whether or not it wants to provide peak audio data on a clip-by-clip basis.<br/><br/>It defaults to the setting set in `imImportInfoRec.canProvidePeakAudio`.<br/>NOTE: Do not attempt to use this setting, with growing files.                                                                                                                                                                                                                                                                                                                  |
@@ -448,12 +448,12 @@ typedef struct {
 } imFileOpenRec8;
 ```
 
-| `fileinfo`            | `imFileAccessRec8` describing the incoming file.                                                                                                    |
-|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+|      `fileinfo`       |                                                  `imFileAccessRec8` describing the incoming file.                                                   |
+| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `privatedata`         | Instance data gathered from `imGetInfo8` or `imGetPrefs8`.                                                                                          |
 | `reserved`            | Do not use.                                                                                                                                         |
 | `inReadWrite`         | The file should be opened with the access mode specified:<br/><br/>Either `kPrOpenFileAccess_ReadOnly` or `kPrOpenFileAccess_ReadWrite`             |
-| `inImporterID`        | Can be used as the ID for calls in the [PPix Cache Suite](../universals/sweetpea-suites.md#ppix-cache-suite).            |
+| `inImporterID`        | Can be used as the ID for calls in the [PPix Cache Suite](../universals/sweetpea-suites.md#ppix-cache-suite).                                       |
 | `outExtraMemoryUsage` | New in CS5. If the importer uses memory just by being open, which cannot otherwise be registered in the cache, put the size in bytes in this field. |
 | `inStreamIdx`         | New in CS6. If the clip has multiple streams (for stereoscopic video or otherwise), this ID differentiates between them.                            |
 
@@ -495,10 +495,10 @@ typedef struct {
 } imFrameFormat;
 ```
 
-| `inFrameWidth`   | The frame dimensions requested.          |
-|------------------|------------------------------------------|
-| `inFrameHeight`  |                                          |
-| `inPixelFormat`  | The pixel format of the frame requested. |
+| `inFrameWidth`  |     The frame dimensions requested.      |
+| --------------- | ---------------------------------------- |
+| `inFrameHeight` |                                          |
+| `inPixelFormat` | The pixel format of the frame requested. |
 
 ---
 
@@ -517,8 +517,8 @@ typedef struct {
 } imGetAudioChannelLayoutRec;
 ```
 
-| `inPrivatedata`    | Instance data gathered from `imGetInfo8` or `imGetPrefs8`.                                                                                                                                              |
-|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  `inPrivatedata`   |                                                          Instance data gathered from `imGetInfo8` or `imGetPrefs8`.                                                          |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `outChannelLabels` | A valid audio channel label should be assigned for each channel in the clip.<br/><br/>Labels are defined in the [Audio Suite](../universals/sweetpea-suites.md#audio-suite). |
 
 ---
@@ -545,8 +545,8 @@ typedef struct {
 } imGetNextClosedCaptionRec;
 ```
 
-| `inPrivatedata`                 | Instance data gathered from `imGetInfo8` or `imGetPrefs8`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-|---------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|         `inPrivatedata`         |                                                                                                                                                                                                                                                                                                                                                                                                                                     Instance data gathered from `imGetInfo8` or `imGetPrefs8`.                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `inPrefs`                       | Clip Source Settings gathered from `imGetPrefs8` (setup dialog info).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | `inAsyncCaptionScanPrivateData` | This provides any private data that was allocated in `imInitiateAsyncClosedCaptionScan`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | `outProgress`                   | Update this value to denote the current progress iterating through all the captions. Valid values are between 0.0 and 1.0.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
@@ -587,21 +587,21 @@ typedef struct {
 } imGetPrefsRec;
 ```
 
-| `prefs`               | A pointer to a private structure (which you allocate) for storing Clip Source Settings.                                                                                                                                                                                                                                                                                                                                                                                                     |
-|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `prefsLength`         | Prior to storing anything in the prefs member, set prefsLength to the size of your structure and return imNoErr; Premiere will re-size and call the plugin again with `imGetPrefs8`.                                                                                                                                                                                                                                                                                                        |
-| `firstTime`           | If set, `imGetPrefs8` is being sent for the first time.<br/><br/>Instead, check to see if prefs has been allocated. If not, `imGetPrefs8` is being sent for the first time. Set up default values for the prefsLength buffer and present any setup dialog.                                                                                                                                                                                                                                  |
-| `timelineData`        | `Can` be passed to getPreviewFrameEx callback along with tdbTimelineLocation to get a frame from the timeline beneath the current clip or timeline location. This is useful for titler plugins.                                                                                                                                                                                                                                                                                             |
-| `privatedata`         | Private instance data.<br/><br/>Allocate a handle using Premiere's memory functions and store it here, if not already allocated in `imGetInfo8`.<br/><br/>Premiere will return the handle with subsequent selectors.                                                                                                                                                                                                                                                                        |
-| `tdbTimelineLocation` | `Can` be passed to getPreviewFrameEx callback along with timelineData to get a frame from the timeline beneath the current clip or timeline location. This is useful for titler plugins.                                                                                                                                                                                                                                                                                                    |
+|        `prefs`        |                                                                                                                                                                                     A pointer to a private structure (which you allocate) for storing Clip Source Settings.                                                                                                                                                                                      |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `prefsLength`         | Prior to storing anything in the prefs member, set prefsLength to the size of your structure and return imNoErr; Premiere will re-size and call the plugin again with `imGetPrefs8`.                                                                                                                                                                                                                                                                             |
+| `firstTime`           | If set, `imGetPrefs8` is being sent for the first time.<br/><br/>Instead, check to see if prefs has been allocated. If not, `imGetPrefs8` is being sent for the first time. Set up default values for the prefsLength buffer and present any setup dialog.                                                                                                                                                                                                       |
+| `timelineData`        | `Can` be passed to getPreviewFrameEx callback along with tdbTimelineLocation to get a frame from the timeline beneath the current clip or timeline location. This is useful for titler plugins.                                                                                                                                                                                                                                                                  |
+| `privatedata`         | Private instance data.<br/><br/>Allocate a handle using Premiere's memory functions and store it here, if not already allocated in `imGetInfo8`.<br/><br/>Premiere will return the handle with subsequent selectors.                                                                                                                                                                                                                                             |
+| `tdbTimelineLocation` | `Can` be passed to getPreviewFrameEx callback along with timelineData to get a frame from the timeline beneath the current clip or timeline location. This is useful for titler plugins.                                                                                                                                                                                                                                                                         |
 | `sessionPluginID`     | This ID should be used in the [File Registration Suite](../universals/sweetpea-suites.md#file-registration-suite) for registering external files (such as textures, logos, etc) that are used by a importer instance but do not appear as footage in the Project Window.<br/><br/>Registered files will be taken into account when trimming or copying a project using the Project Manager. The sessionPluginID is valid only for the call that it is passed on. |
-| `imageWidth`          | New in CS5. The native resolution of the video.                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `imageHeight`         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `pixelAspectNum`      | New in CS5. The pixel aspect ratio of the video.                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `pixelAspectDen`      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `vidScale`            | New in CS5. The frame rate of the video, represented as scale over sampleSize.                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `vidSampleSize`       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `sampleRate`          | New in CS5. Audio sample rate.                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `imageWidth`          | New in CS5. The native resolution of the video.                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `imageHeight`         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `pixelAspectNum`      | New in CS5. The pixel aspect ratio of the video.                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| `pixelAspectDen`      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `vidScale`            | New in CS5. The frame rate of the video, represented as scale over sampleSize.                                                                                                                                                                                                                                                                                                                                                                                   |
+| `vidSampleSize`       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `sampleRate`          | New in CS5. Audio sample rate.                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 
 ---
 
@@ -655,33 +655,33 @@ typedef struct {
 
 ### Plug-in Info
 
-| `importerID`             | `Can` be used as the ID for calls in the [PPix Cache Suite](../universals/sweetpea-suites.md#ppix-cache-suite).   |
-|--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| `supportsAsyncIO`        | Set this to true if the importer supports `imCreateAsyncImporter` and ai\* selectors.                                                        |
-| `supportsGetSourceVideo` | Set this to true if the importer supports the `imGetSourceVideo` selector.                                                                   |
+|       `importerID`       | `Can` be used as the ID for calls in the [PPix Cache Suite](../universals/sweetpea-suites.md#ppix-cache-suite). |
+| ------------------------ | --------------------------------------------------------------------------------------------------------------- |
+| `supportsAsyncIO`        | Set this to true if the importer supports `imCreateAsyncImporter` and ai\* selectors.                           |
+| `supportsGetSourceVideo` | Set this to true if the importer supports the `imGetSourceVideo` selector.                                      |
 
 ### Bounds Info
 
-| `imageWidth`     | Frame width in pixels.                                                                                                                                                                                                                        |
-|------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   `imageWidth`   |                                                                                                            Frame width in pixels.                                                                                                             |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `imageHeight`    | Frame height in pixels.                                                                                                                                                                                                                       |
 | `pixelAspectNum` | The pixel aspect ratio numerator and denominator.<br/><br/>For synthetic importers, these are by default the PAR of the project.<br/><br/>Only set this if you need a specific PAR for the geometry of the synthesized footage to be correct. |
 | `pixelAspectDen` |                                                                                                                                                                                                                                               |
 
 ### Time Info
 
-| `isStill`         | If set, the file contains a single frame, so only one frame will be cached.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|     `isStill`     |                                                                                                                                                                                                                                            If set, the file contains a single frame, so only one frame will be cached.                                                                                                                                                                                                                                             |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `noDuration`      | One of the following:<br/><br/>- `imNoDurationFalse`<br/>- `imNoDurationNoDefault`<br/>- `imNoDurationStillDefault` - use the default duration for stills, as set by the user in the Preferences<br/>- `imNoDurationNoDefault` - the importer will supply it's own duration<br/><br/>This is primarily for synthetic clips, but can be used for importing non-sequential still images.                                                                                                                                                                             |
-| `isRollCrawl`     | Set to non-zero value to specify this clip is a rolling or crawling title.<br/><br/>This allows a player to optionally use the [RollCrawl Suite](../universals/sweetpea-suites.md#rollcrawl-suite) to get sections of this title for real-time playback.                                                                                                                                                                                                                                                                                |
+| `isRollCrawl`     | Set to non-zero value to specify this clip is a rolling or crawling title.<br/><br/>This allows a player to optionally use the [RollCrawl Suite](../universals/sweetpea-suites.md#rollcrawl-suite) to get sections of this title for real-time playback.                                                                                                                                                                                                                                                                                                           |
 | `hasPulldown`     | Set this to true if the clip contains NTSC film footage with 3:2 pulldown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | `pulldownCadence` | Set this to the enumerated value that describes the pulldown of the clip:<br/><br/>`importer_PulldownPhase_NO_PULLDOWN`<br/><br/>2:3 cadences:<br/><br/>- `importer_PulldownPhase_WSSWW`<br/>- `importer_PulldownPhase_SSWWW`<br/>- `importer_PulldownPhase_SWWWS`<br/>- `importer_PulldownPhase_WWWSS`<br/>- `importer_PulldownPhase_WWSSW`<br/><br/>24pa cadences:<br/><br/>- `importer_PulldownPhase_WWWSW`<br/>- `importer_PulldownPhase_WWSWW`<br/>- `importer_PulldownPhase_WSWWW`<br/>- `importer_PulldownPhase_SWWWW`<br/>- `importer_PulldownPhase_WWWWS` |
 | `posterFrame`     | New in Premiere Pro CS3. Poster frame number to be displayed.<br/><br/>If not specified, the poster frame will be the first frame of the clip.                                                                                                                                                                                                                                                                                                                                                                                                                     |
 
 ### Format Info
 
-| `depth`                   | Bits per pixel. This currently has no effect and should be left unchanged.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|          `depth`          |                                                                                                                                                                                                                                                       Bits per pixel. This currently has no effect and should be left unchanged.                                                                                                                                                                                                                                                       |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `subType`                 | The four character code of the file's codec; associates files with MAL plugins. For uncompressed files, set to `imUncompressed`.                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | `fieldType`               | One of the following:<br/><br/>- `prFieldsNone`<br/>- `prFieldsUpperFirst`<br/>- `prFieldsLowerFirst`<br/>- `prFieldsUnknown`                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | `fieldsStacked`           | Fields are present, and not interlaced. Deprecated since Premiere Pro 7.0.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
@@ -698,12 +698,12 @@ typedef struct {
 
 ### Unused
 
-| `pixelAspectV1`        | Obsolete. Maintained for backwards compatability.<br/><br/>Plugins written for the Premiere 6.x or Premiere Pro API should use `pixelAspectNum` and `pixelAspectDen`.   |
-|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `isVectors`            | Use `canTransform` instead.                                                                                                                                             |
-| `drawsExternal`        |                                                                                                                                                                         |
-| `canForceInternalDraw` |                                                                                                                                                                         |
-| `dontObscure`          |                                                                                                                                                                         |
+|    `pixelAspectV1`     | Obsolete. Maintained for backwards compatability.<br/><br/>Plugins written for the Premiere 6.x or Premiere Pro API should use `pixelAspectNum` and `pixelAspectDen`. |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `isVectors`            | Use `canTransform` instead.                                                                                                                                           |
+| `drawsExternal`        |                                                                                                                                                                       |
+| `canForceInternalDraw` |                                                                                                                                                                       |
+| `dontObscure`          |                                                                                                                                                                       |
 
 ---
 
@@ -725,12 +725,12 @@ typedef struct {
 } imImportAudioRec7;
 ```
 
-| `position`    | In point, in audio sample frames.<br/><br/>The importer should save the out point of the request in privatedata, because if position is less than zero, then the audio request is sequential, which means the importer should return contiguous samples from the last `imImportAudio7` call.   |
-|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `size`        | The number of audio sample frames to import.                                                                                                                                                                                                                                                   |
-| `buffer`      | An array of buffers, one buffer for each channel, with length specified in size.<br/><br/>These buffers are allocated by the host application, for the plugin to fill in with audio data.                                                                                                      |
-| `privatedata` | Instance data gathered from `imGetInfo8` or `imGetPrefs8`.                                                                                                                                                                                                                                     |
-| `prefs`       | Clip Source Settings data gathered from `imGetPrefs8` (setup dialog info).                                                                                                                                                                                                                     |
+|  `position`   | In point, in audio sample frames.<br/><br/>The importer should save the out point of the request in privatedata, because if position is less than zero, then the audio request is sequential, which means the importer should return contiguous samples from the last `imImportAudio7` call. |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `size`        | The number of audio sample frames to import.                                                                                                                                                                                                                                                 |
+| `buffer`      | An array of buffers, one buffer for each channel, with length specified in size.<br/><br/>These buffers are allocated by the host application, for the plugin to fill in with audio data.                                                                                                    |
+| `privatedata` | Instance data gathered from `imGetInfo8` or `imGetPrefs8`.                                                                                                                                                                                                                                   |
+| `prefs`       | Clip Source Settings data gathered from `imGetPrefs8` (setup dialog info).                                                                                                                                                                                                                   |
 
 ---
 
@@ -775,8 +775,8 @@ typedef struct {
 
 ### Bounds Info (for imImportImageRec)
 
-| `dstWidth`   | Width of the destination rectangle (in pixels).            |
-|--------------|------------------------------------------------------------|
+|  `dstWidth`  |      Width of the destination rectangle (in pixels).       |
+| ------------ | ---------------------------------------------------------- |
 | `dstHeight`  | Height of the destination rectangle (in pixels).           |
 | `dstOriginX` | Origin X point (0 indicates the frame is drawn offscreen). |
 | `dstOriginY` | Origin Y point (0 indicates the frame is drawn offscreen). |
@@ -787,8 +787,8 @@ typedef struct {
 
 ### Frame Info
 
-| `rowbytes`       | The number of bytes in a single row of pixels.                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    `rowbytes`    |                                                                                                                                                                                                                      The number of bytes in a single row of pixels.                                                                                                                                                                                                                       |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `pix`            | Pointer to a buffer into which the importer should draw. Allocated based on information from the `imGetInfo8`.                                                                                                                                                                                                                                                                                                                                                                            |
 | `pixsize`        | The number of pixels. rowbytes \* height.                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | `pixformat`      | The pixel format Premiere requests.                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
@@ -848,16 +848,16 @@ typedef struct {
 
 ### Screen Info
 
-| `noFile`              | If set, this is a synthetic importer. The file reference will be zero.                                                                                                                              |
-|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|       `noFile`        |                                                               If set, this is a synthetic importer. The file reference will be zero.                                                                |
+| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `addToMenu`           | If set to `imMenuNew`, the importer will appear in the File > New menu.                                                                                                                             |
 | `canDoContinuousTime` | If set, the importer can render frames at arbitrary times and there is no set timecode.<br/>A color matte generator or a titler would set this flag.                                                |
 | `canCreate`           | If set, Premiere will treat this synthetic importer as if it creates files on disk to be referenced for frames and audio.<br/><br/>See Additional Details for more information on custom importers. |
 
 ### File Handling Flags
 
-| `canOpen`      | If set, the importer handles open and close operations.<br/>Set if the plugin needs to be called to handle `imOpenFile`, `imQuietFile`, and `imCloseFile`.                                                  |
-|----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   `canOpen`    |                         If set, the importer handles open and close operations.<br/>Set if the plugin needs to be called to handle `imOpenFile`, `imQuietFile`, and `imCloseFile`.                          |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `canSave`      | If set, the importer handles File > Save and File > Save As after a clip has been captured and must handle the `imSaveFile` selector.                                                                       |
 | `canDelete`    | If set, the importer can delete its own files.<br/><br/>The plugin must handle the `imDeleteFile` selector.                                                                                                 |
 | `canCalcSizes` | If set, the importer can calculate the disk space used by a clip during imCalcSize.<br/><br/>An importer should support this call if it uses a tree of files represented as one top-level file to Premiere. |
@@ -866,33 +866,33 @@ typedef struct {
 
 ### Setup Flags
 
-| `hasSetup`      | If set, the importer has a setup dialog. The dialog should be presented in response to `imGetPrefs`                                         |
-|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+|   `hasSetup`    |                     If set, the importer has a setup dialog. The dialog should be presented in response to `imGetPrefs`                     |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | `setupOnDblClk` | If set, the setup dialog should be opened whenever the user double clicks on a file imported by the plugin the timeline or the project bin. |
 
 ### Memory Handling Flags
 
-| `dontCache`   | Unused.                                                                                                                                 |
-|---------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| `keepLoaded`  | If set, the importer plugin should never be unloaded.<br/><br/>Don't set this flag unless it's absolutely necessary (it usually isn't). |
+| `dontCache`  |                                                                 Unused.                                                                 |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `keepLoaded` | If set, the importer plugin should never be unloaded.<br/><br/>Don't set this flag unless it's absolutely necessary (it usually isn't). |
 
 ### Other
 
-| `priority`                  | Determines priority levels for importers that handle the same filetype.<br/><br/>Importers with higher numbers will override importers with lower numbers.<br/><br/>For overriding importers that ship with Premiere, use a value of 100 or greater.<br/><br/>Higher-priority importers can defer files to lower-priority importers by returning `imBadFile` during `imOpenFile8` or `imGetInfo8`.   |
-|-----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `importType`                | Type identifier for the import module assigned based on the plugin's IMPT resource.<br/><br/>Do not modify this field.                                                                                                                                                                                                                                                                               |
-| `canProvideClosedCaptions`  | New in Premiere Pro CC. Set this to true if the importer supports media with embedded closed captioning.                                                                                                                                                                                                                                                                                             |
-| `avoidAudioConform`         | Set this to true if the importer supports fast audio retrieval and does not need the audio clips it imports to be conformed.                                                                                                                                                                                                                                                                         |
-| `canProvidePeakAudio`       | New in Premiere Pro CS5.5. Set this to true if your non-synthetic importer wants to provide **peak audio data** using `imGetPeakAudio`.                                                                                                                                                                                                                                                              |
-| `acceleratorFileExt`        | Fill this prUTF16Char array of size 256 with the file extensions of accelerator files that the importer creates and uses.                                                                                                                                                                                                                                                                            |
-| `canSupplyMetadataClipName` | Allows file based importer to set clip name from metadata.<br/><br/>Set this in `imFileInfoRec8.streamName`.                                                                                                                                                                                                                                                                                         |
-| `canProvideFileList`        | New in CS6. Set this to true if the importer will provide a list of all files for a copy operation in response to `imQueryInputFileList`.                                                                                                                                                                                                                                                            |
-| `fileInfoVersion`           | New in CC 2014. This is used by an optimization in an internal importer. Do not use.                                                                                                                                                                                                                                                                                                                 |
+|         `priority`          | Determines priority levels for importers that handle the same filetype.<br/><br/>Importers with higher numbers will override importers with lower numbers.<br/><br/>For overriding importers that ship with Premiere, use a value of 100 or greater.<br/><br/>Higher-priority importers can defer files to lower-priority importers by returning `imBadFile` during `imOpenFile8` or `imGetInfo8`. |
+| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `importType`                | Type identifier for the import module assigned based on the plugin's IMPT resource.<br/><br/>Do not modify this field.                                                                                                                                                                                                                                                                             |
+| `canProvideClosedCaptions`  | New in Premiere Pro CC. Set this to true if the importer supports media with embedded closed captioning.                                                                                                                                                                                                                                                                                           |
+| `avoidAudioConform`         | Set this to true if the importer supports fast audio retrieval and does not need the audio clips it imports to be conformed.                                                                                                                                                                                                                                                                       |
+| `canProvidePeakAudio`       | New in Premiere Pro CS5.5. Set this to true if your non-synthetic importer wants to provide **peak audio data** using `imGetPeakAudio`.                                                                                                                                                                                                                                                            |
+| `acceleratorFileExt`        | Fill this prUTF16Char array of size 256 with the file extensions of accelerator files that the importer creates and uses.                                                                                                                                                                                                                                                                          |
+| `canSupplyMetadataClipName` | Allows file based importer to set clip name from metadata.<br/><br/>Set this in `imFileInfoRec8.streamName`.                                                                                                                                                                                                                                                                                       |
+| `canProvideFileList`        | New in CS6. Set this to true if the importer will provide a list of all files for a copy operation in response to `imQueryInputFileList`.                                                                                                                                                                                                                                                          |
+| `fileInfoVersion`           | New in CC 2014. This is used by an optimization in an internal importer. Do not use.                                                                                                                                                                                                                                                                                                               |
 
 ### Unused (in imImportInfoRec)
 
-| `canResize`    |
-|----------------|
+|  `canResize`   |
+| -------------- |
 | `canDoSubsize` |
 | `canAsync`     |
 
@@ -918,8 +918,8 @@ typedef struct {
 } imIndFormatRec;
 ```
 
-| `filetype`                           | Unique four character code (fourcc) of the file.                                                                                                                                                                                      |
-|--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|              `filetype`              |                                                                                           Unique four character code (fourcc) of the file.                                                                                            |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `flags`                              | Legacy mechanism for describing the importer capabilities.<br/><br/>Though the flags will still be honored for backward compatability, current and future importers should not use these flags.<br/><br/>See table below for details. |
 | `canWriteTimecode`                   | If set, timecode can be written for this filetype.                                                                                                                                                                                    |
 | `FormatName[256]`                    | The descriptive importer name.                                                                                                                                                                                                        |
@@ -931,8 +931,8 @@ typedef struct {
 
 The flags listed below are only for legacy plugins and should not be used.
 
-| **Flag**             | **Usage**                                                                                                                                               |
-|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+|         Flag         |                                                                          Usage                                                                          |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `xfIsMovie`          | Unused                                                                                                                                                  |
 | `xfCanReplace`       | Unused                                                                                                                                                  |
 | `xfCanOpen`          | Unused: Use `imImportInfoRec.canOpen` instead.                                                                                                          |
@@ -959,8 +959,8 @@ typedef struct {
 } imIndPixelFormatRec;
 ```
 
-| `privatedata`    | Instance data from `imGetInfo8` or `imGetPrefs8`.                                  |
-|------------------|------------------------------------------------------------------------------------|
+|  `privatedata`   |                 Instance data from `imGetInfo8` or `imGetPrefs8`.                  |
+| ---------------- | ---------------------------------------------------------------------------------- |
 | `outPixelFormat` | One of the pixel formats supported by the importer                                 |
 | `prefs`          | New in CC. Clip Source Settings data gathered during `imGetPrefs8` (setup dialog). |
 
@@ -989,8 +989,8 @@ typedef struct {
 } imInitiateAsyncClosedCaptionScanRec;
 ```
 
-| `privatedata`                    | Instance data gathered during `imGetInfo8` or `imGetPrefs8`.                                    |
-|----------------------------------|-------------------------------------------------------------------------------------------------|
+|          `privatedata`           |                  Instance data gathered during `imGetInfo8` or `imGetPrefs8`.                   |
+| -------------------------------- | ----------------------------------------------------------------------------------------------- |
 | `prefs`                          | Clip Source Settings data gathered during `imGetPrefs8` (setup dialog).                         |
 | `outAsyncCaptionScanPrivateData` | The importer can allocate instance data for this closed caption scan, and pass it back here.    |
 | `outScale`                       | New in CC October 2013. The frame rate of the video clip, represented as scale over sampleSize. |
@@ -1015,12 +1015,12 @@ typedef struct {
 } imMetaDataRec;
 ```
 
-| `privatedata`   | Instance data gathered during `imGetInfo8` or `imGetPrefs8`.            |
-|-----------------|-------------------------------------------------------------------------|
-| `prefs`         | Clip Source Settings data gathered during `imGetPrefs8` (setup dialog). |
-| `fourcc`        | Fourcc code of the metadata chunk.                                      |
-| `buffersize`    | `Size` of the data in buffer.                                           |
-| `buffer`        | The metadata.                                                           |
+| `privatedata` |      Instance data gathered during `imGetInfo8` or `imGetPrefs8`.       |
+| ------------- | ----------------------------------------------------------------------- |
+| `prefs`       | Clip Source Settings data gathered during `imGetPrefs8` (setup dialog). |
+| `fourcc`      | Fourcc code of the metadata chunk.                                      |
+| `buffersize`  | `Size` of the data in buffer.                                           |
+| `buffer`      | The metadata.                                                           |
 
 ---
 
@@ -1042,8 +1042,8 @@ typedef struct {
 } imPeakAudioRec;
 ```
 
-| `inPrivateData`     | Instance data gathered during `imGetInfo8` or `imGetPrefs8`.    |
-|---------------------|-----------------------------------------------------------------|
+|   `inPrivateData`   |  Instance data gathered during `imGetInfo8` or `imGetPrefs8`.   |
+| ------------------- | --------------------------------------------------------------- |
 | `inPrefs`           | Instance data gathered during `imGetPrefs8` (setup dialog).     |
 | `inPosition`        | The starting audio sample frame of the peak data.               |
 | `inSampleRate`      | The sample rate at which to generate the peak data.             |
@@ -1070,13 +1070,13 @@ typedef struct {
 } imPreferredFrameSizeRec;
 ```
 
-| `inPrivateData`   | Instance data gathered during `imGetInfo8` or `imGetPrefs8`.            |
-|-------------------|-------------------------------------------------------------------------|
-| `inPrefs`         | Clip Source Settings data gathered during `imGetPrefs8` (setup dialog). |
-| `inPixelFormat`   | The pixel format for this preferred frame size.                         |
-| `inIndex`         | The index of this preferred frame size.                                 |
-| `outWidth`        | The dimensions of this preferred frame size.                            |
-| `outHeight`       |                                                                         |
+| `inPrivateData` |      Instance data gathered during `imGetInfo8` or `imGetPrefs8`.       |
+| --------------- | ----------------------------------------------------------------------- |
+| `inPrefs`       | Clip Source Settings data gathered during `imGetPrefs8` (setup dialog). |
+| `inPixelFormat` | The pixel format for this preferred frame size.                         |
+| `inIndex`       | The index of this preferred frame size.                                 |
+| `outWidth`      | The dimensions of this preferred frame size.                            |
+| `outHeight`     |                                                                         |
 
 ---
 
@@ -1113,8 +1113,8 @@ typedef struct {
 } imQueryDestinationPathRec;
 ```
 
-| `inPrivateData`              | Instance data gathered during `imGetInfo8` or `imGetPrefs8`.                 |
-|------------------------------|------------------------------------------------------------------------------|
+|       `inPrivateData`        |         Instance data gathered during `imGetInfo8` or `imGetPrefs8`.         |
+| ---------------------------- | ---------------------------------------------------------------------------- |
 | `inPrefs`                    | Clip Source Settings data gathered during `imGetPrefs8` (setup dialog).      |
 | `inSourcePath`               | The path of the source file to be trimmed                                    |
 | `inSuggestedDestinationPath` | The path suggested by Premiere where the destination file should be created. |
@@ -1140,11 +1140,11 @@ typedef struct {
 } imQueryInputFileListRec;
 ```
 
-| `inPrivateData`   | Instance data gathered from `imGetInfo8` or `imGetPrefs8`.                                                                                                                                                                                                                  |
-|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `inPrefs`         | Clip Source Settings data gathered from `imGetPrefs8` (setup dialog info).                                                                                                                                                                                                  |
-| `inBasePath`      | Path of main file that was passed earlier in `imOpenFile`.                                                                                                                                                                                                                  |
-| `outNumFilePaths` | The first time `imQueryInputFileList` is sent, fill in the number of files that the media uses.                                                                                                                                                                             |
+|  `inPrivateData`  |                                                                                            Instance data gathered from `imGetInfo8` or `imGetPrefs8`.                                                                                            |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `inPrefs`         | Clip Source Settings data gathered from `imGetPrefs8` (setup dialog info).                                                                                                                                                                       |
+| `inBasePath`      | Path of main file that was passed earlier in `imOpenFile`.                                                                                                                                                                                       |
+| `outNumFilePaths` | The first time `imQueryInputFileList` is sent, fill in the number of files that the media uses.                                                                                                                                                  |
 | `outFilePaths`    | The second time `imQueryInputFileList` is sent, this will be preallocated as an array of NULL strings.<br/><br/>Use the [String Suite](../universals/sweetpea-suites.md#string-suite) to fill the array with PrSDKStrings with the actual paths. |
 
 ---
@@ -1166,10 +1166,10 @@ typedef struct {
 } imQueryStreamLabelRec;
 ```
 
-| `privatedata`    | Instance data gathered from `imGetInfo8` or `imGetPrefs8`.                                                                      |
-|------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| `prefs`          | Clip Source Settings data gathered from `imGetPrefs8` (setup dialog info).                                                      |
-| `inStreamIdx`    | The ID of the stream that needs to be labeled.                                                                                  |
+|  `privatedata`   |                      Instance data gathered from `imGetInfo8` or `imGetPrefs8`.                      |
+| ---------------- | ---------------------------------------------------------------------------------------------------- |
+| `prefs`          | Clip Source Settings data gathered from `imGetPrefs8` (setup dialog info).                           |
+| `inStreamIdx`    | The ID of the stream that needs to be labeled.                                                       |
 | `outStreamLabel` | The stream label, allocated using the [String Suite](../universals/sweetpea-suites.md#string-suite). |
 
 ---
@@ -1192,8 +1192,8 @@ typedef struct {
 } imSaveFileRec8;
 ```
 
-| `privatedata`        | Instance data gathered from `imGetInfo8` or `imGetPrefs8`.                                                                                                         |
-|----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    `privatedata`     |                                                     Instance data gathered from `imGetInfo8` or `imGetPrefs8`.                                                     |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `prefs`              | Clip Source Settings data gathered from `imGetPrefs8` (setup dialog info).                                                                                         |
 | `sourcePath`         | Full path of the file to be saved.                                                                                                                                 |
 | `destPath`           | Full path the file should be saved to.                                                                                                                             |
@@ -1227,8 +1227,8 @@ typedef struct {
 } imSourceVideoRec;
 ```
 
-| `inPrivateData`            | Instance data gathered during `imGetInfo8` or `imGetPrefs8`.                                                             |
-|----------------------------|--------------------------------------------------------------------------------------------------------------------------|
+|      `inPrivateData`       |                               Instance data gathered during `imGetInfo8` or `imGetPrefs8`.                               |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
 | `currentStreamIdx`         | New in CS6. If the clip has multiple streams (for stereoscopic video or otherwise), this ID differentiates between them. |
 | `inFrameTime`              | Time of frame requested.                                                                                                 |
 | `inFrameFormats`           | An array of requested frame formats, in order of preference. If NULL, then any format is acceptable.                     |
@@ -1282,8 +1282,8 @@ typedef struct {
 } imTimeInfoRec;
 ```
 
-| `privatedata`     | Instance data gathered during `imGetInfo8` or `imGetPrefs8`.                                                                                                                                                                                               |
-|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   `privatedata`   |                                                                                                Instance data gathered during `imGetInfo8` or `imGetPrefs8`.                                                                                                |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `prefs`           | Clip Source Settings data gathered during `imGetPrefs8` (setup dialog).                                                                                                                                                                                    |
 | `orgtime[18]`     | The original time in hours;minutes;seconds;frames, as captured from the source reel.<br/><br/>The use of semi-colons indicates (to Premiere) drop-frame timecode, e.g. "00;00;00;00".<br/><br/>Use colons for non-drop-frame timecode, e.g. "00:00:00:00". |
 | `orgScale`        | Timebase of the timecode in orgtime, represented as scale over sampleSize.                                                                                                                                                                                 |
@@ -1322,8 +1322,8 @@ typedef struct {
 } imTrimFileRec8;
 ```
 
-| `privatedata`        | Instance data gathered during `imGetInfo8` or `imGetPrefs8`.                                                                                                                                     |
-|----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    `privatedata`     |                                                                   Instance data gathered during `imGetInfo8` or `imGetPrefs8`.                                                                   |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `prefs`              | Clip settings data gathered during `imGetPrefs8` (setup dialog).                                                                                                                                 |
 | `trimIn`             | In point of the trimmed clip, in the timebase specified by scale and sampleSize.                                                                                                                 |
 | `duration`           | Duration of the trimmed clip. If 0, then the request is to leave the clip untrimmed, and at the current duration                                                                                 |
@@ -1354,8 +1354,8 @@ typedef struct {
 } ColorSpaceRec;
 ```
 
-| `privatedata`       | Private.                                                                                                                                                                                                                                                                                                                              |
-|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    `privatedata`    |                                                                                                                                                               Private.                                                                                                                                                                |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `outColorSpaceType` | One of the following:<br/><br/>- `kPrSDKColorSpaceType_Undefined`<br/>- `kPrSDKColorSpaceType_ICC`<br/>- `kPrSDKColorSpaceType_LUT`      // DO NOT USE after 14.x.<br/>- `kPrSDKColorSpaceType_SEITags`<br/>- `kPrSDKColorSpaceType_MXFTags`  // DO NOT USE, Not supported.<br/>- `kPrSDKColorSpaceType_Predefined`                   |
 | `ioProfileRec`      | A structure describing the color profile.<br/><br/>```cpp<br/>csSDK_int32  ioBufferSize;<br/>void*        inDestinationBuffer;<br/>PrSDKString  outName;<br/>```                                                                                                                                                                      |
 | `outSEICodesRec`    | A structure describing the color space using codes; used with H.265, HEVC, AVC and<br/>ProRes media.<br/><br/>```cpp<br/>csSDK_int32  colorPrimariesCode;<br/>csSDK_int32  transferCharacteristicCode;<br/>csSDK_int32  matrixEquationsCode;<br/>csSDK_int32  bitDepth;<br/>prBool       isFullRange;<br/>prBool       isRGB;<br/>``` |
@@ -1375,10 +1375,10 @@ typedef struct
 } RawColorSpaceRec;
 ```
 
-| `colorSpaceType`   | One of the following:<br/><br/>- `kPrSDKColorSpaceType_Undefined`<br/>- `kPrSDKColorSpaceType_ICC`<br/>- `kPrSDKColorSpaceType_LUT`      // DO NOT USE after 14.x.<br/>- `kPrSDKColorSpaceType_SEITags`<br/>- `kPrSDKColorSpaceType_MXFTags`  // DO NOT USE, Not supported.<br/>- `kPrSDKColorSpaceType_Predefined`   |
-|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| profileRec         | A structure describing the color space.<br/><br/>```cpp<br/>csSDK_int32  ioBufferSize;<br/>void*        inDestinationBuffer;<br/>PrSDKString  outName;<br/>```                                                                                                                                                        |
-| `seiCodesRec`      | A structure describing the color space; used with H.265, HEVC, AVC and ProRes media.<br/><br/>```cpp<br/>csSDK_int32  colorPrimariesCode;<br/>csSDK_int32  transferCharacteristicCode;<br/>csSDK_int32  matrixEquationsCode;<br/>csSDK_int32  bitDepth;<br/>prBool       isFullRange;<br/>prBool       isRGB;<br/>``` |
+| `colorSpaceType` |  One of the following:<br/><br/>- `kPrSDKColorSpaceType_Undefined`<br/>- `kPrSDKColorSpaceType_ICC`<br/>- `kPrSDKColorSpaceType_LUT`      // DO NOT USE after 14.x.<br/>- `kPrSDKColorSpaceType_SEITags`<br/>- `kPrSDKColorSpaceType_MXFTags`  // DO NOT USE, Not supported.<br/>- `kPrSDKColorSpaceType_Predefined`  |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| profileRec       | A structure describing the color space.<br/><br/>```cpp<br/>csSDK_int32  ioBufferSize;<br/>void*        inDestinationBuffer;<br/>PrSDKString  outName;<br/>```                                                                                                                                                        |
+| `seiCodesRec`    | A structure describing the color space; used with H.265, HEVC, AVC and ProRes media.<br/><br/>```cpp<br/>csSDK_int32  colorPrimariesCode;<br/>csSDK_int32  transferCharacteristicCode;<br/>csSDK_int32  matrixEquationsCode;<br/>csSDK_int32  bitDepth;<br/>prBool       isFullRange;<br/>prBool       isRGB;<br/>``` |
 
 Colorspace can be described via multiple way, type depends on `colorSpaceType`.
 
@@ -1406,8 +1406,8 @@ typedef struct
 } EmbeddedLUTRec;
 ```
 
-| `privatedata`         | Private.                                 |
-|-----------------------|------------------------------------------|
+|     `privatedata`     |                 Private.                 |
+| --------------------- | ---------------------------------------- |
 | `lutBlobRec`          | Describes the embedded LUT.              |
 | `lutInColorSpaceRec`  | Describes the LUT input colorspace rec.  |
 | `lutOutColorSpaceRec` | Describes the LUT output colorspace rec. |
@@ -1429,7 +1429,7 @@ typedef struct
 } imRenderContext;
 ```
 
-| `inIntent`        | The intent of the render being requested.<br/>- `imRenderIntent_Unknown`  (-1)<br/>- `imRenderIntent_Export`    0<br/>- `imRenderIntent_Stopped`  // DO NOT USE after 14.x.<br/>- `imRenderIntent_Scrubbing`<br/>- `imRenderIntent_Preroll`<br/>- `imRenderIntent_Playing`<br/>- `imRenderIntent_SpeculativePrefetch`<br/>- `imRenderIntent_Thumbnail`  // DO NOT USE after 14.x.<br/>- `imRenderIntent_Analysis`<br/>- `imRenderIntent_ExportPreview`<br/>- `imRenderIntent_ExportProxies`   |
-|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `inPlaybackRatio` | 1.0 means full framerate, lower values indicate deteriorating playback.                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `inPlaybackRate`  | 1.0 means 1x forward, -1.0 means 1x backward.                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+|    `inIntent`     | The intent of the render being requested.<br/>- `imRenderIntent_Unknown`  (-1)<br/>- `imRenderIntent_Export`    0<br/>- `imRenderIntent_Stopped`  // DO NOT USE after 14.x.<br/>- `imRenderIntent_Scrubbing`<br/>- `imRenderIntent_Preroll`<br/>- `imRenderIntent_Playing`<br/>- `imRenderIntent_SpeculativePrefetch`<br/>- `imRenderIntent_Thumbnail`  // DO NOT USE after 14.x.<br/>- `imRenderIntent_Analysis`<br/>- `imRenderIntent_ExportPreview`<br/>- `imRenderIntent_ExportProxies` |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `inPlaybackRatio` | 1.0 means full framerate, lower values indicate deteriorating playback.                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `inPlaybackRate`  | 1.0 means 1x forward, -1.0 means 1x backward.                                                                                                                                                                                                                                                                                                                                                                                                                                               |

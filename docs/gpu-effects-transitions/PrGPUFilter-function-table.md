@@ -2,7 +2,7 @@
 
 PrGPUFilter is a structure consisting of the following functions that a effect/transition can implement.
 
-| **Selector**                                                                                                        | **Optional**   | **Description**                                                                                                   |
+| Selector                                                                                                        | Optional   | Description                                                                                                   |
 |---------------------------------------------------------------------------------------------------------------------|----------------|-------------------------------------------------------------------------------------------------------------------|
 | [CreateInstance](function-descriptions.md#createinstance)             | No             | Allocate and initialize any GPU resources.                                                                        |
 | [DisposeInstance](function-descriptions.md#disposeinstance)           | No             | Release GPU resources.                                                                                            |

@@ -1,6 +1,6 @@
 # Return Codes
 
-| **Return Code**                | **Reason**                                                                                                                                                               |
+| Return Code                | Reason                                                                                                                                                               |
 |--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `imNoErr`                      | Operation has completed without error.                                                                                                                                   |
 | `imTooWide`                    | File dimensions too large.                                                                                                                                               |

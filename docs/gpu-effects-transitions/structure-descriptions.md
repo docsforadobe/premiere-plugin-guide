@@ -11,7 +11,7 @@ typedef struct {
 } PrGPUFilterInfo;
 ```
 
-| **Member**            | **Description**                                                                                        |
+| Member            | Description                                                                                        |
 |-----------------------|--------------------------------------------------------------------------------------------------------|
 | `outInterfaceVersion` | Set to the GPU API version corresponding to the version defined in the SDK you are using.              |
 | `outMatchName`        | outMatchName must be equal to a registered software filter, if NULL will default to the module's PiPL. |
@@ -33,7 +33,7 @@ typedef struct {
 } PrGPUFilterInstance;
 ```
 
-| **Member**            | **Description**                                                                                                                          |
+| Member            | Description                                                                                                                          |
 |-----------------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | `piSuites`            | Standard suites.                                                                                                                         |
 | `inDeviceIndex`       | For use with `PrSDKGPUDeviceSuite`.                                                                                                      |
@@ -69,7 +69,7 @@ typedef struct {
 } PrGPUFilterRenderParams;
 ```
 
-| **Member**              | **Description**                                                                                                                                                                                        |
+| Member              | Description                                                                                                                                                                                        |
 |-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `inClipTime`            | The time of the current render, relative to clip start                                                                                                                                                 |
 | `inSequenceTime`        | The time of the current render, relative to sequence start                                                                                                                                             |
@@ -110,7 +110,7 @@ typedef struct {
 } PrGPUFilterFrameDependency;
 ```
 
-| **Member**                         | **Description**                                                                                                                                                     |
+| Member                         | Description                                                                                                                                                     |
 |------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `outDependencyType`                | The dependency type.<br/><br/>Could be either:<br/><br/>- `PrGPUDependency_InputFrame`,<br/>- `PrGPUDependency_Precompute`,<br/>- `PrGPUDependency_FieldSeparation` |
 | `outTrackID`                       | Specify which track is a dependency. Set to 0 for the current track                                                                                                 |

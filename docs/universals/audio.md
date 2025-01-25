@@ -28,8 +28,8 @@ Since 32-bit floats are the only audio format ever passed, there is no option of
 
 These formats are used to set members in structures passed to Premiere to define the user interface, and do not affect the format of the audio passed to and from Premiere.
 
-| **PrAudioSampleType**                    | **Description**                               |
-|------------------------------------------|-----------------------------------------------|
+|            PrAudioSampleType             |                  Description                  |
+| ---------------------------------------- | --------------------------------------------- |
 | `kPrAudioSampleType_8BitInt`             | 8-bit integer                                 |
 | `kPrAudioSampleType_8BitTwosInt`         | 8-bit integer, two's complement               |
 | `kPrAudioSampleType_16BitInt`            | 16-bit integer                                |
@@ -70,8 +70,8 @@ In CS6, 16-channel audio export was added.
 
 Starting in CC, the audio channel support is increased to 32 channels.
 
-| **PrAudioChannelType**           | **Description**                                                                                                                                                                                                                                                                                                                                                                             |
-|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|        PrAudioChannelType        |                                                                                                                                                                                         Description                                                                                                                                                                                         |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `kPrAudioChannelType_Mono`       | Mono                                                                                                                                                                                                                                                                                                                                                                                        |
 | `kPrAudioChannelType_Stereo`     | Stereo. The order of the stereo channels is:<br/><br/>- `kPrAudioChannelLabel_FrontLeft`,<br/>- `kPrAudioChannelLabel_FrontRight`.                                                                                                                                                                                                                                                          |
 | `kPrAudioChannelType_51`         | 5.1 audio.<br/><br/>The order of the 5.1 channels is:<br/><br/>- `kPrAudioChannelLabel_FrontLeft`,<br/>- `kPrAudioChannelLabel_FrontRight`,<br/>- `kPrAudioChannelLabel_BackLeft`,<br/>- `kPrAudioChannelLabel_BackRight`,<br/>- `kPrAudioChannelLabel_FrontCenter`,<br/>- `kPrAudioChannelLabel_LowFrequency`<br/>- `kPrAudioChannelLabel_BackLeft`<br/>- `kPrAudioChannelLabel_BackRight` |

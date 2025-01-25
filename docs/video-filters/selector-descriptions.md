@@ -32,7 +32,7 @@ If the filter has a setup dialog, the VFilterCallbackProcPtr should be used to g
 
 ## fsExecute
 
-This is really the only required selector for a video filter, and it's where the rendering happens. Take the input frame in VideoHandle.source, render the effect and return the frame to Premiere in VideoHandle.destination. The specsHandle contains your parameter settings (already interpolated if animatable). You can store a handle to any additional non-parameter data in VideoHandle.InstanceData. If you do so, deallocate the handle in response to *fsDisposeData*, or your plugin will leak memory.
+This is really the only required selector for a video filter, and it's where the rendering happens. Take the input frame in VideoHandle.source, render the effect and return the frame to Premiere in VideoHandle.destination. The specsHandle contains your parameter settings (already interpolated if animatable). You can store a handle to any additional non-parameter data in VideoHandle.InstanceData. If you do so, deallocate the handle in response to `fsDisposeData`, or your plugin will leak memory.
 
 The video your filter receives may be interlaced, in the field order determined by the project settings. If interlaced, your plugin will be called twice for each frame of video, and each PPix will be half the frame height.
 
@@ -56,8 +56,8 @@ The clip must not be a solid color.
 
 The PiPL bits `anyPixelAspectRatio` and `unityPixelAspectRatio` must not be set.
 
-| **Flag**                  | **Description**                                                                   |
-|---------------------------|-----------------------------------------------------------------------------------|
+|           Flag            |                                    Description                                    |
+| ------------------------- | --------------------------------------------------------------------------------- |
 | `prEffectCanHandlePAR`    | Premiere should not make any adjustment to the source image to compensate for PAR |
 | `prEffectUnityPARSetup`   | Premiere should render the source image to square pixels during `fsSetup`         |
 | `prEffectUnityPARExecute` | Premiere should render the source image to square pixels during `fsExecute`       |

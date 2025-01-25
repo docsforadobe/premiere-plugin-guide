@@ -1,6 +1,6 @@
 # Return Codes
 
-|               **Return Code**               |                                                       **Reason**                                                        |
+|                 Return Code                 |                                                         Reason                                                          |
 | ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | `exportReturn_ErrNone`                      | Operation has completed without error.                                                                                  |
 | `exportReturn_Abort`                        | User aborted the export.                                                                                                |
