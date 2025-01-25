@@ -1,12 +1,8 @@
-<a id="exporters-suites"></a>
-
 # Suites
 
 For information on how to acquire and manage suites, see [SweetPea Suites](../universals/sweetpea-suites.md#universals-sweetpea-suites).
 
 ---
-
-<a id="exporters-suites-export-file-suite"></a>
 
 ## Export File Suite
 
@@ -17,8 +13,6 @@ Version 2 resolves a mismatch in seek modes in version 1, where `fileSeekMode_En
 See PrSDKExportFileSuite.h.
 
 ---
-
-<a id="exporters-suites-export-info-suite"></a>
 
 ## Export Info Suite
 
@@ -64,8 +58,6 @@ typedef struct {
 
 ---
 
-<a id="exporters-suites-export-param-suite"></a>
-
 ## Export Param Suite
 
 Specify all parameters for your exporter UI. See PrSDKExportParamSuite.h.
@@ -94,15 +86,11 @@ CC adds MoveParam(), to move an existing parameter to a new location. This can b
 
 ---
 
-<a id="exporters-suites-export-progress-suite"></a>
-
 ## Export Progress Suite
 
 For pull-model exporters. Report progress during the export. Also, handle the case where the user pauses or cancels an export. See PrSDKExportProgressSuite.h.
 
 ---
-
-<a id="exporters-suites-export-standard-param-suite"></a>
 
 ## Export Standard Param Suite
 
@@ -178,8 +166,6 @@ prSuiteError (*MakeParamSummary)(
 
 ---
 
-<a id="exporters-suites-exporter-utility-suite"></a>
-
 ## Exporter Utility Suite
 
 New in CS6. Provides functions for push-model exporters, and also provides a way to register an export event (error, warning, or info) to be displayed by the host and written to the log.
@@ -245,15 +231,11 @@ prSuiteError (*ReportEvent)(
 
 ---
 
-<a id="exporters-suites-palette-suite"></a>
-
 ## Palette Suite
 
 A seldom-used suite for palettizing an image, for example, for GIFs. See PrSDKPaletteSuite.h.
 
 ---
-
-<a id="exporters-suites-sequence-audio-suite"></a>
 
 ## Sequence Audio Suite
 
@@ -343,8 +325,6 @@ prSuiteError (*GetMaxBlip)(
 ```
 
 ---
-
-<a id="exporters-suites-sequence-render-suite"></a>
 
 ## Sequence Render Suite
 
@@ -855,8 +835,6 @@ Renders a frame of color-managed media, to the specified pixel format, using set
 
 ----
 ```
-
-<a id="exporters-suites-pf-utility-suite"></a>
 
 ## PF Utility Suite
 

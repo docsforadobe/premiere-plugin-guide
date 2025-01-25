@@ -1,5 +1,3 @@
-<a id="intro-document-overview"></a>
-
 # Document Overview
 
 This introduction information is common to all the plugin types.

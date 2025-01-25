@@ -1,5 +1,3 @@
-<a id="exporters-additional-details"></a>
-
 # Additional Details
 
 ## Multiplexer Tab Ordering
@@ -23,8 +21,6 @@ If you only add one value pair, then the parameter will be a non-editable string
 In the case of the SDK Exporter sample, it adds two, which appear as a pair of radio buttons side-by-side.
 
 ---
-
-<a id="exporters-additional-details-guidelines-for-exporters-in-premiere-elements"></a>
 
 ## Guidelines for Exporters in Premiere Elements
 

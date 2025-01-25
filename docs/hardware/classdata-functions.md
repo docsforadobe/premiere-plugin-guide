@@ -1,5 +1,3 @@
-<a id="hardware-classdata-functions"></a>
-
 # ClassData Functions
 
 All plugin types that support media can use these callbacks to share information associated with their classID.

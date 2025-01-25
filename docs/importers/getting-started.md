@@ -1,5 +1,3 @@
-<a id="importers-getting-started"></a>
-
 # Getting Started
 
 ## The Basics of Import

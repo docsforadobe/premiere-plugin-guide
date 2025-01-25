@@ -1,5 +1,3 @@
-<a id="universals-suites"></a>
-
 # Suites
 
 There are different sets of function suites available to Premiere plugins. [SweetPea Suites](sweetpea-suites.md#universals-sweetpea-suites) are the more modern suites that have been added for most new functionality. The [piSuites](legacy-callback-suites.md#universals-legacy-callback-suites-pisuites) are still needed for various functionality that has not all been superceded by [SweetPea Suites](sweetpea-suites.md#universals-sweetpea-suites).

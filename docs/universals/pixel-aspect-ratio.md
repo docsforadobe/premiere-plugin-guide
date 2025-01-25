@@ -1,5 +1,3 @@
-<a id="universals-pixel-aspect-ratio"></a>
-
 # Pixel Aspect Ratio
 
 Pixel Aspect Ratio (PAR) is usually represented as a rational number, with a numerator and a denominator. Note that several PAR values were changed in CS4 to match broadcast standards. Here are some examples of pixel aspect ratios:

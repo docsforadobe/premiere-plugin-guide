@@ -1,5 +1,3 @@
-<a id="hardware-classid-filetype-subtype"></a>
-
 # ClassID, Filetype and Subtype
 
 All plugin types that support media must identify unique classID, filetype, and subtype.

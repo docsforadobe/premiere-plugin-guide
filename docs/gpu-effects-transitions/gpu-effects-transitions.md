@@ -1,5 +1,3 @@
-<a id="gpu-effects-transitions-gpu-effects-transitions"></a>
-
 # GPU Effects & Transitions
 
 This chapter describes the additional capabilities available to effects and transitions for GPU interoperability with Premiere Pro. The GPU extensions allow these plugins to have full access to GPU-resident frames without readback to system memory, when using the Mercury Playback Engine in a GPU-accelerated mode. Effects and transitions can also optionally tell the host that they support real-time processing, so that they will not be flagged as non-realtime.

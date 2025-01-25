@@ -1,5 +1,3 @@
-<a id="intro-sample-projects"></a>
-
 # Sample Projects
 
 ## Descriptions

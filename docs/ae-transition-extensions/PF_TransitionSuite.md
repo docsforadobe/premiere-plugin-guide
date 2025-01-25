@@ -1,5 +1,3 @@
-<a id="ae-transition-extensions-pf-transitionsuite"></a>
-
 # PF_TransitionSuite
 
 In PrSDKAESupport.h, we’ve added `PF_TransitionSuite::RegisterTransitionInputParam()`.

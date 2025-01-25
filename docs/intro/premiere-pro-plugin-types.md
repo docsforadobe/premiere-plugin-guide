@@ -1,5 +1,3 @@
-<a id="intro-premiere-pro-plug-in-types"></a>
-
 # Premiere Pro Plug-In Types
 
 | **Type**                                                                                                                           | **Description**                                                                                                                                                                                                                                                                     |

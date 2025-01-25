@@ -1,5 +1,3 @@
-<a id="intro-intro"></a>
-
 # Introduction
 
 Welcome to the Adobe® Premiere® Pro Software Development Kit!

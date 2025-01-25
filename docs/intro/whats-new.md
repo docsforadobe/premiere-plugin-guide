@@ -1,5 +1,3 @@
-<a id="intro-whats-new"></a>
-
 # Whats New
 
 ## What’s New in 24.0

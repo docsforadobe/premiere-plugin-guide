@@ -1,5 +1,3 @@
-<a id="universals-sweetpea-suites"></a>
-
 # SweetPea Suites
 
 ## Overview
@@ -98,8 +96,6 @@ For a plugin to support multiple versions, it may choose to use a specific older
 
 ---
 
-<a id="universals-sweetpea-suites-app-info-suite"></a>
-
 ## App Info Suite
 
 Useful for plug-i that are shared between different applications, such as After Effects plugins, Premiere exporters, transmitters, and importers, where it may be important to know which host, version, or language the plugin is currently running in. Note that this suite is not available to AE effects running in AE.
@@ -112,15 +108,11 @@ In version 3, starting in CC 2014, the suite has a new selector to retrieve the 
 
 ---
 
-<a id="universals-sweetpea-suites-application-settings-suite"></a>
-
 ## Application Settings Suite
 
 New in CS4. This suite provides calls to get the scratch disk folder paths defined in the current project, where the captured files and preview files are created. It also provides a call to get the project file path. All paths are passed back as PrSDKStrings. Use the new [String Suite](#universals-sweetpea-suites-string-suite) to extract the strings to UTF-8 or UTF-16. See PrSDKApplicationSettingsSuite.h.
 
 ---
-
-<a id="universals-sweetpea-suites-audio-suite"></a>
 
 ## Audio Suite
 
@@ -128,15 +120,11 @@ Calls to convert to and from the native audio format used by the Premiere API, a
 
 ---
 
-<a id="universals-sweetpea-suites-captioning-suite"></a>
-
 ## Captioning Suite
 
 This suite enables a device controller, exporter, player, or transmitter to get the closed captioning data attached to a sequence. This suite provides the data in either Scenarist (CEA-608, \*.scc) and MacCaption (CEA-708, \*.mcc) formats. In the case of CEA-708, it includes not just the text to display, but it’s also the position information, and background, font, etc. If the transmitter or player just wants to overlay the captioning data on a frame, it can use the [Playmod Overlay Suite](#universals-sweetpea-suites-playmod-overlay-suite) instead.
 
 ---
-
-<a id="universals-sweetpea-suites-clip-render-suite"></a>
 
 ## Clip Render Suite
 
@@ -148,8 +136,6 @@ An exporter can use this suite to request frames from the renderer in a compress
 
 ---
 
-<a id="universals-sweetpea-suites-error-suite"></a>
-
 ## Error Suite
 
 Uses a single callback for errors, warnings, and info. This callback will activate a flashing icon in the lower left-hand corner of the main application window, which when clicked, will open up the new Events Window containing the error information. See PrSDKErrorSuite.h.
@@ -158,23 +144,17 @@ Starting in version 3 of the suite, introduced in CS4, the suite supports UTF-16
 
 ---
 
-<a id="universals-sweetpea-suites-file-registration-suite"></a>
-
 ## File Registration Suite
 
 Used for registering external files (such as textures, logos, etc) that are used by a plugin instance but do not appear as footage in the Project Window. Registered files will be taken into account when trimming or copying a project using the Project Manager. See PrSDKFileRegistrationSuite.h.
 
 ---
 
-<a id="universals-sweetpea-suites-flash-cue-marker-data-suite"></a>
-
 ## Flash Cue Marker Data Suite
 
 New in CS4. Specific utilities to read Flash cue points. Use in conjunction with the [Marker Suite](#universals-sweetpea-suites-marker-suite). See PrSDKFlashCueMarkerDataSuite.h.
 
 ---
-
-<a id="universals-sweetpea-suites-image-processing-suite"></a>
 
 ## Image Processing Suite
 
@@ -184,15 +164,11 @@ In version 2, new in CS5.5, we have added StampDVFrameAspect(), which allows a p
 
 ---
 
-<a id="universals-sweetpea-suites-marker-suite"></a>
-
 ## Marker Suite
 
 New in CS4. New way to read markers of all types. See PrSDKMarkerSuite.h.
 
 ---
-
-<a id="universals-sweetpea-suites-memory-manager-suite"></a>
 
 ## Memory Manager Suite
 
@@ -210,8 +186,6 @@ Starting in version 2 of the suite, introduced in CS4, there are calls to alloca
 
 ---
 
-<a id="universals-sweetpea-suites-pixel-format-suite"></a>
-
 ## Pixel Format Suite
 
 See the table of supported pixel formats. GetBlackForPixelFormat returns the minimum (black) value for a given pixel format. GetWhiteForPixelFormat returns the maximum (white) value for a given pixel format. Pixel types like YUYV actually contain a group of two pixels to specify a color completely, so the data size returned in this case will be 4 bytes (rather than 2). This call does not support MPEG-2 planar formats.
@@ -221,8 +195,6 @@ ConvertColorToPixelFormattedData converts an BGRA/ARGB value into a value of a d
 New in Premiere Pro 4.0.1, `MAKE_THIRD_PARTY_CUSTOM_PIXEL_FORMAT_FOURCC()` defines a custom pixel format.
 
 ---
-
-<a id="universals-sweetpea-suites-playmod-overlay-suite"></a>
 
 ## Playmod Overlay Suite
 
@@ -298,8 +270,6 @@ prSuiteError (*VariesOverTime)(
 
 ---
 
-<a id="universals-sweetpea-suites-ppix-cache-suite"></a>
-
 ## PPix Cache Suite
 
 Used by an importer, player, or renderer to take advantage of the host application’s PPix cache. See PrSDKPPixCacheSuite.h.
@@ -319,8 +289,6 @@ Version 6, new in CC 2014, adds AddFrameToCacheWithColorProfile2() and GetFrameF
 Version 7, adds AddFrameToCacheWithColorSpace() and GetFrameFromCacheWithColorSpace(), these APIs deprecate AddFrameToCacheWithColorProfile2() and GetFrameFromCacheWithColorProfile2().
 
 ---
-
-<a id="universals-sweetpea-suites-ppix-creator-suite"></a>
 
 ## PPix Creator Suite
 
@@ -367,8 +335,6 @@ prSuiteError (*ClonePPix)(
 
 ---
 
-<a id="universals-sweetpea-suites-ppix-creator2-suite"></a>
-
 ## PPix Creator 2 Suite
 
 More callbacks to create PPixs, including raw PPixs.
@@ -378,8 +344,6 @@ Starting in version 2 of this suite, introduced in Premiere Pro 4.0.1, there is 
 New APIs added to create PPix with specific color space. Color aware Importers should use new color managed APIs for PPix creation. See PrSDKPPixCreator2Suite.h.
 
 ---
-
-<a id="universals-sweetpea-suites-ppix-suite"></a>
 
 ## PPix Suite
 
@@ -521,23 +485,17 @@ prSuiteError (*GetRenderTime)(
 
 ---
 
-<a id="universals-sweetpea-suites-ppix2-suite"></a>
-
 ## PPix 2 Suite
 
 A call to get the size of a PPix. Starting in version 2 of this suite, introduced in CS4, there is a new GetYUV420PlanarBuffers call to get buffer offsets and rowbytes of YUV_420_MPEG2 pixel formats. See PrSDKPPix2Suite.h.
 
 ---
 
-<a id="universals-sweetpea-suites-rollcrawl-suite"></a>
-
 ## RollCrawl Suite
 
 Used by a player or renderer to obtain the pixels for a roll/crawl. The player or render can then move and composite it using accelerated algorithms or hardware. See PrSDKRollCrawlSuite.h.
 
 ---
-
-<a id="universals-sweetpea-suites-sequence-info-suite"></a>
 
 ## Sequence Info Suite
 
@@ -551,23 +509,17 @@ Version 3, new in CC, adds `GetFieldType()`, `GetZeroPoint()`, and `GetTimecodeD
 
 ---
 
-<a id="universals-sweetpea-suites-string-suite"></a>
-
 ## String Suite
 
 New in CS4. Calls to allocate, copy, and dispose of PrSDKStrings. See PrSDKStringSuite.h.
 
 ---
 
-<a id="universals-sweetpea-suites-threaded-work-suite"></a>
-
 ## Threaded Work Suite
 
 New in CS4. Calls to register and queue up a threaded work callback for processing on a render thread. If you queue multiple times, it is possible for multiple threads to call your callback. If this is a problem, you’ll need to handle this on your end.
 
 ---
-
-<a id="universals-sweetpea-suites-time-suite"></a>
 
 ## Time Suite
 
@@ -634,8 +586,6 @@ prSuiteError (*GetTicksPerAudioSample)(
 
 ---
 
-<a id="universals-sweetpea-suites-video-segment-render-suite"></a>
-
 ## Video Segment Render Suite
 
 This suite uses the built-in software path for rendering, and supports subtree rendering. This means the plugin can ask the host to render a part of the segment, and then still handle the rest of the rendering. This is useful if, for example, one of the layers has an effect that the plugin cannot render itself. The plugin can have the host render that layer, but then handle the other layers along with the compositing.
@@ -645,8 +595,6 @@ In version 2, new in CS5.5, the new call `SupportsInitiateClipPrefetch()` can be
 In version 3, new in CS6, the function signatures have been modernized, using `inSequenceTicksPerFrame` rather than `inFrameRateScale` and `inFrameRateSampleSize`.
 
 ---
-
-<a id="universals-sweetpea-suites-video-segment-suite"></a>
 
 ## Video Segment Suite
 
@@ -679,8 +627,6 @@ To get a good idea of the segment structure, try the SDK player, create a sequen
 See PrSDKVideoSegmentSuite.h and PrSDKVideoSegmentProperties.h.
 
 ---
-
-<a id="universals-sweetpea-suites-window-suite"></a>
 
 ## Window Suite
 

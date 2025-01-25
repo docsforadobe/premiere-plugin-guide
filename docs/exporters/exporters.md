@@ -1,5 +1,3 @@
-<a id="exporters-exporters"></a>
-
 # Exporters
 
 Exporters are used to export video, audio, and markers in any format. Exporters get individual video frames in a requested pixel format (generally, uncompressed video) and uncompressed audio. The exporter is responsible for any compression of the video and audio data, and wrapping the output in a file format. To reuse an existing exporter, you may provide an export controller.

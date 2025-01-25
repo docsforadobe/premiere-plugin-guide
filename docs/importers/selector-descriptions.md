@@ -1,12 +1,8 @@
-<a id="importers-selector-descriptions"></a>
-
 # Selector Descriptions
 
 This section provides a brief overview of each selector and highlights implementation issues.
 
 Additional implementation details are at the end of the chapter.
-
-<a id="importers-selector-descriptions-iminit"></a>
 
 ## imInit
 
@@ -47,8 +43,6 @@ addToMenu = imMenuNew;
 
 ---
 
-<a id="importers-selector-descriptions-imshutdown"></a>
-
 ## imShutdown
 
 - param1 - `unused`
@@ -57,8 +51,6 @@ addToMenu = imMenuNew;
 Release all resources and perform any other necessary clean-up; sent when Premiere quits.
 
 ---
-
-<a id="importers-selector-descriptions-imgetindformat"></a>
 
 ## imGetIndFormat
 
@@ -79,8 +71,6 @@ Create a separate plugin for each synthetic file type.
 
 ---
 
-<a id="importers-selector-descriptions-imgetsupports8"></a>
-
 ## imGetSupports8
 
 - param1 - `unused`
@@ -90,8 +80,6 @@ A plugin that supports the Premiere Pro 2.0 API (and beyond) must return `malSup
 
 ---
 
-<a id="importers-selector-descriptions-imgetsupports7"></a>
-
 ## imGetSupports7
 
 - param1 - `unused`
@@ -100,8 +88,6 @@ A plugin that supports the Premiere Pro 2.0 API (and beyond) must return `malSup
 A plugin that supports the Premiere Pro 1.0 API (and beyond) must return `malSupports7`.
 
 ---
-
-<a id="importers-selector-descriptions-imgetinfo8"></a>
 
 ## imGetInfo8
 
@@ -120,8 +106,6 @@ You can create a still frame, a movie of a set duration, or an ‘infinite’ le
 
 ---
 
-<a id="importers-selector-descriptions-imclosefile"></a>
-
 ## imCloseFile
 
 - param1 - [imFileRef\*](structure-descriptions.md#importers-structure-descriptions-imfileref)
@@ -132,8 +116,6 @@ The specified file is no longer required; dispose of `privateData`.
 Only sent if privateData was allocated during `imGetInfo8`.
 
 ---
-
-<a id="importers-selector-descriptions-imgetindpixelformat"></a>
 
 ## imGetIndPixelFormat
 
@@ -158,8 +140,6 @@ If decoding to two or more formats can be done at about the same speed, declare 
 
 ---
 
-<a id="importers-selector-descriptions-imgetpreferredframesize"></a>
-
 ## imGetPreferredFrameSize
 
 - param1 - [imFileRef](structure-descriptions.md#importers-structure-descriptions-imfileref)
@@ -168,8 +148,6 @@ If decoding to two or more formats can be done at about the same speed, declare 
 Provide the frame sizes preferred by the importer.
 
 ---
-
-<a id="importers-selector-descriptions-imselectclipframedescriptor"></a>
 
 ## imSelectClipFrameDescriptor
 
@@ -184,8 +162,6 @@ This allows importers to change pixel formats based on criteria like enabled har
 
 ---
 
-<a id="importers-selector-descriptions-imgetsourcevideo"></a>
-
 ## imGetSourceVideo
 
 - param1 - [imFileRef](structure-descriptions.md#importers-structure-descriptions-imfileref)
@@ -197,8 +173,6 @@ This selector will be sent instead of `imImportImage` if supportsGetSourceVideo 
 
 ---
 
-<a id="importers-selector-descriptions-imcreateasyncimporter"></a>
-
 ## imCreateAsyncImporter
 
 - param1 - [imAsyncImporterCreationRec\*](structure-descriptions.md#importers-structure-descriptions-imasyncimportercreationrec)
@@ -207,8 +181,6 @@ This selector will be sent instead of `imImportImage` if supportsGetSourceVideo 
 Create an asynchronous importer object using the data provided, and store it in `imAsyncImporterCreationRec`.
 
 ---
-
-<a id="importers-selector-descriptions-imimportimage"></a>
 
 ## imImportImage
 
@@ -224,8 +196,6 @@ Give the host a frame of video; populate the imImportImageRec buffer with pixel 
 You must scale the image data to fit the window; Premiere relies on the import module for properly scaled frames.
 
 ---
-
-<a id="importers-selector-descriptions-imimportaudio7"></a>
 
 ## imImportAudio7
 
@@ -243,8 +213,6 @@ Always return 32-bit float, uninterleaved samples as described in [Universals](.
 You may use the calls in the [Audio Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-audio-suite) to do some common conversions.
 
 ---
-
-<a id="importers-selector-descriptions-imgetprefs8"></a>
 
 ## imGetPrefs8
 
@@ -287,8 +255,6 @@ See Additional Details for more information on custom importers.
 
 ---
 
-<a id="importers-selector-descriptions-imopenfile8"></a>
-
 ## imOpenFile8
 
 - param1 - [imFileRef\*](structure-descriptions.md#importers-structure-descriptions-imfileref)
@@ -314,8 +280,6 @@ On Windows, this helps memory usage, but on Mac OS this addresses a whole class 
 
 ---
 
-<a id="importers-selector-descriptions-imquietfile"></a>
-
 ## imQuietFile
 
 - param1 - [imFileRef\*](structure-descriptions.md#importers-structure-descriptions-imfileref)
@@ -331,8 +295,6 @@ Do not deallocate `privateData` in response to `imQuietFile`; do so during `imCl
 
 ---
 
-<a id="importers-selector-descriptions-imsavefile8"></a>
-
 ## imSaveFile8
 
 - param1 - [imSaveFileRec8\*](structure-descriptions.md#importers-structure-descriptions-imsavefilerec8)
@@ -343,8 +305,6 @@ Save the file specified in `imSaveFileRec8`.
 Only sent if canOpen was set to true during `imInit`.
 
 ---
-
-<a id="importers-selector-descriptions-imdeletefile"></a>
 
 ## imDeleteFile
 
@@ -358,8 +318,6 @@ If you have only a single file per clip you do not need to delete your own files
 Numbered still file importers do not need to respond to this selector; each file is handled individually.
 
 ---
-
-<a id="importers-selector-descriptions-imcalcsize8"></a>
 
 ## imCalcSize8
 
@@ -379,8 +337,6 @@ If the `trimIn` and `duration` are set to zero, Premiere is asking for the curre
 If the `trimIn` and `duration` are valid values, Premiere is asking for the trimmed size.
 
 ---
-
-<a id="importers-selector-descriptions-imchecktrim8"></a>
 
 ## imCheckTrim8
 
@@ -413,8 +369,6 @@ If either the video or audio boundaries extend further than the other boundaries
 
 ---
 
-<a id="importers-selector-descriptions-imtrimfile8"></a>
-
 ## imTrimFile8
 
 - param1 - [imFileAccessRec8\*](structure-descriptions.md#importers-structure-descriptions-imfileaccessrec8)
@@ -440,8 +394,6 @@ The callback function will return `imProgressAbort` or `imProgressContinue`.
 
 ---
 
-<a id="importers-selector-descriptions-imcopyfile"></a>
-
 ## imCopyFile
 
 - param1 - [imCopyFileRec\*](structure-descriptions.md#importers-structure-descriptions-imcopyfilerec)
@@ -453,8 +405,6 @@ The importer should maintain data on the original file rather than the copy when
 
 ---
 
-<a id="importers-selector-descriptions-imretargetaccelerator"></a>
-
 ## imRetargetAccelerator
 
 - param1 - [imAcceleratorRec\*](structure-descriptions.md#importers-structure-descriptions-imacceleratorrec)
@@ -463,8 +413,6 @@ The importer should maintain data on the original file rather than the copy when
 When the Project Manager copies media and its accelerator, this selector gives an opportunity to update the accelerator to refer to the copied media.
 
 ---
-
-<a id="importers-selector-descriptions-imquerydestinationpath"></a>
 
 ## imQueryDestinationPath
 
@@ -476,8 +424,6 @@ New in CS5.
 This allows the plugin to modify the path that will be used for a trimmed clip, so the trimmed project is written with the correct path.
 
 ---
-
-<a id="importers-selector-descriptions-iminitiateasyncclosedcaptionscan"></a>
 
 ## imInitiateAsyncClosedCaptionScan
 
@@ -492,8 +438,6 @@ If there are no captions, return imNoCaptions.
 
 ---
 
-<a id="importers-selector-descriptions-imgetnextclosedcaption"></a>
-
 ## imGetNextClosedCaption
 
 - param1 - [imFileRef](structure-descriptions.md#importers-structure-descriptions-imfileref)
@@ -507,8 +451,6 @@ After returning the last caption, return imNoCaptions to signal the end of the s
 
 ---
 
-<a id="importers-selector-descriptions-imcompleteasyncclosedcaptionscan"></a>
-
 ## imCompleteAsyncClosedCaptionScan
 
 - param1 - [imFileRef](structure-descriptions.md#importers-structure-descriptions-imfileref)
@@ -520,8 +462,6 @@ Called to cleanup any temporary data used while getting closed captions embedded
 
 ---
 
-<a id="importers-selector-descriptions-imanalysis"></a>
-
 ## imAnalysis
 
 - param1 - [imFileRef](structure-descriptions.md#importers-structure-descriptions-imfileref)
@@ -532,8 +472,6 @@ Provide information about the file in the imAnalysisRec; this is sent when the u
 Premiere displays a dialog with information about the file, including the text you provide.
 
 ---
-
-<a id="importers-selector-descriptions-imdatarateanalysis"></a>
 
 ## imDataRateAnalysis
 
@@ -548,8 +486,6 @@ Premiere generates a data rate analysis graph from the data provided.
 
 ---
 
-<a id="importers-selector-descriptions-imgettimeinfo8"></a>
-
 ## imGetTimeInfo8
 
 - param1 - [imFileRef](structure-descriptions.md#importers-structure-descriptions-imfileref)
@@ -560,8 +496,6 @@ Read any embedded timecode data in the file.
 Supercedes `imGetTimeInfo`.
 
 ---
-
-<a id="importers-selector-descriptions-imsettimeinfo8"></a>
 
 ## imSetTimeInfo8
 
@@ -584,8 +518,6 @@ Another example is capturing a still from tape, which could be stamped with time
 
 ---
 
-<a id="importers-selector-descriptions-imgetfileattributes"></a>
-
 ## imGetFileAttributes
 
 - param1 - [imFileAttributesRec\*](structure-descriptions.md#importers-structure-descriptions-imfileattributesrec)
@@ -595,8 +527,6 @@ Optional.
 `Pass back the creation date stamp in imFileAttributesRec.`
 
 ---
-
-<a id="importers-selector-descriptions-imgetmetadata"></a>
 
 ## imGetMetaData
 
@@ -611,8 +541,6 @@ Premiere will then call again with the appropriate buffer already allocated.
 
 ---
 
-<a id="importers-selector-descriptions-imsetmetadata"></a>
-
 ## imSetMetaData
 
 - param1 - [imFileRef](structure-descriptions.md#importers-structure-descriptions-imfileref)
@@ -622,8 +550,6 @@ Called to add a metadata chunk specified by a fourcc code.
 
 ---
 
-<a id="importers-selector-descriptions-imdeferredprocessing"></a>
-
 ## imDeferredProcessing
 
 - param1 - [imDeferredProcessingRec\*](structure-descriptions.md#importers-structure-descriptions-imdeferredprocessingrec)
@@ -632,8 +558,6 @@ Called to add a metadata chunk specified by a fourcc code.
 Describe the current progress of the deferred processing on the clip.
 
 ---
-
-<a id="importers-selector-descriptions-imgetaudiochannellayout"></a>
 
 ## imGetAudioChannelLayout
 
@@ -645,8 +569,6 @@ New in CC.
 Called to get the audio channel layout in the file.
 
 ---
-
-<a id="importers-selector-descriptions-imgetpeakaudio"></a>
 
 ## imGetPeakAudio
 
@@ -663,8 +585,6 @@ The values provided are `floats`, in the range 0.0 to 1.0 in amplitude. There is
 
 ---
 
-<a id="importers-selector-descriptions-imquerycontentstate"></a>
-
 ## imQueryContentState
 
 - param1 - [imQueryContentStateRec\*](structure-descriptions.md#importers-structure-descriptions-imquerycontentstaterec)
@@ -678,8 +598,6 @@ If an importer doesn’t support the selector then the host checks the last modi
 
 ---
 
-<a id="importers-selector-descriptions-imquerystreamlabel"></a>
-
 ## imQueryStreamLabel
 
 - param1 - [imQueryStreamLabelRec\*](structure-descriptions.md#importers-structure-descriptions-imquerystreamlabelrec)
@@ -690,8 +608,6 @@ New in CS6.
 This is used by stereoscopic importers to specify which stream IDs represent the left and right eyes.
 
 ---
-
-<a id="importers-selector-descriptions-imgetsubtypenames"></a>
 
 ## imGetSubTypeNames
 
@@ -710,8 +626,6 @@ The `imSubTypeDescriptionRec` must be allocated by the importer, and will be rel
 
 ---
 
-<a id="importers-selector-descriptions-imgetindcolorprofile"></a>
-
 ## imGetIndColorProfile
 
 - param1 - `(int) index`
@@ -724,8 +638,6 @@ This selector is sent iteratively for the importer to provide a description of e
 After all color profiles have been described, return a non-zero value.
 
 ---
-
-<a id="importers-selector-descriptions-imgetindcolorspace"></a>
 
 ## imGetIndColorSpace
 
@@ -741,8 +653,6 @@ This selector is sent iteratively for the importer to provide a description of e
 After all color spaces have been described, return a non-zero value.
 
 ---
-
-<a id="importers-selector-descriptions-imqueryinputfilelist"></a>
 
 ## imQueryInputFileList
 
@@ -760,8 +670,6 @@ In `imImportInfoRec`, a new member, `canProvideFileList`, specifies whether the 
 If the importer does not implement this selector, the host will assume the media just uses a single file at the original imported media path.
 
 ---
-
-<a id="importers-selector-descriptions-imgetembeddedlut"></a>
 
 ## imGetEmbeddedLUT
 

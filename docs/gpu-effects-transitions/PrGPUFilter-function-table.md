@@ -1,5 +1,3 @@
-<a id="gpu-effects-transitions-prgpufilter-function-table"></a>
-
 # PrGPUFilter Function Table
 
 PrGPUFilter is a structure consisting of the following functions that a effect/transition can implement.

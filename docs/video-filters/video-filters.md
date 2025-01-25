@@ -1,5 +1,3 @@
-<a id="video-filters-video-filters"></a>
-
 # Video Filters
 
 We strongly recommend using the **After Effects SDK** to develop effects plugins.

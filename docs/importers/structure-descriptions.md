@@ -1,8 +1,4 @@
-<a id="importers-structure-descriptions"></a>
-
 # Structure Descriptions
-
-<a id="importers-structure-descriptions-imacceleratorrec"></a>
 
 ## imAcceleratorRec
 
@@ -22,8 +18,6 @@ typedef struct {
 | `inAcceleratorPath` | The unicode path and name of the copied accelerator. |
 
 ---
-
-<a id="importers-structure-descriptions-imanalysisrec"></a>
 
 ## imAnalysisRec
 
@@ -52,8 +46,6 @@ typedef struct {
 
 ---
 
-<a id="importers-structure-descriptions-imasyncimportercreationrec"></a>
-
 ## imAsyncImporterCreationRec
 
 Selector: [imCreateAsyncImporter](selector-descriptions.md#importers-selector-descriptions-imcreateasyncimporter)
@@ -77,8 +69,6 @@ typedef struct {
 
 ---
 
-<a id="importers-structure-descriptions-imaudioinforec7"></a>
-
 ## imAudioInfoRec7
 
 Selector: [imGetInfo8](selector-descriptions.md#importers-selector-descriptions-imgetinfo8) (member of [imFileInfoRec8](#importers-structure-descriptions-imfileinforec8))
@@ -99,8 +89,6 @@ typedef struct {
 | `sampleType`    | This is for informational use only, to disclose the format of the audio on disk, before it is converted to 32-bit float, uninterleaved, by the importer.<br/><br/>The audio sample types are listed in [Universals](../universals/universals.md#universals-universals). |
 
 ---
-
-<a id="importers-structure-descriptions-imcalcsizerec"></a>
 
 ## imCalcSizeRec
 
@@ -130,8 +118,6 @@ typedef struct {
 | `sampleSize`    |                                                                                                                                                            |
 
 ---
-
-<a id="importers-structure-descriptions-imchecktrimrec"></a>
 
 ## imCheckTrimRec
 
@@ -168,8 +154,6 @@ typedef struct {
 
 ---
 
-<a id="importers-structure-descriptions-imclipframedescriptorrec"></a>
-
 ## imClipFrameDescriptorRec
 
 Selector: [imSelectClipFrameDescriptor](selector-descriptions.md#importers-selector-descriptions-imselectclipframedescriptor)
@@ -192,8 +176,6 @@ typedef struct {
 | `outBestFrameDescriptor`       | Frame properties to be produced, filled in with initial guesses                                                                      |
 
 ---
-
-<a id="importers-structure-descriptions-imcompleteasyncclosedcaptionscanrec"></a>
 
 ## imCompleteAsyncClosedCaptionScanRec
 
@@ -218,8 +200,6 @@ typedef struct {
 
 ---
 
-<a id="importers-structure-descriptions-imindcolorprofilerec"></a>
-
 ## imIndColorProfileRec
 
 Selector: [imGetIndColorProfile](selector-descriptions.md#importers-selector-descriptions-imgetindcolorprofile)
@@ -240,8 +220,6 @@ typedef struct {
 ```
 
 ---
-
-<a id="importers-structure-descriptions-imcopyfilerec"></a>
 
 ## imCopyFileRec
 
@@ -269,8 +247,6 @@ typedef struct {
 | `inProgressCallbackID` | Pass to `progressCallback`.                                                                                                                                                               |
 
 ---
-
-<a id="importers-structure-descriptions-imdatarateanalysisrec"></a>
 
 ## imDataRateAnalysisRec
 
@@ -309,8 +285,6 @@ typedef struct {
 
 ---
 
-<a id="importers-structure-descriptions-imdeferredprocessingrec"></a>
-
 ## imDeferredProcessingRec
 
 Selector: [imDeferredProcessing](selector-descriptions.md#importers-selector-descriptions-imdeferredprocessing)
@@ -334,8 +308,6 @@ typedef struct {
 
 ---
 
-<a id="importers-structure-descriptions-imdeletefilerec"></a>
-
 ## imDeleteFileRec
 
 Selector: [imDeleteFile](selector-descriptions.md#importers-selector-descriptions-imdeletefile)
@@ -354,8 +326,6 @@ typedef struct {
 | `deleteFile` | Specifies the name (and path) of the file to be deleted.              |
 
 ---
-
-<a id="importers-structure-descriptions-imfileaccessrec8"></a>
 
 ## imFileAccessRec8
 
@@ -382,8 +352,6 @@ typedef struct {
 
 ---
 
-<a id="importers-structure-descriptions-imfileattributesrec"></a>
-
 ## imFileAttributesRec
 
 Selector: [imGetFileAttributes](selector-descriptions.md#importers-selector-descriptions-imgetfileattributes)
@@ -401,8 +369,6 @@ typedef struct {
 |-----------------------|------------------------------------------------|
 
 ---
-
-<a id="importers-structure-descriptions-imfileinforec8"></a>
 
 ## imFileInfoRec8
 
@@ -464,8 +430,6 @@ typedef struct {
 
 ---
 
-<a id="importers-structure-descriptions-imfileopenrec8"></a>
-
 ## imFileOpenRec8
 
 Selector: [imOpenFile8](selector-descriptions.md#importers-selector-descriptions-imopenfile8)
@@ -495,8 +459,6 @@ typedef struct {
 
 ---
 
-<a id="importers-structure-descriptions-imfileref"></a>
-
 ## imFileRef
 
 Selectors:
@@ -519,8 +481,6 @@ Use OS-specific functions, rather than ANSI file functions, when manipulating im
 
 ---
 
-<a id="importers-structure-descriptions-imframeformat"></a>
-
 ## imFrameFormat
 
 Selector: [imGetSourceVideo](selector-descriptions.md#importers-selector-descriptions-imgetsourcevideo) (member of [imSourceVideoRec](#importers-structure-descriptions-imsourcevideorec))
@@ -542,8 +502,6 @@ typedef struct {
 
 ---
 
-<a id="importers-structure-descriptions-imgetaudiochannellayoutrec"></a>
-
 ## imGetAudioChannelLayoutRec
 
 Selector: [imGetAudioChannelLayout](selector-descriptions.md#importers-selector-descriptions-imgetaudiochannellayout)
@@ -564,8 +522,6 @@ typedef struct {
 | `outChannelLabels` | A valid audio channel label should be assigned for each channel in the clip.<br/><br/>Labels are defined in the [Audio Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-audio-suite). |
 
 ---
-
-<a id="importers-structure-descriptions-imgetnextclosedcaptionrec"></a>
 
 ## imGetNextClosedCaptionRec
 
@@ -603,8 +559,6 @@ typedef struct {
 | `ioCaptionDataSize`             | `Size` of outCaptionData buffer (in bytes) allocated from the host. The importer should set this variable to the actual number of bytes that were written to outCaptionData, or the length of the string (characters, not bytes) pointed by outTTMLData.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 
 ---
-
-<a id="importers-structure-descriptions-imgetprefsrec"></a>
 
 ## imGetPrefsRec
 
@@ -650,8 +604,6 @@ typedef struct {
 | `sampleRate`          | New in CS5. Audio sample rate.                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 
 ---
-
-<a id="importers-structure-descriptions-imimageinforec"></a>
 
 ## imImageInfoRec
 
@@ -755,8 +707,6 @@ typedef struct {
 
 ---
 
-<a id="importers-structure-descriptions-imimportaudiorec7"></a>
-
 ## imImportAudioRec7
 
 Selector: [imImportAudio7](selector-descriptions.md#importers-selector-descriptions-imimportaudio7)
@@ -783,8 +733,6 @@ typedef struct {
 | `prefs`       | Clip Source Settings data gathered from `imGetPrefs8` (setup dialog info).                                                                                                                                                                                                                     |
 
 ---
-
-<a id="importers-structure-descriptions-imimportimagerec"></a>
 
 ## imImportImageRec
 
@@ -859,8 +807,6 @@ typedef struct {
 | `destClipRect`   | New in After Effects CS3. Not currently provided by Premiere. Destination rect inside the bounds of the pix buffer.                                                                                                                                                                                                                                                                                                                                                                       |
 
 ---
-
-<a id="importers-structure-descriptions-imimportinforec"></a>
 
 ## imImportInfoRec
 
@@ -952,8 +898,6 @@ typedef struct {
 
 ---
 
-<a id="importers-structure-descriptions-imindformatrec"></a>
-
 ## imIndFormatRec
 
 Selector: [imGetIndFormat](selector-descriptions.md#importers-selector-descriptions-imgetindformat)
@@ -1001,8 +945,6 @@ The flags listed below are only for legacy plugins and should not be used.
 
 ---
 
-<a id="importers-structure-descriptions-imindpixelformatrec"></a>
-
 ## imIndPixelFormatRec
 
 Selector: [imGetIndPixelFormat](selector-descriptions.md#importers-selector-descriptions-imgetindpixelformat)
@@ -1023,8 +965,6 @@ typedef struct {
 | `prefs`          | New in CC. Clip Source Settings data gathered during `imGetPrefs8` (setup dialog). |
 
 ---
-
-<a id="importers-structure-descriptions-iminitiateasyncclosedcaptionscanrec"></a>
 
 ## imInitiateAsyncClosedCaptionScanRec
 
@@ -1059,8 +999,6 @@ typedef struct {
 
 ---
 
-<a id="importers-structure-descriptions-immetadatarec"></a>
-
 ## imMetaDataRec
 
 Selector: [imGetMetaData](selector-descriptions.md#importers-selector-descriptions-imgetmetadata) and [imSetMetaData](selector-descriptions.md#importers-selector-descriptions-imsetmetadata)
@@ -1085,8 +1023,6 @@ typedef struct {
 | `buffer`        | The metadata.                                                           |
 
 ---
-
-<a id="importers-structure-descriptions-impeakaudiorec"></a>
 
 ## imPeakAudioRec
 
@@ -1117,8 +1053,6 @@ typedef struct {
 
 ---
 
-<a id="importers-structure-descriptions-impreferredframesizerec"></a>
-
 ## imPreferredFrameSizeRec
 
 Selector: [imGetPreferredFrameSize](selector-descriptions.md#importers-selector-descriptions-imgetpreferredframesize)
@@ -1146,8 +1080,6 @@ typedef struct {
 
 ---
 
-<a id="importers-structure-descriptions-imquerycontentstaterec"></a>
-
 ## imQueryContentStateRec
 
 Selector: [imQueryContentState](selector-descriptions.md#importers-selector-descriptions-imquerycontentstate)
@@ -1164,8 +1096,6 @@ typedef struct {
 ```
 
 ---
-
-<a id="importers-structure-descriptions-imquerydestinationpathrec"></a>
 
 ## imQueryDestinationPathRec
 
@@ -1191,8 +1121,6 @@ typedef struct {
 | `outActualDestinationPath`   | The path where the importer wants the destination file to be created.        |
 
 ---
-
-<a id="importers-structure-descriptions-imqueryinputfilelistrec"></a>
 
 ## imQueryInputFileListRec
 
@@ -1221,8 +1149,6 @@ typedef struct {
 
 ---
 
-<a id="importers-structure-descriptions-imquerystreamlabelrec"></a>
-
 ## imQueryStreamLabelRec
 
 Selector: [imQueryStreamLabel](selector-descriptions.md#importers-selector-descriptions-imquerystreamlabel)
@@ -1247,8 +1173,6 @@ typedef struct {
 | `outStreamLabel` | The stream label, allocated using the [String Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-string-suite). |
 
 ---
-
-<a id="importers-structure-descriptions-imsavefilerec8"></a>
 
 ## imSaveFileRec8
 
@@ -1278,8 +1202,6 @@ typedef struct {
 | `progressCallbackID` | Pass to `progressCallback`.                                                                                                                                        |
 
 ---
-
-<a id="importers-structure-descriptions-imsourcevideorec"></a>
 
 ## imSourceVideoRec
 
@@ -1322,8 +1244,6 @@ typedef struct {
 
 ---
 
-<a id="importers-structure-descriptions-imsubtypedescriptionrec"></a>
-
 ## imSubTypeDescriptionRec
 
 Selector: [imGetSubTypeNames](selector-descriptions.md#importers-selector-descriptions-imgetsubtypenames)
@@ -1338,8 +1258,6 @@ typedef struct {
 ```
 
 ---
-
-<a id="importers-structure-descriptions-imtimeinforec8"></a>
 
 ## imTimeInfoRec8
 
@@ -1380,8 +1298,6 @@ typedef struct {
 
 ---
 
-<a id="importers-structure-descriptions-imtrimfilerec8"></a>
-
 ## imTrimFileRec8
 
 Selector: [imTrimFile8](selector-descriptions.md#importers-selector-descriptions-imtrimfile8)
@@ -1421,8 +1337,6 @@ typedef struct {
 
 ---
 
-<a id="importers-structure-descriptions-imindcolorspacerec"></a>
-
 ## imIndColorSpaceRec
 
 Selector: [imGetIndColorSpace](selector-descriptions.md#importers-selector-descriptions-imgetindcolorspace)
@@ -1445,8 +1359,6 @@ typedef struct {
 | `outColorSpaceType` | One of the following:<br/><br/>- `kPrSDKColorSpaceType_Undefined`<br/>- `kPrSDKColorSpaceType_ICC`<br/>- `kPrSDKColorSpaceType_LUT`      // DO NOT USE after 14.x.<br/>- `kPrSDKColorSpaceType_SEITags`<br/>- `kPrSDKColorSpaceType_MXFTags`  // DO NOT USE, Not supported.<br/>- `kPrSDKColorSpaceType_Predefined`                   |
 | `ioProfileRec`      | A structure describing the color profile.<br/><br/>```cpp<br/>csSDK_int32  ioBufferSize;<br/>void*        inDestinationBuffer;<br/>PrSDKString  outName;<br/>```                                                                                                                                                                      |
 | `outSEICodesRec`    | A structure describing the color space using codes; used with H.265, HEVC, AVC and<br/>ProRes media.<br/><br/>```cpp<br/>csSDK_int32  colorPrimariesCode;<br/>csSDK_int32  transferCharacteristicCode;<br/>csSDK_int32  matrixEquationsCode;<br/>csSDK_int32  bitDepth;<br/>prBool       isFullRange;<br/>prBool       isRGB;<br/>``` |
-
-<a id="importers-structure-descriptions-rawcolorspacerec"></a>
 
 ## RawColorSpaceRec
 
@@ -1478,8 +1390,6 @@ If type is `kPrSDKColorSpaceType_SEITags` - Color space is specified via enums c
 
 ---
 
-<a id="importers-structure-descriptions-embeddedlutrec"></a>
-
 ## EmbeddedLUTRec
 
 Selector: `imGetIndColorSpace`
@@ -1503,8 +1413,6 @@ typedef struct
 | `lutOutColorSpaceRec` | Describes the LUT output colorspace rec. |
 
 ---
-
-<a id="importers-structure-descriptions-imrendercontext"></a>
 
 ## imRenderContext
 

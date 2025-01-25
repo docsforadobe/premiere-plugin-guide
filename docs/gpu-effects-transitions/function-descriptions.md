@@ -1,8 +1,4 @@
-<a id="gpu-effects-transitions-function-descriptions"></a>
-
 # Function Descriptions
-
-<a id="gpu-effects-transitions-function-descriptions-createinstance"></a>
 
 ## CreateInstance
 
@@ -21,8 +17,6 @@ This allows an effect have more flexibility about opting-in for GPU rendering, d
 
 ---
 
-<a id="gpu-effects-transitions-function-descriptions-disposeinstance"></a>
-
 ## DisposeInstance
 
 ```cpp
@@ -33,8 +27,6 @@ prSuiteError (*DisposeInstance)(
 Cleanup any resources allocated during CreateInstance.
 
 ---
-
-<a id="gpu-effects-transitions-function-descriptions-getframedependencies"></a>
 
 ## GetFrameDependencies
 
@@ -51,8 +43,6 @@ Return dependency information about a render, or nothing if only the current fra
 Increment `ioQueryIndex` for additional dependencies.
 
 ---
-
-<a id="gpu-effects-transitions-function-descriptions-precompute"></a>
 
 ## PreCompute
 
@@ -75,8 +65,6 @@ Results will be uploaded to the GPU by the host.
 If outPrecomputePixelFormat is not custom, frames will be converted to the GPU pixel format.
 
 ---
-
-<a id="gpu-effects-transitions-function-descriptions-render"></a>
 
 ## Render
 

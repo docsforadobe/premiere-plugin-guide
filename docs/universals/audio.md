@@ -1,5 +1,3 @@
-<a id="universals-audio"></a>
-
 # Audio
 
 ## 32-bit Float, Uninterleaved Format

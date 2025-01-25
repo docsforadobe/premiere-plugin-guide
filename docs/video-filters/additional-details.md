@@ -1,5 +1,3 @@
-<a id="video-filters-additional-details"></a>
-
 # Additional Details
 
 ## Fields and Field Processing

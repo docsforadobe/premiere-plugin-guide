@@ -1,12 +1,8 @@
-<a id="transmitters-suites"></a>
-
 # Suites
 
 For information on how to acquire and manage suites, as well as information on more suites that are available to other plugin types beyond just transmitters, see [SweetPea Suites](../universals/sweetpea-suites.md#universals-sweetpea-suites).
 
 ---
-
-<a id="transmitters-suites-playmod-audio-suite"></a>
 
 ## Playmod Audio Suite
 
@@ -43,8 +39,6 @@ prSuiteError (*GetNextAudioBuffer)(
 | `inNumSampleFrames` | The size of each of the buffers in the array in both `inInBuffers` and `outOutBuffers`.                                                                                                                                                           |
 
 ---
-
-<a id="transmitters-suites-transmit-invocation-suite"></a>
 
 ## Transmit Invocation Suite
 

@@ -1,5 +1,3 @@
-<a id="importers-importers"></a>
-
 # Importers
 
 Importers provide video, audio and/or closed captioning from the media source. This source can be a single file, a set of files, a communication link between another application, etc.

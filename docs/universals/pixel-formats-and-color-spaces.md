@@ -1,5 +1,3 @@
-<a id="universals-pixel-formats-and-color-spaces"></a>
-
 # Pixel Formats And Color Spaces
 
 As of CC, Premiere supports 69 different pixel formats, not including raw and custom formats.

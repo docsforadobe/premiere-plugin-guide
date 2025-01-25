@@ -1,5 +1,3 @@
-<a id="gpu-effects-transitions-structure-descriptions"></a>
-
 # Structure Descriptions
 
 ## PrGPUFilterInfo

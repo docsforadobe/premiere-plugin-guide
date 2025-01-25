@@ -1,5 +1,3 @@
-<a id="intro-localization"></a>
-
 # Localization
 
 The language used by Premiere Pro is decided by the user during installation.

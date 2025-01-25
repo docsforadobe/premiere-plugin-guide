@@ -1,8 +1,4 @@
-<a id="video-filters-selector-descriptions"></a>
-
 # Selector Descriptions
-
-<a id="video-filters-selector-descriptions-fsinitspec"></a>
 
 ## fsInitSpec
 
@@ -12,15 +8,11 @@ Allocate and pass back a handle to a structure containing the parameter values i
 
 ---
 
-<a id="video-filters-selector-descriptions-fshassetupdialog"></a>
-
 ## fsHasSetupDialog
 
 New for Premiere Pro CS3. Optional. Specify whether or not the filter has a setup dialog, by `returning` fsHasNoSetupDialog or fsNoErr.
 
 ---
-
-<a id="video-filters-selector-descriptions-fssetup"></a>
 
 ## fsSetup
 
@@ -38,8 +30,6 @@ If the filter has a setup dialog, the VFilterCallbackProcPtr should be used to g
 
 ---
 
-<a id="video-filters-selector-descriptions-fsexecute"></a>
-
 ## fsExecute
 
 This is really the only required selector for a video filter, and it’s where the rendering happens. Take the input frame in VideoHandle.source, render the effect and return the frame to Premiere in VideoHandle.destination. The specsHandle contains your parameter settings (already interpolated if animatable). You can store a handle to any additional non-parameter data in VideoHandle.InstanceData. If you do so, deallocate the handle in response to *fsDisposeData*, or your plugin will leak memory.
@@ -48,15 +38,11 @@ The video your filter receives may be interlaced, in the field order determined 
 
 ---
 
-<a id="video-filters-selector-descriptions-fsdisposedata"></a>
-
 ## fsDisposeData
 
 Optional. Called when the project closes. Dispose of any instance data created during `fsExecute`. See VideoHandle->InstanceData.
 
 ---
-
-<a id="video-filters-selector-descriptions-fscanhandlepar"></a>
 
 ## fsCanHandlePAR
 
@@ -78,8 +64,6 @@ The PiPL bits `anyPixelAspectRatio` and `unityPixelAspectRatio` must not be set.
 
 ---
 
-<a id="video-filters-selector-descriptions-fsgetpixelformatssupported"></a>
-
 ## fsGetPixelFormatsSupported
 
 Optional.
@@ -95,8 +79,6 @@ When all formats have been described, return `fsBadFormatIndex`.
 See the field-aware video filter sample for an example.
 
 ---
-
-<a id="video-filters-selector-descriptions-fscacheonload"></a>
 
 ## fsCacheOnLoad
 

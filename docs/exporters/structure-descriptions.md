@@ -1,8 +1,4 @@
-<a id="exporters-structure-descriptions"></a>
-
 # Structure Descriptions
-
-<a id="exporters-structure-descriptions-exdoexportrec"></a>
 
 ## exDoExportRec
 
@@ -45,8 +41,6 @@ typedef struct {
 | `maximumFileSize`      | Amount to reserve in a file for metadata storage.                                                                                                                                                                                                              |
 
 ---
-
-<a id="exporters-structure-descriptions-exdoexportrec2"></a>
 
 ## exDoExportRec2
 
@@ -94,8 +88,6 @@ typedef struct {
 | `exportLUTID`          | New in 14.x. the LUT being used for export.                                                                                                                                                                                                                    |
 
 ---
-
-<a id="exporters-structure-descriptions-exexporterinforec"></a>
 
 ## exExporterInfoRec
 
@@ -154,8 +146,6 @@ typedef struct {
 
 ---
 
-<a id="exporters-structure-descriptions-exexporterinstancerec"></a>
-
 ## exExporterInstanceRec
 
 Selector: [exSelBeginInstance](selector-descriptions.md#exporters-selector-descriptions-exselbegininstance) and [exSelEndInstance](selector-descriptions.md#exporters-selector-descriptions-exselendinstance)
@@ -177,8 +167,6 @@ typedef struct {
 
 ---
 
-<a id="exporters-structure-descriptions-exgeneratedefaultparamrec"></a>
-
 ## exGenerateDefaultParamRec
 
 Selector: [exSelGenerateDefaultParams](selector-descriptions.md#exporters-selector-descriptions-exselgeneratedefaultparams)
@@ -199,8 +187,6 @@ typedef struct {
 | `fileType`           | The file format four character code set by the exporter during [exSelStartup](selector-descriptions.md#exporters-selector-descriptions-exselstartup). |
 
 ---
-
-<a id="exporters-structure-descriptions-exparambuttonrec"></a>
 
 ## exParamButtonRec
 
@@ -230,8 +216,6 @@ typedef struct {
 | `buttonParamIdentifier` | Discloses the parameter ID of the button hit by the user.                                                                                             |
 
 ---
-
-<a id="exporters-structure-descriptions-exparamchangedrec"></a>
 
 ## exParamChangedRec
 
@@ -266,8 +250,6 @@ typedef struct {
 
 ---
 
-<a id="exporters-structure-descriptions-exparamsummaryrec"></a>
-
 ## exParamSummaryRec
 
 Selector: [exSelGetParamSummary](selector-descriptions.md#exporters-selector-descriptions-exselgetparamsummary)
@@ -297,8 +279,6 @@ typedef struct {
 
 ---
 
-<a id="exporters-structure-descriptions-expostprocessparamsrec"></a>
-
 ## exPostProcessParamsRec
 
 Selector: [exSelPostProcessParams](selector-descriptions.md#exporters-selector-descriptions-exselpostprocessparams)
@@ -326,8 +306,6 @@ typedef struct {
 
 ---
 
-<a id="exporters-structure-descriptions-exqueryexportfileextensionrec"></a>
-
 ## exQueryExportFileExtensionRec
 
 Selector: [exSelQueryExportFileExtension](selector-descriptions.md#exporters-selector-descriptions-exselqueryexportfileextension)
@@ -350,8 +328,6 @@ typedef struct {
 | `outFileExtension`   | Provide the file extension here, given the current parameter settings.                                                                                |
 
 ---
-
-<a id="exporters-structure-descriptions-exqueryoutputfilelistrec"></a>
 
 ## exQueryOutputFileListRec
 
@@ -379,8 +355,6 @@ typedef struct {
 | `outputFileRecs`     | An array of `exOutputFileRecs`.<br/><br/>On the second call to `exSelQueryOutputFileList`, the path length (including trailing null) for each path.<br/><br/>On the third call, fill in the path of each exOutputFileRec.<br/><br/>```cpp<br/>typedef struct {<br/>  int           pathLength;<br/>  prUTF16Char*  path;<br/>} exOutputFileRec;<br/>``` |
 
 ---
-
-<a id="exporters-structure-descriptions-exqueryoutputsettingsrec"></a>
 
 ## exQueryOutputSettingsRec
 
@@ -422,8 +396,6 @@ typedef struct {
 
 ---
 
-<a id="exporters-structure-descriptions-exquerystillsequencerec"></a>
-
 ## exQueryStillSequenceRec
 
 Selector: [exSelQueryStillSequence](selector-descriptions.md#exporters-selector-descriptions-exselquerystillsequence)
@@ -449,8 +421,6 @@ typedef struct {
 
 ---
 
-<a id="exporters-structure-descriptions-exvalidateoutputsettingsrec"></a>
-
 ## exValidateOutputSettingsRec
 
 Selector: [exSelValidateOutputSettings](selector-descriptions.md#exporters-selector-descriptions-exselvalidateoutputsettings)
@@ -471,8 +441,6 @@ typedef struct {
 | `fileType`           | The file format four character code set by the exporter during [exSelStartup](selector-descriptions.md#exporters-selector-descriptions-exselstartup). |
 
 ---
-
-<a id="exporters-structure-descriptions-exqueryexportcolorspacerec"></a>
 
 ## exQueryExportColorSpaceRec
 

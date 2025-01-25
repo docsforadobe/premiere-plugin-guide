@@ -1,5 +1,3 @@
-<a id="video-filters-selector-table"></a>
-
 # Selector Table
 
 This table summarizes the various selector commands a video filter can receive.

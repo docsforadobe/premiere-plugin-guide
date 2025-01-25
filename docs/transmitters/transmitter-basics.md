@@ -1,5 +1,3 @@
-<a id="transmitters-transmitter-basics"></a>
-
 # Transmitter Basics
 
 ## Basic Organization

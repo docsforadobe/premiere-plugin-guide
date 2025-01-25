@@ -1,5 +1,3 @@
-<a id="video-filters-videorecord"></a>
-
 # VideoRecord
 
 A video filter is passed a handle to a VideoRecord with almost every selector.

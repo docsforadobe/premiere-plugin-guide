@@ -1,5 +1,3 @@
-<a id="intro-sdk-audience"></a>
-
 # SDK Audience
 
 The Premiere Pro Software Development Kit enables developers to create plugins for Premiere Pro, After Effects, Audition, Media Encoder, Character Animator, and Premiere Elements.

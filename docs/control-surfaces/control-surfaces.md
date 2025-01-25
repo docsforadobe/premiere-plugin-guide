@@ -1,5 +1,3 @@
-<a id="control-surfaces-control-surfaces"></a>
-
 # Control Surfaces
 
 Starting in Premiere Pro CC 2014, a control surface plugin can interface with a hardware control surface. This is the API that provides built-in support for EUCON and Mackie devices to control audio mixing and basic transport controls. The API supports two-way communication with Premiere Pro, so that hardware faders, VU meters, etc are in sync with the application.

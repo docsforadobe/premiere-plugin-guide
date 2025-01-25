@@ -1,5 +1,3 @@
-<a id="exporters-whats-new"></a>
-
 # Whats New
 
 ## What’s New in CC

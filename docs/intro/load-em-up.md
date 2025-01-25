@@ -1,5 +1,3 @@
-<a id="intro-load-em-up"></a>
-
 # Load Em Up
 
 ## Plug-in Caching

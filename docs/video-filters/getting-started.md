@@ -1,5 +1,3 @@
-<a id="video-filters-getting-started"></a>
-
 # Getting Started
 
 Begin with one of the two video filter sample projects, progressively replacing its functionality with your own.

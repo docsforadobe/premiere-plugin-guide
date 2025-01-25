@@ -1,5 +1,3 @@
-<a id="universals-basic-types-structures"></a>
-
 # Basic Types Structures
 
 These types and structures are defined in PrSDKTypes.h and PrSDKStructs.h, and are used throughout the Premiere API.

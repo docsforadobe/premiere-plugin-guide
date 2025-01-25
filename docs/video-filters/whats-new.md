@@ -1,5 +1,3 @@
-<a id="video-filters-whats-new"></a>
-
 # Whats New
 
 ## What’s New in Premiere Pro CS5?

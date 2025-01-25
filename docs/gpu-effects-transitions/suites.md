@@ -1,12 +1,8 @@
-<a id="gpu-effects-transitions-suites"></a>
-
 # Suites
 
 For information on how to acquire and manage suites, see [SweetPea Suites](../universals/sweetpea-suites.md#universals-sweetpea-suites).
 
 ---
-
-<a id="gpu-effects-transitions-suites-gpu-device-suite"></a>
 
 ## GPU Device Suite
 
@@ -17,8 +13,6 @@ Use this suite to get exclusive access to a device using AcquireExclusiveDeviceA
 Device memory should ideally be allocated through this suite. In some cases you may find it more efficient to use a texture / image object as the source. With CUDA, you can bind a texture reference to an existing linear buffer. With OpenCL, you can create an image object from an existing 2D buffer object using image_2d_from_buffer. Temporary allocations are also fine but may be rather slow.
 
 ---
-
-<a id="gpu-effects-transitions-suites-opaque-effect-data-suite"></a>
 
 ## Opaque Effect Data Suite
 

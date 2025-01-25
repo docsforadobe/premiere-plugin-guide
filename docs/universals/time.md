@@ -1,5 +1,3 @@
-<a id="universals-time"></a>
-
 # Time
 
 There are two different representations of time: `scale over sampleSize`, and `ticks`.

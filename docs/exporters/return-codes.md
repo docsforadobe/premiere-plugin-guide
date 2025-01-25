@@ -1,5 +1,3 @@
-<a id="exporters-return-codes"></a>
-
 # Return Codes
 
 | **Return Code**                             | **Reason**                                                                                                                              |

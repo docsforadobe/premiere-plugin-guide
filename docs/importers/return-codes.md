@@ -1,5 +1,3 @@
-<a id="importers-return-codes"></a>
-
 # Return Codes
 
 | **Return Code**                | **Reason**                                                                                                                                                               |

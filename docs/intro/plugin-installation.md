@@ -1,5 +1,3 @@
-<a id="intro-plugin-installation"></a>
-
 # Plug In Installation
 
 Plug-ins must have an installer. This simplifies installation by the user, provides more compact distribution, and ensures all the pieces are installed correctly.

@@ -1,5 +1,3 @@
-<a id="ae-transition-extensions-getting-started"></a>
-
 # Getting Started
 
 ## Setting up the Sample Project

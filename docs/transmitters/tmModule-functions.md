@@ -1,5 +1,3 @@
-<a id="transmitters-tmmodule-functions"></a>
-
 # tmModule Functions
 
 Fill in 0 for any unsupported calls. Thread safety is defined per-module, only a single thread will enter a module at a time.

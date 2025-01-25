@@ -1,5 +1,3 @@
-<a id="exporters-getting-started"></a>
-
 # Getting Started
 
 Start your plugin by modifying the SDK sample. Step through the code in your debugger to learn the order of events.
@@ -150,8 +148,6 @@ In the exporter’s Audio tab UI, you can provide a parameter to choose between 
 Here’s a helpful video on audio track mapping: [http://www.video2brain.com/en/lessons/changes-in-audio-tracks-and-merged-clip-audio](http://www.video2brain.com/en/lessons/changes-in-audio-tracks-and-merged-clip-audio)
 
 ---
-
-<a id="exporters-getting-started-closed-captioning"></a>
 
 ## Closed Captioning
 

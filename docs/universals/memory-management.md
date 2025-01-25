@@ -1,5 +1,3 @@
-<a id="universals-memory-management"></a>
-
 # Memory Management
 
 Premiere Pro has a media cache in which it stores imported frames, intermediate frames (intermediate stages of a render), fully rendered frames, and audio.

@@ -1,5 +1,3 @@
-<a id="exporters-structures"></a>
-
 # Structures
 
 | **Structure**                                                                                                             | **Sent with selector**                                                                                                                                                                              |

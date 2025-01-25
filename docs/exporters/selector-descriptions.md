@@ -1,5 +1,3 @@
-<a id="exporters-selector-descriptions"></a>
-
 # Selector Descriptions
 
 This section provides a brief overview of each selector and highlights implementation issues.
@@ -7,8 +5,6 @@ This section provides a brief overview of each selector and highlights implement
 Additional implementation details are at the end of the chapter.
 
 ---
-
-<a id="exporters-selector-descriptions-exselstartup"></a>
 
 ## exSelStartup
 
@@ -23,8 +19,6 @@ A single exporter can support multiple codecs and file extensions.
 
 ---
 
-<a id="exporters-selector-descriptions-exselbegininstance"></a>
-
 ## exSelBeginInstance
 
 - param1 - [exExporterInstanceRec\*](structure-descriptions.md#exporters-structure-descriptions-exexporterinstancerec)
@@ -33,8 +27,6 @@ A single exporter can support multiple codecs and file extensions.
 Allocate any private data.
 
 ---
-
-<a id="exporters-selector-descriptions-exselgeneratedefaultparams"></a>
 
 ## exSelGenerateDefaultParams
 
@@ -45,8 +37,6 @@ Set the exporter’s default parameters using the [Export Param Suite](suites.md
 
 ---
 
-<a id="exporters-selector-descriptions-exselpostprocessparams"></a>
-
 ## exSelPostProcessParams
 
 - param1 - [exPostProcessParamsRec\*](structure-descriptions.md#exporters-structure-descriptions-expostprocessparamsrec)
@@ -55,8 +45,6 @@ Set the exporter’s default parameters using the [Export Param Suite](suites.md
 Post process parameters. This is where the localized strings for the parameter UI must be provided.
 
 ---
-
-<a id="exporters-selector-descriptions-exselvalidateparamchanged"></a>
 
 ## exSelValidateParamChanged
 
@@ -69,8 +57,6 @@ To notify the host that the plugin is changing other parameters, set `exParamCha
 
 ---
 
-<a id="exporters-selector-descriptions-exselgetparamsummary"></a>
-
 ## exSelGetParamSummary
 
 - param1 - [exParamSummaryRec\*](structure-descriptions.md#exporters-structure-descriptions-exparamsummaryrec)
@@ -79,8 +65,6 @@ To notify the host that the plugin is changing other parameters, set `exParamCha
 Provide a text summary of the current parameter settings, which will be displayed in the summary area of the Export Settings dialog.
 
 ---
-
-<a id="exporters-selector-descriptions-exselparambutton"></a>
 
 ## exSelParamButton
 
@@ -97,8 +81,6 @@ If the user cancels the dialog, return `exportReturn_ParamButtonCancel` to signi
 
 ---
 
-<a id="exporters-selector-descriptions-exselexport"></a>
-
 ## exSelExport
 
 - param1 - [exDoExportRec\*](structure-descriptions.md#exporters-structure-descriptions-exdoexportrec)
@@ -114,8 +96,6 @@ Save render time by checking to see if frames are repeated. Inspect the Sequence
 
 ---
 
-<a id="exporters-selector-descriptions-exselexport2"></a>
-
 ## exSelExport2
 
 - param1 - [exDoExportRec2\*](structure-descriptions.md#exporters-structure-descriptions-exdoexportrec2)
@@ -129,8 +109,6 @@ In case LUT is specified, `ExportColorSpace` signifies the output color space of
 
 ---
 
-<a id="exporters-selector-descriptions-exselqueryexportfileextension"></a>
-
 ## exSelQueryExportFileExtension
 
 - param1 - [exQueryExportFileExtensionRec\*](structure-descriptions.md#exporters-structure-descriptions-exqueryexportfileextensionrec)
@@ -141,8 +119,6 @@ For exporters that support more than one file extension, specify an extension gi
 If this selector is not supported by the exporter, the extension is specified by the exporter in `exExporterInfoRec.fileTypeDefaultExtension`.
 
 ---
-
-<a id="exporters-selector-descriptions-exselqueryoutputfilelist"></a>
 
 ## exSelQueryOutputFileList
 
@@ -161,8 +137,6 @@ On the third call, the plugin fills in the path members of the outputFileRecs.
 
 ---
 
-<a id="exporters-selector-descriptions-exselquerystillsequence"></a>
-
 ## exSelQueryStillSequence
 
 - param1 - [exQueryStillSequenceRec\*](structure-descriptions.md#exporters-structure-descriptions-exquerystillsequencerec)
@@ -172,8 +146,6 @@ The host application asks a still-only exporter if it wants to export as a seque
 
 ---
 
-<a id="exporters-selector-descriptions-exselqueryoutputsettings"></a>
-
 ## exSelQueryOutputSettings
 
 - param1 - [exQueryOutputSettingsRec\*](structure-descriptions.md#exporters-structure-descriptions-exqueryoutputsettingsrec)
@@ -182,8 +154,6 @@ The host application asks a still-only exporter if it wants to export as a seque
 The host application asks the exporter for general details about the current settings. This is a required selector.
 
 ---
-
-<a id="exporters-selector-descriptions-exselvalidateoutputsettings"></a>
 
 ## exSelValidateOutputSettings
 
@@ -196,8 +166,6 @@ The exporter should return `exportReturn_ErrLastErrorSet` if not, and the error 
 
 ---
 
-<a id="exporters-selector-descriptions-exselendinstance"></a>
-
 ## exSelEndInstance
 
 - param1 - [exExporterInstanceRec\*](structure-descriptions.md#exporters-structure-descriptions-exexporterinstancerec)
@@ -207,8 +175,6 @@ Deallocate any private data.
 
 ---
 
-<a id="exporters-selector-descriptions-exselshutdown"></a>
-
 ## exSelShutdown
 
 - param1 - `unused`
@@ -217,8 +183,6 @@ Deallocate any private data.
 Sent immediately before shutdown. Free all remaining memory and close any open file handles.
 
 ---
-
-<a id="exporters-selector-descriptions-exselqueryexportcolorspace"></a>
 
 ## exSelQueryExportColorSpace
 

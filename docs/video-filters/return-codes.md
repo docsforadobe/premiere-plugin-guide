@@ -1,5 +1,3 @@
-<a id="video-filters-return-codes"></a>
-
 # Return Codes
 
 | **Return Code**      | **Reason**                                                                            |

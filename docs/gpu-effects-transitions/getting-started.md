@@ -1,5 +1,3 @@
-<a id="gpu-effects-transitions-getting-started"></a>
-
 # Getting Started
 
 ## Setting up the Sample Projects

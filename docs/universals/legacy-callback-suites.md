@@ -1,8 +1,4 @@
-<a id="universals-legacy-callback-suites"></a>
-
 # Legacy Callback Suites
-
-<a id="universals-legacy-callback-suites-pisuites"></a>
 
 ## piSuites
 
@@ -28,8 +24,6 @@ typedef struct {
 | [utilFuncs](#universals-legacy-callback-suites-pisuites-utility-functions)      | Pointer to utility functions.<br/>In the utilFuncs, the getSPBasicSuite callback provides access to the [SweetPea Suites](sweetpea-suites.md#universals-sweetpea-suites), which are used for most of the newer functions.                                                                                                                                                                                                                                       |
 | [timelineFuncs](#universals-legacy-callback-suites-pisuites-timeline-functions) | Pointer to timeline functions                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 
-<a id="universals-legacy-callback-suites-pisuites-memory-functions"></a>
-
 ### Memory Functions
 
 Memory and handle allocation. Where possible, use the [PPix Creator Suite](sweetpea-suites.md#universals-sweetpea-suites-ppix-creator-suite) for PPix-specific allocation.
@@ -50,8 +44,6 @@ Strings passed to and from Premiere in API structures are always null-terminated
 | `disposeHandle`             | Disposes of a previously allocated handle.<br/><br/>```default<br/>void disposeHandle (char **PrMemoryHandle);<br/>```                                              |
 | `lockHandle` `unlockHandle` | These legacy functions are deprecated and should no longer be used.                                                                                                 |
 
-<a id="universals-legacy-callback-suites-pisuites-window-functions"></a>
-
 ### Window Functions
 
 Window management routines. Superceded by the [Window Suite](sweetpea-suites.md#universals-sweetpea-suites-window-suite).
@@ -60,8 +52,6 @@ Window management routines. Superceded by the [Window Suite](sweetpea-suites.md#
 |--------------------|--------------------------------------------------------------------------------------------------------------------------|
 | `updateAllWindows` | Updates all windows. Windows only, doesn’t work on Mac OS.<br/><br/>```default<br/>void updateAllWindows (void);<br/>``` |
 | `getMainWnd`       | Returns the main application HWND.<br/><br/>```default<br/>void getMainWnd (void);<br/>```                               |
-
-<a id="universals-legacy-callback-suites-pisuites-ppix-functions"></a>
 
 ### PPix Functions
 
@@ -78,8 +68,6 @@ Used to manipulate a PPix. Superceded by the [PPix Creator Suite](sweetpea-suite
 | `ppixGetPixelAspectRatio`           | Passes back the pixel aspect ratio of a PPixHand.<br/><br/>Premiere populates the longs with the PAR numerator and denominator.<br/><br/>```default<br/>int ppixGetPixelAspectRatio (<br/>  PPixHand      pix,<br/>  csSDK_uint32  *num,<br/>  csSDK_uint32  *den);<br/>``` |
 | `ppixGetAlphaBounds`                | Passes back the alpha bounds of a PPixHand.<br/><br/>```default<br/>void ppixGetAlphaBounds (<br/>  PPixHand  pix,<br/>  prRect    *alphaBounds);<br/>```                                                                                                                   |
 
-<a id="universals-legacy-callback-suites-pisuites-utility-functions"></a>
-
 ### Utility Functions
 
 | **Function**         | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
@@ -90,8 +78,6 @@ Used to manipulate a PPix. Superceded by the [PPix Creator Suite](sweetpea-suite
 | `getFileVideoBounds` | Passes back the bounds of a file.<br/>If the file is already in the sequence, it is preferable to get a file’s video bounds using the [Clip Render Suite](sweetpea-suites.md#universals-sweetpea-suites-clip-render-suite).<br/><br/>```default<br/>csSDK_int32 getFileVideoBounds (<br/>  prFileSpec *filespec,<br/>  prRect *bounds);<br/>```                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | `getSPBasicSuite`    | This very important call returns the SweetPea suite that allows plugins to acquire and release all other [SweetPea Suites](sweetpea-suites.md#universals-sweetpea-suites).<br/><br/>```default<br/>SPBasicSuite* getSPBasicSuite();<br/>```                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | `getFileExtString`   | Passes back the list of valid entensions/filter strings given a class of media (see file types constants below).<br/><br/>```default<br/>csSDK_int32 (*plugGetFileExtStringFunc)(<br/>  csSDK_uint32  fileTypes,<br/>  char          *inBuffer,<br/>  csSDK_uint32  inBufferSize);<br/>```<br/><br/>- `kFileTypes_Still`: still media<br/>- `kFileTypes_AudioOnly`: audio-only media<br/>- `kFileTypes_AudioVideo`: audio and video media<br/>- `kFileTypes_AllNoIntrinsics`: all importable media types via importer plugins (no prproj, txt, etc)                                                                                                                                                                                                                                                                                 |
-
-<a id="universals-legacy-callback-suites-pisuites-timeline-functions"></a>
 
 ### Timeline Functions
 
@@ -106,8 +92,6 @@ Used to manipulate a PPix. Superceded by the [PPix Creator Suite](sweetpea-suite
 | `getClipVideoEx`     | Superceded by the [Clip Render Suite](sweetpea-suites.md#universals-sweetpea-suites-clip-render-suite), which provides asynchronous import.<br/><br/>Retrieves a frame from a clip in a segment tree returned from the [Video Segment Suite](sweetpea-suites.md#universals-sweetpea-suites-video-segment-suite).<br/>It can be used by to retrieve and store a still frame, such as a title, for playback.<br/><br/>This call is expensive; use it carefully.<br/><br/>```default<br/>csSDK_int32 getClipVideoEx (<br/>  csSDK_int32          inFrame,<br/>  PPixHand             *outRenderedFrame,<br/>  const prRect         *inFrameRect,<br/>  const PrPixelFormat  *inRequestedPixelFormatArray,<br/>  csSDK_int32          inRequestedPixelFormatArrayCount,<br/>  csSDK_uint32         inPixelAspectRatioNumerator,<br/>  csSDK_uint32         inPixelAspectRatioDenominator,<br/>  PrClipID             inClipData);<br/>```<br/><br/>- `inFrame`: the frame number you’re requesting, in the timebase of the clip<br/>- `outRenderedFrame`: Allocated by the host. The plugin should dispose of the PPixHand when done<br/>- `inFrameRect`: the boundaries of video to return. To import a frame at its native dimensions, use getClipVideoBounds. If the frame size is not the same as the sequence size, the frame must be positioned in the composite by the plugin.<br/>- `inClipData`: the PrClipID from the video segment                                                                                                                                                                                                                                                                                                                                                                                                          |
 
 ---
-
-<a id="universals-legacy-callback-suites-bottleneck-functions"></a>
 
 ## Bottleneck Functions
 

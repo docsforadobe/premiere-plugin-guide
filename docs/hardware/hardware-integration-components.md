@@ -1,5 +1,3 @@
-<a id="hardware-hardware-integration-components"></a>
-
 # Hardware Integration Components
 
 ## Importers

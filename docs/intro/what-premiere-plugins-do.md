@@ -1,5 +1,3 @@
-<a id="intro-what-premiere-plugins-do"></a>
-
 # What Premiere Plug-Ins Do
 
 Premiere APIs provide access to many points of the video editing pipeline.

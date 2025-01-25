@@ -1,5 +1,3 @@
-<a id="intro-best-practices"></a>
-
 # Best Practices
 
 When a plugin receives a selector it doesn’t recognize, it should always return the code specific to the plugin type that means the selector is not supported (i.e. imUnsupported, rmUnsupported, etc).

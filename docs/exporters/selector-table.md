@@ -1,5 +1,3 @@
-<a id="exporters-selector-table"></a>
-
 # Selector Table
 
 This table summarizes the various selector commands an exporter can receive.

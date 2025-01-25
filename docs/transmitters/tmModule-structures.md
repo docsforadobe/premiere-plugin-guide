@@ -1,5 +1,3 @@
-<a id="transmitters-tmmodule-structures"></a>
-
 # tmModule Structures
 
 ## tmStdParms
