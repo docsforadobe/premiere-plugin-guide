@@ -1,32 +1,16 @@
-.. _video-filters/selector-table:
+<a id="video-filters-selector-table"></a>
 
-Selector Table
-################################################################################
+# Selector Table
 
 This table summarizes the various selector commands a video filter can receive.
 
-+-----------------------------------------------------------------------+---------------+---------------------------------------------------------------------------------------------------+
-|                             **Selector**                              | **Optional?** |                                          **Description**                                          |
-+=======================================================================+===============+===================================================================================================+
-| :ref:`video-filters/selector-descriptions.fsInitSpec`                 | Yes           | Allocate and initialize your parameters with default values without popping a modal setup dialog. |
-+-----------------------------------------------------------------------+---------------+---------------------------------------------------------------------------------------------------+
-| :ref:`video-filters/selector-descriptions.fsHasSetupDialog`           | Yes           | New for Premiere Pro CS3. Specify whether or not the filter has a setup dialog.                   |
-+-----------------------------------------------------------------------+---------------+---------------------------------------------------------------------------------------------------+
-| :ref:`video-filters/selector-descriptions.fsSetup`                    | Yes           | Allocate memory for your parameters if necessary.                                                 |
-|                                                                       |               |                                                                                                   |
-|                                                                       |               | Display your modal setup dialog with default parameter values or previously stored values.        |
-|                                                                       |               |                                                                                                   |
-|                                                                       |               | Save the new values to ``specsHandle``.                                                           |
-+-----------------------------------------------------------------------+---------------+---------------------------------------------------------------------------------------------------+
-| :ref:`video-filters/selector-descriptions.fsExecute`                  | No            | Filter the video using the stored parameters from ``specsHandle``.                                |
-|                                                                       |               |                                                                                                   |
-|                                                                       |               | Be aware of interlaced video, and don't overlook the alpha channel!                               |
-+-----------------------------------------------------------------------+---------------+---------------------------------------------------------------------------------------------------+
-| :ref:`video-filters/selector-descriptions.fsDisposeData`              | Yes           | Dispose of any instance data created during ``fsExecute``.                                        |
-+-----------------------------------------------------------------------+---------------+---------------------------------------------------------------------------------------------------+
-| :ref:`video-filters/selector-descriptions.fsCanHandlePAR`             | Yes           | Tell Premiere how your effect handles pixel aspect ratio.                                         |
-+-----------------------------------------------------------------------+---------------+---------------------------------------------------------------------------------------------------+
-| :ref:`video-filters/selector-descriptions.fsGetPixelFormatsSupported` | Yes           | Gets pixel formats supported. Called iteratively until all formats have been given.               |
-+-----------------------------------------------------------------------+---------------+---------------------------------------------------------------------------------------------------+
-| :ref:`video-filters/selector-descriptions.fsCacheOnLoad`              | Yes           | Return fsDoNotCacheOnLoad to disable plugin caching for this filter.                              |
-+-----------------------------------------------------------------------+---------------+---------------------------------------------------------------------------------------------------+
+| **Selector**                                                                                                          | **Optional?**   | **Description**                                                                                                                                                                                      |
+|-----------------------------------------------------------------------------------------------------------------------|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [fsInitSpec](selector-descriptions.md#video-filters-selector-descriptions-fsinitspec)                                 | Yes             | Allocate and initialize your parameters with default values without popping a modal setup dialog.                                                                                                    |
+| [fsHasSetupDialog](selector-descriptions.md#video-filters-selector-descriptions-fshassetupdialog)                     | Yes             | New for Premiere Pro CS3. Specify whether or not the filter has a setup dialog.                                                                                                                      |
+| [fsSetup](selector-descriptions.md#video-filters-selector-descriptions-fssetup)                                       | Yes             | Allocate memory for your parameters if necessary.<br/><br/>Display your modal setup dialog with default parameter values or previously stored values.<br/><br/>Save the new values to `specsHandle`. |
+| [fsExecute](selector-descriptions.md#video-filters-selector-descriptions-fsexecute)                                   | No              | Filter the video using the stored parameters from `specsHandle`.<br/><br/>Be aware of interlaced video, and don’t overlook the alpha channel!                                                        |
+| [fsDisposeData](selector-descriptions.md#video-filters-selector-descriptions-fsdisposedata)                           | Yes             | Dispose of any instance data created during `fsExecute`.                                                                                                                                             |
+| [fsCanHandlePAR](selector-descriptions.md#video-filters-selector-descriptions-fscanhandlepar)                         | Yes             | Tell Premiere how your effect handles pixel aspect ratio.                                                                                                                                            |
+| [fsGetPixelFormatsSupported](selector-descriptions.md#video-filters-selector-descriptions-fsgetpixelformatssupported) | Yes             | Gets pixel formats supported. Called iteratively until all formats have been given.                                                                                                                  |
+| [fsCacheOnLoad](selector-descriptions.md#video-filters-selector-descriptions-fscacheonload)                           | Yes             | Return fsDoNotCacheOnLoad to disable plugin caching for this filter.                                                                                                                                 |

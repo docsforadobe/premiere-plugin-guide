@@ -1,17 +1,15 @@
-.. _gpu-effects-transitions/function-descriptions:
+<a id="gpu-effects-transitions-function-descriptions"></a>
 
-Function Descriptions
-################################################################################
+# Function Descriptions
 
-.. _gpu-effects-transitions/function-descriptions.CreateInstance:
+<a id="gpu-effects-transitions-function-descriptions-createinstance"></a>
 
-CreateInstance
-================================================================================
+## CreateInstance
 
-.. code-block:: cpp
-
-  prSuiteError (*CreateInstance)(
-    PrGPUFilterInstance*  ioInstanceData);
+```cpp
+prSuiteError (*CreateInstance)(
+  PrGPUFilterInstance*  ioInstanceData);
+```
 
 Creates a GPU filter instance representing an effect or transition on a track item.
 
@@ -21,57 +19,54 @@ Unlike software instances of effects and transitions, GPU instances are created 
 
 This allows an effect have more flexibility about opting-in for GPU rendering, depending on the parameters. Separate instances may be called concurrently.
 
-----
+---
 
-.. _gpu-effects-transitions/function-descriptions.DisposeInstance:
+<a id="gpu-effects-transitions-function-descriptions-disposeinstance"></a>
 
-DisposeInstance
-================================================================================
+## DisposeInstance
 
-.. code-block:: cpp
-
-  prSuiteError (*DisposeInstance)(
-    PrGPUFilterInstance*  ioInstanceData);
+```cpp
+prSuiteError (*DisposeInstance)(
+  PrGPUFilterInstance*  ioInstanceData);
+```
 
 Cleanup any resources allocated during CreateInstance.
 
-----
+---
 
-.. _gpu-effects-transitions/function-descriptions.GetFrameDependencies:
+<a id="gpu-effects-transitions-function-descriptions-getframedependencies"></a>
 
-GetFrameDependencies
-================================================================================
+## GetFrameDependencies
 
-.. code-block:: cpp
-
-  prSuiteError (*GetFrameDependencies)(
-    PrGPUFilterInstance*            inInstanceData,
-    const PrGPUFilterRenderParams*  inRenderParams,
-    csSDK_int32*                    ioQueryIndex,
-    PrGPUFilterFrameDependency*     outFrameDependencies);
+```cpp
+prSuiteError (*GetFrameDependencies)(
+  PrGPUFilterInstance*            inInstanceData,
+  const PrGPUFilterRenderParams*  inRenderParams,
+  csSDK_int32*                    ioQueryIndex,
+  PrGPUFilterFrameDependency*     outFrameDependencies);
+```
 
 Return dependency information about a render, or nothing if only the current frame is required.
 
-Increment ``ioQueryIndex`` for additional dependencies.
+Increment `ioQueryIndex` for additional dependencies.
 
-----
+---
 
-.. _gpu-effects-transitions/function-descriptions.PreCompute:
+<a id="gpu-effects-transitions-function-descriptions-precompute"></a>
 
-PreCompute
-================================================================================
+## PreCompute
 
-.. code-block:: cpp
-
-  prSuiteError (*Precompute)(
-    PrGPUFilterInstance*            inInstanceData,
-    const PrGPUFilterRenderParams*  inRenderParams,
-    csSDK_int32                     inIndex,
-    PPixHand                        inFrame);
+```cpp
+prSuiteError (*Precompute)(
+  PrGPUFilterInstance*            inInstanceData,
+  const PrGPUFilterRenderParams*  inRenderParams,
+  csSDK_int32                     inIndex,
+  PPixHand                        inFrame);
+```
 
 Precompute a result into preallocated uninitialized host (pinned) memory.
 
-Will only be called if ``PrGPUDependency_Precompute`` was returned from ``GetFrameDependencies``.
+Will only be called if `PrGPUDependency_Precompute` was returned from `GetFrameDependencies`.
 
 Precomputation may be called ahead of render time.
 
@@ -79,23 +74,22 @@ Results will be uploaded to the GPU by the host.
 
 If outPrecomputePixelFormat is not custom, frames will be converted to the GPU pixel format.
 
-----
+---
 
-.. _gpu-effects-transitions/function-descriptions.Render:
+<a id="gpu-effects-transitions-function-descriptions-render"></a>
 
-Render
-================================================================================
+## Render
 
-.. code-block:: cpp
+```cpp
+prSuiteError (*Render)(
+  PrGPUFilterInstance*            inInstanceData,
+  const PrGPUFilterRenderParams*  inRenderParams,
+  const PPixHand*                 inFrames,
+  csSDK_size_t                    inFrameCount,
+  PPixHand*                       outFrame);
+```
 
-  prSuiteError (*Render)(
-    PrGPUFilterInstance*            inInstanceData,
-    const PrGPUFilterRenderParams*  inRenderParams,
-    const PPixHand*                 inFrames,
-    csSDK_size_t                    inFrameCount,
-    PPixHand*                       outFrame);
-
-Render into an allocated outFrame allocated with ``PrSDKGPUDeviceSuite`` or operate in place.
+Render into an allocated outFrame allocated with `PrSDKGPUDeviceSuite` or operate in place.
 
 Result must be in the same pixel format as the input. If the effect grows or shrinks the output area (e.g. rendering a drop shadow), it is allowable for the effect to allocate and return a different sized outFrame.
 

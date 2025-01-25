@@ -1,42 +1,24 @@
-.. _exporters/selector-table:
+<a id="exporters-selector-table"></a>
 
-Selector Table
-################################################################################
+# Selector Table
 
 This table summarizes the various selector commands an exporter can receive.
 
-+----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+------------+
-|                             **Selector**                             |                                               **param1**                                               | **param2** |
-+======================================================================+========================================================================================================+============+
-| :ref:`exporters/selector-descriptions.exSelStartup`                  | :ref:`exExporterInfoRec* <exporters/structure-descriptions.exExporterInfoRec>`                         | unused     |
-+----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+------------+
-| :ref:`exporters/selector-descriptions.exSelBeginInstance`            | :ref:`exExporterInstanceRec* <exporters/structure-descriptions.exExporterInstanceRec>`                 | unused     |
-+----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+------------+
-| :ref:`exporters/selector-descriptions.exSelGenerateDefaultParams`    | :ref:`exGenerateDefaultParamRec* <exporters/structure-descriptions.exGenerateDefaultParamRec>`         | unused     |
-+----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+------------+
-| :ref:`exporters/selector-descriptions.exSelPostProcessParams`        | :ref:`exPostProcessParamsRec* <exporters/structure-descriptions.exPostProcessParamsRec>`               | unused     |
-+----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+------------+
-| :ref:`exporters/selector-descriptions.exSelValidateParamChanged`     | :ref:`exParamChangedRec* <exporters/structure-descriptions.exParamChangedRec>`                         | unused     |
-+----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+------------+
-| :ref:`exporters/selector-descriptions.exSelGetParamSummary`          | :ref:`exParamSummaryRec* <exporters/structure-descriptions.exParamSummaryRec>`                         | unused     |
-+----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+------------+
-| :ref:`exporters/selector-descriptions.exSelParamButton`              | :ref:`exParamButtonRec* <exporters/structure-descriptions.exParamButtonRec>`                           | unused     |
-+----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+------------+
-| :ref:`exporters/selector-descriptions.exSelExport`                   | :ref:`exDoExportRec* <exporters/structure-descriptions.exDoExportRec>`                                 | unused     |
-+----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+------------+
-| :ref:`exporters/selector-descriptions.exSelQueryExportFileExtension` | :ref:`exQueryExportFileExtensionRec* <exporters/structure-descriptions.exQueryExportFileExtensionRec>` | unused     |
-+----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+------------+
-| :ref:`exporters/selector-descriptions.exSelQueryOutputFileList`      | :ref:`exQueryOutputFileListRec* <exporters/structure-descriptions.exQueryOutputFileListRec>`           | unused     |
-+----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+------------+
-| :ref:`exporters/selector-descriptions.exSelQueryStillSequence`       | :ref:`exQueryStillSequenceRec* <exporters/structure-descriptions.exQueryStillSequenceRec>`             | unused     |
-+----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+------------+
-| :ref:`exporters/selector-descriptions.exSelQueryOutputSettings`      | :ref:`exQueryOutputSettingsRec* <exporters/structure-descriptions.exQueryOutputSettingsRec>`           | unused     |
-+----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+------------+
-| :ref:`exporters/selector-descriptions.exSelValidateOutputSettings`   | :ref:`exValidateOutputSettingsRec* <exporters/structure-descriptions.exValidateOutputSettingsRec>`     | unused     |
-+----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+------------+
-| :ref:`exporters/selector-descriptions.exSelExport2`                  | :ref:`exDoExportRec2* <exporters/structure-descriptions.exDoExportRec2>`                               | unused     |
-+----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+------------+
-| :ref:`exporters/selector-descriptions.exSelQueryExportColorSpace`    | :ref:`exQueryExportColorSpaceRec* <exporters/structure-descriptions.exQueryExportColorSpaceRec>`       | unused     |
-+----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+------------+
-| :ref:`exporters/selector-descriptions.exSelShutdown`                 | :ref:`exExporterInfoRec* <exporters/structure-descriptions.exExporterInfoRec>`                         | unused     |
-+----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------+------------+
+| **Selector**                                                                                                            | **param1**                                                                                                                  | **param2**   |
+|-------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|--------------|
+| [exSelStartup](selector-descriptions.md#exporters-selector-descriptions-exselstartup)                                   | [exExporterInfoRec\*](structure-descriptions.md#exporters-structure-descriptions-exexporterinforec)                         | unused       |
+| [exSelBeginInstance](selector-descriptions.md#exporters-selector-descriptions-exselbegininstance)                       | [exExporterInstanceRec\*](structure-descriptions.md#exporters-structure-descriptions-exexporterinstancerec)                 | unused       |
+| [exSelGenerateDefaultParams](selector-descriptions.md#exporters-selector-descriptions-exselgeneratedefaultparams)       | [exGenerateDefaultParamRec\*](structure-descriptions.md#exporters-structure-descriptions-exgeneratedefaultparamrec)         | unused       |
+| [exSelPostProcessParams](selector-descriptions.md#exporters-selector-descriptions-exselpostprocessparams)               | [exPostProcessParamsRec\*](structure-descriptions.md#exporters-structure-descriptions-expostprocessparamsrec)               | unused       |
+| [exSelValidateParamChanged](selector-descriptions.md#exporters-selector-descriptions-exselvalidateparamchanged)         | [exParamChangedRec\*](structure-descriptions.md#exporters-structure-descriptions-exparamchangedrec)                         | unused       |
+| [exSelGetParamSummary](selector-descriptions.md#exporters-selector-descriptions-exselgetparamsummary)                   | [exParamSummaryRec\*](structure-descriptions.md#exporters-structure-descriptions-exparamsummaryrec)                         | unused       |
+| [exSelParamButton](selector-descriptions.md#exporters-selector-descriptions-exselparambutton)                           | [exParamButtonRec\*](structure-descriptions.md#exporters-structure-descriptions-exparambuttonrec)                           | unused       |
+| [exSelExport](selector-descriptions.md#exporters-selector-descriptions-exselexport)                                     | [exDoExportRec\*](structure-descriptions.md#exporters-structure-descriptions-exdoexportrec)                                 | unused       |
+| [exSelQueryExportFileExtension](selector-descriptions.md#exporters-selector-descriptions-exselqueryexportfileextension) | [exQueryExportFileExtensionRec\*](structure-descriptions.md#exporters-structure-descriptions-exqueryexportfileextensionrec) | unused       |
+| [exSelQueryOutputFileList](selector-descriptions.md#exporters-selector-descriptions-exselqueryoutputfilelist)           | [exQueryOutputFileListRec\*](structure-descriptions.md#exporters-structure-descriptions-exqueryoutputfilelistrec)           | unused       |
+| [exSelQueryStillSequence](selector-descriptions.md#exporters-selector-descriptions-exselquerystillsequence)             | [exQueryStillSequenceRec\*](structure-descriptions.md#exporters-structure-descriptions-exquerystillsequencerec)             | unused       |
+| [exSelQueryOutputSettings](selector-descriptions.md#exporters-selector-descriptions-exselqueryoutputsettings)           | [exQueryOutputSettingsRec\*](structure-descriptions.md#exporters-structure-descriptions-exqueryoutputsettingsrec)           | unused       |
+| [exSelValidateOutputSettings](selector-descriptions.md#exporters-selector-descriptions-exselvalidateoutputsettings)     | [exValidateOutputSettingsRec\*](structure-descriptions.md#exporters-structure-descriptions-exvalidateoutputsettingsrec)     | unused       |
+| [exSelExport2](selector-descriptions.md#exporters-selector-descriptions-exselexport2)                                   | [exDoExportRec2\*](structure-descriptions.md#exporters-structure-descriptions-exdoexportrec2)                               | unused       |
+| [exSelQueryExportColorSpace](selector-descriptions.md#exporters-selector-descriptions-exselqueryexportcolorspace)       | [exQueryExportColorSpaceRec\*](structure-descriptions.md#exporters-structure-descriptions-exqueryexportcolorspacerec)       | unused       |
+| [exSelShutdown](selector-descriptions.md#exporters-selector-descriptions-exselshutdown)                                 | [exExporterInfoRec\*](structure-descriptions.md#exporters-structure-descriptions-exexporterinforec)                         | unused       |

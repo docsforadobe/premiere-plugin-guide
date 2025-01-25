@@ -1,151 +1,123 @@
-Welcome to the Adobe Premiere Pro SDK Guide!
-###############################################
+# Welcome to the Adobe Premiere Pro SDK Guide!
 
-.. toctree::
-  :maxdepth: 1
-  :caption: History
+# History
 
-  history
+* [Version History](history.md)
 
-.. toctree::
-  :maxdepth: 1
-  :caption: Introduction
+# Introduction
 
-  intro/intro
-  intro/what-premiere-plugins-do
-  intro/sdk-audience
-  intro/whats-new
-  intro/where-do-i-start
-  intro/document-overview
-  intro/getting-support
-  intro/premiere-pro-plugin-types
-  intro/sample-projects
-  intro/debugging-plugins
-  intro/load-em-up
-  intro/plugin-installation
-  intro/localization
-  intro/best-practices
+* [Introduction](intro/intro.md)
+* [What Premiere Plug-Ins Do](intro/what-premiere-plugins-do.md)
+* [SDK Audience](intro/sdk-audience.md)
+* [Whats New](intro/whats-new.md)
+* [Where Do I Start](intro/where-do-i-start.md)
+* [Document Overview](intro/document-overview.md)
+* [Getting Support and Providing Feedback](intro/getting-support.md)
+* [Premiere Pro Plug-In Types](intro/premiere-pro-plugin-types.md)
+* [Sample Projects](intro/sample-projects.md)
+* [Debugging Plug-Ins](intro/debugging-plugins.md)
+* [Load Em Up](intro/load-em-up.md)
+* [Plug In Installation](intro/plugin-installation.md)
+* [Localization](intro/localization.md)
+* [Best Practices](intro/best-practices.md)
 
-.. toctree::
-  :maxdepth: 1
-  :caption: Resources
+# Resources
 
-  resources/resources
-  resources/pipl-resource
-  resources/impt-resource
+* [Resources](resources/resources.md)
+* [Plug-In Property Lists (PiPL) Resource](resources/pipl-resource.md)
+* [IMPT Resource](resources/impt-resource.md)
 
-.. toctree::
-  :maxdepth: 1
-  :caption: Universals
+# Universals
 
-  universals/universals
-  universals/time
-  universals/video-frames
-  universals/pixel-formats-and-color-spaces
-  universals/pixel-aspect-ratio
-  universals/fields
-  universals/audio
-  universals/memory-management
-  universals/basic-types-structures
-  universals/suites
-  universals/sweetpea-suites
-  universals/legacy-callback-suites
+* [Universals](universals/universals.md)
+* [Time](universals/time.md)
+* [Video Frames](universals/video-frames.md)
+* [Pixel Formats And Color Spaces](universals/pixel-formats-and-color-spaces.md)
+* [Pixel Aspect Ratio](universals/pixel-aspect-ratio.md)
+* [Fields](universals/fields.md)
+* [Audio](universals/audio.md)
+* [Memory Management](universals/memory-management.md)
+* [Basic Types Structures](universals/basic-types-structures.md)
+* [Suites](universals/suites.md)
+* [SweetPea Suites](universals/sweetpea-suites.md)
+* [Legacy Callback Suites](universals/legacy-callback-suites.md)
 
-.. toctree::
-  :maxdepth: 1
-  :caption: Hardware Integration
+# Hardware Integration
 
-  hardware/hardware
-  hardware/hardware-integration-components
-  hardware/classid-filetype-subtype
-  hardware/classdata-functions
+* [Hardware](hardware/hardware.md)
+* [Hardware Integration Components](hardware/hardware-integration-components.md)
+* [ClassID, Filetype and Subtype](hardware/classid-filetype-subtype.md)
+* [ClassData Functions](hardware/classdata-functions.md)
 
-.. toctree::
-  :maxdepth: 1
-  :caption: Importers
+# Importers
 
-  importers/importers
-  importers/whats-new
-  importers/getting-started
-  importers/selector-table
-  importers/selector-descriptions
-  importers/return-codes
-  importers/structures
-  importers/structure-descriptions
-  importers/suites
+* [Importers](importers/importers.md)
+* [What’s New](importers/whats-new.md)
+* [Getting Started](importers/getting-started.md)
+* [Selector Table](importers/selector-table.md)
+* [Selector Descriptions](importers/selector-descriptions.md)
+* [Return Codes](importers/return-codes.md)
+* [Structures](importers/structures.md)
+* [Structure Descriptions](importers/structure-descriptions.md)
+* [Suites](importers/suites.md)
 
-.. toctree::
-  :maxdepth: 1
-  :caption: Export Controllers
+# Export Controllers
 
-  export-controllers/export-controllers
+* [Export Controllers](export-controllers/export-controllers.md)
 
-.. toctree::
-  :maxdepth: 1
-  :caption: Exporters
+# Exporters
 
-  exporters/exporters
-  exporters/whats-new
-  exporters/getting-started
-  exporters/selector-table
-  exporters/selector-descriptions
-  exporters/return-codes
-  exporters/structures
-  exporters/structure-descriptions
-  exporters/suites
-  exporters/additional-details
+* [Exporters](exporters/exporters.md)
+* [Whats New](exporters/whats-new.md)
+* [Getting Started](exporters/getting-started.md)
+* [Selector Table](exporters/selector-table.md)
+* [Selector Descriptions](exporters/selector-descriptions.md)
+* [Return Codes](exporters/return-codes.md)
+* [Structures](exporters/structures.md)
+* [Structure Descriptions](exporters/structure-descriptions.md)
+* [Suites](exporters/suites.md)
+* [Additional Details](exporters/additional-details.md)
 
-.. toctree::
-  :maxdepth: 1
-  :caption: Transmitters
+# Transmitters
 
-  transmitters/transmitters
-  transmitters/transmitter-basics
-  transmitters/tmModule-functions
-  transmitters/tmModule-structures
-  transmitters/suites
+* [Transmitters](transmitters/transmitters.md)
+* [Transmitter Basics](transmitters/transmitter-basics.md)
+* [tmModule Functions](transmitters/tmModule-functions.md)
+* [tmModule Structures](transmitters/tmModule-structures.md)
+* [Suites](transmitters/suites.md)
 
-.. toctree::
-  :maxdepth: 1
-  :caption: Video Filters
+# Video Filters
 
-  video-filters/video-filters
-  video-filters/whats-new
-  video-filters/getting-started
-  video-filters/selector-table
-  video-filters/selector-descriptions
-  video-filters/return-codes
-  video-filters/VideoRecord
-  video-filters/additional-details
+* [Video Filters](video-filters/video-filters.md)
+* [Whats New](video-filters/whats-new.md)
+* [Getting Started](video-filters/getting-started.md)
+* [Selector Table](video-filters/selector-table.md)
+* [Selector Descriptions](video-filters/selector-descriptions.md)
+* [Return Codes](video-filters/return-codes.md)
+* [VideoRecord](video-filters/VideoRecord.md)
+* [Additional Details](video-filters/additional-details.md)
 
-.. toctree::
-  :maxdepth: 1
-  :caption: GPU Effects & Transitions
+# GPU Effects & Transitions
 
-  gpu-effects-transitions/gpu-effects-transitions
-  gpu-effects-transitions/cuda-opencl-metal-opengl
-  gpu-effects-transitions/whats-new-in-ppro-12
-  gpu-effects-transitions/whats-new-in-ppro-cc2015
-  gpu-effects-transitions/whats-new-in-ppro-cc2014
-  gpu-effects-transitions/getting-started
-  gpu-effects-transitions/PrGPUFilter-function-table
-  gpu-effects-transitions/function-descriptions
-  gpu-effects-transitions/return-codes
-  gpu-effects-transitions/structure-descriptions
-  gpu-effects-transitions/PrGPU-SDK-macros
-  gpu-effects-transitions/suites
+* [GPU Effects & Transitions](gpu-effects-transitions/gpu-effects-transitions.md)
+* [CUDA, OpenCL, Metal, or OpenGL?](gpu-effects-transitions/cuda-opencl-metal-opengl.md)
+* [What’s New in Premiere Pro 12.0?](gpu-effects-transitions/whats-new-in-ppro-12.md)
+* [What’s New in Premiere Pro CC 2015.4?](gpu-effects-transitions/whats-new-in-ppro-cc2015.md)
+* [What’s New in Premiere Pro CC 2014?](gpu-effects-transitions/whats-new-in-ppro-cc2014.md)
+* [Getting Started](gpu-effects-transitions/getting-started.md)
+* [PrGPUFilter Function Table](gpu-effects-transitions/PrGPUFilter-function-table.md)
+* [Function Descriptions](gpu-effects-transitions/function-descriptions.md)
+* [Return Codes](gpu-effects-transitions/return-codes.md)
+* [Structure Descriptions](gpu-effects-transitions/structure-descriptions.md)
+* [PrGPU SDK Macros](gpu-effects-transitions/PrGPU-SDK-macros.md)
+* [Suites](gpu-effects-transitions/suites.md)
 
-.. toctree::
-  :maxdepth: 1
-  :caption: AE Transition Extensions
+# AE Transition Extensions
 
-  ae-transition-extensions/ae-transition-extensions
-  ae-transition-extensions/PF_TransitionSuite
-  ae-transition-extensions/getting-started
+* [AE Transition Extensions](ae-transition-extensions/ae-transition-extensions.md)
+* [PF_TransitionSuite](ae-transition-extensions/PF_TransitionSuite.md)
+* [Getting Started](ae-transition-extensions/getting-started.md)
 
-.. toctree::
-  :maxdepth: 1
-  :caption: Control Surfaces
+# Control Surfaces
 
-  control-surfaces/control-surfaces
-
+* [Control Surfaces](control-surfaces/control-surfaces.md)

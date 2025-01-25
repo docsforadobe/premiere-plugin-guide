@@ -1,7 +1,6 @@
-.. _gpu-effects-transitions/whats-new-in-ppro-12:
+<a id="gpu-effects-transitions-whats-new-in-ppro-12"></a>
 
-What's New in Premiere Pro 12.0?
-################################################################################
+# What’s New in Premiere Pro 12.0?
 
 GPU effects and transitions built using this SDK can now be compatible with After Effects 15.0 and later. The sample GPU effect projects have been updated so that they load in both Premiere Pro and After Effects.
 

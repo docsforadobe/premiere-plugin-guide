@@ -1,26 +1,22 @@
-.. _transmitters/suites:
+<a id="transmitters-suites"></a>
 
-Suites
-################################################################################
+# Suites
 
-For information on how to acquire and manage suites, as well as information on more suites that are available to other plugin types beyond just transmitters, see :ref:`universals/sweetpea-suites`.
+For information on how to acquire and manage suites, as well as information on more suites that are available to other plugin types beyond just transmitters, see [SweetPea Suites](../universals/sweetpea-suites.md#universals-sweetpea-suites).
 
-----
+---
 
-.. _transmitters/suites.playmod-audio-suite:
+<a id="transmitters-suites-playmod-audio-suite"></a>
 
-Playmod Audio Suite
-================================================================================
+## Playmod Audio Suite
 
 This suite is used to play audio during playback. There are many more functions that were used by players, still documented in the players chapter. Here we will only consider the single call in the suite that is relevant to transmitters.
 
-Host-Based, or Plug-in Based Audio?
-********************************************************************************
+### Host-Based, or Plug-in Based Audio?
 
 A transmitter has two choices for playing audio: it can ask the host to play the audio through the audio device selected by the user, or it can get audio buffers from the host and handle its own playback of audio.
 
-GetNextAudioBuffer
-********************************************************************************
+### GetNextAudioBuffer
 
 Retrieves from the host the next contiguous requested number of audio sample frames, specified in inNumSampleFrames, in inInBuffers as arrays of uninterleaved floats.
 
@@ -28,38 +24,29 @@ The plugin must manage the memory allocation of inInBuffers, which must point to
 
 Returns:
 
-- ``suiteError_NoError``,
-- ``suiteError_PlayModuleAudioNotInitialized``, or
-- ``suiteError_PlayModuleAudioNotStarted``
+- `suiteError_NoError`,
+- `suiteError_PlayModuleAudioNotInitialized`, or
+- `suiteError_PlayModuleAudioNotStarted`
 
-.. code-block:: cpp
+```cpp
+prSuiteError (*GetNextAudioBuffer)(
+  csSDK_int32   inPlayID,
+  float**       inInBuffers,
+  float**       outOutBuffers,
+  unsigned int  inNumSampleFrames);
+```
 
-  prSuiteError (*GetNextAudioBuffer)(
-    csSDK_int32   inPlayID,
-    float**       inInBuffers,
-    float**       outOutBuffers,
-    unsigned int  inNumSampleFrames);
+| **Parameter**       | **Description**                                                                                                                                                                                                                                   |
+|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `inInBuffers`       | Currently unused in CS6.<br/><br/>A pointer to an array of buffers holding `inNumSampleFrames` input audio in each buffer, corresponding to the total number of available input channels.                                                         |
+| `outOutBuffers`     | A pointer to an array of buffers `inNumSampleFrames` long into which the host will write the output audio.<br/><br/>There must be N buffers, where N is the number of output channels for the output channel type specified in `InitPluginAudio`. |
+| `inNumSampleFrames` | The size of each of the buffers in the array in both `inInBuffers` and `outOutBuffers`.                                                                                                                                                           |
 
-+-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
-|     **Parameter**     |                                                                      **Description**                                                                      |
-+=======================+===========================================================================================================================================================+
-| ``inInBuffers``       | Currently unused in CS6.                                                                                                                                  |
-|                       |                                                                                                                                                           |
-|                       | A pointer to an array of buffers holding ``inNumSampleFrames`` input audio in each buffer, corresponding to the total number of available input channels. |
-+-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``outOutBuffers``     | A pointer to an array of buffers ``inNumSampleFrames`` long into which the host will write the output audio.                                              |
-|                       |                                                                                                                                                           |
-|                       | There must be N buffers, where N is the number of output channels for the output channel type specified in ``InitPluginAudio``.                           |
-+-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``inNumSampleFrames`` | The size of each of the buffers in the array in both ``inInBuffers`` and ``outOutBuffers``.                                                               |
-+-----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+---
 
-----
+<a id="transmitters-suites-transmit-invocation-suite"></a>
 
-.. _transmitters/suites.transmit-invocation-suite:
-
-Transmit Invocation Suite
-================================================================================
+## Transmit Invocation Suite
 
 This suite can be used by other types of plugins to push frames to transmitters.
 

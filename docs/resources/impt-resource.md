@@ -1,7 +1,6 @@
-.. _resources/impt-resource:
+<a id="resources-impt-resource"></a>
 
-IMPT Resource
-################################################################################
+# IMPT Resource
 
 Premiere Pro looks for an IMPT resource to identify a plugin as an importer.
 
@@ -13,8 +12,8 @@ However, a unique drawtype fourcc is needed for the importer to function properl
 
 Do not use 0x4D4F6F76. This is already reserved by After Effects.
 
-.. code-block:: cpp
-
-  1000 IMPT DISCARDABLE BEGIN
-  0x12345678 // Put your own unique hexadecimal code here
-  END
+```cpp
+1000 IMPT DISCARDABLE BEGIN
+0x12345678 // Put your own unique hexadecimal code here
+END
+```

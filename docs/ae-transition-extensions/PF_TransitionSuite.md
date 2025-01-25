@@ -1,11 +1,10 @@
-.. _ae-transition-extensions/PF_TransitionSuite:
+<a id="ae-transition-extensions-pf-transitionsuite"></a>
 
-PF_TransitionSuite
-################################################################################
+# PF_TransitionSuite
 
-In PrSDKAESupport.h, we've added ``PF_TransitionSuite::RegisterTransitionInputParam()``.
+In PrSDKAESupport.h, we’ve added `PF_TransitionSuite::RegisterTransitionInputParam()`.
 
-This call must be made before the ``PF_ADD_PARAM()`` call during ``PF_Cmd_PARAM_SETUP``.
+This call must be made before the `PF_ADD_PARAM()` call during `PF_Cmd_PARAM_SETUP`.
 
 Pass in the param to be used as the input layer for the other side of the transition.
 
