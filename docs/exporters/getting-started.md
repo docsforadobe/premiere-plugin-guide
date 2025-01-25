@@ -94,7 +94,7 @@ On Mac OS: `~/Library/Preferences/Adobe/Adobe Premiere Pro/[version]/Presets/`
 
 #### AME Preset Browser
 
-Starting in CS6, Adobe Media Encoder has a Preset Browser with provides a structured organization of presets. Third-party presets can be added to any folder or subfolder within the main categories. Once you have created a preset, it will default to the Other folder. You can set the desired folder location in the <FolderDisplayPath> tag in the preset XML.
+Starting in CS6, Adobe Media Encoder has a Preset Browser with provides a structured organization of presets. Third-party presets can be added to any folder or subfolder within the main categories. Once you have created a preset, it will default to the Other folder. You can set the desired folder location in the `<FolderDisplayPath>` tag in the preset XML.
 
 For example, if you set it to: `<FolderDisplayPath>System Presets/Image Sequence/PNG</ FolderDisplayPath>` then AME will display the preset in the `System Presets > Image Sequence > PNG folder`.
 

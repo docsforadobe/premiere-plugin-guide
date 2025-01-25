@@ -50,7 +50,7 @@ On Mac OS: `Adobe Premiere Pro CS5.app/Contents/Settings/BadgeIcons/`
 In that folder are the PNG graphics that are loaded at runtime for various badges, and an additional set of `'Sample-*.png'` and `'Sample.xml'` files.
 
 1. Make copies of the Sample- *.png files, replacing the "Sample" prefix with the prefix that matches whatever you want to call the new badge (like 'NewBadge-*.png'). Edit the PNG as you'd like, but don't change the image dimensions.
-2. Copy the Sample.xml file to a new name that matches whatever you want to call the new badge (like 'NewBadge.xml'). Edit the list of match names that you want to be decorated with your badge. Change the <Name> tag to the name you chose in step 1 (like 'NewBadge'). You can also add your tooltip text as the <DescriptionItem> tags. These tags act as a localization map with the langid as the key. If a language isn't found, 'en_US' is used by default. Provide your own GUID in the <Guid> tag.
+2. Copy the Sample.xml file to a new name that matches whatever you want to call the new badge (like 'NewBadge.xml'). Edit the list of match names that you want to be decorated with your badge. Change the `<Name>` tag to the name you chose in step 1 (like 'NewBadge'). You can also add your tooltip text as the `<DescriptionItem>` tags. These tags act as a localization map with the langid as the key. If a language isn't found, 'en_US' is used by default. Provide your own GUID in the `<Guid>` tag.
 3. Relaunch the application. You'll get a badge filter icon next to the others and a badge icons next to each effect that was listed in the XML file.
 
 !!! note

@@ -112,7 +112,7 @@ GF_KERNEL_FUNCTION(RemoveFlicker,
 //After the third comma, the position arguments.
 ((uint2)(inBlockID)(BLOCK_ID)))
 {
-  <do something interesting here>
+  // <do something interesting here>
 }
 ```
 

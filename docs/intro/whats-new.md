@@ -349,15 +349,23 @@ We are also adding API support for stereoscopic video throughout the render pipe
 
 ### Other Changes
 
-**Importers** can now support growing files in Premiere Pro. We have also added a way for importers to specify all their source files to be copied by Collect Files in After Effects. There is also a new function in the Media Accelerator Suite to validate the content state of a media accelerator. See additional details of what's new in [Importers](../importers/importers.md).
+#### Importers
 
-For **Recorders**, the parent window handle is now properly passed in during *recmod_ShowOptions*
+Importers can now support growing files in Premiere Pro. We have also added a way for importers to specify all their source files to be copied by Collect Files in After Effects. There is also a new function in the Media Accelerator Suite to validate the content state of a media accelerator. See additional details of what's new in [Importers](../importers/importers.md).
+
+#### Recorders
+
+For Recorders, the parent window handle is now properly passed in during *recmod_ShowOptions*
 
 when a recorder should display its modal setup dialog.
 
-For **Players**, pmPlayerSettings has a new member, mPrimaryDisplayFullScreen, which indicates whether or not the player should display fullscreen.
+#### Players
 
-**Device controllers** have a new callback, DroppedFrameProc, to provide the feature to abort and Export to Tape if frames are dropped.
+For Players, pmPlayerSettings has a new member, mPrimaryDisplayFullScreen, which indicates whether or not the player should display fullscreen.
+
+#### Device controllers
+
+Device controllers have a new callback, DroppedFrameProc, to provide the feature to abort and Export to Tape if frames are dropped.
 
 New video segment properties were added:
 
@@ -379,21 +387,30 @@ MPEG-4 pixel formats and full-range Rec. 709 MPEG-2 and MPEG-4 formats have now 
 
 ## What's New in CS5.5?
 
-**Importers** can now support color management, when running in After Effects. Now, even nonsynthetic importers can explicitly provide peak audio data. And a new return value allows an importer to specify that it is dependent on a library that needs to be activated. See additional details of what's new in [Importers](../importers/importers.md).
+#### Importers
 
-**Players** can now support closed captioning. See additional details of what's new in the players chapter.
+Importers can now support color management, when running in After Effects. Now, even nonsynthetic importers can explicitly provide peak audio data. And a new return value allows an importer to specify that it is dependent on a library that needs to be activated. See additional details of what's new in [Importers](../importers/importers.md).
 
-**Exporters** now have a call to request a rendered frame and then conform it to a specific pixel format. See additional details of what's new in [Exporters](../exporters/exporters.md).
+#### Players
 
-We have opened up a new **Export Controller** API that can drive any exporter to output a file in any format and perform custom post-processing operations. Developers wanting to integrate Premiere Pro with an asset management system will want to use this API instead of the exporter API. See [Export Controllers](../export-controllers/export-controllers.md) for more details.
+Players can now support closed captioning. See additional details of what's new in the players chapter.
+
+#### Exporters
+
+Exporters now have a call to request a rendered frame and then conform it to a specific pixel format. See additional details of what's new in [Exporters](../exporters/exporters.md).
+
+#### Export Controller
+
+We have opened up a new Export Controller API that can drive any exporter to output a file in any format and perform custom post-processing operations. Developers wanting to integrate Premiere Pro with an asset management system will want to use this API instead of the exporter API. See [Export Controllers](../export-controllers/export-controllers.md) for more details.
 
 A new pair of pixel formats was added to natively support full-range Rec. 601 4:2:0 YUV planar video, both progressive and interlaced: PrPixelFormat_YUV_420_MPEG2_FRAME_PICTURE_PLANAR_8u_601_FullRange and PrPixelFormat_YUV_420_MPEG2_FIELD_PICTURE_PLANAR_8u_601_FullRange.
 
 The [Video Segment Suite](../universals/sweetpea-suites.md#video-segment-suite) now provides a new call to retrieve a segment node for a requested time. There are also a few new properties for media nodes:
 
-StreamIsContinuousTime, ColorProfileName, ColorProfileData, and
-
-ScanlineOffsetToImproveVerticalCentering.
+- `StreamIsContinuousTime`,
+- `ColorProfileName`,
+- `ColorProfileData`, and
+- `ScanlineOffsetToImproveVerticalCentering`
 
 The [Sequence Info Suite](../universals/sweetpea-suites.md#sequence-info-suite) now provides a call to get the sequence frame rate, which may be useful for effects.
 
@@ -403,11 +420,17 @@ The [Image Processing Suite](../universals/sweetpea-suites.md#image-processing-s
 
 ## What's New in CS5?
 
-**Importers** now have access to the resolution, pixel aspect ratio, timebase, and audio sample rate of the source clip from a setup dialog. Custom importers can use a new call to update a clip after it has modified by the user in the setup dialog. Please refer to [Importers](../importers/importers.md) for more info on what's new.
+#### Importers
 
-**Recorders** can now provide audio metering during preview and capture.
+Importers now have access to the resolution, pixel aspect ratio, timebase, and audio sample rate of the source clip from a setup dialog. Custom importers can use a new call to update a clip after it has modified by the user in the setup dialog. Please refer to [Importers](../importers/importers.md) for more info on what's new.
 
-**Exporters** and **players** can automatically take advantage of GPU acceleration, if available on the end-user's system. Each project now has a setting for the renderer that the user can choose in the project settings dialog. When renders occur through the [Sequence Render Suite](../exporters/suites.md#sequence-render-suite) or the Playmod Render Suite, they now go through the renderer chosen for the current project. This allows third-party exporters and players to use the built-in GPU acceleration available in the new Mercury Playback Engine.
+#### Recorders
+
+Recorders can now provide audio metering during preview and capture.
+
+#### Exporters and players
+
+Exporters and players can automatically take advantage of GPU acceleration, if available on the end-user's system. Each project now has a setting for the renderer that the user can choose in the project settings dialog. When renders occur through the [Sequence Render Suite](../exporters/suites.md#sequence-render-suite) or the Playmod Render Suite, they now go through the renderer chosen for the current project. This allows third-party exporters and players to use the built-in GPU acceleration available in the new Mercury Playback Engine.
 
 Exporters and players can now handle any pixel format, with the new [Image Processing Suite](../universals/sweetpea-suites.md#image-processing-suite). Exporters and players that parse segments and perform their own rendering can now call the host for subtree rendering. See the [Video Segment Render Suite](../universals/sweetpea-suites.md#video-segment-render-suite) for details.
 
