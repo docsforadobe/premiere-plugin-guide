@@ -97,9 +97,9 @@ nav:
         - PrGPU SDK Macros: gpu-effects-transitions/PrGPU-SDK-macros.md
         - Suites: gpu-effects-transitions/suites.md
     - AE Transition Extensions:
+        - Getting Started: ae-transition-extensions/getting-started.md
         - AE Transition Extensions: ae-transition-extensions/ae-transition-extensions.md
         - PF_TransitionSuite: ae-transition-extensions/PF_TransitionSuite.md
-        - Getting Started: ae-transition-extensions/getting-started.md
     - Control Surfaces:
         - Control Surfaces: control-surfaces/control-surfaces.md
 
