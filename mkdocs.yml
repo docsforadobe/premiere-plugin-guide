@@ -7,78 +7,103 @@ repo_name: "premiere-plugin-guide"
 # Customize navigation
 nav:
     - Home: index.md
+    - History:
+        - Version History: history.md
     - Introduction:
-        - Overview: introduction/overview.md
-        - Javascript for After Effects: introduction/javascript.md
-        - After Effects Scripting Changlog: introduction/changelog.md
-        - After Effects Object Model: introduction/objectmodel.md
-        - After Effects Class Hierarchy: introduction/classhierarchy.md
-    - General:
-        - Globals: general/globals.md
-        - Application: general/application.md
-        - Project: general/project.md
-        - System: general/system.md
-    - Item:
-        - Item object: item/item.md
-        - ItemCollection: item/itemcollection.md
-        - AVItem: item/avitem.md
-        - CompItem: item/compitem.md
-        - FolderItem: item/folderitem.md
-        - FootageItem: item/footageitem.md
-    - Layer:
-        - Layer object: layer/layer.md
-        - LayerCollection: layer/layercollection.md
-        - AVLayer: layer/avlayer.md
-        - CameraLayer: layer/cameralayer.md
-        - LightLayer: layer/lightlayer.md
-        - ShapeLayer: layer/shapelayer.md
-        - TextLayer: layer/textlayer.md
-        - ThreeDModelLayer: layer/threedmodellayer.md
-    - Property:
-        - Property object: property/property.md
-        - PropertyBase: property/propertybase.md
-        - PropertyGroup: property/propertygroup.md
-        - MaskPropertyGroup: property/maskpropertygroup.md
-    - Render Queue:
-        - RenderQueue object: renderqueue/renderqueue.md
-        - RQItemCollection: renderqueue/rqitemcollection.md
-        - RenderQueueItem: renderqueue/renderqueueitem.md
-        - OMCollection: renderqueue/omcollection.md
-        - OutputModule: renderqueue/outputmodule.md
-    - Sources:
-        - FileSource: sources/filesource.md
-        - FootageSource: sources/footagesource.md
-        - PlaceholderSource: sources/placeholdersource.md
-        - SolidSource: sources/solidsource.md
-    - Text:
-        - CharacterRange: text/characterrange.md
-        - ComposedLineRange: text/composedlinerange.md
-        - FontObject: text/fontobject.md
-        - FontsObject: text/fontsobject.md
-        - ParagraphRange: text/paragraphrange.md
-        - TextDocument: text/textdocument.md
-    - Other:
-        - Collection: other/collection.md
-        - ImportOptions: other/importoptions.md
-        - KeyframeEase: other/keyframeease.md
-        - MarkerValue: other/markervalue.md
-        - Preferences: other/preferences.md
-        - Settings: other/settings.md
-        - Shape: other/shape.md
-        - View: other/view.md
-        - Viewer: other/viewer.md
-        - ViewOptions: other/viewoptions.md
-    - Match Names:
-        - Layers:
-            - AV Layer Match Names: matchnames/layer/avlayer.md
-            - 3D Layer Match Names: matchnames/layer/3dlayer.md
-            - Camera Layer Match Names: matchnames/layer/cameralayer.md
-            - Light Layer Match Names: matchnames/layer/lightlayer.md
-            - Text Layer Match Names: matchnames/layer/textlayer.md
-            - Shape Layer Match Names: matchnames/layer/shapelayer.md
-            - Layer Styles Match Names: matchnames/layer/layerstyles.md
-        - Effects:
-            - First-Party Effect Match Names: matchnames/effects/firstparty.md
+        - Introduction: intro/intro.md
+        - What Premiere Plug-Ins Do: introwhat-premiere-plugins-do.md)
+        - SDK Audience: intro/sdk-audience.md
+        - Whats New: intro/whats-new.md
+        - Where Do I Start: intro/where-do-i-start.md
+        - Document Overview: intro/document-overview.md
+        - Getting Support and Providing Feedback: introgetting-support.md)
+        - Premiere Pro Plug-In Types: intropremiere-pro-plugin-types.md)
+        - Sample Projects: intro/sample-projects.md
+        - Debugging Plug-Ins: intro/debugging-plugins.md
+        - Load Em Up: intro/load-em-up.md
+        - Plug In Installation: intro/plugin-installationmd)
+        - Localization: intro/localization.md
+        - Best Practices: intro/best-practices.md
+    - Resources:
+        - Resources: resources/resources.md
+        - Plug-In Property Lists (PiPL) Resource: resources/pipl-resource.md
+        - IMPT Resource: resources/impt-resource.md
+    - Universals:
+        - Universals: universals/universals.md
+        - Time: universals/time.md
+        - Video Frames: universals/video-frames.md
+        - Pixel Formats And Color Spaces: universalspixel-formats-and-color-spaces.md)
+        - Pixel Aspect Ratio: universalspixel-aspect-ratio.md)
+        - Fields: universals/fields.md
+        - Audio: universals/audio.md
+        - Memory Management: universals/memory-managementmd)
+        - Basic Types Structures: universalsbasic-types-structures.md)
+        - Suites: universals/suites.md
+        - SweetPea Suites: universals/sweetpea-suites.md
+        - Legacy Callback Suites: universalslegacy-callback-suites.md)
+    - Hardware Integration:
+        - Hardware: hardware/hardware.md
+        - Hardware Integration Components: hardwarehardware-integration-components.md)
+        - ClassID, Filetype and Subtype: hardwareclassid-filetype-subtype.md)
+        - ClassData Functions: hardwareclassdata-functions.md)
+    - Importers:
+        - Importers: importers/importers.md
+        - What’s New: importers/whats-new.md
+        - Getting Started: importers/getting-started.md
+        - Selector Table: importers/selector-table.md
+        - Selector Descriptions: importersselector-descriptions.md)
+        - Return Codes: importers/return-codes.md
+        - Structures: importers/structures.md
+        - Structure Descriptions: importersstructure-descriptions.md)
+        - Suites: importers/suites.md
+    - Export Controllers:
+        - Export Controllers: export-controllersexport-controllers.md)
+    - Exporters:
+        - Exporters: exporters/exporters.md
+        - Whats New: exporters/whats-new.md
+        - Getting Started: exporters/getting-started.md
+        - Selector Table: exporters/selector-table.md
+        - Selector Descriptions: exportersselector-descriptions.md)
+        - Return Codes: exporters/return-codes.md
+        - Structures: exporters/structures.md
+        - Structure Descriptions: exportersstructure-descriptions.md)
+        - Suites: exporters/suites.md
+        - Additional Details: exporters/additional-detailsmd)
+    - Transmitters:
+        - Transmitters: transmitters/transmitters.md
+        - Transmitter Basics: transmitterstransmitter-basics.md)
+        - tmModule Functions: transmitterstmModule-functions.md)
+        - tmModule Structures: transmitterstmModule-structures.md)
+        - Suites: transmitters/suites.md
+    - Video Filters:
+        - Video Filters: video-filters/video-filters.md
+        - Whats New: video-filters/whats-new.md
+        - Getting Started: video-filters/getting-startedmd)
+        - Selector Table: video-filters/selector-table.md
+        - Selector Descriptions: video-filtersselector-descriptions.md)
+        - Return Codes: video-filters/return-codes.md
+        - VideoRecord: video-filters/VideoRecord.md
+        - Additional Details: video-filtersadditional-details.md)
+    - GPU Effects & Transitions:
+        - GPU Effects & Transitions: gpu-effects-transitions/gpu-effects-transitions.md
+        - CUDA, OpenCL, Metal, or OpenGL?: gpu-effects-transitions/cuda-opencl-metal-openglmd)
+        - What’s New in Premiere Pro 12.0?: gpu-effects-transitions/whats-new-in-ppro-12.md
+        - What’s New in Premiere Pro CC 2015.4?: gpu-effects-transitions/whats-new-in-ppro-cc2015md)
+        - What’s New in Premiere Pro CC 2014?: gpu-effects-transitions/whats-new-in-ppro-cc2014md)
+        - Getting Started: gpu-effects-transitionsgetting-started.md)
+        - PrGPUFilter Function Table: gpu-effects-transitions/PrGPUFilter-function-tablemd)
+        - Function Descriptions: gpu-effects-transitionsfunction-descriptions.md)
+        - Return Codes: gpu-effects-transitionsreturn-codes.md)
+        - Structure Descriptions: gpu-effects-transitionsstructure-descriptions.md)
+        - PrGPU SDK Macros: gpu-effects-transitionsPrGPU-SDK-macros.md)
+        - Suites: gpu-effects-transitions/suites.md
+    - AE Transition Extensions:
+        - AE Transition Extensions: ae-transition-extensions/ae-transition-extensionsmd)
+        - PF_TransitionSuite: ae-transition-extensionsPF_TransitionSuite.md)
+        - Getting Started: ae-transition-extensionsgetting-started.md)
+    - Control Surfaces:
+        - Control Surfaces: control-surfacescontrol-surfaces.md)
+
 
 
 # Do not touch below-- shared for all docs
