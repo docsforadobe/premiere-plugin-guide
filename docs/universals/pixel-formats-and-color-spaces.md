@@ -173,7 +173,10 @@ New in CS4, custom pixel formats are supported. Plugins can define a pixel forma
 
 The format doesn’t need to be registered in any sense. They can just be used in the same way the current pixel formats are used, though in many cases they will be ignored.
 
-The first place the new pixel formats can appear in the render pipeline is at the importer level. Importers can advertise the availability of these pixel formats during *imGetIndPixelFormat*, just as they would for any other format. Note that importers must also support a non-custom pixel format, for the case where the built-in renderer is used, which would not be prepared to handle an opaque pixel format added by a third-party.
+The first place the new pixel formats can appear in the render pipeline is at the importer level. Importers can advertise the availability of these pixel formats during *imGetIndPixelFormat*, just as they would for any other format.
+
+!!! note
+    Importers must also support a non-custom pixel format, for the case where the built-in renderer is used, which would not be prepared to handle an opaque pixel format added by a third-party.
 
 In the importer, use the new CreateCustomPPix call in the [PPix Creator 2 Suite](sweetpea-suites.md#universals-sweetpea-suites-ppix-creator2-suite), and specify a custom pixel format and a memory buffer size, and the call will pass back a PPix of the requested format. These PPixes can then be returned from an importer, like any other. The memory for the PPix will be allocated by MediaCore, and must be a flat data structure as they will need to be copied between processes.
 

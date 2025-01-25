@@ -62,7 +62,10 @@ When the user is scrubbing in the timeline, send the video frames as fast as pos
 
 ## Dog Ears
 
-Turn on dog ears to view statistics about the frames being sent to the transmitter. This is useful to view information such as pixel formats and much more. Note that this mode may result it duplicate PushVideo calls made for a single frame.
+Turn on dog ears to view statistics about the frames being sent to the transmitter. This is useful to view information such as pixel formats and much more.
+
+!!! note
+    This mode may result in duplicate PushVideo calls made for a single frame.
 
 ---
 

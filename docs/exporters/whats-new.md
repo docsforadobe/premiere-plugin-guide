@@ -20,9 +20,10 @@ Exporters can now use the [Exporter Utility Suite](suites.md#exporters-suites-ex
 
 The new [Export Standard Param Suite](suites.md#exporters-suites-export-standard-param-suite) provides the standard parameters used in many built-in exporters. This can greatly reduce the amount of code needed to manage standard parameters for a typical exporter, and guarantee consistency with built-in exporters.
 
-Stereoscopic video is now supported when exporting directly from Premiere Pro. In other words, when exports are queued to run in Adobe Media Encoder, they can not get stereoscopic video. Note that currently stereoscopic exporters must use the “pull” model and the new
+Stereoscopic video is now supported when exporting directly from Premiere Pro. In other words, when exports are queued to run in Adobe Media Encoder, they can not get stereoscopic video.
 
-MakeVideoRendererForTimelineWithStreamLabel() to get rendered frames from multiple video streams.
+!!! note
+    Currently, stereoscopic exporters must use the “pull” model and the new `MakeVideoRendererForTimelineWithStreamLabel()` to get rendered frames from multiple video streams.
 
 [Export Param Suite](suites.md#exporters-suites-export-param-suite) now adds SetParamDescription(), to set tooltip strings for parameters. For the three line Export Summary description in the Export Settings dialog, we’ve swapped the 2nd and 3rd lines so that the bitrate summary comes after the audio summary. We’ve renamed the structure to make developers aware of this during a recompile.
 

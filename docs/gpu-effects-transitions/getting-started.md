@@ -52,7 +52,8 @@ CUDA -> OpenGL: Create an OpenGL buffer, map it into CUDA with cuGraphicsMapReso
 
 OpenGL -> CUDA: Map the OpenGL buffer into CUDA with cuGraphicsMapResources, get the mapped address with cuGraphicsResourceGetMappedPointer, copy from the mapped address to CUDA with cuMemcpyDtoDAsync, unmap with cuGraphicsUnmapResources.
 
-Note that on the Mac there is no real OpenGL/CUDA interoperability, and these calls will go through system memory.
+!!! note
+    On the Mac there is no real OpenGL/CUDA interoperability, and these calls will go through system memory.
 
 ---
 

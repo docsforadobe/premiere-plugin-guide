@@ -368,7 +368,8 @@ prSuiteError (*ReleaseVideoRenderer)(
 
 Fill this structure in before calling `RenderVideoFrame()`, `QueueAsyncVideoFrameRender()`, or `PrefetchMediaWithRenderParameters()`.
 
-Note that if the frame aspect ratio of the request does not match that of the sequence, the frame will be letterboxed or pillarboxed, rather than stretched to fit the frame.
+!!! note
+    If the frame aspect ratio of the request does not match that of the sequence, the frame will be letterboxed or pillarboxed, rather than stretched to fit the frame.
 
 ```cpp
 typedef struct {
@@ -404,7 +405,8 @@ typedef struct {
 
 Fill this structure in before calling `RenderVideoFrame()`, `QueueAsyncVideoFrameRender()`, or `PrefetchMediaWithRenderParameters()`.
 
-Note that if the frame aspect ratio of the request does not match that of the sequence, the frame will be letterboxed or pillarboxed, rather than stretched to fit the frame.
+!!! note
+    If the frame aspect ratio of the request does not match that of the sequence, the frame will be letterboxed or pillarboxed, rather than stretched to fit the frame.
 
 ```cpp
 typedef struct {
@@ -442,7 +444,8 @@ typedef struct {
 
 Fill this structure in before calling `RenderVideoFrame()`, `QueueAsyncVideoFrameRender()`, or `PrefetchMediaWithRenderParameters()`.
 
-Note that if the frame aspect ratio of the request does not match that of the sequence, the frame will be letterboxed or pillarboxed, rather than stretched to fit the frame.
+!!! note
+    If the frame aspect ratio of the request does not match that of the sequence, the frame will be letterboxed or pillarboxed, rather than stretched to fit the frame.
 
 ```cpp
 typedef struct {

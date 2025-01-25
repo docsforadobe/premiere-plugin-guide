@@ -198,7 +198,8 @@ Which restricts the codec selection of the exporter to be only the single codec 
 
 ## Stereoscopic Video
 
-Note that currently stereoscopic exporters must use the old “pull” model, and only receive stereoscopic video when exporting directly from Premiere Pro. In other words, when exports are queued to run in Adobe Media Encoder, they will not get stereoscopic video.
+!!! note
+    Currently stereoscopic exporters must use the old “pull” model, and only receive stereoscopic video when exporting directly from Premiere Pro. In other words, when exports are queued to run in Adobe Media Encoder, they will not get stereoscopic video.
 
 To get rendered frames for both left and right eye, use the [Video Segment Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-video-segment-suite) to request the left and right cutlists, and render frames from both. An exporter can tell if segments in both of them are identical (implying that they have nothing stereoscopic about them) by looking at the segment hashes, and you can tell if two frames are identical (by looking at the request identifiers).
 

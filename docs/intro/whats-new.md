@@ -296,9 +296,10 @@ New GPU Extensions to existing APIs allow effects and transitions to access vide
 
 ### Closed Captioning Support in Importer and Exporter APIs
 
-The importer and exporter APIs have been extended to support closed captioning embedded in media. Note that Premiere Pro can also import and export captions in a sidecar file (e.g. .mcc,
+The importer and exporter APIs have been extended to support closed captioning embedded in media.
 
-.scc, or .xml) alongside any media file, regardless of the media file format.
+!!! note
+    Premiere Pro can also import and export captions in a sidecar file (e.g. .mcc, .scc, or .xml) alongside any media file, regardless of the media file format.
 
 ### Miscellaneous Improvements
 
@@ -410,7 +411,8 @@ The [Image Processing Suite](../universals/sweetpea-suites.md#universals-sweetpe
 
 Exporters and players can now handle any pixel format, with the new [Image Processing Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-image-processing-suite). Exporters and players that parse segments and perform their own rendering can now call the host for subtree rendering. See the [Video Segment Render Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-video-segment-render-suite) for details.
 
-If you provide an installer for an exporter, note that custom presets created in Premiere Pro are now visible in AME and vice-versa.
+!!! note
+    If you provide an installer for an exporter, custom presets created in Premiere Pro are now visible in AME and vice-versa.
 
 ### Mac 64-Bit and Cocoa
 

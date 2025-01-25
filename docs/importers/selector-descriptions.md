@@ -187,7 +187,8 @@ Create an asynchronous importer object using the data provided, and store it in 
 - param1 - [imFileRef](structure-descriptions.md#importers-structure-descriptions-imfileref)
 - param2 - [imImportImageRec\*](structure-descriptions.md#importers-structure-descriptions-imimportimagerec)
 
-Note: In most cases, `imGetSourceVideo` is the better choice.
+!!! note
+    In most cases, `imGetSourceVideo` is the better choice.
 
 Before going down this route, read the discussion here.
 

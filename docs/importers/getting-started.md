@@ -171,7 +171,10 @@ Importers can optionally support two different quality modes, with the imDraftMo
 
 ## Closed Captioning
 
-Starting in CC, importers can support closed captioning that is embedded in the source media. The built-in QuickTime importer provides this capability. Note that Premiere Pro can also import and export captions in a sidecar file (e.g. .mcc, .scc, or .xml) alongside any media file, regardless of the media file format. This does not require any specific work on the importer side.
+Starting in CC, importers can support closed captioning that is embedded in the source media. The built-in QuickTime importer provides this capability.
+
+!!! note
+    Premiere Pro can also import and export captions in a sidecar file (e.g. .mcc, .scc, or .xml) alongside any media file, regardless of the media file format. This does not require any specific work on the importer side.
 
 To support embedded closed captioning, set `imImportInfoRec.canSupportClosedCaptions` to true. The importer should handle the following selectors: `imInitiateAsyncClosedCaptionScan`, `imGetNextClosedCaption`, and *imCompleteAsyncClosedCaptionScan*.
 

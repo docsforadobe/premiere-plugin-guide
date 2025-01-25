@@ -45,7 +45,8 @@ for example: `C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore\\`
 
 or: `C:\Program Files\Adobe\Common\Plug-ins\CS6\MediaCore\\`
 
-Note that this Windows path is only recommended for development purposes.
+!!! note
+    This Windows path is only recommended for development purposes.
 
 In Xcode, set the build location for the project in File > Project Settings. Press the Advanced button. Under Build Location choose Custom, select Absolute, and set the Products path.
 
