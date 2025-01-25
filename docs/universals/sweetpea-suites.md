@@ -277,19 +277,19 @@ prSuiteError (*VariesOverTime)(
 
 Used by an importer, player, or renderer to take advantage of the host application's PPix cache. See PrSDKPPixCacheSuite.h.
 
-Starting in version 2 of this suite, introduced in Premiere Pro 4.1, AddFrameToCache and GetFrameFromCache now have two extra parameters, inPreferences and inPreferencesLength. Now frames are differentiated within the cache, based on the importer preferences, so when the preferences change, the host will not use the old frame when it gets a frame request.
+Starting in version 2 of this suite, introduced in Premiere Pro 4.1, `AddFrameToCache` and `GetFrameFromCache` now have two extra parameters, `inPreferences` and `inPreferencesLength`. Now frames are differentiated within the cache, based on the importer preferences, so when the preferences change, the host will not use the old frame when it gets a frame request.
 
-Version 4, new in CS5.0.3, adds ExpireNamedPPixFromCache() and ExpireAllPPixesFromCache(), which allow a plugin to remove one or all PPixes from the Media Cache, which can be useful if the media is changing due to being edited in a separate application.
+Version 4, new in CS5.0.3, adds `ExpireNamedPPixFromCache()` and `ExpireAllPPixesFromCache()`, which allow a plugin to remove one or all PPixes from the Media Cache, which can be useful if the media is changing due to being edited in a separate application.
 
-To expire an individual frames expired using ExpireNamedPPixFromCache(), the identifier must be known. The plugin may specify an identifier using AddNamedPPixToCache(). If a frame is in the cache with multiple names, and you expire any one of those names, then the frame will be expired. Alternatively, for rendered frames, the identifier may be retrieved using GetIdentifierForProduceFrameAsync() in the [Video Segment Render Suite](#video-segment-render-suite).
+To expire an individual frames expired using `ExpireNamedPPixFromCache()`, the identifier must be known. The plugin may specify an identifier using `AddNamedPPixToCache()`. If a frame is in the cache with multiple names, and you expire any one of those names, then the frame will be expired. Alternatively, for rendered frames, the identifier may be retrieved using `GetIdentifierForProduceFrameAsync()` in the [Video Segment Render Suite](#video-segment-render-suite).
 
 Clearing the cache will not interfere with any outstanding requests, because each request holds dependencies on the needed frames.
 
-Version 5, new in CS5.5, adds the new color profile-aware calls AddFrameToCacheWithColorProfile() and GetFrameFromCacheWithColorProfile().
+Version 5, new in CS5.5, adds the new color profile-aware calls `AddFrameToCacheWithColorProfile()` and `GetFrameFromCacheWithColorProfile()`.
 
-Version 6, new in CC 2014, adds AddFrameToCacheWithColorProfile2() and GetFrameFromCacheWithColorProfile2(), which are the same as the ones added in version 5 with the addition of a PrRenderQuality parameter.
+Version 6, new in CC 2014, adds `AddFrameToCacheWithColorProfile2()` and `GetFrameFromCacheWithColorProfile2()`, which are the same as the ones added in version 5 with the addition of a `PrRenderQuality` parameter.
 
-Version 7, adds AddFrameToCacheWithColorSpace() and GetFrameFromCacheWithColorSpace(), these APIs deprecate AddFrameToCacheWithColorProfile2() and GetFrameFromCacheWithColorProfile2().
+Version 7, adds `AddFrameToCacheWithColorSpace()` and `GetFrameFromCacheWithColorSpace()`, these APIs deprecate `AddFrameToCacheWithColorProfile2()` and `GetFrameFromCacheWithColorProfile2()`.
 
 ---
 
@@ -342,7 +342,7 @@ prSuiteError (*ClonePPix)(
 
 More callbacks to create PPixs, including raw PPixs.
 
-Starting in version 2 of this suite, introduced in Premiere Pro 4.0.1, there is a new CreateCustomPPix call to create a PPix in a custom pixel format.
+Starting in version 2 of this suite, introduced in Premiere Pro 4.0.1, there is a new `CreateCustomPPix` call to create a PPix in a custom pixel format.
 
 New APIs added to create PPix with specific color space. Color aware Importers should use new color managed APIs for PPix creation. See PrSDKPPixCreator2Suite.h.
 
@@ -491,7 +491,7 @@ prSuiteError (*GetRenderTime)(
 
 ## PPix 2 Suite
 
-A call to get the size of a PPix. Starting in version 2 of this suite, introduced in CS4, there is a new GetYUV420PlanarBuffers call to get buffer offsets and rowbytes of YUV_420_MPEG2 pixel formats. See PrSDKPPix2Suite.h.
+A call to get the size of a PPix. Starting in version 2 of this suite, introduced in CS4, there is a new `GetYUV420PlanarBuffers` call to get buffer offsets and rowbytes of YUV_420_MPEG2 pixel formats. See PrSDKPPix2Suite.h.
 
 ---
 
@@ -503,9 +503,7 @@ Used by a player or renderer to obtain the pixels for a roll/crawl. The player o
 
 ## Sequence Info Suite
 
-New in CS4. Calls to get the frame size and pixel aspect ratio of a sequence. This is use-
-
-ful for importers, transitions, or video filters, that provide a custom setup dialog with a preview of the video, so that the preview frame can be rendered at the right dimensions. See PrSDKSequenceInfoSuite.h.
+New in CS4. Calls to get the frame size and pixel aspect ratio of a sequence. This is useful for importers, transitions, or video filters, that provide a custom setup dialog with a preview of the video, so that the preview frame can be rendered at the right dimensions. See PrSDKSequenceInfoSuite.h.
 
 Version 2, new in CS5.5, adds `GetFrameRate()`.
 
