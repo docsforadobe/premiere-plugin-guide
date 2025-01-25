@@ -18,9 +18,7 @@ When the application is launched, the control surface plugins are loaded, and th
 
 Next, the Startup() function is called, where the plugin registers a suite of functions as defined in ControlSurfacePluginSuite.h. For each base class it will inherit from (defined in adobesdkcontrolsurfacepluginwrapper), it calls RegisterSuite(). These suites are the way for the host application to call the control surface plugin later on. There are separate base classes for the transport controls, audio mixer, Lumetri Color controls, and more.
 
-Then, CreatePluginInstance() is called. When a project is opened, Connect() is called. Here the plugin instantiates a ControlSurface object, which inherits from any of the previously men-
-
-tioned base classes. It acquire any host suites it needs, and then it passes back a reference to the ControlSurface object.
+Then, CreatePluginInstance() is called. When a project is opened, Connect() is called. Here the plugin instantiates a ControlSurface object, which inherits from any of the previously mentioned base classes. It acquire any host suites it needs, and then it passes back a reference to the ControlSurface object.
 
 ---
 
