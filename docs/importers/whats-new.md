@@ -12,7 +12,7 @@ Adding APIs AddFrameToCacheWithColorSpace() and GetFrameFromCacheWithColorSpace(
 
 Importers can now choose the format they are rendering in, which allows importers to change pixel formats and quality based on criteria like enabled hardware and other Clip Source Settings, such as HDR. To handle the negotiation, implement *imSelectClipFrameDescriptor*.
 
-imSourceVideoRec now includes a quality attribute. [PPix Cache Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-ppix-cache-suite) is now at version 6, adding AddFrameToCacheWithColorProfile2() and
+imSourceVideoRec now includes a quality attribute. [PPix Cache Suite](../universals/sweetpea-suites.md#ppix-cache-suite) is now at version 6, adding AddFrameToCacheWithColorProfile2() and
 
 GetFrameFromCacheWithColorProfile2(), which are the same as the ones added in version 5 with the addition of a PrRenderQuality parameter.
 
@@ -62,7 +62,7 @@ The importer-wide setting still remains in `imImportInfoRec.canProvidePeakAudio`
 
 ## What's New in Premiere Pro CS5.5?
 
-Importers can now support color management, when running in After Effects. The importer should set imImageInfoRec.colorProfileSupport to imColorProfileSupport_Fixed, and then describe the color profiles supported by the clip using the new `imGetIndColorProfile` selector. When importing the frame, specify the color profile in imSourceVideoRec. selectedColorProfileName. The [PPix Cache Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-ppix-cache-suite) has been updated to differentiate between color profiles as well.
+Importers can now support color management, when running in After Effects. The importer should set imImageInfoRec.colorProfileSupport to imColorProfileSupport_Fixed, and then describe the color profiles supported by the clip using the new `imGetIndColorProfile` selector. When importing the frame, specify the color profile in imSourceVideoRec. selectedColorProfileName. The [PPix Cache Suite](../universals/sweetpea-suites.md#ppix-cache-suite) has been updated to differentiate between color profiles as well.
 
 New canProvidePeakAudio flag to allow an importer to provide peak audio data by responding to *imGetPeakAudio*.
 
@@ -80,7 +80,7 @@ RefreshFileAsync(), to be able to update a clip after it is modified in *imGetPr
 
 Two new selectors have been added. *imQueryDestinationPath* allows importers that trim or copy files to be able to change the destination path of the trimmed or copy file. *imQueryContentState* gives the host an alternate way of checking the state of a clip, for clips that have multiple source files. A new return value, inFileNotAvailable can be returned from *imQueryContentState* if the clip is no longer available because it is offline or has been deleted.
 
-As a convenience, when a file is opened, an importer can tell Premiere Pro how much memory to reserve for the importer's usage, rather than calling ReserveMemory in the [Memory Manager Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-memory-manager-suite). The importer should pass back this value in `imFileOpenRec8.outExtraMemoryUsage`.
+As a convenience, when a file is opened, an importer can tell Premiere Pro how much memory to reserve for the importer's usage, rather than calling ReserveMemory in the [Memory Manager Suite](../universals/sweetpea-suites.md#memory-manager-suite). The importer should pass back this value in `imFileOpenRec8.outExtraMemoryUsage`.
 
 Several new return values are available for more descriptive error reporting:
 

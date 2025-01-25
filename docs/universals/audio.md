@@ -18,7 +18,7 @@ E.g.:
 sample16bit[n] = (short int) (sample32bit[n] * 32767.0)
 ```
 
-The plugin is responsible for converting to and from the 32-bit uninterleaved format when reading a file that uses a different format. There are calls to convert between formats in the [Audio Suite](sweetpea-suites.md#universals-sweetpea-suites-audio-suite). For symmetry in the int <-> float conversions, we recommend you use the utility functions provided.
+The plugin is responsible for converting to and from the 32-bit uninterleaved format when reading a file that uses a different format. There are calls to convert between formats in the [Audio Suite](sweetpea-suites.md#audio-suite). For symmetry in the int <-> float conversions, we recommend you use the utility functions provided.
 
 ---
 

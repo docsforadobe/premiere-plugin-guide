@@ -1,6 +1,6 @@
 # Suites
 
-For information on how to acquire and manage suites, as well as information on more suites that are available to other plugin types beyond just transmitters, see [SweetPea Suites](../universals/sweetpea-suites.md#universals-sweetpea-suites).
+For information on how to acquire and manage suites, as well as information on more suites that are available to other plugin types beyond just transmitters, see [SweetPea Suites](../universals/sweetpea-suites.md).
 
 ---
 

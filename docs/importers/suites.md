@@ -2,7 +2,7 @@
 
 ## Suites
 
-For information on how to acquire and manage suites, see [SweetPea Suites](../universals/sweetpea-suites.md#universals-sweetpea-suites).
+For information on how to acquire and manage suites, see [SweetPea Suites](../universals/sweetpea-suites.md).
 
 ### Async File Reader Suite
 

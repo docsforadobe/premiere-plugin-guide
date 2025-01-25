@@ -12,15 +12,15 @@ It may be faster to developing exporters using Media Encoder, since it is a ligh
 
 ## Adding Parameters
 
-Starting in CS6, the [Export Standard Param Suite](suites.md#exporters-suites-export-standard-param-suite) provides a way to add several basic sets of parameters, whether for video, audio, still sequences, etc. Beyond the standard parameters, custom defined parameters can be added using the [Export Param Suite](suites.md#exporters-suites-export-param-suite).
+Starting in CS6, the [Export Standard Param Suite](suites.md#export-standard-param-suite) provides a way to add several basic sets of parameters, whether for video, audio, still sequences, etc. Beyond the standard parameters, custom defined parameters can be added using the [Export Param Suite](suites.md#export-param-suite).
 
-First register the parameters during `exSelGenerateDefaultParams`. Then provide the localized strings and min/max parameter values during `exSelPostProcessParams`. When the exporter is sent `exSelExport` to export, get the user-specified parameter values using the [Export Param Suite](suites.md#exporters-suites-export-param-suite).
+First register the parameters during `exSelGenerateDefaultParams`. Then provide the localized strings and min/max parameter values during `exSelPostProcessParams`. When the exporter is sent `exSelExport` to export, get the user-specified parameter values using the [Export Param Suite](suites.md#export-param-suite).
 
 ---
 
 ## Updating Parameters Dynamically
 
-Parameters can be updated dynamically based on user interaction with any related parameter. The time to update is during the `exSelValidateParamChanged` selector. Use ChangeParam in the [Export Param Suite](suites.md#exporters-suites-export-param-suite) to make the change. Then, set `exParamChangedRec.rebuildAllParams` to true before returning. If you don't set that flag, parameters may appear out of order after a change.
+Parameters can be updated dynamically based on user interaction with any related parameter. The time to update is during the `exSelValidateParamChanged` selector. Use ChangeParam in the [Export Param Suite](suites.md#export-param-suite) to make the change. Then, set `exParamChangedRec.rebuildAllParams` to true before returning. If you don't set that flag, parameters may appear out of order after a change.
 
 ---
 
@@ -40,13 +40,13 @@ Push Model
 
 ---
 
-Using the push model, the exporter host can simply push frames to a thread-safe exporter-specified callback. Use DoMultiPassExportLoop in the [Exporter Utility Suite](suites.md#exporters-suites-exporter-utility-suite) to register the callback.
+Using the push model, the exporter host can simply push frames to a thread-safe exporter-specified callback. Use DoMultiPassExportLoop in the [Exporter Utility Suite](suites.md#exporter-utility-suite) to register the callback.
 
 Compared with the pull model, this will cut down on the code previously required for render loop management. It should also yield substantial performance increases for exporters that haven't finely tuned their multithreaded rendering.
 
 ### Pull Model
 
-Using the pull model to get video and audio data involves making calls to the host to ask for this data. Use the [Sequence Render Suite](suites.md#exporters-suites-sequence-render-suite) to get individual video frames, and the [Sequence Audio Suite](suites.md#exporters-suites-sequence-audio-suite) to get buffers of audio samples.
+Using the pull model to get video and audio data involves making calls to the host to ask for this data. Use the [Sequence Render Suite](suites.md#sequence-render-suite) to get individual video frames, and the [Sequence Audio Suite](suites.md#sequence-audio-suite) to get buffers of audio samples.
 
 Video frames can be requested synchronously or asynchronously. The asynchronous method can yield better performance, but it is up to the exporter to provide its asynchronous render loop.
 
@@ -54,7 +54,7 @@ Video frames can be requested synchronously or asynchronously. The asynchronous 
 
 ## Handling a Pause or Cancel by the User (Pull Model only)
 
-Push model export does not require any special code to handle pause or cancel by the user. For pull model export, the way to check if the user has paused or cancelled the export is to call UpdateProgressPercent in the [Export Progress Suite](suites.md#exporters-suites-export-progress-suite), and check the return value. If the return value is suiteError_ExporterSuspended, the user has hit the pause but-
+Push model export does not require any special code to handle pause or cancel by the user. For pull model export, the way to check if the user has paused or cancelled the export is to call UpdateProgressPercent in the [Export Progress Suite](suites.md#export-progress-suite), and check the return value. If the return value is suiteError_ExporterSuspended, the user has hit the pause but-
 
 ton, which is only available in the Media Encoder UI. If the return value is `exportReturn_Abort`, then the export has been cancelled by the user.
 
@@ -122,7 +122,7 @@ At a minimum, any old presets must be deleted. This includes Media Encoder prese
 
 ### Increment the Parameter Version
 
-If an older version of the exporter is already being used by customers, you'll need to use parameter versioning. During `exSelGenerateDefaultParams`, you should call SetParamsVersion() in the [Export Param Suite](suites.md#exporters-suites-export-param-suite) and increment the version number.
+If an older version of the exporter is already being used by customers, you'll need to use parameter versioning. During `exSelGenerateDefaultParams`, you should call SetParamsVersion() in the [Export Param Suite](suites.md#export-param-suite) and increment the version number.
 
 After that, create new presets and sequence encoder presets (if needed) using the new set of parameters. Make sure your installer removes the old presets, and installs the new ones.
 
@@ -151,7 +151,7 @@ Here's a helpful video on audio track mapping: [http://www.video2brain.com/en/le
 
 ## Closed Captioning
 
-Starting in CC, the Export Settings includes a new Captions tab, for Closed Captioning export. For all formats, a sidecar file containing the captions can be exported. Additionally, exporters can optionally embed Closed Captioning directly in the output file. First, the exporter must set exExporterInfoRec.canEmbedCaptions to true. This will add the option to embed the captions in the output file, from the Export Options drop-down in the Captions tab. If this option is selected during export, exDoExportRec.embedCaptions will be true. The exporter should retrieve the captions using the [Captioning Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-captioning-suite).
+Starting in CC, the Export Settings includes a new Captions tab, for Closed Captioning export. For all formats, a sidecar file containing the captions can be exported. Additionally, exporters can optionally embed Closed Captioning directly in the output file. First, the exporter must set exExporterInfoRec.canEmbedCaptions to true. This will add the option to embed the captions in the output file, from the Export Options drop-down in the Captions tab. If this option is selected during export, exDoExportRec.embedCaptions will be true. The exporter should retrieve the captions using the [Captioning Suite](../universals/sweetpea-suites.md#captioning-suite).
 
 ---
 
@@ -201,7 +201,7 @@ Which restricts the codec selection of the exporter to be only the single codec 
 !!! note
     Currently stereoscopic exporters must use the old "pull" model, and only receive stereoscopic video when exporting directly from Premiere Pro. In other words, when exports are queued to run in Adobe Media Encoder, they will not get stereoscopic video.
 
-To get rendered frames for both left and right eye, use the [Video Segment Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-video-segment-suite) to request the left and right cutlists, and render frames from both. An exporter can tell if segments in both of them are identical (implying that they have nothing stereoscopic about them) by looking at the segment hashes, and you can tell if two frames are identical (by looking at the request identifiers).
+To get rendered frames for both left and right eye, use the [Video Segment Suite](../universals/sweetpea-suites.md#video-segment-suite) to request the left and right cutlists, and render frames from both. An exporter can tell if segments in both of them are identical (implying that they have nothing stereoscopic about them) by looking at the segment hashes, and you can tell if two frames are identical (by looking at the request identifiers).
 
 ---
 
@@ -209,7 +209,7 @@ To get rendered frames for both left and right eye, use the [Video Segment Suite
 
 The timeline segments available to exporters do not always fully describe the sequence being exported. To consistently get timeline segments that fully describe the sequence, an exporter needs to work along with a renderer plugin.
 
-During a sequence export, Premiere Pro makes a copy of the project file and passes it to Media Encoder. Media Encoder takes that project and uses the PProHeadless process to generate rendered frames. So when an exporter, which is running in Media Encoder, parses the sequence, it only has a very high-level view. It sees the entire sequence as a single clip, and sees any optional cropping or filters as applied effects. So when parsing that simple, high-level sequence, if there are no effects, an exporter can just use the MediaNode's ClipID with the [Clip Render Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-clip-render-suite) to get frames directly from the PProHeadless process. In the PProHeadless process, a renderer plugin can step in, parse the real sequence in all its glory, and optionally provide frames in a custom pixel format.
+During a sequence export, Premiere Pro makes a copy of the project file and passes it to Media Encoder. Media Encoder takes that project and uses the PProHeadless process to generate rendered frames. So when an exporter, which is running in Media Encoder, parses the sequence, it only has a very high-level view. It sees the entire sequence as a single clip, and sees any optional cropping or filters as applied effects. So when parsing that simple, high-level sequence, if there are no effects, an exporter can just use the MediaNode's ClipID with the [Clip Render Suite](../universals/sweetpea-suites.md#clip-render-suite) to get frames directly from the PProHeadless process. In the PProHeadless process, a renderer plugin can step in, parse the real sequence in all its glory, and optionally provide frames in a custom pixel format.
 
 When rendering preview files, Premiere Pro does the rendering without Media Encoder, so an exporter can get the individual segments for each clip, similar to before.
 
@@ -261,4 +261,4 @@ typedef struct {
 | **Member**        | **Description**                                                                                                                                                                                                                                                                                                    |
 |-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `interfaceVer`    | Exporter API version<br/><br/>- Premiere Pro CC - prExportVersion400<br/>- Premiere Pro CS6 - prExportVersion300<br/>- Premiere Pro CS5.5 - prExportVersion250<br/>- Premiere Pro CS5 - prExportVersion200<br/>- Premiere Pro 4.0.1 through 4.2.1 - prExportVersion101<br/>- Premiere Pro CS4 - prExportVersion100 |
-| `getSPBasicSuite` | This very important call returns the SweetPea suite that allows plugins to acquire and release all other [SweetPea Suites](../universals/sweetpea-suites.md#universals-sweetpea-suites).<br/><br/>```default<br/>SPBasicSuite* getSPBasicSuite();<br/>```                                                          |
+| `getSPBasicSuite` | This very important call returns the SweetPea suite that allows plugins to acquire and release all other [SweetPea Suites](../universals/sweetpea-suites.md).<br/><br/>```default<br/>SPBasicSuite* getSPBasicSuite();<br/>```                                                          |

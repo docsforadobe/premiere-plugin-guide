@@ -6,6 +6,6 @@ The required development environment for the Premiere Pro SDK for Windows is Mic
 
 The SDK includes sample projects for these development environments. On Windows, projects can often be updated to more current versions of Microsoft Visual Studio by simply opening the project and approving the automatic conversion. The sample code is written in C++. Other compilers and programming languages are not supported. We cannot assist with platform API programming issues not central to Premiere Pro plugin programming.
 
-If this is your first time developing a Premiere plugin, you can skip [Whats New](whats-new.md#intro-whats-new).
+If this is your first time developing a Premiere plugin, you can skip [Whats New](whats-new.md).
 
-If you are developing on macOS, see a quickstart video on building a plugin using a similar SDK (on macOS): adobe.ly/2sjMDwM and then go directly to [Where Do I Start](where-do-i-start.md#intro-where-do-i-start).
+If you are developing on macOS, see a quickstart video on building a plugin using a similar SDK (on macOS): adobe.ly/2sjMDwM and then go directly to [Where Do I Start](where-do-i-start.md).

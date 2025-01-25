@@ -14,4 +14,4 @@ Custom importers are a special type of synthetic importer, implemented to better
 | Synthetic           | No                    | Yes                 | File > New               |
 | Custom              | Yes                   | Yes                 | File > New File > Import |
 
-If you've never developed an importer before, you can skip [What's New](whats-new.md#importers-whats-new), and go directly to [Getting Started](getting-started.md#importers-getting-started).
+If you've never developed an importer before, you can skip [What's New](whats-new.md), and go directly to [Getting Started](getting-started.md).

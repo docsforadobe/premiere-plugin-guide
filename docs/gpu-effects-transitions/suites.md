@@ -1,6 +1,6 @@
 # Suites
 
-For information on how to acquire and manage suites, see [SweetPea Suites](../universals/sweetpea-suites.md#universals-sweetpea-suites).
+For information on how to acquire and manage suites, see [SweetPea Suites](../universals/sweetpea-suites.md).
 
 ---
 
@@ -32,7 +32,7 @@ When `SEQUENCE_SETDOWN` is called (it may be called multiple times to dispose of
 
 ### instanceID
 
-The [Opaque Effect Data Suite](#gpu-effects-transitions-suites-opaque-effect-data-suite) functions need the instanceID of the effect. For the software entry point, you can obtain this using GetFilterInstanceID() in PF_UtilitySuite, defined in PrSDKAESupport.h. For the GPU Render entry point, you can use the following code: csSDK_uint32 instanceID;
+The [Opaque Effect Data Suite](#opaque-effect-data-suite) functions need the instanceID of the effect. For the software entry point, you can obtain this using GetFilterInstanceID() in PF_UtilitySuite, defined in PrSDKAESupport.h. For the GPU Render entry point, you can use the following code: csSDK_uint32 instanceID;
 
 ```cpp
 GetProperty( kVideoSegmentProperty_Effect_RuntimeInstanceID, instanceID);

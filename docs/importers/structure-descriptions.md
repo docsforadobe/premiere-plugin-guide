@@ -2,7 +2,7 @@
 
 ## imAcceleratorRec
 
-Selector: [imRetargetAccelerator](selector-descriptions.md#importers-selector-descriptions-imretargetaccelerator)
+Selector: [imRetargetAccelerator](selector-descriptions.md#imretargetaccelerator)
 
 Describes the path to the new media and new accelerator created when the Project Manager copies media and its accelerator.
 
@@ -21,7 +21,7 @@ typedef struct {
 
 ## imAnalysisRec
 
-Selector: [imAnalysis](selector-descriptions.md#importers-selector-descriptions-imanalysis)
+Selector: [imAnalysis](selector-descriptions.md#imanalysis)
 
 Sending back analysis data is a two step process. First, set buffersize to the size of your character buffer and return imNoErr.
 
@@ -48,7 +48,7 @@ typedef struct {
 
 ## imAsyncImporterCreationRec
 
-Selector: [imCreateAsyncImporter](selector-descriptions.md#importers-selector-descriptions-imcreateasyncimporter)
+Selector: [imCreateAsyncImporter](selector-descriptions.md#imcreateasyncimporter)
 
 Create an asynchronous importer object using the data provided, and store it here.
 
@@ -71,7 +71,7 @@ typedef struct {
 
 ## imAudioInfoRec7
 
-Selector: [imGetInfo8](selector-descriptions.md#importers-selector-descriptions-imgetinfo8) (member of [imFileInfoRec8](#importers-structure-descriptions-imfileinforec8))
+Selector: [imGetInfo8](selector-descriptions.md#imgetinfo8) (member of [imFileInfoRec8](#imfileinforec8))
 
 Audio data properties of the file (or of the data you will generate, if synthetic).
 
@@ -86,13 +86,13 @@ typedef struct {
 | `numChannels`   | Number of audio channels in the audio stream.<br/><br/>Either 1, 2, or 6.                                                                                                                                                                                               |
 |-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `sampleRate`    | In hertz.                                                                                                                                                                                                                                                               |
-| `sampleType`    | This is for informational use only, to disclose the format of the audio on disk, before it is converted to 32-bit float, uninterleaved, by the importer.<br/><br/>The audio sample types are listed in [Universals](../universals/universals.md#universals-universals). |
+| `sampleType`    | This is for informational use only, to disclose the format of the audio on disk, before it is converted to 32-bit float, uninterleaved, by the importer.<br/><br/>The audio sample types are listed in [Universals](../universals/universals.md). |
 
 ---
 
 ## imCalcSizeRec
 
-Selector: [imCalcSize8](selector-descriptions.md#importers-selector-descriptions-imcalcsize8)
+Selector: [imCalcSize8](selector-descriptions.md#imcalcsize8)
 
 Asks the importer for an estimate of disk space used by the clip, given the provided trim boundaries.
 
@@ -121,7 +121,7 @@ typedef struct {
 
 ## imCheckTrimRec
 
-Selector: [imCheckTrim8](selector-descriptions.md#importers-selector-descriptions-imchecktrim8)
+Selector: [imCheckTrim8](selector-descriptions.md#imchecktrim8)
 
 Provides the requested trim boundaries to the importer, and allows adjusted trim boundaries to be passed back to Premiere.
 
@@ -156,7 +156,7 @@ typedef struct {
 
 ## imClipFrameDescriptorRec
 
-Selector: [imSelectClipFrameDescriptor](selector-descriptions.md#importers-selector-descriptions-imselectclipframedescriptor)
+Selector: [imSelectClipFrameDescriptor](selector-descriptions.md#imselectclipframedescriptor)
 
 Based on the request in `inDesiredClipFrameDescriptor` and the importer's Source Settings, modify `outBestFrameDescriptor` as needed to describe what format the importer will provide.
 
@@ -179,7 +179,7 @@ typedef struct {
 
 ## imCompleteAsyncClosedCaptionScanRec
 
-Selector: [imCompleteAsyncClosedCaptionScan](selector-descriptions.md#importers-selector-descriptions-imcompleteasyncclosedcaptionscan)
+Selector: [imCompleteAsyncClosedCaptionScan](selector-descriptions.md#imcompleteasyncclosedcaptionscan)
 
 This structure is passed to provide one last chance to cleanup and dispose of `inAsyncCaptionScanPrivateData`, and to mark whether the closed caption scan completed without error.
 
@@ -202,7 +202,7 @@ typedef struct {
 
 ## imIndColorProfileRec
 
-Selector: [imGetIndColorProfile](selector-descriptions.md#importers-selector-descriptions-imgetindcolorprofile)
+Selector: [imGetIndColorProfile](selector-descriptions.md#imgetindcolorprofile)
 
 Deprecated as of 13.0. Describes a color profile supported by a clip.
 
@@ -223,7 +223,7 @@ typedef struct {
 
 ## imCopyFileRec
 
-Selector: [imCopyFile](selector-descriptions.md#importers-selector-descriptions-imcopyfile)
+Selector: [imCopyFile](selector-descriptions.md#imcopyfile)
 
 Describes how to copy a clip. Also provides a callback to update the progress bar and check if the user has cancelled.
 
@@ -250,7 +250,7 @@ typedef struct {
 
 ## imDataRateAnalysisRec
 
-Selector: [imDataRateAnalysis](selector-descriptions.md#importers-selector-descriptions-imdatarateanalysis)
+Selector: [imDataRateAnalysis](selector-descriptions.md#imdatarateanalysis)
 
 Specify the desired buffersize, return to Premiere with `imNoErr`; upon the next call fill buffer with `imDataSamples`, and specify a base data rate for audio (if any).
 
@@ -287,7 +287,7 @@ typedef struct {
 
 ## imDeferredProcessingRec
 
-Selector: [imDeferredProcessing](selector-descriptions.md#importers-selector-descriptions-imdeferredprocessing)
+Selector: [imDeferredProcessing](selector-descriptions.md#imdeferredprocessing)
 
 Describes the current progress of the deferred processing on the clip referred to by inPrivateData.
 
@@ -310,7 +310,7 @@ typedef struct {
 
 ## imDeleteFileRec
 
-Selector: [imDeleteFile](selector-descriptions.md#importers-selector-descriptions-imdeletefile)
+Selector: [imDeleteFile](selector-descriptions.md#imdeletefile)
 
 Describes the file to be deleted.
 
@@ -354,7 +354,7 @@ typedef struct {
 
 ## imFileAttributesRec
 
-Selector: [imGetFileAttributes](selector-descriptions.md#importers-selector-descriptions-imgetfileattributes)
+Selector: [imGetFileAttributes](selector-descriptions.md#imgetfileattributes)
 
 New in Premiere Pro 3.1. Provide the clip creation date.
 
@@ -372,7 +372,7 @@ typedef struct {
 
 ## imFileInfoRec8
 
-Selector: [imGetInfo8](selector-descriptions.md#importers-selector-descriptions-imgetinfo8)
+Selector: [imGetInfo8](selector-descriptions.md#imgetinfo8)
 
 Describes the clip, or the stream with the ID streamIdx. Set the clip or stream attributes from the file header or data source. Create and store any privateData.
 
@@ -422,7 +422,7 @@ typedef struct {
 | `streamIdx`          | The Premiere-specified stream index number.<br/>Only useful if clip uses multiple streams.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | `streamsAsComp`      | If multiple streams and this is stream zero, indicate whether to import as a composition or multiple clips.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | `streamName`         | Optional. The unicode name of this stream if there are multiple streams.<br/><br/>New in Premiere Pro 3.1, an importer may use this to set the clip name based on metadata rather than the filename.<br/><br/>The importer should set `imImportInfoRec.canSupplyMetadataClipName` to true, and fill out the name here.                                                                                                                                                                                                                                                                                      |
-| `sessionPluginID`    | This ID should be used in the [File Registration Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-file-registration-suite) for registering external files (such as textures, logos, etc) that are used by an importer instance but do not appear as footage in the Project Window.<br/><br/>Registered files will be taken into account when trimming or copying a project using the Project Manager.<br/><br/>The `sessionPluginID` is valid only for the call that it is passed on.                                                                                                     |
+| `sessionPluginID`    | This ID should be used in the [File Registration Suite](../universals/sweetpea-suites.md#file-registration-suite) for registering external files (such as textures, logos, etc) that are used by an importer instance but do not appear as footage in the Project Window.<br/><br/>Registered files will be taken into account when trimming or copying a project using the Project Manager.<br/><br/>The `sessionPluginID` is valid only for the call that it is passed on.                                                                                                     |
 | `alwaysUnquiet`      | Set to non-zero to tell Premiere if the clip should always be unquieted immediately when the application regains focus.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | `filepath`           | Added in Premiere Pro 4.1. For clips that have audio in files separate from the video file, set the filename here, so that UMIDs can properly be generated when exporting sequences to AAF.                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | `canProvidePeakData` | New in Premiere Pro CS6. This allows an importer to toggle whether or not it wants to provide peak audio data on a clip-by-clip basis.<br/><br/>It defaults to the setting set in `imImportInfoRec.canProvidePeakAudio`.<br/>NOTE: Do not attempt to use this setting, with growing files.                                                                                                                                                                                                                                                                                                                  |
@@ -432,7 +432,7 @@ typedef struct {
 
 ## imFileOpenRec8
 
-Selector: [imOpenFile8](selector-descriptions.md#importers-selector-descriptions-imopenfile8)
+Selector: [imOpenFile8](selector-descriptions.md#imopenfile8)
 
 The file Premiere wants the importer to open.
 
@@ -453,7 +453,7 @@ typedef struct {
 | `privatedata`         | Instance data gathered from `imGetInfo8` or `imGetPrefs8`.                                                                                          |
 | `reserved`            | Do not use.                                                                                                                                         |
 | `inReadWrite`         | The file should be opened with the access mode specified:<br/><br/>Either `kPrOpenFileAccess_ReadOnly` or `kPrOpenFileAccess_ReadWrite`             |
-| `inImporterID`        | Can be used as the ID for calls in the [PPix Cache Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-ppix-cache-suite).            |
+| `inImporterID`        | Can be used as the ID for calls in the [PPix Cache Suite](../universals/sweetpea-suites.md#ppix-cache-suite).            |
 | `outExtraMemoryUsage` | New in CS5. If the importer uses memory just by being open, which cannot otherwise be registered in the cache, put the size in bytes in this field. |
 | `inStreamIdx`         | New in CS6. If the clip has multiple streams (for stereoscopic video or otherwise), this ID differentiates between them.                            |
 
@@ -463,15 +463,15 @@ typedef struct {
 
 Selectors:
 
-- [imAnalysis](selector-descriptions.md#importers-selector-descriptions-imanalysis),
-- [imDataRateAnalysis](selector-descriptions.md#importers-selector-descriptions-imdatarateanalysis),
-- [imOpenFile8](selector-descriptions.md#importers-selector-descriptions-imopenfile8),
-- [imQuietFile](selector-descriptions.md#importers-selector-descriptions-imquietfile),
-- [imCloseFile](selector-descriptions.md#importers-selector-descriptions-imclosefile),
-- [imGetTimeInfo8](selector-descriptions.md#importers-selector-descriptions-imgettimeinfo8),
-- [imSetTimeInfo8](selector-descriptions.md#importers-selector-descriptions-imsettimeinfo8),
-- [imImportImage](selector-descriptions.md#importers-selector-descriptions-imimportimage),
-- [imImportAudio7](selector-descriptions.md#importers-selector-descriptions-imimportaudio7)
+- [imAnalysis](selector-descriptions.md#imanalysis),
+- [imDataRateAnalysis](selector-descriptions.md#imdatarateanalysis),
+- [imOpenFile8](selector-descriptions.md#imopenfile8),
+- [imQuietFile](selector-descriptions.md#imquietfile),
+- [imCloseFile](selector-descriptions.md#imclosefile),
+- [imGetTimeInfo8](selector-descriptions.md#imgettimeinfo8),
+- [imSetTimeInfo8](selector-descriptions.md#imsettimeinfo8),
+- [imImportImage](selector-descriptions.md#imimportimage),
+- [imImportAudio7](selector-descriptions.md#imimportaudio7)
 
 A file HANDLE on Windows, or a void\* on MacOS.
 
@@ -483,7 +483,7 @@ Use OS-specific functions, rather than ANSI file functions, when manipulating im
 
 ## imFrameFormat
 
-Selector: [imGetSourceVideo](selector-descriptions.md#importers-selector-descriptions-imgetsourcevideo) (member of [imSourceVideoRec](#importers-structure-descriptions-imsourcevideorec))
+Selector: [imGetSourceVideo](selector-descriptions.md#imgetsourcevideo) (member of [imSourceVideoRec](#imsourcevideorec))
 
 Describes the frame dimensions and pixel format.
 
@@ -504,7 +504,7 @@ typedef struct {
 
 ## imGetAudioChannelLayoutRec
 
-Selector: [imGetAudioChannelLayout](selector-descriptions.md#importers-selector-descriptions-imgetaudiochannellayout)
+Selector: [imGetAudioChannelLayout](selector-descriptions.md#imgetaudiochannellayout)
 
 The importer should label each audio channel in the clip being imported.
 
@@ -519,13 +519,13 @@ typedef struct {
 
 | `inPrivatedata`    | Instance data gathered from `imGetInfo8` or `imGetPrefs8`.                                                                                                                                              |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `outChannelLabels` | A valid audio channel label should be assigned for each channel in the clip.<br/><br/>Labels are defined in the [Audio Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-audio-suite). |
+| `outChannelLabels` | A valid audio channel label should be assigned for each channel in the clip.<br/><br/>Labels are defined in the [Audio Suite](../universals/sweetpea-suites.md#audio-suite). |
 
 ---
 
 ## imGetNextClosedCaptionRec
 
-Selector: [imGetNextClosedCaption](selector-descriptions.md#importers-selector-descriptions-imgetnextclosedcaption)
+Selector: [imGetNextClosedCaption](selector-descriptions.md#imgetnextclosedcaption)
 
 This structure provides private data allocated in `imInitiateAsyncClosedCaptionScan`, and should be filled out to pass back a closed caption, it's time, format, size, and overall progress in the closed caption scan.
 
@@ -562,7 +562,7 @@ typedef struct {
 
 ## imGetPrefsRec
 
-Selector: [imGetPrefs8](selector-descriptions.md#importers-selector-descriptions-imgetprefs8)
+Selector: [imGetPrefs8](selector-descriptions.md#imgetprefs8)
 
 Contains settings/prefs data gathered from (or defaults to populate) a setup dialog.
 
@@ -594,7 +594,7 @@ typedef struct {
 | `timelineData`        | `Can` be passed to getPreviewFrameEx callback along with tdbTimelineLocation to get a frame from the timeline beneath the current clip or timeline location. This is useful for titler plugins.                                                                                                                                                                                                                                                                                             |
 | `privatedata`         | Private instance data.<br/><br/>Allocate a handle using Premiere's memory functions and store it here, if not already allocated in `imGetInfo8`.<br/><br/>Premiere will return the handle with subsequent selectors.                                                                                                                                                                                                                                                                        |
 | `tdbTimelineLocation` | `Can` be passed to getPreviewFrameEx callback along with timelineData to get a frame from the timeline beneath the current clip or timeline location. This is useful for titler plugins.                                                                                                                                                                                                                                                                                                    |
-| `sessionPluginID`     | This ID should be used in the [File Registration Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-file-registration-suite) for registering external files (such as textures, logos, etc) that are used by a importer instance but do not appear as footage in the Project Window.<br/><br/>Registered files will be taken into account when trimming or copying a project using the Project Manager. The sessionPluginID is valid only for the call that it is passed on. |
+| `sessionPluginID`     | This ID should be used in the [File Registration Suite](../universals/sweetpea-suites.md#file-registration-suite) for registering external files (such as textures, logos, etc) that are used by a importer instance but do not appear as footage in the Project Window.<br/><br/>Registered files will be taken into account when trimming or copying a project using the Project Manager. The sessionPluginID is valid only for the call that it is passed on. |
 | `imageWidth`          | New in CS5. The native resolution of the video.                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | `imageHeight`         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | `pixelAspectNum`      | New in CS5. The pixel aspect ratio of the video.                                                                                                                                                                                                                                                                                                                                                                                                                                            |
@@ -607,7 +607,7 @@ typedef struct {
 
 ## imImageInfoRec
 
-Selector: [imGetInfo8](selector-descriptions.md#importers-selector-descriptions-imgetinfo8) (member of [imFileInfoRec8](#importers-structure-descriptions-imfileinforec8))
+Selector: [imGetInfo8](selector-descriptions.md#imgetinfo8) (member of [imFileInfoRec8](#imfileinforec8))
 
 Describes the video to be imported.
 
@@ -655,7 +655,7 @@ typedef struct {
 
 ### Plug-in Info
 
-| `importerID`             | `Can` be used as the ID for calls in the [PPix Cache Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-ppix-cache-suite).   |
+| `importerID`             | `Can` be used as the ID for calls in the [PPix Cache Suite](../universals/sweetpea-suites.md#ppix-cache-suite).   |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | `supportsAsyncIO`        | Set this to true if the importer supports `imCreateAsyncImporter` and ai\* selectors.                                                        |
 | `supportsGetSourceVideo` | Set this to true if the importer supports the `imGetSourceVideo` selector.                                                                   |
@@ -673,7 +673,7 @@ typedef struct {
 | `isStill`         | If set, the file contains a single frame, so only one frame will be cached.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 |-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `noDuration`      | One of the following:<br/><br/>- `imNoDurationFalse`<br/>- `imNoDurationNoDefault`<br/>- `imNoDurationStillDefault` - use the default duration for stills, as set by the user in the Preferences<br/>- `imNoDurationNoDefault` - the importer will supply it's own duration<br/><br/>This is primarily for synthetic clips, but can be used for importing non-sequential still images.                                                                                                                                                                             |
-| `isRollCrawl`     | Set to non-zero value to specify this clip is a rolling or crawling title.<br/><br/>This allows a player to optionally use the [RollCrawl Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-rollcrawl-suite) to get sections of this title for real-time playback.                                                                                                                                                                                                                                                                                |
+| `isRollCrawl`     | Set to non-zero value to specify this clip is a rolling or crawling title.<br/><br/>This allows a player to optionally use the [RollCrawl Suite](../universals/sweetpea-suites.md#rollcrawl-suite) to get sections of this title for real-time playback.                                                                                                                                                                                                                                                                                |
 | `hasPulldown`     | Set this to true if the clip contains NTSC film footage with 3:2 pulldown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | `pulldownCadence` | Set this to the enumerated value that describes the pulldown of the clip:<br/><br/>`importer_PulldownPhase_NO_PULLDOWN`<br/><br/>2:3 cadences:<br/><br/>- `importer_PulldownPhase_WSSWW`<br/>- `importer_PulldownPhase_SSWWW`<br/>- `importer_PulldownPhase_SWWWS`<br/>- `importer_PulldownPhase_WWWSS`<br/>- `importer_PulldownPhase_WWSSW`<br/><br/>24pa cadences:<br/><br/>- `importer_PulldownPhase_WWWSW`<br/>- `importer_PulldownPhase_WWSWW`<br/>- `importer_PulldownPhase_WSWWW`<br/>- `importer_PulldownPhase_SWWWW`<br/>- `importer_PulldownPhase_WWWWS` |
 | `posterFrame`     | New in Premiere Pro CS3. Poster frame number to be displayed.<br/><br/>If not specified, the poster frame will be the first frame of the clip.                                                                                                                                                                                                                                                                                                                                                                                                                     |
@@ -709,7 +709,7 @@ typedef struct {
 
 ## imImportAudioRec7
 
-Selector: [imImportAudio7](selector-descriptions.md#importers-selector-descriptions-imimportaudio7)
+Selector: [imImportAudio7](selector-descriptions.md#imimportaudio7)
 
 Describes the audio samples to be returned, and contains an allocated buffer for the importer to fill in.
 
@@ -736,7 +736,7 @@ typedef struct {
 
 ## imImportImageRec
 
-Selector: [imImportImage](selector-descriptions.md#importers-selector-descriptions-imimportimage)
+Selector: [imImportImage](selector-descriptions.md#imimportimage)
 
 Describes the frame to be returned.
 
@@ -810,7 +810,7 @@ typedef struct {
 
 ## imImportInfoRec
 
-Selector: [imInit](selector-descriptions.md#importers-selector-descriptions-iminit)
+Selector: [imInit](selector-descriptions.md#iminit)
 
 Describes the importer's capabilities to Premiere.
 
@@ -900,7 +900,7 @@ typedef struct {
 
 ## imIndFormatRec
 
-Selector: [imGetIndFormat](selector-descriptions.md#importers-selector-descriptions-imgetindformat)
+Selector: [imGetIndFormat](selector-descriptions.md#imgetindformat)
 
 Describes the format(s) supported by the importer. Synthetic files can only have one format.
 
@@ -947,7 +947,7 @@ The flags listed below are only for legacy plugins and should not be used.
 
 ## imIndPixelFormatRec
 
-Selector: [imGetIndPixelFormat](selector-descriptions.md#importers-selector-descriptions-imgetindpixelformat)
+Selector: [imGetIndPixelFormat](selector-descriptions.md#imgetindpixelformat)
 
 Describes the pixel format(s) supported by the importer.
 
@@ -968,7 +968,7 @@ typedef struct {
 
 ## imInitiateAsyncClosedCaptionScanRec
 
-Selector: [imInitiateAsyncClosedCaptionScan](selector-descriptions.md#importers-selector-descriptions-iminitiateasyncclosedcaptionscan)
+Selector: [imInitiateAsyncClosedCaptionScan](selector-descriptions.md#iminitiateasyncclosedcaptionscan)
 
 Both `imGetNextClosedCaption` and `imCompleteAsyncClosedCaptionScan` may be called from a different thread from which imInitiateAsyncClosedCaptionScan was originally called.
 
@@ -1001,7 +1001,7 @@ typedef struct {
 
 ## imMetaDataRec
 
-Selector: [imGetMetaData](selector-descriptions.md#importers-selector-descriptions-imgetmetadata) and [imSetMetaData](selector-descriptions.md#importers-selector-descriptions-imsetmetadata)
+Selector: [imGetMetaData](selector-descriptions.md#imgetmetadata) and [imSetMetaData](selector-descriptions.md#imsetmetadata)
 
 Describes the metadata specific to a given four character code.
 
@@ -1026,7 +1026,7 @@ typedef struct {
 
 ## imPeakAudioRec
 
-Selector: [imGetPeakAudio](selector-descriptions.md#importers-selector-descriptions-imgetpeakaudio)
+Selector: [imGetPeakAudio](selector-descriptions.md#imgetpeakaudio)
 
 Describes the peak values of the audio at the specified position.
 
@@ -1055,7 +1055,7 @@ typedef struct {
 
 ## imPreferredFrameSizeRec
 
-Selector: [imGetPreferredFrameSize](selector-descriptions.md#importers-selector-descriptions-imgetpreferredframesize)
+Selector: [imGetPreferredFrameSize](selector-descriptions.md#imgetpreferredframesize)
 
 Describes a frame size preferred by the importer.
 
@@ -1082,7 +1082,7 @@ typedef struct {
 
 ## imQueryContentStateRec
 
-Selector: [imQueryContentState](selector-descriptions.md#importers-selector-descriptions-imquerycontentstate)
+Selector: [imQueryContentState](selector-descriptions.md#imquerycontentstate)
 
 Fill in the outContentStateID, which should be a GUID calculated based on the content state of the clip at inSourcePath.
 
@@ -1099,7 +1099,7 @@ typedef struct {
 
 ## imQueryDestinationPathRec
 
-Selector: [imQueryDestinationPath](selector-descriptions.md#importers-selector-descriptions-imquerydestinationpath)
+Selector: [imQueryDestinationPath](selector-descriptions.md#imquerydestinationpath)
 
 Fill in the desired `outActualDestinationPath`, based on the `inSourcePath` and `inSuggestedDestinationPath`.
 
@@ -1124,7 +1124,7 @@ typedef struct {
 
 ## imQueryInputFileListRec
 
-Selector: [imQueryInputFileList](selector-descriptions.md#importers-selector-descriptions-imqueryinputfilelist)
+Selector: [imQueryInputFileList](selector-descriptions.md#imqueryinputfilelist)
 
 Fill in the outContentStateID, which should be a GUID calculated based on the content state of the clip at `inSourcePath`.
 
@@ -1145,13 +1145,13 @@ typedef struct {
 | `inPrefs`         | Clip Source Settings data gathered from `imGetPrefs8` (setup dialog info).                                                                                                                                                                                                  |
 | `inBasePath`      | Path of main file that was passed earlier in `imOpenFile`.                                                                                                                                                                                                                  |
 | `outNumFilePaths` | The first time `imQueryInputFileList` is sent, fill in the number of files that the media uses.                                                                                                                                                                             |
-| `outFilePaths`    | The second time `imQueryInputFileList` is sent, this will be preallocated as an array of NULL strings.<br/><br/>Use the [String Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-string-suite) to fill the array with PrSDKStrings with the actual paths. |
+| `outFilePaths`    | The second time `imQueryInputFileList` is sent, this will be preallocated as an array of NULL strings.<br/><br/>Use the [String Suite](../universals/sweetpea-suites.md#string-suite) to fill the array with PrSDKStrings with the actual paths. |
 
 ---
 
 ## imQueryStreamLabelRec
 
-Selector: [imQueryStreamLabel](selector-descriptions.md#importers-selector-descriptions-imquerystreamlabel)
+Selector: [imQueryStreamLabel](selector-descriptions.md#imquerystreamlabel)
 
 New in CS6. Based on the stream ID passed in, allocate and pass back a label for the stream.
 
@@ -1170,13 +1170,13 @@ typedef struct {
 |------------------|---------------------------------------------------------------------------------------------------------------------------------|
 | `prefs`          | Clip Source Settings data gathered from `imGetPrefs8` (setup dialog info).                                                      |
 | `inStreamIdx`    | The ID of the stream that needs to be labeled.                                                                                  |
-| `outStreamLabel` | The stream label, allocated using the [String Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-string-suite). |
+| `outStreamLabel` | The stream label, allocated using the [String Suite](../universals/sweetpea-suites.md#string-suite). |
 
 ---
 
 ## imSaveFileRec8
 
-Selector: [imSaveFile8](selector-descriptions.md#importers-selector-descriptions-imsavefile8)
+Selector: [imSaveFile8](selector-descriptions.md#imsavefile8)
 
 Describes the file to be saved.
 
@@ -1205,7 +1205,7 @@ typedef struct {
 
 ## imSourceVideoRec
 
-Selector: [imGetSourceVideo](selector-descriptions.md#importers-selector-descriptions-imgetsourcevideo), `aiInitiateAsyncRead`, `aiGetFrame`
+Selector: [imGetSourceVideo](selector-descriptions.md#imgetsourcevideo), `aiInitiateAsyncRead`, `aiGetFrame`
 
 Describes the requested frame, to be passed back in outFrame.
 
@@ -1246,7 +1246,7 @@ typedef struct {
 
 ## imSubTypeDescriptionRec
 
-Selector: [imGetSubTypeNames](selector-descriptions.md#importers-selector-descriptions-imgetsubtypenames)
+Selector: [imGetSubTypeNames](selector-descriptions.md#imgetsubtypenames)
 
 Added in Premiere Pro CS3. Describes the codec name associated with a given fourcc.
 
@@ -1261,7 +1261,7 @@ typedef struct {
 
 ## imTimeInfoRec8
 
-Selector: [imGetTimeInfo8](selector-descriptions.md#importers-selector-descriptions-imgettimeinfo8) and [imSetTimeInfo8](selector-descriptions.md#importers-selector-descriptions-imsettimeinfo8)
+Selector: [imGetTimeInfo8](selector-descriptions.md#imgettimeinfo8) and [imSetTimeInfo8](selector-descriptions.md#imsettimeinfo8)
 
 Describes the timecode and timecode rate associated with a clip.
 
@@ -1300,7 +1300,7 @@ typedef struct {
 
 ## imTrimFileRec8
 
-Selector: [imTrimFile8](selector-descriptions.md#importers-selector-descriptions-imtrimfile8)
+Selector: [imTrimFile8](selector-descriptions.md#imtrimfile8)
 
 Describes how to trim a clip, based on information returned by the importer during `imCheckTrim8`.
 
@@ -1339,7 +1339,7 @@ typedef struct {
 
 ## imIndColorSpaceRec
 
-Selector: [imGetIndColorSpace](selector-descriptions.md#importers-selector-descriptions-imgetindcolorspace)
+Selector: [imGetIndColorSpace](selector-descriptions.md#imgetindcolorspace)
 
 Describes the colorspace of the media.
 
@@ -1416,7 +1416,7 @@ typedef struct
 
 ## imRenderContext
 
-Selector: [imGetSourceVideo](selector-descriptions.md#importers-selector-descriptions-imgetsourcevideo) (member of [imSourceVideoRec](#importers-structure-descriptions-imsourcevideorec))
+Selector: [imGetSourceVideo](selector-descriptions.md#imgetsourcevideo) (member of [imSourceVideoRec](#imsourcevideorec))
 
 Describes the context of the render; why it's occurring, and what rate and ratio is in use.
 

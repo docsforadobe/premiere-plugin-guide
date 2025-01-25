@@ -71,13 +71,13 @@ Turn on dog ears to view statistics about the frames being sent to the transmitt
 
 ## Closed Captioning
 
-This captioning data is attached to a sequence by the user via menu items in the Sequence menu. In the Program Monitor, the Closed Captioning Display options in the fly-out menu give the user control over the display. The hardware should always transmit any Closed Captioning data, and the user can go through the hardware monitor's on-screen display menu to choose which caption track to view. The closed captioning data is accessible using the new [Captioning Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-captioning-suite). Use this data for the hardware output.
+This captioning data is attached to a sequence by the user via menu items in the Sequence menu. In the Program Monitor, the Closed Captioning Display options in the fly-out menu give the user control over the display. The hardware should always transmit any Closed Captioning data, and the user can go through the hardware monitor's on-screen display menu to choose which caption track to view. The closed captioning data is accessible using the new [Captioning Suite](../universals/sweetpea-suites.md#captioning-suite). Use this data for the hardware output.
 
 ---
 
 ## Driving Transmitters from Other Plugins
 
-Transmitters can be driven by many areas of the Premiere Pro interface. Currently, they are called to show frames from the Program Monitor and Source Monitor. But other types of plugins can use the [Transmit Invocation Suite](suites.md#transmitters-suites-transmit-invocation-suite) to push frames to transmitters. For example, an effect or titler with a modal setup dialog could push frames to the output.
+Transmitters can be driven by many areas of the Premiere Pro interface. Currently, they are called to show frames from the Program Monitor and Source Monitor. But other types of plugins can use the [Transmit Invocation Suite](suites.md#transmit-invocation-suite) to push frames to transmitters. For example, an effect or titler with a modal setup dialog could push frames to the output.
 
 ---
 

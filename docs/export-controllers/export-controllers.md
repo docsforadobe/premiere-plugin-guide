@@ -2,7 +2,7 @@
 
 Starting in Premiere Pro 5.0.2, an export controller can drive any exporter to generate a file in any format and perform custom post-processing operations. Developers wanting to integrate Premiere Pro with an asset management system will want to use this API instead.
 
-An export controller adds its own custom menu item to the File > Export submenu. When the user chooses the menu item, the plugin is called with a TimelineID, which represents the current sequence. Although details on the current sequence are not passed in, the export controller can use the [Sequence Info Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-sequence-info-suite) to query for various properties. The export controller can then optionally display any custom modal UI to allow the user to set any parameters for the export.
+An export controller adds its own custom menu item to the File > Export submenu. When the user chooses the menu item, the plugin is called with a TimelineID, which represents the current sequence. Although details on the current sequence are not passed in, the export controller can use the [Sequence Info Suite](../universals/sweetpea-suites.md#sequence-info-suite) to query for various properties. The export controller can then optionally display any custom modal UI to allow the user to set any parameters for the export.
 
 This UI will need to be provided by the export controller.
 

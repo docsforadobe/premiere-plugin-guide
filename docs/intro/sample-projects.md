@@ -19,7 +19,7 @@
 
 ## How To Build the SDK Sample Projects
 
-The required development environment is described in [SDK Audience](sdk-audience.md#intro-sdk-audience).
+The required development environment is described in [SDK Audience](sdk-audience.md).
 
 See a quickstart video on building an effect using a similar SDK (on macOS): adobe.ly/2sjMDwM
 

@@ -111,7 +111,7 @@ If a clip is placed in the timeline, and its settings dialog is opened by double
 
 Basic importers that bring in media from a single file can rely on the host to provide basic file handling. If a clip has child files or a custom file system, an importer can provide its own file handling. Set canOpen, canSave, and canDelete to true during `imInit`, and respond to `imOpenFile8`, *imQuietFile*, *imCloseFile*, *imSaveFile8*, *imDeleteFile8*.
 
-Use the [Async File Reader Suite](suites.md#importers-suites-async-file-reader-suite) for cross-platform file operations.
+Use the [Async File Reader Suite](suites.md#async-file-reader-suite) for cross-platform file operations.
 
 ### Quieting versus Closing a File
 
@@ -228,7 +228,7 @@ To support trimming, importers will want to set the canCalcSizes and canTrim fla
 
 If the each clip has more than one source file (such as audio channels in separate files), the importer should also set canCopy and support *imCopyFile*. Otherwise, the Project Manager will not know about the other source files.
 
-External files, such as textures, logos, etc. that are used by an importer instance but do not appear as footage in Project panel, should be registered with Premiere Pro using the [File Registration Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-file-registration-suite) during *imGetInfo8* or *imGetPrefs8*. Registered files will be taken into account when trimming or copying a project using the Project Manager.
+External files, such as textures, logos, etc. that are used by an importer instance but do not appear as footage in Project panel, should be registered with Premiere Pro using the [File Registration Suite](../universals/sweetpea-suites.md#file-registration-suite) during *imGetInfo8* or *imGetPrefs8*. Registered files will be taken into account when trimming or copying a project using the Project Manager.
 
 ---
 

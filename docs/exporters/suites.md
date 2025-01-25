@@ -1,6 +1,6 @@
 # Suites
 
-For information on how to acquire and manage suites, see [SweetPea Suites](../universals/sweetpea-suites.md#universals-sweetpea-suites).
+For information on how to acquire and manage suites, see [SweetPea Suites](../universals/sweetpea-suites.md).
 
 ---
 
@@ -43,10 +43,10 @@ prSuiteError (*GetExportSourceInfo)(
 | `kExportInfo_SourceHasVideo`           | Bool        | Non-zero if source has video                                                                                                                                                                                                                                                                                                                                                        |
 | `kExportInfo_RenderAsPreview`          | Bool        | Returns a non-zero value if currently rendering preview files.                                                                                                                                                                                                                                                                                                                      |
 | `kExportInfo_SequenceGUID`             | Guid        | A `PrPluginID`, which is a unique GUID for the sequence.                                                                                                                                                                                                                                                                                                                            |
-| `kExportInfo_SessionFilePath`          | PrMemoryPtr | A `prUTF16Char` array. The exporter should release the pointer using the [Memory Manager Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-memory-manager-suite).                                                                                                                                                                                                  |
+| `kExportInfo_SessionFilePath`          | PrMemoryPtr | A `prUTF16Char` array. The exporter should release the pointer using the [Memory Manager Suite](../universals/sweetpea-suites.md#memory-manager-suite).                                                                                                                                                                                                  |
 | `kExportInfo_VideoPosterFrameTickTime` | Int64       | New in CS5. A PrTime value.                                                                                                                                                                                                                                                                                                                                                         |
-| `kExportInfo_SourceTimecode`           | PrMemoryPtr | New in CS5.0.2. The timecode of the source clip or sequence.<br/><br/>The sequence timecode is set by the Start Time of a sequence using the sequence wing-menu. A pointer to a ExporterTimecodeRec structure.<br/><br/>The exporter should release the pointer using the [Memory Manager Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-memory-manager-suite). |
-| `kExportInfo_UsePreviewFiles`          | Bool        | New in CC. Use this to check if the user has checked "Use Previews" in the Export Settings dialog.<br/><br/>If so, if possible, reuse any preview files already rendered, which can be retrieved using `AcquireVideoSegmentsWithPreviewsID` in the [Video Segment Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-video-segment-suite).                          |
+| `kExportInfo_SourceTimecode`           | PrMemoryPtr | New in CS5.0.2. The timecode of the source clip or sequence.<br/><br/>The sequence timecode is set by the Start Time of a sequence using the sequence wing-menu. A pointer to a ExporterTimecodeRec structure.<br/><br/>The exporter should release the pointer using the [Memory Manager Suite](../universals/sweetpea-suites.md#memory-manager-suite). |
+| `kExportInfo_UsePreviewFiles`          | Bool        | New in CC. Use this to check if the user has checked "Use Previews" in the Export Settings dialog.<br/><br/>If so, if possible, reuse any preview files already rendered, which can be retrieved using `AcquireVideoSegmentsWithPreviewsID` in the [Video Segment Suite](../universals/sweetpea-suites.md#video-segment-suite).                          |
 | `kExportInfo_NumAudioChannels`         | Int32       | New in CC. Get the number of audio channels in a given source.<br/><br/>This can be used to automatically initialize the audio channel parameter in the Audio tab of the Export Settings to match the source.                                                                                                                                                                       |
 ```cpp
 typedef struct {
@@ -126,7 +126,7 @@ prSuiteError (*PostProcessParamNames)(
 | **Parameter**              | **Description**                                                                                                                                       |
 |----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `inExporterID`             | Pass in `exporterPluginID` from `exDoExportRec`.                                                                                                      |
-| `inSourceAudioChannelType` | Pass in the source audio channel type, which can be queried from GetExportSourceInfo in the [Export Info Suite](#exporters-suites-export-info-suite). |
+| `inSourceAudioChannelType` | Pass in the source audio channel type, which can be queried from GetExportSourceInfo in the [Export Info Suite](#export-info-suite). |
 
 ### QueryOutputSettings
 
@@ -225,7 +225,7 @@ prSuiteError (*ReportEvent)(
 | **Parameter**        | **Description**                                                                                                                                                                                                   |
 |----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `inExporterID`       | Pass in `exporterPluginID` from `exDoExportRec`.                                                                                                                                                                  |
-| `inEventType`        | Use one of the types from the [Error Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-error-suite):<br/><br/>- `kEventTypeInformational`,<br/>- `kEventTypeWarning`, or<br/>- `kEventTypeError` |
+| `inEventType`        | Use one of the types from the [Error Suite](../universals/sweetpea-suites.md#error-suite):<br/><br/>- `kEventTypeInformational`,<br/>- `kEventTypeWarning`, or<br/>- `kEventTypeError` |
 | `inEventTitle`       | Provide information about the event for the user.                                                                                                                                                                 |
 | `inEventDescription` |                                                                                                                                                                                                                   |
 
@@ -583,7 +583,7 @@ void (*PrSDKSequenceAsyncRenderCompletionProc)(
 | `inVideoRenderID`  | The outVideoRenderID that the exporter passed to `SetAsyncRenderCompletionProc` earlier.                                                                                                                |
 | `inCallbackRef`    | A pointer that the exporter sets using `SetAsyncRenderCompletionProc()`.<br/><br/>This could be, for example, a pointer to an exporter instance.                                                        |
 | `inTime`           | The frame time requested.                                                                                                                                                                               |
-| `inRenderedFrame`  | The rendered frame. The exporter is reponsible for `disposing` of this PPixHand using the `Dispose()` call in the [PPix Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-ppix-suite). |
+| `inRenderedFrame`  | The rendered frame. The exporter is reponsible for `disposing` of this PPixHand using the `Dispose()` call in the [PPix Suite](../universals/sweetpea-suites.md#ppix-suite). |
 | `inGetFrameReturn` | A structure that contains info about the frame returned, and it includes the `inAsyncCompletionData` originally passed to `QueueAsyncVideoFrameRender()`.                                               |
 
 ### QueueAsyncVideoFrameRender()

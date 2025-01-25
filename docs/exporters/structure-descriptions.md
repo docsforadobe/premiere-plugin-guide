@@ -2,9 +2,9 @@
 
 ## exDoExportRec
 
-Selector: [exSelExport](selector-descriptions.md#exporters-selector-descriptions-exselexport)
+Selector: [exSelExport](selector-descriptions.md#exselexport)
 
-Provides general export settings. The exporter should retrieve the parameter settings from the [Export Param Suite](suites.md#exporters-suites-export-param-suite).
+Provides general export settings. The exporter should retrieve the parameter settings from the [Export Param Suite](suites.md#export-param-suite).
 
 ```cpp
 typedef struct {
@@ -23,19 +23,19 @@ typedef struct {
 } exDoExportRec;
 ```
 
-| `exporterPluginID`     | The host's internal identifier for this exporter, used for various suite calls, such as in the [Sequence Render Suite](suites.md#exporters-suites-sequence-render-suite) and [Sequence Audio Suite](suites.md#exporters-suites-sequence-audio-suite).          |
+| `exporterPluginID`     | The host's internal identifier for this exporter, used for various suite calls, such as in the [Sequence Render Suite](suites.md#sequence-render-suite) and [Sequence Audio Suite](suites.md#sequence-audio-suite).          |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `privateData`          | Data allocated and managed by the exporter.                                                                                                                                                                                                                    |
-| `fileType`             | The file format four character code set by the exporter during [exSelStartup](selector-descriptions.md#exporters-selector-descriptions-exselstartup).<br/><br/>Indicates which format the exporter should write, since exporters can support multiple formats. |
+| `fileType`             | The file format four character code set by the exporter during [exSelStartup](selector-descriptions.md#exselstartup).<br/><br/>Indicates which format the exporter should write, since exporters can support multiple formats. |
 | `exportAudio`          | If non-zero, export audio.                                                                                                                                                                                                                                     |
 | `exportVideo`          | If non-zero, export video.                                                                                                                                                                                                                                     |
 | `startTime`            | The start time of the sequence to export.                                                                                                                                                                                                                      |
 | `endTime`              | The end time of the sequence to export. If startTime is 0, also the total durection to export.<br/><br/>Range specified is `[startTime, endTime)`, meaning the `endTime` is not actually included in the range.                                                |
-| `fileObject`           | For use with the [Export File Suite](suites.md#exporters-suites-export-file-suite), to get and manipulate the file specified by the user.                                                                                                                      |
+| `fileObject`           | For use with the [Export File Suite](suites.md#export-file-suite), to get and manipulate the file specified by the user.                                                                                                                      |
 | `timelineData`         | Handle used for the Timeline Functions.                                                                                                                                                                                                                        |
 | `reserveMetaDataSpace` | Amount to reserve in a file for metadata storage.                                                                                                                                                                                                              |
 | `maximumRenderQuality` | If non-zero, the exporter should set `SequenceRender_ParamsRec.inRenderQuality` and `inDeinterlaceQuality` to `kPrRenderQuality_Max`.                                                                                                                          |
-| `embedCaptions`        | New in CC. If non-zero, the exporter should embed captions obtained from the [Captioning Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-captioning-suite).                                                                                 |
+| `embedCaptions`        | New in CC. If non-zero, the exporter should embed captions obtained from the [Captioning Suite](../universals/sweetpea-suites.md#captioning-suite).                                                                                 |
 | `colorProfile`         | Amount to reserve in a file for metadata storage.                                                                                                                                                                                                              |
 | `exportColorSpaceID`   | Amount to reserve in a file for metadata storage.                                                                                                                                                                                                              |
 | `maximumFileSize`      | Amount to reserve in a file for metadata storage.                                                                                                                                                                                                              |
@@ -44,9 +44,9 @@ typedef struct {
 
 ## exDoExportRec2
 
-Selector: [exSelExport](selector-descriptions.md#exporters-selector-descriptions-exselexport)
+Selector: [exSelExport](selector-descriptions.md#exselexport)
 
-Provides general export settings. The exporter should retrieve the parameter settings from the [Export Param Suite](suites.md#exporters-suites-export-param-suite).
+Provides general export settings. The exporter should retrieve the parameter settings from the [Export Param Suite](suites.md#export-param-suite).
 
 ```cpp
 typedef struct {
@@ -69,19 +69,19 @@ typedef struct {
 } exDoExportRec2;
 ```
 
-| `exporterPluginID`     | The host's internal identifier for this exporter, used for various suite calls, such as in the [Sequence Render Suite](suites.md#exporters-suites-sequence-render-suite) and [Sequence Audio Suite](suites.md#exporters-suites-sequence-audio-suite).          |
+| `exporterPluginID`     | The host's internal identifier for this exporter, used for various suite calls, such as in the [Sequence Render Suite](suites.md#sequence-render-suite) and [Sequence Audio Suite](suites.md#sequence-audio-suite).          |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `privateData`          | Data allocated and managed by the exporter.                                                                                                                                                                                                                    |
-| `fileType`             | The file format four character code set by the exporter during [exSelStartup](selector-descriptions.md#exporters-selector-descriptions-exselstartup).<br/><br/>Indicates which format the exporter should write, since exporters can support multiple formats. |
+| `fileType`             | The file format four character code set by the exporter during [exSelStartup](selector-descriptions.md#exselstartup).<br/><br/>Indicates which format the exporter should write, since exporters can support multiple formats. |
 | `exportAudio`          | If non-zero, export audio.                                                                                                                                                                                                                                     |
 | `exportVideo`          | If non-zero, export video.                                                                                                                                                                                                                                     |
 | `startTime`            | The start time of the sequence to export.                                                                                                                                                                                                                      |
 | `endTime`              | The end time of the sequence to export. If startTime is 0, also the total durection to export.<br/><br/>Range specified is `[startTime, endTime)`, meaning the `endTime` is not actually included in the range.                                                |
-| `fileObject`           | For use with the [Export File Suite](suites.md#exporters-suites-export-file-suite), to get and manipulate the file specified by the user.                                                                                                                      |
+| `fileObject`           | For use with the [Export File Suite](suites.md#export-file-suite), to get and manipulate the file specified by the user.                                                                                                                      |
 | `timelineData`         | Handle used for the Timeline Functions.                                                                                                                                                                                                                        |
 | `reserveMetaDataSpace` | Amount to reserve in a file for metadata storage.                                                                                                                                                                                                              |
 | `maximumRenderQuality` | If non-zero, the exporter should set `SequenceRender_ParamsRec.inRenderQuality` and `inDeinterlaceQuality` to `kPrRenderQuality_Max`.                                                                                                                          |
-| `embedCaptions`        | New in CC. If non-zero, the exporter should embed captions obtained from the [Captioning Suite](../universals/sweetpea-suites.md#universals-sweetpea-suites-captioning-suite).                                                                                 |
+| `embedCaptions`        | New in CC. If non-zero, the exporter should embed captions obtained from the [Captioning Suite](../universals/sweetpea-suites.md#captioning-suite).                                                                                 |
 | `colorProfile`         | New in 13.1.  Color profile, to be embedded into output per format standards. For formats which have set `canEmbedColorProfile` to true.                                                                                                                       |
 | `exportColorSpaceID`   | New in 13.1.  ID of the color space to be used. Must not be `kPrSDKColorSpaceID_Invalid`.                                                                                                                                                                      |
 | `maximumFileSize`      | New in 15.x.  If non-zero, the Exporter should consider this as a ceiling for file size, and re-compress as needed in order to meet that target.                                                                                                               |
@@ -91,13 +91,13 @@ typedef struct {
 
 ## exExporterInfoRec
 
-Selector: [exSelStartup](selector-descriptions.md#exporters-selector-descriptions-exselstartup) and [exSelShutdown](selector-descriptions.md#exporters-selector-descriptions-exselshutdown) (starting in CS6)
+Selector: [exSelStartup](selector-descriptions.md#exselstartup) and [exSelShutdown](selector-descriptions.md#exselshutdown) (starting in CS6)
 
-Describe the exporter's capabilities by filling out this structure during [exSelStartup](selector-descriptions.md#exporters-selector-descriptions-exselstartup).
+Describe the exporter's capabilities by filling out this structure during [exSelStartup](selector-descriptions.md#exselstartup).
 
 For each filetype, populate exExporterInfoRec and return `exportReturnIterateExporter`.
 
-[exSelStartup](selector-descriptions.md#exporters-selector-descriptions-exselstartup) will then be resent. Repeat the process until there are no more file formats to describe, then return `exportReturn_IterateExporterDone`.
+[exSelStartup](selector-descriptions.md#exselstartup) will then be resent. Repeat the process until there are no more file formats to describe, then return `exportReturn_IterateExporterDone`.
 
 The fileType indicates which format the exporter should currently work with in subsequent calls.
 
@@ -148,7 +148,7 @@ typedef struct {
 
 ## exExporterInstanceRec
 
-Selector: [exSelBeginInstance](selector-descriptions.md#exporters-selector-descriptions-exselbegininstance) and [exSelEndInstance](selector-descriptions.md#exporters-selector-descriptions-exselendinstance)
+Selector: [exSelBeginInstance](selector-descriptions.md#exselbegininstance) and [exSelEndInstance](selector-descriptions.md#exselendinstance)
 
 Provides access to the privateData for the indicated filetype, so that the exporter can allocate privateData and pass it to the host, or deallocate it.
 
@@ -162,14 +162,14 @@ typedef struct {
 
 | `exporterPluginID`   | The host's internal identifier for this exporter. Do not modify.                                                                                      |
 |----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `fileType`           | The file format four character code set by the exporter during [exSelStartup](selector-descriptions.md#exporters-selector-descriptions-exselstartup). |
+| `fileType`           | The file format four character code set by the exporter during [exSelStartup](selector-descriptions.md#exselstartup). |
 | `privateData`        | Data allocated and managed by the exporter.                                                                                                           |
 
 ---
 
 ## exGenerateDefaultParamRec
 
-Selector: [exSelGenerateDefaultParams](selector-descriptions.md#exporters-selector-descriptions-exselgeneratedefaultparams)
+Selector: [exSelGenerateDefaultParams](selector-descriptions.md#exselgeneratedefaultparams)
 
 Provides access to the privateData for the indicated filetype, so that the exporter can generate the default parameter set.
 
@@ -184,13 +184,13 @@ typedef struct {
 | `exporterPluginID`   | The host's internal identifier for this exporter. Do not modify.                                                                                      |
 |----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `privateData`        | Data allocated and managed by the exporter.                                                                                                           |
-| `fileType`           | The file format four character code set by the exporter during [exSelStartup](selector-descriptions.md#exporters-selector-descriptions-exselstartup). |
+| `fileType`           | The file format four character code set by the exporter during [exSelStartup](selector-descriptions.md#exselstartup). |
 
 ---
 
 ## exParamButtonRec
 
-Selector: [exSelParamButton](selector-descriptions.md#exporters-selector-descriptions-exselparambutton)
+Selector: [exSelParamButton](selector-descriptions.md#exselparambutton)
 
 Provides access to the privateData for the indicated filetype, and discloses the specific button hit by the user, since there can be multiple button parameters.
 
@@ -209,7 +209,7 @@ typedef struct {
 | `exporterPluginID`      | The host's internal identifier for this exporter. Do not modify.                                                                                      |
 |-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `privateData`           | Data allocated and managed by the exporter.                                                                                                           |
-| `fileType`              | The file format four character code set by the exporter during [exSelStartup](selector-descriptions.md#exporters-selector-descriptions-exselstartup). |
+| `fileType`              | The file format four character code set by the exporter during [exSelStartup](selector-descriptions.md#exselstartup). |
 | `exportAudio`           | If non-zero, the current settings are set to export audio.                                                                                            |
 | `exportVideo`           | If non-zero, the current settings are set to export video.                                                                                            |
 | `multiGroupIndex`       | Discloses the index of the multi-group, containing the button hit by the user.                                                                        |
@@ -219,7 +219,7 @@ typedef struct {
 
 ## exParamChangedRec
 
-Selector: [exSelValidateParamChanged](selector-descriptions.md#exporters-selector-descriptions-exselvalidateparamchanged)
+Selector: [exSelValidateParamChanged](selector-descriptions.md#exselvalidateparamchanged)
 
 Provides access to the privateData for the indicated filetype, and discloses the specific parameter changed by the user.
 
@@ -241,7 +241,7 @@ typedef struct {
 | `exporterPluginID`       | The host's internal identifier for this exporter. Do not modify.                                                                                                                                                   |
 |--------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `privateData`            | Data allocated and managed by the exporter.                                                                                                                                                                        |
-| `fileType`               | The file format four character code set by the exporter during [exSelStartup](selector-descriptions.md#exporters-selector-descriptions-exselstartup).                                                              |
+| `fileType`               | The file format four character code set by the exporter during [exSelStartup](selector-descriptions.md#exselstartup).                                                              |
 | `exportAudio`            | If non-zero, the current settings are set to export audio.                                                                                                                                                         |
 | `exportVideo`            | If non-zero, the current settings are set to export video.                                                                                                                                                         |
 | `multiGroupIndex`        | Discloses the index of the multi-group, containing the parameter changed by the user.                                                                                                                              |
@@ -252,7 +252,7 @@ typedef struct {
 
 ## exParamSummaryRec
 
-Selector: [exSelGetParamSummary](selector-descriptions.md#exporters-selector-descriptions-exselgetparamsummary)
+Selector: [exSelGetParamSummary](selector-descriptions.md#exselgetparamsummary)
 
 Provides access to the privateData for the indicated filetype, and provides buffers for the exporter to fill in with a localized summary of the parameters.
 
@@ -281,7 +281,7 @@ typedef struct {
 
 ## exPostProcessParamsRec
 
-Selector: [exSelPostProcessParams](selector-descriptions.md#exporters-selector-descriptions-exselpostprocessparams)
+Selector: [exSelPostProcessParams](selector-descriptions.md#exselpostprocessparams)
 
 Provides access to the privateData for the indicated filetype.
 
@@ -299,7 +299,7 @@ typedef struct {
 | `exporterPluginID`       | The host's internal identifier for this exporter. Do not modify.                                                                                      |
 |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `privateData`            | Data allocated and managed by the exporter.                                                                                                           |
-| `fileType`               | The file format four character code set by the exporter during [exSelStartup](selector-descriptions.md#exporters-selector-descriptions-exselstartup). |
+| `fileType`               | The file format four character code set by the exporter during [exSelStartup](selector-descriptions.md#exselstartup). |
 | `exportAudio`            | If non-zero, the current settings are set to export audio.                                                                                            |
 | `exportVideo`            | If non-zero, the current settings are set to export video.                                                                                            |
 | `doConformToMatchParams` | New in CC.                                                                                                                                            |
@@ -308,7 +308,7 @@ typedef struct {
 
 ## exQueryExportFileExtensionRec
 
-Selector: [exSelQueryExportFileExtension](selector-descriptions.md#exporters-selector-descriptions-exselqueryexportfileextension)
+Selector: [exSelQueryExportFileExtension](selector-descriptions.md#exselqueryexportfileextension)
 
 Provides access to the privateData for the indicated filetype, and provides a buffer for the exporter to fill in with the file extension.
 
@@ -324,14 +324,14 @@ typedef struct {
 | `exporterPluginID`   | The host's internal identifier for this exporter. Do not modify.                                                                                      |
 |----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `privateData`        | Data allocated and managed by the exporter.                                                                                                           |
-| `fileType`           | The file format four character code set by the exporter during [exSelStartup](selector-descriptions.md#exporters-selector-descriptions-exselstartup). |
+| `fileType`           | The file format four character code set by the exporter during [exSelStartup](selector-descriptions.md#exselstartup). |
 | `outFileExtension`   | Provide the file extension here, given the current parameter settings.                                                                                |
 
 ---
 
 ## exQueryOutputFileListRec
 
-Selector: [exSelQueryOutputFileList](selector-descriptions.md#exporters-selector-descriptions-exselqueryoutputfilelist)
+Selector: [exSelQueryOutputFileList](selector-descriptions.md#exselqueryoutputfilelist)
 
 Provides access to the privateData for the indicated filetype, and provides a pointer to a array of `exOutputFileRecs` for the exporter to fill in with the file paths.
 
@@ -349,7 +349,7 @@ typedef struct {
 | `exporterPluginID`   | The host's internal identifier for this exporter. Do not modify.                                                                                                                                                                                                                                                                                        |
 |----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `privateData`        | Data allocated and managed by the exporter.                                                                                                                                                                                                                                                                                                             |
-| `fileType`           | The file format four character code set by the exporter during [exSelStartup](selector-descriptions.md#exporters-selector-descriptions-exselstartup).                                                                                                                                                                                                   |
+| `fileType`           | The file format four character code set by the exporter during [exSelStartup](selector-descriptions.md#exselstartup).                                                                                                                                                                                                   |
 | `numOutputFiles`     | On the first call to `exSelQueryOutputFileList`, provide the number of file paths here.                                                                                                                                                                                                                                                                 |
 | `path`               | New in CS5. Contains the primary intended destination path provided by the host.                                                                                                                                                                                                                                                                        |
 | `outputFileRecs`     | An array of `exOutputFileRecs`.<br/><br/>On the second call to `exSelQueryOutputFileList`, the path length (including trailing null) for each path.<br/><br/>On the third call, fill in the path of each exOutputFileRec.<br/><br/>```cpp<br/>typedef struct {<br/>  int           pathLength;<br/>  prUTF16Char*  path;<br/>} exOutputFileRec;<br/>``` |
@@ -358,7 +358,7 @@ typedef struct {
 
 ## exQueryOutputSettingsRec
 
-Selector: [exSelQueryOutputSettings](selector-descriptions.md#exporters-selector-descriptions-exselqueryoutputsettings)
+Selector: [exSelQueryOutputSettings](selector-descriptions.md#exselqueryoutputsettings)
 
 Provides access to the privateData for the indicated filetype, and provides a set of members for the exporter to fill in with the current export settings.
 
@@ -387,18 +387,18 @@ typedef struct {
 | `exporterPluginID`                   | The host's internal identifier for this exporter. Do not modify.                                                                                                                                                                                                                              |
 |--------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `privateData`                        | Data allocated and managed by the exporter.                                                                                                                                                                                                                                                   |
-| `fileType`                           | The file format four character code set by the exporter during [exSelStartup](selector-descriptions.md#exporters-selector-descriptions-exselstartup).                                                                                                                                         |
+| `fileType`                           | The file format four character code set by the exporter during [exSelStartup](selector-descriptions.md#exselstartup).                                                                                                                                         |
 | `inMultiGroupIndex`                  | Return the parameter settings of the multi-group with this index.                                                                                                                                                                                                                             |
 | `inExportVideo`                      | If non-zero, the current settings are set to export video.                                                                                                                                                                                                                                    |
 | `inExportAudio`                      | If non-zero, the current settings are set to export audio.                                                                                                                                                                                                                                    |
-| `outVideoWidth`<br/>`outVideoHeight` | Return each parameter setting, by getting the current value of the parameter using the [Export Param Suite](suites.md#exporters-suites-export-param-suite).<br/><br/>Some settings, such as `outVideoFieldType`, may be implicit, for example if the format only supports progressive frames. |
+| `outVideoWidth`<br/>`outVideoHeight` | Return each parameter setting, by getting the current value of the parameter using the [Export Param Suite](suites.md#export-param-suite).<br/><br/>Some settings, such as `outVideoFieldType`, may be implicit, for example if the format only supports progressive frames. |
 | `outUseMaximumRenderPrecision`       | New in CS6. If non-zero, renders will always be made at maximum bit-depth.                                                                                                                                                                                                                    |
 
 ---
 
 ## exQueryStillSequenceRec
 
-Selector: [exSelQueryStillSequence](selector-descriptions.md#exporters-selector-descriptions-exselquerystillsequence)
+Selector: [exSelQueryStillSequence](selector-descriptions.md#exselquerystillsequence)
 
 Provides access to the privateData for the indicated filetype, and provides a set of members for the exporter to provide information on how it would export the sequence of stills.
 
@@ -415,7 +415,7 @@ typedef struct {
 | `exporterPluginID`      | The host's internal identifier for this exporter. Do not modify.                                                                                      |
 |-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `privateData`           | Data allocated and managed by the exporter.                                                                                                           |
-| `fileType`              | The file format four character code set by the exporter during [exSelStartup](selector-descriptions.md#exporters-selector-descriptions-exselstartup). |
+| `fileType`              | The file format four character code set by the exporter during [exSelStartup](selector-descriptions.md#exselstartup). |
 | `exportAsStillSequence` | Set this to non-zero to tell the host that the exporter can export the stills as a sequence.                                                          |
 | `exportFrameRate`       | Set this to the frame rate of the still sequence.                                                                                                     |
 
@@ -423,7 +423,7 @@ typedef struct {
 
 ## exValidateOutputSettingsRec
 
-Selector: [exSelValidateOutputSettings](selector-descriptions.md#exporters-selector-descriptions-exselvalidateoutputsettings)
+Selector: [exSelValidateOutputSettings](selector-descriptions.md#exselvalidateoutputsettings)
 
 Provides access to the privateData for the indicated filetype, so that the exporter can validate the current parameter settings.
 
@@ -438,13 +438,13 @@ typedef struct {
 | `exporterPluginID`   | The host's internal identifier for this exporter. Do not modify.                                                                                      |
 |----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `privateData`        | Data allocated and managed by the exporter.                                                                                                           |
-| `fileType`           | The file format four character code set by the exporter during [exSelStartup](selector-descriptions.md#exporters-selector-descriptions-exselstartup). |
+| `fileType`           | The file format four character code set by the exporter during [exSelStartup](selector-descriptions.md#exselstartup). |
 
 ---
 
 ## exQueryExportColorSpaceRec
 
-Selector: [exSelQueryExportColorSpace](selector-descriptions.md#exporters-selector-descriptions-exselqueryexportcolorspace)
+Selector: [exSelQueryExportColorSpace](selector-descriptions.md#exselqueryexportcolorspace)
 
 Provides access to the privateData for the indicated filetype, so that the exporter can validate the current parameter settings.
 

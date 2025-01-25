@@ -14,7 +14,7 @@ If your exporter provides a Multiplexer tab like some of the built-in exporters 
 
 During `exSelGenerateDefaultParams`, add a parameter with `exNewParamInfo.flags = exParamFlag_none`.
 
-Then during `exSelPostProcessParams`, call `AddConstrainedValuePair()` in the [Export Param Suite](suites.md#exporters-suites-export-param-suite).
+Then during `exSelPostProcessParams`, call `AddConstrainedValuePair()` in the [Export Param Suite](suites.md#export-param-suite).
 
 If you only add one value pair, then the parameter will be a non-editable string.
 

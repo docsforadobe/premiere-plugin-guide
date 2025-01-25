@@ -11,55 +11,55 @@ Below is a table of all suites available in Premiere Pro:
 | **Suite Name**                                                                                           | **Relevant to Plug-in Type**                |
 |----------------------------------------------------------------------------------------------------------|---------------------------------------------|
 | Accelerated Render Invocation Suite                                                                      | Exporters                                   |
-| [App Info Suite](#universals-sweetpea-suites-app-info-suite)                                             | All                                         |
-| [Application Settings Suite](#universals-sweetpea-suites-application-settings-suite)                     | All                                         |
-| [Async File Reader Suite](../importers/suites.md#importers-suites-async-file-reader-suite)               | Importers                                   |
+| [App Info Suite](#app-info-suite)                                             | All                                         |
+| [Application Settings Suite](#application-settings-suite)                     | All                                         |
+| [Async File Reader Suite](../importers/suites.md#async-file-reader-suite)               | Importers                                   |
 | Async Operation Suite                                                                                    | All                                         |
-| [Audio Suite](#universals-sweetpea-suites-audio-suite)                                                   | Importers, Exporters                        |
-| [Captioning Suite](#universals-sweetpea-suites-captioning-suite)                                         | Device Controllers, Exporters, Transmitters |
-| [Clip Render Suite](#universals-sweetpea-suites-clip-render-suite)                                       | Exporters                                   |
-| [Deferred Processing Suite](../importers/suites.md#importers-suites-deferred-processing-suite)           | Importers                                   |
-| [Error Suite](#universals-sweetpea-suites-error-suite)                                                   | All except Exporters starting in CS6        |
-| [Export File Suite](../exporters/suites.md#exporters-suites-export-file-suite)                           | Exporters                                   |
-| [Export Info Suite](../exporters/suites.md#exporters-suites-export-info-suite)                           | Exporters                                   |
-| [Export Param Suite](../exporters/suites.md#exporters-suites-export-param-suite)                         | Exporters                                   |
-| [Export Progress Suite](../exporters/suites.md#exporters-suites-export-progress-suite)                   | Exporters                                   |
-| [Export Standard Param Suite](../exporters/suites.md#exporters-suites-export-standard-param-suite)       | Exporters                                   |
-| [Exporter Utility Suite](../exporters/suites.md#exporters-suites-exporter-utility-suite)                 | Exporters                                   |
-| [File Registration Suite](#universals-sweetpea-suites-file-registration-suite)                           | Importers, Transitions, Video Filters       |
-| [Flash Cue Marker Data Suite](#universals-sweetpea-suites-flash-cue-marker-data-suite)                   | Exporters                                   |
-| [GPU Device Suite](../gpu-effects-transitions/suites.md#gpu-effects-transitions-suites-gpu-device-suite) | GPU Effects and Transitions                 |
-| [Image Processing Suite](#universals-sweetpea-suites-image-processing-suite)                             | All                                         |
+| [Audio Suite](#audio-suite)                                                   | Importers, Exporters                        |
+| [Captioning Suite](#captioning-suite)                                         | Device Controllers, Exporters, Transmitters |
+| [Clip Render Suite](#clip-render-suite)                                       | Exporters                                   |
+| [Deferred Processing Suite](../importers/suites.md#deferred-processing-suite)           | Importers                                   |
+| [Error Suite](#error-suite)                                                   | All except Exporters starting in CS6        |
+| [Export File Suite](../exporters/suites.md#export-file-suite)                           | Exporters                                   |
+| [Export Info Suite](../exporters/suites.md#export-info-suite)                           | Exporters                                   |
+| [Export Param Suite](../exporters/suites.md#export-param-suite)                         | Exporters                                   |
+| [Export Progress Suite](../exporters/suites.md#export-progress-suite)                   | Exporters                                   |
+| [Export Standard Param Suite](../exporters/suites.md#export-standard-param-suite)       | Exporters                                   |
+| [Exporter Utility Suite](../exporters/suites.md#exporter-utility-suite)                 | Exporters                                   |
+| [File Registration Suite](#file-registration-suite)                           | Importers, Transitions, Video Filters       |
+| [Flash Cue Marker Data Suite](#flash-cue-marker-data-suite)                   | Exporters                                   |
+| [GPU Device Suite](../gpu-effects-transitions/suites.md#gpu-device-suite) | GPU Effects and Transitions                 |
+| [Image Processing Suite](#image-processing-suite)                             | All                                         |
 | Importer File Manager Suite                                                                              | Importers                                   |
-| [Legacy Callback Suites](legacy-callback-suites.md#universals-legacy-callback-suites)                    | All                                         |
-| [Marker Suite](#universals-sweetpea-suites-marker-suite)                                                 | Exporters                                   |
+| [Legacy Callback Suites](legacy-callback-suites.md)                    | All                                         |
+| [Marker Suite](#marker-suite)                                                 | Exporters                                   |
 | Media Accelerator Suite                                                                                  | Importers                                   |
-| [Memory Manager Suite](#universals-sweetpea-suites-memory-manager-suite)                                 | All                                         |
-| [Palette Suite](../exporters/suites.md#exporters-suites-palette-suite)                                   | Exporters                                   |
-| [Pixel Format Suite](#universals-sweetpea-suites-pixel-format-suite)                                     | All                                         |
-| [Playmod Audio Suite](../transmitters/suites.md#transmitters-suites-playmod-audio-suite)                 | Transmitters                                |
+| [Memory Manager Suite](#memory-manager-suite)                                 | All                                         |
+| [Palette Suite](../exporters/suites.md#palette-suite)                                   | Exporters                                   |
+| [Pixel Format Suite](#pixel-format-suite)                                     | All                                         |
+| [Playmod Audio Suite](../transmitters/suites.md#playmod-audio-suite)                 | Transmitters                                |
 | Playmod Device Control Suite                                                                             | None (Deprecated)                           |
-| [Playmod Overlay Suite](#universals-sweetpea-suites-playmod-overlay-suite)                               | Transmitters                                |
+| [Playmod Overlay Suite](#playmod-overlay-suite)                               | Transmitters                                |
 | Playmod Render Suite                                                                                     | None (Deprecated)                           |
-| [PPix Cache Suite](#universals-sweetpea-suites-ppix-cache-suite)                                         | Importers                                   |
-| [PPix Creator Suite](#universals-sweetpea-suites-ppix-creator-suite)                                     | All                                         |
-| [PPix Creator 2 Suite](#universals-sweetpea-suites-ppix-creator2-suite)                                  | All                                         |
-| [PPix Suite](#universals-sweetpea-suites-ppix-suite)                                                     | All                                         |
-| [PPix 2 Suite](#universals-sweetpea-suites-ppix2-suite)                                                  | All                                         |
+| [PPix Cache Suite](#ppix-cache-suite)                                         | Importers                                   |
+| [PPix Creator Suite](#ppix-creator-suite)                                     | All                                         |
+| [PPix Creator 2 Suite](#ppix-creator-2-suite)                                  | All                                         |
+| [PPix Suite](#ppix-suite)                                                     | All                                         |
+| [PPix 2 Suite](#ppix-2-suite)                                                  | All                                         |
 | Quality Suite                                                                                            | None (Deprecated)                           |
-| [RollCrawl Suite](#universals-sweetpea-suites-rollcrawl-suite)                                           | Exporters                                   |
+| [RollCrawl Suite](#rollcrawl-suite)                                           | Exporters                                   |
 | Scope Render Suite                                                                                       | None (Deprecated)                           |
-| [Sequence Audio Suite](../exporters/suites.md#exporters-suites-sequence-audio-suite)                     | Exporters                                   |
-| [Sequence Info Suite](#universals-sweetpea-suites-sequence-info-suite)                                   | Importers, Transitions, Video Filters       |
-| [Sequence Render Suite](../exporters/suites.md#exporters-suites-sequence-render-suite)                   | Exporters                                   |
+| [Sequence Audio Suite](../exporters/suites.md#sequence-audio-suite)                     | Exporters                                   |
+| [Sequence Info Suite](#sequence-info-suite)                                   | Importers, Transitions, Video Filters       |
+| [Sequence Render Suite](../exporters/suites.md#sequence-render-suite)                   | Exporters                                   |
 | Stock Image Suite                                                                                        | None (Deprecated)                           |
-| [String Suite](#universals-sweetpea-suites-string-suite)                                                 | All                                         |
-| [Threaded Work Suite](#universals-sweetpea-suites-threaded-work-suite)                                   | All                                         |
-| [Time Suite](#universals-sweetpea-suites-time-suite)                                                     | All                                         |
-| [Transmit Invocation Suite](../transmitters/suites.md#transmitters-suites-transmit-invocation-suite)     | All                                         |
-| [Video Segment Render Suite](#universals-sweetpea-suites-video-segment-render-suite)                     | Exporters                                   |
-| [Video Segment Suite](#universals-sweetpea-suites-video-segment-suite)                                   | Exporters                                   |
-| [Window Suite](#universals-sweetpea-suites-window-suite)                                                 | All                                         |
+| [String Suite](#string-suite)                                                 | All                                         |
+| [Threaded Work Suite](#threaded-work-suite)                                   | All                                         |
+| [Time Suite](#time-suite)                                                     | All                                         |
+| [Transmit Invocation Suite](../transmitters/suites.md#transmit-invocation-suite)     | All                                         |
+| [Video Segment Render Suite](#video-segment-render-suite)                     | Exporters                                   |
+| [Video Segment Suite](#video-segment-suite)                                   | Exporters                                   |
+| [Window Suite](#window-suite)                                                 | All                                         |
 
 ---
 
@@ -92,7 +92,7 @@ if (SPBasic && PixelFormatSuite)
 
 Generally from version to version, the changes made to a suite are additive, so it is recommended to work with the most recent version of a suite if possible. However the latest version of a suite may not be supported by older versions of Premiere Pro or other host applications. Attempting to acquire suites that are unsupported by the host application will result in a NULL pointer being returned from AcquireSuite.
 
-For a plugin to support multiple versions, it may choose to use a specific older version of the suite that is supported across those multiple versions. Alternatively, it may check the version of the host application (using the [App Info Suite](#universals-sweetpea-suites-app-info-suite)), and use the new suites where available, or the older suites when running in an older version. To acquire a specific older version of a suite, rather than requesting kPrSDKPixelFormatSuiteVersion in the example above, use a specific version number instead.
+For a plugin to support multiple versions, it may choose to use a specific older version of the suite that is supported across those multiple versions. Alternatively, it may check the version of the host application (using the [App Info Suite](#app-info-suite)), and use the new suites where available, or the older suites when running in an older version. To acquire a specific older version of a suite, rather than requesting kPrSDKPixelFormatSuiteVersion in the example above, use a specific version number instead.
 
 ---
 
@@ -113,7 +113,7 @@ In version 3, starting in CC 2014, the suite has a new selector to retrieve the 
 
 ## Application Settings Suite
 
-New in CS4. This suite provides calls to get the scratch disk folder paths defined in the current project, where the captured files and preview files are created. It also provides a call to get the project file path. All paths are passed back as PrSDKStrings. Use the new [String Suite](#universals-sweetpea-suites-string-suite) to extract the strings to UTF-8 or UTF-16. See PrSDKApplicationSettingsSuite.h.
+New in CS4. This suite provides calls to get the scratch disk folder paths defined in the current project, where the captured files and preview files are created. It also provides a call to get the project file path. All paths are passed back as PrSDKStrings. Use the new [String Suite](#string-suite) to extract the strings to UTF-8 or UTF-16. See PrSDKApplicationSettingsSuite.h.
 
 ---
 
@@ -125,7 +125,7 @@ Calls to convert to and from the native audio format used by the Premiere API, a
 
 ## Captioning Suite
 
-This suite enables a device controller, exporter, player, or transmitter to get the closed captioning data attached to a sequence. This suite provides the data in either Scenarist (CEA-608, \*.scc) and MacCaption (CEA-708, \*.mcc) formats. In the case of CEA-708, it includes not just the text to display, but it's also the position information, and background, font, etc. If the transmitter or player just wants to overlay the captioning data on a frame, it can use the [Playmod Overlay Suite](#universals-sweetpea-suites-playmod-overlay-suite) instead.
+This suite enables a device controller, exporter, player, or transmitter to get the closed captioning data attached to a sequence. This suite provides the data in either Scenarist (CEA-608, \*.scc) and MacCaption (CEA-708, \*.mcc) formats. In the case of CEA-708, it includes not just the text to display, but it's also the position information, and background, font, etc. If the transmitter or player just wants to overlay the captioning data on a frame, it can use the [Playmod Overlay Suite](#playmod-overlay-suite) instead.
 
 ---
 
@@ -143,7 +143,7 @@ An exporter can use this suite to request frames from the renderer in a compress
 
 Uses a single callback for errors, warnings, and info. This callback will activate a flashing icon in the lower left-hand corner of the main application window, which when clicked, will open up the new Events Window containing the error information. See PrSDKErrorSuite.h.
 
-Starting in version 3 of the suite, introduced in CS4, the suite supports UTF-16 strings. Starting in CS6, exporters should use the [Exporter Utility Suite](../exporters/suites.md#exporters-suites-exporter-utility-suite) to report events.
+Starting in version 3 of the suite, introduced in CS4, the suite supports UTF-16 strings. Starting in CS6, exporters should use the [Exporter Utility Suite](../exporters/suites.md#exporter-utility-suite) to report events.
 
 ---
 
@@ -155,7 +155,7 @@ Used for registering external files (such as textures, logos, etc) that are used
 
 ## Flash Cue Marker Data Suite
 
-New in CS4. Specific utilities to read Flash cue points. Use in conjunction with the [Marker Suite](#universals-sweetpea-suites-marker-suite). See PrSDKFlashCueMarkerDataSuite.h.
+New in CS4. Specific utilities to read Flash cue points. Use in conjunction with the [Marker Suite](#marker-suite). See PrSDKFlashCueMarkerDataSuite.h.
 
 ---
 
@@ -193,7 +193,7 @@ Starting in version 2 of the suite, introduced in CS4, there are calls to alloca
 
 See the table of supported pixel formats. GetBlackForPixelFormat returns the minimum (black) value for a given pixel format. GetWhiteForPixelFormat returns the maximum (white) value for a given pixel format. Pixel types like YUYV actually contain a group of two pixels to specify a color completely, so the data size returned in this case will be 4 bytes (rather than 2). This call does not support MPEG-2 planar formats.
 
-ConvertColorToPixelFormattedData converts an BGRA/ARGB value into a value of a different pixel type. These functions are not meant to convert entire frames from one colorspace to another, but may be used to convert a single color value from a filter color picker or transition border. To convert frames between pixel formats, see the [Image Processing Suite](#universals-sweetpea-suites-image-processing-suite).
+ConvertColorToPixelFormattedData converts an BGRA/ARGB value into a value of a different pixel type. These functions are not meant to convert entire frames from one colorspace to another, but may be used to convert a single color value from a filter color picker or transition border. To convert frames between pixel formats, see the [Image Processing Suite](#image-processing-suite).
 
 New in Premiere Pro 4.0.1, `MAKE_THIRD_PARTY_CUSTOM_PIXEL_FORMAT_FOURCC()` defines a custom pixel format.
 
@@ -281,7 +281,7 @@ Starting in version 2 of this suite, introduced in Premiere Pro 4.1, AddFrameToC
 
 Version 4, new in CS5.0.3, adds ExpireNamedPPixFromCache() and ExpireAllPPixesFromCache(), which allow a plugin to remove one or all PPixes from the Media Cache, which can be useful if the media is changing due to being edited in a separate application.
 
-To expire an individual frames expired using ExpireNamedPPixFromCache(), the identifier must be known. The plugin may specify an identifier using AddNamedPPixToCache(). If a frame is in the cache with multiple names, and you expire any one of those names, then the frame will be expired. Alternatively, for rendered frames, the identifier may be retrieved using GetIdentifierForProduceFrameAsync() in the [Video Segment Render Suite](#universals-sweetpea-suites-video-segment-render-suite).
+To expire an individual frames expired using ExpireNamedPPixFromCache(), the identifier must be known. The plugin may specify an identifier using AddNamedPPixToCache(). If a frame is in the cache with multiple names, and you expire any one of those names, then the frame will be expired. Alternatively, for rendered frames, the identifier may be retrieved using GetIdentifierForProduceFrameAsync() in the [Video Segment Render Suite](#video-segment-render-suite).
 
 Clearing the cache will not interfere with any outstanding requests, because each request holds dependencies on the needed frames.
 
@@ -295,7 +295,7 @@ Version 7, adds AddFrameToCacheWithColorSpace() and GetFrameFromCacheWithColorSp
 
 ## PPix Creator Suite
 
-Includes callbacks to create and copy PPixs. See also the [PPix Creator 2 Suite](#universals-sweetpea-suites-ppix-creator2-suite).
+Includes callbacks to create and copy PPixs. See also the [PPix Creator 2 Suite](#ppix-creator-2-suite).
 
 ### CreatePPix
 
@@ -314,7 +314,7 @@ prSuiteError (*CreatePPix)(
 | **Parameter**                          | **Description**                                                                                                                                                                  |
 |----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `PPixHand *outPPixHand`                | The new PPix handle if the creation was successful.<br/><br/>NULL otherwise.                                                                                                     |
-| `PrPPixBufferAccess inRequestedAccess` | Requested pixel access. Read-only is not allowed (doesn't make sense).<br/><br/>`PrPPixBufferAccess` values are defined in [PPix Suite](#universals-sweetpea-suites-ppix-suite). |
+| `PrPPixBufferAccess inRequestedAccess` | Requested pixel access. Read-only is not allowed (doesn't make sense).<br/><br/>`PrPPixBufferAccess` values are defined in [PPix Suite](#ppix-suite). |
 | `PrPixelFormat inPixelFormat`          | The pixel format of this PPix                                                                                                                                                    |
 
 ### ClonePPix
@@ -334,7 +334,7 @@ prSuiteError (*ClonePPix)(
 |----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `PPixHand inPPixToClone`               | The PPix to clone from.                                                                                                                                                         |
 | `PPixHand *outPPixHand`                | The new PPix handle if the creation was successful.<br/><br/>NULL otherwise.                                                                                                    |
-| `PrPPixBufferAccess inRequestedAccess` | Requested pixel access.<br/><br/>Only read-only is allowed right now.<br/><br/>`PrPPixBufferAccess` values are defined in [PPix Suite](#universals-sweetpea-suites-ppix-suite). |
+| `PrPPixBufferAccess inRequestedAccess` | Requested pixel access.<br/><br/>Only read-only is allowed right now.<br/><br/>`PrPPixBufferAccess` values are defined in [PPix Suite](#ppix-suite). |
 
 ---
 
@@ -350,7 +350,7 @@ New APIs added to create PPix with specific color space. Color aware Importers s
 
 ## PPix Suite
 
-Callbacks and enums pertaining to PPixs. See also [PPix 2 Suite](#universals-sweetpea-suites-ppix2-suite).
+Callbacks and enums pertaining to PPixs. See also [PPix 2 Suite](#ppix-2-suite).
 
 ### PrPPixBufferAccess
 
@@ -601,7 +601,7 @@ In version 3, new in CS6, the function signatures have been modernized, using `i
 
 ## Video Segment Suite
 
-This suite provides calls to parse a sequence and get details on video segments. All the queryable node properties are in PrSDKVideoSegmentProperties.h. These properties will be returned as PrSDKStrings, and should be managed using the [String Suite](#universals-sweetpea-suites-string-suite). The segments provide a hash value that the caller can use to quickly determine whether or not a segment has changed. This hash value can be maintained even if a segment is shifted in time
+This suite provides calls to parse a sequence and get details on video segments. All the queryable node properties are in PrSDKVideoSegmentProperties.h. These properties will be returned as PrSDKStrings, and should be managed using the [String Suite](#string-suite). The segments provide a hash value that the caller can use to quickly determine whether or not a segment has changed. This hash value can be maintained even if a segment is shifted in time
 
 In version 4, new in CS5.5, the new call `AcquireNodeForTime()` passes back a segment node for a requested time. There are also a few new properties for media nodes: StreamIsContinuousTime, ColorProfileName, ColorProfileData, and ScanlineOffsetToImproveVerticalCentering.
 
@@ -633,4 +633,4 @@ See PrSDKVideoSegmentSuite.h and PrSDKVideoSegmentProperties.h.
 
 ## Window Suite
 
-New in CS4. This is the new preferred way to get the handle of the mainframe window, especially for exporters, who don't have access to the legacy [piSuites](legacy-callback-suites.md#universals-legacy-callback-suites-pisuites).
+New in CS4. This is the new preferred way to get the handle of the mainframe window, especially for exporters, who don't have access to the legacy [piSuites](legacy-callback-suites.md#pisuites).

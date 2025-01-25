@@ -116,7 +116,7 @@ Following OS X Code Signing guidelines, plugins should be installed in this sepa
 
 **Effects presets:**
 
-`/Plugins/[language subdirectory]/Effect Presets/` (see [Localization](localization.md#intro-localization) for the list of language codes)
+`/Plugins/[language subdirectory]/Effect Presets/` (see [Localization](localization.md) for the list of language codes)
 
 **Editing modes:**
 

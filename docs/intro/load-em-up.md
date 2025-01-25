@@ -2,7 +2,7 @@
 
 ## Plug-in Caching
 
-On its first launch, Premiere Pro loads all the plugins, reads the [Plug-In Property Lists (PiPL) Resource](../resources/pipl-resource.md#resources-pipl-resource), and sends any startup selectors to determine the plugins' capabilities. To speed up future application launches, it saves some of these capabilities in what we call the plugin cache (the registry on Windows, a Property List file on macOS).
+On its first launch, Premiere Pro loads all the plugins, reads the [Plug-In Property Lists (PiPL) Resource](../resources/pipl-resource.md), and sends any startup selectors to determine the plugins' capabilities. To speed up future application launches, it saves some of these capabilities in what we call the plugin cache (the registry on Windows, a Property List file on macOS).
 
 The next time the application is launched, the cached data is used wherever possible, rather than loading all the plugins on startup. Using this changed data will make the application launch faster, but for a small set of plugins that need to be initialized every time, it may be undesirable. These include plugins that need to get run-time information that might change in between app launches (i.e. installed codec lists), and plugins that check for hardware and need to be able to fail. So we give your plugin control final say over whether or not it is reloaded each time.
 

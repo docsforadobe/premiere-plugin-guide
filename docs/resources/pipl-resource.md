@@ -20,7 +20,7 @@ Device controllers use a basic PiPL to specify their name and the match name tha
 
 Video filters use an extended PiPL to specify their name, the match name that Premiere uses to identify them, the bin they go in, how they handle pixel aspect ratio, whether or not they have randomness, and their parameters.
 
-For more information on the `ANIM_FilterInfo` and `ANIM_ParamAtom`, see the resources section in [Video Filters](../video-filters/video-filters.md#video-filters-video-filters).
+For more information on the `ANIM_FilterInfo` and `ANIM_ParamAtom`, see the resources section in [Video Filters](../video-filters/video-filters.md).
 
 ---
 
