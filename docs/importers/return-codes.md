@@ -1,7 +1,7 @@
 # Return Codes
 
-| Return Code                | Reason                                                                                                                                                               |
-|--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|          Return Code           |                                                                                  Reason                                                                                  |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `imNoErr`                      | Operation has completed without error.                                                                                                                                   |
 | `imTooWide`                    | File dimensions too large.                                                                                                                                               |
 | `imBadFile`                    | Bad file format.<br/>To defer an unsupported subtype to a lower priority importer, return this during `imOpenFile8` or `imGetInfo8`.                                     |
