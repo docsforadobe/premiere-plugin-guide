@@ -54,9 +54,7 @@ Video frames can be requested synchronously or asynchronously. The asynchronous 
 
 ## Handling a Pause or Cancel by the User (Pull Model only)
 
-Push model export does not require any special code to handle pause or cancel by the user. For pull model export, the way to check if the user has paused or cancelled the export is to call UpdateProgressPercent in the [Export Progress Suite](suites.md#export-progress-suite), and check the return value. If the return value is suiteError_ExporterSuspended, the user has hit the pause but-
-
-ton, which is only available in the Media Encoder UI. If the return value is `exportReturn_Abort`, then the export has been cancelled by the user.
+Push model export does not require any special code to handle pause or cancel by the user. For pull model export, the way to check if the user has paused or cancelled the export is to call UpdateProgressPercent in the [Export Progress Suite](suites.md#export-progress-suite), and check the return value. If the return value is suiteError_ExporterSuspended, the user has hit the pause button, which is only available in the Media Encoder UI. If the return value is `exportReturn_Abort`, then the export has been cancelled by the user.
 
 If UpdateProgressPercent returns `suiteError_ExporterSuspended`, then the exporter should next call `WaitForResume`, which will block until the user has unpaused the export.
 

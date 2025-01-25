@@ -8,9 +8,7 @@ The GPU extensions work on top of effects and transitions built using the After 
 
 ## System Requirements
 
-The system requirements for developing GPU effects & transitions are higher than developing other plugins. You'll need a video card that supports Mercury Playback Engine GPU-
-
-acceleration. Make sure your video card supports the type of video acceleration you are developing, on the platform you are developing on. See this page for the latest supported video cards: [https://helpx.adobe.com/premiere-pro/system-requirements.html](https://helpx.adobe.com/premiere-pro/system-requirements.html)
+The system requirements for developing GPU effects & transitions are higher than developing other plugins. You'll need a video card that supports Mercury Playback Engine GPU acceleration. Make sure your video card supports the type of video acceleration you are developing, on the platform you are developing on. See this page for the latest supported video cards: [https://helpx.adobe.com/premiere-pro/system-requirements.html](https://helpx.adobe.com/premiere-pro/system-requirements.html)
 
 The CUDA SDK is also needed for CUDA rendering development.
 

@@ -196,9 +196,7 @@ Starting in CC, for audio configurations beyond mono, stereo, and 5.1, an import
 
 Importers can support multiple streams of audio and/or video. For most filetypes with a single video and a simple audio configuration (mono, stereo, or 5.1), only a single stream is necessary. Multiple streams can be useful for stereoscopic footage, layered file types (like Photoshop PSD files), or clips with complex audio configuration (such as 4 mono audio channels). The following describes the general case of multiple streams. For stereoscopic importers, please refer to the description further down.
 
-An importer describes each stream one-by-one during iterative calls to *imGetInfo8*. In response to each call, the importer describes one stream, and returns imIterateStreams, until it reaches the last stream, and then it returns imBadStreamIndex. Set imFileInfoRec8-
-
->streamsAsComp = kPrFalse, so that the set of streams appear as a single clip within Premiere Pro.
+An importer describes each stream one-by-one during iterative calls to *imGetInfo8*. In response to each call, the importer describes one stream, and returns imIterateStreams, until it reaches the last stream, and then it returns imBadStreamIndex. Set imFileInfoRec8->streamsAsComp = kPrFalse, so that the set of streams appear as a single clip within Premiere Pro.
 
 In *imGetInfo8*, save streamIdx in privateData, to have access to it later. That way, when called in *imImportAudio7*, the importer will know which stream of audio to pass back.
 
