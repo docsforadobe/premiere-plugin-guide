@@ -2,7 +2,7 @@
 
 Once you've got the plugin building directly into the plugins folder as explained above, here's how to specify Premiere Pro as the application to run during debug sessions:
 
-On Windows:
+## Windows
 
 1. In the Visual Studio solution, in the Solution Explorer panel, choose the project you want to debug
 2. Right-click it and choose Set as StartUp Project
@@ -10,7 +10,7 @@ On Windows:
 4. In Configuration Properties > Debugging > Command, provide the path to the executable file of the host application the plugins will be running in (this may be Premiere Pro or After Effects)
 5. From there you can either hit the Play button, or you can launch the application and later at any point choose Debug > Attach to Process…
 
-On macOS:
+## macOS
 
 1. In Xcode, in the Project Navigator, choose the xcodeproj you want to debug
 2. Choose Product > Scheme > Edit Scheme…

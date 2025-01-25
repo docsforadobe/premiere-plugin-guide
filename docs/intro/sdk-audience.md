@@ -8,4 +8,4 @@ The SDK includes sample projects for these development environments. On Windows,
 
 If this is your first time developing a Premiere plugin, you can skip [Whats New](whats-new.md).
 
-If you are developing on macOS, see a quickstart video on building a plugin using a similar SDK (on macOS): adobe.ly/2sjMDwM and then go directly to [Where Do I Start](where-do-i-start.md).
+If you are developing on macOS, see a quickstart video on building a plugin using a similar SDK (on macOS): [adobe.ly/2sjMDwM](https://adobe.ly/2sjMDwM) and then go directly to [Where Do I Start](where-do-i-start.md).
