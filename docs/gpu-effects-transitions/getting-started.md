@@ -18,9 +18,10 @@ Depending on whether your effect will use CUDA, you'll need to download the CUDA
 
 You'll notice that PrGPUFilterRenderParams has some attributes about an effect or transition, but many things, such as the parameters or duration of the clip to which the plugin is applied, are not found in that structure. These attributes will need to be queried using the GetParam() and GetProperty() helper functions in PrGPUFilterModule.h. For example:
 
+```cpp
 GetProperty(kVideoSegmentProperty_Effect_EffectDuration, duration);
-
 GetProperty(kVideoSegmentProperty_Transition_TransitionDuration, duration);
+```
 
 ---
 
@@ -48,9 +49,20 @@ If you want, you have the ability to transfer frames from CUDA to OpenGL (though
 
 For CUDA interoperability with OpenGL:
 
-CUDA -> OpenGL: Create an OpenGL buffer, map it into CUDA with cuGraphicsMapResources, get the mapped address with cuGraphicsResourceGetMappedPointer, copy from the CUDA address to the mapped address with cuMemcpyDtoDAsync, unmap with cuGraphicsUnmapResources.
+### CUDA -> OpenGL
 
-OpenGL -> CUDA: Map the OpenGL buffer into CUDA with cuGraphicsMapResources, get the mapped address with cuGraphicsResourceGetMappedPointer, copy from the mapped address to CUDA with cuMemcpyDtoDAsync, unmap with cuGraphicsUnmapResources.
+- Create an OpenGL buffer
+- map it into CUDA with `cuGraphicsMapResources`
+- get the mapped address with `cuGraphicsResourceGetMappedPointer`
+- copy from the CUDA address to the mapped address with `cuMemcpyDtoDAsync`
+- unmap with `cuGraphicsUnmapResources`
+
+### OpenGL -> CUDA
+
+- Map the OpenGL buffer into CUDA with `cuGraphicsMapResources`
+- get the mapped address with `cuGraphicsResourceGetMappedPointer`
+- copy from the mapped address to CUDA with `cuMemcpyDtoDAsync`
+- unmap with `cuGraphicsUnmapResources`
 
 !!! note
     On the Mac there is no real OpenGL/CUDA interoperability, and these calls will go through system memory.
@@ -77,6 +89,6 @@ If `inStartup` is non-zero, the effect/transition should startup and initialize 
 
 If `inStartup` is false, then the effect/transition should shutdown, unloading any resources it loaded on startup.
 
-As of CC, inHostInterfaceVersion is PrSDKGPUFilterInterfaceVersion1 == 1.
+As of CC, inHostInterfaceVersion is `PrSDKGPUFilterInterfaceVersion1 == 1`
 
 If a single plugin supports multiple effects, increment ioIndex to the next value before returning, in order to be called again to describe the next effect.

@@ -85,11 +85,11 @@ nav:
         - Additional Details: video-filters/additional-details.md
     - GPU Effects & Transitions:
         - GPU Effects & Transitions: gpu-effects-transitions/gpu-effects-transitions.md
+        - Getting Started: gpu-effects-transitions/getting-started.md
         - CUDA, OpenCL, Metal, or OpenGL?: gpu-effects-transitions/cuda-opencl-metal-opengl.md
         - What's New in Premiere Pro 12.0?: gpu-effects-transitions/whats-new-in-ppro-12.md
         - What's New in Premiere Pro CC 2015.4?: gpu-effects-transitions/whats-new-in-ppro-cc2015.md
         - What's New in Premiere Pro CC 2014?: gpu-effects-transitions/whats-new-in-ppro-cc2014.md
-        - Getting Started: gpu-effects-transitions/getting-started.md
         - PrGPUFilter Function Table: gpu-effects-transitions/PrGPUFilter-function-table.md
         - Function Descriptions: gpu-effects-transitions/function-descriptions.md
         - Return Codes: gpu-effects-transitions/return-codes.md
