@@ -14,9 +14,9 @@ A transmitter has two choices for playing audio: it can ask the host to play the
 
 ### GetNextAudioBuffer
 
-Retrieves from the host the next contiguous requested number of audio sample frames, specified in inNumSampleFrames, in inInBuffers as arrays of uninterleaved floats.
+Retrieves from the host the next contiguous requested number of audio sample frames, specified in `inNumSampleFrames`, in `inInBuffers` as arrays of uninterleaved floats.
 
-The plugin must manage the memory allocation of inInBuffers, which must point to n buffers of floating point values of length inNumSampleFrames, where n is the number of channels. This call is only available if InitPluginAudio was used.
+The plugin must manage the memory allocation of `inInBuffers`, which must point to n buffers of floating point values of length `inNumSampleFrames`, where n is the number of channels. This call is only available if `InitPluginAudio` was used.
 
 Returns:
 
@@ -32,8 +32,8 @@ prSuiteError (*GetNextAudioBuffer)(
   unsigned int  inNumSampleFrames);
 ```
 
-| Parameter       | Description                                                                                                                                                                                                                                   |
-|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|      Parameter      |                                                                                                                    Description                                                                                                                    |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `inInBuffers`       | Currently unused in CS6.<br/><br/>A pointer to an array of buffers holding `inNumSampleFrames` input audio in each buffer, corresponding to the total number of available input channels.                                                         |
 | `outOutBuffers`     | A pointer to an array of buffers `inNumSampleFrames` long into which the host will write the output audio.<br/><br/>There must be N buffers, where N is the number of output channels for the output channel type specified in `InitPluginAudio`. |
 | `inNumSampleFrames` | The size of each of the buffers in the array in both `inInBuffers` and `outOutBuffers`.                                                                                                                                                           |
