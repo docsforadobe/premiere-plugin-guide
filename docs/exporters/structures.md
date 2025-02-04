@@ -1,0 +1,17 @@
+# Structures
+
+|                                        Structure                                         |                                                         Sent with selector                                                          |
+| ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| [exDoExportRec](structure-descriptions.md#exdoexportrec)                                 | [exSelExport](selector-descriptions.md#exselexport)                                                                                 |
+| [exExporterInfoRec](structure-descriptions.md#exexporterinforec)                         | [exSelStartup](selector-descriptions.md#exselstartup)                                                                               |
+| [exExporterInstanceRec](structure-descriptions.md#exexporterinstancerec)                 | [exSelBeginInstance](selector-descriptions.md#exselbegininstance) and [exSelEndInstance](selector-descriptions.md#exselendinstance) |
+| [exGenerateDefaultParamRec](structure-descriptions.md#exgeneratedefaultparamrec)         | [exSelGenerateDefaultParams](selector-descriptions.md#exselgeneratedefaultparams)                                                   |
+| [exParamButtonRec](structure-descriptions.md#exparambuttonrec)                           | [exSelParamButton](selector-descriptions.md#exselparambutton)                                                                       |
+| [exParamChangedRec](structure-descriptions.md#exparamchangedrec)                         | [exSelValidateParamChanged](selector-descriptions.md#exselvalidateparamchanged)                                                     |
+| [exParamSummaryRec](structure-descriptions.md#exparamsummaryrec)                         | [exSelGetParamSummary](selector-descriptions.md#exselgetparamsummary)                                                               |
+| [exPostProcessParamsRec](structure-descriptions.md#expostprocessparamsrec)               | [exSelPostProcessParams](selector-descriptions.md#exselpostprocessparams)                                                           |
+| [exQueryExportFileExtensionRec](structure-descriptions.md#exqueryexportfileextensionrec) | [exSelQueryExportFileExtension](selector-descriptions.md#exselqueryexportfileextension)                                             |
+| [exQueryOutputFileListRec](structure-descriptions.md#exqueryoutputfilelistrec)           | [exSelQueryOutputFileList](selector-descriptions.md#exselqueryoutputfilelist)                                                       |
+| [exQueryOutputSettingsRec](structure-descriptions.md#exqueryoutputsettingsrec)           | [exSelQueryOutputSettings](selector-descriptions.md#exselqueryoutputsettings)                                                       |
+| [exQueryStillSequenceRec](structure-descriptions.md#exquerystillsequencerec)             | [exSelQueryStillSequence](selector-descriptions.md#exselquerystillsequence)                                                         |
+| [exValidateOutputSettingsRec](structure-descriptions.md#exvalidateoutputsettingsrec)     | [exSelValidateOutputSettings](selector-descriptions.md#exselvalidateoutputsettings)                                                 |
