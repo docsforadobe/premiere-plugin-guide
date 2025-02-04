@@ -1,0 +1,4040 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://ppro-plugins.docsforadobe.dev/exporters/structure-descriptions/">
+      
+      
+        <link rel="prev" href="../structures/">
+      
+      
+        <link rel="next" href="../suites/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.2">
+    
+    
+      
+        <title>Structure Descriptions - Premiere Pro C++ SDK Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.d7758b05.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings1.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings2.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings3.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings4.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings5.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings6.css">
+    
+      <link rel="stylesheet" href="../../css/print-site.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-material.css">
+    
+      <link rel="stylesheet" href="https://docsforadobe.dev/_global/global.css">
+    
+      <link rel="stylesheet" href="https://docsforadobe.dev/_global/global-syntax-highlight.css">
+    
+      <link rel="stylesheet" href="../../_static/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#structure-descriptions" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+              <button class="md-banner__button md-icon" aria-label="Don't show this again">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+              </button>
+            
+            
+  Welcome to the new scripting guide!
+
+  This is a work in progress.
+
+  Please provide all feedback via
+  <a ref="me" href="https://github.com/orgs/docsforadobe/discussions">
+    <span class="twemoji">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 1h8.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0 1 10.25 10H7.061l-2.574 2.573A1.458 1.458 0 0 1 2 11.543V10h-.25A1.75 1.75 0 0 1 0 8.25v-5.5C0 1.784.784 1 1.75 1M1.5 2.75v5.5c0 .138.112.25.25.25h1a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.75.75 0 0 1 .53-.22h3.5a.25.25 0 0 0 .25-.25v-5.5a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25m13 2a.25.25 0 0 0-.25-.25h-.5a.75.75 0 0 1 0-1.5h.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0 1 14.25 12H14v1.543a1.458 1.458 0 0 1-2.487 1.03L9.22 12.28a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l2.22 2.22v-2.19a.75.75 0 0 1 .75-.75h1a.25.25 0 0 0 .25-.25Z"/></svg>
+    </span>
+    <strong>the org's discussion forum</strong>
+  </a>.
+
+          </div>
+          
+            <script>var el=document.querySelector("[data-md-component=announce]");if(el){var content=el.querySelector(".md-typeset");__md_hash(content.innerHTML)===__md_get("__announce")&&(el.hidden=!0)}</script>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://docsforadobe.dev" title="Premiere Pro C++ SDK Guide" class="md-header__button md-logo" aria-label="Premiere Pro C++ SDK Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Premiere Pro C++ SDK Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Structure Descriptions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/docsforadobe/premiere-plugin-guide/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    premiere-plugin-guide
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://docsforadobe.dev" title="Premiere Pro C++ SDK Guide" class="md-nav__button md-logo" aria-label="Premiere Pro C++ SDK Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Premiere Pro C++ SDK Guide
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/docsforadobe/premiere-plugin-guide/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    premiere-plugin-guide
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    History
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            History
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../history/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Version History
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Introduction
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/what-premiere-plugins-do/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What Premiere Plug-Ins Do
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/sdk-audience/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SDK Audience
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/whats-new/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Whats New
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/where-do-i-start/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Where Do I Start
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/document-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Document Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/getting-support/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Support and Providing Feedback
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/premiere-pro-plugin-types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Premiere Pro Plug-In Types
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/sample-projects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sample Projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/debugging-plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Debugging Plug-Ins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/load-em-up/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Load Em Up
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/plugin-installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plug In Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/localization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Localization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/best-practices/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Best Practices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Resources
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/pipl-resource/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plug-In Property Lists (PiPL) Resource
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/impt-resource/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IMPT Resource
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Universals
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Universals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/universals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Universals
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/time/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Time
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/video-frames/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Video Frames
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/pixel-formats-and-color-spaces/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pixel Formats And Color Spaces
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/pixel-aspect-ratio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pixel Aspect Ratio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/fields/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fields
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/audio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Audio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/memory-management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Memory Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/basic-types-structures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Types Structures
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/sweetpea-suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SweetPea Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/legacy-callback-suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Legacy Callback Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Hardware Integration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Hardware Integration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hardware
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/hardware-integration-components/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hardware Integration Components
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/classid-filetype-subtype/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ClassID, Filetype and Subtype
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/classdata-functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ClassData Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Importers
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Importers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../importers/importers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Importers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../importers/whats-new/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What's New
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../importers/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../importers/selector-table/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selector Table
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../importers/selector-descriptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selector Descriptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../importers/return-codes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Return Codes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../importers/structures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structures
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../importers/structure-descriptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structure Descriptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../importers/suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Export Controllers
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Export Controllers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../export-controllers/export-controllers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Export Controllers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Exporters
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Exporters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exporters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exporters
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../whats-new/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Whats New
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../selector-table/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selector Table
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../selector-descriptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selector Descriptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../return-codes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Return Codes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structures
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Structure Descriptions
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Structure Descriptions
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Page Contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Page Contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+	<a href="#exdoexportrec" class="md-nav__link">
+		<span class="md-ellipsis">
+			exDoExportRec
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#exdoexportrec2" class="md-nav__link">
+		<span class="md-ellipsis">
+			exDoExportRec2
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#exexporterinforec" class="md-nav__link">
+		<span class="md-ellipsis">
+			exExporterInfoRec
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#exexporterinstancerec" class="md-nav__link">
+		<span class="md-ellipsis">
+			exExporterInstanceRec
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#exgeneratedefaultparamrec" class="md-nav__link">
+		<span class="md-ellipsis">
+			exGenerateDefaultParamRec
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#exparambuttonrec" class="md-nav__link">
+		<span class="md-ellipsis">
+			exParamButtonRec
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#exparamchangedrec" class="md-nav__link">
+		<span class="md-ellipsis">
+			exParamChangedRec
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#exparamsummaryrec" class="md-nav__link">
+		<span class="md-ellipsis">
+			exParamSummaryRec
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#expostprocessparamsrec" class="md-nav__link">
+		<span class="md-ellipsis">
+			exPostProcessParamsRec
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#exqueryexportfileextensionrec" class="md-nav__link">
+		<span class="md-ellipsis">
+			exQueryExportFileExtensionRec
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#exqueryoutputfilelistrec" class="md-nav__link">
+		<span class="md-ellipsis">
+			exQueryOutputFileListRec
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#exqueryoutputsettingsrec" class="md-nav__link">
+		<span class="md-ellipsis">
+			exQueryOutputSettingsRec
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#exquerystillsequencerec" class="md-nav__link">
+		<span class="md-ellipsis">
+			exQueryStillSequenceRec
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#exvalidateoutputsettingsrec" class="md-nav__link">
+		<span class="md-ellipsis">
+			exValidateOutputSettingsRec
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#exqueryexportcolorspacerec" class="md-nav__link">
+		<span class="md-ellipsis">
+			exQueryExportColorSpaceRec
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../additional-details/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Additional Details
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Transmitters
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Transmitters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../transmitters/transmitters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transmitters
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../transmitters/transmitter-basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transmitter Basics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../transmitters/tmModule-functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    tmModule Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../transmitters/tmModule-structures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    tmModule Structures
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../transmitters/suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Video Filters
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Video Filters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/video-filters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Video Filters
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/whats-new/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Whats New
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/selector-table/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selector Table
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/selector-descriptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selector Descriptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/return-codes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Return Codes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/VideoRecord/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VideoRecord
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/additional-details/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Additional Details
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    GPU Effects & Transitions
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            GPU Effects & Transitions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/gpu-effects-transitions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GPU Effects & Transitions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/cuda-opencl-metal-opengl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CUDA, OpenCL, Metal, or OpenGL?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/whats-new-in-ppro-12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What's New in Premiere Pro 12.0?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/whats-new-in-ppro-cc2015/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What's New in Premiere Pro CC 2015.4?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/whats-new-in-ppro-cc2014/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What's New in Premiere Pro CC 2014?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/PrGPUFilter-function-table/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PrGPUFilter Function Table
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/function-descriptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Function Descriptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/return-codes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Return Codes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/structure-descriptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structure Descriptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/PrGPU-SDK-macros/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PrGPU SDK Macros
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AE Transition Extensions
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            AE Transition Extensions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ae-transition-extensions/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ae-transition-extensions/ae-transition-extensions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AE Transition Extensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ae-transition-extensions/PF_TransitionSuite/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PF_TransitionSuite
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Control Surfaces
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            Control Surfaces
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../control-surfaces/control-surfaces/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Control Surfaces
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Page Contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Page Contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+	<a href="#exdoexportrec" class="md-nav__link">
+		<span class="md-ellipsis">
+			exDoExportRec
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#exdoexportrec2" class="md-nav__link">
+		<span class="md-ellipsis">
+			exDoExportRec2
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#exexporterinforec" class="md-nav__link">
+		<span class="md-ellipsis">
+			exExporterInfoRec
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#exexporterinstancerec" class="md-nav__link">
+		<span class="md-ellipsis">
+			exExporterInstanceRec
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#exgeneratedefaultparamrec" class="md-nav__link">
+		<span class="md-ellipsis">
+			exGenerateDefaultParamRec
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#exparambuttonrec" class="md-nav__link">
+		<span class="md-ellipsis">
+			exParamButtonRec
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#exparamchangedrec" class="md-nav__link">
+		<span class="md-ellipsis">
+			exParamChangedRec
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#exparamsummaryrec" class="md-nav__link">
+		<span class="md-ellipsis">
+			exParamSummaryRec
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#expostprocessparamsrec" class="md-nav__link">
+		<span class="md-ellipsis">
+			exPostProcessParamsRec
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#exqueryexportfileextensionrec" class="md-nav__link">
+		<span class="md-ellipsis">
+			exQueryExportFileExtensionRec
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#exqueryoutputfilelistrec" class="md-nav__link">
+		<span class="md-ellipsis">
+			exQueryOutputFileListRec
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#exqueryoutputsettingsrec" class="md-nav__link">
+		<span class="md-ellipsis">
+			exQueryOutputSettingsRec
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#exquerystillsequencerec" class="md-nav__link">
+		<span class="md-ellipsis">
+			exQueryStillSequenceRec
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#exvalidateoutputsettingsrec" class="md-nav__link">
+		<span class="md-ellipsis">
+			exValidateOutputSettingsRec
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#exqueryexportcolorspacerec" class="md-nav__link">
+		<span class="md-ellipsis">
+			exQueryExportColorSpaceRec
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/docsforadobe/premiere-plugin-guide/edit/master/docs/exporters/structure-descriptions.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/docsforadobe/premiere-plugin-guide/raw/master/docs/exporters/structure-descriptions.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="structure-descriptions">Structure Descriptions<a class="headerlink" href="#structure-descriptions" title="Permanent link">&para;</a></h1>
+<h2 id="exdoexportrec">exDoExportRec<a class="headerlink" href="#exdoexportrec" title="Permanent link">&para;</a></h2>
+<p>Selector: <a href="../selector-descriptions/#exselexport">exSelExport</a></p>
+<p>Provides general export settings. The exporter should retrieve the parameter settings from the <a href="../suites/#export-param-suite">Export Param Suite</a>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">exporterPluginID</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">         </span><span class="n">privateData</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">fileType</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">exportAudio</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">exportVideo</span><span class="p">;</span>
+<span class="w">  </span><span class="n">PrTime</span><span class="w">        </span><span class="n">startTime</span><span class="p">;</span>
+<span class="w">  </span><span class="n">PrTime</span><span class="w">        </span><span class="n">endTime</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">fileObject</span><span class="p">;</span>
+<span class="w">  </span><span class="n">PrTimelineID</span><span class="w">  </span><span class="n">timelineData</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">reserveMetaDataSpace</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">maximumRenderQuality</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">embedCaptions</span>
+<span class="p">}</span><span class="w"> </span><span class="n">exDoExportRec</span><span class="p">;</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>exporterPluginID</code></td>
+<td>The host's internal identifier for this exporter, used for various suite calls, such as in the <a href="../suites/#sequence-render-suite">Sequence Render Suite</a> and <a href="../suites/#sequence-audio-suite">Sequence Audio Suite</a>.</td>
+</tr>
+<tr>
+<td><code>privateData</code></td>
+<td>Data allocated and managed by the exporter.</td>
+</tr>
+<tr>
+<td><code>fileType</code></td>
+<td>The file format four character code set by the exporter during <a href="../selector-descriptions/#exselstartup">exSelStartup</a>.<br/><br/>Indicates which format the exporter should write, since exporters can support multiple formats.</td>
+</tr>
+<tr>
+<td><code>exportAudio</code></td>
+<td>If non-zero, export audio.</td>
+</tr>
+<tr>
+<td><code>exportVideo</code></td>
+<td>If non-zero, export video.</td>
+</tr>
+<tr>
+<td><code>startTime</code></td>
+<td>The start time of the sequence to export.</td>
+</tr>
+<tr>
+<td><code>endTime</code></td>
+<td>The end time of the sequence to export. If startTime is 0, also the total duration to export.<br/><br/>Range specified is <code>[startTime, endTime)</code>, meaning the <code>endTime</code> is not actually included in the range.</td>
+</tr>
+<tr>
+<td><code>fileObject</code></td>
+<td>For use with the <a href="../suites/#export-file-suite">Export File Suite</a>, to get and manipulate the file specified by the user.</td>
+</tr>
+<tr>
+<td><code>timelineData</code></td>
+<td>Handle used for the Timeline Functions.</td>
+</tr>
+<tr>
+<td><code>reserveMetaDataSpace</code></td>
+<td>Amount to reserve in a file for metadata storage.</td>
+</tr>
+<tr>
+<td><code>maximumRenderQuality</code></td>
+<td>If non-zero, the exporter should set <code>SequenceRender_ParamsRec.inRenderQuality</code> and <code>inDeinterlaceQuality</code> to <code>kPrRenderQuality_Max</code>.</td>
+</tr>
+<tr>
+<td><code>embedCaptions</code></td>
+<td>New in CC. If non-zero, the exporter should embed captions obtained from the <a href="../../universals/sweetpea-suites/#captioning-suite">Captioning Suite</a>.</td>
+</tr>
+<tr>
+<td><code>colorProfile</code></td>
+<td>Amount to reserve in a file for metadata storage.</td>
+</tr>
+<tr>
+<td><code>exportColorSpaceID</code></td>
+<td>Amount to reserve in a file for metadata storage.</td>
+</tr>
+<tr>
+<td><code>maximumFileSize</code></td>
+<td>Amount to reserve in a file for metadata storage.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="exdoexportrec2">exDoExportRec2<a class="headerlink" href="#exdoexportrec2" title="Permanent link">&para;</a></h2>
+<p>Selector: <a href="../selector-descriptions/#exselexport">exSelExport</a></p>
+<p>Provides general export settings. The exporter should retrieve the parameter settings from the <a href="../suites/#export-param-suite">Export Param Suite</a>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">      </span><span class="n">exporterPluginID</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">             </span><span class="n">privateData</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">      </span><span class="n">fileType</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">       </span><span class="n">exportAudio</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">       </span><span class="n">exportVideo</span><span class="p">;</span>
+<span class="w">  </span><span class="n">PrTime</span><span class="w">            </span><span class="n">startTime</span><span class="p">;</span>
+<span class="w">  </span><span class="n">PrTime</span><span class="w">            </span><span class="n">endTime</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">      </span><span class="n">fileObject</span><span class="p">;</span>
+<span class="w">  </span><span class="n">PrTimelineID</span><span class="w">      </span><span class="n">timelineData</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">       </span><span class="n">reserveMetaDataSpace</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">       </span><span class="n">maximumRenderQuality</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">       </span><span class="n">embedCaptions</span><span class="p">;</span>
+<span class="w">  </span><span class="n">ColorProfileRec</span><span class="w">       </span><span class="n">colorProfile</span><span class="p">;</span><span class="w">                         </span><span class="c1">// if color profile is valid, exporter should embed into output per format standards; for formats that set canEmbedColorProfile to True</span>
+<span class="w">  </span><span class="n">PrSDKColorSpaceID</span><span class="w"> </span><span class="n">exportColorSpaceID</span><span class="p">;</span><span class="w">               </span><span class="c1">// opaque color space ID that exporter should pass to the host when using color managed APIs</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">             </span><span class="n">maximumFileSize</span><span class="p">;</span><span class="w">                    </span><span class="c1">// if non-0, try to export a file not exceeding this size an possible adjust the TragetBitrate for this.</span>
+<span class="w">  </span><span class="n">PrSDKLUTID</span><span class="w">              </span><span class="n">exportLUTID</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">exDoExportRec2</span><span class="p">;</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>exporterPluginID</code></td>
+<td>The host's internal identifier for this exporter, used for various suite calls, such as in the <a href="../suites/#sequence-render-suite">Sequence Render Suite</a> and <a href="../suites/#sequence-audio-suite">Sequence Audio Suite</a>.</td>
+</tr>
+<tr>
+<td><code>privateData</code></td>
+<td>Data allocated and managed by the exporter.</td>
+</tr>
+<tr>
+<td><code>fileType</code></td>
+<td>The file format four character code set by the exporter during <a href="../selector-descriptions/#exselstartup">exSelStartup</a>.<br/><br/>Indicates which format the exporter should write, since exporters can support multiple formats.</td>
+</tr>
+<tr>
+<td><code>exportAudio</code></td>
+<td>If non-zero, export audio.</td>
+</tr>
+<tr>
+<td><code>exportVideo</code></td>
+<td>If non-zero, export video.</td>
+</tr>
+<tr>
+<td><code>startTime</code></td>
+<td>The start time of the sequence to export.</td>
+</tr>
+<tr>
+<td><code>endTime</code></td>
+<td>The end time of the sequence to export. If startTime is 0, also the total duration to export.<br/><br/>Range specified is <code>[startTime, endTime)</code>, meaning the <code>endTime</code> is not actually included in the range.</td>
+</tr>
+<tr>
+<td><code>fileObject</code></td>
+<td>For use with the <a href="../suites/#export-file-suite">Export File Suite</a>, to get and manipulate the file specified by the user.</td>
+</tr>
+<tr>
+<td><code>timelineData</code></td>
+<td>Handle used for the Timeline Functions.</td>
+</tr>
+<tr>
+<td><code>reserveMetaDataSpace</code></td>
+<td>Amount to reserve in a file for metadata storage.</td>
+</tr>
+<tr>
+<td><code>maximumRenderQuality</code></td>
+<td>If non-zero, the exporter should set <code>SequenceRender_ParamsRec.inRenderQuality</code> and <code>inDeinterlaceQuality</code> to <code>kPrRenderQuality_Max</code>.</td>
+</tr>
+<tr>
+<td><code>embedCaptions</code></td>
+<td>New in CC. If non-zero, the exporter should embed captions obtained from the <a href="../../universals/sweetpea-suites/#captioning-suite">Captioning Suite</a>.</td>
+</tr>
+<tr>
+<td><code>colorProfile</code></td>
+<td>New in 13.1.  Color profile, to be embedded into output per format standards. For formats which have set <code>canEmbedColorProfile</code> to true.</td>
+</tr>
+<tr>
+<td><code>exportColorSpaceID</code></td>
+<td>New in 13.1.  ID of the color space to be used. Must not be <code>kPrSDKColorSpaceID_Invalid</code>.</td>
+</tr>
+<tr>
+<td><code>maximumFileSize</code></td>
+<td>New in 15.x.  If non-zero, the Exporter should consider this as a ceiling for file size, and re-compress as needed in order to meet that target.</td>
+</tr>
+<tr>
+<td><code>exportLUTID</code></td>
+<td>New in 14.x. the LUT being used for export.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="exexporterinforec">exExporterInfoRec<a class="headerlink" href="#exexporterinforec" title="Permanent link">&para;</a></h2>
+<p>Selector: <a href="../selector-descriptions/#exselstartup">exSelStartup</a> and <a href="../selector-descriptions/#exselshutdown">exSelShutdown</a> (starting in CS6)</p>
+<p>Describe the exporter's capabilities by filling out this structure during <a href="../selector-descriptions/#exselstartup">exSelStartup</a>.</p>
+<p>For each filetype, populate exExporterInfoRec and return <code>exportReturnIterateExporter</code>.</p>
+<p><a href="../selector-descriptions/#exselstartup">exSelStartup</a> will then be resent. Repeat the process until there are no more file formats to describe, then return <code>exportReturn_IterateExporterDone</code>.</p>
+<p>The fileType indicates which format the exporter should currently work with in subsequent calls.</p>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">unused</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">fileType</span><span class="p">;</span>
+<span class="w">  </span><span class="n">prUTF16Char</span><span class="w">   </span><span class="n">fileTypeName</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
+<span class="w">  </span><span class="n">prUTF16Char</span><span class="w">   </span><span class="n">fileTypeDefaultExtension</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">classID</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">exportReqIndex</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">wantsNoProgressBar</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">hideInUI</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">doesNotSupportAudioOnly</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">canExportVideo</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">canExportAudio</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">singleFrameOnly</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">maxAudiences</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">interfaceVersion</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">isCacheable</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">canConformToMatchParams</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">canEmbedCaptions</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">exExporterInfoRec</span><span class="p">;</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fileType</code></td>
+<td>The file format four character code (e.g. 'AVIV' = Video for Windows, 'MooV' = QuickTime).</td>
+</tr>
+<tr>
+<td><code>fileTypeName</code></td>
+<td>The localized display name for the fileype.</td>
+</tr>
+<tr>
+<td><code>fileTypeDefaultExtension</code></td>
+<td>The default extension for the filetype. An exporter can support multiple extensions per filetype, by implementing <code>exSelQueryExportFileExtension</code>.</td>
+</tr>
+<tr>
+<td><code>classID</code></td>
+<td>Class identifier for the module, differentiates between exporters that support the same filetype and creates associations between different Media Abstraction Layer plugins.</td>
+</tr>
+<tr>
+<td><code>exportReqIndex</code></td>
+<td>If an exporter supports multiple filetypes, this index will be incremented by the host for each call, as the exporter is requested to describe its capabilities for each filetype.<br/><br/>Initially zero, incremented by the host each time the exporter returns <code>exportReturn_IterateExporter</code>.</td>
+</tr>
+<tr>
+<td><code>wantsNoProgressBar</code></td>
+<td>If non-zero, the default exporter progress dialog will be turned off, allowing the exporter to display its own progress dialog.<br/><br/>The exporter also will not get <code>exportReturn_Abort</code> errors from the host during callbacks - it must detect an abort on its own, and return <code>exportReturn_Abort</code> from <code>exSelExport</code> if the user aborts the export.</td>
+</tr>
+<tr>
+<td><code>hideInUI</code></td>
+<td>Set this to non-zero if this filetype should only be used for making preview files, and should not be visible as a general export choice.</td>
+</tr>
+<tr>
+<td><code>doesNotSupportAudioOnly</code></td>
+<td>Set this to non-zero for filetypes that do not support audio-only exports.</td>
+</tr>
+<tr>
+<td><code>canExportVideo</code></td>
+<td>Set this to non-zero if the exporter can output video.</td>
+</tr>
+<tr>
+<td><code>canExportAudio</code></td>
+<td>Set this to non-zero if the exporter can output audio.</td>
+</tr>
+<tr>
+<td><code>singleFrameOnly</code></td>
+<td>Set this to non-zero if the exporter makes single frames (used by still image exporters).</td>
+</tr>
+<tr>
+<td><code>maxAudiences</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>interfaceVersion</code></td>
+<td>Exporter API version that the plugin supports.</td>
+</tr>
+<tr>
+<td><code>isCacheable</code></td>
+<td>New in CS5. Set this non-zero to have Premiere Pro cache this exporter.</td>
+</tr>
+<tr>
+<td><code>canConformToMatchParams</code></td>
+<td>New in CC. Set this to non-zero if the exporter wants to support the Match Source button.</td>
+</tr>
+<tr>
+<td><code>canEmbedCaptions</code></td>
+<td>New in CC. Set this to non-zero if the exporter can embed Closed Captioning directly in the file.</td>
+</tr>
+<tr>
+<td><code>flags</code></td>
+<td>New in 13.0. Will be some combination of the following flag:<ul><li><code>kExInfoRecFlag_None</code></li><li><code>kExInfoRecFlag_VideoOnlyExportNotSupported</code> - exports only video and audio together</li><li><code>kExInfoRecFlag_PostEncodePublishNotSupported</code> - exported result is a complex folder structure or otherwise unsuitable for enabling upload options</li></ul></td>
+</tr>
+<tr>
+<td><code>canEmbedColorProfile</code></td>
+<td>New in 11.1. Set this to non-zero if the exporter can embed color profile into the resulting media file</td>
+</tr>
+<tr>
+<td><code>supportsColorManagement</code></td>
+<td>New in 13.0. Set this to non-zero if the exporter supports color management.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="exexporterinstancerec">exExporterInstanceRec<a class="headerlink" href="#exexporterinstancerec" title="Permanent link">&para;</a></h2>
+<p>Selector: <a href="../selector-descriptions/#exselbegininstance">exSelBeginInstance</a> and <a href="../selector-descriptions/#exselendinstance">exSelEndInstance</a></p>
+<p>Provides access to the privateData for the indicated filetype, so that the exporter can allocate privateData and pass it to the host, or deallocate it.</p>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">exporterPluginID</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">fileType</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">         </span><span class="n">privateData</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">exExporterInstanceRec</span><span class="p">;</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>exporterPluginID</code></td>
+<td>The host's internal identifier for this exporter. Do not modify.</td>
+</tr>
+<tr>
+<td><code>fileType</code></td>
+<td>The file format four character code set by the exporter during <a href="../selector-descriptions/#exselstartup">exSelStartup</a>.</td>
+</tr>
+<tr>
+<td><code>privateData</code></td>
+<td>Data allocated and managed by the exporter.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="exgeneratedefaultparamrec">exGenerateDefaultParamRec<a class="headerlink" href="#exgeneratedefaultparamrec" title="Permanent link">&para;</a></h2>
+<p>Selector: <a href="../selector-descriptions/#exselgeneratedefaultparams">exSelGenerateDefaultParams</a></p>
+<p>Provides access to the privateData for the indicated filetype, so that the exporter can generate the default parameter set.</p>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">exporterPluginID</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">         </span><span class="n">privateData</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">fileType</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">exExporterInstanceRec</span><span class="p">;</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>exporterPluginID</code></td>
+<td>The host's internal identifier for this exporter. Do not modify.</td>
+</tr>
+<tr>
+<td><code>privateData</code></td>
+<td>Data allocated and managed by the exporter.</td>
+</tr>
+<tr>
+<td><code>fileType</code></td>
+<td>The file format four character code set by the exporter during <a href="../selector-descriptions/#exselstartup">exSelStartup</a>.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="exparambuttonrec">exParamButtonRec<a class="headerlink" href="#exparambuttonrec" title="Permanent link">&para;</a></h2>
+<p>Selector: <a href="../selector-descriptions/#exselparambutton">exSelParamButton</a></p>
+<p>Provides access to the privateData for the indicated filetype, and discloses the specific button hit by the user, since there can be multiple button parameters.</p>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">       </span><span class="n">exporterPluginID</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">              </span><span class="n">privateData</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">       </span><span class="n">fileType</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">        </span><span class="n">exportAudio</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">        </span><span class="n">exportVideo</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">        </span><span class="n">multiGroupIndex</span><span class="p">;</span>
+<span class="w">  </span><span class="n">exParamIdentifier</span><span class="w">  </span><span class="n">buttonParamIdentifier</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">exParamButtonRec</span><span class="p">;</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>exporterPluginID</code></td>
+<td>The host's internal identifier for this exporter. Do not modify.</td>
+</tr>
+<tr>
+<td><code>privateData</code></td>
+<td>Data allocated and managed by the exporter.</td>
+</tr>
+<tr>
+<td><code>fileType</code></td>
+<td>The file format four character code set by the exporter during <a href="../selector-descriptions/#exselstartup">exSelStartup</a>.</td>
+</tr>
+<tr>
+<td><code>exportAudio</code></td>
+<td>If non-zero, the current settings are set to export audio.</td>
+</tr>
+<tr>
+<td><code>exportVideo</code></td>
+<td>If non-zero, the current settings are set to export video.</td>
+</tr>
+<tr>
+<td><code>multiGroupIndex</code></td>
+<td>Discloses the index of the multi-group, containing the button hit by the user.</td>
+</tr>
+<tr>
+<td><code>buttonParamIdentifier</code></td>
+<td>Discloses the parameter ID of the button hit by the user.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="exparamchangedrec">exParamChangedRec<a class="headerlink" href="#exparamchangedrec" title="Permanent link">&para;</a></h2>
+<p>Selector: <a href="../selector-descriptions/#exselvalidateparamchanged">exSelValidateParamChanged</a></p>
+<p>Provides access to the privateData for the indicated filetype, and discloses the specific parameter changed by the user.</p>
+<p>To notify the host that the plugin is changing other parameters, set <code>rebuildAllParams</code> to a non-zero value.</p>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">       </span><span class="n">exporterPluginID</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">              </span><span class="n">privateData</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">       </span><span class="n">fileType</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">        </span><span class="n">exportAudio</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">        </span><span class="n">exportVideo</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">        </span><span class="n">multiGroupIndex</span><span class="p">;</span>
+<span class="w">  </span><span class="n">exParamIdentifier</span><span class="w">  </span><span class="n">changedParamIdentifier</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">        </span><span class="n">rebuildAllParams</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">exParamChangedRec</span><span class="p">;</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>exporterPluginID</code></td>
+<td>The host's internal identifier for this exporter. Do not modify.</td>
+</tr>
+<tr>
+<td><code>privateData</code></td>
+<td>Data allocated and managed by the exporter.</td>
+</tr>
+<tr>
+<td><code>fileType</code></td>
+<td>The file format four character code set by the exporter during <a href="../selector-descriptions/#exselstartup">exSelStartup</a>.</td>
+</tr>
+<tr>
+<td><code>exportAudio</code></td>
+<td>If non-zero, the current settings are set to export audio.</td>
+</tr>
+<tr>
+<td><code>exportVideo</code></td>
+<td>If non-zero, the current settings are set to export video.</td>
+</tr>
+<tr>
+<td><code>multiGroupIndex</code></td>
+<td>Discloses the index of the multi-group, containing the parameter changed by the user.</td>
+</tr>
+<tr>
+<td><code>changedParamIdentifier</code></td>
+<td>Discloses the parameter ID of the parameter changed by the user.<br/><br/>May be empty if the changed item was exportAudio, exportVideo or the current multiGroupIndex.</td>
+</tr>
+<tr>
+<td><code>rebuildAllParams</code></td>
+<td>Set this to non-zero to tell the host to refresh ALL parameters using the latest provided information.<br/><br/>This can solve various problems when dynamically updating parameter visibility, valid ranges, etc.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="exparamsummaryrec">exParamSummaryRec<a class="headerlink" href="#exparamsummaryrec" title="Permanent link">&para;</a></h2>
+<p>Selector: <a href="../selector-descriptions/#exselgetparamsummary">exSelGetParamSummary</a></p>
+<p>Provides access to the privateData for the indicated filetype, and provides buffers for the exporter to fill in with a localized summary of the parameters.</p>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">exporterPluginID</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">         </span><span class="n">privateData</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">exportAudio</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">exportVideo</span><span class="p">;</span>
+<span class="w">  </span><span class="n">prUTF16Char</span><span class="w">   </span><span class="n">videoSummary</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
+<span class="w">  </span><span class="n">prUTF16Char</span><span class="w">   </span><span class="n">audioSummary</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
+<span class="w">  </span><span class="n">prUTF16Char</span><span class="w">   </span><span class="n">bitrateSummary</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
+<span class="p">}</span><span class="w"> </span><span class="n">exParamSummaryRec</span><span class="p">;</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>exporterPluginID</code></td>
+<td>The host's internal identifier for this exporter. Do not modify.</td>
+</tr>
+<tr>
+<td><code>privateData</code></td>
+<td>Data allocated and managed by the exporter.</td>
+</tr>
+<tr>
+<td><code>exportAudio</code></td>
+<td>If non-zero, the current settings are set to export audio.</td>
+</tr>
+<tr>
+<td><code>exportVideo</code></td>
+<td>If non-zero, the current settings are set to export video.</td>
+</tr>
+<tr>
+<td><code>videoSummary</code></td>
+<td>Fill these in with a line of a localized summary of the parameters.</td>
+</tr>
+<tr>
+<td><code>audioSummary</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>bitrateSummary</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="expostprocessparamsrec">exPostProcessParamsRec<a class="headerlink" href="#expostprocessparamsrec" title="Permanent link">&para;</a></h2>
+<p>Selector: <a href="../selector-descriptions/#exselpostprocessparams">exSelPostProcessParams</a></p>
+<p>Provides access to the privateData for the indicated filetype.</p>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">exporterPluginID</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">         </span><span class="n">privateData</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">fileType</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">exportAudio</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">exportVideo</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">doConformToMatchParams</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">exPostProcessParamsRec</span><span class="p">;</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>exporterPluginID</code></td>
+<td>The host's internal identifier for this exporter. Do not modify.</td>
+</tr>
+<tr>
+<td><code>privateData</code></td>
+<td>Data allocated and managed by the exporter.</td>
+</tr>
+<tr>
+<td><code>fileType</code></td>
+<td>The file format four character code set by the exporter during <a href="../selector-descriptions/#exselstartup">exSelStartup</a>.</td>
+</tr>
+<tr>
+<td><code>exportAudio</code></td>
+<td>If non-zero, the current settings are set to export audio.</td>
+</tr>
+<tr>
+<td><code>exportVideo</code></td>
+<td>If non-zero, the current settings are set to export video.</td>
+</tr>
+<tr>
+<td><code>doConformToMatchParams</code></td>
+<td>New in CC.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="exqueryexportfileextensionrec">exQueryExportFileExtensionRec<a class="headerlink" href="#exqueryexportfileextensionrec" title="Permanent link">&para;</a></h2>
+<p>Selector: <a href="../selector-descriptions/#exselqueryexportfileextension">exSelQueryExportFileExtension</a></p>
+<p>Provides access to the privateData for the indicated filetype, and provides a buffer for the exporter to fill in with the file extension.</p>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">exporterPluginID</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">         </span><span class="n">privateData</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">fileType</span><span class="p">;</span>
+<span class="w">  </span><span class="n">prUTF16Char</span><span class="w">   </span><span class="n">outFileExtension</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
+<span class="p">}</span><span class="w"> </span><span class="n">exQueryExportFileExtensionRec</span><span class="p">;</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>exporterPluginID</code></td>
+<td>The host's internal identifier for this exporter. Do not modify.</td>
+</tr>
+<tr>
+<td><code>privateData</code></td>
+<td>Data allocated and managed by the exporter.</td>
+</tr>
+<tr>
+<td><code>fileType</code></td>
+<td>The file format four character code set by the exporter during <a href="../selector-descriptions/#exselstartup">exSelStartup</a>.</td>
+</tr>
+<tr>
+<td><code>outFileExtension</code></td>
+<td>Provide the file extension here, given the current parameter settings.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="exqueryoutputfilelistrec">exQueryOutputFileListRec<a class="headerlink" href="#exqueryoutputfilelistrec" title="Permanent link">&para;</a></h2>
+<p>Selector: <a href="../selector-descriptions/#exselqueryoutputfilelist">exSelQueryOutputFileList</a></p>
+<p>Provides access to the privateData for the indicated filetype, and provides a pointer to a array of <code>exOutputFileRecs</code> for the exporter to fill in with the file paths.</p>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">     </span><span class="n">exporterPluginID</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">            </span><span class="n">privateData</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">     </span><span class="n">fileType</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">     </span><span class="n">numOutputFiles</span><span class="p">;</span>
+<span class="w">  </span><span class="n">PrSDKString</span><span class="w">      </span><span class="n">path</span><span class="p">;</span>
+<span class="w">  </span><span class="n">exOutputFileRec</span><span class="w">  </span><span class="o">*</span><span class="n">outputFileRecs</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">exQueryOutputFileListRec</span><span class="p">;</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>exporterPluginID</code></td>
+<td>The host's internal identifier for this exporter. Do not modify.</td>
+</tr>
+<tr>
+<td><code>privateData</code></td>
+<td>Data allocated and managed by the exporter.</td>
+</tr>
+<tr>
+<td><code>fileType</code></td>
+<td>The file format four character code set by the exporter during <a href="../selector-descriptions/#exselstartup">exSelStartup</a>.</td>
+</tr>
+<tr>
+<td><code>numOutputFiles</code></td>
+<td>On the first call to <code>exSelQueryOutputFileList</code>, provide the number of file paths here.</td>
+</tr>
+<tr>
+<td><code>path</code></td>
+<td>New in CS5. Contains the primary intended destination path provided by the host.</td>
+</tr>
+<tr>
+<td><code>outputFileRecs</code></td>
+<td>An array of <code>exOutputFileRecs</code>.<br/><br/>On the second call to <code>exSelQueryOutputFileList</code>, the path length (including trailing null) for each path.<br/><br/>On the third call, fill in the path of each exOutputFileRec.<pre>typedef struct {<br/>  int           pathLength;<br/>  prUTF16Char*  path;<br/>} exOutputFileRec;</pre></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="exqueryoutputsettingsrec">exQueryOutputSettingsRec<a class="headerlink" href="#exqueryoutputsettingsrec" title="Permanent link">&para;</a></h2>
+<p>Selector: <a href="../selector-descriptions/#exselqueryoutputsettings">exSelQueryOutputSettings</a></p>
+<p>Provides access to the privateData for the indicated filetype, and provides a set of members for the exporter to fill in with the current export settings.</p>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">        </span><span class="n">exporterPluginID</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">               </span><span class="n">privateData</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">        </span><span class="n">fileType</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">         </span><span class="n">inMultiGroupIndex</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">         </span><span class="n">inExportVideo</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">         </span><span class="n">inExportAudio</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">         </span><span class="n">outVideoWidth</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">         </span><span class="n">outVideoHeight</span><span class="p">;</span>
+<span class="w">  </span><span class="n">PrTime</span><span class="w">              </span><span class="n">outVideoFrameRate</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">         </span><span class="n">outVideoAspectNum</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">         </span><span class="n">outVideoAspectDen</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">         </span><span class="n">outVideoFieldType</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">double</span><span class="w">              </span><span class="n">outAudioSampleRate</span><span class="p">;</span>
+<span class="w">  </span><span class="n">PrAudioSampleType</span><span class="w">   </span><span class="n">outAudioSampleType</span><span class="p">;</span>
+<span class="w">  </span><span class="n">PrAudioChannelType</span><span class="w">  </span><span class="n">outAudioChannelType</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">        </span><span class="n">outBitratePerSecond</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">         </span><span class="n">outUseMaximumRenderPrecision</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">exQueryOutputSettingsRec</span><span class="p">;</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>exporterPluginID</code></td>
+<td>The host's internal identifier for this exporter. Do not modify.</td>
+</tr>
+<tr>
+<td><code>privateData</code></td>
+<td>Data allocated and managed by the exporter.</td>
+</tr>
+<tr>
+<td><code>fileType</code></td>
+<td>The file format four character code set by the exporter during <a href="../selector-descriptions/#exselstartup">exSelStartup</a>.</td>
+</tr>
+<tr>
+<td><code>inMultiGroupIndex</code></td>
+<td>Return the parameter settings of the multi-group with this index.</td>
+</tr>
+<tr>
+<td><code>inExportVideo</code></td>
+<td>If non-zero, the current settings are set to export video.</td>
+</tr>
+<tr>
+<td><code>inExportAudio</code></td>
+<td>If non-zero, the current settings are set to export audio.</td>
+</tr>
+<tr>
+<td><code>outVideoWidth</code><br/><code>outVideoHeight</code></td>
+<td>Return each parameter setting, by getting the current value of the parameter using the <a href="../suites/#export-param-suite">Export Param Suite</a>.<br/><br/>Some settings, such as <code>outVideoFieldType</code>, may be implicit, for example if the format only supports progressive frames.</td>
+</tr>
+<tr>
+<td><code>outUseMaximumRenderPrecision</code></td>
+<td>New in CS6. If non-zero, renders will always be made at maximum bit-depth.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="exquerystillsequencerec">exQueryStillSequenceRec<a class="headerlink" href="#exquerystillsequencerec" title="Permanent link">&para;</a></h2>
+<p>Selector: <a href="../selector-descriptions/#exselquerystillsequence">exSelQueryStillSequence</a></p>
+<p>Provides access to the privateData for the indicated filetype, and provides a set of members for the exporter to provide information on how it would export the sequence of stills.</p>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">exporterPluginID</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">         </span><span class="n">privateData</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">fileType</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">exportAsStillSequence</span><span class="p">;</span>
+<span class="w">  </span><span class="n">PrTime</span><span class="w">        </span><span class="n">exportFrameRate</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">exQueryStillSequenceRec</span><span class="p">;</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>exporterPluginID</code></td>
+<td>The host's internal identifier for this exporter. Do not modify.</td>
+</tr>
+<tr>
+<td><code>privateData</code></td>
+<td>Data allocated and managed by the exporter.</td>
+</tr>
+<tr>
+<td><code>fileType</code></td>
+<td>The file format four character code set by the exporter during <a href="../selector-descriptions/#exselstartup">exSelStartup</a>.</td>
+</tr>
+<tr>
+<td><code>exportAsStillSequence</code></td>
+<td>Set this to non-zero to tell the host that the exporter can export the stills as a sequence.</td>
+</tr>
+<tr>
+<td><code>exportFrameRate</code></td>
+<td>Set this to the frame rate of the still sequence.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="exvalidateoutputsettingsrec">exValidateOutputSettingsRec<a class="headerlink" href="#exvalidateoutputsettingsrec" title="Permanent link">&para;</a></h2>
+<p>Selector: <a href="../selector-descriptions/#exselvalidateoutputsettings">exSelValidateOutputSettings</a></p>
+<p>Provides access to the privateData for the indicated filetype, so that the exporter can validate the current parameter settings.</p>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">exporterPluginID</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">         </span><span class="n">privateData</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">fileType</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">exExporterInstanceRec</span><span class="p">;</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>exporterPluginID</code></td>
+<td>The host's internal identifier for this exporter. Do not modify.</td>
+</tr>
+<tr>
+<td><code>privateData</code></td>
+<td>Data allocated and managed by the exporter.</td>
+</tr>
+<tr>
+<td><code>fileType</code></td>
+<td>The file format four character code set by the exporter during <a href="../selector-descriptions/#exselstartup">exSelStartup</a>.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="exqueryexportcolorspacerec">exQueryExportColorSpaceRec<a class="headerlink" href="#exqueryexportcolorspacerec" title="Permanent link">&para;</a></h2>
+<p>Selector: <a href="../selector-descriptions/#exselqueryexportcolorspace">exSelQueryExportColorSpace</a></p>
+<p>Provides access to the privateData for the indicated filetype, so that the exporter can validate the current parameter settings.</p>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">        </span><span class="n">exporterPluginID</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">                           </span><span class="n">privateData</span><span class="p">;</span>
+<span class="w">  </span><span class="n">ColorSpaceRec</span><span class="w">       </span><span class="n">outExportColorSpace</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">exQueryExportColorSpaceRec</span><span class="p">;</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>exporterPluginID</code></td>
+<td>The host's internal identifier for this exporter. Do not modify.</td>
+</tr>
+<tr>
+<td><code>privateData</code></td>
+<td>Data allocated and managed by the exporter.</td>
+</tr>
+<tr>
+<td><code>outExportColorSpace</code></td>
+<td>Structure describing the colorspace to be used during export. Check <code>ColorSpaceRec</code> for details.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 25, 2025</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      All content is copyright Adobe Systems Incorporated.
+    </div>
+  
+  
+    Made with
+    <a
+      href="https://squidfunk.github.io/mkdocs-material/"
+      target="_blank" rel="noopener"
+    >
+      Material for MkDocs
+    </a>
+  
+</div>
+
+<!-- Print button -->
+<div class="md-copyright">
+  
+  <a href="../../print_page/" title="Print Site" class="md-content__button md-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 3H6v4h12m1 5a1 1 0 0 1-1-1 1 1 0 0 1 1-1 1 1 0 0 1 1 1 1 1 0 0 1-1 1m-3 7H8v-5h8m3-6H5a3 3 0 0 0-3 3v6h4v4h12v-4h4v-6a3 3 0 0 0-3-3"/></svg>
+  </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f13b1293.min.js"></script>
+      
+        <script src="../../js/print-site.js"></script>
+      
+    
+  </body>
+</html>

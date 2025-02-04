@@ -1,0 +1,4963 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://ppro-plugins.docsforadobe.dev/universals/sweetpea-suites/">
+      
+      
+        <link rel="prev" href="../suites/">
+      
+      
+        <link rel="next" href="../legacy-callback-suites/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.2">
+    
+    
+      
+        <title>SweetPea Suites - Premiere Pro C++ SDK Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.d7758b05.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings1.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings2.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings3.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings4.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings5.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings6.css">
+    
+      <link rel="stylesheet" href="../../css/print-site.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-material.css">
+    
+      <link rel="stylesheet" href="https://docsforadobe.dev/_global/global.css">
+    
+      <link rel="stylesheet" href="https://docsforadobe.dev/_global/global-syntax-highlight.css">
+    
+      <link rel="stylesheet" href="../../_static/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sweetpea-suites" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+              <button class="md-banner__button md-icon" aria-label="Don't show this again">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+              </button>
+            
+            
+  Welcome to the new scripting guide!
+
+  This is a work in progress.
+
+  Please provide all feedback via
+  <a ref="me" href="https://github.com/orgs/docsforadobe/discussions">
+    <span class="twemoji">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 1h8.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0 1 10.25 10H7.061l-2.574 2.573A1.458 1.458 0 0 1 2 11.543V10h-.25A1.75 1.75 0 0 1 0 8.25v-5.5C0 1.784.784 1 1.75 1M1.5 2.75v5.5c0 .138.112.25.25.25h1a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.75.75 0 0 1 .53-.22h3.5a.25.25 0 0 0 .25-.25v-5.5a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25m13 2a.25.25 0 0 0-.25-.25h-.5a.75.75 0 0 1 0-1.5h.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0 1 14.25 12H14v1.543a1.458 1.458 0 0 1-2.487 1.03L9.22 12.28a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l2.22 2.22v-2.19a.75.75 0 0 1 .75-.75h1a.25.25 0 0 0 .25-.25Z"/></svg>
+    </span>
+    <strong>the org's discussion forum</strong>
+  </a>.
+
+          </div>
+          
+            <script>var el=document.querySelector("[data-md-component=announce]");if(el){var content=el.querySelector(".md-typeset");__md_hash(content.innerHTML)===__md_get("__announce")&&(el.hidden=!0)}</script>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://docsforadobe.dev" title="Premiere Pro C++ SDK Guide" class="md-header__button md-logo" aria-label="Premiere Pro C++ SDK Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Premiere Pro C++ SDK Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              SweetPea Suites
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/docsforadobe/premiere-plugin-guide/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    premiere-plugin-guide
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://docsforadobe.dev" title="Premiere Pro C++ SDK Guide" class="md-nav__button md-logo" aria-label="Premiere Pro C++ SDK Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Premiere Pro C++ SDK Guide
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/docsforadobe/premiere-plugin-guide/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    premiere-plugin-guide
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    History
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            History
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../history/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Version History
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Introduction
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/what-premiere-plugins-do/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What Premiere Plug-Ins Do
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/sdk-audience/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SDK Audience
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/whats-new/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Whats New
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/where-do-i-start/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Where Do I Start
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/document-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Document Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/getting-support/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Support and Providing Feedback
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/premiere-pro-plugin-types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Premiere Pro Plug-In Types
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/sample-projects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sample Projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/debugging-plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Debugging Plug-Ins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/load-em-up/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Load Em Up
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/plugin-installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plug In Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/localization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Localization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/best-practices/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Best Practices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Resources
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/pipl-resource/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plug-In Property Lists (PiPL) Resource
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/impt-resource/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IMPT Resource
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Universals
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Universals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../universals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Universals
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Time
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../video-frames/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Video Frames
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pixel-formats-and-color-spaces/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pixel Formats And Color Spaces
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pixel-aspect-ratio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pixel Aspect Ratio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fields/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fields
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../audio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Audio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../memory-management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Memory Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic-types-structures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Types Structures
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    SweetPea Suites
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    SweetPea Suites
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Page Contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Page Contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+	<a href="#overview" class="md-nav__link">
+		<span class="md-ellipsis">
+			Overview
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#acquiring-and-releasing-the-suites" class="md-nav__link">
+		<span class="md-ellipsis">
+			Acquiring and Releasing the Suites
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="Acquiring and Releasing the Suites">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#versioning" class="md-nav__link">
+		<span class="md-ellipsis">
+			Versioning
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#app-info-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			App Info Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#application-settings-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			Application Settings Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#audio-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			Audio Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#captioning-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			Captioning Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#clip-render-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			Clip Render Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#error-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			Error Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#file-registration-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			File Registration Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#flash-cue-marker-data-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			Flash Cue Marker Data Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#image-processing-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			Image Processing Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#marker-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			Marker Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#memory-manager-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			Memory Manager Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="Memory Manager Suite">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#reservememory" class="md-nav__link">
+		<span class="md-ellipsis">
+			ReserveMemory
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#pixel-format-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			Pixel Format Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#playmod-overlay-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			Playmod Overlay Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="Playmod Overlay Suite">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#renderimage" class="md-nav__link">
+		<span class="md-ellipsis">
+			RenderImage
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#getidentifier" class="md-nav__link">
+		<span class="md-ellipsis">
+			GetIdentifier
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#hasvisibleregions" class="md-nav__link">
+		<span class="md-ellipsis">
+			HasVisibleRegions
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#variesovertime" class="md-nav__link">
+		<span class="md-ellipsis">
+			VariesOverTime
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#ppix-cache-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			PPix Cache Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#ppix-creator-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			PPix Creator Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="PPix Creator Suite">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#createppix" class="md-nav__link">
+		<span class="md-ellipsis">
+			CreatePPix
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#cloneppix" class="md-nav__link">
+		<span class="md-ellipsis">
+			ClonePPix
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#ppix-creator-2-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			PPix Creator 2 Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#ppix-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			PPix Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="PPix Suite">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#prppixbufferaccess" class="md-nav__link">
+		<span class="md-ellipsis">
+			PrPPixBufferAccess
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#dispose" class="md-nav__link">
+		<span class="md-ellipsis">
+			Dispose
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#getpixels" class="md-nav__link">
+		<span class="md-ellipsis">
+			GetPixels
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#getbounds" class="md-nav__link">
+		<span class="md-ellipsis">
+			GetBounds
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#getrowbytes" class="md-nav__link">
+		<span class="md-ellipsis">
+			GetRowBytes
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#getpixelaspectratio" class="md-nav__link">
+		<span class="md-ellipsis">
+			GetPixelAspectRatio
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#getuniquekey" class="md-nav__link">
+		<span class="md-ellipsis">
+			GetUniqueKey
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#getuniquekeysize" class="md-nav__link">
+		<span class="md-ellipsis">
+			GetUniqueKeySize
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#getrendertime" class="md-nav__link">
+		<span class="md-ellipsis">
+			GetRenderTime
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#ppix-2-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			PPix 2 Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#rollcrawl-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			RollCrawl Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#sequence-info-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			Sequence Info Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#string-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			String Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#threaded-work-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			Threaded Work Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#time-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			Time Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="Time Suite">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#pmplaytimebase" class="md-nav__link">
+		<span class="md-ellipsis">
+			pmPlayTimebase
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#prvideoframerates" class="md-nav__link">
+		<span class="md-ellipsis">
+			PrVideoFrameRates
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#gettickspersecond" class="md-nav__link">
+		<span class="md-ellipsis">
+			GetTicksPerSecond
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#gettickspervideoframe" class="md-nav__link">
+		<span class="md-ellipsis">
+			GetTicksPerVideoFrame
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#getticksperaudiosample" class="md-nav__link">
+		<span class="md-ellipsis">
+			GetTicksPerAudioSample
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#video-segment-render-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			Video Segment Render Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#video-segment-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			Video Segment Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#window-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			Window Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legacy-callback-suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Legacy Callback Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Hardware Integration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Hardware Integration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hardware
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/hardware-integration-components/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hardware Integration Components
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/classid-filetype-subtype/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ClassID, Filetype and Subtype
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/classdata-functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ClassData Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Importers
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Importers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../importers/importers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Importers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../importers/whats-new/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What's New
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../importers/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../importers/selector-table/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selector Table
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../importers/selector-descriptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selector Descriptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../importers/return-codes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Return Codes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../importers/structures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structures
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../importers/structure-descriptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structure Descriptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../importers/suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Export Controllers
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Export Controllers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../export-controllers/export-controllers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Export Controllers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Exporters
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Exporters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/exporters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exporters
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/whats-new/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Whats New
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/selector-table/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selector Table
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/selector-descriptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selector Descriptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/return-codes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Return Codes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/structures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structures
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/structure-descriptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structure Descriptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/additional-details/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Additional Details
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Transmitters
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Transmitters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../transmitters/transmitters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transmitters
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../transmitters/transmitter-basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transmitter Basics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../transmitters/tmModule-functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    tmModule Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../transmitters/tmModule-structures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    tmModule Structures
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../transmitters/suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Video Filters
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Video Filters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/video-filters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Video Filters
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/whats-new/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Whats New
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/selector-table/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selector Table
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/selector-descriptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selector Descriptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/return-codes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Return Codes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/VideoRecord/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VideoRecord
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/additional-details/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Additional Details
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    GPU Effects & Transitions
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            GPU Effects & Transitions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/gpu-effects-transitions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GPU Effects & Transitions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/cuda-opencl-metal-opengl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CUDA, OpenCL, Metal, or OpenGL?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/whats-new-in-ppro-12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What's New in Premiere Pro 12.0?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/whats-new-in-ppro-cc2015/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What's New in Premiere Pro CC 2015.4?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/whats-new-in-ppro-cc2014/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What's New in Premiere Pro CC 2014?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/PrGPUFilter-function-table/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PrGPUFilter Function Table
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/function-descriptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Function Descriptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/return-codes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Return Codes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/structure-descriptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structure Descriptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/PrGPU-SDK-macros/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PrGPU SDK Macros
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AE Transition Extensions
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            AE Transition Extensions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ae-transition-extensions/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ae-transition-extensions/ae-transition-extensions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AE Transition Extensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ae-transition-extensions/PF_TransitionSuite/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PF_TransitionSuite
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Control Surfaces
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            Control Surfaces
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../control-surfaces/control-surfaces/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Control Surfaces
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Page Contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Page Contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+	<a href="#overview" class="md-nav__link">
+		<span class="md-ellipsis">
+			Overview
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#acquiring-and-releasing-the-suites" class="md-nav__link">
+		<span class="md-ellipsis">
+			Acquiring and Releasing the Suites
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="Acquiring and Releasing the Suites">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#versioning" class="md-nav__link">
+		<span class="md-ellipsis">
+			Versioning
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#app-info-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			App Info Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#application-settings-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			Application Settings Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#audio-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			Audio Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#captioning-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			Captioning Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#clip-render-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			Clip Render Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#error-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			Error Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#file-registration-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			File Registration Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#flash-cue-marker-data-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			Flash Cue Marker Data Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#image-processing-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			Image Processing Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#marker-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			Marker Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#memory-manager-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			Memory Manager Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="Memory Manager Suite">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#reservememory" class="md-nav__link">
+		<span class="md-ellipsis">
+			ReserveMemory
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#pixel-format-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			Pixel Format Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#playmod-overlay-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			Playmod Overlay Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="Playmod Overlay Suite">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#renderimage" class="md-nav__link">
+		<span class="md-ellipsis">
+			RenderImage
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#getidentifier" class="md-nav__link">
+		<span class="md-ellipsis">
+			GetIdentifier
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#hasvisibleregions" class="md-nav__link">
+		<span class="md-ellipsis">
+			HasVisibleRegions
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#variesovertime" class="md-nav__link">
+		<span class="md-ellipsis">
+			VariesOverTime
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#ppix-cache-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			PPix Cache Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#ppix-creator-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			PPix Creator Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="PPix Creator Suite">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#createppix" class="md-nav__link">
+		<span class="md-ellipsis">
+			CreatePPix
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#cloneppix" class="md-nav__link">
+		<span class="md-ellipsis">
+			ClonePPix
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#ppix-creator-2-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			PPix Creator 2 Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#ppix-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			PPix Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="PPix Suite">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#prppixbufferaccess" class="md-nav__link">
+		<span class="md-ellipsis">
+			PrPPixBufferAccess
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#dispose" class="md-nav__link">
+		<span class="md-ellipsis">
+			Dispose
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#getpixels" class="md-nav__link">
+		<span class="md-ellipsis">
+			GetPixels
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#getbounds" class="md-nav__link">
+		<span class="md-ellipsis">
+			GetBounds
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#getrowbytes" class="md-nav__link">
+		<span class="md-ellipsis">
+			GetRowBytes
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#getpixelaspectratio" class="md-nav__link">
+		<span class="md-ellipsis">
+			GetPixelAspectRatio
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#getuniquekey" class="md-nav__link">
+		<span class="md-ellipsis">
+			GetUniqueKey
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#getuniquekeysize" class="md-nav__link">
+		<span class="md-ellipsis">
+			GetUniqueKeySize
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#getrendertime" class="md-nav__link">
+		<span class="md-ellipsis">
+			GetRenderTime
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#ppix-2-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			PPix 2 Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#rollcrawl-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			RollCrawl Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#sequence-info-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			Sequence Info Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#string-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			String Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#threaded-work-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			Threaded Work Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#time-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			Time Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="Time Suite">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#pmplaytimebase" class="md-nav__link">
+		<span class="md-ellipsis">
+			pmPlayTimebase
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#prvideoframerates" class="md-nav__link">
+		<span class="md-ellipsis">
+			PrVideoFrameRates
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#gettickspersecond" class="md-nav__link">
+		<span class="md-ellipsis">
+			GetTicksPerSecond
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#gettickspervideoframe" class="md-nav__link">
+		<span class="md-ellipsis">
+			GetTicksPerVideoFrame
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#getticksperaudiosample" class="md-nav__link">
+		<span class="md-ellipsis">
+			GetTicksPerAudioSample
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#video-segment-render-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			Video Segment Render Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#video-segment-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			Video Segment Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#window-suite" class="md-nav__link">
+		<span class="md-ellipsis">
+			Window Suite
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/docsforadobe/premiere-plugin-guide/edit/master/docs/universals/sweetpea-suites.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/docsforadobe/premiere-plugin-guide/raw/master/docs/universals/sweetpea-suites.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="sweetpea-suites">SweetPea Suites<a class="headerlink" href="#sweetpea-suites" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>Suites common to more than one plugin type are documented in this chapter below.</p>
+<p>Suites that are only used by one plugin type are documented in the chapter on that plugin type.</p>
+<p>Below is a table of all suites available in Premiere Pro:</p>
+<table>
+<thead>
+<tr>
+<th>Suite Name</th>
+<th>Relevant to Plug-in Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accelerated Render Invocation Suite</td>
+<td>Exporters</td>
+</tr>
+<tr>
+<td><a href="#app-info-suite">App Info Suite</a></td>
+<td>All</td>
+</tr>
+<tr>
+<td><a href="#application-settings-suite">Application Settings Suite</a></td>
+<td>All</td>
+</tr>
+<tr>
+<td><a href="../../importers/suites/#async-file-reader-suite">Async File Reader Suite</a></td>
+<td>Importers</td>
+</tr>
+<tr>
+<td>Async Operation Suite</td>
+<td>All</td>
+</tr>
+<tr>
+<td><a href="#audio-suite">Audio Suite</a></td>
+<td>Importers, Exporters</td>
+</tr>
+<tr>
+<td><a href="#captioning-suite">Captioning Suite</a></td>
+<td>Device Controllers, Exporters, Transmitters</td>
+</tr>
+<tr>
+<td><a href="#clip-render-suite">Clip Render Suite</a></td>
+<td>Exporters</td>
+</tr>
+<tr>
+<td><a href="../../importers/suites/#deferred-processing-suite">Deferred Processing Suite</a></td>
+<td>Importers</td>
+</tr>
+<tr>
+<td><a href="#error-suite">Error Suite</a></td>
+<td>All except Exporters starting in CS6</td>
+</tr>
+<tr>
+<td><a href="../../exporters/suites/#export-file-suite">Export File Suite</a></td>
+<td>Exporters</td>
+</tr>
+<tr>
+<td><a href="../../exporters/suites/#export-info-suite">Export Info Suite</a></td>
+<td>Exporters</td>
+</tr>
+<tr>
+<td><a href="../../exporters/suites/#export-param-suite">Export Param Suite</a></td>
+<td>Exporters</td>
+</tr>
+<tr>
+<td><a href="../../exporters/suites/#export-progress-suite">Export Progress Suite</a></td>
+<td>Exporters</td>
+</tr>
+<tr>
+<td><a href="../../exporters/suites/#export-standard-param-suite">Export Standard Param Suite</a></td>
+<td>Exporters</td>
+</tr>
+<tr>
+<td><a href="../../exporters/suites/#exporter-utility-suite">Exporter Utility Suite</a></td>
+<td>Exporters</td>
+</tr>
+<tr>
+<td><a href="#file-registration-suite">File Registration Suite</a></td>
+<td>Importers, Transitions, Video Filters</td>
+</tr>
+<tr>
+<td><a href="#flash-cue-marker-data-suite">Flash Cue Marker Data Suite</a></td>
+<td>Exporters</td>
+</tr>
+<tr>
+<td><a href="../../gpu-effects-transitions/suites/#gpu-device-suite">GPU Device Suite</a></td>
+<td>GPU Effects and Transitions</td>
+</tr>
+<tr>
+<td><a href="#image-processing-suite">Image Processing Suite</a></td>
+<td>All</td>
+</tr>
+<tr>
+<td>Importer File Manager Suite</td>
+<td>Importers</td>
+</tr>
+<tr>
+<td><a href="../legacy-callback-suites/">Legacy Callback Suites</a></td>
+<td>All</td>
+</tr>
+<tr>
+<td><a href="#marker-suite">Marker Suite</a></td>
+<td>Exporters</td>
+</tr>
+<tr>
+<td>Media Accelerator Suite</td>
+<td>Importers</td>
+</tr>
+<tr>
+<td><a href="#memory-manager-suite">Memory Manager Suite</a></td>
+<td>All</td>
+</tr>
+<tr>
+<td><a href="../../exporters/suites/#palette-suite">Palette Suite</a></td>
+<td>Exporters</td>
+</tr>
+<tr>
+<td><a href="#pixel-format-suite">Pixel Format Suite</a></td>
+<td>All</td>
+</tr>
+<tr>
+<td><a href="../../transmitters/suites/#playmod-audio-suite">Playmod Audio Suite</a></td>
+<td>Transmitters</td>
+</tr>
+<tr>
+<td>Playmod Device Control Suite</td>
+<td>None (Deprecated)</td>
+</tr>
+<tr>
+<td><a href="#playmod-overlay-suite">Playmod Overlay Suite</a></td>
+<td>Transmitters</td>
+</tr>
+<tr>
+<td>Playmod Render Suite</td>
+<td>None (Deprecated)</td>
+</tr>
+<tr>
+<td><a href="#ppix-cache-suite">PPix Cache Suite</a></td>
+<td>Importers</td>
+</tr>
+<tr>
+<td><a href="#ppix-creator-suite">PPix Creator Suite</a></td>
+<td>All</td>
+</tr>
+<tr>
+<td><a href="#ppix-creator-2-suite">PPix Creator 2 Suite</a></td>
+<td>All</td>
+</tr>
+<tr>
+<td><a href="#ppix-suite">PPix Suite</a></td>
+<td>All</td>
+</tr>
+<tr>
+<td><a href="#ppix-2-suite">PPix 2 Suite</a></td>
+<td>All</td>
+</tr>
+<tr>
+<td>Quality Suite</td>
+<td>None (Deprecated)</td>
+</tr>
+<tr>
+<td><a href="#rollcrawl-suite">RollCrawl Suite</a></td>
+<td>Exporters</td>
+</tr>
+<tr>
+<td>Scope Render Suite</td>
+<td>None (Deprecated)</td>
+</tr>
+<tr>
+<td><a href="../../exporters/suites/#sequence-audio-suite">Sequence Audio Suite</a></td>
+<td>Exporters</td>
+</tr>
+<tr>
+<td><a href="#sequence-info-suite">Sequence Info Suite</a></td>
+<td>Importers, Transitions, Video Filters</td>
+</tr>
+<tr>
+<td><a href="../../exporters/suites/#sequence-render-suite">Sequence Render Suite</a></td>
+<td>Exporters</td>
+</tr>
+<tr>
+<td>Stock Image Suite</td>
+<td>None (Deprecated)</td>
+</tr>
+<tr>
+<td><a href="#string-suite">String Suite</a></td>
+<td>All</td>
+</tr>
+<tr>
+<td><a href="#threaded-work-suite">Threaded Work Suite</a></td>
+<td>All</td>
+</tr>
+<tr>
+<td><a href="#time-suite">Time Suite</a></td>
+<td>All</td>
+</tr>
+<tr>
+<td><a href="../../transmitters/suites/#transmit-invocation-suite">Transmit Invocation Suite</a></td>
+<td>All</td>
+</tr>
+<tr>
+<td><a href="#video-segment-render-suite">Video Segment Render Suite</a></td>
+<td>Exporters</td>
+</tr>
+<tr>
+<td><a href="#video-segment-suite">Video Segment Suite</a></td>
+<td>Exporters</td>
+</tr>
+<tr>
+<td><a href="#window-suite">Window Suite</a></td>
+<td>All</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="acquiring-and-releasing-the-suites">Acquiring and Releasing the Suites<a class="headerlink" href="#acquiring-and-releasing-the-suites" title="Permanent link">&para;</a></h2>
+<p>All SweetPea suites are accessed through the Utilities Suite. Plugins can acquire the suites.</p>
+<div class="highlight"><pre><span></span><code><span class="n">SPBasicSuite</span><span class="w"> </span><span class="n">SPBasic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<span class="n">PrSDKPixelFormatSuite</span><span class="w"> </span><span class="o">*</span><span class="n">PixelFormatSuite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+
+<span class="n">SPBasic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stdParmsP</span><span class="o">-&gt;</span><span class="n">piSuites</span><span class="o">-&gt;</span><span class="n">utilFuncs</span><span class="o">-&gt;</span><span class="n">getSPBasicSuite</span><span class="p">();</span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">SPBasic</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="n">SPBasic</span><span class="o">-&gt;</span><span class="n">AcquireSuite</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">kPrSDKPixelFormatSuite</span><span class="p">,</span><span class="w"> </span><span class="n">kPrSDKPixelFormatSuiteVersion</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="o">**</span><span class="p">)</span><span class="o">&amp;</span><span class="n">PixelFormatSuite</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Don't forget to release the suites when finished!</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">SPBasic</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">PixelFormatSuite</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">SPBasic</span><span class="o">-&gt;</span><span class="n">ReleaseSuite</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">kPrSDKPixelFormatSuite</span><span class="p">,</span>
+<span class="w">                          </span><span class="n">kPrSDKPixelFormatSuiteVersion</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="versioning">Versioning<a class="headerlink" href="#versioning" title="Permanent link">&para;</a></h3>
+<p>Generally from version to version, the changes made to a suite are additive, so it is recommended to work with the most recent version of a suite if possible. However the latest version of a suite may not be supported by older versions of Premiere Pro or other host applications. Attempting to acquire suites that are unsupported by the host application will result in a NULL pointer being returned from AcquireSuite.</p>
+<p>For a plugin to support multiple versions, it may choose to use a specific older version of the suite that is supported across those multiple versions. Alternatively, it may check the version of the host application (using the <a href="#app-info-suite">App Info Suite</a>), and use the new suites where available, or the older suites when running in an older version. To acquire a specific older version of a suite, rather than requesting kPrSDKPixelFormatSuiteVersion in the example above, use a specific version number instead.</p>
+<hr />
+<h2 id="app-info-suite">App Info Suite<a class="headerlink" href="#app-info-suite" title="Permanent link">&para;</a></h2>
+<p>Useful for plug-i that are shared between different applications, such as After Effects plugins, Premiere exporters, transmitters, and importers, where it may be important to know which host, version, or language the plugin is currently running in.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This suite is not available to AE effects running in AE.</p>
+</div>
+<p>This suite provides the host application and version number. For a version such as 6.0.3, it will return major = 6, minor = 0, and patch = 3. See PrSDKAppInfoSuite.h.</p>
+<p>Starting in version 2 of the suite, introduced in CC, the suite has a new selector to retrieve the build number. SpeedGrade CC supports this suite starting with the July 2013 update.</p>
+<p>In version 3, starting in CC 2014, the suite has a new selector to retrieve the language as a NULL-terminated string identifying the locale used in the host application. For example: "en_US", "ja_JP", "zh_CN".</p>
+<hr />
+<h2 id="application-settings-suite">Application Settings Suite<a class="headerlink" href="#application-settings-suite" title="Permanent link">&para;</a></h2>
+<p>New in CS4. This suite provides calls to get the scratch disk folder paths defined in the current project, where the captured files and preview files are created. It also provides a call to get the project file path. All paths are passed back as PrSDKStrings. Use the new <a href="#string-suite">String Suite</a> to extract the strings to UTF-8 or UTF-16. See PrSDKApplicationSettingsSuite.h.</p>
+<hr />
+<h2 id="audio-suite">Audio Suite<a class="headerlink" href="#audio-suite" title="Permanent link">&para;</a></h2>
+<p>Calls to convert to and from the native audio format used by the Premiere API, at various bit depths. See PrSDKAudioSuite.h.</p>
+<hr />
+<h2 id="captioning-suite">Captioning Suite<a class="headerlink" href="#captioning-suite" title="Permanent link">&para;</a></h2>
+<p>This suite enables a device controller, exporter, player, or transmitter to get the closed captioning data attached to a sequence. This suite provides the data in either Scenarist (CEA-608, *.scc) and MacCaption (CEA-708, *.mcc) formats. In the case of CEA-708, it includes not just the text to display, but it's also the position information, and background, font, etc. If the transmitter or player just wants to overlay the captioning data on a frame, it can use the <a href="#playmod-overlay-suite">Playmod Overlay Suite</a> instead.</p>
+<hr />
+<h2 id="clip-render-suite">Clip Render Suite<a class="headerlink" href="#clip-render-suite" title="Permanent link">&para;</a></h2>
+<p>New in 2.0. Use this suite in the player or renderer, to request source frames directly from the importer. There are calls to find the supported frame sizes and pixel formats, so that the caller can make an informed decision about what format to request. Frames can be retrieved synchronously or asynchronously. Asynchronous requests can be cancelled, for example if the frames have passed their window of playback. See PrSDKClipRenderSuite.h.</p>
+<p>Starting in CS4, this suite includes calls to find any custom pixel format supported by a clip, and to get frames in those custom pixel formats.</p>
+<p>An exporter can use this suite to request frames from the renderer in a compressed pixel format.</p>
+<hr />
+<h2 id="error-suite">Error Suite<a class="headerlink" href="#error-suite" title="Permanent link">&para;</a></h2>
+<p>Uses a single callback for errors, warnings, and info. This callback will activate a flashing icon in the lower left-hand corner of the main application window, which when clicked, will open up the new Events Window containing the error information. See PrSDKErrorSuite.h.</p>
+<p>Starting in version 3 of the suite, introduced in CS4, the suite supports UTF-16 strings. Starting in CS6, exporters should use the <a href="../../exporters/suites/#exporter-utility-suite">Exporter Utility Suite</a> to report events.</p>
+<hr />
+<h2 id="file-registration-suite">File Registration Suite<a class="headerlink" href="#file-registration-suite" title="Permanent link">&para;</a></h2>
+<p>Used for registering external files (such as textures, logos, etc) that are used by a plugin instance but do not appear as footage in the Project Window. Registered files will be taken into account when trimming or copying a project using the Project Manager. See PrSDKFileRegistrationSuite.h.</p>
+<hr />
+<h2 id="flash-cue-marker-data-suite">Flash Cue Marker Data Suite<a class="headerlink" href="#flash-cue-marker-data-suite" title="Permanent link">&para;</a></h2>
+<p>New in CS4. Specific utilities to read Flash cue points. Use in conjunction with the <a href="#marker-suite">Marker Suite</a>. See PrSDKFlashCueMarkerDataSuite.h.</p>
+<hr />
+<h2 id="image-processing-suite">Image Processing Suite<a class="headerlink" href="#image-processing-suite" title="Permanent link">&para;</a></h2>
+<p>New in CS5. Various calls to get information on pixel formats and process frames. The ScaleConvert() call is the way to copy-convert from a buffer of any supported pixel format to a separate memory buffer.</p>
+<p>In version 2, new in CS5.5, we have added StampDVFrameAspect(), which allows a plugin to set the aspect ratio of a DV frame. This was added to supplement ScaleConvert(), which doesn't have an aspect ratio parameter.</p>
+<hr />
+<h2 id="marker-suite">Marker Suite<a class="headerlink" href="#marker-suite" title="Permanent link">&para;</a></h2>
+<p>New in CS4. New way to read markers of all types. See PrSDKMarkerSuite.h.</p>
+<hr />
+<h2 id="memory-manager-suite">Memory Manager Suite<a class="headerlink" href="#memory-manager-suite" title="Permanent link">&para;</a></h2>
+<p>New in Premiere Pro 2.0. Calls to allocate and deallocate memory, and to reserve an amount of memory so that it is not used by the host. See PrSDKMemoryManagerSuite.h.</p>
+<p>In CS6, the suite is now at version 4. AdjustReservedMemorySize provides a way to adjust the reserved memory size relative to the current size. This may be easier for the plugin, rather than maintaining the absolute memory usage and updating it using the older ReserveMemory call.</p>
+<h3 id="reservememory">ReserveMemory<a class="headerlink" href="#reservememory" title="Permanent link">&para;</a></h3>
+<p>A plugin instance can call ReserveMemory as a request to reserve space so that Premiere's media cache does not use it. Each time ReserveMemory is called, it updates Premiere Pro on how many bytes the plugin instance is currently reserving. The amount specified is absolute, rather than cumulative. So to release any reserved memory to be made available to Premiere Pro's media cache, call it with a size of 0. However, it's not needed to reset this when exporters are destructed on <em>exSDK_EndInstance</em>, since the media manager will be deleting all the references anyways.</p>
+<p>ReserveMemory changes the maximum size of Premiere's Media Cache. So if the cache size starts at 10 GB, and you reserve 1 GB, then the cache will not grow beyond 9 GB. ReserveMemory will reserve a different amount of memory, depending on the amount of available memory in the system, and what other plugin instances have already reserved. The media cache needs a minimum amount of memory to play audio, render, etc.</p>
+<p>Starting in version 2 of the suite, introduced in CS4, there are calls to allocate/deallocate memory. This is necessary for exporters, which are not passed the legacy memFuncs.</p>
+<hr />
+<h2 id="pixel-format-suite">Pixel Format Suite<a class="headerlink" href="#pixel-format-suite" title="Permanent link">&para;</a></h2>
+<p>See the table of supported pixel formats. GetBlackForPixelFormat returns the minimum (black) value for a given pixel format. GetWhiteForPixelFormat returns the maximum (white) value for a given pixel format. Pixel types like YUYV actually contain a group of two pixels to specify a color completely, so the data size returned in this case will be 4 bytes (rather than 2). This call does not support MPEG-2 planar formats.</p>
+<p>ConvertColorToPixelFormattedData converts an BGRA/ARGB value into a value of a different pixel type. These functions are not meant to convert entire frames from one colorspace to another, but may be used to convert a single color value from a filter color picker or transition border. To convert frames between pixel formats, see the <a href="#image-processing-suite">Image Processing Suite</a>.</p>
+<p>New in Premiere Pro 4.0.1, <code>MAKE_THIRD_PARTY_CUSTOM_PIXEL_FORMAT_FOURCC()</code> defines a custom pixel format.</p>
+<hr />
+<h2 id="playmod-overlay-suite">Playmod Overlay Suite<a class="headerlink" href="#playmod-overlay-suite" title="Permanent link">&para;</a></h2>
+<p>New in CS5.5. A transmitter can ask Premiere Pro to render the overlay for a specific time. As of CS6, this is only used for closed captioning.</p>
+<p>To render the closed captioning overlay, it is not necessary to know anything about the closed captioning data, whether it is CEA-608 or CEA-708. RenderImage will simply produce a PPixHand.</p>
+<p>The reason why it's not called Closed Captioning Overlay Suite is because going forward we want to use it as a general suite that provides all kinds of overlays. That way, when we add more overlay types in the future, you don't need to worry about updating your player each time to mirror the implementation on your side. In the future, we will likely use this same suite to render static overlays, such as safe areas. To support those, even if VariesOverTime returns false, you can call HasVisibleRegions at time 0.</p>
+<p>Version 2 in CC 2014 removes <code>CalculateVisibleRegions()</code>.</p>
+<h3 id="renderimage">RenderImage<a class="headerlink" href="#renderimage" title="Permanent link">&para;</a></h3>
+<p>Render the overlay into an optionally provided BGRA PPixHand. RenderImage does not composite the overlay onto an existing frame, it just renders the overlay into the visible regions. After rendering the overlay at the player's display size, you will then need to composite that result over the frame.</p>
+<p>If the user has zoomed the video, it could be wasteful to render a full-sized overlay image and then scale it. For better performance, the overlay can be rendered at the actual display size. The inDisplayWidth, inDisplayHeight and inLogicalRegion parameters provide this extra information needed to optimize for scaling in the UI.</p>
+<p>As an example, let's say the sequence is 720x480 at 0.9091 PAR, and the Sequence Monitor is set to show the full frame at square PAR. Set inLogicalRegion to (0, 0, 720, 480), and inDisplayWidth to 654 and inDisplayHeight to 480.</p>
+<p>If the Monitor zoom level was set to 50%, then the inLogicalRegion should stay the same, but display width and height should be set to 327x240. If zoomed to 200%, display width and height should be set to 1308x960. To pan around (as opposed to showing the entire frame), the logical region should be adjusted to represent the part of the sequence frame currently being displayed.</p>
+<div class="highlight"><pre><span></span><code><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">RenderImage</span><span class="p">)(</span>
+<span class="w">  </span><span class="n">PrPlayID</span><span class="w">       </span><span class="n">inPlayID</span><span class="p">,</span>
+<span class="w">  </span><span class="n">PrTime</span><span class="w">         </span><span class="n">inTime</span><span class="p">,</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prRect</span><span class="o">*</span><span class="w">  </span><span class="n">inLogicalRegion</span><span class="p">,</span>
+<span class="w">  </span><span class="kt">int</span><span class="w">            </span><span class="n">inDisplayWidth</span><span class="p">,</span>
+<span class="w">  </span><span class="kt">int</span><span class="w">            </span><span class="n">inDisplayHeight</span><span class="p">,</span>
+<span class="w">  </span><span class="n">prBool</span><span class="w">         </span><span class="n">inClearToTransparentBlack</span><span class="p">,</span>
+<span class="w">  </span><span class="n">PPixHand</span><span class="o">*</span><span class="w">      </span><span class="n">ioPPix</span><span class="p">);</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>inLogicalRegion</code></td>
+<td>The non-scaled region of the source PPix to overlay</td>
+</tr>
+<tr>
+<td><code>inDisplayWidth</code></td>
+<td>Width and height of PPix, if provided in ioPPix, scaled to account for Monitor zoom and PAR</td>
+</tr>
+<tr>
+<td><code>inDisplayHeight</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>inClearToTransparentBlack</code></td>
+<td>If <code>kPrTrue</code>, the frame will first be cleared to transparent black before render</td>
+</tr>
+<tr>
+<td><code>ioPPix</code></td>
+<td>The frame into which to draw the overlay. If NULL, the host will allocate the PPix.<br/><br/>If provided, the PPix must be BGRA, square pixel aspect ratio, and sized to inDisplayWidth &amp; inDisplayHeight.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="getidentifier">GetIdentifier<a class="headerlink" href="#getidentifier" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">GetIdentifier</span><span class="p">)(</span>
+<span class="w">  </span><span class="n">PrPlayID</span><span class="w">       </span><span class="n">inPlayID</span><span class="p">,</span>
+<span class="w">  </span><span class="n">PrTime</span><span class="w">         </span><span class="n">inTime</span><span class="p">,</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prRect</span><span class="o">*</span><span class="w">  </span><span class="n">inLogicalRegion</span><span class="p">,</span>
+<span class="w">  </span><span class="kt">int</span><span class="w">            </span><span class="n">inDisplayWidth</span><span class="p">,</span>
+<span class="w">  </span><span class="kt">int</span><span class="w">            </span><span class="n">inDisplayHeight</span><span class="p">,</span>
+<span class="w">  </span><span class="n">prBool</span><span class="w">         </span><span class="n">inClearToTransparentBlack</span><span class="p">,</span>
+<span class="w">  </span><span class="n">prPluginID</span><span class="o">*</span><span class="w">    </span><span class="n">outIdentifier</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="hasvisibleregions">HasVisibleRegions<a class="headerlink" href="#hasvisibleregions" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">HasVisibleRegions</span><span class="p">)(</span>
+<span class="w">  </span><span class="n">PrPlayID</span><span class="w">       </span><span class="n">inPlayID</span><span class="p">,</span>
+<span class="w">  </span><span class="n">PrTime</span><span class="w">         </span><span class="n">inTime</span><span class="p">,</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prRect</span><span class="o">*</span><span class="w">  </span><span class="n">inLogicalRegion</span><span class="p">,</span>
+<span class="w">  </span><span class="kt">int</span><span class="w">            </span><span class="n">inDisplayWidth</span><span class="p">,</span>
+<span class="w">  </span><span class="kt">int</span><span class="w">            </span><span class="n">inDisplayHeight</span><span class="p">,</span>
+<span class="w">  </span><span class="n">prBool</span><span class="o">*</span><span class="w">        </span><span class="n">outHasVisibleRegions</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="variesovertime">VariesOverTime<a class="headerlink" href="#variesovertime" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">VariesOverTime</span><span class="p">)(</span>
+<span class="w">  </span><span class="n">PrPlayID</span><span class="w">  </span><span class="n">inPlayID</span><span class="p">,</span>
+<span class="w">  </span><span class="n">prBool</span><span class="o">*</span><span class="w">   </span><span class="n">outVariesOverTime</span><span class="p">);</span>
+</code></pre></div>
+<hr />
+<h2 id="ppix-cache-suite">PPix Cache Suite<a class="headerlink" href="#ppix-cache-suite" title="Permanent link">&para;</a></h2>
+<p>Used by an importer, player, or renderer to take advantage of the host application's PPix cache. See PrSDKPPixCacheSuite.h.</p>
+<p>Starting in version 2 of this suite, introduced in Premiere Pro 4.1, <code>AddFrameToCache</code> and <code>GetFrameFromCache</code> now have two extra parameters, <code>inPreferences</code> and <code>inPreferencesLength</code>. Now frames are differentiated within the cache, based on the importer preferences, so when the preferences change, the host will not use the old frame when it gets a frame request.</p>
+<p>Version 4, new in CS5.0.3, adds <code>ExpireNamedPPixFromCache()</code> and <code>ExpireAllPPixesFromCache()</code>, which allow a plugin to remove one or all PPixes from the Media Cache, which can be useful if the media is changing due to being edited in a separate application.</p>
+<p>To expire an individual frames expired using <code>ExpireNamedPPixFromCache()</code>, the identifier must be known. The plugin may specify an identifier using <code>AddNamedPPixToCache()</code>. If a frame is in the cache with multiple names, and you expire any one of those names, then the frame will be expired. Alternatively, for rendered frames, the identifier may be retrieved using <code>GetIdentifierForProduceFrameAsync()</code> in the <a href="#video-segment-render-suite">Video Segment Render Suite</a>.</p>
+<p>Clearing the cache will not interfere with any outstanding requests, because each request holds dependencies on the needed frames.</p>
+<p>Version 5, new in CS5.5, adds the new color profile-aware calls <code>AddFrameToCacheWithColorProfile()</code> and <code>GetFrameFromCacheWithColorProfile()</code>.</p>
+<p>Version 6, new in CC 2014, adds <code>AddFrameToCacheWithColorProfile2()</code> and <code>GetFrameFromCacheWithColorProfile2()</code>, which are the same as the ones added in version 5 with the addition of a <code>PrRenderQuality</code> parameter.</p>
+<p>Version 7, adds <code>AddFrameToCacheWithColorSpace()</code> and <code>GetFrameFromCacheWithColorSpace()</code>, these APIs deprecate <code>AddFrameToCacheWithColorProfile2()</code> and <code>GetFrameFromCacheWithColorProfile2()</code>.</p>
+<hr />
+<h2 id="ppix-creator-suite">PPix Creator Suite<a class="headerlink" href="#ppix-creator-suite" title="Permanent link">&para;</a></h2>
+<p>Includes callbacks to create and copy PPixs. See also the <a href="#ppix-creator-2-suite">PPix Creator 2 Suite</a>.</p>
+<h3 id="createppix">CreatePPix<a class="headerlink" href="#createppix" title="Permanent link">&para;</a></h3>
+<p>Creates a new PPix. The advantage of using this callback is that frames allocated are accounted for in the media cache, and are 16-byte aligned.</p>
+<p><code>ppixNew</code> and <code>newPtr</code> don't allocate memory in the media cache, or perform any alignment.</p>
+<div class="highlight"><pre><span></span><code><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">CreatePPix</span><span class="p">)(</span>
+<span class="w">  </span><span class="n">PPixHand</span><span class="o">*</span><span class="w">           </span><span class="n">outPPixHand</span><span class="p">,</span>
+<span class="w">  </span><span class="n">PrPPixBufferAccess</span><span class="w">  </span><span class="n">inRequestedAccess</span><span class="p">,</span>
+<span class="w">  </span><span class="n">PrPixelFormat</span><span class="w">       </span><span class="n">inPixelFormat</span><span class="p">,</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prRect</span><span class="o">*</span><span class="w">       </span><span class="n">inBoundingRect</span><span class="p">);</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PPixHand *outPPixHand</code></td>
+<td>The new PPix handle if the creation was successful.<br/><br/>NULL otherwise.</td>
+</tr>
+<tr>
+<td><code>PrPPixBufferAccess inRequestedAccess</code></td>
+<td>Requested pixel access. Read-only is not allowed (doesn't make sense).<br/><br/><code>PrPPixBufferAccess</code> values are defined in <a href="#ppix-suite">PPix Suite</a>.</td>
+</tr>
+<tr>
+<td><code>PrPixelFormat inPixelFormat</code></td>
+<td>The pixel format of this PPix</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cloneppix">ClonePPix<a class="headerlink" href="#cloneppix" title="Permanent link">&para;</a></h3>
+<p>Clones an existing PPix.</p>
+<p>It will ref-count the PPix if only read access is requested and the PPix to copy from is read-only as well, otherwise it will create a new one and copy.</p>
+<div class="highlight"><pre><span></span><code><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">ClonePPix</span><span class="p">)(</span>
+<span class="w">  </span><span class="n">PPixHand</span><span class="w">            </span><span class="n">inPPixToClone</span><span class="p">,</span>
+<span class="w">  </span><span class="n">PPixHand</span><span class="o">*</span><span class="w">           </span><span class="n">outPPixHand</span><span class="p">,</span>
+<span class="w">  </span><span class="n">PrPPixBufferAccess</span><span class="w">  </span><span class="n">inRequestedAccess</span><span class="p">);</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PPixHand inPPixToClone</code></td>
+<td>The PPix to clone from.</td>
+</tr>
+<tr>
+<td><code>PPixHand *outPPixHand</code></td>
+<td>The new PPix handle if the creation was successful.<br/><br/>NULL otherwise.</td>
+</tr>
+<tr>
+<td><code>PrPPixBufferAccess inRequestedAccess</code></td>
+<td>Requested pixel access.<br/><br/>Only read-only is allowed right now.<br/><br/><code>PrPPixBufferAccess</code> values are defined in <a href="#ppix-suite">PPix Suite</a>.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="ppix-creator-2-suite">PPix Creator 2 Suite<a class="headerlink" href="#ppix-creator-2-suite" title="Permanent link">&para;</a></h2>
+<p>More callbacks to create PPixs, including raw PPixs.</p>
+<p>Starting in version 2 of this suite, introduced in Premiere Pro 4.0.1, there is a new <code>CreateCustomPPix</code> call to create a PPix in a custom pixel format.</p>
+<p>New APIs added to create PPix with specific color space. Color aware Importers should use new color managed APIs for PPix creation. See PrSDKPPixCreator2Suite.h.</p>
+<hr />
+<h2 id="ppix-suite">PPix Suite<a class="headerlink" href="#ppix-suite" title="Permanent link">&para;</a></h2>
+<p>Callbacks and enums pertaining to PPixs. See also <a href="#ppix-2-suite">PPix 2 Suite</a>.</p>
+<h3 id="prppixbufferaccess">PrPPixBufferAccess<a class="headerlink" href="#prppixbufferaccess" title="Permanent link">&para;</a></h3>
+<p>Can be either:</p>
+<ul>
+<li><code>PrPPixBufferAccess_ReadOnly</code>,</li>
+<li><code>PrPPixBufferAccess_WriteOnly</code>,</li>
+<li><code>PrPPixBufferAccess_ReadWrite</code></li>
+</ul>
+<h3 id="dispose">Dispose<a class="headerlink" href="#dispose" title="Permanent link">&para;</a></h3>
+<p>This will free this PPix. The PPix is no longer valid after this function is called.</p>
+<div class="highlight"><pre><span></span><code><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">Dispose</span><span class="p">)(</span>
+<span class="w">  </span><span class="n">PPixHand</span><span class="w">  </span><span class="n">inPPixHand</span><span class="p">);</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PPixHand inPPixHand</code></td>
+<td>The PPix handle to dispose.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="getpixels">GetPixels<a class="headerlink" href="#getpixels" title="Permanent link">&para;</a></h3>
+<p>This will return a pointer to the pixel buffer.</p>
+<div class="highlight"><pre><span></span><code><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">GetPixels</span><span class="p">)(</span>
+<span class="w">  </span><span class="n">PPixHand</span><span class="w">            </span><span class="n">inPPixHand</span><span class="p">,</span>
+<span class="w">  </span><span class="n">PrPPixBufferAccess</span><span class="w">  </span><span class="n">inRequestedAccess</span><span class="p">,</span>
+<span class="w">  </span><span class="kt">char</span><span class="o">**</span><span class="w">              </span><span class="n">outPixelAddress</span><span class="p">);</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PPixHand inPPixHand</code></td>
+<td>The PPix handle to operate on.</td>
+</tr>
+<tr>
+<td><code>PrPPixBufferAccess inRequestedAccess</code><br/><br/>Most PPixs do not support write access modes.</td>
+<td>Requested pixel access.</td>
+</tr>
+<tr>
+<td><code>char** outPixelAddress</code></td>
+<td>The output pixel buffer address.<br/><br/>May be NULL if the requested pixel access is not supported.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="getbounds">GetBounds<a class="headerlink" href="#getbounds" title="Permanent link">&para;</a></h3>
+<p>This will return the bounding rect.</p>
+<div class="highlight"><pre><span></span><code><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">GetBounds</span><span class="p">)(</span>
+<span class="w">  </span><span class="n">PPixHand</span><span class="w">  </span><span class="n">inPPixHand</span><span class="p">,</span>
+<span class="w">  </span><span class="n">prRect</span><span class="o">*</span><span class="w">   </span><span class="n">inoutBoundingRect</span><span class="p">);</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PPixHand inPPixHand</code></td>
+<td>The PPix handle to operate on.</td>
+</tr>
+<tr>
+<td><code>prRect* inoutBoundingRect</code></td>
+<td>The address of a bounding rect to be filled in.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="getrowbytes">GetRowBytes<a class="headerlink" href="#getrowbytes" title="Permanent link">&para;</a></h3>
+<p>This will return the row bytes of the PPix.</p>
+<div class="highlight"><pre><span></span><code><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">GetRowBytes</span><span class="p">)(</span>
+<span class="w">  </span><span class="n">PPixHand</span><span class="w">      </span><span class="n">inPPixHand</span><span class="p">,</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="o">*</span><span class="w">  </span><span class="n">outRowBytes</span><span class="p">);</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PPixHand inPPixHand</code></td>
+<td>The PPix handle to operate on.</td>
+</tr>
+<tr>
+<td><code>csSDK_int32* outRowBytes</code></td>
+<td>Returns how many bytes must be added to the pixel buffer address to get to the next line.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="getpixelaspectratio">GetPixelAspectRatio<a class="headerlink" href="#getpixelaspectratio" title="Permanent link">&para;</a></h3>
+<p>This will return the pixel aspect ratio of this PPix.</p>
+<div class="highlight"><pre><span></span><code><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">GetPixelAspectRatio</span><span class="p">)(</span>
+<span class="w">  </span><span class="n">PPixHand</span><span class="w">       </span><span class="n">inPPixHand</span><span class="p">,</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="o">*</span><span class="w">  </span><span class="n">outPixelAspectRatioNumerator</span><span class="p">,</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="o">*</span><span class="w">  </span><span class="n">outPixelAspectRatioDenominator</span><span class="p">);</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PPixHand inPPixHand</code></td>
+<td>The PPix handle to operate on.</td>
+</tr>
+<tr>
+<td><code>PrPixelFormat* outPixelFormat</code></td>
+<td>Returns the pixel format of this PPix</td>
+</tr>
+</tbody>
+</table>
+<h3 id="getuniquekey">GetUniqueKey<a class="headerlink" href="#getuniquekey" title="Permanent link">&para;</a></h3>
+<p>This will return the unique key for this PPix.</p>
+<table>
+<thead>
+<tr>
+<th>Returns</th>
+<th>If</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>error</td>
+<td>the buffer size is too small (call <code>GetUniqueKeySize</code> to get the correct size)</td>
+</tr>
+<tr>
+<td>error</td>
+<td>the key is not available</td>
+</tr>
+<tr>
+<td>success</td>
+<td>the key data was filled in</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">GetUniqueKey</span><span class="p">)(</span>
+<span class="w">  </span><span class="n">PPixHand</span><span class="w">        </span><span class="n">inPPixHand</span><span class="p">,</span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w">  </span><span class="n">inoutKeyBuffer</span><span class="p">,</span>
+<span class="w">  </span><span class="kt">size_t</span><span class="w">          </span><span class="n">inKeyBufferSize</span><span class="p">);</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PPixHand inPPixHand</code></td>
+<td>The PPix handle to operate on.</td>
+</tr>
+<tr>
+<td><code>unsigned char* inoutKeyBuffer</code></td>
+<td>Storage for the key to be returned.</td>
+</tr>
+<tr>
+<td><code>size_t inKeyBufferSize</code></td>
+<td>Size of buffer</td>
+</tr>
+</tbody>
+</table>
+<h3 id="getuniquekeysize">GetUniqueKeySize<a class="headerlink" href="#getuniquekeysize" title="Permanent link">&para;</a></h3>
+<p>This will return the unique key size. This will not change for the entire run of the application.</p>
+<div class="highlight"><pre><span></span><code><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">GetUniqueKeySize</span><span class="p">)(</span>
+<span class="w">  </span><span class="kt">size_t</span><span class="o">*</span><span class="w">  </span><span class="n">outKeyBufferSize</span><span class="p">);</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>size_t* outKeyBufferSize</code></td>
+<td>Returns the size of the PPix unique key.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="getrendertime">GetRenderTime<a class="headerlink" href="#getrendertime" title="Permanent link">&para;</a></h3>
+<p>This will return the render time for this PPix.</p>
+<div class="highlight"><pre><span></span><code><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">GetRenderTime</span><span class="p">)(</span>
+<span class="w">  </span><span class="n">PPixHand</span><span class="w">      </span><span class="n">inPPixHand</span><span class="p">,</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="o">*</span><span class="w">  </span><span class="n">outRenderMilliseconds</span><span class="p">);</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PPixHand inPPixHand</code></td>
+<td>The PPix handle to operate on.</td>
+</tr>
+<tr>
+<td><code>csSDK_int32* outRenderMilliseconds</code></td>
+<td>Returns the render time in milliseconds.<br/><br/>If the frame was cached, the time will be zero.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="ppix-2-suite">PPix 2 Suite<a class="headerlink" href="#ppix-2-suite" title="Permanent link">&para;</a></h2>
+<p>A call to get the size of a PPix. Starting in version 2 of this suite, introduced in CS4, there is a new <code>GetYUV420PlanarBuffers</code> call to get buffer offsets and rowbytes of YUV_420_MPEG2 pixel formats. See PrSDKPPix2Suite.h.</p>
+<hr />
+<h2 id="rollcrawl-suite">RollCrawl Suite<a class="headerlink" href="#rollcrawl-suite" title="Permanent link">&para;</a></h2>
+<p>Used by a player or renderer to obtain the pixels for a roll/crawl. The player or render can then move and composite it using accelerated algorithms or hardware. See PrSDKRollCrawlSuite.h.</p>
+<hr />
+<h2 id="sequence-info-suite">Sequence Info Suite<a class="headerlink" href="#sequence-info-suite" title="Permanent link">&para;</a></h2>
+<p>New in CS4. Calls to get the frame size and pixel aspect ratio of a sequence. This is useful for importers, transitions, or video filters, that provide a custom setup dialog with a preview of the video, so that the preview frame can be rendered at the right dimensions. See PrSDKSequenceInfoSuite.h.</p>
+<p>Version 2, new in CS5.5, adds <code>GetFrameRate()</code>.</p>
+<p>Version 3, new in CC, adds <code>GetFieldType()</code>, <code>GetZeroPoint()</code>, and <code>GetTimecodeDropFrame()</code>.</p>
+<hr />
+<h2 id="string-suite">String Suite<a class="headerlink" href="#string-suite" title="Permanent link">&para;</a></h2>
+<p>New in CS4. Calls to allocate, copy, and dispose of PrSDKStrings. See PrSDKStringSuite.h.</p>
+<hr />
+<h2 id="threaded-work-suite">Threaded Work Suite<a class="headerlink" href="#threaded-work-suite" title="Permanent link">&para;</a></h2>
+<p>New in CS4. Calls to register and queue up a threaded work callback for processing on a render thread. If you queue multiple times, it is possible for multiple threads to call your callback. If this is a problem, you'll need to handle this on your end.</p>
+<hr />
+<h2 id="time-suite">Time Suite<a class="headerlink" href="#time-suite" title="Permanent link">&para;</a></h2>
+<p>A SweetPea suite that includes the following structure, callbacks, and enum:</p>
+<h3 id="pmplaytimebase">pmPlayTimebase<a class="headerlink" href="#pmplaytimebase" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>csSDK_uint32 scale</code></td>
+<td>rate of the timebase</td>
+</tr>
+<tr>
+<td><code>csSDK_int32 sampleSize</code></td>
+<td>size of one sample</td>
+</tr>
+<tr>
+<td><code>csSDK_int32 fileDuration</code></td>
+<td>number of samples in file</td>
+</tr>
+</tbody>
+</table>
+<h3 id="prvideoframerates">PrVideoFrameRates<a class="headerlink" href="#prvideoframerates" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>kVideoFrameRate_24Drop</code></td>
+<td>24000 / 1001</td>
+</tr>
+<tr>
+<td><code>kVideoFrameRate_24</code></td>
+<td>24</td>
+</tr>
+<tr>
+<td><code>kVideoFrameRate_PAL</code></td>
+<td>25</td>
+</tr>
+<tr>
+<td><code>kVideoFrameRate_NTSC</code></td>
+<td>30000 / 1001</td>
+</tr>
+<tr>
+<td><code>kVideoFrameRate_30</code></td>
+<td>30</td>
+</tr>
+<tr>
+<td><code>kVideoFrameRate_PAL_HD</code></td>
+<td>50</td>
+</tr>
+<tr>
+<td><code>kVideoFrameRate_NTSC_HD</code></td>
+<td>60000 / 1001</td>
+</tr>
+<tr>
+<td><code>kVideoFrameRate_60</code></td>
+<td>60</td>
+</tr>
+<tr>
+<td><code>kVideoFrameRate_Max</code></td>
+<td>0xFFFFFFFF</td>
+</tr>
+</tbody>
+</table>
+<h3 id="gettickspersecond">GetTicksPerSecond<a class="headerlink" href="#gettickspersecond" title="Permanent link">&para;</a></h3>
+<p>Get the current ticks per second. This is guaranteed to be constant for the duration of the runtime.</p>
+<div class="highlight"><pre><span></span><code><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">GetTicksPerSecond</span><span class="p">)(</span>
+<span class="w">  </span><span class="n">PrTime</span><span class="o">*</span><span class="w">  </span><span class="n">outTicksPerSec</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="gettickspervideoframe">GetTicksPerVideoFrame<a class="headerlink" href="#gettickspervideoframe" title="Permanent link">&para;</a></h3>
+<p>Get the current ticks in a video frame rate. inVideoFrameRate may be any of the <code>PrVideoFrameRates</code> enum.</p>
+<div class="highlight"><pre><span></span><code><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">GetTicksPerVideoFrame</span><span class="p">)(</span>
+<span class="w">  </span><span class="n">PrVideoFrameRates</span><span class="w">  </span><span class="n">inVideoFrameRate</span><span class="p">,</span>
+<span class="w">  </span><span class="n">PrTime</span><span class="o">*</span><span class="w">            </span><span class="n">outTicksPerFrame</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="getticksperaudiosample">GetTicksPerAudioSample<a class="headerlink" href="#getticksperaudiosample" title="Permanent link">&para;</a></h3>
+<p>Get the current ticks in an audio sample rate.</p>
+<table>
+<thead>
+<tr>
+<th>Returns</th>
+<th>If</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>kPrTimeSuite_RoundedAudioRate</code></td>
+<td>the requested audio sample rate is not an even divisor of the base tick count and therefore times in this rate will not be exact.</td>
+</tr>
+<tr>
+<td><code>kPrTimeSuite_Success</code></td>
+<td>otherwise</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">GetTicksPerAudioSample</span><span class="p">)(</span>
+<span class="w">  </span><span class="kt">float</span><span class="w">    </span><span class="n">inSampleRate</span><span class="p">,</span>
+<span class="w">  </span><span class="n">PrTime</span><span class="o">*</span><span class="w">  </span><span class="n">outTicksPerSample</span><span class="p">);</span>
+</code></pre></div>
+<hr />
+<h2 id="video-segment-render-suite">Video Segment Render Suite<a class="headerlink" href="#video-segment-render-suite" title="Permanent link">&para;</a></h2>
+<p>This suite uses the built-in software path for rendering, and supports subtree rendering. This means the plugin can ask the host to render a part of the segment, and then still handle the rest of the rendering. This is useful if, for example, one of the layers has an effect that the plugin cannot render itself. The plugin can have the host render that layer, but then handle the other layers along with the compositing.</p>
+<p>In version 2, new in CS5.5, the new call <code>SupportsInitiateClipPrefetch()</code> can be used to query whether or not a clip supports prefetching.</p>
+<p>In version 3, new in CS6, the function signatures have been modernized, using <code>inSequenceTicksPerFrame</code> rather than <code>inFrameRateScale</code> and <code>inFrameRateSampleSize</code>.</p>
+<hr />
+<h2 id="video-segment-suite">Video Segment Suite<a class="headerlink" href="#video-segment-suite" title="Permanent link">&para;</a></h2>
+<p>This suite provides calls to parse a sequence and get details on video segments. All the queryable node properties are in PrSDKVideoSegmentProperties.h. These properties will be returned as PrSDKStrings, and should be managed using the <a href="#string-suite">String Suite</a>. The segments provide a hash value that the caller can use to quickly determine whether or not a segment has changed. This hash value can be maintained even if a segment is shifted in time</p>
+<p>In version 4, new in CS5.5, the new call <code>AcquireNodeForTime()</code> passes back a segment node for a requested time. There are also a few new properties for media nodes: StreamIsContinuousTime, ColorProfileName, ColorProfileData, and ScanlineOffsetToImproveVerticalCentering.</p>
+<p>In version 5, new in CC, a new video segment property is available: Effect_ClipName. In version 6, new in CC 2014, <code>AcquireFirstNodeInTimeRange()</code> and</p>
+<p><code>AcquireOperatorOwnerNodeID()</code> were added, along with the new node type kVideoSegment_NodeType_AdjustmentEffect.</p>
+<p>The basic structure of the video segments is that of a tree structure. There is a Compositor node with n inputs. Each of those inputs is a Clip node, which has one input which is a Media node, and it also has n Operators, which are effects.</p>
+<p>So, a simple example, three clips in a stack, the top one with three effects looks like this:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Segment</span>
+<span class="w">  </span><span class="n">Compositor</span><span class="w"> </span><span class="n">Node</span>
+<span class="w">    </span><span class="n">Clip</span><span class="w"> </span><span class="n">Node</span>
+<span class="w">      </span><span class="n">Media</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="p">(</span><span class="n">bottom</span><span class="w"> </span><span class="n">clip</span><span class="p">)</span><span class="w"> </span><span class="n">Clip</span><span class="w"> </span><span class="n">Node</span>
+<span class="w">    </span><span class="n">Clip</span><span class="w"> </span><span class="n">Node</span>
+<span class="w">      </span><span class="n">Media</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="p">(</span><span class="n">middle</span><span class="w"> </span><span class="n">clip</span><span class="p">)</span><span class="w"> </span><span class="n">Clip</span><span class="w"> </span><span class="n">Node</span>
+<span class="w">    </span><span class="n">Clip</span><span class="w"> </span><span class="n">Node</span>
+<span class="w">      </span><span class="n">Media</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="p">(</span><span class="n">top</span><span class="w"> </span><span class="n">clip</span><span class="p">)</span>
+<span class="w">      </span><span class="n">Clip</span><span class="w"> </span><span class="n">Operators</span><span class="w"> </span><span class="p">(</span><span class="n">Blur</span><span class="p">,</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="n">Corrector</span><span class="p">,</span><span class="w"> </span><span class="n">Motion</span><span class="p">)</span>
+</code></pre></div>
+<p>To get a good idea of the segment structure, try the SDK player, create a sequence using the SDK Editing Mode, and watch the text overlay in the Sequence Monitor as you perform edits.</p>
+<p>See PrSDKVideoSegmentSuite.h and PrSDKVideoSegmentProperties.h.</p>
+<hr />
+<h2 id="window-suite">Window Suite<a class="headerlink" href="#window-suite" title="Permanent link">&para;</a></h2>
+<p>New in CS4. This is the new preferred way to get the handle of the mainframe window, especially for exporters, who don't have access to the legacy <a href="../legacy-callback-suites/#pisuites">piSuites</a>.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 25, 2025</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      All content is copyright Adobe Systems Incorporated.
+    </div>
+  
+  
+    Made with
+    <a
+      href="https://squidfunk.github.io/mkdocs-material/"
+      target="_blank" rel="noopener"
+    >
+      Material for MkDocs
+    </a>
+  
+</div>
+
+<!-- Print button -->
+<div class="md-copyright">
+  
+  <a href="../../print_page/" title="Print Site" class="md-content__button md-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 3H6v4h12m1 5a1 1 0 0 1-1-1 1 1 0 0 1 1-1 1 1 0 0 1 1 1 1 1 0 0 1-1 1m-3 7H8v-5h8m3-6H5a3 3 0 0 0-3 3v6h4v4h12v-4h4v-6a3 3 0 0 0-3-3"/></svg>
+  </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f13b1293.min.js"></script>
+      
+        <script src="../../js/print-site.js"></script>
+      
+    
+  </body>
+</html>

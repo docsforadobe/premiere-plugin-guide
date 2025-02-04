@@ -1,0 +1,3581 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://ppro-plugins.docsforadobe.dev/transmitters/tmModule-structures/">
+      
+      
+        <link rel="prev" href="../tmModule-functions/">
+      
+      
+        <link rel="next" href="../suites/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.2">
+    
+    
+      
+        <title>tmModule Structures - Premiere Pro C++ SDK Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.d7758b05.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings1.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings2.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings3.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings4.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings5.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings6.css">
+    
+      <link rel="stylesheet" href="../../css/print-site.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-material.css">
+    
+      <link rel="stylesheet" href="https://docsforadobe.dev/_global/global.css">
+    
+      <link rel="stylesheet" href="https://docsforadobe.dev/_global/global-syntax-highlight.css">
+    
+      <link rel="stylesheet" href="../../_static/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tmmodule-structures" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+              <button class="md-banner__button md-icon" aria-label="Don't show this again">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+              </button>
+            
+            
+  Welcome to the new scripting guide!
+
+  This is a work in progress.
+
+  Please provide all feedback via
+  <a ref="me" href="https://github.com/orgs/docsforadobe/discussions">
+    <span class="twemoji">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 1h8.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0 1 10.25 10H7.061l-2.574 2.573A1.458 1.458 0 0 1 2 11.543V10h-.25A1.75 1.75 0 0 1 0 8.25v-5.5C0 1.784.784 1 1.75 1M1.5 2.75v5.5c0 .138.112.25.25.25h1a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.75.75 0 0 1 .53-.22h3.5a.25.25 0 0 0 .25-.25v-5.5a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25m13 2a.25.25 0 0 0-.25-.25h-.5a.75.75 0 0 1 0-1.5h.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0 1 14.25 12H14v1.543a1.458 1.458 0 0 1-2.487 1.03L9.22 12.28a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l2.22 2.22v-2.19a.75.75 0 0 1 .75-.75h1a.25.25 0 0 0 .25-.25Z"/></svg>
+    </span>
+    <strong>the org's discussion forum</strong>
+  </a>.
+
+          </div>
+          
+            <script>var el=document.querySelector("[data-md-component=announce]");if(el){var content=el.querySelector(".md-typeset");__md_hash(content.innerHTML)===__md_get("__announce")&&(el.hidden=!0)}</script>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://docsforadobe.dev" title="Premiere Pro C++ SDK Guide" class="md-header__button md-logo" aria-label="Premiere Pro C++ SDK Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Premiere Pro C++ SDK Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              tmModule Structures
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/docsforadobe/premiere-plugin-guide/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    premiere-plugin-guide
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://docsforadobe.dev" title="Premiere Pro C++ SDK Guide" class="md-nav__button md-logo" aria-label="Premiere Pro C++ SDK Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Premiere Pro C++ SDK Guide
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/docsforadobe/premiere-plugin-guide/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    premiere-plugin-guide
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    History
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            History
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../history/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Version History
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Introduction
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/what-premiere-plugins-do/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What Premiere Plug-Ins Do
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/sdk-audience/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SDK Audience
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/whats-new/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Whats New
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/where-do-i-start/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Where Do I Start
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/document-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Document Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/getting-support/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Support and Providing Feedback
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/premiere-pro-plugin-types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Premiere Pro Plug-In Types
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/sample-projects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sample Projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/debugging-plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Debugging Plug-Ins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/load-em-up/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Load Em Up
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/plugin-installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plug In Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/localization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Localization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/best-practices/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Best Practices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Resources
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/pipl-resource/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plug-In Property Lists (PiPL) Resource
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/impt-resource/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IMPT Resource
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Universals
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Universals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/universals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Universals
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/time/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Time
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/video-frames/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Video Frames
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/pixel-formats-and-color-spaces/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pixel Formats And Color Spaces
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/pixel-aspect-ratio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pixel Aspect Ratio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/fields/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fields
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/audio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Audio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/memory-management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Memory Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/basic-types-structures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Types Structures
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/sweetpea-suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SweetPea Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/legacy-callback-suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Legacy Callback Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Hardware Integration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Hardware Integration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hardware
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/hardware-integration-components/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hardware Integration Components
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/classid-filetype-subtype/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ClassID, Filetype and Subtype
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/classdata-functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ClassData Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Importers
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Importers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../importers/importers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Importers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../importers/whats-new/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What's New
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../importers/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../importers/selector-table/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selector Table
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../importers/selector-descriptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selector Descriptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../importers/return-codes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Return Codes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../importers/structures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structures
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../importers/structure-descriptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structure Descriptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../importers/suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Export Controllers
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Export Controllers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../export-controllers/export-controllers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Export Controllers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Exporters
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Exporters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/exporters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exporters
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/whats-new/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Whats New
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/selector-table/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selector Table
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/selector-descriptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selector Descriptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/return-codes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Return Codes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/structures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structures
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/structure-descriptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structure Descriptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/additional-details/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Additional Details
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Transmitters
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Transmitters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transmitters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transmitters
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transmitter-basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transmitter Basics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tmModule-functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    tmModule Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    tmModule Structures
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    tmModule Structures
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Page Contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Page Contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+	<a href="#tmstdparms" class="md-nav__link">
+		<span class="md-ellipsis">
+			tmStdParms
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#tmplugininfo" class="md-nav__link">
+		<span class="md-ellipsis">
+			tmPluginInfo
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#tminstance" class="md-nav__link">
+		<span class="md-ellipsis">
+			tmInstance
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#tmaudiomode" class="md-nav__link">
+		<span class="md-ellipsis">
+			tmAudioMode
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#tmvideomode" class="md-nav__link">
+		<span class="md-ellipsis">
+			tmVideoMode
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#tmplaybackclock" class="md-nav__link">
+		<span class="md-ellipsis">
+			tmPlaybackClock
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#tmpushvideo" class="md-nav__link">
+		<span class="md-ellipsis">
+			tmPushVideo
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#tmpushaudio" class="md-nav__link">
+		<span class="md-ellipsis">
+			tmPushAudio
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#tmstoppushaudio" class="md-nav__link">
+		<span class="md-ellipsis">
+			tmStopPushAudio
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Video Filters
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Video Filters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/video-filters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Video Filters
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/whats-new/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Whats New
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/selector-table/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selector Table
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/selector-descriptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selector Descriptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/return-codes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Return Codes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/VideoRecord/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VideoRecord
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/additional-details/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Additional Details
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    GPU Effects & Transitions
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            GPU Effects & Transitions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/gpu-effects-transitions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GPU Effects & Transitions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/cuda-opencl-metal-opengl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CUDA, OpenCL, Metal, or OpenGL?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/whats-new-in-ppro-12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What's New in Premiere Pro 12.0?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/whats-new-in-ppro-cc2015/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What's New in Premiere Pro CC 2015.4?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/whats-new-in-ppro-cc2014/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What's New in Premiere Pro CC 2014?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/PrGPUFilter-function-table/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PrGPUFilter Function Table
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/function-descriptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Function Descriptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/return-codes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Return Codes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/structure-descriptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structure Descriptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/PrGPU-SDK-macros/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PrGPU SDK Macros
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AE Transition Extensions
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            AE Transition Extensions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ae-transition-extensions/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ae-transition-extensions/ae-transition-extensions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AE Transition Extensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ae-transition-extensions/PF_TransitionSuite/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PF_TransitionSuite
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Control Surfaces
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            Control Surfaces
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../control-surfaces/control-surfaces/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Control Surfaces
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Page Contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Page Contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+	<a href="#tmstdparms" class="md-nav__link">
+		<span class="md-ellipsis">
+			tmStdParms
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#tmplugininfo" class="md-nav__link">
+		<span class="md-ellipsis">
+			tmPluginInfo
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#tminstance" class="md-nav__link">
+		<span class="md-ellipsis">
+			tmInstance
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#tmaudiomode" class="md-nav__link">
+		<span class="md-ellipsis">
+			tmAudioMode
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#tmvideomode" class="md-nav__link">
+		<span class="md-ellipsis">
+			tmVideoMode
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#tmplaybackclock" class="md-nav__link">
+		<span class="md-ellipsis">
+			tmPlaybackClock
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#tmpushvideo" class="md-nav__link">
+		<span class="md-ellipsis">
+			tmPushVideo
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#tmpushaudio" class="md-nav__link">
+		<span class="md-ellipsis">
+			tmPushAudio
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#tmstoppushaudio" class="md-nav__link">
+		<span class="md-ellipsis">
+			tmStopPushAudio
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/docsforadobe/premiere-plugin-guide/edit/master/docs/transmitters/tmModule-structures.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/docsforadobe/premiere-plugin-guide/raw/master/docs/transmitters/tmModule-structures.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="tmmodule-structures">tmModule Structures<a class="headerlink" href="#tmmodule-structures" title="Permanent link">&para;</a></h1>
+<h2 id="tmstdparms">tmStdParms<a class="headerlink" href="#tmstdparms" title="Permanent link">&para;</a></h2>
+<p>This is passed to all calls. Most of it is allocated and filled in by the transmitter on Startup, and may be modified during SetupDialog.</p>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">inPluginIndex</span><span class="p">;</span>
+<span class="w">  </span><span class="n">PrMemoryPtr</span><span class="w">   </span><span class="n">ioSerializedPluginData</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_size_t</span><span class="w">  </span><span class="n">ioSerializedPluginDataSize</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">         </span><span class="n">ioPrivatePluginData</span><span class="p">;</span>
+<span class="w">  </span><span class="n">piSuitesPtr</span><span class="w">   </span><span class="n">piSuites</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">tmStdParms</span><span class="p">;</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>inPluginIndex</code></td>
+<td>If the plugin has defined multiple transmitters in the same module, this index value tells them apart.</td>
+</tr>
+<tr>
+<td><code>ioSerializedPluginData</code></td>
+<td>This data should contain user-selectable settings for the transmitter, that would be shown in the transmitter settings dialog, and need to persist so they can be saved and restored from one session to another.<br/><br/>When allocating this for the first time during Startup, this must be allocated using <code>NewPtr</code> so it can be disposed by the host on shutdown.<br/><br/>This must be flat memory that can be serialized by by the host and will be already filled in when Startup is called if previously available.</td>
+</tr>
+<tr>
+<td><code>ioSerializedPluginDataSize</code></td>
+<td>Size of the data above. Set this during Startup, if not already set.</td>
+</tr>
+<tr>
+<td><code>ioPrivatePluginData</code></td>
+<td>This data should contain any memory needed for use across calls to the transmitter, except the settings data stored in <code>ioSerializedPluginData</code>.<br/><br/>Allocate this during Startup. Unlike <code>ioSerializedPluginData</code>, it does not need to be flat, and must be disposed of by the plugin on Shutdown.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="tmplugininfo">tmPluginInfo<a class="headerlink" href="#tmplugininfo" title="Permanent link">&para;</a></h2>
+<p>This is to be filled in by the transmitter on Startup.</p>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">prPluginID</span><span class="w">    </span><span class="n">outIdentifier</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w">  </span><span class="n">outPriority</span><span class="p">;</span>
+<span class="w">  </span><span class="n">prBool</span><span class="w">        </span><span class="n">outAudioAvailable</span><span class="p">;</span>
+<span class="w">  </span><span class="n">prBool</span><span class="w">        </span><span class="n">outAudioDefaultEnabled</span><span class="p">;</span>
+<span class="w">  </span><span class="n">prBool</span><span class="w">        </span><span class="n">outClockAvailable</span><span class="p">;</span>
+<span class="w">  </span><span class="n">prBool</span><span class="w">        </span><span class="n">outVideoAvailable</span><span class="p">;</span>
+<span class="w">  </span><span class="n">prBool</span><span class="w">        </span><span class="n">outVideoDefaultEnabled</span><span class="p">;</span>
+<span class="w">  </span><span class="n">prUTF16Char</span><span class="w">   </span><span class="n">outDisplayName</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
+<span class="w">  </span><span class="n">prBool</span><span class="w">        </span><span class="n">outHideInUI</span><span class="p">;</span>
+<span class="w">  </span><span class="n">prBool</span><span class="w">        </span><span class="n">outHasSetup</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">outInterfaceVersion</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">tmPluginInfo</span><span class="p">;</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>outIdentifier</code></td>
+<td>Persistent plugin identifier.</td>
+</tr>
+<tr>
+<td><code>outPriority</code></td>
+<td><code>0</code> is default, higher priority wins.</td>
+</tr>
+<tr>
+<td><code>outAudioAvailable</code></td>
+<td>Set this to <code>kPrTrue</code> if the transmitter supports audio.</td>
+</tr>
+<tr>
+<td><code>outAudioDefaultEnabled</code></td>
+<td>Set this to <code>kPrTrue</code> if you want to be turned on to handle audio by default.</td>
+</tr>
+<tr>
+<td><code>outClockAvailable</code><br/><br/><br/><br/><br/><br/></td>
+<td>Set this to <code>kPrTrue</code> if providing plugin based audio.<br/><br/>Currently, even if using host-based audio, a transmitter must provide a clock - please let us know if you would like to use host-based audio only, and we will log a bug on this.<br/><br/></td>
+</tr>
+<tr>
+<td><code>outVideoAvailable</code></td>
+<td>Set this to <code>kPrTrue</code> if the transmitter supports video.</td>
+</tr>
+<tr>
+<td><code>outVideoDefaultEnabled</code></td>
+<td>Set this to <code>kPrTrue</code> if you want to be turned on to handle video by default.</td>
+</tr>
+<tr>
+<td><code>outDisplayName[256]</code></td>
+<td>Set the display name of the transmitter, up 256 UTF-16 characters, including NULL terminator.</td>
+</tr>
+<tr>
+<td><code>outHideInUI</code></td>
+<td>Set this to <code>kPrTrue</code> if you don't want this to show up as a user-selectable option in the transmitter choices.</td>
+</tr>
+<tr>
+<td><code>outHasSetup</code></td>
+<td>Set this to <code>kPrTrue</code> if providing a setup dialog.</td>
+</tr>
+<tr>
+<td><code>outInterfaceVersion</code></td>
+<td>Set this to the <code>tmInterfaceVersion</code> that the transmitter is being compiled for.</td>
+</tr>
+<tr>
+<td><code>outPushAudioAvailable</code></td>
+<td>New in 24.0. Set this to <code>kPrTrue</code> if the transmitter supports push audio functionality. The device will be enabled for a 'secondary' mode where audio from the 'primary' or 'clock' device is pushed to this one.</td>
+</tr>
+<tr>
+<td><code>outHasStreaming</code></td>
+<td>New in 24.0. Set this to <code>kPrTrue</code> if the transmitter streams audio or video (over a network).</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition bug">
+<p class="admonition-title">Bug</p>
+<p>The following text block was present here, though seems to be misplaced.
+todo!</p>
+<p>The device will be enabled for a "secondary" mode where audio from the "primary" or "clock" device is pushed to this one. This is especially useful for remote devices. PushAudio APIs will only be used in this "mirror" case. StartPushAudio() initializes the device for subsequent PushAudio() calls. Unlike StartPlaybackClock, StartPushAudio() is only called once until StopPushAudio() is called. PushAudio() is called whenever the desired buffer size is</p>
+</div>
+<hr />
+<h2 id="tminstance">tmInstance<a class="headerlink" href="#tminstance" title="Permanent link">&para;</a></h2>
+<p>This structure contains information for the transmitter to use for initializing an instance.</p>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">          </span><span class="n">inInstanceID</span><span class="p">;</span>
+<span class="w">  </span><span class="n">PrTimelineID</span><span class="w">         </span><span class="n">inTimelineID</span><span class="p">;</span>
+<span class="w">  </span><span class="n">PrPlayID</span><span class="w">             </span><span class="n">inPlayID</span><span class="p">;</span>
+<span class="w">  </span><span class="n">prBool</span><span class="w">               </span><span class="n">inHasAudio</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">         </span><span class="n">inNumChannels</span><span class="p">;</span>
+<span class="w">  </span><span class="n">PrAudioChannelLabel</span><span class="w">  </span><span class="n">inChannelLabels</span><span class="p">[</span><span class="mi">16</span><span class="p">];</span>
+<span class="w">  </span><span class="n">PrAudioSampleType</span><span class="w">    </span><span class="n">inAudioSampleType</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">float</span><span class="w">                </span><span class="n">inAudioSampleRate</span><span class="p">;</span>
+<span class="w">  </span><span class="n">prBool</span><span class="w">               </span><span class="n">inHasVideo</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">          </span><span class="n">inVideoWidth</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">          </span><span class="n">inVideoHeight</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">          </span><span class="n">inVideoPARNum</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">          </span><span class="n">inVideoPARDen</span><span class="p">;</span>
+<span class="w">  </span><span class="n">PrTime</span><span class="w">               </span><span class="n">inVideoFrameRate</span><span class="p">;</span>
+<span class="w">  </span><span class="n">prFieldType</span><span class="w">          </span><span class="n">inVideoFieldType</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">                </span><span class="n">ioPrivateInstanceData</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">tmInstance</span><span class="p">;</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>inInstanceID</code></td>
+<td>Instance identifier.</td>
+</tr>
+<tr>
+<td><code>inTimelineID</code></td>
+<td><code>TimelineID</code>, for use with various suite functions. May be 0.</td>
+</tr>
+<tr>
+<td><code>inPlayID</code></td>
+<td><code>PlayID</code>, for use with various suite functions. May be 0.</td>
+</tr>
+<tr>
+<td><code>inHasAudio</code></td>
+<td>True if the instance is handling a sequence with audio.</td>
+</tr>
+<tr>
+<td><code>inNumChannels</code></td>
+<td>The number of audio channels.</td>
+</tr>
+<tr>
+<td><code>inChannelLabels[16]</code></td>
+<td>The identifiers for each audio channel.</td>
+</tr>
+<tr>
+<td><code>inAudioSampleType</code></td>
+<td>The format of the audio data.</td>
+</tr>
+<tr>
+<td><code>inAudioSampleRate</code></td>
+<td>The sample rate of the audio data.</td>
+</tr>
+<tr>
+<td><code>inHasVideo</code></td>
+<td>True if the instance is handling a sequence with video.</td>
+</tr>
+<tr>
+<td><code>inVideoWidth</code></td>
+<td>The video resolution.</td>
+</tr>
+<tr>
+<td><code>inVideoHeight</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>inVideoPARNum</code></td>
+<td>The numerator and denominator of the video pixel aspect ratio.</td>
+</tr>
+<tr>
+<td><code>inVideoPARDen</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>inVideoFrameRate</code></td>
+<td>The frame rate of the video.</td>
+</tr>
+<tr>
+<td><code>inVideoFieldType</code></td>
+<td>The field dominance of the video.</td>
+</tr>
+<tr>
+<td><code>ioPrivateInstanceData</code></td>
+<td>May be written by plugin in <code>CreateInstance</code>, and disposed of by <code>DisposeInstance</code>. Need not be serializable by the host.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="tmaudiomode">tmAudioMode<a class="headerlink" href="#tmaudiomode" title="Permanent link">&para;</a></h2>
+<p>A full description of an audio mode that the transmitter will support.</p>
+<p>The transmitter should fill in this information during <code>QueryAudioMode</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">float</span><span class="w">                </span><span class="n">outAudioSampleRate</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">         </span><span class="n">outMaxBufferSize</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">         </span><span class="n">outNumChannels</span><span class="p">;</span>
+<span class="w">  </span><span class="n">PrAudioChannelLabel</span><span class="w">  </span><span class="n">outChannelLabels</span><span class="p">[</span><span class="mi">16</span><span class="p">];</span>
+<span class="w">  </span><span class="n">PrTime</span><span class="w">               </span><span class="n">outLatency</span><span class="p">;</span>
+<span class="w">  </span><span class="n">PrSDKString</span><span class="w">          </span><span class="n">outAudioOutputNames</span><span class="p">[</span><span class="mi">16</span><span class="p">]</span>
+<span class="p">}</span><span class="w"> </span><span class="n">tmAudioMode</span><span class="p">;</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>outAudioSampleRate</code></td>
+<td>The preferred audio sample rate.</td>
+</tr>
+<tr>
+<td><code>outMaxBufferSize</code></td>
+<td>The maximum audio buffer size needed if the transmitter uses plugin-based audio to request audio buffers using the <a href="../suites/#playmod-audio-suite">Playmod Audio Suite</a>.</td>
+</tr>
+<tr>
+<td><code>outNumChannels</code></td>
+<td>The maximum number of audio channels supported.</td>
+</tr>
+<tr>
+<td><code>outChannelLabels[16]</code></td>
+<td>Set the audio channel configuration for the output hardware using the appropriate identifiers for each audio channel.</td>
+</tr>
+<tr>
+<td><code>outLatency</code></td>
+<td>This value is only used for playback, not when scrubbing.<br/><br/>It specifies how early to send frames in advance when audio-only playback starts, and how many frames that will be sent prior to a <code>StartPlaybackClock</code> call. Use this value to get playback in sync between the Source/Program Monitors and external hardware output.<br/><br/>All modes must have the same latency.<br/><br/>Take care to not set this value any higher than necessary, since playback start will delayed by this amount. A value equivalent to 5 video frames or less is recommended.</td>
+</tr>
+<tr>
+<td><code>outAudioOutputNames[16]</code></td>
+<td>New in CS6.0.2. These must be displayable names of physical audio outputs like "XYZ HD Speaker 1"<br/><br/>The audio output names in tmAudioMode should be allocated by the plugin using the <a href="../../universals/sweetpea-suites/#string-suite">String Suite</a> and NOT disposed by the plugin. The host will take care of disposing these strings.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="tmvideomode">tmVideoMode<a class="headerlink" href="#tmvideomode" title="Permanent link">&para;</a></h2>
+<p>A full description of a video mode that the transmitter will support.</p>
+<p>Transmitter should fill in this information during <code>QueryVideoMode</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">outWidth</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">outHeight</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">outPARNum</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">outPARDen</span><span class="p">;</span>
+<span class="w">  </span><span class="n">prFieldType</span><span class="w">    </span><span class="n">outFieldType</span><span class="p">;</span>
+<span class="w">  </span><span class="n">PrPixelFormat</span><span class="w">  </span><span class="n">outPixelFormat</span><span class="p">;</span>
+<span class="w">  </span><span class="n">PrSDKString</span><span class="w">    </span><span class="n">outStreamLabel</span><span class="p">;</span>
+<span class="w">  </span><span class="n">PrTime</span><span class="w">         </span><span class="n">outLatency</span><span class="p">;</span>
+<span class="w">  </span><span class="n">ColorSpaceRec</span><span class="w">  </span><span class="n">outColorSpaceRec</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">tmVideoMode</span><span class="p">;</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>outWidth</code></td>
+<td>The preferred video resolution.<br/><br/>Set to 0 if any resolution is supported.</td>
+</tr>
+<tr>
+<td><code>outHeight</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>outPARNum</code></td>
+<td>The preferred video pixel aspect ratio.<br/><br/>Set to 0 if any pixel aspect ratio is supported.</td>
+</tr>
+<tr>
+<td><code>outPARDen</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>outFieldType</code></td>
+<td>The supported video field type.<br/><br/>Set to prFieldsAny if any field dominance is supported.</td>
+</tr>
+<tr>
+<td><code>outPixelFormat</code></td>
+<td>The preferred video pixel format.<br/><br/>Set to <code>PrPixelFormat_Any</code> if any format is acceptable.<br/><br/>If your transmitter would benefit from on-GPU frames, please let us know.</td>
+</tr>
+<tr>
+<td><code>outStreamLabel</code></td>
+<td>Leave this as 0 for now. Stream labels are not yet supported by transmitters (bug group BG127571)</td>
+</tr>
+<tr>
+<td><code>outLatency</code></td>
+<td>This value is only used for playback, not when scrubbing.<br/><br/>It specifies how early to send frames in advance when playback starts, and how many frames that will be sent prior to a <code>StartPlaybackClock</code> call.<br/><br/>Use this value to get playback in sync between the Source/Program Monitors and external hardware output.<br/><br/>All modes must have the same latency.<br/><br/>Take care to not set this value any higher than necessary, since playback start will delayed by this amount. A value equivalent to 5 frames or less is recommended.</td>
+</tr>
+<tr>
+<td><code>outColorSpaceRec</code></td>
+<td>New in 14.x. Definition of the colorspace in use; defaults to BT 709 full range 32f.<br/><br/>Transmitter can request host application to send frame in specific colorspace. See to <code>ColorSpaceRec</code> for detailed description.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="tmplaybackclock">tmPlaybackClock<a class="headerlink" href="#tmplaybackclock" title="Permanent link">&para;</a></h2>
+<p>This structure is filled out by the host and sent to the transmitter to describe the playback clock to be managed by the transmitter.</p>
+<p>The transmitter uses the callback here to update the host at regular intervals.</p>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">tmClockCallback</span><span class="w">         </span><span class="n">inClockCallback</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">                   </span><span class="n">inCallbackContext</span><span class="p">;</span>
+<span class="w">  </span><span class="n">PrTime</span><span class="w">                  </span><span class="n">inStartTime</span><span class="p">;</span>
+<span class="w">  </span><span class="n">pmPlayMode</span><span class="w">              </span><span class="n">inPlayMode</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">float</span><span class="w">                   </span><span class="n">inSpeed</span><span class="p">;</span>
+<span class="w">  </span><span class="n">PrTime</span><span class="w">                  </span><span class="n">inInTime</span><span class="p">;</span>
+<span class="w">  </span><span class="n">PrTime</span><span class="w">                  </span><span class="n">inOutTime</span><span class="p">;</span>
+<span class="w">  </span><span class="n">prBool</span><span class="w">                  </span><span class="n">inLoop</span><span class="p">;</span>
+<span class="w">  </span><span class="n">tmDroppedFrameCallback</span><span class="w">  </span><span class="n">inDroppedFrameCallback</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">tmPlaybackClock</span><span class="p">;</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tmClockCallback</code></td>
+<td>A pointer to a call with the following signature:<br/><pre>void (<em>tmClockCallback)(<br/>  void</em>   inContext,<br/>  PrTime  inRelativeTimeAdjustment);</pre>Call this function when the time changes with a non-speed adjusted amount to increment the clock by.<br/><br/>This can be called once per frame in response to PushVideo.<br/><br/>Using a negative time should only be used to wait for device, not to achieve sync.<br/><br/>The transmitter will not receive any frames while using a negative time.<br/><br/>After the first positive valued clock callback, the time will be in <code>StartTime + inRelativeTimeAdjustment * inSpeed</code>.</td>
+</tr>
+<tr>
+<td><code>inCallbackContext</code></td>
+<td>Pass this into the clock callback above.</td>
+</tr>
+<tr>
+<td><code>inStartTime</code></td>
+<td>Start the clock at this time.</td>
+</tr>
+<tr>
+<td><code>inPlayMode</code></td>
+<td>Specifies whether the <code>StartPlaybackClock</code> was set for playback or scrubbing.</td>
+</tr>
+<tr>
+<td><code>inSpeed</code></td>
+<td>1.0 is normal speed, -2.0 is double speed backwards.<br/><br/>Informational only.<br/><br/>This is useful for the built-in DV transmitter, which only writes DV captions if playing at regular speed.</td>
+</tr>
+<tr>
+<td><code>inInTime</code></td>
+<td>Informational only and will be handled by the host.</td>
+</tr>
+<tr>
+<td><code>inOutTime</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>inLoop</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>inDroppedFrameCallback</code></td>
+<td>A pointer to a call with the following signature:<br/><pre>void (<em>tmDroppedFrameCallback)(<br/>  void</em>        inContext,<br/>  csSDK_int64  inNewDroppedFrames);</pre>Use this call to report frames pushed to the transmit plugin on PushVideo but not delivered to the device.<br/><br/>If every frame pushed to the transmitter is sent out to hardware on time, then this should never need to be called as the host will count frames not pushed to the plugin.<br/><br/><code>inNewDroppedFrames</code> should be the number of additional dropped frames since the last time <code>tmDroppedFrameCall</code> back was called.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="tmpushvideo">tmPushVideo<a class="headerlink" href="#tmpushvideo" title="Permanent link">&para;</a></h2>
+<p>Describes a frame of video to be transmitted.</p>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">PrTime</span><span class="w">                 </span><span class="n">inTime</span><span class="p">;</span>
+<span class="w">  </span><span class="n">pmPlayMode</span><span class="w">             </span><span class="n">inPlayMode</span><span class="p">;</span>
+<span class="w">  </span><span class="n">PrRenderQuality</span><span class="w">        </span><span class="n">inQuality</span><span class="p">;</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">tmLabeledFrame</span><span class="o">*</span><span class="w">  </span><span class="n">inFrames</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_size_t</span><span class="w">           </span><span class="n">inFrameCount</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">tmPushVideo</span><span class="p">;</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>inTime</code></td>
+<td>Describes which frame of the video is being passed in.<br/><br/>A negative value means the frame should be displayed immediately.<br/><br/>Use this value to determine the corresponding timecode for the frame being pushed.</td>
+</tr>
+<tr>
+<td><code>inPlayMode</code></td>
+<td>Pass this into the clock callback above.</td>
+</tr>
+<tr>
+<td><code>inQuality</code></td>
+<td>The quality of the render.</td>
+</tr>
+<tr>
+<td><code>inFrames</code></td>
+<td>The frame or set of frames to transmit. As of CS6, this will always be a single frame.<br/><br/><code>tmLabeledFrame</code> is defined as:<br/><pre>typedef struct {<br/>  PPixHand          inFrame;<br/>  PrSDKStreamLabel  inStreamLabel;<br/>} tmLabeledFrame;</pre><br/>The frame(s) must be disposed of by the transmitter when done.</td>
+</tr>
+<tr>
+<td><code>inFrameCount</code></td>
+<td>The number of frames in inFrames.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="tmpushaudio">tmPushAudio<a class="headerlink" href="#tmpushaudio" title="Permanent link">&para;</a></h2>
+<p>Describes audio samples to be transmitted.</p>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">PrTime</span><span class="w">          </span><span class="n">inTime</span><span class="p">;</span>
+<span class="w">      </span><span class="kt">float</span><span class="o">**</span><span class="w">         </span><span class="n">inBuffers</span><span class="p">;</span>
+<span class="w">      </span><span class="n">csSDK_uint32</span><span class="w">    </span><span class="n">inNumSamples</span><span class="p">;</span>
+<span class="w">      </span><span class="n">csSDK_uint32</span><span class="w">    </span><span class="n">inNumChannels</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">tmPushAudio</span><span class="p">;</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>inTime</code></td>
+<td>Describes which frame of the video is being passed in.<br/><br/>A negative value means the frame should be displayed immediately.<br/><br/>Use this value to determine the corresponding timecode for the frame being pushed.</td>
+</tr>
+<tr>
+<td><code>inBuffers</code></td>
+<td>The audio date to be transmitted.</td>
+</tr>
+<tr>
+<td><code>inNumSamples</code></td>
+<td>Number of samples to process.</td>
+</tr>
+<tr>
+<td><code>inNumChannels</code></td>
+<td>Number of channels to output.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="tmstoppushaudio">tmStopPushAudio<a class="headerlink" href="#tmstoppushaudio" title="Permanent link">&para;</a></h2>
+<p>Sent when playback via PushAudio() ends.</p>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">PrTime</span><span class="w">          </span><span class="n">inTime</span><span class="p">;</span>
+<span class="w">      </span><span class="kt">float</span><span class="o">**</span><span class="w">         </span><span class="n">inBuffers</span><span class="p">;</span>
+<span class="w">      </span><span class="n">csSDK_uint32</span><span class="w">    </span><span class="n">inNumSamples</span><span class="p">;</span>
+<span class="w">      </span><span class="n">csSDK_uint32</span><span class="w">    </span><span class="n">inNumChannels</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">tmPushAudio</span><span class="p">;</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>inTime</code></td>
+<td>Describes which frame of the video is being passed in.<br/><br/>A negative value means the frame should be displayed immediately.<br/><br/>Use this value to determine the corresponding timecode for the frame being pushed.</td>
+</tr>
+<tr>
+<td><code>inBuffers</code></td>
+<td>The audio date to be transmitted.</td>
+</tr>
+<tr>
+<td><code>inNumSamples</code></td>
+<td>Number of samples to process.</td>
+</tr>
+<tr>
+<td><code>inNumChannels</code></td>
+<td>Number of channels to output.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 25, 2025</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      All content is copyright Adobe Systems Incorporated.
+    </div>
+  
+  
+    Made with
+    <a
+      href="https://squidfunk.github.io/mkdocs-material/"
+      target="_blank" rel="noopener"
+    >
+      Material for MkDocs
+    </a>
+  
+</div>
+
+<!-- Print button -->
+<div class="md-copyright">
+  
+  <a href="../../print_page/" title="Print Site" class="md-content__button md-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 3H6v4h12m1 5a1 1 0 0 1-1-1 1 1 0 0 1 1-1 1 1 0 0 1 1 1 1 1 0 0 1-1 1m-3 7H8v-5h8m3-6H5a3 3 0 0 0-3 3v6h4v4h12v-4h4v-6a3 3 0 0 0-3-3"/></svg>
+  </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f13b1293.min.js"></script>
+      
+        <script src="../../js/print-site.js"></script>
+      
+    
+  </body>
+</html>

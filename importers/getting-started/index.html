@@ -1,0 +1,3769 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://ppro-plugins.docsforadobe.dev/importers/getting-started/">
+      
+      
+        <link rel="prev" href="../whats-new/">
+      
+      
+        <link rel="next" href="../selector-table/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.2">
+    
+    
+      
+        <title>Getting Started - Premiere Pro C++ SDK Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.d7758b05.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings1.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings2.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings3.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings4.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings5.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings6.css">
+    
+      <link rel="stylesheet" href="../../css/print-site.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-material.css">
+    
+      <link rel="stylesheet" href="https://docsforadobe.dev/_global/global.css">
+    
+      <link rel="stylesheet" href="https://docsforadobe.dev/_global/global-syntax-highlight.css">
+    
+      <link rel="stylesheet" href="../../_static/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#getting-started" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+              <button class="md-banner__button md-icon" aria-label="Don't show this again">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+              </button>
+            
+            
+  Welcome to the new scripting guide!
+
+  This is a work in progress.
+
+  Please provide all feedback via
+  <a ref="me" href="https://github.com/orgs/docsforadobe/discussions">
+    <span class="twemoji">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 1h8.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0 1 10.25 10H7.061l-2.574 2.573A1.458 1.458 0 0 1 2 11.543V10h-.25A1.75 1.75 0 0 1 0 8.25v-5.5C0 1.784.784 1 1.75 1M1.5 2.75v5.5c0 .138.112.25.25.25h1a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.75.75 0 0 1 .53-.22h3.5a.25.25 0 0 0 .25-.25v-5.5a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25m13 2a.25.25 0 0 0-.25-.25h-.5a.75.75 0 0 1 0-1.5h.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0 1 14.25 12H14v1.543a1.458 1.458 0 0 1-2.487 1.03L9.22 12.28a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l2.22 2.22v-2.19a.75.75 0 0 1 .75-.75h1a.25.25 0 0 0 .25-.25Z"/></svg>
+    </span>
+    <strong>the org's discussion forum</strong>
+  </a>.
+
+          </div>
+          
+            <script>var el=document.querySelector("[data-md-component=announce]");if(el){var content=el.querySelector(".md-typeset");__md_hash(content.innerHTML)===__md_get("__announce")&&(el.hidden=!0)}</script>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://docsforadobe.dev" title="Premiere Pro C++ SDK Guide" class="md-header__button md-logo" aria-label="Premiere Pro C++ SDK Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Premiere Pro C++ SDK Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Getting Started
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/docsforadobe/premiere-plugin-guide/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    premiere-plugin-guide
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://docsforadobe.dev" title="Premiere Pro C++ SDK Guide" class="md-nav__button md-logo" aria-label="Premiere Pro C++ SDK Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Premiere Pro C++ SDK Guide
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/docsforadobe/premiere-plugin-guide/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    premiere-plugin-guide
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    History
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            History
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../history/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Version History
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Introduction
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/what-premiere-plugins-do/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What Premiere Plug-Ins Do
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/sdk-audience/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SDK Audience
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/whats-new/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Whats New
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/where-do-i-start/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Where Do I Start
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/document-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Document Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/getting-support/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Support and Providing Feedback
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/premiere-pro-plugin-types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Premiere Pro Plug-In Types
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/sample-projects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sample Projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/debugging-plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Debugging Plug-Ins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/load-em-up/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Load Em Up
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/plugin-installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plug In Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/localization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Localization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/best-practices/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Best Practices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Resources
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/pipl-resource/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plug-In Property Lists (PiPL) Resource
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/impt-resource/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IMPT Resource
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Universals
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Universals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/universals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Universals
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/time/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Time
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/video-frames/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Video Frames
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/pixel-formats-and-color-spaces/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pixel Formats And Color Spaces
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/pixel-aspect-ratio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pixel Aspect Ratio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/fields/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fields
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/audio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Audio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/memory-management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Memory Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/basic-types-structures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Types Structures
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/sweetpea-suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SweetPea Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/legacy-callback-suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Legacy Callback Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Hardware Integration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Hardware Integration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hardware
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/hardware-integration-components/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hardware Integration Components
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/classid-filetype-subtype/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ClassID, Filetype and Subtype
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/classdata-functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ClassData Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Importers
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Importers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../importers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Importers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../whats-new/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What's New
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Page Contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Page Contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+	<a href="#the-basics-of-import" class="md-nav__link">
+		<span class="md-ellipsis">
+			The Basics of Import
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#try-the-sample-importer-plug-ins" class="md-nav__link">
+		<span class="md-ellipsis">
+			Try the Sample Importer Plug-ins
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#imgetsourcevideo-versus-imimportimage" class="md-nav__link">
+		<span class="md-ellipsis">
+			imGetSourceVideo versus imImportImage
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#asynchronous-import" class="md-nav__link">
+		<span class="md-ellipsis">
+			Asynchronous Import
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#privatedata" class="md-nav__link">
+		<span class="md-ellipsis">
+			privateData
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#clip-source-settings" class="md-nav__link">
+		<span class="md-ellipsis">
+			Clip Source Settings
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="Clip Source Settings">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#showing-a-video-preview-in-the-settings-dialog" class="md-nav__link">
+		<span class="md-ellipsis">
+			Showing a Video Preview in the Settings Dialog
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#file-handling" class="md-nav__link">
+		<span class="md-ellipsis">
+			File Handling
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="File Handling">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#quieting-versus-closing-a-file" class="md-nav__link">
+		<span class="md-ellipsis">
+			Quieting versus Closing a File
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#growing-files" class="md-nav__link">
+		<span class="md-ellipsis">
+			Growing Files
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#importing-from-streaming-sources" class="md-nav__link">
+		<span class="md-ellipsis">
+			Importing from Streaming Sources
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#audio-conforming-and-peak-file-generation" class="md-nav__link">
+		<span class="md-ellipsis">
+			Audio Conforming and Peak File Generation
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#quality-levels" class="md-nav__link">
+		<span class="md-ellipsis">
+			Quality Levels
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#closed-captioning" class="md-nav__link">
+		<span class="md-ellipsis">
+			Closed Captioning
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#n-channel-audio" class="md-nav__link">
+		<span class="md-ellipsis">
+			N-Channel Audio
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#multiple-streams" class="md-nav__link">
+		<span class="md-ellipsis">
+			Multiple Streams
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="Multiple Streams">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#stereoscopic-video" class="md-nav__link">
+		<span class="md-ellipsis">
+			Stereoscopic Video
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#project-manager-support" class="md-nav__link">
+		<span class="md-ellipsis">
+			Project Manager Support
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#creating-a-custom-importer" class="md-nav__link">
+		<span class="md-ellipsis">
+			Creating a Custom Importer
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#real-time-rolling-and-crawling-titles" class="md-nav__link">
+		<span class="md-ellipsis">
+			Real-Time Rolling and Crawling Titles
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#troubleshooting" class="md-nav__link">
+		<span class="md-ellipsis">
+			Troubleshooting
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="Troubleshooting">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#how-to-get-first-crack-at-a-file" class="md-nav__link">
+		<span class="md-ellipsis">
+			How to Get First Crack at a File
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#format-repeated-in-menu" class="md-nav__link">
+		<span class="md-ellipsis">
+			Format repeated in menu?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#resources" class="md-nav__link">
+		<span class="md-ellipsis">
+			Resources
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#entry-point" class="md-nav__link">
+		<span class="md-ellipsis">
+			Entry Point
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#standard-parameters" class="md-nav__link">
+		<span class="md-ellipsis">
+			Standard Parameters
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#importer-specific-callbacks" class="md-nav__link">
+		<span class="md-ellipsis">
+			Importer-Specific Callbacks
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../selector-table/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selector Table
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../selector-descriptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selector Descriptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../return-codes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Return Codes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structures
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structure-descriptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structure Descriptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Export Controllers
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Export Controllers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../export-controllers/export-controllers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Export Controllers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Exporters
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Exporters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/exporters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exporters
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/whats-new/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Whats New
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/selector-table/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selector Table
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/selector-descriptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selector Descriptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/return-codes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Return Codes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/structures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structures
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/structure-descriptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structure Descriptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/additional-details/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Additional Details
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Transmitters
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Transmitters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../transmitters/transmitters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transmitters
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../transmitters/transmitter-basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transmitter Basics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../transmitters/tmModule-functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    tmModule Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../transmitters/tmModule-structures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    tmModule Structures
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../transmitters/suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Video Filters
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Video Filters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/video-filters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Video Filters
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/whats-new/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Whats New
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/selector-table/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selector Table
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/selector-descriptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selector Descriptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/return-codes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Return Codes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/VideoRecord/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VideoRecord
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/additional-details/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Additional Details
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    GPU Effects & Transitions
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            GPU Effects & Transitions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/gpu-effects-transitions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GPU Effects & Transitions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/cuda-opencl-metal-opengl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CUDA, OpenCL, Metal, or OpenGL?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/whats-new-in-ppro-12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What's New in Premiere Pro 12.0?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/whats-new-in-ppro-cc2015/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What's New in Premiere Pro CC 2015.4?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/whats-new-in-ppro-cc2014/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What's New in Premiere Pro CC 2014?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/PrGPUFilter-function-table/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PrGPUFilter Function Table
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/function-descriptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Function Descriptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/return-codes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Return Codes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/structure-descriptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structure Descriptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/PrGPU-SDK-macros/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PrGPU SDK Macros
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AE Transition Extensions
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            AE Transition Extensions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ae-transition-extensions/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ae-transition-extensions/ae-transition-extensions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AE Transition Extensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ae-transition-extensions/PF_TransitionSuite/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PF_TransitionSuite
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Control Surfaces
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            Control Surfaces
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../control-surfaces/control-surfaces/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Control Surfaces
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Page Contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Page Contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+	<a href="#the-basics-of-import" class="md-nav__link">
+		<span class="md-ellipsis">
+			The Basics of Import
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#try-the-sample-importer-plug-ins" class="md-nav__link">
+		<span class="md-ellipsis">
+			Try the Sample Importer Plug-ins
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#imgetsourcevideo-versus-imimportimage" class="md-nav__link">
+		<span class="md-ellipsis">
+			imGetSourceVideo versus imImportImage
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#asynchronous-import" class="md-nav__link">
+		<span class="md-ellipsis">
+			Asynchronous Import
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#privatedata" class="md-nav__link">
+		<span class="md-ellipsis">
+			privateData
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#clip-source-settings" class="md-nav__link">
+		<span class="md-ellipsis">
+			Clip Source Settings
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="Clip Source Settings">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#showing-a-video-preview-in-the-settings-dialog" class="md-nav__link">
+		<span class="md-ellipsis">
+			Showing a Video Preview in the Settings Dialog
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#file-handling" class="md-nav__link">
+		<span class="md-ellipsis">
+			File Handling
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="File Handling">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#quieting-versus-closing-a-file" class="md-nav__link">
+		<span class="md-ellipsis">
+			Quieting versus Closing a File
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#growing-files" class="md-nav__link">
+		<span class="md-ellipsis">
+			Growing Files
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#importing-from-streaming-sources" class="md-nav__link">
+		<span class="md-ellipsis">
+			Importing from Streaming Sources
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#audio-conforming-and-peak-file-generation" class="md-nav__link">
+		<span class="md-ellipsis">
+			Audio Conforming and Peak File Generation
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#quality-levels" class="md-nav__link">
+		<span class="md-ellipsis">
+			Quality Levels
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#closed-captioning" class="md-nav__link">
+		<span class="md-ellipsis">
+			Closed Captioning
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#n-channel-audio" class="md-nav__link">
+		<span class="md-ellipsis">
+			N-Channel Audio
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#multiple-streams" class="md-nav__link">
+		<span class="md-ellipsis">
+			Multiple Streams
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="Multiple Streams">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#stereoscopic-video" class="md-nav__link">
+		<span class="md-ellipsis">
+			Stereoscopic Video
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#project-manager-support" class="md-nav__link">
+		<span class="md-ellipsis">
+			Project Manager Support
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#creating-a-custom-importer" class="md-nav__link">
+		<span class="md-ellipsis">
+			Creating a Custom Importer
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#real-time-rolling-and-crawling-titles" class="md-nav__link">
+		<span class="md-ellipsis">
+			Real-Time Rolling and Crawling Titles
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#troubleshooting" class="md-nav__link">
+		<span class="md-ellipsis">
+			Troubleshooting
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="Troubleshooting">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#how-to-get-first-crack-at-a-file" class="md-nav__link">
+		<span class="md-ellipsis">
+			How to Get First Crack at a File
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#format-repeated-in-menu" class="md-nav__link">
+		<span class="md-ellipsis">
+			Format repeated in menu?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#resources" class="md-nav__link">
+		<span class="md-ellipsis">
+			Resources
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#entry-point" class="md-nav__link">
+		<span class="md-ellipsis">
+			Entry Point
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#standard-parameters" class="md-nav__link">
+		<span class="md-ellipsis">
+			Standard Parameters
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#importer-specific-callbacks" class="md-nav__link">
+		<span class="md-ellipsis">
+			Importer-Specific Callbacks
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/docsforadobe/premiere-plugin-guide/edit/master/docs/importers/getting-started.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/docsforadobe/premiere-plugin-guide/raw/master/docs/importers/getting-started.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h1>
+<h2 id="the-basics-of-import">The Basics of Import<a class="headerlink" href="#the-basics-of-import" title="Permanent link">&para;</a></h2>
+<p>For each clip, importers can tell Premiere the resolutions and pixel formats they can decode video frames to.</p>
+<p>Premiere will request video frames as needed during scrubbing, playback, or export.</p>
+<p>Audio will be requested right when the clip is imported, if audio conforming or peak file generation is necessary.</p>
+<p>If audio conforming is not necessary, audio frames will be requested as needed during scrubbing, playback, or export.</p>
+<p>Premiere requests audio in arrays of 32-bit float, uninterleaved format.</p>
+<hr />
+<h2 id="try-the-sample-importer-plug-ins">Try the Sample Importer Plug-ins<a class="headerlink" href="#try-the-sample-importer-plug-ins" title="Permanent link">&para;</a></h2>
+<p>Choose which one of the three sample importers matches closest with your desired functionality.</p>
+<p>Build that one, or if you are still not sure, build all three! Step through the code in your debugger to learn order of events.</p>
+<p>Start your importer by modifying one of the SDK samples.</p>
+<hr />
+<h2 id="imgetsourcevideo-versus-imimportimage"><code>imGetSourceVideo</code> versus <code>imImportImage</code><a class="headerlink" href="#imgetsourcevideo-versus-imimportimage" title="Permanent link">&para;</a></h2>
+<p>For synchronous import, there are two different selectors an importer can use to provide frames to the host.</p>
+<p>Why? <em>imGetSourceVideo</em> is best for media that has specific resolutions.</p>
+<p>Importers that support <em>imGetSourceVideo</em> can import frames at their native resolution or specify preferred resolutions, rather than having to scale the frames to an arbitrary size.</p>
+<p><em>imImportImage</em> is only useful for resolution-independent video, such as vector-based graphics.</p>
+<p>Choose the one that fits the media your importer will support.</p>
+<p>The SDK importer demonstrates <em>imGetSourceVideo</em> because resolution dependent video is much more common.</p>
+<p>The synthetic importer sample demonstrates <em>imImportImage</em> because it generates video on-the-fly and doesn't have a preference as to video resolution.</p>
+<p><code>imImageInfoRec.supportsGetSourceVideo</code> should be set to true if the importer wants to support <em>imGetSourceVideo</em>.</p>
+<hr />
+<h2 id="asynchronous-import">Asynchronous Import<a class="headerlink" href="#asynchronous-import" title="Permanent link">&para;</a></h2>
+<p>Importers can optionally support asynchronous calls to read frames for better performance. imImageInfoRec.supportsAsyncIO should be set to true if the importer wants to support asynchronous import. The importer can implement <em>imCreateAsyncImporter</em>, which tells the importer to create an asynchronous importer object using the data provided, and store it in <code>imAsyncImporterCreationRec</code>.</p>
+<p>This async importer object must implement a separate entry point from a standard importer because it does not follow the same rules as a standard importer.</p>
+<p>All calls to AsyncImporterEntry are reentrant, except for the <em>aiClose</em> selector. <em>aiClose</em> will only be called once, but may be called while other calls are still executing. No calls will be made after <em>aiClose</em> is called.</p>
+<p>Here is an overview of the lifetime of an async importer:</p>
+<ol>
+<li>The host calls <em>imOpenFile</em> and <em>imGetInfo</em> on the standard importer.</li>
+<li>The host calls <em>imCreateAsyncImporter</em> on the standard importer. At this time, the standard importer creates the private data for the async importer. The async importer MUST NOT contain a link to the standard importer, as their lifetimes are now decoupled. The async importer, therefore, must contain copies of all relevant private data from the creator importer. The importer preferences are also guaranteed to not change during the lifetime of the async importer.</li>
+<li>The host uses the async importer to perform i/o.</li>
+<li>The host closes the async importer, forgetting about it. This will happen whenever the app loses focus, or when the async importer is no longer needed.</li>
+</ol>
+<hr />
+<h2 id="privatedata">privateData<a class="headerlink" href="#privatedata" title="Permanent link">&para;</a></h2>
+<p>Don't use global variables to store data. Use privateData instead. Each clip can have its own privateData. The host application will automatically pass the correct privateData to the appropriate importer instance.</p>
+<p>For privateData, create a handle to the custom structure you wish to store (during <code>imGetInfo8</code> or <code>imGetPrefs8</code>.) and save the handle to the privateData member of the structure passed in.</p>
+<p>The importer is responsible for allocating and deallocating the memory for privateData using Premiere's memory functions.</p>
+<p>Free the allocated privateData during <em>imCloseFile or imShutdown</em>, as appropriate.</p>
+<hr />
+<h2 id="clip-source-settings">Clip Source Settings<a class="headerlink" href="#clip-source-settings" title="Permanent link">&para;</a></h2>
+<p>This data is unique to each clip instance, and can be used to store clip-wide data that affects the appearance of video and/or audio in the clip, usually user-modifiable.</p>
+<p>For example, Clip Source Settings for a titler/graphics importer could contain all the data describing the text and shapes for that clip.</p>
+<p>For a raw video clip, it could contain metadata that affects how the video is developed prior to import.</p>
+<p>Starting in Premiere Pro CC 2014, importers can now choose the format they are rendering in, which allows importers to change pixel formats and quality based on criteria like enabled hardware and other Clip Source Settings, such as HDR.</p>
+<p>To handle the negotiation, implement <code>imSelectClipFrameDescriptor</code>.</p>
+<p>Clip Source Settings can be shown on file creation (for synthetic or custom importers) or when a clip is double-clicked.</p>
+<p>Settings data should be stored in a disk-safe prefs structure, which is defined by the importer.</p>
+<p>Premiere will allocate the prefs based on the prefsLength re turned from the first call to <em>imGetPrefs8</em>.</p>
+<p>Premiere will deallocate the prefs when it is no longer needed.</p>
+<p>Once prefs has been allocated, the importer should show its setup dialog during all subsequent calls to <em>imGetPrefs8</em>, and store any setup dialog settings in prefs.</p>
+<p>Like privateData, each clip has its own prefs, and the host application automatically passes the correct prefs to the appropriate importer instance.</p>
+<p>If the user changes the Clip Source Settings in a way such that the frames should be reimported, then the importer should use the Importer File Manager Suite to call RefreshFileAsync() on the main file.</p>
+<p>This is demonstrated in the SDK Custom Importer sample code.</p>
+<h3 id="showing-a-video-preview-in-the-settings-dialog">Showing a Video Preview in the Settings Dialog<a class="headerlink" href="#showing-a-video-preview-in-the-settings-dialog" title="Permanent link">&para;</a></h3>
+<p>If a clip is placed in the timeline, and its settings dialog is opened by double-clicking in the timeline, then the import can get frames from the timeline of the settings dialog. Only the rendered frames on layers beneath the current clip or timeline location are available. Use the <code>getPreviewFrameEx</code> callback with the time given by tdbTimelocation in imGetPrefsRec. timelineData is also valid during <em>imGetPrefs8</em>.</p>
+<hr />
+<h2 id="file-handling">File Handling<a class="headerlink" href="#file-handling" title="Permanent link">&para;</a></h2>
+<p>Basic importers that bring in media from a single file can rely on the host to provide basic file handling. If a clip has child files or a custom file system, an importer can provide its own file handling. Set canOpen, canSave, and canDelete to true during <code>imInit</code>, and respond to <code>imOpenFile8</code>, <em>imQuietFile</em>, <em>imCloseFile</em>, <em>imSaveFile8</em>, <em>imDeleteFile8</em>.</p>
+<p>Use the <a href="../suites/#async-file-reader-suite">Async File Reader Suite</a> for cross-platform file operations.</p>
+<h3 id="quieting-versus-closing-a-file">Quieting versus Closing a File<a class="headerlink" href="#quieting-versus-closing-a-file" title="Permanent link">&para;</a></h3>
+<p>When the application loses focus, importers receive <em>imQuietFile</em> for each file it has been asked to open. Update any PrivateData and close the file. If the project is closed, <em>imCloseFile</em> is sent, telling the importer to free any PrivateData. If the importer didn't store any PrivateData, it will not receive <em>imCloseFile</em>.</p>
+<h3 id="growing-files">Growing Files<a class="headerlink" href="#growing-files" title="Permanent link">&para;</a></h3>
+<p>When Premiere Pro attempts to refresh a growing file (after N seconds, as determined by the preferences value), it quiets the existing importer instance, and opens a new one pointing to the same file. In response, the Importer should report the current (new) duration and, once it's determined whether the file is still growing, set  <code>imFileInfoRec.mayBeGrowing</code> appropriately.</p>
+<h3 id="importing-from-streaming-sources">Importing from Streaming Sources<a class="headerlink" href="#importing-from-streaming-sources" title="Permanent link">&para;</a></h3>
+<p>For importing video from a streaming source, in order to pretend that the file is a local file or available on the network, create a placeholder file like video_proxy.abc.</p>
+<p>Inside this file, include info that lets your importer know it is your own type, and the http path, like this:</p>
+<p>"MyCompany ABC streaming format placeholder file <a href="https://myurl.com/video.abc">https://myurl.com/video.abc</a>"</p>
+<p>Your importer would open the local video_proxy.abc file, check the header and find it is your own placeholder file, and then access the real contents at the http location included. To create the local</p>
+<p>.abc files, you could use a custom importer that presents a OS dialog to choose the remote file, or a Premiere panel to do so. The Panel SDK can be found here:</p>
+<p><a href="https://github.com/Adobe-CEP/Samples/tree/master/PProPanel">https://github.com/Adobe-CEP/Samples/tree/master/PProPanel</a></p>
+<p>If the filetype is an existing filetype supported by Premiere Pro, then set a high value in <code>imImportInfoRec.priority</code> to give your importer the first opportunity to handle the file.</p>
+<p>For your filetype to be visible in the Proxy &gt; Attach Proxies window, set imIndFormatRec. flags |= xfIsMovie (this flag is labeled obsolete, but still needed for this case)</p>
+<p>If your importer supports different fractional resolutions and decode qualities, the fractional resolutions can be enumerated in response to the selector <em>imGetPreferredFrameSize</em>, and the decode quality hint is sent on import requests to your importer (for example in imSourceVideoRec.inQuality).</p>
+<hr />
+<h2 id="audio-conforming-and-peak-file-generation">Audio Conforming and Peak File Generation<a class="headerlink" href="#audio-conforming-and-peak-file-generation" title="Permanent link">&para;</a></h2>
+<p>When a clip that contains audio is imported into Premiere, one or two types of files may be generated:</p>
+<p>First, a separate .pek file is always created. This contains peak audio samples for quick access when Premiere needs to draw the audio waveform, for example in the Source Monitor or Timeline panel.</p>
+<p>Second, the audio may be conformed into a separate .cfa file. The conformed audio is in an interleaved 32-bit floating point format that matches the sequence audio sample rate, to maximize the speed at which Premiere can render audio effects and mix it without sacrificing quality.</p>
+<p>Both of these files can be generated through sequential calls for audio using <em>imImportAudio7</em>. Audio conforming cannot be disabled through the Premiere menus or API. However, if an importer can provide random-access, uncompressed audio of the clip, Premiere will not conform the audio. All compressed audio data must be conformed.</p>
+<p>Specifically, it is important to set these flags to avoid conforming: imImportInfoRec.avoidAudioConform = kPrTrue; imFileInfoRec8.accessModes |= kRandomAccessImport;</p>
+<p>Starting in CS5.5, peak audio data can also optionally be provided by the importer, if the importer implements a faster way to read the peak audio data from the clip. By setting imImportInfoRec. canProvidePeakAudio to non-zero, the importer will be sent <em>imGetPeakAudio</em> whenever this data is requested. Starting in CS6, if an importer wants to provide peak audio data on a clip-by-clip basis, it can set imFileInfoRec8.canProvidePeakData accordingly.</p>
+<p>The location of the .cfa and .pek files is determined by the user-specified path in Edit &gt; Preferences &gt; Media &gt; Media Cache Files. When the project is closed, the files will be cleaned up. If the source clip is not saved in the project, the associated conformed audio files will be deleted.</p>
+<p>Importers can get audio for scrubbing, playing and other timeline operations before conforming has completed, resulting in responsive audio feedback during conforming. To do this, they must support both random access and sequential access audio importing. The <code>kSeparateSequentialAudio</code> access mode should be set in imFileInfoRec8.accessModes.</p>
+<hr />
+<h2 id="quality-levels">Quality Levels<a class="headerlink" href="#quality-levels" title="Permanent link">&para;</a></h2>
+<p>Importers can optionally support two different quality modes, with the imDraftMode flag that is used in imImportImageRec.</p>
+<hr />
+<h2 id="closed-captioning">Closed Captioning<a class="headerlink" href="#closed-captioning" title="Permanent link">&para;</a></h2>
+<p>Starting in CC, importers can support closed captioning that is embedded in the source media. The built-in QuickTime importer provides this capability.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Premiere Pro can also import and export captions in a sidecar file (e.g. .mcc, .scc, or .xml) alongside any media file, regardless of the media file format. This does not require any specific work on the importer side.</p>
+</div>
+<p>To support embedded closed captioning, set <code>imImportInfoRec.canSupportClosedCaptions</code> to true. The importer should handle the following selectors: <code>imInitiateAsyncClosedCaptionScan</code>, <code>imGetNextClosedCaption</code>, and <em>imCompleteAsyncClosedCaptionScan</em>.</p>
+<p><em>imInitiateAsyncClosedCaptionScan</em> will be called for every file that is imported through an importer that sets canSupportClosedCaptions to true. The plugin should at this point determine whether or not there is closed captioning data for this file. If not, then the plugin should simply return imNoCaptions, and everything is done. If the plugin didn't report an error for that call, then <em>imGetNextClosedCaption</em> will be called until the plugin returns imNoCaptions. After which, <em>imCompleteAsyncClosedCaptionScan</em> will be called informing the importer that the host is done requesting captions.</p>
+<p>Both <em>imGetNextClosedCaption</em> and <em>imCompleteAsyncClosedCaptionScan</em> may be called from a different thread from which <code>imInitiateAsyncClosedCaptionScan</code> was originally called. To help facilitate this, <code>outAsyncCaptionScanPrivateData</code> during <code>imInitiateAsyncClosedCaptionScan</code> can be allocated by the importer to be used for the upcoming calls, which can be deallocated</p>
+<p>in <em>imCompleteAsyncClosedCaptionScan</em>.</p>
+<hr />
+<h2 id="n-channel-audio">N-Channel Audio<a class="headerlink" href="#n-channel-audio" title="Permanent link">&para;</a></h2>
+<p>Starting in CC, for audio configurations beyond mono, stereo, and 5.1, an importer can specify a channel layout by implementing the new <em>imGetAudioChannelLayout</em> selector. Otherwise the channel layout will be assumed to be discrete. For support prior to CC, the importer needs to import them as multiple streams.</p>
+<hr />
+<h2 id="multiple-streams">Multiple Streams<a class="headerlink" href="#multiple-streams" title="Permanent link">&para;</a></h2>
+<p>Importers can support multiple streams of audio and/or video. For most filetypes with a single video and a simple audio configuration (mono, stereo, or 5.1), only a single stream is necessary. Multiple streams can be useful for stereoscopic footage, layered file types (like Photoshop PSD files), or clips with complex audio configuration (such as 4 mono audio channels). The following describes the general case of multiple streams. For stereoscopic importers, please refer to the description further down.</p>
+<p>An importer describes each stream one-by-one during iterative calls to <em>imGetInfo8</em>. In response to each call, the importer describes one stream, and returns imIterateStreams, until it reaches the last stream, and then it returns imBadStreamIndex. Set imFileInfoRec8-&gt;streamsAsComp = kPrFalse, so that the set of streams appear as a single clip within Premiere Pro.</p>
+<p>In <em>imGetInfo8</em>, save streamIdx in privateData, to have access to it later. That way, when called in <em>imImportAudio7</em>, the importer will know which stream of audio to pass back.</p>
+<p>See the sample code in the SDK File Importer, which can be turned on by uncommenting back in the MULTISTREAM_AUDIO_TESTING define in SDK_File_Import.h.</p>
+<h3 id="stereoscopic-video">Stereoscopic Video<a class="headerlink" href="#stereoscopic-video" title="Permanent link">&para;</a></h3>
+<p>First, an importer must advertise multiple video streams. During <em>imGetInfo8</em>, the host passes in the stream index in imFileInfoRec8.streamIdx. If the clip has a second stream, then on index 0 the importer should return imIterateStreams and it will be called again for the second stream. On the second one you return imNoErr, as before. The nice thing is that this works in Premiere Pro CS5.5 and earlier - when two video streams are present, on import, they will just appear as two different project items.</p>
+<p>Prior to CS6, an importer would need to have a prefs structure and on <em>imGetInfo8</em> it would need to store the stream index in that structure. With CS6 this is a lot simpler. Now, in the <code>imSourceVideoRec</code> (passed in <em>imGetSourceVideo</em>, and part of the <em>aiFrameRequest</em> for async importers), the host application passes in the currentStreamIndex (in the value formerly</p>
+<p>known as unused1). This makes it much easier to just check when providing a PPix and differentiate the two streams.</p>
+<p>Now, obviously, it is not desirable to have two project items. In order to get them merged, an importer needs to label the streams (the logic here is pretty simple, if there are multiple labeled video streams, it will appear as a single project item, and all views on that item will show the first stream). For this there is a new selector: <em>imQueryStreamLabel</em>. The struct passed to the importer has its privateData, prefs data, and the stream index, and the label needs to be passed back in a PrSDKString. If you're not familiar with PrSDKStringSuite, it's fairly obvious how to use. In this case you'll be allocating a string, passing either UTF-8 data, or UTF-16 data.</p>
+<p>In PrSDKStreamLabel.h we define two labels: kPrSDK_StreamLabelStereoscopicLeft and kPrSDKStreamLabel_Stereoscopic_Right. By convention, we expect Left to be stream 0 and Right to be stream 1. This is purely for consistency - if we have multiple stereo clips from multiple importers, we would want the thumbnails to all be consistent. If we stick to this convention, then the thumbnails will all be Left.</p>
+<p>To integrate well with other third-parties, we strongly encourage using these labels for stereoscopic importers. However, the entire StreamLabel mechanism is intentionally left quite general. You could use whatever labels you want in your importers and effects, and when you request the video segments you can pass whatever label you would like. If you have other uses for this, we would be interested to hear about them, and we would welcome any bug reports.</p>
+<hr />
+<h2 id="project-manager-support">Project Manager Support<a class="headerlink" href="#project-manager-support" title="Permanent link">&para;</a></h2>
+<p>The Project Manager in Premiere Pro allows users to archive projects, trim out unused media, or collect all source files to a single location. Importers are the most knowledgable about the sources they work with. So Premiere Pro doesn't make any assumptions about the source media, but instead relies on the importers to handle the trimming and file size estimates. Only importers that specifically support trimming will trim and not copy when the Project Manager trims projects.</p>
+<p>To support trimming, importers will want to set the canCalcSizes and canTrim flags during <em>imInit</em>, and support <em>imCalcSize8</em>, <em>imCheckTrim8</em>, and <em>imTrimFile8</em>.</p>
+<p>If the each clip has more than one source file (such as audio channels in separate files), the importer should also set canCopy and support <em>imCopyFile</em>. Otherwise, the Project Manager will not know about the other source files.</p>
+<p>External files, such as textures, logos, etc. that are used by an importer instance but do not appear as footage in Project panel, should be registered with Premiere Pro using the <a href="../../universals/sweetpea-suites/#file-registration-suite">File Registration Suite</a> during <em>imGetInfo8</em> or <em>imGetPrefs8</em>. Registered files will be taken into account when trimming or copying a project using the Project Manager.</p>
+<hr />
+<h2 id="creating-a-custom-importer">Creating a Custom Importer<a class="headerlink" href="#creating-a-custom-importer" title="Permanent link">&para;</a></h2>
+<p>This variant of the importer API allows importers to dynamically create disk-based media while working within Premiere. A titler plugin or similar should use this API. Once your clip is created, it is treated like any other standard file and will receive all standard missing file handling.</p>
+<p>A Custom Importer <strong>must</strong> do the following:</p>
+<ul>
+<li>Set the following flags true in imImportInfoRec; canCreate, canOpen, addToMenu, noFile. This tells Premiere your plugin will create a clip on disk at <em>imGetPrefs8</em> time.</li>
+<li>To determine when you need to create a new clip vs. modify an existing clip, check the <code>imFileAccessRec</code> filename. If it's identical to the plugin display name (as set in the PiPL), create a new clip; otherwise modify the clip.</li>
+<li>If the user cancels from your dialog when creating a new clip, return imCancel.</li>
+<li>If the clip is modified, the importer needs to do a few things for Premiere to pick up the changes. Put your file access information in the supplied <code>imFileAccessRec</code>. Premiere will use this data to reference your clip from now on. Close the file handle after you create it. Return imSetFile after creating a file handle in <em>imGetPrefs8</em>., and call RefreshFileAsync() in the Importer</li>
+</ul>
+<p>File Manager Suite to notify Premiere that the clip has been modified. Premiere will immediately call you to open the file and return a valid imFileRef. Respond to <em>imOpenFile8</em>, <em>imQuietFile</em>, <em>imCloseFile</em> at a minimum.</p>
+<hr />
+<h2 id="real-time-rolling-and-crawling-titles">Real-Time Rolling and Crawling Titles<a class="headerlink" href="#real-time-rolling-and-crawling-titles" title="Permanent link">&para;</a></h2>
+<p>For RT rolls and crawls, a player and importer must be specially designed to work together. An importer can implement the appropriate functionality, but it is up to the player to take advantage of it.</p>
+<p>Importers can make image data available for rolling and crawling titles, using <code>imImageInfoRec.isRollCrawl</code>. If the importer sets it to non-zero, this declares that the image is a title or other image that does roll/crawl, and that the importer supports the <em>imGetRollCrawlInfo</em> and <em>imRollCrawlRenderPage</em> selectors. <em>imGetRollCrawlInfo</em> is used to get info on the roll/crawl from the importer, and <em>imRollCrawlRenderPage</em> is used to get a rendered page of the roll/crawl.</p>
+<hr />
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="how-to-get-first-crack-at-a-file">How to Get First Crack at a File<a class="headerlink" href="#how-to-get-first-crack-at-a-file" title="Permanent link">&para;</a></h3>
+<p>To get the first opportunity to import a filetype also supported by a built-in importer (e.g. MPEG, AVI, QuickTime, etc), provide a different subtype and classID in order for your importer to be called for the types of files you support. imImportInfoRec.priority must be higher than any of the other importers for that filetype. Set this value to 100 or higher to override all built-in importers. Premiere Pro has more than one type of AVI importer and MPEG importer, which use this same prioritization mechanism. So your importer can override all of them and get the first shot at a filetype.</p>
+<p>Just because you want to take over handling some files of a given filetype, it doesn't mean you have to handle all of them. To defer an unsupported subtype to a lower priority importer, return imBadFile during <em>imOpenFile8</em> or <em>imGetInfo8</em>. See the Media Abstraction chapter for more information on filetypes, subtypes, and classIDs.</p>
+<h3 id="format-repeated-in-menu">Format repeated in menu?<a class="headerlink" href="#format-repeated-in-menu" title="Permanent link">&para;</a></h3>
+<p>To avoid having your importer appear multiple times in the file formats supported pop-up list, fill out the formatName, formatShortName and platform extension once and only once during your <em>imGetIndFormat</em>.</p>
+<hr />
+<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
+<p>Importers must contain a IMPT resource. Premiere uses this to identify the plugin as an importer. Also, depending on the type of importer (standard, synthetic, or custom), a PiPL may be required.</p>
+<hr />
+<h2 id="entry-point">Entry Point<a class="headerlink" href="#entry-point" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">csSDK_int32</span><span class="w"> </span><span class="n">xImportEntry</span><span class="w"> </span><span class="p">(</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">selector</span><span class="p">,</span>
+<span class="w">  </span><span class="n">imStdParms</span><span class="w">   </span><span class="o">*</span><span class="n">stdParms</span><span class="p">,</span>
+<span class="w">  </span><span class="kt">void</span><span class="w">         </span><span class="o">*</span><span class="n">param1</span><span class="p">,</span>
+<span class="w">  </span><span class="kt">void</span><span class="w">         </span><span class="o">*</span><span class="n">param2</span><span class="p">)</span>
+</code></pre></div>
+<p><em>selector</em> is the action Premiere wants the importer to perform. stdParms provides callbacks to obtain additional information from Premiere or to have Premiere perform tasks.</p>
+<p><code>param1</code> and <code>param2</code> vary with the selector; they may contain a specific value or a pointer to a structure. Return imNoErr if successful, or an appropriate return code.</p>
+<hr />
+<h2 id="standard-parameters">Standard Parameters<a class="headerlink" href="#standard-parameters" title="Permanent link">&para;</a></h2>
+<p>A pointer to this structure is sent from the host application to the plugin with every selector.</p>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">      </span><span class="n">imInterfaceVer</span><span class="p">;</span>
+<span class="w">  </span><span class="n">imCallbackFuncs</span><span class="w">  </span><span class="o">*</span><span class="n">funcs</span><span class="p">;</span>
+<span class="w">  </span><span class="n">piSuitesPtr</span><span class="w">      </span><span class="n">piSuites</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">imStdParms</span><span class="p">;</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>imInterfaceVer</code></td>
+<td>Importer API version<ul><li>Premiere Pro CC 2014 - <code>IMPORTMOD_VERSION_15</code></li><li>Premiere Pro CC - <code>IMPORTMOD_VERSION_14</code></li><li>Premiere Pro CS6.0.2 - <code>IMPORTMOD_VERSION_13</code></li><li>Premiere Pro CS6 - <code>IMPORTMOD_VERSION_12</code></li><li>Premiere Pro CS5.5 - <code>IMPORTMOD_VERSION_11</code></li><li>Premiere Pro CS5 - <code>IMPORTMOD_VERSION_10</code></li><li>Premiere Pro CS4 - <code>IMPORTMOD_VERSION_9</code></li></ul></td>
+</tr>
+<tr>
+<td><code>funcs</code></td>
+<td>Pointers to callbacks for importers</td>
+</tr>
+<tr>
+<td><code>piSuites</code></td>
+<td>Pointer to universal callback suites</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="importer-specific-callbacks">Importer-Specific Callbacks<a class="headerlink" href="#importer-specific-callbacks" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">ClassDataFuncsPtr</span><span class="w">  </span><span class="n">classFuncs</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">        </span><span class="n">unused1</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">        </span><span class="n">unused2</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">imCallbackFuncs</span><span class="p">;</span>
+
+<span class="k">typedef</span><span class="w"> </span><span class="n">csSDK_int32</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">importProgressFunc</span><span class="p">){</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">partDone</span><span class="p">;</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">totalToDo</span><span class="p">;</span>
+<span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">trimCallbackID</span><span class="p">};</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>classFuncs</code></td>
+<td>See ClassData functions.</td>
+</tr>
+<tr>
+<td><code>importProgressFunc</code></td>
+<td>Available in <code>imSaveFileRec</code> and <code>imTrimFileRec</code> during <em>imSaveFile8</em> and <em>imTrimFile8</em>.<br/><br/>Callback function pointer for use during project archiving or trimming to call into Premiere and update the progress bar and check for cancellation.<br/><br/>Either <code>imProgressAbort</code> or <code>imProgressCon</code> tinue will be returned.<br/><br/>The trimCallbackID parameter is passed in the same structures.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 25, 2025</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      All content is copyright Adobe Systems Incorporated.
+    </div>
+  
+  
+    Made with
+    <a
+      href="https://squidfunk.github.io/mkdocs-material/"
+      target="_blank" rel="noopener"
+    >
+      Material for MkDocs
+    </a>
+  
+</div>
+
+<!-- Print button -->
+<div class="md-copyright">
+  
+  <a href="../../print_page/" title="Print Site" class="md-content__button md-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 3H6v4h12m1 5a1 1 0 0 1-1-1 1 1 0 0 1 1-1 1 1 0 0 1 1 1 1 1 0 0 1-1 1m-3 7H8v-5h8m3-6H5a3 3 0 0 0-3 3v6h4v4h12v-4h4v-6a3 3 0 0 0-3-3"/></svg>
+  </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f13b1293.min.js"></script>
+      
+        <script src="../../js/print-site.js"></script>
+      
+    
+  </body>
+</html>

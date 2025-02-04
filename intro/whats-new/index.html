@@ -1,0 +1,4808 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://ppro-plugins.docsforadobe.dev/intro/whats-new/">
+      
+      
+        <link rel="prev" href="../sdk-audience/">
+      
+      
+        <link rel="next" href="../where-do-i-start/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.2">
+    
+    
+      
+        <title>Whats New - Premiere Pro C++ SDK Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.d7758b05.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings1.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings2.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings3.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings4.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings5.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings6.css">
+    
+      <link rel="stylesheet" href="../../css/print-site.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-material.css">
+    
+      <link rel="stylesheet" href="https://docsforadobe.dev/_global/global.css">
+    
+      <link rel="stylesheet" href="https://docsforadobe.dev/_global/global-syntax-highlight.css">
+    
+      <link rel="stylesheet" href="../../_static/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#whats-new" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+              <button class="md-banner__button md-icon" aria-label="Don't show this again">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+              </button>
+            
+            
+  Welcome to the new scripting guide!
+
+  This is a work in progress.
+
+  Please provide all feedback via
+  <a ref="me" href="https://github.com/orgs/docsforadobe/discussions">
+    <span class="twemoji">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 1h8.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0 1 10.25 10H7.061l-2.574 2.573A1.458 1.458 0 0 1 2 11.543V10h-.25A1.75 1.75 0 0 1 0 8.25v-5.5C0 1.784.784 1 1.75 1M1.5 2.75v5.5c0 .138.112.25.25.25h1a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.75.75 0 0 1 .53-.22h3.5a.25.25 0 0 0 .25-.25v-5.5a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25m13 2a.25.25 0 0 0-.25-.25h-.5a.75.75 0 0 1 0-1.5h.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0 1 14.25 12H14v1.543a1.458 1.458 0 0 1-2.487 1.03L9.22 12.28a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l2.22 2.22v-2.19a.75.75 0 0 1 .75-.75h1a.25.25 0 0 0 .25-.25Z"/></svg>
+    </span>
+    <strong>the org's discussion forum</strong>
+  </a>.
+
+          </div>
+          
+            <script>var el=document.querySelector("[data-md-component=announce]");if(el){var content=el.querySelector(".md-typeset");__md_hash(content.innerHTML)===__md_get("__announce")&&(el.hidden=!0)}</script>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://docsforadobe.dev" title="Premiere Pro C++ SDK Guide" class="md-header__button md-logo" aria-label="Premiere Pro C++ SDK Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Premiere Pro C++ SDK Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Whats New
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/docsforadobe/premiere-plugin-guide/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    premiere-plugin-guide
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://docsforadobe.dev" title="Premiere Pro C++ SDK Guide" class="md-nav__button md-logo" aria-label="Premiere Pro C++ SDK Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Premiere Pro C++ SDK Guide
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/docsforadobe/premiere-plugin-guide/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    premiere-plugin-guide
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    History
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            History
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../history/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Version History
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Introduction
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../what-premiere-plugins-do/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What Premiere Plug-Ins Do
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sdk-audience/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SDK Audience
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Whats New
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Whats New
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Page Contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Page Contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-240" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in 24.0
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-154" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in 15.4
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-142" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in 14.2
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-131" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in 13.1
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-130" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in 13.0
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-120" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in 12.0
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="What's New in 12.0">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#effects-and-transitions" class="md-nav__link">
+		<span class="md-ellipsis">
+			Effects and Transitions
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-20171" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in CC 2017.1
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="What's New in CC 2017.1">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#importers" class="md-nav__link">
+		<span class="md-ellipsis">
+			Importers
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#exporters" class="md-nav__link">
+		<span class="md-ellipsis">
+			Exporters
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#transmit" class="md-nav__link">
+		<span class="md-ellipsis">
+			Transmit
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#vr-video-support" class="md-nav__link">
+		<span class="md-ellipsis">
+			VR Video Support
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-2017" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in CC 2017
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="What's New in CC 2017">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#vr-video-support-added" class="md-nav__link">
+		<span class="md-ellipsis">
+			VR Video Support added
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#new-sample-projects" class="md-nav__link">
+		<span class="md-ellipsis">
+			New Sample Projects
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#new-panelscripting-capabilities" class="md-nav__link">
+		<span class="md-ellipsis">
+			New Panel/Scripting Capabilities
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#miscellaneous" class="md-nav__link">
+		<span class="md-ellipsis">
+			Miscellaneous
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-20240" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in CC 2024.0
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-20154" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in CC 2015.4
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="What's New in CC 2015.4">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#metal-rendering-for-effects-and-transitions" class="md-nav__link">
+		<span class="md-ellipsis">
+			Metal rendering for Effects and Transitions
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-20153" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in CC 2015.3?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="What's New in CC 2015.3?">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#control-surfaces" class="md-nav__link">
+		<span class="md-ellipsis">
+			Control Surfaces
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#importers_1" class="md-nav__link">
+		<span class="md-ellipsis">
+			Importers
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#exporters_1" class="md-nav__link">
+		<span class="md-ellipsis">
+			Exporters
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#effects" class="md-nav__link">
+		<span class="md-ellipsis">
+			Effects
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#misc" class="md-nav__link">
+		<span class="md-ellipsis">
+			Misc
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-20151" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in CC 2015.1?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="What's New in CC 2015.1?">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#transmit_1" class="md-nav__link">
+		<span class="md-ellipsis">
+			Transmit
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-2015" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in CC 2015?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="What's New in CC 2015?">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#after-effects-style-transitions" class="md-nav__link">
+		<span class="md-ellipsis">
+			After Effects-Style Transitions
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#source-settings-effect-importer" class="md-nav__link">
+		<span class="md-ellipsis">
+			Source Settings = Effect + Importer
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#importers_2" class="md-nav__link">
+		<span class="md-ellipsis">
+			Importers
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#exporters_2" class="md-nav__link">
+		<span class="md-ellipsis">
+			Exporters
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#transmitters" class="md-nav__link">
+		<span class="md-ellipsis">
+			Transmitters
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#miscellaneous_1" class="md-nav__link">
+		<span class="md-ellipsis">
+			Miscellaneous
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#new-sample-projects_1" class="md-nav__link">
+		<span class="md-ellipsis">
+			New Sample Projects
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-2014-82" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in CC 2014 (8.2)?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-2014-81" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in CC 2014 (8.1)?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-2014-801" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in CC 2014 (8.0.1)?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-2014" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in CC 2014?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-october-2013" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in CC October 2013?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-july-2013" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in CC July 2013?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in CC?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="What's New in CC?">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#new-edit-to-tape-panel" class="md-nav__link">
+		<span class="md-ellipsis">
+			New Edit to Tape Panel
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#new-gpu-extensions-for-effects-and-transitions" class="md-nav__link">
+		<span class="md-ellipsis">
+			New GPU Extensions for Effects and Transitions
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#closed-captioning-support-in-importer-and-exporter-apis" class="md-nav__link">
+		<span class="md-ellipsis">
+			Closed Captioning Support in Importer and Exporter APIs
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#miscellaneous-improvements" class="md-nav__link">
+		<span class="md-ellipsis">
+			Miscellaneous Improvements
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cs60x" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in CS6.0.x?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cs6" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in CS6?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="What's New in CS6?">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#transmit-api" class="md-nav__link">
+		<span class="md-ellipsis">
+			Transmit API
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#exporter-enhancements" class="md-nav__link">
+		<span class="md-ellipsis">
+			Exporter Enhancements
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#stereoscopic-video-pipeline" class="md-nav__link">
+		<span class="md-ellipsis">
+			Stereoscopic Video Pipeline
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#other-changes" class="md-nav__link">
+		<span class="md-ellipsis">
+			Other Changes
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cs55" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in CS5.5?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cs5" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in CS5?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="What's New in CS5?">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#mac-64-bit-and-cocoa" class="md-nav__link">
+		<span class="md-ellipsis">
+			Mac 64-Bit and Cocoa
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cs4" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in CS4?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="What's New in CS4?">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#new-renderer-api-and-custom-pixel-formats" class="md-nav__link">
+		<span class="md-ellipsis">
+			New Renderer API and Custom Pixel Formats
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#sequence-preview-formats" class="md-nav__link">
+		<span class="md-ellipsis">
+			Sequence Preview Formats
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#separate-processes-during-export" class="md-nav__link">
+		<span class="md-ellipsis">
+			Separate Processes During Export
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#xmp-metadata" class="md-nav__link">
+		<span class="md-ellipsis">
+			XMP metadata
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#more-pixel-format-flexibility" class="md-nav__link">
+		<span class="md-ellipsis">
+			More Pixel Format Flexibility
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#legacy-api" class="md-nav__link">
+		<span class="md-ellipsis">
+			Legacy API
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../where-do-i-start/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Where Do I Start
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../document-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Document Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-support/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Support and Providing Feedback
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../premiere-pro-plugin-types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Premiere Pro Plug-In Types
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sample-projects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sample Projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../debugging-plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Debugging Plug-Ins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../load-em-up/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Load Em Up
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugin-installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plug In Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../localization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Localization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../best-practices/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Best Practices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Resources
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/pipl-resource/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plug-In Property Lists (PiPL) Resource
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/impt-resource/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IMPT Resource
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Universals
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Universals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/universals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Universals
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/time/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Time
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/video-frames/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Video Frames
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/pixel-formats-and-color-spaces/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pixel Formats And Color Spaces
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/pixel-aspect-ratio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pixel Aspect Ratio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/fields/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fields
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/audio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Audio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/memory-management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Memory Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/basic-types-structures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Types Structures
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/sweetpea-suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SweetPea Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../universals/legacy-callback-suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Legacy Callback Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Hardware Integration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Hardware Integration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hardware
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/hardware-integration-components/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hardware Integration Components
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/classid-filetype-subtype/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ClassID, Filetype and Subtype
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/classdata-functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ClassData Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Importers
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Importers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../importers/importers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Importers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../importers/whats-new/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What's New
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../importers/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../importers/selector-table/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selector Table
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../importers/selector-descriptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selector Descriptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../importers/return-codes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Return Codes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../importers/structures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structures
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../importers/structure-descriptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structure Descriptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../importers/suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Export Controllers
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Export Controllers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../export-controllers/export-controllers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Export Controllers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Exporters
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Exporters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/exporters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exporters
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/whats-new/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Whats New
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/selector-table/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selector Table
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/selector-descriptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selector Descriptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/return-codes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Return Codes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/structures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structures
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/structure-descriptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structure Descriptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporters/additional-details/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Additional Details
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Transmitters
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Transmitters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../transmitters/transmitters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transmitters
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../transmitters/transmitter-basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transmitter Basics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../transmitters/tmModule-functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    tmModule Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../transmitters/tmModule-structures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    tmModule Structures
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../transmitters/suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Video Filters
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Video Filters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/video-filters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Video Filters
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/whats-new/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Whats New
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/selector-table/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selector Table
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/selector-descriptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selector Descriptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/return-codes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Return Codes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/VideoRecord/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VideoRecord
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../video-filters/additional-details/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Additional Details
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    GPU Effects & Transitions
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            GPU Effects & Transitions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/gpu-effects-transitions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GPU Effects & Transitions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/cuda-opencl-metal-opengl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CUDA, OpenCL, Metal, or OpenGL?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/whats-new-in-ppro-12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What's New in Premiere Pro 12.0?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/whats-new-in-ppro-cc2015/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What's New in Premiere Pro CC 2015.4?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/whats-new-in-ppro-cc2014/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What's New in Premiere Pro CC 2014?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/PrGPUFilter-function-table/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PrGPUFilter Function Table
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/function-descriptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Function Descriptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/return-codes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Return Codes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/structure-descriptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structure Descriptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/PrGPU-SDK-macros/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PrGPU SDK Macros
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gpu-effects-transitions/suites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Suites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AE Transition Extensions
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            AE Transition Extensions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ae-transition-extensions/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ae-transition-extensions/ae-transition-extensions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AE Transition Extensions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ae-transition-extensions/PF_TransitionSuite/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PF_TransitionSuite
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Control Surfaces
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            Control Surfaces
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../control-surfaces/control-surfaces/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Control Surfaces
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Page Contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Page Contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-240" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in 24.0
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-154" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in 15.4
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-142" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in 14.2
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-131" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in 13.1
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-130" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in 13.0
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-120" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in 12.0
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="What's New in 12.0">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#effects-and-transitions" class="md-nav__link">
+		<span class="md-ellipsis">
+			Effects and Transitions
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-20171" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in CC 2017.1
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="What's New in CC 2017.1">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#importers" class="md-nav__link">
+		<span class="md-ellipsis">
+			Importers
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#exporters" class="md-nav__link">
+		<span class="md-ellipsis">
+			Exporters
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#transmit" class="md-nav__link">
+		<span class="md-ellipsis">
+			Transmit
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#vr-video-support" class="md-nav__link">
+		<span class="md-ellipsis">
+			VR Video Support
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-2017" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in CC 2017
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="What's New in CC 2017">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#vr-video-support-added" class="md-nav__link">
+		<span class="md-ellipsis">
+			VR Video Support added
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#new-sample-projects" class="md-nav__link">
+		<span class="md-ellipsis">
+			New Sample Projects
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#new-panelscripting-capabilities" class="md-nav__link">
+		<span class="md-ellipsis">
+			New Panel/Scripting Capabilities
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#miscellaneous" class="md-nav__link">
+		<span class="md-ellipsis">
+			Miscellaneous
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-20240" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in CC 2024.0
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-20154" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in CC 2015.4
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="What's New in CC 2015.4">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#metal-rendering-for-effects-and-transitions" class="md-nav__link">
+		<span class="md-ellipsis">
+			Metal rendering for Effects and Transitions
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-20153" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in CC 2015.3?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="What's New in CC 2015.3?">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#control-surfaces" class="md-nav__link">
+		<span class="md-ellipsis">
+			Control Surfaces
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#importers_1" class="md-nav__link">
+		<span class="md-ellipsis">
+			Importers
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#exporters_1" class="md-nav__link">
+		<span class="md-ellipsis">
+			Exporters
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#effects" class="md-nav__link">
+		<span class="md-ellipsis">
+			Effects
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#misc" class="md-nav__link">
+		<span class="md-ellipsis">
+			Misc
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-20151" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in CC 2015.1?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="What's New in CC 2015.1?">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#transmit_1" class="md-nav__link">
+		<span class="md-ellipsis">
+			Transmit
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-2015" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in CC 2015?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="What's New in CC 2015?">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#after-effects-style-transitions" class="md-nav__link">
+		<span class="md-ellipsis">
+			After Effects-Style Transitions
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#source-settings-effect-importer" class="md-nav__link">
+		<span class="md-ellipsis">
+			Source Settings = Effect + Importer
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#importers_2" class="md-nav__link">
+		<span class="md-ellipsis">
+			Importers
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#exporters_2" class="md-nav__link">
+		<span class="md-ellipsis">
+			Exporters
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#transmitters" class="md-nav__link">
+		<span class="md-ellipsis">
+			Transmitters
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#miscellaneous_1" class="md-nav__link">
+		<span class="md-ellipsis">
+			Miscellaneous
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#new-sample-projects_1" class="md-nav__link">
+		<span class="md-ellipsis">
+			New Sample Projects
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-2014-82" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in CC 2014 (8.2)?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-2014-81" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in CC 2014 (8.1)?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-2014-801" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in CC 2014 (8.0.1)?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-2014" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in CC 2014?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-october-2013" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in CC October 2013?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc-july-2013" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in CC July 2013?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cc" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in CC?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="What's New in CC?">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#new-edit-to-tape-panel" class="md-nav__link">
+		<span class="md-ellipsis">
+			New Edit to Tape Panel
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#new-gpu-extensions-for-effects-and-transitions" class="md-nav__link">
+		<span class="md-ellipsis">
+			New GPU Extensions for Effects and Transitions
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#closed-captioning-support-in-importer-and-exporter-apis" class="md-nav__link">
+		<span class="md-ellipsis">
+			Closed Captioning Support in Importer and Exporter APIs
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#miscellaneous-improvements" class="md-nav__link">
+		<span class="md-ellipsis">
+			Miscellaneous Improvements
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cs60x" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in CS6.0.x?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cs6" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in CS6?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="What's New in CS6?">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#transmit-api" class="md-nav__link">
+		<span class="md-ellipsis">
+			Transmit API
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#exporter-enhancements" class="md-nav__link">
+		<span class="md-ellipsis">
+			Exporter Enhancements
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#stereoscopic-video-pipeline" class="md-nav__link">
+		<span class="md-ellipsis">
+			Stereoscopic Video Pipeline
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#other-changes" class="md-nav__link">
+		<span class="md-ellipsis">
+			Other Changes
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cs55" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in CS5.5?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cs5" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in CS5?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="What's New in CS5?">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#mac-64-bit-and-cocoa" class="md-nav__link">
+		<span class="md-ellipsis">
+			Mac 64-Bit and Cocoa
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#whats-new-in-cs4" class="md-nav__link">
+		<span class="md-ellipsis">
+			What's New in CS4?
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+		<nav class="md-nav" aria-label="What's New in CS4?">
+			<ul class="md-nav__list">
+				
+				
+					<li class="md-nav__item">
+	<a href="#new-renderer-api-and-custom-pixel-formats" class="md-nav__link">
+		<span class="md-ellipsis">
+			New Renderer API and Custom Pixel Formats
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#sequence-preview-formats" class="md-nav__link">
+		<span class="md-ellipsis">
+			Sequence Preview Formats
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#separate-processes-during-export" class="md-nav__link">
+		<span class="md-ellipsis">
+			Separate Processes During Export
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#xmp-metadata" class="md-nav__link">
+		<span class="md-ellipsis">
+			XMP metadata
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+				
+					<li class="md-nav__item">
+	<a href="#more-pixel-format-flexibility" class="md-nav__link">
+		<span class="md-ellipsis">
+			More Pixel Format Flexibility
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+				
+				
+			</ul>
+		</nav>
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#legacy-api" class="md-nav__link">
+		<span class="md-ellipsis">
+			Legacy API
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/docsforadobe/premiere-plugin-guide/edit/master/docs/intro/whats-new.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/docsforadobe/premiere-plugin-guide/raw/master/docs/intro/whats-new.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="whats-new">Whats New<a class="headerlink" href="#whats-new" title="Permanent link">&para;</a></h1>
+<h2 id="whats-new-in-240">What's New in 24.0<a class="headerlink" href="#whats-new-in-240" title="Permanent link">&para;</a></h2>
+<p>With the removal of Capture functionality from Premiere Pro, support for Record modules and Device Control plug-ins have been removed from the SDK.</p>
+<h2 id="whats-new-in-154">What's New in 15.4<a class="headerlink" href="#whats-new-in-154" title="Permanent link">&para;</a></h2>
+<p>We've updated the <code>PrSetEnv.h</code> header, to allow building ARM-native plugins.</p>
+<h2 id="whats-new-in-142">What's New in 14.2<a class="headerlink" href="#whats-new-in-142" title="Permanent link">&para;</a></h2>
+<p>Cleared the dust and debris off of the SDK source files. ;) The primary motivation for this new SDK release is to provided updated headers. Example code utilizing those new headers, as well as documentation of their new contents, will (regrettably) need to wait for another day.</p>
+<h2 id="whats-new-in-131">What's New in 13.1<a class="headerlink" href="#whats-new-in-131" title="Permanent link">&para;</a></h2>
+<p>Removed "CC" from the product name.</p>
+<hr />
+<h2 id="whats-new-in-130">What's New in 13.0<a class="headerlink" href="#whats-new-in-130" title="Permanent link">&para;</a></h2>
+<p>The only significant change to Premiere Pro's C++ APIs for 13.0 is the addition of color-space specifiers to the Importer API. The ColorProfileRec structure is deprecated; instead, Importers will describe supported colorspaces (in response to imGetIndColorSpace ) using a ColorSpaceRec.</p>
+<hr />
+<h2 id="whats-new-in-120">What's New in 12.0<a class="headerlink" href="#whats-new-in-120" title="Permanent link">&para;</a></h2>
+<h3 id="effects-and-transitions">Effects and Transitions<a class="headerlink" href="#effects-and-transitions" title="Permanent link">&para;</a></h3>
+<p><a href="../../gpu-effects-transitions/gpu-effects-transitions/">GPU Effects &amp; Transitions</a> built using this SDK are now compatible with After Effects 15.0 and later. The sample GPU effect projects have been updated so that they load in both Premiere Pro and After Effects.</p>
+<p>The newly provided <a href="../../gpu-effects-transitions/PrGPU-SDK-macros/">PrGPU SDK Macros</a> and device functions allow you to write kernels that will compile on CUDA, and Metal.</p>
+<p>Multiple effects and transitions can now be implemented in a single plugin binary, by defining multiple entry points in software at runtime. The new method for registering entry points will be a replacement for the PiPL resource, and is currently only supported in Premiere Pro. The sample effects and transitions demonstrate this new method, while <a href="../../resources/pipl-resource/">Plug-In Property Lists (PiPL) Resource</a> remains, for backwards-compatibility in PPro, and compatibility with AE.</p>
+<p><a href="../../universals/sweetpea-suites/#sequence-info-suite">Sequence Info Suite</a> is now at version 5, adding the new call GetImmersiveVideoVRConfiguration(), which returns the VR video settings of the specified sequence.</p>
+<p>New selector available for <a href="../../exporters/suites/#export-info-suite">Export Info Suite</a>: kExportInfo_SourceBitrate. This returns the source's bitrate in kbps, and is not available for all source types. exParamType can now be of type exParamType_thumbnail. A new flag exParamFlag_verticalAlignment can now be set so that property name and value controls are displayed vertically rather than side-by-side.</p>
+<hr />
+<h2 id="whats-new-in-cc-20171">What's New in CC 2017.1<a class="headerlink" href="#whats-new-in-cc-20171" title="Permanent link">&para;</a></h2>
+<h3 id="importers">Importers<a class="headerlink" href="#importers" title="Permanent link">&para;</a></h3>
+<p>Importers that support captions can make use of the mayHaveCaptions flag in <code>imFileInfoRec8</code>, for better performance. Also, a <code>imImageInfoRec</code> is now added to <code>imInitiateAsyncClosedCaptionScanRec</code>, just for the width and height parameters.</p>
+<h3 id="exporters">Exporters<a class="headerlink" href="#exporters" title="Permanent link">&para;</a></h3>
+<p>Exporters can advertise whether they support color profile embedding. There are also APIs to set color profile in the exporter, and a flag that controls whether profile is to be embedded. The color profile is passed to an exporter via exDoExportRec, for it to embed in the output media according to format standards. This is currently used for exports from After Effects through Media Encoder.</p>
+<h3 id="transmit">Transmit<a class="headerlink" href="#transmit" title="Permanent link">&para;</a></h3>
+<p>New 10-bit and 12-bit RGB HLG formats have been added for expanded HDR support.</p>
+<p>In <a href="../../universals/sweetpea-suites/#app-info-suite">App Info Suite</a>, a new identifier has been added for Character Animator, which now supports transmit plugins.</p>
+<h3 id="vr-video-support">VR Video Support<a class="headerlink" href="#vr-video-support" title="Permanent link">&para;</a></h3>
+<p>The Playmod Immersive Video Suite can be used to query whether or not ambisonics monitoring is on or not, in the VR Video Settings.</p>
+<hr />
+<h2 id="whats-new-in-cc-2017">What's New in CC 2017<a class="headerlink" href="#whats-new-in-cc-2017" title="Permanent link">&para;</a></h2>
+<h3 id="vr-video-support-added">VR Video Support added<a class="headerlink" href="#vr-video-support-added" title="Permanent link">&para;</a></h3>
+<p>Transmit plugins can have the VR perspective in the desktop Monitor driven by the Head-Mounted Display, so when the person with the Head-Mounted Display looks in a different direction, the desktop Monitor shows that same perspective. To do this, the transmit plugin can use the new Playmod Immersive Video Suite to indicate that it supports tracking.</p>
+<p>Once Premiere sees the transmitter supports tracking, when the user activates the VR viewer, the new menu item, "Track Head-Mounted Display" will become active, and can be toggled to begin tracking. The transmitter should call NotifyDirection() as frequently it wants with updated info. Premiere will pick up the new position on the next frame draw.</p>
+<p>For importers, imFileInfoRec8 has now been expanded so that if an importer detects that a clip contains VR video, it can inform Premiere.</p>
+<h3 id="new-sample-projects">New Sample Projects<a class="headerlink" href="#new-sample-projects" title="Permanent link">&para;</a></h3>
+<p>This SDK includes a new render path for the ProcAmp sample for Metal. This sample requires macOS 10.11.4 and later.</p>
+<p>We've also added a sample GPU effect called Vignette, donated by Bart Walczak. This effect has OpenCL, CUDA, and software render paths. Software rendering in Premiere Pro includes</p>
+<p>8-bit/32-bit RGB/YUV software render paths. Software rendering in After Effects includes 8-bit and 32-bit smart rendering.</p>
+<p>And lastly, the Control Surface sample is now cross-platform.</p>
+<h3 id="new-panelscripting-capabilities">New Panel/Scripting Capabilities<a class="headerlink" href="#new-panelscripting-capabilities" title="Permanent link">&para;</a></h3>
+<p>Scripting, the processing underlying HTML5 panels, is consistently being improved upon. In this release, we've added scripting functions to add/modify effect keyframes. See the sample panel code on GitHub:</p>
+<p><a href="https://github.com/Adobe-CEP/Samples/tree/master/PProPanel">https://github.com/Adobe-CEP/Samples/tree/master/PProPanel</a></p>
+<p>In particular, see the function onPlayWithKeyframes() in jsx/Premiere.jsx</p>
+<h3 id="miscellaneous">Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permanent link">&para;</a></h3>
+<p>In <a href="../../universals/sweetpea-suites/#video-segment-render-suite">Video Segment Render Suite</a>, new versions of various calls have been added with an additional boolean value that allows renders to skip rendering of non-intrinsic effects.</p>
+<hr />
+<h2 id="whats-new-in-cc-20240">What's New in CC 2024.0<a class="headerlink" href="#whats-new-in-cc-20240" title="Permanent link">&para;</a></h2>
+<p>The Transmit API has been expanded to enable multiple audio outputs, and plug-ins which stream video and audio information.</p>
+<h2 id="whats-new-in-cc-20154">What's New in CC 2015.4<a class="headerlink" href="#whats-new-in-cc-20154" title="Permanent link">&para;</a></h2>
+<h3 id="metal-rendering-for-effects-and-transitions">Metal rendering for Effects and Transitions<a class="headerlink" href="#metal-rendering-for-effects-and-transitions" title="Permanent link">&para;</a></h3>
+<p>GPU-accelerated rendering using Metal is now supported for third-party effects and transitions. PrGPUDeviceFramework_Metal has been added as one of the enum values in PrGPUDeviceFramework.</p>
+<hr />
+<h2 id="whats-new-in-cc-20153">What's New in CC 2015.3?<a class="headerlink" href="#whats-new-in-cc-20153" title="Permanent link">&para;</a></h2>
+<h3 id="control-surfaces">Control Surfaces<a class="headerlink" href="#control-surfaces" title="Permanent link">&para;</a></h3>
+<p>New suites have been added for Control Surfaces to support the Lumetri Color panel. Most controls are supported, including the color wheels, but not including the Curves controls.</p>
+<p>There is now a shared location for Control Surface plugins. On Mac:</p>
+<p>/Library/Application Support/Adobe/Common/Plugins/ControlSurface, and</p>
+<p>~/Library/Application Support/Adobe/Common/Plugins/ControlSurface</p>
+<p>On Win:</p>
+<p>C:Program FilesAdobeCommonPluginsControlSurface</p>
+<h3 id="importers_1">Importers<a class="headerlink" href="#importers_1" title="Permanent link">&para;</a></h3>
+<p>Video duration can now be reported as a 64-bit integer, using the new imFileInfoRec8. vidDurationInFrames, to support longer file lengths. There is also a new suite function, SetImporterInstanceStreamFileCount(), for importers to specify how many files they open.</p>
+<h3 id="exporters_1">Exporters<a class="headerlink" href="#exporters_1" title="Permanent link">&para;</a></h3>
+<p>New flags can be set in exExporterInfoRec.flags, to restrict an exporter from being used in a way that doesn't make sense. Now, an exporter can specify that video-only export is not supported. Also, an exporter can turn off the Publish tab if it chooses to.</p>
+<h3 id="effects">Effects<a class="headerlink" href="#effects" title="Permanent link">&para;</a></h3>
+<p>Source settings effects should use the updated Source Settings suite with new</p>
+<p>SetIsSourceSettingsEffect() function. They should make this call during <em>PF_Cmd</em></p>
+<p><em>GLOBAL_SETUP</em>. This function was added to handle the case when the effect is applied to proxy video.</p>
+<h3 id="misc">Misc<a class="headerlink" href="#misc" title="Permanent link">&para;</a></h3>
+<p>Using the <a href="../../universals/sweetpea-suites/#sequence-info-suite">Sequence Info Suite</a>, a new call has been added, GetProxyFlag(), for a plugin to know whether the proxy mode is on or off.</p>
+<hr />
+<h2 id="whats-new-in-cc-20151">What's New in CC 2015.1?<a class="headerlink" href="#whats-new-in-cc-20151" title="Permanent link">&para;</a></h2>
+<h3 id="transmit_1">Transmit<a class="headerlink" href="#transmit_1" title="Permanent link">&para;</a></h3>
+<p>Native support for 12-bit Dolby PQ pixel formats, with Rec. 709, P3, and Rec. 2020 primaries, have been added.</p>
+<hr />
+<h2 id="whats-new-in-cc-2015">What's New in CC 2015?<a class="headerlink" href="#whats-new-in-cc-2015" title="Permanent link">&para;</a></h2>
+<h3 id="after-effects-style-transitions">After Effects-Style Transitions<a class="headerlink" href="#after-effects-style-transitions" title="Permanent link">&para;</a></h3>
+<p>AE-style Transitions can now get and set transition start and end percentages. The user can change the start and end parameters in the Effect Controls panel. To allow a plugin to be informed of changes to these values, there are two new functions in the PF TransitionSuite: RegisterTransitionStartParam() and RegisterTransitionEndParam(), which register these parameters with the plugin as float parameters. Once registered, the plugin will receive <em>PF_Cmd_USER_CHANGED_PARAM</em> when these params change, as well as when the transition is first applied, so the plugin can initialize them to the desired value.</p>
+<p>AE-style Transitions can now retrieve GPU frames from arbitrary locations in the underlying clips. There is a new PrGPUDependency_TransitionInputFrame, and PrGPUFilterFrameDependency has a new member to specify whether frames from the incoming or outgoing clips are needed.</p>
+<h3 id="source-settings-effect-importer">Source Settings = Effect + Importer<a class="headerlink" href="#source-settings-effect-importer" title="Permanent link">&para;</a></h3>
+<p>Source Settings for clips can now be implemented using effects that are tied to importers. This has the advantage of providing settings in the Effect Controls panel, rather than in a modal dialog. Editors can adjust Source Settings for multiple clips this way. These effects are used for the DPX source settings, CinemaDNG, etc.</p>
+<p>To implement this, an importer should set <code>imImportInfoRec.hasSourceSettingsEffect</code> to true. Then in imFileInfoRec8, it should set sourceSettingsMatchName to the match name of the effect to be used for the Source Settings.</p>
+<p>On the effects side, a new PF Source Settings Suite has been added to PrSDKAESupport.h, for effects using the After Effects API. This is how an effect registers a function to handle the Source Settings command.</p>
+<p>A source settings effect is used primarily for the parameter UI and management. A source settings effect doesn't provide the actual frames. In fact, the effect isn't even called with <em>PF_Cmd_RENDER</em>. The frames come directly from the importer, which provides frames based on the settings as passed to the importer via prefs data.</p>
+<p>When a clip is first imported, the effect is called with <em>PF_Cmd_SEQUENCE_SETUP</em>. It should call PerformSourceSettingsCommand() in the Source Settings Suite, to initialize the prefs. This causes the importer to get called with <em>imPerformSourceSettingsCommand</em>, where it can read the file and set the default prefs. param1 of that function is imFileAccessRec8*, and param2 is imSourceSettingsCommandRec*.</p>
+<p>When the source settings effect parameters are changed, the effect gets called with <em>PF_Cmd_TRANSLATE_PARAMS_TO_PREFS</em>. The function signature is:</p>
+<div class="highlight"><pre><span></span><code><span class="n">PF_Err</span><span class="w"> </span><span class="n">TranslateParamsToPrefs</span><span class="p">(</span>
+<span class="w">  </span><span class="n">PF_InData</span><span class="o">*</span><span class="w">                      </span><span class="n">in_data</span><span class="p">,</span>
+<span class="w">  </span><span class="n">PF_OutData</span><span class="o">*</span><span class="w">                     </span><span class="n">out_data</span><span class="p">,</span>
+<span class="w">  </span><span class="n">PF_ParamDef</span><span class="o">*</span><span class="w">                    </span><span class="n">params</span><span class="p">[],</span>
+<span class="w">  </span><span class="n">PF_TranslateParamsToPrefsExtra</span><span class="w">  </span><span class="o">*</span><span class="n">extra</span><span class="p">)</span>
+</code></pre></div>
+<p>With the new prefs, the importer will be sent <em>imOpenFile8, imGetInfo8, imGetIndPixelFormat, imGetPreferredFrameSize, imGetSourceVideo</em>, etc.</p>
+<p>imSourceSettingsCommandRec and PF Source Settings Suite allow the effect to communicate directly with the importer, so that it can initialize its parameters properly, based on the source media. In the DPX source settings effect, for example, in <em>PF_Cmd_SEQUENCE_SETUP</em>, it calls PF_SourceSettingsSuite-&gt;PerformSourceSettingsCommand(), which calls through to the importer with the selector <em>imPerformSourceSettingsCommand</em>. Here, the importer opens the media, looks at the header and initializes the prefs based on the media. For</p>
+<p>DPX, the initial parameters and default prefs are based on the bit depth of the video. These default prefs are passed back to the effect, which sets the initial param values and stashes a copy of them in sequence_data to use again for future calls to <em>PF_Cmd_SEQUENCE_RESETUP</em>.</p>
+<h3 id="importers_2">Importers<a class="headerlink" href="#importers_2" title="Permanent link">&para;</a></h3>
+<p>For any importers that are using imClipFrameDescriptorRec, note that the structure definition has changed. Any importers that use this in both CC 2014 and CC 2015 or later will need to do a runtime check before accessing the members of this structure.</p>
+<h3 id="exporters_2">Exporters<a class="headerlink" href="#exporters_2" title="Permanent link">&para;</a></h3>
+<p>Exporters can now use standard parameters for audio channel configuration, as used with the built-in QuickTime exporter. The new exporter parameters ADBEAudioChannelConfigurationGroup and ADBEAudioChannelConfiguration supercede ADBEAudioNumChannels. The new Export Audio Param Suite can be used to query/change the audio channel configuration.</p>
+<p>The <a href="../../exporters/suites/#sequence-audio-suite">Sequence Audio Suite</a> is now at version 2, revising <code>MakeAudioRenderer()</code> to take <code>PrAudioChannelLabel*</code> as a parameter.</p>
+<h3 id="transmitters">Transmitters<a class="headerlink" href="#transmitters" title="Permanent link">&para;</a></h3>
+<p>Transmitters can get a few new bits of information to aid with A/V sync. In the <a href="../../transmitters/suites/#playmod-audio-suite">Playmod Audio Suite</a>, the new function GetNextAudioBuffer2() returns the actual time the rendered buffer is from.</p>
+<p>Also, in <code>tmPlaybackClock</code>, the new members <code>inAudioOffset</code> and <code>inVideoOffset</code> have been added to specify the offset chosen by the user in the preferences.</p>
+<p>The host accounts for these offsets automatically by sending frames early, but if a transmitter is manually trying to line up audio and video times, it can use this to know how far apart from each other they are supposed to be.</p>
+<h3 id="miscellaneous_1">Miscellaneous<a class="headerlink" href="#miscellaneous_1" title="Permanent link">&para;</a></h3>
+<p>Legacy callbacks bottlenecks-&gt;ConvolvePtr() and IndexMapPtr() have had their parameter types updated to fix a bug. Any plugins that use these in both previous versions and CC 2015 will need to do a runtime check before calling this function.</p>
+<p>Starting in CC 2015, we now provide installer hints for Mac. You'll find a new plist file "com. Adobe.Premiere Pro.paths.plist" at "/Library/Preferences". This contains hints for your Mac installer to know where to install plugins, and is similar to the registry entries we have been providing on Win.</p>
+<h3 id="new-sample-projects_1">New Sample Projects<a class="headerlink" href="#new-sample-projects_1" title="Permanent link">&para;</a></h3>
+<p>This SDK includes updated GPU effect and transition samples that demonstrate GPU rendering. Thanks to Rama Hoetzlein from nVidia for the CUDA render path provided for the SDK_CrossDissolve sample!</p>
+<p>A barebones Control Surface sample is now provided, too.</p>
+<hr />
+<h2 id="whats-new-in-cc-2014-82">What's New in CC 2014 (8.2)?<a class="headerlink" href="#whats-new-in-cc-2014-82" title="Permanent link">&para;</a></h2>
+<p>Importers now have more visibility into the player's intent on a given async request, since the render context info is now passed in imSourceVideoRec.inRenderContext. Async importers can implement <em>aiSelectEfficientRenderTime</em> to specify if a frame request would be more efficient at another frame time, for example at I-frame boundaries. The <a href="../../universals/sweetpea-suites/#video-segment-render-suite">Video Segment Render Suite</a> has been updated to version 4, adding new calls that include imRenderContext as a parameter.</p>
+<hr />
+<h2 id="whats-new-in-cc-2014-81">What's New in CC 2014 (8.1)?<a class="headerlink" href="#whats-new-in-cc-2014-81" title="Permanent link">&para;</a></h2>
+<p>Importers that support growing files now get a hint if the host knows the file has stopped growing:</p>
+<p>imFileInfoRec8.ignoreGrowing.</p>
+<p>Exporters can now get the list of source pixel formats used by the clips in a sequence that is being smart rendered. GetExportSourceInfo(…, kExportInfo_SourcePixelFormat, …) provides this information.</p>
+<hr />
+<h2 id="whats-new-in-cc-2014-801">What's New in CC 2014 (8.0.1)?<a class="headerlink" href="#whats-new-in-cc-2014-801" title="Permanent link">&para;</a></h2>
+<p>Importers can fill in imImageInfoRec.codecDescription to provide a string that will be displayed for clips in the Video Codec column of the Project panel.</p>
+<hr />
+<h2 id="whats-new-in-cc-2014">What's New in CC 2014?<a class="headerlink" href="#whats-new-in-cc-2014" title="Permanent link">&para;</a></h2>
+<p>Importers can now choose the format they are rendering in, which allows importers to change pixel formats and quality based on criteria like enabled hardware and other source settings, such as HDR. To handle the negotiation, implement <em>imSelectClipFrameDescriptor</em>.</p>
+<p>imSourceVideoRec now includes a quality attribute. <a href="../../universals/sweetpea-suites/#ppix-cache-suite">PPix Cache Suite</a> is now at version 6, adding AddFrameToCacheWithColorProfile2() and</p>
+<p>GetFrameFromCacheWithColorProfile2(), which are the same as the ones added in version 5 with the addition of a PrRenderQuality parameter.</p>
+<p>imFileInfoRec8.highMemUsage is no longer supported.</p>
+<p>A new recorder return code was added, rmRequiresRoyaltyContent. Return this from</p>
+<p>recmod_Startup8 or recmod_StartRecord, if the codec used is unlicensed.</p>
+<p>OpenCL rendering now also uses the half-precision 16-bit floating point pixel format for rendering. GPU effects and transitions that support OpenCL should implement both 16f and 32f rendering.</p>
+<p>A new plugin API has been introduced for hardware Control Surfaces. This is the API that allows support for EUCON and Mackie devices to control audio mixing and basic transport controls. The API supports two-way communication with Premiere Pro, so that hardware faders, VU meters, etc are in sync with the application.</p>
+<p>Premiere Pro is now localized in Russian and Brazilian Portugese.</p>
+<hr />
+<h2 id="whats-new-in-cc-october-2013">What's New in CC October 2013?<a class="headerlink" href="#whats-new-in-cc-october-2013" title="Permanent link">&para;</a></h2>
+<p>We've extended the After Effects API to support native transitions in Premiere Pro.</p>
+<p>For device controllers, the new command <em>cmdSetDeviceHandler</em> was added. This command tells the device controller which panel is using the device controller - either the Capture panel, or Export to Tape panel.</p>
+<p>For importers, imInitiateAsyncClosedCaptionScanRec now provides extra fields for the importer to fill in the estimated duration of all the captions. This is useful for certain cases where the embedded captions contain many frames of empty data.</p>
+<p>We added version 2 of the <a href="../../exporters/suites/#export-file-suite">Export File Suite</a> to resolve a mismatch in seek modes.</p>
+<hr />
+<h2 id="whats-new-in-cc-july-2013">What's New in CC July 2013?<a class="headerlink" href="#whats-new-in-cc-july-2013" title="Permanent link">&para;</a></h2>
+<p>The only significant additions made in the July 2013 update to version CC are in the device controller API.</p>
+<hr />
+<h2 id="whats-new-in-cc">What's New in CC?<a class="headerlink" href="#whats-new-in-cc" title="Permanent link">&para;</a></h2>
+<h3 id="new-edit-to-tape-panel">New Edit to Tape Panel<a class="headerlink" href="#new-edit-to-tape-panel" title="Permanent link">&para;</a></h3>
+<p>You can think of this as the Export to Tape equivalent of the Capture panel for capturing, which provides a video preview and various settings in the PPro UI. Among the benefits are more seamless integration, a more familiar UI for users, integrated device presets, and some new capabilities like adding Bars and Tone / Black Video / Universal Counting Leader to the start of your layoff to tape. To use this new feature, read more about what's new in the device controller API.</p>
+<h3 id="new-gpu-extensions-for-effects-and-transitions">New GPU Extensions for Effects and Transitions<a class="headerlink" href="#new-gpu-extensions-for-effects-and-transitions" title="Permanent link">&para;</a></h3>
+<p>New GPU Extensions to existing APIs allow effects and transitions to access video frames in GPU memory, when using the Mercury Playback Engine in a GPU-accelerated mode. See <a href="../../gpu-effects-transitions/gpu-effects-transitions/">GPU Effects &amp; Transitions</a> for more information.</p>
+<h3 id="closed-captioning-support-in-importer-and-exporter-apis">Closed Captioning Support in Importer and Exporter APIs<a class="headerlink" href="#closed-captioning-support-in-importer-and-exporter-apis" title="Permanent link">&para;</a></h3>
+<p>The importer and exporter APIs have been extended to support closed captioning embedded in media.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Premiere Pro can also import and export captions in a sidecar file (e.g. .mcc, .scc, or .xml) alongside any media file, regardless of the media file format.</p>
+</div>
+<h3 id="miscellaneous-improvements">Miscellaneous Improvements<a class="headerlink" href="#miscellaneous-improvements" title="Permanent link">&para;</a></h3>
+<ul>
+<li>A new pixel format for native 10-bit RGB support - PrPixelFormat_RGB_444_10u, as well as <code>PrPixelFormat_UYVY_422_32f_*</code> formats</li>
+<li>VST 3 support allows many more audio plugins to run in Premiere Pro</li>
+<li>Windows installer improvements, by adding new registry values for preset and settings locations.</li>
+<li>Get the current build number via the <a href="../../universals/sweetpea-suites/#app-info-suite">App Info Suite</a></li>
+<li>Importers can now support audio beyond basic mono, stereo, and 5.1, without implementing multiple streams, and importers can return varying pixel formats depending on the clip settings. Read more about what's new for importers.</li>
+<li>Exporters can get the number of audio channels in the source, and check if the user has checked "Use Previews" in the Export Settings dialog. They can also move an existing settings parameter to a different location. Read more about what's new for exporters.</li>
+<li>The <a href="../../universals/sweetpea-suites/#sequence-info-suite">Sequence Info Suite</a> can retrieve the field type, zero point, and whether or not the timecode is drop-frame</li>
+<li>New flags to the transition API as a hint to optimize rendering when a transition only has an input on one side</li>
+<li>The <a href="../../universals/sweetpea-suites/#video-segment-suite">Video Segment Suite</a> provides access to a new property: Effect_ClipName</li>
+</ul>
+<p>Premiere Pro is now localized in Chinese.</p>
+<hr />
+<h2 id="whats-new-in-cs60x">What's New in CS6.0.x?<a class="headerlink" href="#whats-new-in-cs60x" title="Permanent link">&para;</a></h2>
+<p>CS6.0.2 adds more support for growing files in importers. A transmitter can now label its audio channels for the Audio Output Mapping preferences.</p>
+<p>CS6.0.1 gives device controllers a way to get the number of frames dropped during an insert edit, to abort an Export to Tape if desired. This method is already superceded by the new Edit to Tape panel functionality in CC.</p>
+<hr />
+<h2 id="whats-new-in-cs6">What's New in CS6?<a class="headerlink" href="#whats-new-in-cs6" title="Permanent link">&para;</a></h2>
+<h3 id="transmit-api">Transmit API<a class="headerlink" href="#transmit-api" title="Permanent link">&para;</a></h3>
+<p>We are introducing the Transmit API as the preferred means for external hardware monitoring. This new API provides vastly simplified support for monitoring on external hardware. Transmit plugins offer more flexible usage, since they are not tied to the sequence Editing Mode, which cannot be changed once a sequence has been edited. Transmitters can be specified by the user in Preferences &gt; Playback. Other plugins such as importers and effects with settings preview dialogs can send video out to the active transmitter, opening up new possibilities for hardware monitoring. See <a href="../../transmitters/transmitters/">Transmitters</a> for more details.</p>
+<h3 id="exporter-enhancements">Exporter Enhancements<a class="headerlink" href="#exporter-enhancements" title="Permanent link">&para;</a></h3>
+<p>Exporters can now use "push" model compression. This can simplify export code and improve performance. The "pull" model is still supported, and required for legacy versions and Encore.</p>
+<p>We've added the <a href="../../exporters/suites/#export-standard-param-suite">Export Standard Param Suite</a>, which provides the standard parameters used in many built-in exporters. This can greatly reduce the amount of code needed to manage standard parameters for a typical exporter, and guarantee consistency with built-in exporters.</p>
+<p>Exporters can now set tooltip strings for parameters. Multiple exporters are now supported in a single plugin. And the Maximum Render Precision flag is now queried from the exporter, rather than being handled without the exporter's knowledge.</p>
+<p>Exporters can now set events (error, warning, or info) for a specific encode in progress in the Adobe Media Encoder render queue, using the new <a href="../../exporters/suites/#exporter-utility-suite">Exporter Utility Suite</a>. These events are displayed in the application UI, and are also added to the AME encoding log.</p>
+<p>Make sure your presets go in the right location in the new AME Preset Browser. Read additional details of what's new in <a href="../../exporters/exporters/">Exporters</a>.</p>
+<h3 id="stereoscopic-video-pipeline">Stereoscopic Video Pipeline<a class="headerlink" href="#stereoscopic-video-pipeline" title="Permanent link">&para;</a></h3>
+<p>We are also adding API support for stereoscopic video throughout the render pipeline. This affects importers, effects built using the After Effects API, and exporters.</p>
+<h3 id="other-changes">Other Changes<a class="headerlink" href="#other-changes" title="Permanent link">&para;</a></h3>
+<h4 id="importers_3">Importers<a class="headerlink" href="#importers_3" title="Permanent link">&para;</a></h4>
+<p>Importers can now support growing files in Premiere Pro. We have also added a way for importers to specify all their source files to be copied by Collect Files in After Effects. There is also a new function in the Media Accelerator Suite to validate the content state of a media accelerator. See additional details of what's new in <a href="../../importers/importers/">Importers</a>.</p>
+<h4 id="recorders">Recorders<a class="headerlink" href="#recorders" title="Permanent link">&para;</a></h4>
+<p>For Recorders, the parent window handle is now properly passed in during <em>recmod_ShowOptions</em></p>
+<p>when a recorder should display its modal setup dialog.</p>
+<h4 id="players">Players<a class="headerlink" href="#players" title="Permanent link">&para;</a></h4>
+<p>For Players, pmPlayerSettings has a new member, mPrimaryDisplayFullScreen, which indicates whether or not the player should display fullscreen.</p>
+<h4 id="device-controllers">Device controllers<a class="headerlink" href="#device-controllers" title="Permanent link">&para;</a></h4>
+<p>Device controllers have a new callback, DroppedFrameProc, to provide the feature to abort and Export to Tape if frames are dropped.</p>
+<p>New video segment properties were added:</p>
+<ul>
+<li><code>kVideoSegmentProperty_MediaClipScaleToFramePolicy</code>,</li>
+<li><code>kVideoSegmentProperty_AdjustmentAdjustmentMediaIsOpaque</code>,</li>
+<li><code>kVideoSegmentProperty_AdjustmentOperatorsHash</code>,</li>
+<li><code>kVideoSegmentProperty_Media_InPointMediaTimeAsTicks</code>,</li>
+<li><code>kVideoSegmentProperty_Media_OutPointMediaTimeAsTicks</code>,</li>
+<li><code>kVideoSegmentProperty_Clip_TrackItemStartAsTicks</code>,</li>
+<li><code>kVideoSegmentProperty_Clip_TrackItemEndAsTicks</code>,</li>
+<li><code>kVideoSegmentProperty_Clip_EffectiveTrackItemStartAsTicks</code>,</li>
+<li><code>kVideoSegmentProperty_Clip_EffectiveTrackItemEndAsTicks</code></li>
+</ul>
+<p>The <a href="../../universals/sweetpea-suites/#memory-manager-suite">Memory Manager Suite</a> is now at version 4. AdjustReservedMemorySize provides a way to adjust the reserved memory size relative to the current size. This may be easier for the plugin, rather than maintaining the absolute memory usage and updating it using the older ReserveMemory call.</p>
+<p>MPEG-4 pixel formats and full-range Rec. 709 MPEG-2 and MPEG-4 formats have now been added for native support in the render pipeline.</p>
+<hr />
+<h2 id="whats-new-in-cs55">What's New in CS5.5?<a class="headerlink" href="#whats-new-in-cs55" title="Permanent link">&para;</a></h2>
+<h4 id="importers_4">Importers<a class="headerlink" href="#importers_4" title="Permanent link">&para;</a></h4>
+<p>Importers can now support color management, when running in After Effects. Now, even nonsynthetic importers can explicitly provide peak audio data. And a new return value allows an importer to specify that it is dependent on a library that needs to be activated. See additional details of what's new in <a href="../../importers/importers/">Importers</a>.</p>
+<h4 id="players_1">Players<a class="headerlink" href="#players_1" title="Permanent link">&para;</a></h4>
+<p>Players can now support closed captioning. See additional details of what's new in the players chapter.</p>
+<h4 id="exporters_3">Exporters<a class="headerlink" href="#exporters_3" title="Permanent link">&para;</a></h4>
+<p>Exporters now have a call to request a rendered frame and then conform it to a specific pixel format. See additional details of what's new in <a href="../../exporters/exporters/">Exporters</a>.</p>
+<h4 id="export-controller">Export Controller<a class="headerlink" href="#export-controller" title="Permanent link">&para;</a></h4>
+<p>We have opened up a new Export Controller API that can drive any exporter to output a file in any format and perform custom post-processing operations. Developers wanting to integrate Premiere Pro with an asset management system will want to use this API instead of the exporter API. See <a href="../../export-controllers/export-controllers/">Export Controllers</a> for more details.</p>
+<p>A new pair of pixel formats was added to natively support full-range Rec. 601 4:2:0 YUV planar video, both progressive and interlaced: PrPixelFormat_YUV_420_MPEG2_FRAME_PICTURE_PLANAR_8u_601_FullRange and PrPixelFormat_YUV_420_MPEG2_FIELD_PICTURE_PLANAR_8u_601_FullRange.</p>
+<p>The <a href="../../universals/sweetpea-suites/#video-segment-suite">Video Segment Suite</a> now provides a new call to retrieve a segment node for a requested time. There are also a few new properties for media nodes:</p>
+<ul>
+<li><code>StreamIsContinuousTime</code>,</li>
+<li><code>ColorProfileName</code>,</li>
+<li><code>ColorProfileData</code>, and</li>
+<li><code>ScanlineOffsetToImproveVerticalCentering</code></li>
+</ul>
+<p>The <a href="../../universals/sweetpea-suites/#sequence-info-suite">Sequence Info Suite</a> now provides a call to get the sequence frame rate, which may be useful for effects.</p>
+<p>The <a href="../../universals/sweetpea-suites/#image-processing-suite">Image Processing Suite</a> has a new call to set the aspect ratio flag of a DV frame.</p>
+<hr />
+<h2 id="whats-new-in-cs5">What's New in CS5?<a class="headerlink" href="#whats-new-in-cs5" title="Permanent link">&para;</a></h2>
+<h4 id="importers_5">Importers<a class="headerlink" href="#importers_5" title="Permanent link">&para;</a></h4>
+<p>Importers now have access to the resolution, pixel aspect ratio, timebase, and audio sample rate of the source clip from a setup dialog. Custom importers can use a new call to update a clip after it has modified by the user in the setup dialog. Please refer to <a href="../../importers/importers/">Importers</a> for more info on what's new.</p>
+<h4 id="recorders_1">Recorders<a class="headerlink" href="#recorders_1" title="Permanent link">&para;</a></h4>
+<p>Recorders can now provide audio metering during preview and capture.</p>
+<h4 id="exporters-and-players">Exporters and players<a class="headerlink" href="#exporters-and-players" title="Permanent link">&para;</a></h4>
+<p>Exporters and players can automatically take advantage of GPU acceleration, if available on the end-user's system. Each project now has a setting for the renderer that the user can choose in the project settings dialog. When renders occur through the <a href="../../exporters/suites/#sequence-render-suite">Sequence Render Suite</a> or the Playmod Render Suite, they now go through the renderer chosen for the current project. This allows third-party exporters and players to use the built-in GPU acceleration available in the new Mercury Playback Engine.</p>
+<p>Exporters and players can now handle any pixel format, with the new <a href="../../universals/sweetpea-suites/#image-processing-suite">Image Processing Suite</a>. Exporters and players that parse segments and perform their own rendering can now call the host for subtree rendering. See the <a href="../../universals/sweetpea-suites/#video-segment-render-suite">Video Segment Render Suite</a> for details.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you provide an installer for an exporter, custom presets created in Premiere Pro are now visible in AME and vice-versa.</p>
+</div>
+<h3 id="mac-64-bit-and-cocoa">Mac 64-Bit and Cocoa<a class="headerlink" href="#mac-64-bit-and-cocoa" title="Permanent link">&para;</a></h3>
+<p>It is invalid to unload any bundle that uses Cocoa because of restrictions in the Objective-C runtime which do not support unregistering classes. If a plugin uses Cocoa, it must call CFRetain on its own bundle, otherwise it will cause a crash when the application is closing and tries to unload the plugins.</p>
+<hr />
+<h2 id="whats-new-in-cs4">What's New in CS4?<a class="headerlink" href="#whats-new-in-cs4" title="Permanent link">&para;</a></h2>
+<h3 id="new-renderer-api-and-custom-pixel-formats">New Renderer API and Custom Pixel Formats<a class="headerlink" href="#new-renderer-api-and-custom-pixel-formats" title="Permanent link">&para;</a></h3>
+<p>The new renderer API provides a way to take over and accelerate rendering of segments. Just as a player can choose which segments to accelerate, so a renderer can choose which segments to accelerate. Renderers may accelerate any segment, in any sequence, in any project.</p>
+<p>Renderers also provide a way to add completely custom pixel formats to the render pipeline. Supporting a custom pixel format in an importer, a renderer, and an exporter is the new way to implement smart rendering, by passing custom compressed data from input to output.</p>
+<h3 id="sequence-preview-formats">Sequence Preview Formats<a class="headerlink" href="#sequence-preview-formats" title="Permanent link">&para;</a></h3>
+<p>Sequence preview file formats are now defined by Sequence encoder preset files. Without any presets installed, you will not be able to create a new sequence using your custom editing mode.</p>
+<h3 id="separate-processes-during-export">Separate Processes During Export<a class="headerlink" href="#separate-processes-during-export" title="Permanent link">&para;</a></h3>
+<p>When choosing export settings, the settings UI is displayed by Premiere Pro. When the user confirms the settings, the clip or sequence is passed to Media Encoder. From Media Encoder, frames from the clip or sequence can be retrieved and rendered without further participation from Premiere Pro. For a clip export, Media Encoder uses any installed importers to get source frames. For sequence export, Media Encoder uses a process called PProHeadless, to import and render frames to be exported.</p>
+<p>Since there are so many processes involved during export, it is important that plugins be accessible to all processes, by being installed in the common plugins folder. PProHeadless Plugin Loading.log provides information on the PProHeadless process. PProHeadless is also used when the user creates a dynamic link to a .prproj that is not opened in Premiere Pro.</p>
+<h3 id="xmp-metadata">XMP metadata<a class="headerlink" href="#xmp-metadata" title="Permanent link">&para;</a></h3>
+<p>There are built-in XMP metadata handlers for known filetypes. These handlers write and read metadata to and from the file, without going through the importer. <em>imSetTimeInfo8</em> is no longer called, since this is set by the XMP handler for that filetype.</p>
+<h3 id="more-pixel-format-flexibility">More Pixel Format Flexibility<a class="headerlink" href="#more-pixel-format-flexibility" title="Permanent link">&para;</a></h3>
+<p>Effects, transitions, and exporters no longer need to support 8-bit RGB at a minimum. So, for example, an effect can be written to process floating point YUV only. If necessary, Premiere will make an intermediate conversion so that the effect will receive the pixel format it supports.</p>
+<hr />
+<h2 id="legacy-api">Legacy API<a class="headerlink" href="#legacy-api" title="Permanent link">&para;</a></h2>
+<p>Legacy API features, such as selectors and callbacks that are superceded by new ones, are deprecated, but are supported, unless indicated.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 25, 2025</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      All content is copyright Adobe Systems Incorporated.
+    </div>
+  
+  
+    Made with
+    <a
+      href="https://squidfunk.github.io/mkdocs-material/"
+      target="_blank" rel="noopener"
+    >
+      Material for MkDocs
+    </a>
+  
+</div>
+
+<!-- Print button -->
+<div class="md-copyright">
+  
+  <a href="../../print_page/" title="Print Site" class="md-content__button md-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 3H6v4h12m1 5a1 1 0 0 1-1-1 1 1 0 0 1 1-1 1 1 0 0 1 1 1 1 1 0 0 1-1 1m-3 7H8v-5h8m3-6H5a3 3 0 0 0-3 3v6h4v4h12v-4h4v-6a3 3 0 0 0-3-3"/></svg>
+  </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f13b1293.min.js"></script>
+      
+        <script src="../../js/print-site.js"></script>
+      
+    
+  </body>
+</html>
