@@ -2919,8 +2919,8 @@
 <h1 id="additional-details">Additional Details<a class="headerlink" href="#additional-details" title="Permanent link">&para;</a></h1>
 <h2 id="multiplexer-tab-ordering">Multiplexer Tab Ordering<a class="headerlink" href="#multiplexer-tab-ordering" title="Permanent link">&para;</a></h2>
 <p>If your exporter provides a Multiplexer tab like some of the built-in exporters do, you may find that it appears after the Video and Audio tab, rather than before those tabs as in the case of our exporters. The key is to use the following define as the parameter identifer for the multiplexer tab group:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#define ADBEMultiplexerTabGroup &quot;ADBEAudienceTabGroup&quot;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="cp">#define ADBEMultiplexerTabGroup &quot;ADBEAudienceTabGroup&quot;</span>
+</span></code></pre></div>
 <hr />
 <h2 id="creating-a-non-editable-string-in-the-parameter-ui">Creating a Non-Editable String in the Parameter UI<a class="headerlink" href="#creating-a-non-editable-string-in-the-parameter-ui" title="Permanent link">&para;</a></h2>
 <p>During <code>exSelGenerateDefaultParams</code>, add a parameter with <code>exNewParamInfo.flags = exParamFlag_none</code>.</p>
@@ -2944,39 +2944,39 @@
 </ol>
 <h3 id="return-values">Return Values<a class="headerlink" href="#return-values" title="Permanent link">&para;</a></h3>
 <p>Premiere Elements 8 uses a slightly different definition of the return values. Use the following definition instead:</p>
-<div class="highlight"><pre><span></span><code><span class="k">enum</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">exportReturn_ErrNone</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<span class="w">  </span><span class="n">exportReturn_Abort</span><span class="p">,</span>
-<span class="w">  </span><span class="n">exportReturn_Done</span><span class="p">,</span>
-<span class="w">  </span><span class="n">exportReturn_InternalError</span><span class="p">,</span>
-<span class="w">  </span><span class="n">exportReturn_OutputFormatAccept</span><span class="p">,</span>
-<span class="w">  </span><span class="n">exportReturn_OutputFormatDecline</span><span class="p">,</span>
-<span class="w">  </span><span class="n">exportReturn_OutOfDiskSpace</span><span class="p">,</span>
-<span class="w">  </span><span class="n">exportReturn_BufferFull</span><span class="p">,</span>
-<span class="w">  </span><span class="n">exportReturn_ErrOther</span><span class="p">,</span>
-<span class="w">  </span><span class="n">exportReturn_ErrMemory</span><span class="p">,</span>
-<span class="w">  </span><span class="n">exportReturn_ErrFileNotFound</span><span class="p">,</span>
-<span class="w">  </span><span class="n">exportReturn_ErrTooManyOpenFiles</span><span class="p">,</span>
-<span class="w">  </span><span class="n">exportReturn_ErrPermErr</span><span class="p">,</span>
-<span class="w">  </span><span class="n">exportReturn_ErrOpenErr</span><span class="p">,</span>
-<span class="w">  </span><span class="n">exportReturn_ErrInvalidDrive</span><span class="p">,</span>
-<span class="w">  </span><span class="n">exportReturn_ErrDupFile</span><span class="p">,</span>
-<span class="w">  </span><span class="n">exportReturn_ErrIo</span><span class="p">,</span>
-<span class="w">  </span><span class="n">exportReturn_ErrInUse</span><span class="p">,</span>
-<span class="w">  </span><span class="n">exportReturn_IterateExporter</span><span class="p">,</span>
-<span class="w">  </span><span class="n">exportReturn_IterateExporterDone</span><span class="p">,</span>
-<span class="w">  </span><span class="n">exportReturn_InternalErrorSilent</span><span class="p">,</span>
-<span class="w">  </span><span class="n">exportReturn_ErrCodecBadInput</span><span class="p">,</span>
-<span class="w">  </span><span class="n">exportReturn_ErrLastErrorSet</span><span class="p">,</span>
-<span class="w">  </span><span class="n">exportReturn_ErrLastWarningSet</span><span class="p">,</span>
-<span class="w">  </span><span class="n">exportReturn_ErrLastInfoSet</span><span class="p">,</span>
-<span class="w">  </span><span class="n">exportReturn_ErrExceedsMaxFormatDuration</span><span class="p">,</span>
-<span class="w">  </span><span class="n">exportReturn_VideoCodecNeedsActivation</span><span class="p">,</span>
-<span class="w">  </span><span class="n">exportReturn_AudioCodecNeedsActivation</span><span class="p">,</span>
-<span class="w">  </span><span class="n">exportReturn_IncompatibleAudioChannelType</span><span class="p">,</span>
-<span class="w">  </span><span class="n">exportReturn_Unsupported</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-100</span>
-<span class="p">};</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><span class="k">enum</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><span class="w">  </span><span class="n">exportReturn_ErrNone</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-1-3"><span class="w">  </span><span class="n">exportReturn_Abort</span><span class="p">,</span>
+</span><span id="__span-1-4"><span class="w">  </span><span class="n">exportReturn_Done</span><span class="p">,</span>
+</span><span id="__span-1-5"><span class="w">  </span><span class="n">exportReturn_InternalError</span><span class="p">,</span>
+</span><span id="__span-1-6"><span class="w">  </span><span class="n">exportReturn_OutputFormatAccept</span><span class="p">,</span>
+</span><span id="__span-1-7"><span class="w">  </span><span class="n">exportReturn_OutputFormatDecline</span><span class="p">,</span>
+</span><span id="__span-1-8"><span class="w">  </span><span class="n">exportReturn_OutOfDiskSpace</span><span class="p">,</span>
+</span><span id="__span-1-9"><span class="w">  </span><span class="n">exportReturn_BufferFull</span><span class="p">,</span>
+</span><span id="__span-1-10"><span class="w">  </span><span class="n">exportReturn_ErrOther</span><span class="p">,</span>
+</span><span id="__span-1-11"><span class="w">  </span><span class="n">exportReturn_ErrMemory</span><span class="p">,</span>
+</span><span id="__span-1-12"><span class="w">  </span><span class="n">exportReturn_ErrFileNotFound</span><span class="p">,</span>
+</span><span id="__span-1-13"><span class="w">  </span><span class="n">exportReturn_ErrTooManyOpenFiles</span><span class="p">,</span>
+</span><span id="__span-1-14"><span class="w">  </span><span class="n">exportReturn_ErrPermErr</span><span class="p">,</span>
+</span><span id="__span-1-15"><span class="w">  </span><span class="n">exportReturn_ErrOpenErr</span><span class="p">,</span>
+</span><span id="__span-1-16"><span class="w">  </span><span class="n">exportReturn_ErrInvalidDrive</span><span class="p">,</span>
+</span><span id="__span-1-17"><span class="w">  </span><span class="n">exportReturn_ErrDupFile</span><span class="p">,</span>
+</span><span id="__span-1-18"><span class="w">  </span><span class="n">exportReturn_ErrIo</span><span class="p">,</span>
+</span><span id="__span-1-19"><span class="w">  </span><span class="n">exportReturn_ErrInUse</span><span class="p">,</span>
+</span><span id="__span-1-20"><span class="w">  </span><span class="n">exportReturn_IterateExporter</span><span class="p">,</span>
+</span><span id="__span-1-21"><span class="w">  </span><span class="n">exportReturn_IterateExporterDone</span><span class="p">,</span>
+</span><span id="__span-1-22"><span class="w">  </span><span class="n">exportReturn_InternalErrorSilent</span><span class="p">,</span>
+</span><span id="__span-1-23"><span class="w">  </span><span class="n">exportReturn_ErrCodecBadInput</span><span class="p">,</span>
+</span><span id="__span-1-24"><span class="w">  </span><span class="n">exportReturn_ErrLastErrorSet</span><span class="p">,</span>
+</span><span id="__span-1-25"><span class="w">  </span><span class="n">exportReturn_ErrLastWarningSet</span><span class="p">,</span>
+</span><span id="__span-1-26"><span class="w">  </span><span class="n">exportReturn_ErrLastInfoSet</span><span class="p">,</span>
+</span><span id="__span-1-27"><span class="w">  </span><span class="n">exportReturn_ErrExceedsMaxFormatDuration</span><span class="p">,</span>
+</span><span id="__span-1-28"><span class="w">  </span><span class="n">exportReturn_VideoCodecNeedsActivation</span><span class="p">,</span>
+</span><span id="__span-1-29"><span class="w">  </span><span class="n">exportReturn_AudioCodecNeedsActivation</span><span class="p">,</span>
+</span><span id="__span-1-30"><span class="w">  </span><span class="n">exportReturn_IncompatibleAudioChannelType</span><span class="p">,</span>
+</span><span id="__span-1-31"><span class="w">  </span><span class="n">exportReturn_Unsupported</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-100</span>
+</span><span id="__span-1-32"><span class="p">};</span>
+</span></code></pre></div>
 <p>The red values are unique to Premiere Elements 8, and shifted the subsequent return values 2 values higher than their definition in the Premiere Pro SDK.</p>
 
 
@@ -3061,7 +3061,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.copy", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>

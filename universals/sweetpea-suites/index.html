@@ -4264,22 +4264,22 @@
 <hr />
 <h2 id="acquiring-and-releasing-the-suites">Acquiring and Releasing the Suites<a class="headerlink" href="#acquiring-and-releasing-the-suites" title="Permanent link">&para;</a></h2>
 <p>All SweetPea suites are accessed through the Utilities Suite. Plugins can acquire the suites.</p>
-<div class="highlight"><pre><span></span><code><span class="n">SPBasicSuite</span><span class="w"> </span><span class="n">SPBasic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
-<span class="n">PrSDKPixelFormatSuite</span><span class="w"> </span><span class="o">*</span><span class="n">PixelFormatSuite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
-
-<span class="n">SPBasic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stdParmsP</span><span class="o">-&gt;</span><span class="n">piSuites</span><span class="o">-&gt;</span><span class="n">utilFuncs</span><span class="o">-&gt;</span><span class="n">getSPBasicSuite</span><span class="p">();</span>
-
-<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">SPBasic</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="n">SPBasic</span><span class="o">-&gt;</span><span class="n">AcquireSuite</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">kPrSDKPixelFormatSuite</span><span class="p">,</span><span class="w"> </span><span class="n">kPrSDKPixelFormatSuiteVersion</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="o">**</span><span class="p">)</span><span class="o">&amp;</span><span class="n">PixelFormatSuite</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">SPBasicSuite</span><span class="w"> </span><span class="n">SPBasic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+</span><span id="__span-0-2"><span class="n">PrSDKPixelFormatSuite</span><span class="w"> </span><span class="o">*</span><span class="n">PixelFormatSuite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+</span><span id="__span-0-3">
+</span><span id="__span-0-4"><span class="n">SPBasic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stdParmsP</span><span class="o">-&gt;</span><span class="n">piSuites</span><span class="o">-&gt;</span><span class="n">utilFuncs</span><span class="o">-&gt;</span><span class="n">getSPBasicSuite</span><span class="p">();</span>
+</span><span id="__span-0-5">
+</span><span id="__span-0-6"><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">SPBasic</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-7"><span class="n">SPBasic</span><span class="o">-&gt;</span><span class="n">AcquireSuite</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">kPrSDKPixelFormatSuite</span><span class="p">,</span><span class="w"> </span><span class="n">kPrSDKPixelFormatSuiteVersion</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="o">**</span><span class="p">)</span><span class="o">&amp;</span><span class="n">PixelFormatSuite</span><span class="p">);</span>
+</span><span id="__span-0-8"><span class="p">}</span>
+</span></code></pre></div>
 <p>Don't forget to release the suites when finished!</p>
-<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">SPBasic</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">PixelFormatSuite</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">  </span><span class="n">SPBasic</span><span class="o">-&gt;</span><span class="n">ReleaseSuite</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">kPrSDKPixelFormatSuite</span><span class="p">,</span>
-<span class="w">                          </span><span class="n">kPrSDKPixelFormatSuiteVersion</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">SPBasic</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">PixelFormatSuite</span><span class="p">)</span>
+</span><span id="__span-1-2"><span class="p">{</span>
+</span><span id="__span-1-3"><span class="w">  </span><span class="n">SPBasic</span><span class="o">-&gt;</span><span class="n">ReleaseSuite</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">kPrSDKPixelFormatSuite</span><span class="p">,</span>
+</span><span id="__span-1-4"><span class="w">                          </span><span class="n">kPrSDKPixelFormatSuiteVersion</span><span class="p">);</span>
+</span><span id="__span-1-5"><span class="p">}</span>
+</span></code></pre></div>
 <h3 id="versioning">Versioning<a class="headerlink" href="#versioning" title="Permanent link">&para;</a></h3>
 <p>Generally from version to version, the changes made to a suite are additive, so it is recommended to work with the most recent version of a suite if possible. However the latest version of a suite may not be supported by older versions of Premiere Pro or other host applications. Attempting to acquire suites that are unsupported by the host application will result in a NULL pointer being returned from AcquireSuite.</p>
 <p>For a plugin to support multiple versions, it may choose to use a specific older version of the suite that is supported across those multiple versions. Alternatively, it may check the version of the host application (using the <a href="#app-info-suite">App Info Suite</a>), and use the new suites where available, or the older suites when running in an older version. To acquire a specific older version of a suite, rather than requesting kPrSDKPixelFormatSuiteVersion in the example above, use a specific version number instead.</p>
@@ -4348,15 +4348,15 @@
 <p>If the user has zoomed the video, it could be wasteful to render a full-sized overlay image and then scale it. For better performance, the overlay can be rendered at the actual display size. The inDisplayWidth, inDisplayHeight and inLogicalRegion parameters provide this extra information needed to optimize for scaling in the UI.</p>
 <p>As an example, let's say the sequence is 720x480 at 0.9091 PAR, and the Sequence Monitor is set to show the full frame at square PAR. Set inLogicalRegion to (0, 0, 720, 480), and inDisplayWidth to 654 and inDisplayHeight to 480.</p>
 <p>If the Monitor zoom level was set to 50%, then the inLogicalRegion should stay the same, but display width and height should be set to 327x240. If zoomed to 200%, display width and height should be set to 1308x960. To pan around (as opposed to showing the entire frame), the logical region should be adjusted to represent the part of the sequence frame currently being displayed.</p>
-<div class="highlight"><pre><span></span><code><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">RenderImage</span><span class="p">)(</span>
-<span class="w">  </span><span class="n">PrPlayID</span><span class="w">       </span><span class="n">inPlayID</span><span class="p">,</span>
-<span class="w">  </span><span class="n">PrTime</span><span class="w">         </span><span class="n">inTime</span><span class="p">,</span>
-<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prRect</span><span class="o">*</span><span class="w">  </span><span class="n">inLogicalRegion</span><span class="p">,</span>
-<span class="w">  </span><span class="kt">int</span><span class="w">            </span><span class="n">inDisplayWidth</span><span class="p">,</span>
-<span class="w">  </span><span class="kt">int</span><span class="w">            </span><span class="n">inDisplayHeight</span><span class="p">,</span>
-<span class="w">  </span><span class="n">prBool</span><span class="w">         </span><span class="n">inClearToTransparentBlack</span><span class="p">,</span>
-<span class="w">  </span><span class="n">PPixHand</span><span class="o">*</span><span class="w">      </span><span class="n">ioPPix</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">RenderImage</span><span class="p">)(</span>
+</span><span id="__span-2-2"><span class="w">  </span><span class="n">PrPlayID</span><span class="w">       </span><span class="n">inPlayID</span><span class="p">,</span>
+</span><span id="__span-2-3"><span class="w">  </span><span class="n">PrTime</span><span class="w">         </span><span class="n">inTime</span><span class="p">,</span>
+</span><span id="__span-2-4"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prRect</span><span class="o">*</span><span class="w">  </span><span class="n">inLogicalRegion</span><span class="p">,</span>
+</span><span id="__span-2-5"><span class="w">  </span><span class="kt">int</span><span class="w">            </span><span class="n">inDisplayWidth</span><span class="p">,</span>
+</span><span id="__span-2-6"><span class="w">  </span><span class="kt">int</span><span class="w">            </span><span class="n">inDisplayHeight</span><span class="p">,</span>
+</span><span id="__span-2-7"><span class="w">  </span><span class="n">prBool</span><span class="w">         </span><span class="n">inClearToTransparentBlack</span><span class="p">,</span>
+</span><span id="__span-2-8"><span class="w">  </span><span class="n">PPixHand</span><span class="o">*</span><span class="w">      </span><span class="n">ioPPix</span><span class="p">);</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -4411,29 +4411,29 @@
 </tbody>
 </table>
 <h3 id="getidentifier">GetIdentifier<a class="headerlink" href="#getidentifier" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">GetIdentifier</span><span class="p">)(</span>
-<span class="w">  </span><span class="n">PrPlayID</span><span class="w">       </span><span class="n">inPlayID</span><span class="p">,</span>
-<span class="w">  </span><span class="n">PrTime</span><span class="w">         </span><span class="n">inTime</span><span class="p">,</span>
-<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prRect</span><span class="o">*</span><span class="w">  </span><span class="n">inLogicalRegion</span><span class="p">,</span>
-<span class="w">  </span><span class="kt">int</span><span class="w">            </span><span class="n">inDisplayWidth</span><span class="p">,</span>
-<span class="w">  </span><span class="kt">int</span><span class="w">            </span><span class="n">inDisplayHeight</span><span class="p">,</span>
-<span class="w">  </span><span class="n">prBool</span><span class="w">         </span><span class="n">inClearToTransparentBlack</span><span class="p">,</span>
-<span class="w">  </span><span class="n">prPluginID</span><span class="o">*</span><span class="w">    </span><span class="n">outIdentifier</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">GetIdentifier</span><span class="p">)(</span>
+</span><span id="__span-3-2"><span class="w">  </span><span class="n">PrPlayID</span><span class="w">       </span><span class="n">inPlayID</span><span class="p">,</span>
+</span><span id="__span-3-3"><span class="w">  </span><span class="n">PrTime</span><span class="w">         </span><span class="n">inTime</span><span class="p">,</span>
+</span><span id="__span-3-4"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prRect</span><span class="o">*</span><span class="w">  </span><span class="n">inLogicalRegion</span><span class="p">,</span>
+</span><span id="__span-3-5"><span class="w">  </span><span class="kt">int</span><span class="w">            </span><span class="n">inDisplayWidth</span><span class="p">,</span>
+</span><span id="__span-3-6"><span class="w">  </span><span class="kt">int</span><span class="w">            </span><span class="n">inDisplayHeight</span><span class="p">,</span>
+</span><span id="__span-3-7"><span class="w">  </span><span class="n">prBool</span><span class="w">         </span><span class="n">inClearToTransparentBlack</span><span class="p">,</span>
+</span><span id="__span-3-8"><span class="w">  </span><span class="n">prPluginID</span><span class="o">*</span><span class="w">    </span><span class="n">outIdentifier</span><span class="p">);</span>
+</span></code></pre></div>
 <h3 id="hasvisibleregions">HasVisibleRegions<a class="headerlink" href="#hasvisibleregions" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">HasVisibleRegions</span><span class="p">)(</span>
-<span class="w">  </span><span class="n">PrPlayID</span><span class="w">       </span><span class="n">inPlayID</span><span class="p">,</span>
-<span class="w">  </span><span class="n">PrTime</span><span class="w">         </span><span class="n">inTime</span><span class="p">,</span>
-<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prRect</span><span class="o">*</span><span class="w">  </span><span class="n">inLogicalRegion</span><span class="p">,</span>
-<span class="w">  </span><span class="kt">int</span><span class="w">            </span><span class="n">inDisplayWidth</span><span class="p">,</span>
-<span class="w">  </span><span class="kt">int</span><span class="w">            </span><span class="n">inDisplayHeight</span><span class="p">,</span>
-<span class="w">  </span><span class="n">prBool</span><span class="o">*</span><span class="w">        </span><span class="n">outHasVisibleRegions</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">HasVisibleRegions</span><span class="p">)(</span>
+</span><span id="__span-4-2"><span class="w">  </span><span class="n">PrPlayID</span><span class="w">       </span><span class="n">inPlayID</span><span class="p">,</span>
+</span><span id="__span-4-3"><span class="w">  </span><span class="n">PrTime</span><span class="w">         </span><span class="n">inTime</span><span class="p">,</span>
+</span><span id="__span-4-4"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prRect</span><span class="o">*</span><span class="w">  </span><span class="n">inLogicalRegion</span><span class="p">,</span>
+</span><span id="__span-4-5"><span class="w">  </span><span class="kt">int</span><span class="w">            </span><span class="n">inDisplayWidth</span><span class="p">,</span>
+</span><span id="__span-4-6"><span class="w">  </span><span class="kt">int</span><span class="w">            </span><span class="n">inDisplayHeight</span><span class="p">,</span>
+</span><span id="__span-4-7"><span class="w">  </span><span class="n">prBool</span><span class="o">*</span><span class="w">        </span><span class="n">outHasVisibleRegions</span><span class="p">);</span>
+</span></code></pre></div>
 <h3 id="variesovertime">VariesOverTime<a class="headerlink" href="#variesovertime" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">VariesOverTime</span><span class="p">)(</span>
-<span class="w">  </span><span class="n">PrPlayID</span><span class="w">  </span><span class="n">inPlayID</span><span class="p">,</span>
-<span class="w">  </span><span class="n">prBool</span><span class="o">*</span><span class="w">   </span><span class="n">outVariesOverTime</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">VariesOverTime</span><span class="p">)(</span>
+</span><span id="__span-5-2"><span class="w">  </span><span class="n">PrPlayID</span><span class="w">  </span><span class="n">inPlayID</span><span class="p">,</span>
+</span><span id="__span-5-3"><span class="w">  </span><span class="n">prBool</span><span class="o">*</span><span class="w">   </span><span class="n">outVariesOverTime</span><span class="p">);</span>
+</span></code></pre></div>
 <hr />
 <h2 id="ppix-cache-suite">PPix Cache Suite<a class="headerlink" href="#ppix-cache-suite" title="Permanent link">&para;</a></h2>
 <p>Used by an importer, player, or renderer to take advantage of the host application's PPix cache. See PrSDKPPixCacheSuite.h.</p>
@@ -4450,12 +4450,12 @@
 <h3 id="createppix">CreatePPix<a class="headerlink" href="#createppix" title="Permanent link">&para;</a></h3>
 <p>Creates a new PPix. The advantage of using this callback is that frames allocated are accounted for in the media cache, and are 16-byte aligned.</p>
 <p><code>ppixNew</code> and <code>newPtr</code> don't allocate memory in the media cache, or perform any alignment.</p>
-<div class="highlight"><pre><span></span><code><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">CreatePPix</span><span class="p">)(</span>
-<span class="w">  </span><span class="n">PPixHand</span><span class="o">*</span><span class="w">           </span><span class="n">outPPixHand</span><span class="p">,</span>
-<span class="w">  </span><span class="n">PrPPixBufferAccess</span><span class="w">  </span><span class="n">inRequestedAccess</span><span class="p">,</span>
-<span class="w">  </span><span class="n">PrPixelFormat</span><span class="w">       </span><span class="n">inPixelFormat</span><span class="p">,</span>
-<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prRect</span><span class="o">*</span><span class="w">       </span><span class="n">inBoundingRect</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-6-1"><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">CreatePPix</span><span class="p">)(</span>
+</span><span id="__span-6-2"><span class="w">  </span><span class="n">PPixHand</span><span class="o">*</span><span class="w">           </span><span class="n">outPPixHand</span><span class="p">,</span>
+</span><span id="__span-6-3"><span class="w">  </span><span class="n">PrPPixBufferAccess</span><span class="w">  </span><span class="n">inRequestedAccess</span><span class="p">,</span>
+</span><span id="__span-6-4"><span class="w">  </span><span class="n">PrPixelFormat</span><span class="w">       </span><span class="n">inPixelFormat</span><span class="p">,</span>
+</span><span id="__span-6-5"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prRect</span><span class="o">*</span><span class="w">       </span><span class="n">inBoundingRect</span><span class="p">);</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -4499,11 +4499,11 @@
 <h3 id="cloneppix">ClonePPix<a class="headerlink" href="#cloneppix" title="Permanent link">&para;</a></h3>
 <p>Clones an existing PPix.</p>
 <p>It will ref-count the PPix if only read access is requested and the PPix to copy from is read-only as well, otherwise it will create a new one and copy.</p>
-<div class="highlight"><pre><span></span><code><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">ClonePPix</span><span class="p">)(</span>
-<span class="w">  </span><span class="n">PPixHand</span><span class="w">            </span><span class="n">inPPixToClone</span><span class="p">,</span>
-<span class="w">  </span><span class="n">PPixHand</span><span class="o">*</span><span class="w">           </span><span class="n">outPPixHand</span><span class="p">,</span>
-<span class="w">  </span><span class="n">PrPPixBufferAccess</span><span class="w">  </span><span class="n">inRequestedAccess</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-7-1"><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">ClonePPix</span><span class="p">)(</span>
+</span><span id="__span-7-2"><span class="w">  </span><span class="n">PPixHand</span><span class="w">            </span><span class="n">inPPixToClone</span><span class="p">,</span>
+</span><span id="__span-7-3"><span class="w">  </span><span class="n">PPixHand</span><span class="o">*</span><span class="w">           </span><span class="n">outPPixHand</span><span class="p">,</span>
+</span><span id="__span-7-4"><span class="w">  </span><span class="n">PrPPixBufferAccess</span><span class="w">  </span><span class="n">inRequestedAccess</span><span class="p">);</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -4562,9 +4562,9 @@
 </ul>
 <h3 id="dispose">Dispose<a class="headerlink" href="#dispose" title="Permanent link">&para;</a></h3>
 <p>This will free this PPix. The PPix is no longer valid after this function is called.</p>
-<div class="highlight"><pre><span></span><code><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">Dispose</span><span class="p">)(</span>
-<span class="w">  </span><span class="n">PPixHand</span><span class="w">  </span><span class="n">inPPixHand</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-8-1"><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">Dispose</span><span class="p">)(</span>
+</span><span id="__span-8-2"><span class="w">  </span><span class="n">PPixHand</span><span class="w">  </span><span class="n">inPPixHand</span><span class="p">);</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -4581,11 +4581,11 @@
 </table>
 <h3 id="getpixels">GetPixels<a class="headerlink" href="#getpixels" title="Permanent link">&para;</a></h3>
 <p>This will return a pointer to the pixel buffer.</p>
-<div class="highlight"><pre><span></span><code><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">GetPixels</span><span class="p">)(</span>
-<span class="w">  </span><span class="n">PPixHand</span><span class="w">            </span><span class="n">inPPixHand</span><span class="p">,</span>
-<span class="w">  </span><span class="n">PrPPixBufferAccess</span><span class="w">  </span><span class="n">inRequestedAccess</span><span class="p">,</span>
-<span class="w">  </span><span class="kt">char</span><span class="o">**</span><span class="w">              </span><span class="n">outPixelAddress</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-9-1"><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">GetPixels</span><span class="p">)(</span>
+</span><span id="__span-9-2"><span class="w">  </span><span class="n">PPixHand</span><span class="w">            </span><span class="n">inPPixHand</span><span class="p">,</span>
+</span><span id="__span-9-3"><span class="w">  </span><span class="n">PrPPixBufferAccess</span><span class="w">  </span><span class="n">inRequestedAccess</span><span class="p">,</span>
+</span><span id="__span-9-4"><span class="w">  </span><span class="kt">char</span><span class="o">**</span><span class="w">              </span><span class="n">outPixelAddress</span><span class="p">);</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -4628,10 +4628,10 @@
 </table>
 <h3 id="getbounds">GetBounds<a class="headerlink" href="#getbounds" title="Permanent link">&para;</a></h3>
 <p>This will return the bounding rect.</p>
-<div class="highlight"><pre><span></span><code><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">GetBounds</span><span class="p">)(</span>
-<span class="w">  </span><span class="n">PPixHand</span><span class="w">  </span><span class="n">inPPixHand</span><span class="p">,</span>
-<span class="w">  </span><span class="n">prRect</span><span class="o">*</span><span class="w">   </span><span class="n">inoutBoundingRect</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-10-1"><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">GetBounds</span><span class="p">)(</span>
+</span><span id="__span-10-2"><span class="w">  </span><span class="n">PPixHand</span><span class="w">  </span><span class="n">inPPixHand</span><span class="p">,</span>
+</span><span id="__span-10-3"><span class="w">  </span><span class="n">prRect</span><span class="o">*</span><span class="w">   </span><span class="n">inoutBoundingRect</span><span class="p">);</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -4652,10 +4652,10 @@
 </table>
 <h3 id="getrowbytes">GetRowBytes<a class="headerlink" href="#getrowbytes" title="Permanent link">&para;</a></h3>
 <p>This will return the row bytes of the PPix.</p>
-<div class="highlight"><pre><span></span><code><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">GetRowBytes</span><span class="p">)(</span>
-<span class="w">  </span><span class="n">PPixHand</span><span class="w">      </span><span class="n">inPPixHand</span><span class="p">,</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="o">*</span><span class="w">  </span><span class="n">outRowBytes</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-11-1"><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">GetRowBytes</span><span class="p">)(</span>
+</span><span id="__span-11-2"><span class="w">  </span><span class="n">PPixHand</span><span class="w">      </span><span class="n">inPPixHand</span><span class="p">,</span>
+</span><span id="__span-11-3"><span class="w">  </span><span class="n">csSDK_int32</span><span class="o">*</span><span class="w">  </span><span class="n">outRowBytes</span><span class="p">);</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -4676,11 +4676,11 @@
 </table>
 <h3 id="getpixelaspectratio">GetPixelAspectRatio<a class="headerlink" href="#getpixelaspectratio" title="Permanent link">&para;</a></h3>
 <p>This will return the pixel aspect ratio of this PPix.</p>
-<div class="highlight"><pre><span></span><code><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">GetPixelAspectRatio</span><span class="p">)(</span>
-<span class="w">  </span><span class="n">PPixHand</span><span class="w">       </span><span class="n">inPPixHand</span><span class="p">,</span>
-<span class="w">  </span><span class="n">csSDK_uint32</span><span class="o">*</span><span class="w">  </span><span class="n">outPixelAspectRatioNumerator</span><span class="p">,</span>
-<span class="w">  </span><span class="n">csSDK_uint32</span><span class="o">*</span><span class="w">  </span><span class="n">outPixelAspectRatioDenominator</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-12-1"><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">GetPixelAspectRatio</span><span class="p">)(</span>
+</span><span id="__span-12-2"><span class="w">  </span><span class="n">PPixHand</span><span class="w">       </span><span class="n">inPPixHand</span><span class="p">,</span>
+</span><span id="__span-12-3"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="o">*</span><span class="w">  </span><span class="n">outPixelAspectRatioNumerator</span><span class="p">,</span>
+</span><span id="__span-12-4"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="o">*</span><span class="w">  </span><span class="n">outPixelAspectRatioDenominator</span><span class="p">);</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -4723,11 +4723,11 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre><span></span><code><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">GetUniqueKey</span><span class="p">)(</span>
-<span class="w">  </span><span class="n">PPixHand</span><span class="w">        </span><span class="n">inPPixHand</span><span class="p">,</span>
-<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w">  </span><span class="n">inoutKeyBuffer</span><span class="p">,</span>
-<span class="w">  </span><span class="kt">size_t</span><span class="w">          </span><span class="n">inKeyBufferSize</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-13-1"><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">GetUniqueKey</span><span class="p">)(</span>
+</span><span id="__span-13-2"><span class="w">  </span><span class="n">PPixHand</span><span class="w">        </span><span class="n">inPPixHand</span><span class="p">,</span>
+</span><span id="__span-13-3"><span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w">  </span><span class="n">inoutKeyBuffer</span><span class="p">,</span>
+</span><span id="__span-13-4"><span class="w">  </span><span class="kt">size_t</span><span class="w">          </span><span class="n">inKeyBufferSize</span><span class="p">);</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -4752,9 +4752,9 @@
 </table>
 <h3 id="getuniquekeysize">GetUniqueKeySize<a class="headerlink" href="#getuniquekeysize" title="Permanent link">&para;</a></h3>
 <p>This will return the unique key size. This will not change for the entire run of the application.</p>
-<div class="highlight"><pre><span></span><code><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">GetUniqueKeySize</span><span class="p">)(</span>
-<span class="w">  </span><span class="kt">size_t</span><span class="o">*</span><span class="w">  </span><span class="n">outKeyBufferSize</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-14-1"><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">GetUniqueKeySize</span><span class="p">)(</span>
+</span><span id="__span-14-2"><span class="w">  </span><span class="kt">size_t</span><span class="o">*</span><span class="w">  </span><span class="n">outKeyBufferSize</span><span class="p">);</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -4771,10 +4771,10 @@
 </table>
 <h3 id="getrendertime">GetRenderTime<a class="headerlink" href="#getrendertime" title="Permanent link">&para;</a></h3>
 <p>This will return the render time for this PPix.</p>
-<div class="highlight"><pre><span></span><code><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">GetRenderTime</span><span class="p">)(</span>
-<span class="w">  </span><span class="n">PPixHand</span><span class="w">      </span><span class="n">inPPixHand</span><span class="p">,</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="o">*</span><span class="w">  </span><span class="n">outRenderMilliseconds</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-15-1"><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">GetRenderTime</span><span class="p">)(</span>
+</span><span id="__span-15-2"><span class="w">  </span><span class="n">PPixHand</span><span class="w">      </span><span class="n">inPPixHand</span><span class="p">,</span>
+</span><span id="__span-15-3"><span class="w">  </span><span class="n">csSDK_int32</span><span class="o">*</span><span class="w">  </span><span class="n">outRenderMilliseconds</span><span class="p">);</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -4898,15 +4898,15 @@
 </table>
 <h3 id="gettickspersecond">GetTicksPerSecond<a class="headerlink" href="#gettickspersecond" title="Permanent link">&para;</a></h3>
 <p>Get the current ticks per second. This is guaranteed to be constant for the duration of the runtime.</p>
-<div class="highlight"><pre><span></span><code><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">GetTicksPerSecond</span><span class="p">)(</span>
-<span class="w">  </span><span class="n">PrTime</span><span class="o">*</span><span class="w">  </span><span class="n">outTicksPerSec</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-16-1"><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">GetTicksPerSecond</span><span class="p">)(</span>
+</span><span id="__span-16-2"><span class="w">  </span><span class="n">PrTime</span><span class="o">*</span><span class="w">  </span><span class="n">outTicksPerSec</span><span class="p">);</span>
+</span></code></pre></div>
 <h3 id="gettickspervideoframe">GetTicksPerVideoFrame<a class="headerlink" href="#gettickspervideoframe" title="Permanent link">&para;</a></h3>
 <p>Get the current ticks in a video frame rate. inVideoFrameRate may be any of the <code>PrVideoFrameRates</code> enum.</p>
-<div class="highlight"><pre><span></span><code><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">GetTicksPerVideoFrame</span><span class="p">)(</span>
-<span class="w">  </span><span class="n">PrVideoFrameRates</span><span class="w">  </span><span class="n">inVideoFrameRate</span><span class="p">,</span>
-<span class="w">  </span><span class="n">PrTime</span><span class="o">*</span><span class="w">            </span><span class="n">outTicksPerFrame</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-17-1"><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">GetTicksPerVideoFrame</span><span class="p">)(</span>
+</span><span id="__span-17-2"><span class="w">  </span><span class="n">PrVideoFrameRates</span><span class="w">  </span><span class="n">inVideoFrameRate</span><span class="p">,</span>
+</span><span id="__span-17-3"><span class="w">  </span><span class="n">PrTime</span><span class="o">*</span><span class="w">            </span><span class="n">outTicksPerFrame</span><span class="p">);</span>
+</span></code></pre></div>
 <h3 id="getticksperaudiosample">GetTicksPerAudioSample<a class="headerlink" href="#getticksperaudiosample" title="Permanent link">&para;</a></h3>
 <p>Get the current ticks in an audio sample rate.</p>
 <table>
@@ -4927,10 +4927,10 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre><span></span><code><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">GetTicksPerAudioSample</span><span class="p">)(</span>
-<span class="w">  </span><span class="kt">float</span><span class="w">    </span><span class="n">inSampleRate</span><span class="p">,</span>
-<span class="w">  </span><span class="n">PrTime</span><span class="o">*</span><span class="w">  </span><span class="n">outTicksPerSample</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-18-1"><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">GetTicksPerAudioSample</span><span class="p">)(</span>
+</span><span id="__span-18-2"><span class="w">  </span><span class="kt">float</span><span class="w">    </span><span class="n">inSampleRate</span><span class="p">,</span>
+</span><span id="__span-18-3"><span class="w">  </span><span class="n">PrTime</span><span class="o">*</span><span class="w">  </span><span class="n">outTicksPerSample</span><span class="p">);</span>
+</span></code></pre></div>
 <hr />
 <h2 id="video-segment-render-suite">Video Segment Render Suite<a class="headerlink" href="#video-segment-render-suite" title="Permanent link">&para;</a></h2>
 <p>This suite uses the built-in software path for rendering, and supports subtree rendering. This means the plugin can ask the host to render a part of the segment, and then still handle the rest of the rendering. This is useful if, for example, one of the layers has an effect that the plugin cannot render itself. The plugin can have the host render that layer, but then handle the other layers along with the compositing.</p>
@@ -4944,16 +4944,16 @@
 <p><code>AcquireOperatorOwnerNodeID()</code> were added, along with the new node type kVideoSegment_NodeType_AdjustmentEffect.</p>
 <p>The basic structure of the video segments is that of a tree structure. There is a Compositor node with n inputs. Each of those inputs is a Clip node, which has one input which is a Media node, and it also has n Operators, which are effects.</p>
 <p>So, a simple example, three clips in a stack, the top one with three effects looks like this:</p>
-<div class="highlight"><pre><span></span><code><span class="n">Segment</span>
-<span class="w">  </span><span class="n">Compositor</span><span class="w"> </span><span class="n">Node</span>
-<span class="w">    </span><span class="n">Clip</span><span class="w"> </span><span class="n">Node</span>
-<span class="w">      </span><span class="n">Media</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="p">(</span><span class="n">bottom</span><span class="w"> </span><span class="n">clip</span><span class="p">)</span><span class="w"> </span><span class="n">Clip</span><span class="w"> </span><span class="n">Node</span>
-<span class="w">    </span><span class="n">Clip</span><span class="w"> </span><span class="n">Node</span>
-<span class="w">      </span><span class="n">Media</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="p">(</span><span class="n">middle</span><span class="w"> </span><span class="n">clip</span><span class="p">)</span><span class="w"> </span><span class="n">Clip</span><span class="w"> </span><span class="n">Node</span>
-<span class="w">    </span><span class="n">Clip</span><span class="w"> </span><span class="n">Node</span>
-<span class="w">      </span><span class="n">Media</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="p">(</span><span class="n">top</span><span class="w"> </span><span class="n">clip</span><span class="p">)</span>
-<span class="w">      </span><span class="n">Clip</span><span class="w"> </span><span class="n">Operators</span><span class="w"> </span><span class="p">(</span><span class="n">Blur</span><span class="p">,</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="n">Corrector</span><span class="p">,</span><span class="w"> </span><span class="n">Motion</span><span class="p">)</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-19-1"><span class="n">Segment</span>
+</span><span id="__span-19-2"><span class="w">  </span><span class="n">Compositor</span><span class="w"> </span><span class="n">Node</span>
+</span><span id="__span-19-3"><span class="w">    </span><span class="n">Clip</span><span class="w"> </span><span class="n">Node</span>
+</span><span id="__span-19-4"><span class="w">      </span><span class="n">Media</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="p">(</span><span class="n">bottom</span><span class="w"> </span><span class="n">clip</span><span class="p">)</span><span class="w"> </span><span class="n">Clip</span><span class="w"> </span><span class="n">Node</span>
+</span><span id="__span-19-5"><span class="w">    </span><span class="n">Clip</span><span class="w"> </span><span class="n">Node</span>
+</span><span id="__span-19-6"><span class="w">      </span><span class="n">Media</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="p">(</span><span class="n">middle</span><span class="w"> </span><span class="n">clip</span><span class="p">)</span><span class="w"> </span><span class="n">Clip</span><span class="w"> </span><span class="n">Node</span>
+</span><span id="__span-19-7"><span class="w">    </span><span class="n">Clip</span><span class="w"> </span><span class="n">Node</span>
+</span><span id="__span-19-8"><span class="w">      </span><span class="n">Media</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="p">(</span><span class="n">top</span><span class="w"> </span><span class="n">clip</span><span class="p">)</span>
+</span><span id="__span-19-9"><span class="w">      </span><span class="n">Clip</span><span class="w"> </span><span class="n">Operators</span><span class="w"> </span><span class="p">(</span><span class="n">Blur</span><span class="p">,</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="n">Corrector</span><span class="p">,</span><span class="w"> </span><span class="n">Motion</span><span class="p">)</span>
+</span></code></pre></div>
 <p>To get a good idea of the segment structure, try the SDK player, create a sequence using the SDK Editing Mode, and watch the text overlay in the Sequence Monitor as you perform edits.</p>
 <p>See PrSDKVideoSegmentSuite.h and PrSDKVideoSegmentProperties.h.</p>
 <hr />
@@ -5042,7 +5042,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.copy", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>

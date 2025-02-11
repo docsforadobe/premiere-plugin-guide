@@ -4154,11 +4154,11 @@
 <h2 id="imacceleratorrec">imAcceleratorRec<a class="headerlink" href="#imacceleratorrec" title="Permanent link">&para;</a></h2>
 <p>Selector: <a href="../selector-descriptions/#imretargetaccelerator">imRetargetAccelerator</a></p>
 <p>Describes the path to the new media and new accelerator created when the Project Manager copies media and its accelerator.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prUTF16Char</span><span class="w"> </span><span class="o">*</span><span class="n">inOriginalPath</span><span class="p">;</span>
-<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prUTF16Char</span><span class="w"> </span><span class="o">*</span><span class="n">inAcceleratorPath</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imAcceleratorRec</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prUTF16Char</span><span class="w"> </span><span class="o">*</span><span class="n">inOriginalPath</span><span class="p">;</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prUTF16Char</span><span class="w"> </span><span class="o">*</span><span class="n">inAcceleratorPath</span><span class="p">;</span>
+</span><span id="__span-0-4"><span class="p">}</span><span class="w"> </span><span class="n">imAcceleratorRec</span><span class="p">;</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -4182,14 +4182,14 @@
 <p>Selector: <a href="../selector-descriptions/#imanalysis">imAnalysis</a></p>
 <p>Sending back analysis data is a two step process. First, set buffersize to the size of your character buffer and return imNoErr.</p>
 <p>Premiere will immediately send <code>imAnalysis</code> again; populate the buffer with text. Previously-stored preferences and privateData are returned in this structure.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">         </span><span class="o">*</span><span class="n">privatedata</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">         </span><span class="o">*</span><span class="n">prefs</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">buffersize</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">         </span><span class="o">*</span><span class="n">buffer</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="o">*</span><span class="n">timecodeFormat</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imAnalysisRec</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><span class="w">  </span><span class="kt">void</span><span class="w">         </span><span class="o">*</span><span class="n">privatedata</span><span class="p">;</span>
+</span><span id="__span-1-3"><span class="w">  </span><span class="kt">void</span><span class="w">         </span><span class="o">*</span><span class="n">prefs</span><span class="p">;</span>
+</span><span id="__span-1-4"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">buffersize</span><span class="p">;</span>
+</span><span id="__span-1-5"><span class="w">  </span><span class="kt">char</span><span class="w">         </span><span class="o">*</span><span class="n">buffer</span><span class="p">;</span>
+</span><span id="__span-1-6"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="o">*</span><span class="n">timecodeFormat</span><span class="p">;</span>
+</span><span id="__span-1-7"><span class="p">}</span><span class="w"> </span><span class="n">imAnalysisRec</span><span class="p">;</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -4224,13 +4224,13 @@
 <h2 id="imasyncimportercreationrec">imAsyncImporterCreationRec<a class="headerlink" href="#imasyncimportercreationrec" title="Permanent link">&para;</a></h2>
 <p>Selector: <a href="../selector-descriptions/#imcreateasyncimporter">imCreateAsyncImporter</a></p>
 <p>Create an asynchronous importer object using the data provided, and store it here.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">                </span><span class="o">*</span><span class="n">inPrivateData</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">                </span><span class="o">*</span><span class="n">inPrefs</span><span class="p">;</span>
-<span class="w">  </span><span class="n">AsyncImporterEntry</span><span class="w">  </span><span class="n">outAsyncEntry</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">                </span><span class="o">*</span><span class="n">outAsyncPrivateData</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-2"><span class="w">  </span><span class="kt">void</span><span class="w">                </span><span class="o">*</span><span class="n">inPrivateData</span><span class="p">;</span>
+</span><span id="__span-2-3"><span class="w">  </span><span class="kt">void</span><span class="w">                </span><span class="o">*</span><span class="n">inPrefs</span><span class="p">;</span>
+</span><span id="__span-2-4"><span class="w">  </span><span class="n">AsyncImporterEntry</span><span class="w">  </span><span class="n">outAsyncEntry</span><span class="p">;</span>
+</span><span id="__span-2-5"><span class="w">  </span><span class="kt">void</span><span class="w">                </span><span class="o">*</span><span class="n">outAsyncPrivateData</span><span class="p">;</span>
+</span><span id="__span-2-6"><span class="p">}</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -4261,12 +4261,12 @@
 <h2 id="imaudioinforec7">imAudioInfoRec7<a class="headerlink" href="#imaudioinforec7" title="Permanent link">&para;</a></h2>
 <p>Selector: <a href="../selector-descriptions/#imgetinfo8">imGetInfo8</a> (member of <a href="#imfileinforec8">imFileInfoRec8</a>)</p>
 <p>Audio data properties of the file (or of the data you will generate, if synthetic).</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">        </span><span class="n">numChannels</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">float</span><span class="w">              </span><span class="n">sampleRate</span><span class="p">;</span>
-<span class="w">  </span><span class="n">PrAudioSampleType</span><span class="w">  </span><span class="n">sampleType</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-2"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">        </span><span class="n">numChannels</span><span class="p">;</span>
+</span><span id="__span-3-3"><span class="w">  </span><span class="kt">float</span><span class="w">              </span><span class="n">sampleRate</span><span class="p">;</span>
+</span><span id="__span-3-4"><span class="w">  </span><span class="n">PrAudioSampleType</span><span class="w">  </span><span class="n">sampleType</span><span class="p">;</span>
+</span><span id="__span-3-5"><span class="p">}</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -4311,16 +4311,16 @@
 <h2 id="imcalcsizerec">imCalcSizeRec<a class="headerlink" href="#imcalcsizerec" title="Permanent link">&para;</a></h2>
 <p>Selector: <a href="../selector-descriptions/#imcalcsize8">imCalcSize8</a></p>
 <p>Asks the importer for an estimate of disk space used by the clip, given the provided trim boundaries.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">         </span><span class="o">*</span><span class="n">privatedata</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">         </span><span class="o">*</span><span class="n">prefs</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">trimIn</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">duration</span><span class="p">;</span>
-<span class="w">  </span><span class="n">prInt64</span><span class="w">      </span><span class="n">sizeInBytes</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">scale</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">sampleSize</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imCalcSizeRec</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-2"><span class="w">  </span><span class="kt">void</span><span class="w">         </span><span class="o">*</span><span class="n">privatedata</span><span class="p">;</span>
+</span><span id="__span-4-3"><span class="w">  </span><span class="kt">void</span><span class="w">         </span><span class="o">*</span><span class="n">prefs</span><span class="p">;</span>
+</span><span id="__span-4-4"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">trimIn</span><span class="p">;</span>
+</span><span id="__span-4-5"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">duration</span><span class="p">;</span>
+</span><span id="__span-4-6"><span class="w">  </span><span class="n">prInt64</span><span class="w">      </span><span class="n">sizeInBytes</span><span class="p">;</span>
+</span><span id="__span-4-7"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">scale</span><span class="p">;</span>
+</span><span id="__span-4-8"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">sampleSize</span><span class="p">;</span>
+</span><span id="__span-4-9"><span class="p">}</span><span class="w"> </span><span class="n">imCalcSizeRec</span><span class="p">;</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -4394,19 +4394,19 @@
 <h2 id="imchecktrimrec">imCheckTrimRec<a class="headerlink" href="#imchecktrimrec" title="Permanent link">&para;</a></h2>
 <p>Selector: <a href="../selector-descriptions/#imchecktrim8">imCheckTrim8</a></p>
 <p>Provides the requested trim boundaries to the importer, and allows adjusted trim boundaries to be passed back to Premiere.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">         </span><span class="o">*</span><span class="n">privatedata</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">         </span><span class="o">*</span><span class="n">prefs</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">trimIn</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">duration</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">keepAudio</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">keepVideo</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">newTrimIn</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">newDuration</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">scale</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">sampleSize</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imCheckTrimRec</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-2"><span class="w">  </span><span class="kt">void</span><span class="w">         </span><span class="o">*</span><span class="n">privatedata</span><span class="p">;</span>
+</span><span id="__span-5-3"><span class="w">  </span><span class="kt">void</span><span class="w">         </span><span class="o">*</span><span class="n">prefs</span><span class="p">;</span>
+</span><span id="__span-5-4"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">trimIn</span><span class="p">;</span>
+</span><span id="__span-5-5"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">duration</span><span class="p">;</span>
+</span><span id="__span-5-6"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">keepAudio</span><span class="p">;</span>
+</span><span id="__span-5-7"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">keepVideo</span><span class="p">;</span>
+</span><span id="__span-5-8"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">newTrimIn</span><span class="p">;</span>
+</span><span id="__span-5-9"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">newDuration</span><span class="p">;</span>
+</span><span id="__span-5-10"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">scale</span><span class="p">;</span>
+</span><span id="__span-5-11"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">sampleSize</span><span class="p">;</span>
+</span><span id="__span-5-12"><span class="p">}</span><span class="w"> </span><span class="n">imCheckTrimRec</span><span class="p">;</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -4461,13 +4461,13 @@
 <h2 id="imclipframedescriptorrec">imClipFrameDescriptorRec<a class="headerlink" href="#imclipframedescriptorrec" title="Permanent link">&para;</a></h2>
 <p>Selector: <a href="../selector-descriptions/#imselectclipframedescriptor">imSelectClipFrameDescriptor</a></p>
 <p>Based on the request in <code>inDesiredClipFrameDescriptor</code> and the importer's Source Settings, modify <code>outBestFrameDescriptor</code> as needed to describe what format the importer will provide.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">                </span><span class="n">inPrivateData</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">                </span><span class="n">inPrefs</span><span class="p">;</span>
-<span class="w">  </span><span class="n">ClipFrameDescriptor</span><span class="w">  </span><span class="n">inDesiredClipFrameDescriptor</span><span class="p">;</span>
-<span class="w">  </span><span class="n">ClipFrameDescriptor</span><span class="w">  </span><span class="n">outBestFrameDescriptor</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imClipFrameDescriptorRec</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-6-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-2"><span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">                </span><span class="n">inPrivateData</span><span class="p">;</span>
+</span><span id="__span-6-3"><span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">                </span><span class="n">inPrefs</span><span class="p">;</span>
+</span><span id="__span-6-4"><span class="w">  </span><span class="n">ClipFrameDescriptor</span><span class="w">  </span><span class="n">inDesiredClipFrameDescriptor</span><span class="p">;</span>
+</span><span id="__span-6-5"><span class="w">  </span><span class="n">ClipFrameDescriptor</span><span class="w">  </span><span class="n">outBestFrameDescriptor</span><span class="p">;</span>
+</span><span id="__span-6-6"><span class="p">}</span><span class="w"> </span><span class="n">imClipFrameDescriptorRec</span><span class="p">;</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -4519,13 +4519,13 @@
 <h2 id="imcompleteasyncclosedcaptionscanrec">imCompleteAsyncClosedCaptionScanRec<a class="headerlink" href="#imcompleteasyncclosedcaptionscanrec" title="Permanent link">&para;</a></h2>
 <p>Selector: <a href="../selector-descriptions/#imcompleteasyncclosedcaptionscan">imCompleteAsyncClosedCaptionScan</a></p>
 <p>This structure is passed to provide one last chance to cleanup and dispose of <code>inAsyncCaptionScanPrivateData</code>, and to mark whether the closed caption scan completed without error.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">        </span><span class="n">inPrivateData</span><span class="p">;</span>
-<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="w">  </span><span class="n">inPrefs</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">        </span><span class="n">inAsyncCaptionScanPrivateData</span><span class="p">;</span>
-<span class="w">  </span><span class="n">prBool</span><span class="w">       </span><span class="n">inScanCompletedWithoutError</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imCompleteAsyncClosedCaptionScanRec</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-7-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-2"><span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">        </span><span class="n">inPrivateData</span><span class="p">;</span>
+</span><span id="__span-7-3"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="w">  </span><span class="n">inPrefs</span><span class="p">;</span>
+</span><span id="__span-7-4"><span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">        </span><span class="n">inAsyncCaptionScanPrivateData</span><span class="p">;</span>
+</span><span id="__span-7-5"><span class="w">  </span><span class="n">prBool</span><span class="w">       </span><span class="n">inScanCompletedWithoutError</span><span class="p">;</span>
+</span><span id="__span-7-6"><span class="p">}</span><span class="w"> </span><span class="n">imCompleteAsyncClosedCaptionScanRec</span><span class="p">;</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -4579,26 +4579,26 @@
 <p>Deprecated as of 13.0. Describes a color profile supported by a clip.</p>
 <p>The first time <code>imGetIndColorProfile</code> is sent, <code>inDestinationBuffer</code> will be NULL, and <code>ioBufferSize</code> will be 0.</p>
 <p>Set <code>ioBufferSize</code> to the required size for the buffer, and the host will allocate the memory and call the importer again, with a valid <code>inDestinationBuffer</code>, and <code>ioBufferSize</code> set to the value just provided by the importer.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">         </span><span class="o">*</span><span class="n">inPrivateData</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">ioBufferSize</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">         </span><span class="o">*</span><span class="n">inDestinationBuffer</span><span class="p">;</span>
-<span class="w">  </span><span class="n">PrSDKString</span><span class="w">  </span><span class="n">outName</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imIndColorProfileRec</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-8-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-2"><span class="w">  </span><span class="kt">void</span><span class="w">         </span><span class="o">*</span><span class="n">inPrivateData</span><span class="p">;</span>
+</span><span id="__span-8-3"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">ioBufferSize</span><span class="p">;</span>
+</span><span id="__span-8-4"><span class="w">  </span><span class="kt">void</span><span class="w">         </span><span class="o">*</span><span class="n">inDestinationBuffer</span><span class="p">;</span>
+</span><span id="__span-8-5"><span class="w">  </span><span class="n">PrSDKString</span><span class="w">  </span><span class="n">outName</span><span class="p">;</span>
+</span><span id="__span-8-6"><span class="p">}</span><span class="w"> </span><span class="n">imIndColorProfileRec</span><span class="p">;</span>
+</span></code></pre></div>
 <hr />
 <h2 id="imcopyfilerec">imCopyFileRec<a class="headerlink" href="#imcopyfilerec" title="Permanent link">&para;</a></h2>
 <p>Selector: <a href="../selector-descriptions/#imcopyfile">imCopyFile</a></p>
 <p>Describes how to copy a clip. Also provides a callback to update the progress bar and check if the user has cancelled.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">                </span><span class="o">*</span><span class="n">inPrivateData</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">         </span><span class="o">*</span><span class="n">inPrefs</span><span class="p">;</span>
-<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prUTF16Char</span><span class="w">   </span><span class="o">*</span><span class="n">inSourcePath</span><span class="p">;</span>
-<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prUTF16Char</span><span class="w">   </span><span class="o">*</span><span class="n">inDestPath</span><span class="p">;</span>
-<span class="w">  </span><span class="n">importProgressFunc</span><span class="w">  </span><span class="n">inProgressCallback</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">                </span><span class="o">*</span><span class="n">inProgressCallbackID</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imTrimFileRec</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-9-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-2"><span class="w">  </span><span class="kt">void</span><span class="w">                </span><span class="o">*</span><span class="n">inPrivateData</span><span class="p">;</span>
+</span><span id="__span-9-3"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">         </span><span class="o">*</span><span class="n">inPrefs</span><span class="p">;</span>
+</span><span id="__span-9-4"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prUTF16Char</span><span class="w">   </span><span class="o">*</span><span class="n">inSourcePath</span><span class="p">;</span>
+</span><span id="__span-9-5"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prUTF16Char</span><span class="w">   </span><span class="o">*</span><span class="n">inDestPath</span><span class="p">;</span>
+</span><span id="__span-9-6"><span class="w">  </span><span class="n">importProgressFunc</span><span class="w">  </span><span class="n">inProgressCallback</span><span class="p">;</span>
+</span><span id="__span-9-7"><span class="w">  </span><span class="kt">void</span><span class="w">                </span><span class="o">*</span><span class="n">inProgressCallbackID</span><span class="p">;</span>
+</span><span id="__span-9-8"><span class="p">}</span><span class="w"> </span><span class="n">imTrimFileRec</span><span class="p">;</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -4667,14 +4667,14 @@
 <p>Selector: <a href="../selector-descriptions/#imdatarateanalysis">imDataRateAnalysis</a></p>
 <p>Specify the desired buffersize, return to Premiere with <code>imNoErr</code>; upon the next call fill buffer with <code>imDataSamples</code>, and specify a base data rate for audio (if any).</p>
 <p>This structure is used like <code>imAnalysisRec</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">         </span><span class="o">*</span><span class="n">privatedata</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">         </span><span class="o">*</span><span class="n">prefs</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">buffersize</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">         </span><span class="o">*</span><span class="n">buffer</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">baserate</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imDataRateAnalysisRec</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-10-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-2"><span class="w">  </span><span class="kt">void</span><span class="w">         </span><span class="o">*</span><span class="n">privatedata</span><span class="p">;</span>
+</span><span id="__span-10-3"><span class="w">  </span><span class="kt">void</span><span class="w">         </span><span class="o">*</span><span class="n">prefs</span><span class="p">;</span>
+</span><span id="__span-10-4"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">buffersize</span><span class="p">;</span>
+</span><span id="__span-10-5"><span class="w">  </span><span class="kt">char</span><span class="w">         </span><span class="o">*</span><span class="n">buffer</span><span class="p">;</span>
+</span><span id="__span-10-6"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">baserate</span><span class="p">;</span>
+</span><span id="__span-10-7"><span class="p">}</span><span class="w"> </span><span class="n">imDataRateAnalysisRec</span><span class="p">;</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -4705,11 +4705,11 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">sampledur</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">samplesize</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imDataSample</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-11-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-2"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">sampledur</span><span class="p">;</span>
+</span><span id="__span-11-3"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">samplesize</span><span class="p">;</span>
+</span><span id="__span-11-4"><span class="p">}</span><span class="w"> </span><span class="n">imDataSample</span><span class="p">;</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -4732,13 +4732,13 @@
 <h2 id="imdeferredprocessingrec">imDeferredProcessingRec<a class="headerlink" href="#imdeferredprocessingrec" title="Permanent link">&para;</a></h2>
 <p>Selector: <a href="../selector-descriptions/#imdeferredprocessing">imDeferredProcessing</a></p>
 <p>Describes the current progress of the deferred processing on the clip referred to by inPrivateData.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">   </span><span class="o">*</span><span class="n">inPrivateData</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">float</span><span class="w">  </span><span class="n">outProgress</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">   </span><span class="n">outInvalidateFile</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">   </span><span class="n">outCallAgain</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imDeferredProcessingRec</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-12-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-2"><span class="w">  </span><span class="kt">void</span><span class="w">   </span><span class="o">*</span><span class="n">inPrivateData</span><span class="p">;</span>
+</span><span id="__span-12-3"><span class="w">  </span><span class="kt">float</span><span class="w">  </span><span class="n">outProgress</span><span class="p">;</span>
+</span><span id="__span-12-4"><span class="w">  </span><span class="kt">char</span><span class="w">   </span><span class="n">outInvalidateFile</span><span class="p">;</span>
+</span><span id="__span-12-5"><span class="w">  </span><span class="kt">char</span><span class="w">   </span><span class="n">outCallAgain</span><span class="p">;</span>
+</span><span id="__span-12-6"><span class="p">}</span><span class="w"> </span><span class="n">imDeferredProcessingRec</span><span class="p">;</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -4769,11 +4769,11 @@
 <h2 id="imdeletefilerec">imDeleteFileRec<a class="headerlink" href="#imdeletefilerec" title="Permanent link">&para;</a></h2>
 <p>Selector: <a href="../selector-descriptions/#imdeletefile">imDeleteFile</a></p>
 <p>Describes the file to be deleted.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">        </span><span class="n">filetype</span><span class="p">;</span>
-<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prUTF16Char</span><span class="w">  </span><span class="n">deleteFile</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imDeleteFileRec</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-13-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-2"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">        </span><span class="n">filetype</span><span class="p">;</span>
+</span><span id="__span-13-3"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prUTF16Char</span><span class="w">  </span><span class="n">deleteFile</span><span class="p">;</span>
+</span><span id="__span-13-4"><span class="p">}</span><span class="w"> </span><span class="n">imDeleteFileRec</span><span class="p">;</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -4796,14 +4796,14 @@
 <h2 id="imfileaccessrec8">imFileAccessRec8<a class="headerlink" href="#imfileaccessrec8" title="Permanent link">&para;</a></h2>
 <p>Selectors: <code>imGetInfo8</code> and <code>imGetPrefs8</code></p>
 <p>Describes the file being imported.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">               </span><span class="o">*</span><span class="n">importID</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">        </span><span class="n">filetype</span><span class="p">;</span>
-<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prUTF16Char</span><span class="w">  </span><span class="o">*</span><span class="n">filepath</span><span class="p">;</span>
-<span class="w">  </span><span class="n">imFileRef</span><span class="w">          </span><span class="n">fileref</span><span class="p">;</span>
-<span class="w">  </span><span class="n">PrMemoryPtr</span><span class="w">        </span><span class="n">newfilename</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imFileAccessRec</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-14-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-2"><span class="w">  </span><span class="kt">void</span><span class="w">               </span><span class="o">*</span><span class="n">importID</span><span class="p">;</span>
+</span><span id="__span-14-3"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">        </span><span class="n">filetype</span><span class="p">;</span>
+</span><span id="__span-14-4"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prUTF16Char</span><span class="w">  </span><span class="o">*</span><span class="n">filepath</span><span class="p">;</span>
+</span><span id="__span-14-5"><span class="w">  </span><span class="n">imFileRef</span><span class="w">          </span><span class="n">fileref</span><span class="p">;</span>
+</span><span id="__span-14-6"><span class="w">  </span><span class="n">PrMemoryPtr</span><span class="w">        </span><span class="n">newfilename</span><span class="p">;</span>
+</span><span id="__span-14-7"><span class="p">}</span><span class="w"> </span><span class="n">imFileAccessRec</span><span class="p">;</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -4863,11 +4863,11 @@
 <h2 id="imfileattributesrec">imFileAttributesRec<a class="headerlink" href="#imfileattributesrec" title="Permanent link">&para;</a></h2>
 <p>Selector: <a href="../selector-descriptions/#imgetfileattributes">imGetFileAttributes</a></p>
 <p>New in Premiere Pro 3.1. Provide the clip creation date.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">prDateStamp</span><span class="w">  </span><span class="n">creationDateStamp</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">reserved</span><span class="p">[</span><span class="mi">40</span><span class="p">];</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imFileAttributesRec</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-15-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-2"><span class="w">  </span><span class="n">prDateStamp</span><span class="w">  </span><span class="n">creationDateStamp</span><span class="p">;</span>
+</span><span id="__span-15-3"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">reserved</span><span class="p">[</span><span class="mi">40</span><span class="p">];</span>
+</span><span id="__span-15-4"><span class="p">}</span><span class="w"> </span><span class="n">imFileAttributesRec</span><span class="p">;</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -4888,30 +4888,30 @@
 <p>Describes the clip, or the stream with the ID streamIdx. Set the clip or stream attributes from the file header or data source. Create and store any privateData.</p>
 <p>When a synthetic clip is created, and the user provides the desired resolution, frame rate, pixel aspect ratio, and audio sample rate in the New Synthetic dialog, these values will be pre-initialized by Premiere.</p>
 <p>If importing stereoscopic footage, import the left-eye video channel for streamID 0, and the right-eye video channel for streamID 1.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">             </span><span class="n">hasVideo</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">             </span><span class="n">hasAudio</span><span class="p">;</span>
-<span class="w">  </span><span class="n">imImageInfoRec</span><span class="w">   </span><span class="n">vidInfo</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">      </span><span class="n">vidScale</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">      </span><span class="n">vidSampleSize</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">      </span><span class="n">vidDuration</span><span class="p">;</span>
-<span class="w">  </span><span class="n">imAudioInfoRec7</span><span class="w">  </span><span class="n">audInfo</span><span class="p">;</span>
-<span class="w">  </span><span class="n">PrAudioSample</span><span class="w">    </span><span class="n">audDuration</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">      </span><span class="n">accessModes</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">             </span><span class="o">*</span><span class="n">privatedata</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">             </span><span class="o">*</span><span class="n">prefs</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">             </span><span class="n">hasDataRate</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">      </span><span class="n">streamIdx</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">             </span><span class="n">streamsAsComp</span><span class="p">;</span>
-<span class="w">  </span><span class="n">prUTF16Char</span><span class="w">      </span><span class="n">streamName</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">      </span><span class="n">sessionPluginID</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">             </span><span class="n">alwaysUnquiet</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">             </span><span class="n">unused</span><span class="p">;</span>
-<span class="w">  </span><span class="n">prUTF16Char</span><span class="w">      </span><span class="n">filePath</span><span class="p">[</span><span class="mi">2048</span><span class="p">];</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">             </span><span class="n">canProvidePeakData</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">             </span><span class="n">mayBeGrowing</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imFileInfoRec8</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-16-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-2"><span class="w">  </span><span class="kt">char</span><span class="w">             </span><span class="n">hasVideo</span><span class="p">;</span>
+</span><span id="__span-16-3"><span class="w">  </span><span class="kt">char</span><span class="w">             </span><span class="n">hasAudio</span><span class="p">;</span>
+</span><span id="__span-16-4"><span class="w">  </span><span class="n">imImageInfoRec</span><span class="w">   </span><span class="n">vidInfo</span><span class="p">;</span>
+</span><span id="__span-16-5"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">      </span><span class="n">vidScale</span><span class="p">;</span>
+</span><span id="__span-16-6"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">      </span><span class="n">vidSampleSize</span><span class="p">;</span>
+</span><span id="__span-16-7"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">      </span><span class="n">vidDuration</span><span class="p">;</span>
+</span><span id="__span-16-8"><span class="w">  </span><span class="n">imAudioInfoRec7</span><span class="w">  </span><span class="n">audInfo</span><span class="p">;</span>
+</span><span id="__span-16-9"><span class="w">  </span><span class="n">PrAudioSample</span><span class="w">    </span><span class="n">audDuration</span><span class="p">;</span>
+</span><span id="__span-16-10"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">      </span><span class="n">accessModes</span><span class="p">;</span>
+</span><span id="__span-16-11"><span class="w">  </span><span class="kt">void</span><span class="w">             </span><span class="o">*</span><span class="n">privatedata</span><span class="p">;</span>
+</span><span id="__span-16-12"><span class="w">  </span><span class="kt">void</span><span class="w">             </span><span class="o">*</span><span class="n">prefs</span><span class="p">;</span>
+</span><span id="__span-16-13"><span class="w">  </span><span class="kt">char</span><span class="w">             </span><span class="n">hasDataRate</span><span class="p">;</span>
+</span><span id="__span-16-14"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">      </span><span class="n">streamIdx</span><span class="p">;</span>
+</span><span id="__span-16-15"><span class="w">  </span><span class="kt">char</span><span class="w">             </span><span class="n">streamsAsComp</span><span class="p">;</span>
+</span><span id="__span-16-16"><span class="w">  </span><span class="n">prUTF16Char</span><span class="w">      </span><span class="n">streamName</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
+</span><span id="__span-16-17"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">      </span><span class="n">sessionPluginID</span><span class="p">;</span>
+</span><span id="__span-16-18"><span class="w">  </span><span class="kt">char</span><span class="w">             </span><span class="n">alwaysUnquiet</span><span class="p">;</span>
+</span><span id="__span-16-19"><span class="w">  </span><span class="kt">char</span><span class="w">             </span><span class="n">unused</span><span class="p">;</span>
+</span><span id="__span-16-20"><span class="w">  </span><span class="n">prUTF16Char</span><span class="w">      </span><span class="n">filePath</span><span class="p">[</span><span class="mi">2048</span><span class="p">];</span>
+</span><span id="__span-16-21"><span class="w">  </span><span class="kt">char</span><span class="w">             </span><span class="n">canProvidePeakData</span><span class="p">;</span>
+</span><span id="__span-16-22"><span class="w">  </span><span class="kt">char</span><span class="w">             </span><span class="n">mayBeGrowing</span><span class="p">;</span>
+</span><span id="__span-16-23"><span class="p">}</span><span class="w"> </span><span class="n">imFileInfoRec8</span><span class="p">;</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -5109,16 +5109,16 @@
 <h2 id="imfileopenrec8">imFileOpenRec8<a class="headerlink" href="#imfileopenrec8" title="Permanent link">&para;</a></h2>
 <p>Selector: <a href="../selector-descriptions/#imopenfile8">imOpenFile8</a></p>
 <p>The file Premiere wants the importer to open.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">imFileAccessRec8</span><span class="w">  </span><span class="n">fileinfo</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">              </span><span class="o">*</span><span class="n">privatedata</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">       </span><span class="n">reserved</span><span class="p">;</span>
-<span class="w">  </span><span class="n">PrFileOpenAccess</span><span class="w">  </span><span class="n">inReadWrite</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">       </span><span class="n">inImporterID</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_size_t</span><span class="w">      </span><span class="n">outExtraMemoryUsage</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">       </span><span class="n">inStreamIdx</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imFileOpenRec8</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-17-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-2"><span class="w">  </span><span class="n">imFileAccessRec8</span><span class="w">  </span><span class="n">fileinfo</span><span class="p">;</span>
+</span><span id="__span-17-3"><span class="w">  </span><span class="kt">void</span><span class="w">              </span><span class="o">*</span><span class="n">privatedata</span><span class="p">;</span>
+</span><span id="__span-17-4"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">       </span><span class="n">reserved</span><span class="p">;</span>
+</span><span id="__span-17-5"><span class="w">  </span><span class="n">PrFileOpenAccess</span><span class="w">  </span><span class="n">inReadWrite</span><span class="p">;</span>
+</span><span id="__span-17-6"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">       </span><span class="n">inImporterID</span><span class="p">;</span>
+</span><span id="__span-17-7"><span class="w">  </span><span class="n">csSDK_size_t</span><span class="w">      </span><span class="n">outExtraMemoryUsage</span><span class="p">;</span>
+</span><span id="__span-17-8"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">       </span><span class="n">inStreamIdx</span><span class="p">;</span>
+</span><span id="__span-17-9"><span class="p">}</span><span class="w"> </span><span class="n">imFileOpenRec8</span><span class="p">;</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -5211,12 +5211,12 @@
 <h2 id="imframeformat">imFrameFormat<a class="headerlink" href="#imframeformat" title="Permanent link">&para;</a></h2>
 <p>Selector: <a href="../selector-descriptions/#imgetsourcevideo">imGetSourceVideo</a> (member of <a href="#imsourcevideorec">imSourceVideoRec</a>)</p>
 <p>Describes the frame dimensions and pixel format.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">inFrameWidth</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">inFrameHeight</span><span class="p">;</span>
-<span class="w">  </span><span class="n">PrPixelFormat</span><span class="w">  </span><span class="n">inPixelFormat</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imFrameFormat</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-18-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-18-2"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">inFrameWidth</span><span class="p">;</span>
+</span><span id="__span-18-3"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">inFrameHeight</span><span class="p">;</span>
+</span><span id="__span-18-4"><span class="w">  </span><span class="n">PrPixelFormat</span><span class="w">  </span><span class="n">inPixelFormat</span><span class="p">;</span>
+</span><span id="__span-18-5"><span class="p">}</span><span class="w"> </span><span class="n">imFrameFormat</span><span class="p">;</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -5244,11 +5244,11 @@
 <p>Selector: <a href="../selector-descriptions/#imgetaudiochannellayout">imGetAudioChannelLayout</a></p>
 <p>The importer should label each audio channel in the clip being imported.</p>
 <p>If no labels are specified, the channel layout will be assumed to be discrete.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">                </span><span class="n">inPrivateData</span><span class="p">;</span>
-<span class="w">  </span><span class="n">PrAudioChannelLabel</span><span class="w">  </span><span class="n">outChannelLabels</span><span class="p">[</span><span class="n">kMaxAudioChannelCount</span><span class="p">];</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imGetAudioChannelLayoutRec</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-19-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-19-2"><span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">                </span><span class="n">inPrivateData</span><span class="p">;</span>
+</span><span id="__span-19-3"><span class="w">  </span><span class="n">PrAudioChannelLabel</span><span class="w">  </span><span class="n">outChannelLabels</span><span class="p">[</span><span class="n">kMaxAudioChannelCount</span><span class="p">];</span>
+</span><span id="__span-19-4"><span class="p">}</span><span class="w"> </span><span class="n">imGetAudioChannelLayoutRec</span><span class="p">;</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -5284,20 +5284,20 @@
 <h2 id="imgetnextclosedcaptionrec">imGetNextClosedCaptionRec<a class="headerlink" href="#imgetnextclosedcaptionrec" title="Permanent link">&para;</a></h2>
 <p>Selector: <a href="../selector-descriptions/#imgetnextclosedcaption">imGetNextClosedCaption</a></p>
 <p>This structure provides private data allocated in <code>imInitiateAsyncClosedCaptionScan</code>, and should be filled out to pass back a closed caption, it's time, format, size, and overall progress in the closed caption scan.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">                  </span><span class="n">inPrivateData</span><span class="p">;</span>
-<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="w">            </span><span class="n">inPrefs</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">                  </span><span class="n">inAsyncCaptionScanPrivateData</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">float</span><span class="w">                  </span><span class="n">outProgress</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int64</span><span class="w">            </span><span class="n">outScale</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int64</span><span class="w">            </span><span class="n">outSampleSize</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int64</span><span class="w">            </span><span class="n">outPosition</span><span class="p">;</span>
-<span class="w">  </span><span class="n">PrClosedCaptionFormat</span><span class="w">  </span><span class="n">outClosedCaptionFormat</span><span class="p">;</span>
-<span class="w">  </span><span class="n">PrMemoryPtr</span><span class="w">            </span><span class="n">outCaptionData</span><span class="p">;</span>
-<span class="w">  </span><span class="n">prUTF8Char</span><span class="w">             </span><span class="n">outTTMLData</span><span class="p">[</span><span class="n">kTTMLBufferSize</span><span class="p">];</span>
-<span class="w">  </span><span class="n">csSDK_size_t</span><span class="w">           </span><span class="n">ioCaptionDataSize</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imGetNextClosedCaptionRec</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-20-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-20-2"><span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">                  </span><span class="n">inPrivateData</span><span class="p">;</span>
+</span><span id="__span-20-3"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="w">            </span><span class="n">inPrefs</span><span class="p">;</span>
+</span><span id="__span-20-4"><span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">                  </span><span class="n">inAsyncCaptionScanPrivateData</span><span class="p">;</span>
+</span><span id="__span-20-5"><span class="w">  </span><span class="kt">float</span><span class="w">                  </span><span class="n">outProgress</span><span class="p">;</span>
+</span><span id="__span-20-6"><span class="w">  </span><span class="n">csSDK_int64</span><span class="w">            </span><span class="n">outScale</span><span class="p">;</span>
+</span><span id="__span-20-7"><span class="w">  </span><span class="n">csSDK_int64</span><span class="w">            </span><span class="n">outSampleSize</span><span class="p">;</span>
+</span><span id="__span-20-8"><span class="w">  </span><span class="n">csSDK_int64</span><span class="w">            </span><span class="n">outPosition</span><span class="p">;</span>
+</span><span id="__span-20-9"><span class="w">  </span><span class="n">PrClosedCaptionFormat</span><span class="w">  </span><span class="n">outClosedCaptionFormat</span><span class="p">;</span>
+</span><span id="__span-20-10"><span class="w">  </span><span class="n">PrMemoryPtr</span><span class="w">            </span><span class="n">outCaptionData</span><span class="p">;</span>
+</span><span id="__span-20-11"><span class="w">  </span><span class="n">prUTF8Char</span><span class="w">             </span><span class="n">outTTMLData</span><span class="p">[</span><span class="n">kTTMLBufferSize</span><span class="p">];</span>
+</span><span id="__span-20-12"><span class="w">  </span><span class="n">csSDK_size_t</span><span class="w">           </span><span class="n">ioCaptionDataSize</span><span class="p">;</span>
+</span><span id="__span-20-13"><span class="p">}</span><span class="w"> </span><span class="n">imGetNextClosedCaptionRec</span><span class="p">;</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -5412,23 +5412,23 @@ The entire string may be split into substrings (e.g. line by line) and the host 
 <p>Selector: <a href="../selector-descriptions/#imgetprefs8">imGetPrefs8</a></p>
 <p>Contains settings/prefs data gathered from (or defaults to populate) a setup dialog.</p>
 <p>If you are creating media, you can may generate a video preview that includes the background frame from the timeline.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">            </span><span class="o">*</span><span class="n">prefs</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">     </span><span class="n">prefsLength</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">            </span><span class="n">firstTime</span><span class="p">;</span>
-<span class="w">  </span><span class="n">PrTimelineID</span><span class="w">    </span><span class="n">timelineData</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">            </span><span class="o">*</span><span class="n">privatedata</span><span class="p">;</span>
-<span class="w">  </span><span class="n">TDB_TimeRecord</span><span class="w">  </span><span class="n">tdbTimelineLocation</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">     </span><span class="n">sessionPluginID</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">     </span><span class="n">imageWidth</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">     </span><span class="n">imageHeight</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">    </span><span class="n">pixelAspectNum</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">    </span><span class="n">pixelAspectDen</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">     </span><span class="n">vidScale</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">     </span><span class="n">vidSampleSize</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">float</span><span class="w">           </span><span class="n">sampleRate</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imGetPrefsRec</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-21-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-21-2"><span class="w">  </span><span class="kt">char</span><span class="w">            </span><span class="o">*</span><span class="n">prefs</span><span class="p">;</span>
+</span><span id="__span-21-3"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">     </span><span class="n">prefsLength</span><span class="p">;</span>
+</span><span id="__span-21-4"><span class="w">  </span><span class="kt">char</span><span class="w">            </span><span class="n">firstTime</span><span class="p">;</span>
+</span><span id="__span-21-5"><span class="w">  </span><span class="n">PrTimelineID</span><span class="w">    </span><span class="n">timelineData</span><span class="p">;</span>
+</span><span id="__span-21-6"><span class="w">  </span><span class="kt">void</span><span class="w">            </span><span class="o">*</span><span class="n">privatedata</span><span class="p">;</span>
+</span><span id="__span-21-7"><span class="w">  </span><span class="n">TDB_TimeRecord</span><span class="w">  </span><span class="n">tdbTimelineLocation</span><span class="p">;</span>
+</span><span id="__span-21-8"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">     </span><span class="n">sessionPluginID</span><span class="p">;</span>
+</span><span id="__span-21-9"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">     </span><span class="n">imageWidth</span><span class="p">;</span>
+</span><span id="__span-21-10"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">     </span><span class="n">imageHeight</span><span class="p">;</span>
+</span><span id="__span-21-11"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">    </span><span class="n">pixelAspectNum</span><span class="p">;</span>
+</span><span id="__span-21-12"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">    </span><span class="n">pixelAspectDen</span><span class="p">;</span>
+</span><span id="__span-21-13"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">     </span><span class="n">vidScale</span><span class="p">;</span>
+</span><span id="__span-21-14"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">     </span><span class="n">vidSampleSize</span><span class="p">;</span>
+</span><span id="__span-21-15"><span class="w">  </span><span class="kt">float</span><span class="w">           </span><span class="n">sampleRate</span><span class="p">;</span>
+</span><span id="__span-21-16"><span class="p">}</span><span class="w"> </span><span class="n">imGetPrefsRec</span><span class="p">;</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -5557,46 +5557,46 @@ The entire string may be split into substrings (e.g. line by line) and the host 
 <h2 id="imimageinforec">imImageInfoRec<a class="headerlink" href="#imimageinforec" title="Permanent link">&para;</a></h2>
 <p>Selector: <a href="../selector-descriptions/#imgetinfo8">imGetInfo8</a> (member of <a href="#imfileinforec8">imFileInfoRec8</a>)</p>
 <p>Describes the video to be imported.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">imageWidth</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">imageHeight</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_uint16</span><span class="w">  </span><span class="n">pixelAspectV1</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_uint16</span><span class="w">  </span><span class="n">depth</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">subType</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">          </span><span class="n">fieldType</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">          </span><span class="n">fieldsStacked</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">          </span><span class="n">reserved_1</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">          </span><span class="n">reserved_2</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">          </span><span class="n">alphaType</span><span class="p">;</span>
-<span class="w">  </span><span class="n">matteColRec</span><span class="w">   </span><span class="n">matteColor</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">          </span><span class="n">alphaInverted</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">          </span><span class="n">isVectors</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">          </span><span class="n">drawsExternal</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">          </span><span class="n">canForceInternalDraw</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">          </span><span class="n">dontObscure</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">          </span><span class="n">isStill</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">          </span><span class="n">noDuration</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">          </span><span class="n">reserved_3</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">pixelAspectNum</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">pixelAspectDen</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">          </span><span class="n">isRollCrawl</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">          </span><span class="n">reservedc</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">importerID</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">supportsAsyncIO</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">supportsGetSourceVideo</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">hasPulldown</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">pulldownCadence</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">posterFrame</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">canTransform</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">interpretationUncertain</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">colorProfileSupport</span><span class="p">;</span>
-<span class="w">  </span><span class="n">PrSDKString</span><span class="w">   </span><span class="n">codecDescription</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">colorSpaceSupport</span><span class="p">;</span>
-<span class="w">  </span><span class="n">PrTime</span><span class="w">        </span><span class="n">frameRate</span><span class="p">;</span>
-<span class="w">  </span><span class="n">prBool</span><span class="w">        </span><span class="n">hasEmbeddedLUT</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">reserved</span><span class="p">[</span><span class="mi">12</span><span class="p">];</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imImageInfoRec</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-22-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-22-2"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">imageWidth</span><span class="p">;</span>
+</span><span id="__span-22-3"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">imageHeight</span><span class="p">;</span>
+</span><span id="__span-22-4"><span class="w">  </span><span class="n">csSDK_uint16</span><span class="w">  </span><span class="n">pixelAspectV1</span><span class="p">;</span>
+</span><span id="__span-22-5"><span class="w">  </span><span class="n">csSDK_uint16</span><span class="w">  </span><span class="n">depth</span><span class="p">;</span>
+</span><span id="__span-22-6"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">subType</span><span class="p">;</span>
+</span><span id="__span-22-7"><span class="w">  </span><span class="kt">char</span><span class="w">          </span><span class="n">fieldType</span><span class="p">;</span>
+</span><span id="__span-22-8"><span class="w">  </span><span class="kt">char</span><span class="w">          </span><span class="n">fieldsStacked</span><span class="p">;</span>
+</span><span id="__span-22-9"><span class="w">  </span><span class="kt">char</span><span class="w">          </span><span class="n">reserved_1</span><span class="p">;</span>
+</span><span id="__span-22-10"><span class="w">  </span><span class="kt">char</span><span class="w">          </span><span class="n">reserved_2</span><span class="p">;</span>
+</span><span id="__span-22-11"><span class="w">  </span><span class="kt">char</span><span class="w">          </span><span class="n">alphaType</span><span class="p">;</span>
+</span><span id="__span-22-12"><span class="w">  </span><span class="n">matteColRec</span><span class="w">   </span><span class="n">matteColor</span><span class="p">;</span>
+</span><span id="__span-22-13"><span class="w">  </span><span class="kt">char</span><span class="w">          </span><span class="n">alphaInverted</span><span class="p">;</span>
+</span><span id="__span-22-14"><span class="w">  </span><span class="kt">char</span><span class="w">          </span><span class="n">isVectors</span><span class="p">;</span>
+</span><span id="__span-22-15"><span class="w">  </span><span class="kt">char</span><span class="w">          </span><span class="n">drawsExternal</span><span class="p">;</span>
+</span><span id="__span-22-16"><span class="w">  </span><span class="kt">char</span><span class="w">          </span><span class="n">canForceInternalDraw</span><span class="p">;</span>
+</span><span id="__span-22-17"><span class="w">  </span><span class="kt">char</span><span class="w">          </span><span class="n">dontObscure</span><span class="p">;</span>
+</span><span id="__span-22-18"><span class="w">  </span><span class="kt">char</span><span class="w">          </span><span class="n">isStill</span><span class="p">;</span>
+</span><span id="__span-22-19"><span class="w">  </span><span class="kt">char</span><span class="w">          </span><span class="n">noDuration</span><span class="p">;</span>
+</span><span id="__span-22-20"><span class="w">  </span><span class="kt">char</span><span class="w">          </span><span class="n">reserved_3</span><span class="p">;</span>
+</span><span id="__span-22-21"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">pixelAspectNum</span><span class="p">;</span>
+</span><span id="__span-22-22"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">pixelAspectDen</span><span class="p">;</span>
+</span><span id="__span-22-23"><span class="w">  </span><span class="kt">char</span><span class="w">          </span><span class="n">isRollCrawl</span><span class="p">;</span>
+</span><span id="__span-22-24"><span class="w">  </span><span class="kt">char</span><span class="w">          </span><span class="n">reservedc</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+</span><span id="__span-22-25"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">importerID</span><span class="p">;</span>
+</span><span id="__span-22-26"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">supportsAsyncIO</span><span class="p">;</span>
+</span><span id="__span-22-27"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">supportsGetSourceVideo</span><span class="p">;</span>
+</span><span id="__span-22-28"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">hasPulldown</span><span class="p">;</span>
+</span><span id="__span-22-29"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">pulldownCadence</span><span class="p">;</span>
+</span><span id="__span-22-30"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">posterFrame</span><span class="p">;</span>
+</span><span id="__span-22-31"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">canTransform</span><span class="p">;</span>
+</span><span id="__span-22-32"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">interpretationUncertain</span><span class="p">;</span>
+</span><span id="__span-22-33"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">colorProfileSupport</span><span class="p">;</span>
+</span><span id="__span-22-34"><span class="w">  </span><span class="n">PrSDKString</span><span class="w">   </span><span class="n">codecDescription</span><span class="p">;</span>
+</span><span id="__span-22-35"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">colorSpaceSupport</span><span class="p">;</span>
+</span><span id="__span-22-36"><span class="w">  </span><span class="n">PrTime</span><span class="w">        </span><span class="n">frameRate</span><span class="p">;</span>
+</span><span id="__span-22-37"><span class="w">  </span><span class="n">prBool</span><span class="w">        </span><span class="n">hasEmbeddedLUT</span><span class="p">;</span>
+</span><span id="__span-22-38"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">reserved</span><span class="p">[</span><span class="mi">12</span><span class="p">];</span>
+</span><span id="__span-22-39"><span class="p">}</span><span class="w"> </span><span class="n">imImageInfoRec</span><span class="p">;</span>
+</span></code></pre></div>
 <h3 id="plug-in-info">Plug-in Info<a class="headerlink" href="#plug-in-info" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -5967,14 +5967,14 @@ If not specified, the poster frame will be the first frame of the clip.</p>
 <p>Selector: <a href="../selector-descriptions/#imimportaudio7">imImportAudio7</a></p>
 <p>Describes the audio samples to be returned, and contains an allocated buffer for the importer to fill in.</p>
 <p>Provide the audio in 32-bit float, uninterleaved audio format.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">PrAudioSample</span><span class="w">  </span><span class="n">position</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">   </span><span class="n">size</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">float</span><span class="w">          </span><span class="o">**</span><span class="n">buffer</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">           </span><span class="o">*</span><span class="n">privatedata</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">           </span><span class="o">*</span><span class="n">prefs</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imImportAudioRec7</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-23-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-23-2"><span class="w">  </span><span class="n">PrAudioSample</span><span class="w">  </span><span class="n">position</span><span class="p">;</span>
+</span><span id="__span-23-3"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">   </span><span class="n">size</span><span class="p">;</span>
+</span><span id="__span-23-4"><span class="w">  </span><span class="kt">float</span><span class="w">          </span><span class="o">**</span><span class="n">buffer</span><span class="p">;</span>
+</span><span id="__span-23-5"><span class="w">  </span><span class="kt">void</span><span class="w">           </span><span class="o">*</span><span class="n">privatedata</span><span class="p">;</span>
+</span><span id="__span-23-6"><span class="w">  </span><span class="kt">void</span><span class="w">           </span><span class="o">*</span><span class="n">prefs</span><span class="p">;</span>
+</span><span id="__span-23-7"><span class="p">}</span><span class="w"> </span><span class="n">imImportAudioRec7</span><span class="p">;</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -6035,37 +6035,37 @@ If not specified, the poster frame will be the first frame of the clip.</p>
 <h2 id="imimportimagerec">imImportImageRec<a class="headerlink" href="#imimportimagerec" title="Permanent link">&para;</a></h2>
 <p>Selector: <a href="../selector-descriptions/#imimportimage">imImportImage</a></p>
 <p>Describes the frame to be returned.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">onscreen</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">dstWidth</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">dstHeight</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">dstOriginX</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">dstOriginY</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">srcWidth</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">srcHeight</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">srcOriginX</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">srcOriginY</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">unused2</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">unused3</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">rowbytes</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">           </span><span class="o">*</span><span class="n">pix</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">pixsize</span><span class="p">;</span>
-<span class="w">  </span><span class="n">PrPixelFormat</span><span class="w">  </span><span class="n">pixformat</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">flags</span><span class="p">;</span>
-<span class="w">  </span><span class="n">prFieldType</span><span class="w">    </span><span class="n">fieldType</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">scale</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">sampleSize</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">in</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">out</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">pos</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">           </span><span class="o">*</span><span class="n">privatedata</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">           </span><span class="o">*</span><span class="n">prefs</span><span class="p">;</span>
-<span class="w">  </span><span class="n">prRect</span><span class="w">         </span><span class="n">alphaBounds</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">applyTransform</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">float</span><span class="w">          </span><span class="n">transform</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">3</span><span class="p">];</span>
-<span class="w">  </span><span class="n">prRect</span><span class="w">         </span><span class="n">destClipRect</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imImportImageRec</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-24-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-24-2"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">onscreen</span><span class="p">;</span>
+</span><span id="__span-24-3"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">dstWidth</span><span class="p">;</span>
+</span><span id="__span-24-4"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">dstHeight</span><span class="p">;</span>
+</span><span id="__span-24-5"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">dstOriginX</span><span class="p">;</span>
+</span><span id="__span-24-6"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">dstOriginY</span><span class="p">;</span>
+</span><span id="__span-24-7"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">srcWidth</span><span class="p">;</span>
+</span><span id="__span-24-8"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">srcHeight</span><span class="p">;</span>
+</span><span id="__span-24-9"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">srcOriginX</span><span class="p">;</span>
+</span><span id="__span-24-10"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">srcOriginY</span><span class="p">;</span>
+</span><span id="__span-24-11"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">unused2</span><span class="p">;</span>
+</span><span id="__span-24-12"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">unused3</span><span class="p">;</span>
+</span><span id="__span-24-13"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">rowbytes</span><span class="p">;</span>
+</span><span id="__span-24-14"><span class="w">  </span><span class="kt">char</span><span class="w">           </span><span class="o">*</span><span class="n">pix</span><span class="p">;</span>
+</span><span id="__span-24-15"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">pixsize</span><span class="p">;</span>
+</span><span id="__span-24-16"><span class="w">  </span><span class="n">PrPixelFormat</span><span class="w">  </span><span class="n">pixformat</span><span class="p">;</span>
+</span><span id="__span-24-17"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">flags</span><span class="p">;</span>
+</span><span id="__span-24-18"><span class="w">  </span><span class="n">prFieldType</span><span class="w">    </span><span class="n">fieldType</span><span class="p">;</span>
+</span><span id="__span-24-19"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">scale</span><span class="p">;</span>
+</span><span id="__span-24-20"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">sampleSize</span><span class="p">;</span>
+</span><span id="__span-24-21"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">in</span><span class="p">;</span>
+</span><span id="__span-24-22"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">out</span><span class="p">;</span>
+</span><span id="__span-24-23"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">pos</span><span class="p">;</span>
+</span><span id="__span-24-24"><span class="w">  </span><span class="kt">void</span><span class="w">           </span><span class="o">*</span><span class="n">privatedata</span><span class="p">;</span>
+</span><span id="__span-24-25"><span class="w">  </span><span class="kt">void</span><span class="w">           </span><span class="o">*</span><span class="n">prefs</span><span class="p">;</span>
+</span><span id="__span-24-26"><span class="w">  </span><span class="n">prRect</span><span class="w">         </span><span class="n">alphaBounds</span><span class="p">;</span>
+</span><span id="__span-24-27"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">applyTransform</span><span class="p">;</span>
+</span><span id="__span-24-28"><span class="w">  </span><span class="kt">float</span><span class="w">          </span><span class="n">transform</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">3</span><span class="p">];</span>
+</span><span id="__span-24-29"><span class="w">  </span><span class="n">prRect</span><span class="w">         </span><span class="n">destClipRect</span><span class="p">;</span>
+</span><span id="__span-24-30"><span class="p">}</span><span class="w"> </span><span class="n">imImportImageRec</span><span class="p">;</span>
+</span></code></pre></div>
 <h3 id="bounds-info-for-imimportimagerec">Bounds Info (for imImportImageRec)<a class="headerlink" href="#bounds-info-for-imimportimagerec" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -6269,36 +6269,36 @@ If not specified, the poster frame will be the first frame of the clip.</p>
 <h2 id="imimportinforec">imImportInfoRec<a class="headerlink" href="#imimportinforec" title="Permanent link">&para;</a></h2>
 <p>Selector: <a href="../selector-descriptions/#iminit">imInit</a></p>
 <p>Describes the importer's capabilities to Premiere.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">importerType</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">canOpen</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">canSave</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">canDelete</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">canResize</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">canDoSubsize</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">canDoContinuousTime</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">noFile</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">addToMenu</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">hasSetup</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">dontCache</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">setupOnDblClk</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">keepLoaded</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">priority</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">canAsync</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">canCreate</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">canCalcSizes</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">canTrim</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">avoidAudioConform</span><span class="p">;</span>
-<span class="w">  </span><span class="n">prUTF16Char</span><span class="w">   </span><span class="o">*</span><span class="n">acceleratorFileExt</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">canCopy</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">canSupplyMetadataClipName</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="k">private</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">canProvidePeakAudio</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">canProvideFileList</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">canProvideClosedCaptions</span><span class="p">;</span>
-<span class="w">  </span><span class="n">prPluginID</span><span class="w">    </span><span class="n">fileInfoVersion</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imImportInfoRec</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-25-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-25-2"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">importerType</span><span class="p">;</span>
+</span><span id="__span-25-3"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">canOpen</span><span class="p">;</span>
+</span><span id="__span-25-4"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">canSave</span><span class="p">;</span>
+</span><span id="__span-25-5"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">canDelete</span><span class="p">;</span>
+</span><span id="__span-25-6"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">canResize</span><span class="p">;</span>
+</span><span id="__span-25-7"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">canDoSubsize</span><span class="p">;</span>
+</span><span id="__span-25-8"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">canDoContinuousTime</span><span class="p">;</span>
+</span><span id="__span-25-9"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">noFile</span><span class="p">;</span>
+</span><span id="__span-25-10"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">addToMenu</span><span class="p">;</span>
+</span><span id="__span-25-11"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">hasSetup</span><span class="p">;</span>
+</span><span id="__span-25-12"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">dontCache</span><span class="p">;</span>
+</span><span id="__span-25-13"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">setupOnDblClk</span><span class="p">;</span>
+</span><span id="__span-25-14"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">keepLoaded</span><span class="p">;</span>
+</span><span id="__span-25-15"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">priority</span><span class="p">;</span>
+</span><span id="__span-25-16"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">canAsync</span><span class="p">;</span>
+</span><span id="__span-25-17"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">canCreate</span><span class="p">;</span>
+</span><span id="__span-25-18"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">canCalcSizes</span><span class="p">;</span>
+</span><span id="__span-25-19"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">canTrim</span><span class="p">;</span>
+</span><span id="__span-25-20"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">avoidAudioConform</span><span class="p">;</span>
+</span><span id="__span-25-21"><span class="w">  </span><span class="n">prUTF16Char</span><span class="w">   </span><span class="o">*</span><span class="n">acceleratorFileExt</span><span class="p">;</span>
+</span><span id="__span-25-22"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">canCopy</span><span class="p">;</span>
+</span><span id="__span-25-23"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">canSupplyMetadataClipName</span><span class="p">;</span>
+</span><span id="__span-25-24"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="k">private</span><span class="p">;</span>
+</span><span id="__span-25-25"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">canProvidePeakAudio</span><span class="p">;</span>
+</span><span id="__span-25-26"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">canProvideFileList</span><span class="p">;</span>
+</span><span id="__span-25-27"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">canProvideClosedCaptions</span><span class="p">;</span>
+</span><span id="__span-25-28"><span class="w">  </span><span class="n">prPluginID</span><span class="w">    </span><span class="n">fileInfoVersion</span><span class="p">;</span>
+</span><span id="__span-25-29"><span class="p">}</span><span class="w"> </span><span class="n">imImportInfoRec</span><span class="p">;</span>
+</span></code></pre></div>
 <h3 id="screen-info">Screen Info<a class="headerlink" href="#screen-info" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -6584,18 +6584,18 @@ If not specified, the poster frame will be the first frame of the clip.</p>
 <h2 id="imindformatrec">imIndFormatRec<a class="headerlink" href="#imindformatrec" title="Permanent link">&para;</a></h2>
 <p>Selector: <a href="../selector-descriptions/#imgetindformat">imGetIndFormat</a></p>
 <p>Describes the format(s) supported by the importer. Synthetic files can only have one format.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">filetype</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">flags</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">canWriteTimecode</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">         </span><span class="n">FormatName</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">         </span><span class="n">FormatShortName</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">         </span><span class="n">PlatformExtension</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
-<span class="w">  </span><span class="n">prBool</span><span class="w">       </span><span class="n">hasAlternateTypes</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">alternateTypes</span><span class="p">[</span><span class="n">kMaxAlternateTypes</span><span class="p">];</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">canWriteMetaData</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imIndFormatRec</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-26-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-26-2"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">filetype</span><span class="p">;</span>
+</span><span id="__span-26-3"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">flags</span><span class="p">;</span>
+</span><span id="__span-26-4"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">canWriteTimecode</span><span class="p">;</span>
+</span><span id="__span-26-5"><span class="w">  </span><span class="kt">char</span><span class="w">         </span><span class="n">FormatName</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
+</span><span id="__span-26-6"><span class="w">  </span><span class="kt">char</span><span class="w">         </span><span class="n">FormatShortName</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span>
+</span><span id="__span-26-7"><span class="w">  </span><span class="kt">char</span><span class="w">         </span><span class="n">PlatformExtension</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
+</span><span id="__span-26-8"><span class="w">  </span><span class="n">prBool</span><span class="w">       </span><span class="n">hasAlternateTypes</span><span class="p">;</span>
+</span><span id="__span-26-9"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">alternateTypes</span><span class="p">[</span><span class="n">kMaxAlternateTypes</span><span class="p">];</span>
+</span><span id="__span-26-10"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">canWriteMetaData</span><span class="p">;</span>
+</span><span id="__span-26-11"><span class="p">}</span><span class="w"> </span><span class="n">imIndFormatRec</span><span class="p">;</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -6778,12 +6778,12 @@ If not specified, the poster frame will be the first frame of the clip.</p>
 <h2 id="imindpixelformatrec">imIndPixelFormatRec<a class="headerlink" href="#imindpixelformatrec" title="Permanent link">&para;</a></h2>
 <p>Selector: <a href="../selector-descriptions/#imgetindpixelformat">imGetIndPixelFormat</a></p>
 <p>Describes the pixel format(s) supported by the importer.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">           </span><span class="o">*</span><span class="n">privatedata</span><span class="p">;</span>
-<span class="w">  </span><span class="n">PrPixelFormat</span><span class="w">  </span><span class="n">outPixelFormat</span><span class="p">;</span>
-<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="w">    </span><span class="n">prefs</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imIndPixelFormatRec</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-27-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-27-2"><span class="w">  </span><span class="kt">void</span><span class="w">           </span><span class="o">*</span><span class="n">privatedata</span><span class="p">;</span>
+</span><span id="__span-27-3"><span class="w">  </span><span class="n">PrPixelFormat</span><span class="w">  </span><span class="n">outPixelFormat</span><span class="p">;</span>
+</span><span id="__span-27-4"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="w">    </span><span class="n">prefs</span><span class="p">;</span>
+</span><span id="__span-27-5"><span class="p">}</span><span class="w"> </span><span class="n">imIndPixelFormatRec</span><span class="p">;</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -6813,15 +6813,15 @@ If not specified, the poster frame will be the first frame of the clip.</p>
 <p>To help facilitate this, outAsyncCaptionScanPrivateData can be allocated by the importer to be used for the upcoming closed caption scan calls, which should then be deallocated in <code>imCompleteAsyncClosedCaptionScan</code>.</p>
 <p>The estimated duration of all the closed captions can also be filled in.</p>
 <p>This is useful for certain cases where the embedded captions contain many frames of empty data.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">        </span><span class="n">privatedata</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">        </span><span class="n">prefs</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">        </span><span class="n">outAsyncCaptionScanPrivateData</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int64</span><span class="w">  </span><span class="n">outScale</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int64</span><span class="w">  </span><span class="n">outSampleSize</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int64</span><span class="w">  </span><span class="n">outEstimatedDuration</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imInitiateAsyncClosedCaptionScanRec</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-28-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-28-2"><span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">        </span><span class="n">privatedata</span><span class="p">;</span>
+</span><span id="__span-28-3"><span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">        </span><span class="n">prefs</span><span class="p">;</span>
+</span><span id="__span-28-4"><span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">        </span><span class="n">outAsyncCaptionScanPrivateData</span><span class="p">;</span>
+</span><span id="__span-28-5"><span class="w">  </span><span class="n">csSDK_int64</span><span class="w">  </span><span class="n">outScale</span><span class="p">;</span>
+</span><span id="__span-28-6"><span class="w">  </span><span class="n">csSDK_int64</span><span class="w">  </span><span class="n">outSampleSize</span><span class="p">;</span>
+</span><span id="__span-28-7"><span class="w">  </span><span class="n">csSDK_int64</span><span class="w">  </span><span class="n">outEstimatedDuration</span><span class="p">;</span>
+</span><span id="__span-28-8"><span class="p">}</span><span class="w"> </span><span class="n">imInitiateAsyncClosedCaptionScanRec</span><span class="p">;</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -6860,14 +6860,14 @@ If not specified, the poster frame will be the first frame of the clip.</p>
 <h2 id="immetadatarec">imMetaDataRec<a class="headerlink" href="#immetadatarec" title="Permanent link">&para;</a></h2>
 <p>Selector: <a href="../selector-descriptions/#imgetmetadata">imGetMetaData</a> and <a href="../selector-descriptions/#imsetmetadata">imSetMetaData</a></p>
 <p>Describes the metadata specific to a given four character code.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">          </span><span class="o">*</span><span class="n">privatedata</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">          </span><span class="o">*</span><span class="n">prefs</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">fourCC</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">buffersize</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">          </span><span class="o">*</span><span class="n">buffer</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imMetaDataRec</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-29-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-29-2"><span class="w">  </span><span class="kt">void</span><span class="w">          </span><span class="o">*</span><span class="n">privatedata</span><span class="p">;</span>
+</span><span id="__span-29-3"><span class="w">  </span><span class="kt">void</span><span class="w">          </span><span class="o">*</span><span class="n">prefs</span><span class="p">;</span>
+</span><span id="__span-29-4"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">fourCC</span><span class="p">;</span>
+</span><span id="__span-29-5"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">buffersize</span><span class="p">;</span>
+</span><span id="__span-29-6"><span class="w">  </span><span class="kt">char</span><span class="w">          </span><span class="o">*</span><span class="n">buffer</span><span class="p">;</span>
+</span><span id="__span-29-7"><span class="p">}</span><span class="w"> </span><span class="n">imMetaDataRec</span><span class="p">;</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -6902,16 +6902,16 @@ If not specified, the poster frame will be the first frame of the clip.</p>
 <h2 id="impeakaudiorec">imPeakAudioRec<a class="headerlink" href="#impeakaudiorec" title="Permanent link">&para;</a></h2>
 <p>Selector: <a href="../selector-descriptions/#imgetpeakaudio">imGetPeakAudio</a></p>
 <p>Describes the peak values of the audio at the specified position.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">           </span><span class="o">*</span><span class="n">inPrivateData</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">           </span><span class="o">*</span><span class="n">inPrefs</span><span class="p">;</span>
-<span class="w">  </span><span class="n">PrAudioSample</span><span class="w">  </span><span class="n">inPosition</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">float</span><span class="w">          </span><span class="n">inSampleRate</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">inNumSampleFrames</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">float</span><span class="w">          </span><span class="o">**</span><span class="n">outMaxima</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">float</span><span class="w">          </span><span class="o">**</span><span class="n">outMinima</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imPeakAudioRec</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-30-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-30-2"><span class="w">  </span><span class="kt">void</span><span class="w">           </span><span class="o">*</span><span class="n">inPrivateData</span><span class="p">;</span>
+</span><span id="__span-30-3"><span class="w">  </span><span class="kt">void</span><span class="w">           </span><span class="o">*</span><span class="n">inPrefs</span><span class="p">;</span>
+</span><span id="__span-30-4"><span class="w">  </span><span class="n">PrAudioSample</span><span class="w">  </span><span class="n">inPosition</span><span class="p">;</span>
+</span><span id="__span-30-5"><span class="w">  </span><span class="kt">float</span><span class="w">          </span><span class="n">inSampleRate</span><span class="p">;</span>
+</span><span id="__span-30-6"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">inNumSampleFrames</span><span class="p">;</span>
+</span><span id="__span-30-7"><span class="w">  </span><span class="kt">float</span><span class="w">          </span><span class="o">**</span><span class="n">outMaxima</span><span class="p">;</span>
+</span><span id="__span-30-8"><span class="w">  </span><span class="kt">float</span><span class="w">          </span><span class="o">**</span><span class="n">outMinima</span><span class="p">;</span>
+</span><span id="__span-30-9"><span class="p">}</span><span class="w"> </span><span class="n">imPeakAudioRec</span><span class="p">;</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -6954,15 +6954,15 @@ If not specified, the poster frame will be the first frame of the clip.</p>
 <h2 id="impreferredframesizerec">imPreferredFrameSizeRec<a class="headerlink" href="#impreferredframesizerec" title="Permanent link">&para;</a></h2>
 <p>Selector: <a href="../selector-descriptions/#imgetpreferredframesize">imGetPreferredFrameSize</a></p>
 <p>Describes a frame size preferred by the importer.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">           </span><span class="o">*</span><span class="n">inPrivateData</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">           </span><span class="o">*</span><span class="n">inPrefs</span><span class="p">;</span>
-<span class="w">  </span><span class="n">PrPixelFormat</span><span class="w">  </span><span class="n">inPixelFormat</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">inIndex</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">outWidth</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">outHeight</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imPreferredFrameSizeRec</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-31-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-31-2"><span class="w">  </span><span class="kt">void</span><span class="w">           </span><span class="o">*</span><span class="n">inPrivateData</span><span class="p">;</span>
+</span><span id="__span-31-3"><span class="w">  </span><span class="kt">void</span><span class="w">           </span><span class="o">*</span><span class="n">inPrefs</span><span class="p">;</span>
+</span><span id="__span-31-4"><span class="w">  </span><span class="n">PrPixelFormat</span><span class="w">  </span><span class="n">inPixelFormat</span><span class="p">;</span>
+</span><span id="__span-31-5"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">inIndex</span><span class="p">;</span>
+</span><span id="__span-31-6"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">outWidth</span><span class="p">;</span>
+</span><span id="__span-31-7"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">outHeight</span><span class="p">;</span>
+</span><span id="__span-31-8"><span class="p">}</span><span class="w"> </span><span class="n">imPreferredFrameSizeRec</span><span class="p">;</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -7002,23 +7002,23 @@ If not specified, the poster frame will be the first frame of the clip.</p>
 <p>Selector: <a href="../selector-descriptions/#imquerycontentstate">imQueryContentState</a></p>
 <p>Fill in the outContentStateID, which should be a GUID calculated based on the content state of the clip at inSourcePath.</p>
 <p>If the state hasn't changed since the last call, the GUID returned should be the same.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prUTF16Char</span><span class="o">*</span><span class="w">  </span><span class="n">inSourcePath</span><span class="p">;</span>
-<span class="w">  </span><span class="n">prPluginID</span><span class="w">          </span><span class="n">outContentStateID</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imQueryContentStateRec</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-32-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-32-2"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prUTF16Char</span><span class="o">*</span><span class="w">  </span><span class="n">inSourcePath</span><span class="p">;</span>
+</span><span id="__span-32-3"><span class="w">  </span><span class="n">prPluginID</span><span class="w">          </span><span class="n">outContentStateID</span><span class="p">;</span>
+</span><span id="__span-32-4"><span class="p">}</span><span class="w"> </span><span class="n">imQueryContentStateRec</span><span class="p">;</span>
+</span></code></pre></div>
 <hr />
 <h2 id="imquerydestinationpathrec">imQueryDestinationPathRec<a class="headerlink" href="#imquerydestinationpathrec" title="Permanent link">&para;</a></h2>
 <p>Selector: <a href="../selector-descriptions/#imquerydestinationpath">imQueryDestinationPath</a></p>
 <p>Fill in the desired <code>outActualDestinationPath</code>, based on the <code>inSourcePath</code> and <code>inSuggestedDestinationPath</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">               </span><span class="o">*</span><span class="n">inPrivateData</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">               </span><span class="o">*</span><span class="n">inPrefs</span><span class="p">;</span>
-<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prUTF16Char</span><span class="w">  </span><span class="o">*</span><span class="n">inSourcePath</span><span class="p">;</span>
-<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prUTF16Char</span><span class="w">  </span><span class="o">*</span><span class="n">inSuggestedDestinationPath</span><span class="p">;</span>
-<span class="w">  </span><span class="n">prUTF16Char</span><span class="w">        </span><span class="o">*</span><span class="n">outActualDestinationPath</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imQueryDestinationPathRec</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-33-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-33-2"><span class="w">  </span><span class="kt">void</span><span class="w">               </span><span class="o">*</span><span class="n">inPrivateData</span><span class="p">;</span>
+</span><span id="__span-33-3"><span class="w">  </span><span class="kt">void</span><span class="w">               </span><span class="o">*</span><span class="n">inPrefs</span><span class="p">;</span>
+</span><span id="__span-33-4"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prUTF16Char</span><span class="w">  </span><span class="o">*</span><span class="n">inSourcePath</span><span class="p">;</span>
+</span><span id="__span-33-5"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prUTF16Char</span><span class="w">  </span><span class="o">*</span><span class="n">inSuggestedDestinationPath</span><span class="p">;</span>
+</span><span id="__span-33-6"><span class="w">  </span><span class="n">prUTF16Char</span><span class="w">        </span><span class="o">*</span><span class="n">outActualDestinationPath</span><span class="p">;</span>
+</span><span id="__span-33-7"><span class="p">}</span><span class="w"> </span><span class="n">imQueryDestinationPathRec</span><span class="p">;</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -7054,14 +7054,14 @@ If not specified, the poster frame will be the first frame of the clip.</p>
 <p>Selector: <a href="../selector-descriptions/#imqueryinputfilelist">imQueryInputFileList</a></p>
 <p>Fill in the outContentStateID, which should be a GUID calculated based on the content state of the clip at <code>inSourcePath</code>.</p>
 <p>If the state hasn't changed since the last call, the GUID returned should be the same.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">        </span><span class="n">inPrivateData</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">        </span><span class="n">inPrefs</span><span class="p">;</span>
-<span class="w">  </span><span class="n">PrSDKString</span><span class="w">  </span><span class="n">inBasePath</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">outNumFilePaths</span><span class="p">;</span>
-<span class="w">  </span><span class="n">PrSDKString</span><span class="w">  </span><span class="o">*</span><span class="n">outFilePaths</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imQueryInputFileListRec</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-34-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-34-2"><span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">        </span><span class="n">inPrivateData</span><span class="p">;</span>
+</span><span id="__span-34-3"><span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">        </span><span class="n">inPrefs</span><span class="p">;</span>
+</span><span id="__span-34-4"><span class="w">  </span><span class="n">PrSDKString</span><span class="w">  </span><span class="n">inBasePath</span><span class="p">;</span>
+</span><span id="__span-34-5"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">outNumFilePaths</span><span class="p">;</span>
+</span><span id="__span-34-6"><span class="w">  </span><span class="n">PrSDKString</span><span class="w">  </span><span class="o">*</span><span class="n">outFilePaths</span><span class="p">;</span>
+</span><span id="__span-34-7"><span class="p">}</span><span class="w"> </span><span class="n">imQueryInputFileListRec</span><span class="p">;</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -7122,13 +7122,13 @@ If not specified, the poster frame will be the first frame of the clip.</p>
 <p>Selector: <a href="../selector-descriptions/#imquerystreamlabel">imQueryStreamLabel</a></p>
 <p>New in CS6. Based on the stream ID passed in, allocate and pass back a label for the stream.</p>
 <p>For stereoscopic importers, use the predefined labels in PrSDKStreamLabel.h.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">          </span><span class="o">*</span><span class="n">inPrivateData</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="o">*</span><span class="n">inPrefs</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">inStreamIdx</span><span class="p">;</span>
-<span class="w">  </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">  </span><span class="n">outStreamLabel</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imQueryStreamLabelRec</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-35-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-35-2"><span class="w">  </span><span class="kt">void</span><span class="w">          </span><span class="o">*</span><span class="n">inPrivateData</span><span class="p">;</span>
+</span><span id="__span-35-3"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="o">*</span><span class="n">inPrefs</span><span class="p">;</span>
+</span><span id="__span-35-4"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">inStreamIdx</span><span class="p">;</span>
+</span><span id="__span-35-5"><span class="w">  </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">  </span><span class="n">outStreamLabel</span><span class="p">;</span>
+</span><span id="__span-35-6"><span class="p">}</span><span class="w"> </span><span class="n">imQueryStreamLabelRec</span><span class="p">;</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -7159,16 +7159,16 @@ If not specified, the poster frame will be the first frame of the clip.</p>
 <h2 id="imsavefilerec8">imSaveFileRec8<a class="headerlink" href="#imsavefilerec8" title="Permanent link">&para;</a></h2>
 <p>Selector: <a href="../selector-descriptions/#imsavefile8">imSaveFile8</a></p>
 <p>Describes the file to be saved.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">                </span><span class="o">*</span><span class="n">privatedata</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">         </span><span class="o">*</span><span class="n">prefs</span><span class="p">;</span>
-<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prUTF16Char</span><span class="o">*</span><span class="w">  </span><span class="n">sourcePath</span><span class="p">;</span>
-<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prUTF16Char</span><span class="o">*</span><span class="w">  </span><span class="n">destPath</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">                </span><span class="n">move</span><span class="p">;</span>
-<span class="w">  </span><span class="n">importProgressFunc</span><span class="w">  </span><span class="n">progressCallback</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">                </span><span class="o">*</span><span class="n">progressCallbackID</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imSaveFileRec8</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-36-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-36-2"><span class="w">  </span><span class="kt">void</span><span class="w">                </span><span class="o">*</span><span class="n">privatedata</span><span class="p">;</span>
+</span><span id="__span-36-3"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">         </span><span class="o">*</span><span class="n">prefs</span><span class="p">;</span>
+</span><span id="__span-36-4"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prUTF16Char</span><span class="o">*</span><span class="w">  </span><span class="n">sourcePath</span><span class="p">;</span>
+</span><span id="__span-36-5"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prUTF16Char</span><span class="o">*</span><span class="w">  </span><span class="n">destPath</span><span class="p">;</span>
+</span><span id="__span-36-6"><span class="w">  </span><span class="kt">char</span><span class="w">                </span><span class="n">move</span><span class="p">;</span>
+</span><span id="__span-36-7"><span class="w">  </span><span class="n">importProgressFunc</span><span class="w">  </span><span class="n">progressCallback</span><span class="p">;</span>
+</span><span id="__span-36-8"><span class="w">  </span><span class="kt">void</span><span class="w">                </span><span class="o">*</span><span class="n">progressCallbackID</span><span class="p">;</span>
+</span><span id="__span-36-9"><span class="p">}</span><span class="w"> </span><span class="n">imSaveFileRec8</span><span class="p">;</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -7211,22 +7211,22 @@ If not specified, the poster frame will be the first frame of the clip.</p>
 <h2 id="imsourcevideorec">imSourceVideoRec<a class="headerlink" href="#imsourcevideorec" title="Permanent link">&para;</a></h2>
 <p>Selector: <a href="../selector-descriptions/#imgetsourcevideo">imGetSourceVideo</a>, <code>aiInitiateAsyncRead</code>, <code>aiGetFrame</code></p>
 <p>Describes the requested frame, to be passed back in outFrame.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">              </span><span class="o">*</span><span class="n">inPrivateData</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">       </span><span class="n">currentStreamIdx</span><span class="p">;</span>
-<span class="w">  </span><span class="n">PrTime</span><span class="w">            </span><span class="n">inFrameTime</span><span class="p">;</span>
-<span class="w">  </span><span class="n">imFrameFormat</span><span class="w">     </span><span class="o">*</span><span class="n">inFrameFormats</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">       </span><span class="n">inNumFrameFormats</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">bool</span><span class="w">              </span><span class="n">removePulldown</span><span class="p">;</span>
-<span class="w">  </span><span class="n">PPixHand</span><span class="w">          </span><span class="o">*</span><span class="n">outFrame</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">              </span><span class="o">*</span><span class="n">prefs</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">       </span><span class="n">prefsSize</span><span class="p">;</span>
-<span class="w">  </span><span class="n">PrSDKString</span><span class="w">       </span><span class="n">selectedColorProfileName</span><span class="p">;</span>
-<span class="w">  </span><span class="n">PrRenderQuality</span><span class="w">   </span><span class="n">inQuality</span><span class="p">;</span>
-<span class="w">  </span><span class="n">imRenderContext</span><span class="w">   </span><span class="n">inRenderContext</span><span class="p">;</span>
-<span class="w">  </span><span class="n">PrSDKColorSpaceID</span><span class="w">   </span><span class="n">opaqueColorSpaceIdentifier</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imSourceVideoRec</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-37-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-37-2"><span class="w">  </span><span class="kt">void</span><span class="w">              </span><span class="o">*</span><span class="n">inPrivateData</span><span class="p">;</span>
+</span><span id="__span-37-3"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">       </span><span class="n">currentStreamIdx</span><span class="p">;</span>
+</span><span id="__span-37-4"><span class="w">  </span><span class="n">PrTime</span><span class="w">            </span><span class="n">inFrameTime</span><span class="p">;</span>
+</span><span id="__span-37-5"><span class="w">  </span><span class="n">imFrameFormat</span><span class="w">     </span><span class="o">*</span><span class="n">inFrameFormats</span><span class="p">;</span>
+</span><span id="__span-37-6"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">       </span><span class="n">inNumFrameFormats</span><span class="p">;</span>
+</span><span id="__span-37-7"><span class="w">  </span><span class="kt">bool</span><span class="w">              </span><span class="n">removePulldown</span><span class="p">;</span>
+</span><span id="__span-37-8"><span class="w">  </span><span class="n">PPixHand</span><span class="w">          </span><span class="o">*</span><span class="n">outFrame</span><span class="p">;</span>
+</span><span id="__span-37-9"><span class="w">  </span><span class="kt">void</span><span class="w">              </span><span class="o">*</span><span class="n">prefs</span><span class="p">;</span>
+</span><span id="__span-37-10"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">       </span><span class="n">prefsSize</span><span class="p">;</span>
+</span><span id="__span-37-11"><span class="w">  </span><span class="n">PrSDKString</span><span class="w">       </span><span class="n">selectedColorProfileName</span><span class="p">;</span>
+</span><span id="__span-37-12"><span class="w">  </span><span class="n">PrRenderQuality</span><span class="w">   </span><span class="n">inQuality</span><span class="p">;</span>
+</span><span id="__span-37-13"><span class="w">  </span><span class="n">imRenderContext</span><span class="w">   </span><span class="n">inRenderContext</span><span class="p">;</span>
+</span><span id="__span-37-14"><span class="w">  </span><span class="n">PrSDKColorSpaceID</span><span class="w">   </span><span class="n">opaqueColorSpaceIdentifier</span><span class="p">;</span>
+</span><span id="__span-37-15"><span class="p">}</span><span class="w"> </span><span class="n">imSourceVideoRec</span><span class="p">;</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -7293,30 +7293,30 @@ If not specified, the poster frame will be the first frame of the clip.</p>
 <h2 id="imsubtypedescriptionrec">imSubTypeDescriptionRec<a class="headerlink" href="#imsubtypedescriptionrec" title="Permanent link">&para;</a></h2>
 <p>Selector: <a href="../selector-descriptions/#imgetsubtypenames">imGetSubTypeNames</a></p>
 <p>Added in Premiere Pro CS3. Describes the codec name associated with a given fourcc.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">subType</span><span class="p">;</span>
-<span class="w">  </span><span class="n">prUTF16Char</span><span class="w">  </span><span class="n">subTypeName</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imSubTypeDescriptionRec</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-38-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-38-2"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">subType</span><span class="p">;</span>
+</span><span id="__span-38-3"><span class="w">  </span><span class="n">prUTF16Char</span><span class="w">  </span><span class="n">subTypeName</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
+</span><span id="__span-38-4"><span class="p">}</span><span class="w"> </span><span class="n">imSubTypeDescriptionRec</span><span class="p">;</span>
+</span></code></pre></div>
 <hr />
 <h2 id="imtimeinforec8">imTimeInfoRec8<a class="headerlink" href="#imtimeinforec8" title="Permanent link">&para;</a></h2>
 <p>Selector: <a href="../selector-descriptions/#imgettimeinfo8">imGetTimeInfo8</a> and <a href="../selector-descriptions/#imsettimeinfo8">imSetTimeInfo8</a></p>
 <p>Describes the timecode and timecode rate associated with a clip.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">         </span><span class="o">*</span><span class="n">privatedata</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">         </span><span class="o">*</span><span class="n">prefs</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">         </span><span class="n">orgtime</span><span class="p">[</span><span class="mi">18</span><span class="p">];</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">orgScale</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">orgSampleSize</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">         </span><span class="n">alttime</span><span class="p">[</span><span class="mi">18</span><span class="p">];</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">altScale</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">altSampleSize</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">         </span><span class="n">orgreel</span><span class="p">[</span><span class="mi">40</span><span class="p">];</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">         </span><span class="n">altreel</span><span class="p">[</span><span class="mi">40</span><span class="p">];</span>
-<span class="w">  </span><span class="kt">char</span><span class="w">         </span><span class="n">logcomment</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">dataType</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imTimeInfoRec</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-39-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-39-2"><span class="w">  </span><span class="kt">void</span><span class="w">         </span><span class="o">*</span><span class="n">privatedata</span><span class="p">;</span>
+</span><span id="__span-39-3"><span class="w">  </span><span class="kt">void</span><span class="w">         </span><span class="o">*</span><span class="n">prefs</span><span class="p">;</span>
+</span><span id="__span-39-4"><span class="w">  </span><span class="kt">char</span><span class="w">         </span><span class="n">orgtime</span><span class="p">[</span><span class="mi">18</span><span class="p">];</span>
+</span><span id="__span-39-5"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">orgScale</span><span class="p">;</span>
+</span><span id="__span-39-6"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">orgSampleSize</span><span class="p">;</span>
+</span><span id="__span-39-7"><span class="w">  </span><span class="kt">char</span><span class="w">         </span><span class="n">alttime</span><span class="p">[</span><span class="mi">18</span><span class="p">];</span>
+</span><span id="__span-39-8"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">altScale</span><span class="p">;</span>
+</span><span id="__span-39-9"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">altSampleSize</span><span class="p">;</span>
+</span><span id="__span-39-10"><span class="w">  </span><span class="kt">char</span><span class="w">         </span><span class="n">orgreel</span><span class="p">[</span><span class="mi">40</span><span class="p">];</span>
+</span><span id="__span-39-11"><span class="w">  </span><span class="kt">char</span><span class="w">         </span><span class="n">altreel</span><span class="p">[</span><span class="mi">40</span><span class="p">];</span>
+</span><span id="__span-39-12"><span class="w">  </span><span class="kt">char</span><span class="w">         </span><span class="n">logcomment</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
+</span><span id="__span-39-13"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">dataType</span><span class="p">;</span>
+</span><span id="__span-39-14"><span class="p">}</span><span class="w"> </span><span class="n">imTimeInfoRec</span><span class="p">;</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -7430,20 +7430,20 @@ If not specified, the poster frame will be the first frame of the clip.</p>
 <p>Selector: <a href="../selector-descriptions/#imtrimfile8">imTrimFile8</a></p>
 <p>Describes how to trim a clip, based on information returned by the importer during <code>imCheckTrim8</code>.</p>
 <p>Also provides a callback to update the progress bar and check if the user has cancelled.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">                </span><span class="o">*</span><span class="n">privatedata</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">                </span><span class="o">*</span><span class="n">prefs</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">         </span><span class="n">trimIn</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">         </span><span class="n">duration</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">         </span><span class="n">keepAudio</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">         </span><span class="n">keepVideo</span><span class="p">;</span>
-<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prUTF16Char</span><span class="w">   </span><span class="o">*</span><span class="n">destFilePath</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">         </span><span class="n">scale</span><span class="p">;</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">         </span><span class="n">sampleSize</span><span class="p">;</span>
-<span class="w">  </span><span class="n">importProgressFunc</span><span class="w">  </span><span class="n">progressCallback</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">                </span><span class="o">*</span><span class="n">progressCallbackID</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imTrimFileRec8</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-40-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-40-2"><span class="w">  </span><span class="kt">void</span><span class="w">                </span><span class="o">*</span><span class="n">privatedata</span><span class="p">;</span>
+</span><span id="__span-40-3"><span class="w">  </span><span class="kt">void</span><span class="w">                </span><span class="o">*</span><span class="n">prefs</span><span class="p">;</span>
+</span><span id="__span-40-4"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">         </span><span class="n">trimIn</span><span class="p">;</span>
+</span><span id="__span-40-5"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">         </span><span class="n">duration</span><span class="p">;</span>
+</span><span id="__span-40-6"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">         </span><span class="n">keepAudio</span><span class="p">;</span>
+</span><span id="__span-40-7"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">         </span><span class="n">keepVideo</span><span class="p">;</span>
+</span><span id="__span-40-8"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prUTF16Char</span><span class="w">   </span><span class="o">*</span><span class="n">destFilePath</span><span class="p">;</span>
+</span><span id="__span-40-9"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">         </span><span class="n">scale</span><span class="p">;</span>
+</span><span id="__span-40-10"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">         </span><span class="n">sampleSize</span><span class="p">;</span>
+</span><span id="__span-40-11"><span class="w">  </span><span class="n">importProgressFunc</span><span class="w">  </span><span class="n">progressCallback</span><span class="p">;</span>
+</span><span id="__span-40-12"><span class="w">  </span><span class="kt">void</span><span class="w">                </span><span class="o">*</span><span class="n">progressCallbackID</span><span class="p">;</span>
+</span><span id="__span-40-13"><span class="p">}</span><span class="w"> </span><span class="n">imTrimFileRec8</span><span class="p">;</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -7549,15 +7549,15 @@ If not specified, the poster frame will be the first frame of the clip.</p>
 <h2 id="imindcolorspacerec">imIndColorSpaceRec<a class="headerlink" href="#imindcolorspacerec" title="Permanent link">&para;</a></h2>
 <p>Selector: <a href="../selector-descriptions/#imgetindcolorspace">imGetIndColorSpace</a></p>
 <p>Describes the colorspace of the media.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="n">ColorSpaceRec</span><span class="w"> </span><span class="n">imIndColorSpaceRec</span><span class="p">;</span>
-
-<span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kt">void</span><span class="w">                 </span><span class="o">*</span><span class="n">privatedata</span><span class="p">;</span>
-<span class="w">  </span><span class="n">PrSDKColorSpaceType</span><span class="w">  </span><span class="n">outColorSpaceType</span><span class="p">;</span>
-<span class="w">  </span><span class="n">RawColorProfileRec</span><span class="w">   </span><span class="n">ioProfileRec</span><span class="p">;</span>
-<span class="w">  </span><span class="n">prSEIColorCodesRec</span><span class="w">   </span><span class="n">outSEICodesRec</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">ColorSpaceRec</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-41-1"><span class="k">typedef</span><span class="w"> </span><span class="n">ColorSpaceRec</span><span class="w"> </span><span class="n">imIndColorSpaceRec</span><span class="p">;</span>
+</span><span id="__span-41-2">
+</span><span id="__span-41-3"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-41-4"><span class="w">  </span><span class="kt">void</span><span class="w">                 </span><span class="o">*</span><span class="n">privatedata</span><span class="p">;</span>
+</span><span id="__span-41-5"><span class="w">  </span><span class="n">PrSDKColorSpaceType</span><span class="w">  </span><span class="n">outColorSpaceType</span><span class="p">;</span>
+</span><span id="__span-41-6"><span class="w">  </span><span class="n">RawColorProfileRec</span><span class="w">   </span><span class="n">ioProfileRec</span><span class="p">;</span>
+</span><span id="__span-41-7"><span class="w">  </span><span class="n">prSEIColorCodesRec</span><span class="w">   </span><span class="n">outSEICodesRec</span><span class="p">;</span>
+</span><span id="__span-41-8"><span class="p">}</span><span class="w"> </span><span class="n">ColorSpaceRec</span><span class="p">;</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -7600,7 +7600,10 @@ If not specified, the poster frame will be the first frame of the clip.</p>
 </td>
 <td colspan="1" rowspan="1">
 <p>A structure describing the color profile.</p>
-<p><pre lang="cpp">csSDK_int32  ioBufferSize;<br/>void*        inDestinationBuffer;<br/>PrSDKString  outName;</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">ioBufferSize</span><span class="p">;</span>
+</span><span id="__span-0-2"><span class="kt">void</span><span class="o">*</span><span class="w">        </span><span class="n">inDestinationBuffer</span><span class="p">;</span>
+</span><span id="__span-0-3"><span class="n">PrSDKString</span><span class="w">  </span><span class="n">outName</span><span class="p">;</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 <tr>
@@ -7609,7 +7612,13 @@ If not specified, the poster frame will be the first frame of the clip.</p>
 </td>
 <td colspan="1" rowspan="1">
 <p>A structure describing the color space using codes; used with H.265, HEVC, AVC and ProRes media.</p>
-<p><pre lang="cpp">csSDK_int32  colorPrimariesCode;<br/>csSDK_int32  transferCharacteristicCode;<br/>csSDK_int32  matrixEquationsCode;<br/>csSDK_int32  bitDepth;<br/>prBool       isFullRange;<br/>prBool       isRGB;</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">colorPrimariesCode</span><span class="p">;</span>
+</span><span id="__span-0-2"><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">transferCharacteristicCode</span><span class="p">;</span>
+</span><span id="__span-0-3"><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">matrixEquationsCode</span><span class="p">;</span>
+</span><span id="__span-0-4"><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">bitDepth</span><span class="p">;</span>
+</span><span id="__span-0-5"><span class="n">prBool</span><span class="w">       </span><span class="n">isFullRange</span><span class="p">;</span>
+</span><span id="__span-0-6"><span class="n">prBool</span><span class="w">       </span><span class="n">isRGB</span><span class="p">;</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 </tbody>
@@ -7617,13 +7626,13 @@ If not specified, the poster frame will be the first frame of the clip.</p>
 <h2 id="rawcolorspacerec">RawColorSpaceRec<a class="headerlink" href="#rawcolorspacerec" title="Permanent link">&para;</a></h2>
 <p>Selector: <code>imGetIndColorSpace</code></p>
 <p>Describes the colorspace in use with the media.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span>
-<span class="p">{</span>
-<span class="w">        </span><span class="n">PrSDKColorSpaceType</span><span class="w">           </span><span class="n">colorSpaceType</span><span class="p">;</span>
-<span class="w">        </span><span class="n">RawColorProfileRec</span><span class="w">            </span><span class="n">profileRec</span><span class="p">;</span><span class="w">   </span><span class="c1">// for ICC and Predefined Color Spaces</span>
-<span class="w">        </span><span class="n">prSEIColorCodesRec</span><span class="w">            </span><span class="n">seiCodesRec</span><span class="p">;</span><span class="w">  </span><span class="c1">// H-265 codes for HEVC, AVC, ProRes</span>
-<span class="p">}</span><span class="w"> </span><span class="n">RawColorSpaceRec</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-42-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span>
+</span><span id="__span-42-2"><span class="p">{</span>
+</span><span id="__span-42-3"><span class="w">        </span><span class="n">PrSDKColorSpaceType</span><span class="w">           </span><span class="n">colorSpaceType</span><span class="p">;</span>
+</span><span id="__span-42-4"><span class="w">        </span><span class="n">RawColorProfileRec</span><span class="w">            </span><span class="n">profileRec</span><span class="p">;</span><span class="w">   </span><span class="c1">// for ICC and Predefined Color Spaces</span>
+</span><span id="__span-42-5"><span class="w">        </span><span class="n">prSEIColorCodesRec</span><span class="w">            </span><span class="n">seiCodesRec</span><span class="p">;</span><span class="w">  </span><span class="c1">// H-265 codes for HEVC, AVC, ProRes</span>
+</span><span id="__span-42-6"><span class="p">}</span><span class="w"> </span><span class="n">RawColorSpaceRec</span><span class="p">;</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -7658,7 +7667,10 @@ If not specified, the poster frame will be the first frame of the clip.</p>
 </td>
 <td colspan="1" rowspan="1">
 <p>A structure describing the color space.</p>
-<p><pre lang="cpp">csSDK_int32  ioBufferSize;<br/>void*        inDestinationBuffer;<br/>PrSDKString  outName;</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">ioBufferSize</span><span class="p">;</span>
+</span><span id="__span-0-2"><span class="kt">void</span><span class="o">*</span><span class="w">        </span><span class="n">inDestinationBuffer</span><span class="p">;</span>
+</span><span id="__span-0-3"><span class="n">PrSDKString</span><span class="w">  </span><span class="n">outName</span><span class="p">;</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 <tr>
@@ -7667,7 +7679,13 @@ If not specified, the poster frame will be the first frame of the clip.</p>
 </td>
 <td colspan="1" rowspan="1">
 <p>A structure describing the color space; used with H.265, HEVC, AVC and ProRes media.</p>
-<p><pre lang="cpp">csSDK_int32  colorPrimariesCode;<br/>csSDK_int32  transferCharacteristicCode;<br/>csSDK_int32  matrixEquationsCode;<br/>csSDK_int32  bitDepth;<br/>prBool       isFullRange;<br/>prBool       isRGB;</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">colorPrimariesCode</span><span class="p">;</span>
+</span><span id="__span-0-2"><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">transferCharacteristicCode</span><span class="p">;</span>
+</span><span id="__span-0-3"><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">matrixEquationsCode</span><span class="p">;</span>
+</span><span id="__span-0-4"><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">bitDepth</span><span class="p">;</span>
+</span><span id="__span-0-5"><span class="n">prBool</span><span class="w">       </span><span class="n">isFullRange</span><span class="p">;</span>
+</span><span id="__span-0-6"><span class="n">prBool</span><span class="w">       </span><span class="n">isRGB</span><span class="p">;</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 </tbody>
@@ -7680,14 +7698,14 @@ If not specified, the poster frame will be the first frame of the clip.</p>
 <h2 id="embeddedlutrec">EmbeddedLUTRec<a class="headerlink" href="#embeddedlutrec" title="Permanent link">&para;</a></h2>
 <p>Selector: <code>imGetIndColorSpace</code></p>
 <p>Describes the LUT embedded with in the media.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span>
-<span class="p">{</span>
-<span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">               </span><span class="n">privateData</span><span class="p">;</span>
-<span class="w">  </span><span class="n">RawColorProfileRec</span><span class="w">  </span><span class="n">lutBlobRec</span><span class="p">;</span>
-<span class="w">  </span><span class="n">RawColorSpaceRec</span><span class="w">    </span><span class="n">lutInColorSpaceRec</span><span class="p">;</span>
-<span class="w">  </span><span class="n">RawColorSpaceRec</span><span class="w">    </span><span class="n">lutOutColorSpaceRec</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">EmbeddedLUTRec</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-43-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span>
+</span><span id="__span-43-2"><span class="p">{</span>
+</span><span id="__span-43-3"><span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">               </span><span class="n">privateData</span><span class="p">;</span>
+</span><span id="__span-43-4"><span class="w">  </span><span class="n">RawColorProfileRec</span><span class="w">  </span><span class="n">lutBlobRec</span><span class="p">;</span>
+</span><span id="__span-43-5"><span class="w">  </span><span class="n">RawColorSpaceRec</span><span class="w">    </span><span class="n">lutInColorSpaceRec</span><span class="p">;</span>
+</span><span id="__span-43-6"><span class="w">  </span><span class="n">RawColorSpaceRec</span><span class="w">    </span><span class="n">lutOutColorSpaceRec</span><span class="p">;</span>
+</span><span id="__span-43-7"><span class="p">}</span><span class="w"> </span><span class="n">EmbeddedLUTRec</span><span class="p">;</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -7718,13 +7736,13 @@ If not specified, the poster frame will be the first frame of the clip.</p>
 <h2 id="imrendercontext">imRenderContext<a class="headerlink" href="#imrendercontext" title="Permanent link">&para;</a></h2>
 <p>Selector: <a href="../selector-descriptions/#imgetsourcevideo">imGetSourceVideo</a> (member of <a href="#imsourcevideorec">imSourceVideoRec</a>)</p>
 <p>Describes the context of the render; why it's occurring, and what rate and ratio is in use.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span>
-<span class="p">{</span>
-<span class="w">  </span><span class="n">imRenderIntent</span><span class="w"> </span><span class="n">inIntent</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">inPlaybackRatio</span><span class="p">;</span>
-<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">inPlaybackRate</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">imRenderContext</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-44-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span>
+</span><span id="__span-44-2"><span class="p">{</span>
+</span><span id="__span-44-3"><span class="w">  </span><span class="n">imRenderIntent</span><span class="w"> </span><span class="n">inIntent</span><span class="p">;</span>
+</span><span id="__span-44-4"><span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">inPlaybackRatio</span><span class="p">;</span>
+</span><span id="__span-44-5"><span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">inPlaybackRate</span><span class="p">;</span>
+</span><span id="__span-44-6"><span class="p">}</span><span class="w"> </span><span class="n">imRenderContext</span><span class="p">;</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -7859,7 +7877,7 @@ If not specified, the poster frame will be the first frame of the clip.</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.copy", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>

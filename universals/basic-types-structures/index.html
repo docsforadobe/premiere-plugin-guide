@@ -2809,7 +2809,13 @@
 <p><code>prFloatRect</code></p>
 </td>
 <td colspan="1" rowspan="1">
-<p><pre lang="cpp">typedef struct {<br/>  float left;<br/>  float top;<br/>  float right;<br/>  float bottom;<br/>} prFloatRect;</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">left</span><span class="p">;</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">top</span><span class="p">;</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">right</span><span class="p">;</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">bottom</span><span class="p">;</span>
+</span><span id="__span-0-6"><span class="p">}</span><span class="w"> </span><span class="n">prFloatRect</span><span class="p">;</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 <tr>
@@ -2825,7 +2831,11 @@
 <p><code>prPoint</code>, <code>LongPoint</code></p>
 </td>
 <td colspan="1" rowspan="1">
-<p><pre lang="cpp">typedef struct {<br/>  csSDK_int32 x;<br/>  csSDK_int32 y;<br/>} prPoint, LongPoint;</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+</span><span id="__span-0-4"><span class="p">}</span><span class="w"> </span><span class="n">prPoint</span><span class="p">,</span><span class="w"> </span><span class="n">LongPoint</span><span class="p">;</span>
+</span></code></pre></div></p>
 <p><code>LongPoint</code> is deprecated, but still used for a couple of Bottleneck callbacks</p>
 </td>
 </tr>
@@ -2834,7 +2844,11 @@
 <p><code>prFPoint</code></p>
 </td>
 <td colspan="1" rowspan="1">
-<p><pre lang="cpp">typedef struct {<br/>  double x;<br/>  double y;<br/>} prFPoint64;</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+</span><span id="__span-0-4"><span class="p">}</span><span class="w"> </span><span class="n">prFPoint64</span><span class="p">;</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 <tr>
@@ -2868,7 +2882,12 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>A time database record representing a time value in the context of a video frame rate.</p>
-<p><pre lang="cpp">typedef struct {<br/>  TDB_Time       value;<br/>  TDB_TimeScale  scale;<br/>  TDB_SampSize   sampleSize;<br/>} TDB_TimeRecord;</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">TDB_Time</span><span class="w">       </span><span class="n">value</span><span class="p">;</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">TDB_TimeScale</span><span class="w">  </span><span class="n">scale</span><span class="p">;</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">TDB_SampSize</span><span class="w">   </span><span class="n">sampleSize</span><span class="p">;</span>
+</span><span id="__span-0-5"><span class="p">}</span><span class="w"> </span><span class="n">TDB_TimeRecord</span><span class="p">;</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 <tr>
@@ -2917,7 +2936,38 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Used for exporter parameters</p>
-<p><pre lang="cpp">struct PrParam<br/>{<br/>  PrParamType mType;<br/>  union<br/>  {<br/>    csSDK_int8   mInt8;<br/>    csSDK_int16  mInt16;<br/>    csSDK_int32  mInt32;<br/>    csSDK_int64  mInt64;<br/>    float        mFloat32;<br/>    double       mFloat64;<br/>    csSDK_uint8  mBool;<br/>    prFPoint64   mPoint;<br/>    prPluginID   mGuid;<br/>    PrMemoryPtr  mMemoryPtr;<br/>  };<br/>};<br/><br/>enum PrParamType<br/>{<br/>  kPrParamType_Int8 = 1,<br/>  kPrParamType_Int16,<br/>  kPrParamType_Int32,<br/>  kPrParamType_Int64,<br/>  kPrParamType_Float32,<br/>  kPrParamType_Float64,<br/>  kPrParamType_Bool,<br/>  kPrParamType_Point,<br/>  kPrParamType_Guid,<br/>  kPrParamType_PrMemoryPtr<br/>};</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="k">struct</span><span class="w"> </span><span class="nc">PrParam</span>
+</span><span id="__span-0-2"><span class="p">{</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PrParamType</span><span class="w"> </span><span class="n">mType</span><span class="p">;</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="k">union</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="p">{</span>
+</span><span id="__span-0-6"><span class="w">    </span><span class="n">csSDK_int8</span><span class="w">   </span><span class="n">mInt8</span><span class="p">;</span>
+</span><span id="__span-0-7"><span class="w">    </span><span class="n">csSDK_int16</span><span class="w">  </span><span class="n">mInt16</span><span class="p">;</span>
+</span><span id="__span-0-8"><span class="w">    </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">mInt32</span><span class="p">;</span>
+</span><span id="__span-0-9"><span class="w">    </span><span class="n">csSDK_int64</span><span class="w">  </span><span class="n">mInt64</span><span class="p">;</span>
+</span><span id="__span-0-10"><span class="w">    </span><span class="kt">float</span><span class="w">        </span><span class="n">mFloat32</span><span class="p">;</span>
+</span><span id="__span-0-11"><span class="w">    </span><span class="kt">double</span><span class="w">       </span><span class="n">mFloat64</span><span class="p">;</span>
+</span><span id="__span-0-12"><span class="w">    </span><span class="n">csSDK_uint8</span><span class="w">  </span><span class="n">mBool</span><span class="p">;</span>
+</span><span id="__span-0-13"><span class="w">    </span><span class="n">prFPoint64</span><span class="w">   </span><span class="n">mPoint</span><span class="p">;</span>
+</span><span id="__span-0-14"><span class="w">    </span><span class="n">prPluginID</span><span class="w">   </span><span class="n">mGuid</span><span class="p">;</span>
+</span><span id="__span-0-15"><span class="w">    </span><span class="n">PrMemoryPtr</span><span class="w">  </span><span class="n">mMemoryPtr</span><span class="p">;</span>
+</span><span id="__span-0-16"><span class="w">  </span><span class="p">};</span>
+</span><span id="__span-0-17"><span class="p">};</span>
+</span><span id="__span-0-18">
+</span><span id="__span-0-19"><span class="k">enum</span><span class="w"> </span><span class="nc">PrParamType</span>
+</span><span id="__span-0-20"><span class="p">{</span>
+</span><span id="__span-0-21"><span class="w">  </span><span class="n">kPrParamType_Int8</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-0-22"><span class="w">  </span><span class="n">kPrParamType_Int16</span><span class="p">,</span>
+</span><span id="__span-0-23"><span class="w">  </span><span class="n">kPrParamType_Int32</span><span class="p">,</span>
+</span><span id="__span-0-24"><span class="w">  </span><span class="n">kPrParamType_Int64</span><span class="p">,</span>
+</span><span id="__span-0-25"><span class="w">  </span><span class="n">kPrParamType_Float32</span><span class="p">,</span>
+</span><span id="__span-0-26"><span class="w">  </span><span class="n">kPrParamType_Float64</span><span class="p">,</span>
+</span><span id="__span-0-27"><span class="w">  </span><span class="n">kPrParamType_Bool</span><span class="p">,</span>
+</span><span id="__span-0-28"><span class="w">  </span><span class="n">kPrParamType_Point</span><span class="p">,</span>
+</span><span id="__span-0-29"><span class="w">  </span><span class="n">kPrParamType_Guid</span><span class="p">,</span>
+</span><span id="__span-0-30"><span class="w">  </span><span class="n">kPrParamType_PrMemoryPtr</span>
+</span><span id="__span-0-31"><span class="p">};</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 <tr>
@@ -2926,7 +2976,16 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Used in by importers in <code>imFileAttributesRec.creationDateStamp</code>.</p>
-<p><pre lang="cpp">typedef struct<br/>{<br/>  csSDK_int32  day;<br/>  csSDK_int32  month;<br/>  csSDK_int32  year;<br/>  csSDK_int32  hours;<br/>  csSDK_int32  minutes;<br/>  double       seconds;<br/>} prDateStamp;</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span>
+</span><span id="__span-0-2"><span class="p">{</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">day</span><span class="p">;</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">month</span><span class="p">;</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">year</span><span class="p">;</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">hours</span><span class="p">;</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">minutes</span><span class="p">;</span>
+</span><span id="__span-0-8"><span class="w">  </span><span class="kt">double</span><span class="w">       </span><span class="n">seconds</span><span class="p">;</span>
+</span><span id="__span-0-9"><span class="p">}</span><span class="w"> </span><span class="n">prDateStamp</span><span class="p">;</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 </tbody>
@@ -3014,7 +3073,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.copy", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>

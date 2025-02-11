@@ -2765,7 +2765,10 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Initialize a transmitter, fill in basic plugin info, allocate memory to hold user settings and other data.</p>
-<p><pre lang="cpp">tmResult (*Startup)(<br/>tmStdParms* ioStdParms,<br/>tmPluginInfo* outPluginInfo);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">tmResult</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">Startup</span><span class="p">)(</span>
+</span><span id="__span-0-2"><span class="n">tmStdParms</span><span class="o">*</span><span class="w"> </span><span class="n">ioStdParms</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="n">tmPluginInfo</span><span class="o">*</span><span class="w"> </span><span class="n">outPluginInfo</span><span class="p">);</span>
+</span></code></pre></div></p>
 <ul>
 <li><code>tmResult_ContinueIterate</code> may be returned to support multiple transmit plugins within the same module.</li>
 <li><code>ioPrivatePluginData</code>, <code>ioSerializedPluginData</code> &amp; <code>ioSerializedPluginDataSize</code> may be written from Startup.</li>
@@ -2778,7 +2781,9 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Terminate a transmitter.</p>
-<p><pre lang="cpp">tmResult (*Shutdown)(<br/>tmStdParms* ioStdParms);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">tmResult</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">Shutdown</span><span class="p">)(</span>
+</span><span id="__span-0-2"><span class="n">tmStdParms</span><span class="o">*</span><span class="w"> </span><span class="n">ioStdParms</span><span class="p">);</span>
+</span></code></pre></div></p>
 <p>Dispose of <code>ioPrivatePluginData</code> if previously allocated in <code>Startup</code>.</p>
 </td>
 </tr>
@@ -2788,7 +2793,12 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Describe the audio modes supported by the transmitter, one at a time.</p>
-<p><pre lang="cpp">tmResult (*QueryAudioMode)(<br/>const tmStdParms* inStdParms,<br/>const tmInstance* inInstance,<br/>csSDK_int32 inQueryIterationIndex,<br/>tmAudioMode* outAudioMode);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">tmResult</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">QueryAudioMode</span><span class="p">)(</span>
+</span><span id="__span-0-2"><span class="k">const</span><span class="w"> </span><span class="n">tmStdParms</span><span class="o">*</span><span class="w"> </span><span class="n">inStdParms</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="k">const</span><span class="w"> </span><span class="n">tmInstance</span><span class="o">*</span><span class="w"> </span><span class="n">inInstance</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="n">csSDK_int32</span><span class="w"> </span><span class="n">inQueryIterationIndex</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="n">tmAudioMode</span><span class="o">*</span><span class="w"> </span><span class="n">outAudioMode</span><span class="p">);</span>
+</span></code></pre></div></p>
 <p>Note that currently one audio mode is currently supported. You can convert between audio formats using the <a href="../../universals/sweetpea-suites/#audio-suite">Audio Suite</a>.</p>
 </td>
 </tr>
@@ -2798,7 +2808,12 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Describe the video modes supported by the transmitter, one at a time.</p>
-<p><pre lang="cpp">tmResult (*QueryVideoMode)(<br/>const tmStdParms* inStdParms,<br/>const tmInstance* inInstance,<br/>csSDK_int32 inQueryIterationIndex,<br/>tmVideoMode* outVideoMode);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">tmResult</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">QueryVideoMode</span><span class="p">)(</span>
+</span><span id="__span-0-2"><span class="k">const</span><span class="w"> </span><span class="n">tmStdParms</span><span class="o">*</span><span class="w"> </span><span class="n">inStdParms</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="k">const</span><span class="w"> </span><span class="n">tmInstance</span><span class="o">*</span><span class="w"> </span><span class="n">inInstance</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="n">csSDK_int32</span><span class="w"> </span><span class="n">inQueryIterationIndex</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="n">tmVideoMode</span><span class="o">*</span><span class="w"> </span><span class="n">outVideoMode</span><span class="p">);</span>
+</span></code></pre></div></p>
 <p>The video sent later in <code>PushVideo</code> will be one of the formats specified here.</p>
 </td>
 </tr>
@@ -2808,7 +2823,10 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Display your own modal settings dialog.</p>
-<p><pre lang="cpp">tmResult (*SetupDialog)(<br/>tmStdParms* ioStdParms,<br/>prParentWnd inParent);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">tmResult</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">SetupDialog</span><span class="p">)(</span>
+</span><span id="__span-0-2"><span class="n">tmStdParms</span><span class="o">*</span><span class="w"> </span><span class="n">ioStdParms</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="n">prParentWnd</span><span class="w"> </span><span class="n">inParent</span><span class="p">);</span>
+</span></code></pre></div></p>
 <p>Will only be called if the plugin returned <code>outHasSetup</code>.</p>
 <p>Save any settings to <code>ioSerializedPluginData</code> and if needed update <code>ioSerializedPluginDataSize</code>.</p>
 <p><code>NeedsReset</code> will be invoked after this call, to allow your transmitter a chance to reset all open plugins and startup with the new settings.</p>
@@ -2820,7 +2838,10 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Will be called regularly on the first plugin of a module to allow rebuilding on state changes.</p>
-<p><pre lang="cpp">tmResult (*NeedsReset)(<br/>const tmStdParms* inStdParms,<br/>prBool* outResetModule);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">tmResult</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">NeedsReset</span><span class="p">)(</span>
+</span><span id="__span-0-2"><span class="k">const</span><span class="w"> </span><span class="n">tmStdParms</span><span class="o">*</span><span class="w"> </span><span class="n">inStdParms</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="n">prBool</span><span class="o">*</span><span class="w"> </span><span class="n">outResetModule</span><span class="p">);</span>
+</span></code></pre></div></p>
 <p>If the passed in settings differ enough from the created settings, or if the settings on the hardware itself have changed, the transmitter should specify a reset is needed.</p>
 <p>If <code>outResetModule</code> is set to <code>true</code>, all open plugins will be shutdown and started up again.</p>
 </td>
@@ -2831,7 +2852,10 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Creates an instance of a transmitter.</p>
-<p><pre lang="cpp">tmResult (*CreateInstance)(<br/>const tmStdParms* inStdParms,<br/>tmInstance* ioInstance);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">tmResult</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">CreateInstance</span><span class="p">)(</span>
+</span><span id="__span-0-2"><span class="k">const</span><span class="w"> </span><span class="n">tmStdParms</span><span class="o">*</span><span class="w"> </span><span class="n">inStdParms</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="n">tmInstance</span><span class="o">*</span><span class="w"> </span><span class="n">ioInstance</span><span class="p">);</span>
+</span></code></pre></div></p>
 <p><code>inPlayID</code> and <code>inTimelineID</code> may be 0 if not driven by a player.</p>
 <p>Multiple instances may be created at the same time.</p>
 <p>Allocate <code>ioPrivateInstanceData</code>.</p>
@@ -2843,7 +2867,10 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Dispose an instance of a transmitter.</p>
-<p><pre lang="cpp">tmResult (*DisposeInstance)(<br/>const tmStdParms* inStdParms,<br/>tmInstance* ioInstance);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">tmResult</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">DisposeInstance</span><span class="p">)(</span>
+</span><span id="__span-0-2"><span class="k">const</span><span class="w"> </span><span class="n">tmStdParms</span><span class="o">*</span><span class="w"> </span><span class="n">inStdParms</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="n">tmInstance</span><span class="o">*</span><span class="w"> </span><span class="n">ioInstance</span><span class="p">);</span>
+</span></code></pre></div></p>
 <p>Any <code>ioPrivateInstanceData</code> should be disposed.</p>
 </td>
 </tr>
@@ -2853,7 +2880,13 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Activate or deactivate a transmitter instance, for example during application suspend or switching between monitors.</p>
-<p><pre lang="cpp">tmResult (*ActivateDeactivate)(<br/>const tmStdParms* inStdParms,<br/>const tmInstance* inInstance,<br/>PrActivationEvent inActivationEvent,<br/>prBool inAudioActive,<br/>prBool inVideoActive);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">tmResult</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">ActivateDeactivate</span><span class="p">)(</span>
+</span><span id="__span-0-2"><span class="k">const</span><span class="w"> </span><span class="n">tmStdParms</span><span class="o">*</span><span class="w"> </span><span class="n">inStdParms</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="k">const</span><span class="w"> </span><span class="n">tmInstance</span><span class="o">*</span><span class="w"> </span><span class="n">inInstance</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="n">PrActivationEvent</span><span class="w"> </span><span class="n">inActivationEvent</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="n">prBool</span><span class="w"> </span><span class="n">inAudioActive</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="n">prBool</span><span class="w"> </span><span class="n">inVideoActive</span><span class="p">);</span>
+</span></code></pre></div></p>
 <p>Transmitters should manage hardware access with these calls, not <code>Startup</code>/<code>Shutdown</code>, since it is valid for multiple plugins to be simultaneously active for the same device.</p>
 <p>Audio and video may be independently activated.</p>
 </td>
@@ -2864,7 +2897,11 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Start a clock for playback.</p>
-<p><pre lang="cpp">tmResult (*StartPlaybackClock)(<br/>const tmStdParms* inStdParms,<br/>const tmInstance* inInstance,<br/>const tmPlaybackClock* inClock);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">tmResult</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">StartPlaybackClock</span><span class="p">)(</span>
+</span><span id="__span-0-2"><span class="k">const</span><span class="w"> </span><span class="n">tmStdParms</span><span class="o">*</span><span class="w"> </span><span class="n">inStdParms</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="k">const</span><span class="w"> </span><span class="n">tmInstance</span><span class="o">*</span><span class="w"> </span><span class="n">inInstance</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="k">const</span><span class="w"> </span><span class="n">tmPlaybackClock</span><span class="o">*</span><span class="w"> </span><span class="n">inClock</span><span class="p">);</span>
+</span></code></pre></div></p>
 <p>This will be sent not only when starting playback, but also for scrubbing.</p>
 <p>Will only be called if the transmitter returned <code>outHasClock</code>.</p>
 <p>The provided callback must be called each time the time changes, for example once for each frame in response to <code>PushVideo</code>.</p>
@@ -2879,7 +2916,10 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Stop a clock for playback.</p>
-<p><pre lang="cpp">tmResult (*StopPlaybackClock)(<br/>const tmStdParms* inStdParms,<br/>const tmInstance* inInstance);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">tmResult</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">StopPlaybackClock</span><span class="p">)(</span>
+</span><span id="__span-0-2"><span class="k">const</span><span class="w"> </span><span class="n">tmStdParms</span><span class="o">*</span><span class="w"> </span><span class="n">inStdParms</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="k">const</span><span class="w"> </span><span class="n">tmInstance</span><span class="o">*</span><span class="w"> </span><span class="n">inInstance</span><span class="p">);</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 <tr>
@@ -2888,7 +2928,11 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Asynchronously pushes a video frame to a transmitter instance.</p>
-<p><pre lang="cpp">tmResult (*PushVideo)(<br/>const tmStdParms* inStdParms,<br/>const tmInstance* inInstance,<br/>const tmPushVideo* inPushVideo);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">tmResult</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">PushVideo</span><span class="p">)(</span>
+</span><span id="__span-0-2"><span class="k">const</span><span class="w"> </span><span class="n">tmStdParms</span><span class="o">*</span><span class="w"> </span><span class="n">inStdParms</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="k">const</span><span class="w"> </span><span class="n">tmInstance</span><span class="o">*</span><span class="w"> </span><span class="n">inInstance</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="k">const</span><span class="w"> </span><span class="n">tmPushVideo</span><span class="o">*</span><span class="w"> </span><span class="n">inPushVideo</span><span class="p">);</span>
+</span></code></pre></div></p>
 <p>Will only be called if the transmitter returned <code>outHasVideo</code>.</p>
 <p>The list of video frames passed to the transmitter will be negotiated based on the properties returned from <code>QueryVideoMode</code>.</p>
 <p>The transmitter is responsible for disposing of all passed in <code>PPixes</code>.</p>
@@ -2903,7 +2947,15 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Asynchronously pushes audio samples to a transmitter instance.</p>
-<p><pre lang="cpp">tmResult (*StartPushAudio)(<br/>const tmStdParms* inStdParms,<br/>const tmInstance* inInstance,<br/>PrTime inStartTime,<br/>PrTime inOutTime,<br/>prBool inLoop,<br/>prBool inScrubbing,<br/>csSDK_int32* outSamplesPerFrame);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">tmResult</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">StartPushAudio</span><span class="p">)(</span>
+</span><span id="__span-0-2"><span class="k">const</span><span class="w"> </span><span class="n">tmStdParms</span><span class="o">*</span><span class="w"> </span><span class="n">inStdParms</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="k">const</span><span class="w"> </span><span class="n">tmInstance</span><span class="o">*</span><span class="w"> </span><span class="n">inInstance</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="n">PrTime</span><span class="w"> </span><span class="n">inStartTime</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="n">PrTime</span><span class="w"> </span><span class="n">inOutTime</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="n">prBool</span><span class="w"> </span><span class="n">inLoop</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="n">prBool</span><span class="w"> </span><span class="n">inScrubbing</span><span class="p">,</span>
+</span><span id="__span-0-8"><span class="n">csSDK_int32</span><span class="o">*</span><span class="w"> </span><span class="n">outSamplesPerFrame</span><span class="p">);</span>
+</span></code></pre></div></p>
 <p>Initializes the device for subsequent PushAudio() calls. Will only be called if the transmitter returned <code>outPushAudioAvailable</code>.</p>
 <p>Device will be enabled for a "secondary" mode where audio from the "primary" or "clock" device, is pushed to a secondary device; very useful for remote devices.</p>
 <p>Unlike <code>StartPlaybackClock()</code>, <code>StartPushAudio()</code> is only called once, until <code>StopPushAudio()</code> is called.</p>
@@ -2915,7 +2967,11 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Asynchronously pushes audio samples to a transmitter instance.  Note: PushAudio() may be called even if another API is called at the same time.</p>
-<p><pre lang="cpp">tmResult (*PushAudio)(<br/>const tmStdParms* inStdParms,<br/>const tmInstance* inInstance,<br/>const tmPushAudio* inPushAudio);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">tmResult</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">PushAudio</span><span class="p">)(</span>
+</span><span id="__span-0-2"><span class="k">const</span><span class="w"> </span><span class="n">tmStdParms</span><span class="o">*</span><span class="w"> </span><span class="n">inStdParms</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="k">const</span><span class="w"> </span><span class="n">tmInstance</span><span class="o">*</span><span class="w"> </span><span class="n">inInstance</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="k">const</span><span class="w"> </span><span class="n">tmPushAudio</span><span class="o">*</span><span class="w"> </span><span class="n">inPushAudio</span><span class="p">);</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 <tr>
@@ -2924,7 +2980,10 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>StopPushAudio() is called when playback via PushAudio() ends.</p>
-<p><pre lang="cpp">tmResult (*StopPushAudio)(<br/>const tmStdParms* inStdParms,<br/>const tmInstance* inInstance);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">tmResult</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">StopPushAudio</span><span class="p">)(</span>
+</span><span id="__span-0-2"><span class="k">const</span><span class="w"> </span><span class="n">tmStdParms</span><span class="o">*</span><span class="w"> </span><span class="n">inStdParms</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="k">const</span><span class="w"> </span><span class="n">tmInstance</span><span class="o">*</span><span class="w"> </span><span class="n">inInstance</span><span class="p">);</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 <tr>
@@ -2933,7 +2992,11 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Set the host callback for notification streaming state changes, i.e. when the plug-in becomes active or inactive due to changes connections or enablement from the host.</p>
-<p><pre lang="cpp">tmResult (*SetStreamingStateChangedCallback)(<br/>const tmStdParms* inStdParms,<br/>void* inContext,<br/>tmStreamingStateChangedCallback inCallback);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">tmResult</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">SetStreamingStateChangedCallback</span><span class="p">)(</span>
+</span><span id="__span-0-2"><span class="k">const</span><span class="w"> </span><span class="n">tmStdParms</span><span class="o">*</span><span class="w"> </span><span class="n">inStdParms</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">inContext</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="n">tmStreamingStateChangedCallback</span><span class="w"> </span><span class="n">inCallback</span><span class="p">);</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 <tr>
@@ -2942,7 +3005,10 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Enable/disable streaming to connected clients without loading or unloading the plug-in.</p>
-<p><pre lang="cpp">tmResult (*EnableStreaming)(<br/>const tmStdParms* inStdParms,<br/>prBool            inEnabled);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">tmResult</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">EnableStreaming</span><span class="p">)(</span>
+</span><span id="__span-0-2"><span class="k">const</span><span class="w"> </span><span class="n">tmStdParms</span><span class="o">*</span><span class="w"> </span><span class="n">inStdParms</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="n">prBool</span><span class="w">            </span><span class="n">inEnabled</span><span class="p">);</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 <tr>
@@ -2951,7 +3017,10 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Returns whether streaming is enabled.</p>
-<p><pre lang="cpp">tmResult (*IsStreamingEnabled)(<br/>const tmStdParms* inStdParms,<br/>prBool*           outEnabled);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">tmResult</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">IsStreamingEnabled</span><span class="p">)(</span>
+</span><span id="__span-0-2"><span class="k">const</span><span class="w"> </span><span class="n">tmStdParms</span><span class="o">*</span><span class="w"> </span><span class="n">inStdParms</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="n">prBool</span><span class="o">*</span><span class="w">           </span><span class="n">outEnabled</span><span class="p">);</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 <tr>
@@ -2960,7 +3029,10 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Returns whether the plug-in is actively streaming, i.e. streaming is enabled and the plug-in has active connections.</p>
-<p><pre lang="cpp">tmResult (*IsStreamingActive)(<br/>const tmStdParms* inStdParms,<br/>prBool*           outActive);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">tmResult</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">IsStreamingActive</span><span class="p">)(</span>
+</span><span id="__span-0-2"><span class="k">const</span><span class="w"> </span><span class="n">tmStdParms</span><span class="o">*</span><span class="w"> </span><span class="n">inStdParms</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="n">prBool</span><span class="o">*</span><span class="w">           </span><span class="n">outActive</span><span class="p">);</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 <tr>
@@ -2969,7 +3041,8 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Terminate a transmitter.</p>
-<p><pre lang="cpp">tmResult (*Shutdown)(<br />tmStdParms* ioStdParms);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">tmResult</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">Shutdown</span><span class="p">)(</span><span class="o">&lt;</span><span class="n">br</span><span class="w"> </span><span class="o">/&gt;</span><span class="n">tmStdParms</span><span class="o">*</span><span class="w"> </span><span class="n">ioStdParms</span><span class="p">);</span>
+</span></code></pre></div></p>
 <p>Dispose of <code>ioPrivatePluginData</code> if previously allocated in <code>Startup</code>.</p>
 </td>
 </tr>
@@ -3058,7 +3131,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.copy", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>

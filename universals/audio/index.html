@@ -2899,13 +2899,13 @@
 <h1 id="audio">Audio<a class="headerlink" href="#audio" title="Permanent link">&para;</a></h1>
 <h2 id="32-bit-float-uninterleaved-format">32-bit Float, Uninterleaved Format<a class="headerlink" href="#32-bit-float-uninterleaved-format" title="Permanent link">&para;</a></h2>
 <p>All audio calls to and from Premiere use arrays of buffers of 32-bit floats to pass audio. Audio is not interleaved, rather separate channels are stored in separate buffers. So the structure for stereo audio looks like this:</p>
-<div class="highlight"><pre><span></span><code><span class="kt">float</span><span class="o">*</span><span class="w"> </span><span class="n">audio</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">float</span><span class="o">*</span><span class="w"> </span><span class="n">audio</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+</span></code></pre></div>
 <p>where <code>audio[0]</code> is the address of a buffer N samples long, and <code>audio[1]</code> is the address of a second buffer N samples long. <code>audio[0]</code> contains the left channel, and <code>audio[1]</code> contains the right channel. N is the number of sample frames in the buffer.</p>
 <p>Since Premiere uses 32-bit floats for each audio sample, it can represent values above 0 dB. 0 dB corresponds to +/- 1.0 in floating point. A floating point sample can be converted to a 16-bit short integer by multiplying by 32767.0 and casting the result to a short.</p>
 <p>E.g.:</p>
-<div class="highlight"><pre><span></span><code><span class="n">sample16bit</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">short</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">sample32bit</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">32767.0</span><span class="p">)</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><span class="n">sample16bit</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">short</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">sample32bit</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">32767.0</span><span class="p">)</span>
+</span></code></pre></div>
 <p>The plugin is responsible for converting to and from the 32-bit uninterleaved format when reading a file that uses a different format. There are calls to convert between formats in the <a href="../sweetpea-suites/#audio-suite">Audio Suite</a>. For symmetry in the int &lt;-&gt; float conversions, we recommend you use the utility functions provided.</p>
 <hr />
 <h2 id="audio-sample-types">Audio Sample Types<a class="headerlink" href="#audio-sample-types" title="Permanent link">&para;</a></h2>
@@ -3139,7 +3139,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.copy", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>

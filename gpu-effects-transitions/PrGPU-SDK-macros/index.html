@@ -3026,8 +3026,8 @@
 <li>FloatingPoint.h - common floating point routines. These mostly hide naming differences across APIs.</li>
 </ul>
 <p>You'll want to include them like this in your kernel:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;PrGPU/KernelSupport/KernelCore.h&quot;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;PrGPU/KernelSupport/KernelCore.h&quot;</span>
+</span></code></pre></div>
 <p>The folder contains additional files used by the above files.</p>
 <p>One thing to watch out for is whether your projects are tracking header dependencies properly. If not, you'll need to manually recompile kernels when include files change. This is true whether or not you use the SDK porting set, so you've likely already sorted this out.</p>
 <hr />
@@ -3043,39 +3043,39 @@
 <p>Metal kernels require syntax that is quite different than CUDA, and the PrGPU macros use the Boost preprocessing package to express parameters. This is by far the most complicated part of the package, so grab a fresh cup of coffee and sit back for a read.</p>
 <p>The GF_KERNEL_FUNCTION macro is used to pass values as parameters (CUDA) or in a struct (metal). The macro will create an API-specific kernel entry point which will call a</p>
 <p>function that it defines, leaving you to fill in the body. The macro uses Boost preprocessor sequences to express a type/name pair:</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="kt">float</span><span class="p">)(</span><span class="n">inValue</span><span class="p">)</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><span class="p">(</span><span class="kt">float</span><span class="p">)(</span><span class="n">inValue</span><span class="p">)</span>
+</span></code></pre></div>
 <p>These pairs are then nested into a sequence of parameters:</p>
-<div class="highlight"><pre><span></span><code><span class="p">((</span><span class="kt">float</span><span class="p">)(</span><span class="n">inAge</span><span class="p">))((</span><span class="kt">int</span><span class="p">)(</span><span class="n">inMarbles</span><span class="p">))</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><span class="p">((</span><span class="kt">float</span><span class="p">)(</span><span class="n">inAge</span><span class="p">))((</span><span class="kt">int</span><span class="p">)(</span><span class="n">inMarbles</span><span class="p">))</span>
+</span></code></pre></div>
 <p>There are different categories of parameters, such as buffers, values, and kernel position. Each category sequence is a separate macro parameter. Example usage:</p>
-<div class="highlight"><pre><span></span><code><span class="n">GF_KERNEL_FUNCTION</span><span class="p">(</span><span class="n">RemoveFlicker</span><span class="p">,</span>
-
-<span class="c1">//kernel name, then comma, ((GF_PTR(float4))(inSrc))</span>
-
-<span class="c1">//all buffers and textures go after the first comma</span>
-<span class="p">((</span><span class="n">GF_PTR</span><span class="p">(</span><span class="n">float4</span><span class="p">))(</span><span class="n">outDest</span><span class="p">)),</span>
-<span class="p">((</span><span class="kt">int</span><span class="p">)(</span><span class="n">inDestPitch</span><span class="p">))</span>
-
-<span class="c1">//After the second comma, all values to be passed ((DevicePixelFormat)(inDeviceFormat))</span>
-<span class="p">((</span><span class="kt">int</span><span class="p">)(</span><span class="n">inWidth</span><span class="p">))</span>
-<span class="p">((</span><span class="kt">int</span><span class="p">)(</span><span class="n">inHeight</span><span class="p">)),</span>
-<span class="p">((</span><span class="n">uint2</span><span class="p">)(</span><span class="n">inXY</span><span class="p">)(</span><span class="n">KERNEL_XY</span><span class="p">))</span>
-
-<span class="c1">//After the third comma, the position arguments.</span>
-<span class="p">((</span><span class="n">uint2</span><span class="p">)(</span><span class="n">inBlockID</span><span class="p">)(</span><span class="n">BLOCK_ID</span><span class="p">)))</span>
-<span class="p">{</span>
-<span class="w">  </span><span class="c1">// &lt;do something interesting here&gt;</span>
-<span class="p">}</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><span class="n">GF_KERNEL_FUNCTION</span><span class="p">(</span><span class="n">RemoveFlicker</span><span class="p">,</span>
+</span><span id="__span-3-2">
+</span><span id="__span-3-3"><span class="c1">//kernel name, then comma, ((GF_PTR(float4))(inSrc))</span>
+</span><span id="__span-3-4">
+</span><span id="__span-3-5"><span class="c1">//all buffers and textures go after the first comma</span>
+</span><span id="__span-3-6"><span class="p">((</span><span class="n">GF_PTR</span><span class="p">(</span><span class="n">float4</span><span class="p">))(</span><span class="n">outDest</span><span class="p">)),</span>
+</span><span id="__span-3-7"><span class="p">((</span><span class="kt">int</span><span class="p">)(</span><span class="n">inDestPitch</span><span class="p">))</span>
+</span><span id="__span-3-8">
+</span><span id="__span-3-9"><span class="c1">//After the second comma, all values to be passed ((DevicePixelFormat)(inDeviceFormat))</span>
+</span><span id="__span-3-10"><span class="p">((</span><span class="kt">int</span><span class="p">)(</span><span class="n">inWidth</span><span class="p">))</span>
+</span><span id="__span-3-11"><span class="p">((</span><span class="kt">int</span><span class="p">)(</span><span class="n">inHeight</span><span class="p">)),</span>
+</span><span id="__span-3-12"><span class="p">((</span><span class="n">uint2</span><span class="p">)(</span><span class="n">inXY</span><span class="p">)(</span><span class="n">KERNEL_XY</span><span class="p">))</span>
+</span><span id="__span-3-13">
+</span><span id="__span-3-14"><span class="c1">//After the third comma, the position arguments.</span>
+</span><span id="__span-3-15"><span class="p">((</span><span class="n">uint2</span><span class="p">)(</span><span class="n">inBlockID</span><span class="p">)(</span><span class="n">BLOCK_ID</span><span class="p">)))</span>
+</span><span id="__span-3-16"><span class="p">{</span>
+</span><span id="__span-3-17"><span class="w">  </span><span class="c1">// &lt;do something interesting here&gt;</span>
+</span><span id="__span-3-18"><span class="p">}</span>
+</span></code></pre></div>
 <p>In the example above, the host does not pass the position values when invoking the kernel.</p>
 <p>Position values are filled in automatically by the unmarshalling code generated by the GF_KERNEL_FUNCTION macro. The code you write will actually end up in a device function that the unmarshalling code will call. See the ProcAmp example plugin for usage.</p>
 <p>Kernels that use statically sized shared memory use a different macro, <code>GF_KERNEL_FUNCTION_SHARED</code>. Please see the header for details.</p>
 <hr />
 <h2 id="declaring-device-functions">Declaring Device Functions<a class="headerlink" href="#declaring-device-functions" title="Permanent link">&para;</a></h2>
 <p>By comparison, device functions are a snap to write:</p>
-<div class="highlight"><pre><span></span><code><span class="n">GF_DEVICE_FUNCTION</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">Average</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{...</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><span class="n">GF_DEVICE_FUNCTION</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">Average</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{...</span>
+</span></code></pre></div>
 <hr />
 <h2 id="other-macros-and-functions">Other Macros and Functions<a class="headerlink" href="#other-macros-and-functions" title="Permanent link">&para;</a></h2>
 <p>There's a variety of other macros and functions in the KernelSupport headers. Please see the Headers and examples for details.</p>
@@ -3162,7 +3162,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.copy", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>

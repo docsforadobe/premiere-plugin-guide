@@ -3019,15 +3019,15 @@
 <h1 id="legacy-callback-suites">Legacy Callback Suites<a class="headerlink" href="#legacy-callback-suites" title="Permanent link">&para;</a></h1>
 <h2 id="pisuites">piSuites<a class="headerlink" href="#pisuites" title="Permanent link">&para;</a></h2>
 <p>These callbacks are available to all plugins, although many of these callbacks are only appropriate for specific plugin types.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kt">int</span><span class="w">                   </span><span class="n">piInterfaceVer</span><span class="p">;</span>
-<span class="w">  </span><span class="n">PlugMemoryFuncsPtr</span><span class="w">    </span><span class="n">memFuncs</span><span class="p">;</span>
-<span class="w">  </span><span class="n">PlugWindowFuncsPtr</span><span class="w">    </span><span class="n">windFuncs</span><span class="p">;</span>
-<span class="w">  </span><span class="n">PlugppixFuncsPtr</span><span class="w">      </span><span class="n">ppixFuncs</span><span class="p">;</span>
-<span class="w">  </span><span class="n">PlugUtilFuncsPtr</span><span class="w">      </span><span class="n">utilFuncs</span><span class="p">;</span>
-<span class="w">  </span><span class="n">PlugTimelineFuncsPtr</span><span class="w">  </span><span class="n">timelineFuncs</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">piSuites</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">piSuitesPtr</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="kt">int</span><span class="w">                   </span><span class="n">piInterfaceVer</span><span class="p">;</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PlugMemoryFuncsPtr</span><span class="w">    </span><span class="n">memFuncs</span><span class="p">;</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PlugWindowFuncsPtr</span><span class="w">    </span><span class="n">windFuncs</span><span class="p">;</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">PlugppixFuncsPtr</span><span class="w">      </span><span class="n">ppixFuncs</span><span class="p">;</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">PlugUtilFuncsPtr</span><span class="w">      </span><span class="n">utilFuncs</span><span class="p">;</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">PlugTimelineFuncsPtr</span><span class="w">  </span><span class="n">timelineFuncs</span><span class="p">;</span>
+</span><span id="__span-0-8"><span class="p">}</span><span class="w"> </span><span class="n">piSuites</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">piSuitesPtr</span><span class="p">;</span>
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -3123,7 +3123,8 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Allocates a block of memory, returns a pointer to the new block.</p>
-<p><pre lang="cpp">char* newPtr (csSDK_uint32 size);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="nf">newPtr</span><span class="w"> </span><span class="p">(</span><span class="n">csSDK_uint32</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 <tr>
@@ -3132,7 +3133,8 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Equivalent to newPtr, but initializes the memory to 0.</p>
-<p><pre lang="cpp">char* newPtrClear (csSDK_uint32 size);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="nf">newPtrClear</span><span class="w"> </span><span class="p">(</span><span class="n">csSDK_uint32</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 <tr>
@@ -3141,7 +3143,10 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Resizes an allocated memory block.</p>
-<p><pre lang="cpp">void setPtrSize (<br/>  PrMemoryPtr   *ptr,<br/>  csSDK_uint32  newsize);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">void</span><span class="w"> </span><span class="nf">setPtrSize</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PrMemoryPtr</span><span class="w">   </span><span class="o">*</span><span class="n">ptr</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">newsize</span><span class="p">);</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 <tr>
@@ -3150,7 +3155,8 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Returns size in bytes of an allocated memory block.</p>
-<p><pre lang="cpp">csSDK_int32 getPtrSize (char *ptr);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">csSDK_int32</span><span class="w"> </span><span class="nf">getPtrSize</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">);</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 <tr>
@@ -3159,7 +3165,8 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Frees an allocated memory block.</p>
-<p><pre lang="cpp">void disposePtr (char *ptr);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">void</span><span class="w"> </span><span class="nf">disposePtr</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">);</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 <tr>
@@ -3168,7 +3175,8 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Allocates a block of memory, returning a handle to it.</p>
-<p><pre lang="cpp">char** newHandle (csSDK_uint32 size);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="nf">newHandle</span><span class="w"> </span><span class="p">(</span><span class="n">csSDK_uint32</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 <tr>
@@ -3177,7 +3185,8 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Equivalent to newHandle, but initializes the memory to 0.</p>
-<p><pre lang="cpp">char** newHandleClear (csSDK_uint32 size);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="nf">newHandleClear</span><span class="w"> </span><span class="p">(</span><span class="n">csSDK_uint32</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 <tr>
@@ -3186,7 +3195,10 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Resizes an allocated memory handle.</p>
-<p><pre lang="cpp">csSDK_int16 setHandleSize (<br/>  char          **PrMemoryHandle,<br/>  csSDK_uint32  newsize);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">csSDK_int16</span><span class="w"> </span><span class="nf">setHandleSize</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="kt">char</span><span class="w">          </span><span class="o">**</span><span class="n">PrMemoryHandle</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">newsize</span><span class="p">);</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 <tr>
@@ -3195,7 +3207,8 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Returns the size (in bytes) of an allocated block.</p>
-<p><pre lang="cpp">csSDK_int32 getHandleSize ( char **PrMemoryHandle);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">csSDK_int32</span><span class="w"> </span><span class="nf">getHandleSize</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">PrMemoryHandle</span><span class="p">);</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 <tr>
@@ -3204,7 +3217,8 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Disposes of a previously allocated handle.</p>
-<p><pre lang="cpp">void disposeHandle (char **PrMemoryHandle);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">void</span><span class="w"> </span><span class="nf">disposeHandle</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">PrMemoryHandle</span><span class="p">);</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 <tr>
@@ -3237,7 +3251,8 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Updates all windows. Windows only, doesn't work on Mac OS.</p>
-<p><pre lang="cpp">void updateAllWindows (void);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">void</span><span class="w"> </span><span class="nf">updateAllWindows</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 <tr>
@@ -3246,7 +3261,8 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Returns the main application HWND.</p>
-<p><pre lang="cpp">void getMainWnd (void);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">void</span><span class="w"> </span><span class="nf">getMainWnd</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 </tbody>
@@ -3271,7 +3287,8 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Returns a pointer to the array of pixels contained in a PPix.</p>
-<p><pre lang="cpp">char* ppixGetPixels (PPixHand pix);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="nf">ppixGetPixels</span><span class="w"> </span><span class="p">(</span><span class="n">PPixHand</span><span class="w"> </span><span class="n">pix</span><span class="p">);</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 <tr>
@@ -3280,7 +3297,10 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Returns the bounds of a PPix.</p>
-<p><pre lang="cpp">void ppixGetBounds (<br/>  PPixHand  pix;<br/>  prRect    *bounds);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">void</span><span class="w"> </span><span class="n">ppixGetBounds</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PPixHand</span><span class="w">  </span><span class="n">pix</span><span class="p">;</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">prRect</span><span class="w">    </span><span class="o">*</span><span class="n">bounds</span><span class="p">);</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 <tr>
@@ -3289,7 +3309,8 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Returns the rowbytes of a PPix so you can properly parse the pixels returned by ppixGetPixels.</p>
-<p><pre lang="cpp">int ppixGetRowbytes (PPixHand pix);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">int</span><span class="w"> </span><span class="nf">ppixGetRowbytes</span><span class="w"> </span><span class="p">(</span><span class="n">PPixHand</span><span class="w"> </span><span class="n">pix</span><span class="p">);</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 <tr>
@@ -3299,7 +3320,8 @@
 <td colspan="1" rowspan="1">
 <p>Allocates and returns a handle to a new PPix, with specified bounds.</p>
 <p>Since this is an older call, the pixel format is hardcoded to BGRA_4444_8u.</p>
-<p><pre lang="cpp">PPixHandle ppixNew (prRect *bounds);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PPixHandle</span><span class="w"> </span><span class="nf">ppixNew</span><span class="w"> </span><span class="p">(</span><span class="n">prRect</span><span class="w"> </span><span class="o">*</span><span class="n">bounds</span><span class="p">);</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 <tr>
@@ -3308,7 +3330,8 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Frees a PPixHand.</p>
-<p><pre lang="cpp">void ppixDispose (PPixHand pix);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">void</span><span class="w"> </span><span class="nf">ppixDispose</span><span class="w"> </span><span class="p">(</span><span class="n">PPixHand</span><span class="w"> </span><span class="n">pix</span><span class="p">);</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 <tr>
@@ -3326,7 +3349,11 @@
 <td colspan="1" rowspan="1">
 <p>Passes back the pixel aspect ratio of a PPixHand.</p>
 <p>Premiere populates the longs with the PAR numerator and denominator.</p>
-<p><pre lang="cpp">int ppixGetPixelAspectRatio (<br/>  PPixHand      pix,<br/>  csSDK_uint32  <em>num,<br/>  csSDK_uint32  </em>den)</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">int</span><span class="w"> </span><span class="n">ppixGetPixelAspectRatio</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PPixHand</span><span class="w">      </span><span class="n">pix</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="o">&lt;</span><span class="n">em</span><span class="o">&gt;</span><span class="n">num</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;</span><span class="n">den</span><span class="p">)</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 <tr>
@@ -3335,7 +3362,10 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Passes back the alpha bounds of a PPixHand.</p>
-<p><pre lang="cpp">void ppixGetAlphaBounds (<br/>  PPixHand  pix,<br/>  prRect    *alphaBounds)</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">void</span><span class="w"> </span><span class="n">ppixGetAlphaBounds</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PPixHand</span><span class="w">  </span><span class="n">pix</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">prRect</span><span class="w">    </span><span class="o">*</span><span class="n">alphaBounds</span><span class="p">)</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 </tbody>
@@ -3359,7 +3389,8 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Passes back Premiere's serial number.</p>
-<p><pre lang="cpp">void getSerialNumber (char* buffer);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">void</span><span class="w"> </span><span class="nf">getSerialNumber</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">buffer</span><span class="p">);</span>
+</span></code></pre></div></p>
 <ul>
 <li><code>buffer</code>: must be at least 40 characters long.</li>
 </ul>
@@ -3373,7 +3404,11 @@
 <p>Passes back a file's timebase in a <code>TDB_TimeRecord</code> (allocated by the plugin).</p>
 <p>If the file is already in the sequence, it is preferable to get a file's timebase using the <a href="../sweetpea-suites/#video-segment-suite">Video Segment Suite</a> to get the <code>kVideoSegmentProperty_Media_StreamFrameRate</code>.</p>
 <p>Note: Know your formats. Don't ask an audio only format for video, you may get unexpected results.</p>
-<p><pre lang="cpp">csSDK_int32 getFileTimebase (<br/>  prFileSpec      *filespec,<br/>  csSDK_int32     audioOnly,<br/>  TDB_TimeRecord  *result);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">csSDK_int32</span><span class="w"> </span><span class="nf">getFileTimebase</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">prFileSpec</span><span class="w">      </span><span class="o">*</span><span class="n">filespec</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">     </span><span class="n">audioOnly</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">TDB_TimeRecord</span><span class="w">  </span><span class="o">*</span><span class="n">result</span><span class="p">);</span>
+</span></code></pre></div></p>
 <ul>
 <li><code>filespec</code>: description of the file, use before getFileVideo</li>
 <li><code>audioOnly</code>: if non-zero, return the audio timebase. If zero, return the video timebase.</li>
@@ -3388,7 +3423,13 @@
 <td colspan="1" rowspan="1">
 <p>Gets a frame of video (at a specified time) from a file.</p>
 <p>If the file is already in the sequence, it is preferable to get a file's video using the <a href="../sweetpea-suites/#clip-render-suite">Clip Render Suite</a>.</p>
-<p><pre lang="cpp">csSDK_int32 getFileVideo (<br/>  prFileSpec   *filespec,<br/>  csSDK_int32  frame,<br/>  PPixHand     thePort,<br/>  prRect       *bounds,<br/>  csSDK_int32  flags);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">csSDK_int32</span><span class="w"> </span><span class="nf">getFileVideo</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">prFileSpec</span><span class="w">   </span><span class="o">*</span><span class="n">filespec</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">frame</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PPixHand</span><span class="w">     </span><span class="n">thePort</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">prRect</span><span class="w">       </span><span class="o">*</span><span class="n">bounds</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">flags</span><span class="p">);</span>
+</span></code></pre></div></p>
 <ul>
 <li><code>filespec</code>: the description of the file</li>
 <li><code>frame</code>: the frame to retrieve</li>
@@ -3405,7 +3446,10 @@
 <td colspan="1" rowspan="1">
 <p>Passes back the bounds of a file.</p>
 <p>If the file is already in the sequence, it is preferable to get a file's video bounds using the <a href="../sweetpea-suites/#clip-render-suite">Clip Render Suite</a>.</p>
-<p><pre lang="cpp">csSDK_int32 getFileVideoBounds (<br/>  prFileSpec *filespec,<br/>  prRect *bounds);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">csSDK_int32</span><span class="w"> </span><span class="nf">getFileVideoBounds</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">prFileSpec</span><span class="w"> </span><span class="o">*</span><span class="n">filespec</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">prRect</span><span class="w"> </span><span class="o">*</span><span class="n">bounds</span><span class="p">);</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 <tr>
@@ -3414,7 +3458,8 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>This very important call returns the SweetPea suite that allows plugins to acquire and release all other <a href="../sweetpea-suites/">SweetPea Suites</a>.</p>
-<p><pre lang="cpp">SPBasicSuite* getSPBasicSuite();</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">SPBasicSuite</span><span class="o">*</span><span class="w"> </span><span class="nf">getSPBasicSuite</span><span class="p">();</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 <tr>
@@ -3423,7 +3468,11 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Passes back the list of valid entensions/filter strings given a class of media (see file types constants below).</p>
-<p><pre lang="cpp">csSDK_int32 (*plugGetFileExtStringFunc)(<br/>  csSDK_uint32  fileTypes,<br/>  char          *inBuffer,<br/>  csSDK_uint32  inBufferSize);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">csSDK_int32</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">plugGetFileExtStringFunc</span><span class="p">)(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">fileTypes</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="kt">char</span><span class="w">          </span><span class="o">*</span><span class="n">inBuffer</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">inBufferSize</span><span class="p">);</span>
+</span></code></pre></div></p>
 <ul>
 <li><code>kFileTypes_Still</code>: still media</li>
 <li><code>kFileTypes_AudioOnly</code>: audio-only media</li>
@@ -3459,7 +3508,13 @@
 <p class="admonition-title">Warning</p>
 <p>This call is expensive; use it carefully.</p>
 </div>
-<p><pre lang="cpp">csSDK_int32 getClipVideo (<br/>  csSDK_int32  frame,<br/>  PPixHand     thePort,<br/>  prRect       *bounds,<br/>  csSDK_int32  flags,<br/>  PrClipID     clipData);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">csSDK_int32</span><span class="w"> </span><span class="nf">getClipVideo</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">frame</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PPixHand</span><span class="w">     </span><span class="n">thePort</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">prRect</span><span class="w">       </span><span class="o">*</span><span class="n">bounds</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">flags</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">PrClipID</span><span class="w">     </span><span class="n">clipData</span><span class="p">);</span>
+</span></code></pre></div></p>
 <ul>
 <li><code>frame</code>: the frame number you're requesting</li>
 <li><code>thePort</code>: allocate using the <a href="../sweetpea-suites/#ppix-creator-suite">PPix Creator Suite</a> before calling</li>
@@ -3476,7 +3531,11 @@
 <td colspan="1" rowspan="1">
 <p>Passes back two longs with the start and end of the current work area (read-only).</p>
 <p>Set timelineData to the timelineData of the current sequence.</p>
-<p><pre lang="cpp">csSDK_int32 getWorkArea (<br/>  PrTimelineID  timelineData,<br/>  csSDK_int32   *workAreaStart,<br/>  csSDK_int32   *workAreaEnd);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">csSDK_int32</span><span class="w"> </span><span class="nf">getWorkArea</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PrTimelineID</span><span class="w">  </span><span class="n">timelineData</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="o">*</span><span class="n">workAreaStart</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="o">*</span><span class="n">workAreaEnd</span><span class="p">);</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 <tr>
@@ -3485,7 +3544,11 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Passes back the current timebase of the timeline (<code>scale + sampleSize</code>).</p>
-<p><pre lang="cpp">void getCurrentTimebase(<br/>  PrTimelineID  timelineData,<br/>  csSDK_uint32  *scale,<br/>  csSDK_int32   *sampleSize);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">void</span><span class="w"> </span><span class="nf">getCurrentTimebase</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PrTimelineID</span><span class="w">  </span><span class="n">timelineData</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="o">*</span><span class="n">scale</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="o">*</span><span class="n">sampleSize</span><span class="p">);</span>
+</span></code></pre></div></p>
 <ul>
 <li><code>timelineData</code>: the timelineData of the current sequence</li>
 <li><code>scale</code>: the sequence scale</li>
@@ -3500,7 +3563,9 @@
 <td colspan="1" rowspan="1">
 <p>Returns the position of the current time indicator (the position bar set by the user).</p>
 <p>If (-1) is returned, the position bar in the timeline is not present.</p>
-<p><pre lang="cpp">csSDK_int32 getCurrentPos(<br/>  PrTimelineID  timelineData);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">csSDK_int32</span><span class="w"> </span><span class="nf">getCurrentPos</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PrTimelineID</span><span class="w">  </span><span class="n">timelineData</span><span class="p">);</span>
+</span></code></pre></div></p>
 <ul>
 <li><code>timelineData</code>: the timelineData of the current sequence</li>
 </ul>
@@ -3515,7 +3580,17 @@
 <p>Used by video filters and transitions for previews in a modal setup dialog.</p>
 <p>If the return value is -1, an error occurred, but if it is 0, the callback has returned safely.</p>
 <p>Exporters rendering final movies should NOT use this callback.</p>
-<p><pre lang="cpp">csSDK_int32 getPreviewFrameEx(<br/>  PrTimelineID    timelineData,<br/>  csSDK_int32     inFrame,<br/>  PPixHand*       outRenderedFrame,<br/>  const prRect*   inFrameRect,<br/>  PrPixelFormat*  inRequestedPixelFormatArray,<br/>  csSDK_int32     inRequestedPixelFormatArrayCount,<br/>  csSDK_uint32    inPixelAspectRatioNumerator,<br/>  csSDK_uint32    inPixelAspectRatioDenominator,<br/>  bool            inAlwaysRender);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">csSDK_int32</span><span class="w"> </span><span class="nf">getPreviewFrameEx</span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PrTimelineID</span><span class="w">    </span><span class="n">timelineData</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">     </span><span class="n">inFrame</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">PPixHand</span><span class="o">*</span><span class="w">       </span><span class="n">outRenderedFrame</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prRect</span><span class="o">*</span><span class="w">   </span><span class="n">inFrameRect</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">PrPixelFormat</span><span class="o">*</span><span class="w">  </span><span class="n">inRequestedPixelFormatArray</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">     </span><span class="n">inRequestedPixelFormatArrayCount</span><span class="p">,</span>
+</span><span id="__span-0-8"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">    </span><span class="n">inPixelAspectRatioNumerator</span><span class="p">,</span>
+</span><span id="__span-0-9"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">    </span><span class="n">inPixelAspectRatioDenominator</span><span class="p">,</span>
+</span><span id="__span-0-10"><span class="w">  </span><span class="kt">bool</span><span class="w">            </span><span class="n">inAlwaysRender</span><span class="p">);</span>
+</span></code></pre></div></p>
 <ul>
 <li><code>timelineData</code>: The timelineData of the current sequence. Pass a timeline handle as provided in EffectRecord, VideoRecord, compDoCompileInfo, or imGetPrefsRec.</li>
 <li><code>inFrame</code>: The frame to get, specified in the current timebase. If a timelineData handle is specified (first param above), this frame will be relative to the start of the sequence.</li>
@@ -3529,7 +3604,12 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Passes back the dimensions of a clip in a sequence. For rolling/ crawling titles, use the Roll/Crawl Suite to get the dimensions instead.</p>
-<p><pre lang="cpp">csSDK_int32 getClipVideoBounds (<br/>  PrClipID      inClipData,<br/>  prRect        *outBounds,<br/>  csSDK_uint32  *outPixelAspectRatioNumerator,<br/>  csSDK_uint32  *outPixelAspectRatioDenominator);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">csSDK_int32</span><span class="w"> </span><span class="nf">getClipVideoBounds</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PrClipID</span><span class="w">      </span><span class="n">inClipData</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">prRect</span><span class="w">        </span><span class="o">*</span><span class="n">outBounds</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="o">*</span><span class="n">outPixelAspectRatioNumerator</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="o">*</span><span class="n">outPixelAspectRatioDenominator</span><span class="p">);</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 <tr>
@@ -3544,7 +3624,16 @@
 <p class="admonition-title">Warning</p>
 <p>This call is expensive; use it carefully.</p>
 </div>
-<p><pre lang="cpp">csSDK_int32 getClipVideoEx (<br/>  csSDK_int32          inFrame,<br/>  PPixHand             *outRenderedFrame,<br/>  const prRect         *inFrameRect,<br/>  const PrPixelFormat  *inRequestedPixelFormatArray,<br/>  csSDK_int32          inRequestedPixelFormatArrayCount,<br/>  csSDK_uint32         inPixelAspectRatioNumerator,<br/>  csSDK_uint32         inPixelAspectRatioDenominator,<br/>  PrClipID             inClipData);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">csSDK_int32</span><span class="w"> </span><span class="nf">getClipVideoEx</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">          </span><span class="n">inFrame</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PPixHand</span><span class="w">             </span><span class="o">*</span><span class="n">outRenderedFrame</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prRect</span><span class="w">         </span><span class="o">*</span><span class="n">inFrameRect</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PrPixelFormat</span><span class="w">  </span><span class="o">*</span><span class="n">inRequestedPixelFormatArray</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">          </span><span class="n">inRequestedPixelFormatArrayCount</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">         </span><span class="n">inPixelAspectRatioNumerator</span><span class="p">,</span>
+</span><span id="__span-0-8"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">         </span><span class="n">inPixelAspectRatioDenominator</span><span class="p">,</span>
+</span><span id="__span-0-9"><span class="w">  </span><span class="n">PrClipID</span><span class="w">             </span><span class="n">inClipData</span><span class="p">);</span>
+</span></code></pre></div></p>
 <ul>
 <li><code>inFrame</code>: the frame number you're requesting, in the timebase of the clip</li>
 <li><code>outRenderedFrame</code>: Allocated by the host. The plugin should dispose of the PPixHand when done</li>
@@ -3561,13 +3650,13 @@
 <p>These functions are not exposed for other plugin types.</p>
 <p>These functions are not aware of different pixel formats, and are intended only for 8-bit BGRA processing.</p>
 <p>Sample usage:</p>
-<div class="highlight"><pre><span></span><code><span class="p">((</span><span class="o">*</span><span class="n">theData</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">bottleNecks</span><span class="o">-&gt;</span><span class="n">StretchBits</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">srcpix</span><span class="p">,</span>
-<span class="w">                                        </span><span class="o">*</span><span class="n">dstpix</span><span class="p">,</span>
-<span class="w">                                        </span><span class="o">&amp;</span><span class="n">srcbox</span><span class="p">,</span>
-<span class="w">                                        </span><span class="o">&amp;</span><span class="n">srcbox</span><span class="p">,</span>
-<span class="w">                                        </span><span class="mi">0</span><span class="p">,</span>
-<span class="w">                                        </span><span class="nb">NULL</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><span class="p">((</span><span class="o">*</span><span class="n">theData</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">bottleNecks</span><span class="o">-&gt;</span><span class="n">StretchBits</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">srcpix</span><span class="p">,</span>
+</span><span id="__span-1-2"><span class="w">                                        </span><span class="o">*</span><span class="n">dstpix</span><span class="p">,</span>
+</span><span id="__span-1-3"><span class="w">                                        </span><span class="o">&amp;</span><span class="n">srcbox</span><span class="p">,</span>
+</span><span id="__span-1-4"><span class="w">                                        </span><span class="o">&amp;</span><span class="n">srcbox</span><span class="p">,</span>
+</span><span id="__span-1-5"><span class="w">                                        </span><span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-1-6"><span class="w">                                        </span><span class="nb">NULL</span><span class="p">);</span>
+</span></code></pre></div>
 <table>
 <tbody>
 <tr>
@@ -3579,7 +3668,14 @@
 <h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">&para;</a></h2>
 <p>Stretches and copies an image, including the alpha channel.</p>
 <p>When the destination is larger than the source, it performs bilinear interpolation for smooth scaling.</p>
-<p><pre lang="cpp">void StretchBits (<br/>  PPixHand  srcPix,<br/>  PPixHand  dstPix,<br/>  prRect    srcRect,<br/>  prRect    dstRect,<br/>  int       mode,<br/>  prRgn     rgn);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">void</span><span class="w"> </span><span class="nf">StretchBits</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PPixHand</span><span class="w">  </span><span class="n">srcPix</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PPixHand</span><span class="w">  </span><span class="n">dstPix</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">prRect</span><span class="w">    </span><span class="n">srcRect</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">prRect</span><span class="w">    </span><span class="n">dstRect</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="kt">int</span><span class="w">       </span><span class="n">mode</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="n">prRgn</span><span class="w">     </span><span class="n">rgn</span><span class="p">);</span>
+</span></code></pre></div></p>
 <p>StretchBits only works on 8-bit PPixs.</p>
 <p><code>srcRect</code> is the area of the source PPix to copy; <code>dstRect</code> is used to scale the copy.</p>
 <p><code>mode</code>:</p>
@@ -3602,7 +3698,12 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Maps the source rectangle to a four-point polygon in the destination.</p>
-<p><pre lang="cpp">void DistortPolygon (<br/>  PPixHand  src,<br/>  PPixHand  dest,<br/>  prRect    *srcbox,<br/>  prPoint   *dstpts);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">void</span><span class="w"> </span><span class="nf">DistortPolygon</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PPixHand</span><span class="w">  </span><span class="n">src</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PPixHand</span><span class="w">  </span><span class="n">dest</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">prRect</span><span class="w">    </span><span class="o">*</span><span class="n">srcbox</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">prPoint</span><span class="w">   </span><span class="o">*</span><span class="n">dstpts</span><span class="p">);</span>
+</span></code></pre></div></p>
 <p>When scaling up, <code>DistortPolygon</code> uses bilinear interpolation; it uses pixel averaging when scaling down.</p>
 </td>
 </tr>
@@ -3613,7 +3714,12 @@
 <td colspan="1" rowspan="1">
 <p>Maps a four-point src polygon into a four-point polygon (dstpts).</p>
 <p>If the source polygon is a rectangle, it is equivalent to <code>DistortPolygon</code>.</p>
-<p><pre lang="cpp">void MapPolygon (<br/>  PPixHand  src,<br/>  PPixHand  dest,<br/>  prPoint   *srcpts,<br/>  prPoint   *dstpts );</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">void</span><span class="w"> </span><span class="nf">MapPolygon</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PPixHand</span><span class="w">  </span><span class="n">src</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PPixHand</span><span class="w">  </span><span class="n">dest</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">prPoint</span><span class="w">   </span><span class="o">*</span><span class="n">srcpts</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">prPoint</span><span class="w">   </span><span class="o">*</span><span class="n">dstpts</span><span class="w"> </span><span class="p">);</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 <tr>
@@ -3622,7 +3728,12 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Equivalent to DistortPolygon, using fixed-point coordinates.</p>
-<p><pre lang="cpp">void DistortFixed (<br/>  PPixHand   src,<br/>  PPixHand   dest,<br/>  prRect     *srcbox,<br/>  LongPoint  *dstpts);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">void</span><span class="w"> </span><span class="nf">DistortFixed</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PPixHand</span><span class="w">   </span><span class="n">src</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PPixHand</span><span class="w">   </span><span class="n">dest</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">prRect</span><span class="w">     </span><span class="o">*</span><span class="n">srcbox</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">LongPoint</span><span class="w">  </span><span class="o">*</span><span class="n">dstpts</span><span class="p">);</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 <tr>
@@ -3631,7 +3742,12 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Equivalent to MapPolygon, using fixed-point coordinates.</p>
-<p><pre lang="cpp">void FixedToFixed (<br/>  PPixHand   src,<br/>  PPixHand   dest,<br/>  LongPoint  *srcpts,<br/>  LongPoint  *dstpts);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">void</span><span class="w"> </span><span class="nf">FixedToFixed</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="n">PPixHand</span><span class="w">   </span><span class="n">src</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="n">PPixHand</span><span class="w">   </span><span class="n">dest</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="n">LongPoint</span><span class="w">  </span><span class="o">*</span><span class="n">srcpts</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="n">LongPoint</span><span class="w">  </span><span class="o">*</span><span class="n">dstpts</span><span class="p">);</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 <tr>
@@ -3640,7 +3756,16 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Image map function.</p>
-<p><pre lang="cpp">void DoIndexMap (<br/>  char    *src,<br/>  char    *dst,<br/>  short   row,<br/>  short,  pixwidth,<br/>  short,  height,<br/>  char    *lookup1,<br/>  char    *lookup2,<br/>  char    *lookup3);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">void</span><span class="w"> </span><span class="nf">DoIndexMap</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="kt">char</span><span class="w">    </span><span class="o">*</span><span class="n">src</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="kt">char</span><span class="w">    </span><span class="o">*</span><span class="n">dst</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="kt">short</span><span class="w">   </span><span class="n">row</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="kt">short</span><span class="p">,</span><span class="w">  </span><span class="n">pixwidth</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="kt">short</span><span class="p">,</span><span class="w">  </span><span class="n">height</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="kt">char</span><span class="w">    </span><span class="o">*</span><span class="n">lookup1</span><span class="p">,</span>
+</span><span id="__span-0-8"><span class="w">  </span><span class="kt">char</span><span class="w">    </span><span class="o">*</span><span class="n">lookup2</span><span class="p">,</span>
+</span><span id="__span-0-9"><span class="w">  </span><span class="kt">char</span><span class="w">    </span><span class="o">*</span><span class="n">lookup3</span><span class="p">);</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 <tr>
@@ -3649,7 +3774,14 @@
 </td>
 <td colspan="1" rowspan="1">
 <p>Convolution function.</p>
-<p><pre lang="cpp">void DoConvolve (<br/>  unsigned char  *src,<br/>  unsigned char  *dst,<br/>  short          *inmatrix,<br/>  short,         rowBytes,<br/>  short,         width,<br/>  short,         height);</pre></p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">void</span><span class="w"> </span><span class="nf">DoConvolve</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w">  </span><span class="o">*</span><span class="n">src</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w">  </span><span class="o">*</span><span class="n">dst</span><span class="p">,</span>
+</span><span id="__span-0-4"><span class="w">  </span><span class="kt">short</span><span class="w">          </span><span class="o">*</span><span class="n">inmatrix</span><span class="p">,</span>
+</span><span id="__span-0-5"><span class="w">  </span><span class="kt">short</span><span class="p">,</span><span class="w">         </span><span class="n">rowBytes</span><span class="p">,</span>
+</span><span id="__span-0-6"><span class="w">  </span><span class="kt">short</span><span class="p">,</span><span class="w">         </span><span class="n">width</span><span class="p">,</span>
+</span><span id="__span-0-7"><span class="w">  </span><span class="kt">short</span><span class="p">,</span><span class="w">         </span><span class="n">height</span><span class="p">);</span>
+</span></code></pre></div></p>
 </td>
 </tr>
 </tbody>
@@ -3737,7 +3869,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.copy", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
