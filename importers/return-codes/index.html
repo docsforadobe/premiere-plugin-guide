@@ -2749,186 +2749,370 @@
 <table>
 <thead>
 <tr>
-<th>Return Code</th>
-<th>Reason</th>
+<th colspan="1" rowspan="1">
+<p>Return Code</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Reason</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>imNoErr</code></td>
-<td>Operation has completed without error.</td>
+<td colspan="1" rowspan="1">
+<p><code>imNoErr</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Operation has completed without error.</p>
+</td>
 </tr>
 <tr>
-<td><code>imTooWide</code></td>
-<td>File dimensions too large.</td>
+<td colspan="1" rowspan="1">
+<p><code>imTooWide</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>File dimensions too large.</p>
+</td>
 </tr>
 <tr>
-<td><code>imBadFile</code></td>
-<td>Bad file format.<br/>To defer an unsupported subtype to a lower priority importer, return this during <code>imOpenFile8</code> or <code>imGetInfo8</code>.</td>
+<td colspan="1" rowspan="1">
+<p><code>imBadFile</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Bad file format.</p>
+<p>To defer an unsupported subtype to a lower priority importer, return this during <code>imOpenFile8</code> or <code>imGetInfo8</code>.</p>
+</td>
 </tr>
 <tr>
-<td><code>imUnsupported</code></td>
-<td>Unsupported selector.</td>
+<td colspan="1" rowspan="1">
+<p><code>imUnsupported</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Unsupported selector.</p>
+</td>
 </tr>
 <tr>
-<td><code>imMemErr</code></td>
-<td>Memory error.</td>
+<td colspan="1" rowspan="1">
+<p><code>imMemErr</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Memory error.</p>
+</td>
 </tr>
 <tr>
-<td><code>imOtherErr</code></td>
-<td>Unknown error.</td>
+<td colspan="1" rowspan="1">
+<p><code>imOtherErr</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Unknown error.</p>
+</td>
 </tr>
 <tr>
-<td><code>imNoContent</code></td>
-<td>No audio or video.</td>
+<td colspan="1" rowspan="1">
+<p><code>imNoContent</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>No audio or video.</p>
+</td>
 </tr>
 <tr>
-<td><code>imBadRate</code></td>
-<td>Bad audio rate.</td>
+<td colspan="1" rowspan="1">
+<p><code>imBadRate</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Bad audio rate.</p>
+</td>
 </tr>
 <tr>
-<td><code>imBadCompression</code></td>
-<td>Bad compression.</td>
+<td colspan="1" rowspan="1">
+<p><code>imBadCompression</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Bad compression.</p>
+</td>
 </tr>
 <tr>
-<td><code>imBadCodec</code></td>
-<td>Codec not found.</td>
+<td colspan="1" rowspan="1">
+<p><code>imBadCodec</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Codec not found.</p>
+</td>
 </tr>
 <tr>
-<td><code>imNotFlat</code></td>
-<td>Unflattened QuickTime movie.</td>
+<td colspan="1" rowspan="1">
+<p><code>imNotFlat</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Unflattened QuickTime movie.</p>
+</td>
 </tr>
 <tr>
-<td><code>imBadSndComp</code></td>
-<td>Bad sound compression.</td>
+<td colspan="1" rowspan="1">
+<p><code>imBadSndComp</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Bad sound compression.</p>
+</td>
 </tr>
 <tr>
-<td><code>imNoTimecode</code></td>
-<td>Timecode supported, but not found.</td>
+<td colspan="1" rowspan="1">
+<p><code>imNoTimecode</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Timecode supported, but not found.</p>
+</td>
 </tr>
 <tr>
-<td><code>imMissingComponent</code></td>
-<td>Missing component needed to open the file.</td>
+<td colspan="1" rowspan="1">
+<p><code>imMissingComponent</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Missing component needed to open the file.</p>
+</td>
 </tr>
 <tr>
-<td><code>imSaveErr</code></td>
-<td>Error saving file.</td>
+<td colspan="1" rowspan="1">
+<p><code>imSaveErr</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Error saving file.</p>
+</td>
 </tr>
 <tr>
-<td><code>imDeleteErr</code></td>
-<td>Error deleting file.</td>
+<td colspan="1" rowspan="1">
+<p><code>imDeleteErr</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Error deleting file.</p>
+</td>
 </tr>
 <tr>
-<td><code>imNotFoundErr</code></td>
-<td>The requested metadata chunk was not found.</td>
+<td colspan="1" rowspan="1">
+<p><code>imNotFoundErr</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The requested metadata chunk was not found.</p>
+</td>
 </tr>
 <tr>
-<td><code>imSetFile</code></td>
-<td>Return this from <code>imGetPrefs8</code> only if you are a custom importer and you need Premiere to alter it's file access information (e.g. a new path or filename is created).</td>
+<td colspan="1" rowspan="1">
+<p><code>imSetFile</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Return this from <code>imGetPrefs8</code> only if you are a custom importer and you need Premiere to alter it's file access information (e.g. a new path or filename is created).</p>
+</td>
 </tr>
 <tr>
-<td><code>imIterateStreams</code></td>
-<td>Return from <code>imGetInfo8</code> to indicate that there are more streams to describe.<br/>Premiere will send <code>imGetInfo8</code> for the next stream.</td>
+<td colspan="1" rowspan="1">
+<p><code>imIterateStreams</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Return from <code>imGetInfo8</code> to indicate that there are more streams to describe.</p>
+<p>Premiere will send <code>imGetInfo8</code> for the next stream.</p>
+</td>
 </tr>
 <tr>
-<td><code>imBadStreamIndex</code></td>
-<td>Return from <code>imGetInfo8</code> after interating through streams to indicate that there are no more streams to describe.</td>
+<td colspan="1" rowspan="1">
+<p><code>imBadStreamIndex</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Return from <code>imGetInfo8</code> after interating through streams to indicate that there are no more streams to describe.</p>
+</td>
 </tr>
 <tr>
-<td><code>imCantTrim</code></td>
-<td>Return from <code>imCheckTrim</code> if the file cannot be trimmed by the importer.</td>
+<td colspan="1" rowspan="1">
+<p><code>imCantTrim</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Return from <code>imCheckTrim</code> if the file cannot be trimmed by the importer.</p>
+</td>
 </tr>
 <tr>
-<td><code>imDiskFull</code></td>
-<td>Return from <code>imTrimFile8</code> if there is not enough space to complete the trim operation.</td>
+<td colspan="1" rowspan="1">
+<p><code>imDiskFull</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Return from <code>imTrimFile8</code> if there is not enough space to complete the trim operation.</p>
+</td>
 </tr>
 <tr>
-<td><code>imDiskErr</code></td>
-<td>Return from <code>imTrimFile8</code> if there is a general disk or I/O error during the trim operation.</td>
+<td colspan="1" rowspan="1">
+<p><code>imDiskErr</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Return from <code>imTrimFile8</code> if there is a general disk or I/O error during the trim operation.</p>
+</td>
 </tr>
 <tr>
-<td><code>imFileShareViolation</code></td>
-<td>Return from <code>imOpenFile8</code> if file cannot be opened due to another process having exclusive read access</td>
+<td colspan="1" rowspan="1">
+<p><code>imFileShareViolation</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Return from <code>imOpenFile8</code> if file cannot be opened due to another process having exclusive read access</p>
+</td>
 </tr>
 <tr>
-<td><code>imIterateFrameSizes</code></td>
-<td>Return from <code>imGetPreferredFrameSize</code>, to be called again to describe more frame sizes for a particular pixel format.</td>
+<td colspan="1" rowspan="1">
+<p><code>imIterateFrameSizes</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Return from <code>imGetPreferredFrameSize</code>, to be called again to describe more frame sizes for a particular pixel format.</p>
+</td>
 </tr>
 <tr>
-<td><code>imMediaPending</code></td>
-<td>Return from <code>imGetSourceVideo</code> or <code>imCreateAsyncImporter</code> if the importer is still processing the file and cannot return video frames yet.</td>
+<td colspan="1" rowspan="1">
+<p><code>imMediaPending</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Return from <code>imGetSourceVideo</code> or <code>imCreateAsyncImporter</code> if the importer is still processing the file and cannot return video frames yet.</p>
+</td>
 </tr>
 <tr>
-<td><code>imDRMControlled</code></td>
-<td>Return from <code>imOpenFile8</code> if the file cannot be opened because it is under rights management.</td>
+<td colspan="1" rowspan="1">
+<p><code>imDRMControlled</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Return from <code>imOpenFile8</code> if the file cannot be opened because it is under rights management.</p>
+</td>
 </tr>
 <tr>
-<td><code>imActivationFailed</code></td>
-<td>Activation of a component failed (usually due to user cancellation).<br/>This is used by Premiere Elements.</td>
+<td colspan="1" rowspan="1">
+<p><code>imActivationFailed</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Activation of a component failed (usually due to user cancellation).</p>
+<p>This is used by Premiere Elements.</p>
+</td>
 </tr>
 <tr>
-<td><code>imFrameNotFound</code></td>
-<td>New in CS4. Return if an importer could not find the requested frame (typically used with async importers)</td>
+<td colspan="1" rowspan="1">
+<p><code>imFrameNotFound</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New in CS4. Return if an importer could not find the requested frame (typically used with async importers)</p>
+</td>
 </tr>
 <tr>
-<td><code>imBadHeader</code></td>
-<td>New in CS5. The file cannot be opened because of a header error</td>
+<td colspan="1" rowspan="1">
+<p><code>imBadHeader</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New in CS5. The file cannot be opened because of a header error</p>
+</td>
 </tr>
 <tr>
-<td><code>imUnsupportedCompression</code></td>
-<td>New in CS5. The file has a compression type that the importer does not support</td>
+<td colspan="1" rowspan="1">
+<p><code>imUnsupportedCompression</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New in CS5. The file has a compression type that the importer does not support</p>
+</td>
 </tr>
 <tr>
-<td><code>imFileOpenFailed</code></td>
-<td>New in CS5. The importer was unable to open the file on disk</td>
+<td colspan="1" rowspan="1">
+<p><code>imFileOpenFailed</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New in CS5. The importer was unable to open the file on disk</p>
+</td>
 </tr>
 <tr>
-<td><code>imFileHasNoImportableStreams</code></td>
-<td>New in CS5. The file has no audio or video stream</td>
+<td colspan="1" rowspan="1">
+<p><code>imFileHasNoImportableStreams</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New in CS5. The file has no audio or video stream</p>
+</td>
 </tr>
 <tr>
-<td><code>imFileReadFailed</code></td>
-<td>New in CS5. A read from an open file failed</td>
+<td colspan="1" rowspan="1">
+<p><code>imFileReadFailed</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New in CS5. A read from an open file failed</p>
+</td>
 </tr>
 <tr>
-<td><code>imUnsupportedAudioFormat</code></td>
-<td>New in CS5. The importer cannot import something in the audio format</td>
+<td colspan="1" rowspan="1">
+<p><code>imUnsupportedAudioFormat</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New in CS5. The importer cannot import something in the audio format</p>
+</td>
 </tr>
 <tr>
-<td><code>imUnsupportedVideoBitDepth</code></td>
-<td>New in CS5. The video bit depth of this file is unsupported by the importer</td>
+<td colspan="1" rowspan="1">
+<p><code>imUnsupportedVideoBitDepth</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New in CS5. The video bit depth of this file is unsupported by the importer</p>
+</td>
 </tr>
 <tr>
-<td><code>imDecompressionError</code></td>
-<td>New in CS5. The importer hit an error decompressing the audio or video</td>
+<td colspan="1" rowspan="1">
+<p><code>imDecompressionError</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New in CS5. The importer hit an error decompressing the audio or video</p>
+</td>
 </tr>
 <tr>
-<td><code>imInvalidPreferences</code></td>
-<td>New in CS5. Invalid prefs data was passed to the importer</td>
+<td colspan="1" rowspan="1">
+<p><code>imInvalidPreferences</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New in CS5. Invalid prefs data was passed to the importer</p>
+</td>
 </tr>
 <tr>
-<td><code>inFileNotAvailable</code></td>
-<td>New in CS5. Return from <code>imQueryContentState</code> if the file/stream is no longer available because it is offline or deleted</td>
+<td colspan="1" rowspan="1">
+<p><code>inFileNotAvailable</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New in CS5. Return from <code>imQueryContentState</code> if the file/stream is no longer available because it is offline or deleted</p>
+</td>
 </tr>
 <tr>
-<td><code>imRequiresProtectedContent</code></td>
-<td>New in CS5.5. Return from <code>imInit</code> if the importer depends on a library that has not been activated yet.</td>
+<td colspan="1" rowspan="1">
+<p><code>imRequiresProtectedContent</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New in CS5.5. Return from <code>imInit</code> if the importer depends on a library that has not been activated yet.</p>
+</td>
 </tr>
 <tr>
-<td><code>imNoCaptions</code></td>
-<td>New in CC. Return from <code>imInitiateAsyncClosedCaptionScan</code> if the clip has no closed captions, or return from <code>imGetNextClosedCaption</code> when there are no more captions.</td>
+<td colspan="1" rowspan="1">
+<p><code>imNoCaptions</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New in CC. Return from <code>imInitiateAsyncClosedCaptionScan</code> if the clip has no closed captions, or return from <code>imGetNextClosedCaption</code> when there are no more captions.</p>
+</td>
 </tr>
 <tr>
-<td><code>imCancel</code></td>
-<td>Return from <code>imGetPrefs8</code> if user cancels or the plugin cannot open the file (custom/synthetic importer).</td>
+<td colspan="1" rowspan="1">
+<p><code>imCancel</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Return from <code>imGetPrefs8</code> if user cancels or the plugin cannot open the file (custom/synthetic importer).</p>
+</td>
 </tr>
 <tr>
-<td><code>imBadFormatIndex</code></td>
-<td>Return this when given an out of range format index, and from <code>imGetIndFormat</code> when plugin has no more formats to enumerate.</td>
+<td colspan="1" rowspan="1">
+<p><code>imBadFormatIndex</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Return this when given an out of range format index, and from <code>imGetIndFormat</code> when plugin has no more formats to enumerate.</p>
+</td>
 </tr>
 <tr>
-<td><code>imIsCacheable</code></td>
-<td>Return from <code>imInit</code> if a plugin does not need to be called to initialize every time Premiere is launched.<br/>This will help reduce the time to launch the application.</td>
+<td colspan="1" rowspan="1">
+<p><code>imIsCacheable</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Return from <code>imInit</code> if a plugin does not need to be called to initialize every time Premiere is launched.</p>
+<p>This will help reduce the time to launch the application.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -2952,7 +3136,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 25, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 11, 2025</span>
   </span>
 
     

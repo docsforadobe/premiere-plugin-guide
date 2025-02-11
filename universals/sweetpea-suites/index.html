@@ -4360,30 +4360,53 @@
 <table>
 <thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th colspan="1" rowspan="1">
+<p>Parameter</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Description</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>inLogicalRegion</code></td>
-<td>The non-scaled region of the source PPix to overlay</td>
+<td colspan="1" rowspan="1">
+<p><code>inLogicalRegion</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The non-scaled region of the source PPix to overlay</p>
+</td>
 </tr>
 <tr>
-<td><code>inDisplayWidth</code></td>
-<td>Width and height of PPix, if provided in ioPPix, scaled to account for Monitor zoom and PAR</td>
+<td colspan="1" rowspan="1">
+<p><code>inDisplayWidth</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Width and height of PPix, if provided in ioPPix, scaled to account for Monitor zoom and PAR</p>
+</td>
 </tr>
 <tr>
-<td><code>inDisplayHeight</code></td>
-<td></td>
+<td colspan="1" rowspan="1">
+<p><code>inDisplayHeight</code></p>
+</td>
+<td colspan="1" rowspan="1"></td>
 </tr>
 <tr>
-<td><code>inClearToTransparentBlack</code></td>
-<td>If <code>kPrTrue</code>, the frame will first be cleared to transparent black before render</td>
+<td colspan="1" rowspan="1">
+<p><code>inClearToTransparentBlack</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>If <code>kPrTrue</code>, the frame will first be cleared to transparent black before render</p>
+</td>
 </tr>
 <tr>
-<td><code>ioPPix</code></td>
-<td>The frame into which to draw the overlay. If NULL, the host will allocate the PPix.<br/><br/>If provided, the PPix must be BGRA, square pixel aspect ratio, and sized to inDisplayWidth &amp; inDisplayHeight.</td>
+<td colspan="1" rowspan="1">
+<p><code>ioPPix</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The frame into which to draw the overlay. If NULL, the host will allocate the PPix.</p>
+<p>If provided, the PPix must be BGRA, square pixel aspect ratio, and sized to inDisplayWidth &amp; inDisplayHeight.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -4436,22 +4459,40 @@
 <table>
 <thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th colspan="1" rowspan="1">
+<p>Parameter</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Description</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>PPixHand *outPPixHand</code></td>
-<td>The new PPix handle if the creation was successful.<br/><br/>NULL otherwise.</td>
+<td colspan="1" rowspan="1">
+<p><code>PPixHand *outPPixHand</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The new PPix handle if the creation was successful.</p>
+<p>NULL otherwise.</p>
+</td>
 </tr>
 <tr>
-<td><code>PrPPixBufferAccess inRequestedAccess</code></td>
-<td>Requested pixel access. Read-only is not allowed (doesn't make sense).<br/><br/><code>PrPPixBufferAccess</code> values are defined in <a href="#ppix-suite">PPix Suite</a>.</td>
+<td colspan="1" rowspan="1">
+<p><code>PrPPixBufferAccess inRequestedAccess</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Requested pixel access. Read-only is not allowed (doesn't make sense).</p>
+<p><code>PrPPixBufferAccess</code> values are defined in <a href="#ppix-suite">PPix Suite</a>.</p>
+</td>
 </tr>
 <tr>
-<td><code>PrPixelFormat inPixelFormat</code></td>
-<td>The pixel format of this PPix</td>
+<td colspan="1" rowspan="1">
+<p><code>PrPixelFormat inPixelFormat</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The pixel format of this PPix</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -4466,22 +4507,41 @@
 <table>
 <thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th colspan="1" rowspan="1">
+<p>Parameter</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Description</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>PPixHand inPPixToClone</code></td>
-<td>The PPix to clone from.</td>
+<td colspan="1" rowspan="1">
+<p><code>PPixHand inPPixToClone</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The PPix to clone from.</p>
+</td>
 </tr>
 <tr>
-<td><code>PPixHand *outPPixHand</code></td>
-<td>The new PPix handle if the creation was successful.<br/><br/>NULL otherwise.</td>
+<td colspan="1" rowspan="1">
+<p><code>PPixHand *outPPixHand</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The new PPix handle if the creation was successful.</p>
+<p>NULL otherwise.</p>
+</td>
 </tr>
 <tr>
-<td><code>PrPPixBufferAccess inRequestedAccess</code></td>
-<td>Requested pixel access.<br/><br/>Only read-only is allowed right now.<br/><br/><code>PrPPixBufferAccess</code> values are defined in <a href="#ppix-suite">PPix Suite</a>.</td>
+<td colspan="1" rowspan="1">
+<p><code>PrPPixBufferAccess inRequestedAccess</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Requested pixel access.</p>
+<p>Only read-only is allowed right now.</p>
+<p><code>PrPPixBufferAccess</code> values are defined in <a href="#ppix-suite">PPix Suite</a>.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -4529,22 +4589,40 @@
 <table>
 <thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th colspan="1" rowspan="1">
+<p>Parameter</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Description</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>PPixHand inPPixHand</code></td>
-<td>The PPix handle to operate on.</td>
+<td colspan="1" rowspan="1">
+<p><code>PPixHand inPPixHand</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The PPix handle to operate on.</p>
+</td>
 </tr>
 <tr>
-<td><code>PrPPixBufferAccess inRequestedAccess</code><br/><br/>Most PPixs do not support write access modes.</td>
-<td>Requested pixel access.</td>
+<td colspan="1" rowspan="1">
+<p><code>PrPPixBufferAccess inRequestedAccess</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Requested pixel access.</p>
+<p>Most PPixs do not support write access modes.</p>
+</td>
 </tr>
 <tr>
-<td><code>char** outPixelAddress</code></td>
-<td>The output pixel buffer address.<br/><br/>May be NULL if the requested pixel access is not supported.</td>
+<td colspan="1" rowspan="1">
+<p><code>char** outPixelAddress</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The output pixel buffer address.</p>
+<p>May be NULL if the requested pixel access is not supported.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -4700,18 +4778,31 @@
 <table>
 <thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th colspan="1" rowspan="1">
+<p>Parameter</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Description</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>PPixHand inPPixHand</code></td>
-<td>The PPix handle to operate on.</td>
+<td colspan="1" rowspan="1">
+<p><code>PPixHand inPPixHand</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The PPix handle to operate on.</p>
+</td>
 </tr>
 <tr>
-<td><code>csSDK_int32* outRenderMilliseconds</code></td>
-<td>Returns the render time in milliseconds.<br/><br/>If the frame was cached, the time will be zero.</td>
+<td colspan="1" rowspan="1">
+<p><code>csSDK_int32* outRenderMilliseconds</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns the render time in milliseconds.</p>
+<p>If the frame was cached, the time will be zero.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -4888,7 +4979,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 25, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 11, 2025</span>
   </span>
 
     

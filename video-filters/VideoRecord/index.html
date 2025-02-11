@@ -2860,98 +2860,212 @@
 <table>
 <thead>
 <tr>
-<th>Member</th>
-<th>Description</th>
+<th colspan="1" rowspan="1">
+<p>Member</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Description</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>specsHandle</code></td>
-<td>Instance settings, persistent across Premiere sessions.<br/><br/>Create this handle during <code>fsInitSpec</code> or <code>fsSetup</code>.<br/><br/>Populated by Premiere if the filter's parameters can be manipulated in the Effect Controls Panel.<br/><br/>Use Premiere's memory allocation callbacks to allocate memory for the <code>specsHandle</code>.</td>
+<td colspan="1" rowspan="1">
+<p><code>specsHandle</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Instance settings, persistent across Premiere sessions.</p>
+<p>Create this handle during <code>fsInitSpec</code> or <code>fsSetup</code>.</p>
+<p>Populated by Premiere if the filter's parameters can be manipulated in the Effect Controls Panel.</p>
+<p>Use Premiere's memory allocation callbacks to allocate memory for the <code>specsHandle</code>.</p>
+</td>
 </tr>
 <tr>
-<td><code>source</code></td>
-<td><code>PPixHand</code> for the source video frame.</td>
+<td colspan="1" rowspan="1">
+<p><code>source</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>PPixHand</code> for the source video frame.</p>
+</td>
 </tr>
 <tr>
-<td><code>destination</code></td>
-<td><code>PPixHand</code> for the destination video frame, always the same size as source.<br/><br/>Store the output frame here during <code>fsExecute</code>.</td>
+<td colspan="1" rowspan="1">
+<p><code>destination</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>PPixHand</code> for the destination video frame, always the same size as source.</p>
+<p>Store the output frame here during <code>fsExecute</code>.</p>
+</td>
 </tr>
 <tr>
-<td><code>part</code></td>
-<td>How far into the effect you are.<br/><br/><code>part</code> varies from 0 to total, inclusive.</td>
+<td colspan="1" rowspan="1">
+<p><code>part</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>How far into the effect you are.</p>
+<p><code>part</code> varies from 0 to total, inclusive.</p>
+</td>
 </tr>
 <tr>
-<td><code>total</code></td>
-<td>Total length of the video filter.<br/><br/>Divide part by total to calculate the percentage of the time-variant filter for a given <code>fsExecute</code>.<br/><br/>This value doesn't necessarily correspond to frames or fields.</td>
+<td colspan="1" rowspan="1">
+<p><code>total</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Total length of the video filter.</p>
+<p>Divide part by total to calculate the percentage of the time-variant filter for a given <code>fsExecute</code>.</p>
+<p>This value doesn't necessarily correspond to frames or fields.</p>
+</td>
 </tr>
 <tr>
-<td><code>previewing</code></td>
-<td>Unsupported</td>
+<td colspan="1" rowspan="1">
+<p><code>previewing</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Unsupported</p>
+</td>
 </tr>
 <tr>
-<td><code>privateData</code></td>
-<td>Data private to Premiere.<br/><br/>Pass to the frame-retrieval callback when requesting a frame.</td>
+<td colspan="1" rowspan="1">
+<p><code>privateData</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Data private to Premiere.</p>
+<p>Pass to the frame-retrieval callback when requesting a frame.</p>
+</td>
 </tr>
 <tr>
-<td><code>callBack</code></td>
-<td>Pointer to <code>VFilterCallbackProcPtr</code>, used for retrieving frames (or fields, for interlaced video) from source clips.</td>
+<td colspan="1" rowspan="1">
+<p><code>callBack</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Pointer to <code>VFilterCallbackProcPtr</code>, used for retrieving frames (or fields, for interlaced video) from source clips.</p>
+</td>
 </tr>
 <tr>
-<td><code>bottleNecks</code></td>
-<td>Pointer to Premiere's bottleRec functions.</td>
+<td colspan="1" rowspan="1">
+<p><code>bottleNecks</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Pointer to Premiere's bottleRec functions.</p>
+</td>
 </tr>
 <tr>
-<td><code>version</code></td>
-<td>Version of this structure (<code>kVideoFilterVersion</code>).<ul><li>Premiere Pro CS5 = <code>VIDEO_FILTER_VERSION_11</code></li><li>Premiere Pro CS3 = <code>VIDEO_FILTER_VERSION_10</code></li></ul></td>
+<td colspan="1" rowspan="1">
+<p><code>version</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Version of this structure (<code>kVideoFilterVersion</code>).</p>
+<ul>
+<li>Premiere Pro CS5 = <code>VIDEO_FILTER_VERSION_11</code></li>
+<li>Premiere Pro CS3 = <code>VIDEO_FILTER_VERSION_10</code></li>
+</ul>
+</td>
 </tr>
 <tr>
-<td><code>sizeFlags</code></td>
-<td>Field-rendering information.</td>
+<td colspan="1" rowspan="1">
+<p><code>sizeFlags</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Field-rendering information.</p>
+</td>
 </tr>
 <tr>
-<td><code>flags</code></td>
-<td>If doing a lower-quality render, Premiere will pass in <code>kEffectFlags_DraftQuality</code> during <code>fsExecute</code>.<br/><br/>The filter can then optionally render a faster, lower-quality image for previewing.</td>
+<td colspan="1" rowspan="1">
+<p><code>flags</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>If doing a lower-quality render, Premiere will pass in <code>kEffectFlags_DraftQuality</code> during <code>fsExecute</code>.</p>
+<p>The filter can then optionally render a faster, lower-quality image for previewing.</p>
+</td>
 </tr>
 <tr>
-<td><code>tdb</code></td>
-<td>Pointer to a time database record describing the sequence timebase.</td>
+<td colspan="1" rowspan="1">
+<p><code>tdb</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Pointer to a time database record describing the sequence timebase.</p>
+</td>
 </tr>
 <tr>
-<td><code>instanceData</code></td>
-<td>Handle to private instance data that persists across invocations.<br/><br/>Allocate the memory for this during <code>fsExecute</code> and deallocate during <code>fsDisposeData</code>.<br/><br/>Do not use this field during fsSetup.</td>
+<td colspan="1" rowspan="1">
+<p><code>instanceData</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Handle to private instance data that persists across invocations.</p>
+<p>Allocate the memory for this during <code>fsExecute</code> and deallocate during <code>fsDisposeData</code>.</p>
+<p>Do not use this field during fsSetup.</p>
+</td>
 </tr>
 <tr>
-<td><code>piSuites</code></td>
-<td>Pointer to callback <a href="../../universals/legacy-callback-suites/#pisuites">piSuites</a>.</td>
+<td colspan="1" rowspan="1">
+<p><code>piSuites</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Pointer to callback <a href="../../universals/legacy-callback-suites/#pisuites">piSuites</a>.</p>
+</td>
 </tr>
 <tr>
-<td><code>timelineData</code></td>
-<td>Only available during <code>fsInitSpec</code> and <code>fsSetup</code>.<br/><br/>This opaque handle to the timeline database is required by <code>timelineFuncs</code> callbacks available in <a href="../../universals/legacy-callback-suites/#pisuites">piSuites</a>.<br/><br/>This handle is useful in order to have a preview in a modal setup dialog during <code>fsSetup</code>.</td>
+<td colspan="1" rowspan="1">
+<p><code>timelineData</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Only available during <code>fsInitSpec</code> and <code>fsSetup</code>.</p>
+<p>This opaque handle to the timeline database is required by <code>timelineFuncs</code> callbacks available in <a href="../../universals/legacy-callback-suites/#pisuites">piSuites</a>.</p>
+<p>This handle is useful in order to have a preview in a modal setup dialog during <code>fsSetup</code>.</p>
+</td>
 </tr>
 <tr>
-<td><code>altName</code></td>
-<td>Unused.</td>
+<td colspan="1" rowspan="1">
+<p><code>altName</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Unused.</p>
+</td>
 </tr>
 <tr>
-<td><code>pixelFormatSupported</code></td>
-<td>Only valid during <code>fsGetPixelFormatsSupported</code>.<br/><br/>Return pixel type supported.</td>
+<td colspan="1" rowspan="1">
+<p><code>pixelFormatSupported</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Only valid during <code>fsGetPixelFormatsSupported</code>.</p>
+<p>Return pixel type supported.</p>
+</td>
 </tr>
 <tr>
-<td><code>pixelFormatIndex</code></td>
-<td>Only valid during <code>fsGetPixelFormatsSupported</code>.<br/><br/>Index of fourCC of pixel type supported.</td>
+<td colspan="1" rowspan="1">
+<p><code>pixelFormatIndex</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Only valid during <code>fsGetPixelFormatsSupported</code>.</p>
+<p>Index of fourCC of pixel type supported.</p>
+</td>
 </tr>
 <tr>
-<td><code>instanceID</code></td>
-<td>The runtime instance ID uniquely identifies filters during a session.<br/><br/>This is the same ID that is passed to players in <code>prtFilterRec</code>.</td>
+<td colspan="1" rowspan="1">
+<p><code>instanceID</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The runtime instance ID uniquely identifies filters during a session.</p>
+<p>This is the same ID that is passed to players in <code>prtFilterRec</code>.</p>
+</td>
 </tr>
 <tr>
-<td><code>tdbTimelineLocation</code></td>
-<td>A time database record describing the location of the filter in sequence.<br/><br/>Only valid during <code>fsInitSpec</code> and <code>fsSetup</code>.</td>
+<td colspan="1" rowspan="1">
+<p><code>tdbTimelineLocation</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>A time database record describing the location of the filter in sequence.</p>
+<p>Only valid during <code>fsInitSpec</code> and <code>fsSetup</code>.</p>
+</td>
 </tr>
 <tr>
-<td><code>sessionPluginID</code></td>
-<td>This ID should be used in the <a href="../../universals/sweetpea-suites/#file-registration-suite">File Registration Suite</a> for registering external files (such as textures, logos, etc) that are used by a plugin instance but do not appear as footage in the Project Panel.<br/><br/>Registered files will be taken into account when trimming or copying a project using the Project Manager.</td>
+<td colspan="1" rowspan="1">
+<p><code>sessionPluginID</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>This ID should be used in the <a href="../../universals/sweetpea-suites/#file-registration-suite">File Registration Suite</a> for registering external files (such as textures, logos, etc) that are used by a plugin instance but do not appear as footage in the Project Panel.</p>
+<p>Registered files will be taken into account when trimming or copying a project using the Project Manager.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -2968,26 +3082,47 @@
 <table>
 <thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th colspan="1" rowspan="1">
+<p>Member</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Description</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>frame</code></td>
-<td>Frame requested. The frame value passed in should be frame * samplesize.<br/><br/>The callback will always return the current field (upper or lower) during field rendering.</td>
+<td colspan="1" rowspan="1">
+<p><code>frame</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Frame requested. The frame value passed in should be frame * samplesize.</p>
+<p>The callback will always return the current field (upper or lower) during field rendering.</p>
+</td>
 </tr>
 <tr>
-<td><code>thePort</code></td>
-<td><code>PPixHand</code> where Premiere will store the frame</td>
+<td colspan="1" rowspan="1">
+<p><code>thePort</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><code>PPixHand</code> where Premiere will store the frame</p>
+</td>
 </tr>
 <tr>
-<td><code>theBox</code></td>
-<td>Bounds of the frame you want Premiere to retrieve.</td>
+<td colspan="1" rowspan="1">
+<p><code>theBox</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Bounds of the frame you want Premiere to retrieve.</p>
+</td>
 </tr>
 <tr>
-<td><code>privateData</code></td>
-<td>Handle provided by Premiere in <code>VideoRecord.privateData</code></td>
+<td colspan="1" rowspan="1">
+<p><code>privateData</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Handle provided by Premiere in <code>VideoRecord.privateData</code></p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3036,7 +3171,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 25, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 11, 2025</span>
   </span>
 
     

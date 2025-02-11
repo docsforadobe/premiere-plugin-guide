@@ -2750,51 +2750,108 @@
 <table>
 <thead>
 <tr>
-<th>Selector</th>
-<th>Optional?</th>
-<th>Description</th>
+<th colspan="1" rowspan="1">
+<p>Selector</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Optional?</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Description</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="../selector-descriptions/#fsinitspec">fsInitSpec</a></td>
-<td>Yes</td>
-<td>Allocate and initialize your parameters with default values without popping a modal setup dialog.</td>
+<td colspan="1" rowspan="1">
+<p><a href="../selector-descriptions/#fsinitspec">fsInitSpec</a></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Yes</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Allocate and initialize your parameters with default values without popping a modal setup dialog.</p>
+</td>
 </tr>
 <tr>
-<td><a href="../selector-descriptions/#fshassetupdialog">fsHasSetupDialog</a></td>
-<td>Yes</td>
-<td>New for Premiere Pro CS3. Specify whether or not the filter has a setup dialog.</td>
+<td colspan="1" rowspan="1">
+<p><a href="../selector-descriptions/#fshassetupdialog">fsHasSetupDialog</a></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Yes</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New for Premiere Pro CS3. Specify whether or not the filter has a setup dialog.</p>
+</td>
 </tr>
 <tr>
-<td><a href="../selector-descriptions/#fssetup">fsSetup</a></td>
-<td>Yes</td>
-<td>Allocate memory for your parameters if necessary.<br/><br/>Display your modal setup dialog with default parameter values or previously stored values.<br/><br/>Save the new values to <code>specsHandle</code>.</td>
+<td colspan="1" rowspan="1">
+<p><a href="../selector-descriptions/#fssetup">fsSetup</a></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Yes</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Allocate memory for your parameters if necessary.</p>
+<p>Display your modal setup dialog with default parameter values or previously stored values.</p>
+<p>Save the new values to <code>specsHandle</code>.</p>
+</td>
 </tr>
 <tr>
-<td><a href="../selector-descriptions/#fsexecute">fsExecute</a></td>
-<td>No</td>
-<td>Filter the video using the stored parameters from <code>specsHandle</code>.<br/><br/>Be aware of interlaced video, and don't overlook the alpha channel!</td>
+<td colspan="1" rowspan="1">
+<p><a href="../selector-descriptions/#fsexecute">fsExecute</a></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>No</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Filter the video using the stored parameters from <code>specsHandle</code>.</p>
+<p>Be aware of interlaced video, and don't overlook the alpha channel!</p>
+</td>
 </tr>
 <tr>
-<td><a href="../selector-descriptions/#fsdisposedata">fsDisposeData</a></td>
-<td>Yes</td>
-<td>Dispose of any instance data created during <code>fsExecute</code>.</td>
+<td colspan="1" rowspan="1">
+<p><a href="../selector-descriptions/#fsdisposedata">fsDisposeData</a></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Yes</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Dispose of any instance data created during <code>fsExecute</code>.</p>
+</td>
 </tr>
 <tr>
-<td><a href="../selector-descriptions/#fscanhandlepar">fsCanHandlePAR</a></td>
-<td>Yes</td>
-<td>Tell Premiere how your effect handles pixel aspect ratio.</td>
+<td colspan="1" rowspan="1">
+<p><a href="../selector-descriptions/#fscanhandlepar">fsCanHandlePAR</a></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Yes</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Tell Premiere how your effect handles pixel aspect ratio.</p>
+</td>
 </tr>
 <tr>
-<td><a href="../selector-descriptions/#fsgetpixelformatssupported">fsGetPixelFormatsSupported</a></td>
-<td>Yes</td>
-<td>Gets pixel formats supported. Called iteratively until all formats have been given.</td>
+<td colspan="1" rowspan="1">
+<p><a href="../selector-descriptions/#fsgetpixelformatssupported">fsGetPixelFormatsSupported</a></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Yes</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Gets pixel formats supported. Called iteratively until all formats have been given.</p>
+</td>
 </tr>
 <tr>
-<td><a href="../selector-descriptions/#fscacheonload">fsCacheOnLoad</a></td>
-<td>Yes</td>
-<td>Return fsDoNotCacheOnLoad to disable plugin caching for this filter.</td>
+<td colspan="1" rowspan="1">
+<p><a href="../selector-descriptions/#fscacheonload">fsCacheOnLoad</a></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Yes</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Return fsDoNotCacheOnLoad to disable plugin caching for this filter.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -2818,7 +2875,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 25, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 11, 2025</span>
   </span>
 
     

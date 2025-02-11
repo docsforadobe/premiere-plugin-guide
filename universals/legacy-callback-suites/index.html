@@ -1250,6 +1250,28 @@
 	
 </li>
       
+        <li class="md-nav__item">
+	<a href="#function" class="md-nav__link">
+		<span class="md-ellipsis">
+			Function
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#description" class="md-nav__link">
+		<span class="md-ellipsis">
+			Description
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
     </ul>
   
 </nav>
@@ -2940,6 +2962,28 @@
 	
 </li>
       
+        <li class="md-nav__item">
+	<a href="#function" class="md-nav__link">
+		<span class="md-ellipsis">
+			Function
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
+        <li class="md-nav__item">
+	<a href="#description" class="md-nav__link">
+		<span class="md-ellipsis">
+			Description
+		</span>
+	</a>
+
+	<!-- Table of contents list -->
+	
+</li>
+      
     </ul>
   
 </nav>
@@ -2987,34 +3031,74 @@
 <table>
 <thead>
 <tr>
-<th>Member</th>
-<th>Description</th>
+<th colspan="1" rowspan="1">
+<p>Member</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Description</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>piInterfaceVer</code></td>
-<td>API version<ul><li>Premiere Pro CS4 - <code>PR_PISUITES_VERSION_9</code></li><li>Premiere Pro CS3 - <code>PR_PISUITES_VERSION_8</code></li><li>Premiere Pro 2.0 - <code>PR_PISUITES_VERSION_7</code></li><li>Premiere Pro 1.5.1 - <code>PR_PISUITES_VERSION_6</code></li><li>Premiere Pro 1.5 - <code>PR_PISUITES_VERSION_5</code></li><li>Premiere Pro 1.0 - <code>PR_PISUITES_VERSION_4</code></li><li>Premiere 6.x - <code>PR_PISUITES_VERSION_3</code></li><li>Premiere 5.1 - <code>PR_PISUITES_VERSION_2</code></li><li>Premiere 5.0 - <code>PR_PISUITES_VERSION_1</code></li></ul></td>
+<td colspan="1" rowspan="1">
+<p><code>piInterfaceVer</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>API version</p>
+<ul>
+<li>Premiere Pro CS4 - <code>PR_PISUITES_VERSION_9</code></li>
+<li>Premiere Pro CS3 - <code>PR_PISUITES_VERSION_8</code></li>
+<li>Premiere Pro 2.0 - <code>PR_PISUITES_VERSION_7</code></li>
+<li>Premiere Pro 1.5.1 - <code>PR_PISUITES_VERSION_6</code></li>
+<li>Premiere Pro 1.5 - <code>PR_PISUITES_VERSION_5</code></li>
+<li>Premiere Pro 1.0 - <code>PR_PISUITES_VERSION_4</code></li>
+<li>Premiere 6.x - <code>PR_PISUITES_VERSION_3</code></li>
+<li>Premiere 5.1 - <code>PR_PISUITES_VERSION_2</code></li>
+<li>Premiere 5.0 - <code>PR_PISUITES_VERSION_1</code></li>
+</ul>
+</td>
 </tr>
 <tr>
-<td><a href="#memory-functions">memfuncs</a></td>
-<td>Pointer to memory functions</td>
+<td colspan="1" rowspan="1">
+<p><a href="#memory-functions">memfuncs</a></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Pointer to memory functions</p>
+</td>
 </tr>
 <tr>
-<td><a href="#window-functions">windFuncs</a></td>
-<td>Pointer window functions</td>
+<td colspan="1" rowspan="1">
+<p><a href="#window-functions">windFuncs</a></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Pointer window functions</p>
+</td>
 </tr>
 <tr>
-<td><a href="#ppix-functions">ppixFuncs</a></td>
-<td>Pointer PPix functions</td>
+<td colspan="1" rowspan="1">
+<p><a href="#ppix-functions">ppixFuncs</a></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Pointer PPix functions</p>
+</td>
 </tr>
 <tr>
-<td><a href="#utility-functions">utilFuncs</a></td>
-<td>Pointer to utility functions.<br/>In the utilFuncs, the getSPBasicSuite callback provides access to the <a href="../sweetpea-suites/">SweetPea Suites</a>, which are used for most of the newer functions.</td>
+<td colspan="1" rowspan="1">
+<p><a href="#utility-functions">utilFuncs</a></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Pointer to utility functions.</p>
+<p>In the utilFuncs, the getSPBasicSuite callback provides access to the <a href="../sweetpea-suites/">SweetPea Suites</a>, which are used for most of the newer functions.</p>
+</td>
 </tr>
 <tr>
-<td><a href="#timeline-functions">timelineFuncs</a></td>
-<td>Pointer to timeline functions</td>
+<td colspan="1" rowspan="1">
+<p><a href="#timeline-functions">timelineFuncs</a></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Pointer to timeline functions</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3024,54 +3108,112 @@
 <table>
 <thead>
 <tr>
-<th>Function</th>
-<th>Description</th>
+<th colspan="1" rowspan="1">
+<p>Function</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Description</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>newPtr</code></td>
-<td>Allocates a block of memory, returns a pointer to the new block.<br/><pre>char* newPtr (csSDK_uint32 size);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>newPtr</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Allocates a block of memory, returns a pointer to the new block.</p>
+<p><pre lang="cpp">char* newPtr (csSDK_uint32 size);</pre></p>
+</td>
 </tr>
 <tr>
-<td><code>newPtrClear</code></td>
-<td>Equivalent to newPtr, but initializes the memory to 0.<br/><pre>char* newPtrClear (csSDK_uint32 size);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>newPtrClear</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Equivalent to newPtr, but initializes the memory to 0.</p>
+<p><pre lang="cpp">char* newPtrClear (csSDK_uint32 size);</pre></p>
+</td>
 </tr>
 <tr>
-<td><code>setPtrSize</code></td>
-<td>Resizes an allocated memory block.<br/><pre>void setPtrSize (<br/>  PrMemoryPtr   *ptr,<br/>  csSDK_uint32  newsize);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>setPtrSize</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Resizes an allocated memory block.</p>
+<p><pre lang="cpp">void setPtrSize (<br/>  PrMemoryPtr   *ptr,<br/>  csSDK_uint32  newsize);</pre></p>
+</td>
 </tr>
 <tr>
-<td><code>getPtrSize</code></td>
-<td>Returns size in bytes of an allocated memory block.<br/><pre>csSDK_int32 getPtrSize (char *ptr);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>getPtrSize</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns size in bytes of an allocated memory block.</p>
+<p><pre lang="cpp">csSDK_int32 getPtrSize (char *ptr);</pre></p>
+</td>
 </tr>
 <tr>
-<td><code>disposePtr</code></td>
-<td>Frees an allocated memory block.<br/><pre>void disposePtr (char *ptr);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>disposePtr</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Frees an allocated memory block.</p>
+<p><pre lang="cpp">void disposePtr (char *ptr);</pre></p>
+</td>
 </tr>
 <tr>
-<td><code>newHandle</code></td>
-<td>Allocates a block of memory, returning a handle to it.<br/><pre>char** newHandle (csSDK_uint32 size);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>newHandle</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Allocates a block of memory, returning a handle to it.</p>
+<p><pre lang="cpp">char** newHandle (csSDK_uint32 size);</pre></p>
+</td>
 </tr>
 <tr>
-<td><code>newHandleClear</code></td>
-<td>Equivalent to newHandle, but initializes the memory to 0.<br/><pre>char** newHandleClear (csSDK_uint32 size);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>newHandleClear</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Equivalent to newHandle, but initializes the memory to 0.</p>
+<p><pre lang="cpp">char** newHandleClear (csSDK_uint32 size);</pre></p>
+</td>
 </tr>
 <tr>
-<td><code>setHandleSize</code></td>
-<td>Resizes an allocated memory handle.<br/><pre>csSDK_int16 setHandleSize (<br/>  char          **PrMemoryHandle,<br/>  csSDK_uint32  newsize);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>setHandleSize</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Resizes an allocated memory handle.</p>
+<p><pre lang="cpp">csSDK_int16 setHandleSize (<br/>  char          **PrMemoryHandle,<br/>  csSDK_uint32  newsize);</pre></p>
+</td>
 </tr>
 <tr>
-<td><code>getHandleSize</code></td>
-<td>Returns the size (in bytes) of an allocated block.<br/><pre>csSDK_int32 getHandleSize ( char **PrMemoryHandle);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>getHandleSize</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns the size (in bytes) of an allocated block.</p>
+<p><pre lang="cpp">csSDK_int32 getHandleSize ( char **PrMemoryHandle);</pre></p>
+</td>
 </tr>
 <tr>
-<td><code>disposeHandle</code></td>
-<td>Disposes of a previously allocated handle.<br/><pre>void disposeHandle (char **PrMemoryHandle);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>disposeHandle</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Disposes of a previously allocated handle.</p>
+<p><pre lang="cpp">void disposeHandle (char **PrMemoryHandle);</pre></p>
+</td>
 </tr>
 <tr>
-<td><code>lockHandle</code> <code>unlockHandle</code></td>
-<td>These legacy functions are deprecated and should no longer be used.</td>
+<td colspan="1" rowspan="1">
+<p><code>lockHandle</code> <code>unlockHandle</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>These legacy functions are deprecated and should no longer be used.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3080,18 +3222,32 @@
 <table>
 <thead>
 <tr>
-<th>Function</th>
-<th>Description</th>
+<th colspan="1" rowspan="1">
+<p>Function</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Description</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>updateAllWindows</code></td>
-<td>Updates all windows. Windows only, doesn't work on Mac OS.<br/><pre>void updateAllWindows (void);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>updateAllWindows</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Updates all windows. Windows only, doesn't work on Mac OS.</p>
+<p><pre lang="cpp">void updateAllWindows (void);</pre></p>
+</td>
 </tr>
 <tr>
-<td><code>getMainWnd</code></td>
-<td>Returns the main application HWND.<br/><pre>void getMainWnd (void);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>getMainWnd</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns the main application HWND.</p>
+<p><pre lang="cpp">void getMainWnd (void);</pre></p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3100,42 +3256,87 @@
 <table>
 <thead>
 <tr>
-<th>Function</th>
-<th>Description</th>
+<th colspan="1" rowspan="1">
+<p>Function</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Description</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>ppixGetPixels</code></td>
-<td>Returns a pointer to the array of pixels contained in a PPix.<br/><pre>char* ppixGetPixels (PPixHand pix);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>ppixGetPixels</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns a pointer to the array of pixels contained in a PPix.</p>
+<p><pre lang="cpp">char* ppixGetPixels (PPixHand pix);</pre></p>
+</td>
 </tr>
 <tr>
-<td><code>ppixGetBounds</code></td>
-<td>Returns the bounds of a PPix.<br/><pre>void ppixGetBounds (<br/>  PPixHand  pix;<br/>  prRect    *bounds);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>ppixGetBounds</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns the bounds of a PPix.</p>
+<p><pre lang="cpp">void ppixGetBounds (<br/>  PPixHand  pix;<br/>  prRect    *bounds);</pre></p>
+</td>
 </tr>
 <tr>
-<td><code>ppixGetRowbytes</code></td>
-<td>Returns the rowbytes of a PPix so you can properly parse the pixels returned by ppixGetPixels.<br/><pre>int ppixGetRowbytes (PPixHand pix);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>ppixGetRowbytes</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns the rowbytes of a PPix so you can properly parse the pixels returned by ppixGetPixels.</p>
+<p><pre lang="cpp">int ppixGetRowbytes (PPixHand pix);</pre></p>
+</td>
 </tr>
 <tr>
-<td><code>ppixNew</code></td>
-<td>Allocates and returns a handle to a new PPix, with specified bounds.<br/><br/>Since this is an older call, the pixel format is hardcoded to BGRA_4444_8u.<br/><pre>PPixHandle ppixNew (prRect *bounds);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>ppixNew</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Allocates and returns a handle to a new PPix, with specified bounds.</p>
+<p>Since this is an older call, the pixel format is hardcoded to BGRA_4444_8u.</p>
+<p><pre lang="cpp">PPixHandle ppixNew (prRect *bounds);</pre></p>
+</td>
 </tr>
 <tr>
-<td><code>ppixDispose</code></td>
-<td>Frees a PPixHand.<br/><pre>void ppixDispose (PPixHand pix);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>ppixDispose</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Frees a PPixHand.</p>
+<p><pre lang="cpp">void ppixDispose (PPixHand pix);</pre></p>
+</td>
 </tr>
 <tr>
-<td><code>ppixLockPixels</code> <code>ppixUnlockPixels</code></td>
-<td>These legacy functions are deprecated and should no longer be used.</td>
+<td colspan="1" rowspan="1">
+<p><code>ppixLockPixels</code> <code>ppixUnlockPixels</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>These legacy functions are deprecated and should no longer be used.</p>
+</td>
 </tr>
 <tr>
-<td><code>ppixGetPixelAspectRatio</code></td>
-<td>Passes back the pixel aspect ratio of a PPixHand.<br/><br/>Premiere populates the longs with the PAR numerator and denominator.<br/><pre>int ppixGetPixelAspectRatio (<br/>  PPixHand      pix,<br/>  csSDK_uint32  <em>num,<br/>  csSDK_uint32  </em>den)</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>ppixGetPixelAspectRatio</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Passes back the pixel aspect ratio of a PPixHand.</p>
+<p>Premiere populates the longs with the PAR numerator and denominator.</p>
+<p><pre lang="cpp">int ppixGetPixelAspectRatio (<br/>  PPixHand      pix,<br/>  csSDK_uint32  <em>num,<br/>  csSDK_uint32  </em>den)</pre></p>
+</td>
 </tr>
 <tr>
-<td><code>ppixGetAlphaBounds</code></td>
-<td>Passes back the alpha bounds of a PPixHand.<br/><pre>void ppixGetAlphaBounds (<br/>  PPixHand  pix,<br/>  prRect    *alphaBounds)</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>ppixGetAlphaBounds</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Passes back the alpha bounds of a PPixHand.</p>
+<p><pre lang="cpp">void ppixGetAlphaBounds (<br/>  PPixHand  pix,<br/>  prRect    *alphaBounds)</pre></p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3143,34 +3344,93 @@
 <table>
 <thead>
 <tr>
-<th>Function</th>
-<th>Description</th>
+<th colspan="1" rowspan="1">
+<p>Function</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Description</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>getSerialNumber</code></td>
-<td>Passes back Premiere's serial number.<br/><pre>void getSerialNumber (char* buffer);</pre><ul><li><code>buffer</code>: must be at least 40 characters long.</li></ul></td>
+<td colspan="1" rowspan="1">
+<p><code>getSerialNumber</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Passes back Premiere's serial number.</p>
+<p><pre lang="cpp">void getSerialNumber (char* buffer);</pre></p>
+<ul>
+<li><code>buffer</code>: must be at least 40 characters long.</li>
+</ul>
+</td>
 </tr>
 <tr>
-<td><code>getFileTimebase</code></td>
-<td>Passes back a file's timebase in a <code>TDB_TimeRecord</code> (allocated by the plugin).<br/><br/>If the file is already in the sequence, it is preferable to get a file's timebase using the <a href="../sweetpea-suites/#video-segment-suite">Video Segment Suite</a><br/>to get the <code>kVideoSegmentProperty_Media_StreamFrameRate</code>.<br/><br/>Note: Know your formats. Don't ask an audio only format for video, you may get unexpected results.<br/><pre>csSDK_int32 getFileTimebase (<br/>  prFileSpec      <em>filespec,<br/>  csSDK_int32     audioOnly,<br/>  TDB_TimeRecord  </em>result);</pre><ul><li><code>filespec</code>: description of the file, use before getFileVideo</li><li><code>audioOnly</code>: if non-zero, return the audio timebase. If zero, return the video timebase.</li><li><code>result</code>: the returned timebase</li></ul></td>
+<td colspan="1" rowspan="1">
+<p><code>getFileTimebase</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Passes back a file's timebase in a <code>TDB_TimeRecord</code> (allocated by the plugin).</p>
+<p>If the file is already in the sequence, it is preferable to get a file's timebase using the <a href="../sweetpea-suites/#video-segment-suite">Video Segment Suite</a> to get the <code>kVideoSegmentProperty_Media_StreamFrameRate</code>.</p>
+<p>Note: Know your formats. Don't ask an audio only format for video, you may get unexpected results.</p>
+<p><pre lang="cpp">csSDK_int32 getFileTimebase (<br/>  prFileSpec      *filespec,<br/>  csSDK_int32     audioOnly,<br/>  TDB_TimeRecord  *result);</pre></p>
+<ul>
+<li><code>filespec</code>: description of the file, use before getFileVideo</li>
+<li><code>audioOnly</code>: if non-zero, return the audio timebase. If zero, return the video timebase.</li>
+<li><code>result</code>: the returned timebase</li>
+</ul>
+</td>
 </tr>
 <tr>
-<td><code>getFileVideo</code></td>
-<td>Gets a frame of video (at a specified time) from a file.<br/><br/>If the file is already in the sequence, it is preferable to get a file's video using the <a href="../sweetpea-suites/#clip-render-suite">Clip Render Suite</a>.<br/><pre>csSDK_int32 getFileVideo (<br/>  prFileSpec   <em>filespec,<br/>  csSDK_int32  frame,<br/>  PPixHand     thePort,<br/>  prRect       </em>bounds,<br/>  csSDK_int32  flags);</pre><br/></li><li><code>filespec</code>: the description of the file</li><li><code>frame</code>: the frame to retrieve</li><li><code>thePort</code>: where the frame will be delivered, allocate prior to calling</li><li><code>bounds</code>: the boundary of the port</li><li><code>flags</code>: unused</li></ul></td>
+<td colspan="1" rowspan="1">
+<p><code>getFileVideo</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Gets a frame of video (at a specified time) from a file.</p>
+<p>If the file is already in the sequence, it is preferable to get a file's video using the <a href="../sweetpea-suites/#clip-render-suite">Clip Render Suite</a>.</p>
+<p><pre lang="cpp">csSDK_int32 getFileVideo (<br/>  prFileSpec   *filespec,<br/>  csSDK_int32  frame,<br/>  PPixHand     thePort,<br/>  prRect       *bounds,<br/>  csSDK_int32  flags);</pre></p>
+<ul>
+<li><code>filespec</code>: the description of the file</li>
+<li><code>frame</code>: the frame to retrieve</li>
+<li><code>thePort</code>: where the frame will be delivered, allocate prior to calling</li>
+<li><code>bounds</code>: the boundary of the port</li>
+<li><code>flags</code>: unused</li>
+</ul>
+</td>
 </tr>
 <tr>
-<td><code>getFileVideoBounds</code></td>
-<td>Passes back the bounds of a file.<br/>If the file is already in the sequence, it is preferable to get a file's video bounds using the <a href="../sweetpea-suites/#clip-render-suite">Clip Render Suite</a>.<br/><pre>csSDK_int32 getFileVideoBounds (<br/>  prFileSpec <em>filespec,<br/>  prRect </em>bounds);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>getFileVideoBounds</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Passes back the bounds of a file.</p>
+<p>If the file is already in the sequence, it is preferable to get a file's video bounds using the <a href="../sweetpea-suites/#clip-render-suite">Clip Render Suite</a>.</p>
+<p><pre lang="cpp">csSDK_int32 getFileVideoBounds (<br/>  prFileSpec *filespec,<br/>  prRect *bounds);</pre></p>
+</td>
 </tr>
 <tr>
-<td><code>getSPBasicSuite</code></td>
-<td>This very important call returns the SweetPea suite that allows plugins to acquire and release all other <a href="../sweetpea-suites/">SweetPea Suites</a>.<br/><pre>SPBasicSuite* getSPBasicSuite();</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>getSPBasicSuite</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>This very important call returns the SweetPea suite that allows plugins to acquire and release all other <a href="../sweetpea-suites/">SweetPea Suites</a>.</p>
+<p><pre lang="cpp">SPBasicSuite* getSPBasicSuite();</pre></p>
+</td>
 </tr>
 <tr>
-<td><code>getFileExtString</code></td>
-<td>Passes back the list of valid entensions/filter strings given a class of media (see file types constants below).<br/><pre>csSDK_int32 (<em>plugGetFileExtStringFunc)(<br/>  csSDK_uint32  fileTypes,<br/>  char          </em>inBuffer,<br/>  csSDK_uint32  inBufferSize);</pre><ul><li><code>kFileTypes_Still</code>: still media</li><li><code>kFileTypes_AudioOnly</code>: audio-only media</li><li><code>kFileTypes_AudioVideo</code>: audio and video media</li><li><code>kFileTypes_AllNoIntrinsics</code>: all importable media types via importer plugins (no prproj, txt, etc)</li></ul></td>
+<td colspan="1" rowspan="1">
+<p><code>getFileExtString</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Passes back the list of valid entensions/filter strings given a class of media (see file types constants below).</p>
+<p><pre lang="cpp">csSDK_int32 (*plugGetFileExtStringFunc)(<br/>  csSDK_uint32  fileTypes,<br/>  char          *inBuffer,<br/>  csSDK_uint32  inBufferSize);</pre></p>
+<ul>
+<li><code>kFileTypes_Still</code>: still media</li>
+<li><code>kFileTypes_AudioOnly</code>: audio-only media</li>
+<li><code>kFileTypes_AudioVideo</code>: audio and video media</li>
+<li><code>kFileTypes_AllNoIntrinsics</code>: all importable media types via importer plugins (no prproj, txt, etc)</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3178,38 +3438,119 @@
 <table>
 <thead>
 <tr>
-<th>Function</th>
-<th>Description</th>
+<th colspan="1" rowspan="1">
+<p>Function</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Description</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>getClipVideo</code></td>
-<td>Superceded by the <a href="../sweetpea-suites/#clip-render-suite">Clip Render Suite</a>, which provides asynchronous import.<br/><br/>Retrieves a frame from a clip in a segment tree returned from the <a href="../sweetpea-suites/#video-segment-suite">Video Segment Suite</a>.<br/><br/>It can be used by to retrieve and store a still frame, such as a title, for playback.<br/><br/>This call is expensive; use it carefully.<br/><pre>csSDK_int32 getClipVideo (<br/>  csSDK_int32  frame,<br/>  PPixHand     thePort,<br/>  prRect       *bounds,<br/>  csSDK_int32  flags,<br/>  PrClipID     clipData);</pre><ul><li><code>frame</code>: the frame number you're requesting</li><li><code>thePort</code>: allocate using the <a href="../sweetpea-suites/#ppix-creator-suite">PPix Creator Suite</a> before calling</li><li><code>bounds</code>: the boundaries of video to return</li><li><code>flags</code>: either <code>kGCVFlag_UseFilePixelAspectRatio</code> or 0. Setting it to <code>kGCVFlag_UseFilePixelAspectRatio</code> will return a PPix stamped with the PAR of the file. Setting it to 0 will return a PPix adjusted to the PAR of the project and stamped accordingly. It scales, but does not stretch the PPix to fit the destination PPix that is passed in. So if the destination PPix is larger than the frame asked for, the frame will maintain its frame aspect ratio, letterboxing or pillarboxing the frame with transparent black. To import a frame at its native dimensions, use getClipVideoBounds, allocate the destination PPix using the dimensions returned, and pass the PPixHand and the dimensions into <code>getClipVideo</code>. If the frame size is not the same as the sequence size, the frame must be positioned in the composite by the plugin.</li><li><code>clipData</code>: the clipData handle found in prtFileRec</li></ul></td>
+<td colspan="1" rowspan="1">
+<p><code>getClipVideo</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Superceded by the <a href="../sweetpea-suites/#clip-render-suite">Clip Render Suite</a>, which provides asynchronous import.</p>
+<p>Retrieves a frame from a clip in a segment tree returned from the <a href="../sweetpea-suites/#video-segment-suite">Video Segment Suite</a>.</p>
+<p>It can be used by to retrieve and store a still frame, such as a title, for playback.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This call is expensive; use it carefully.</p>
+</div>
+<p><pre lang="cpp">csSDK_int32 getClipVideo (<br/>  csSDK_int32  frame,<br/>  PPixHand     thePort,<br/>  prRect       *bounds,<br/>  csSDK_int32  flags,<br/>  PrClipID     clipData);</pre></p>
+<ul>
+<li><code>frame</code>: the frame number you're requesting</li>
+<li><code>thePort</code>: allocate using the <a href="../sweetpea-suites/#ppix-creator-suite">PPix Creator Suite</a> before calling</li>
+<li><code>bounds</code>: the boundaries of video to return</li>
+<li><code>flags</code>: either <code>kGCVFlag_UseFilePixelAspectRatio</code> or 0. Setting it to <code>kGCVFlag_UseFilePixelAspectRatio</code> will return a PPix stamped with the PAR of the file. Setting it to 0 will return a PPix adjusted to the PAR of the project and stamped accordingly. It scales, but does not stretch the PPix to fit the destination PPix that is passed in. So if the destination PPix is larger than the frame asked for, the frame will maintain its frame aspect ratio, letterboxing or pillarboxing the frame with transparent black. To import a frame at its native dimensions, use getClipVideoBounds, allocate the destination PPix using the dimensions returned, and pass the PPixHand and the dimensions into <code>getClipVideo</code>. If the frame size is not the same as the sequence size, the frame must be positioned in the composite by the plugin.</li>
+<li><code>clipData</code>: the clipData handle found in prtFileRec</li>
+</ul>
+</td>
 </tr>
 <tr>
-<td><code>getWorkArea</code></td>
-<td>Passes back two longs with the start and end of the current work area (read-only).<br/><br/>Set timelineData to the timelineData of the current sequence.<br/><pre>csSDK_int32 getWorkArea (<br/>  PrTimelineID  timelineData,<br/>  csSDK_int32   <em>workAreaStart,<br/>  csSDK_int32   </em>workAreaEnd);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>getWorkArea</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Passes back two longs with the start and end of the current work area (read-only).</p>
+<p>Set timelineData to the timelineData of the current sequence.</p>
+<p><pre lang="cpp">csSDK_int32 getWorkArea (<br/>  PrTimelineID  timelineData,<br/>  csSDK_int32   *workAreaStart,<br/>  csSDK_int32   *workAreaEnd);</pre></p>
+</td>
 </tr>
 <tr>
-<td><code>getCurrentTimebase</code></td>
-<td>Passes back the current timebase of the timeline (<code>scale + sampleSize</code>).<br/><pre>void getCurrentTimebase(<br/>  PrTimelineID  timelineData,<br/>  csSDK_uint32  <em>scale,<br/>  csSDK_int32   </em>sampleSize);</pre><ul><li><code>timelineData</code>: the timelineData of the current sequence</li><li><code>scale</code>: the sequence scale</li><li><code>sampleSize</code>: the sequence sampleSize</li></ul></td>
+<td colspan="1" rowspan="1">
+<p><code>getCurrentTimebase</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Passes back the current timebase of the timeline (<code>scale + sampleSize</code>).</p>
+<p><pre lang="cpp">void getCurrentTimebase(<br/>  PrTimelineID  timelineData,<br/>  csSDK_uint32  *scale,<br/>  csSDK_int32   *sampleSize);</pre></p>
+<ul>
+<li><code>timelineData</code>: the timelineData of the current sequence</li>
+<li><code>scale</code>: the sequence scale</li>
+<li><code>sampleSize</code>: the sequence sampleSize</li>
+</ul>
+</td>
 </tr>
 <tr>
-<td><code>getCurrentPos</code></td>
-<td>Returns the position of the current time indicator (the position bar set by the user).<br/><br/>If (-1) is returned, the position bar in the timeline is not present.<br/><pre>csSDK_int32 getCurrentPos(<br/>  PrTimelineID  timelineData);</pre><ul><li><code>timelineData</code>: the timelineData of the current sequence</li></ul></td>
+<td colspan="1" rowspan="1">
+<p><code>getCurrentPos</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns the position of the current time indicator (the position bar set by the user).</p>
+<p>If (-1) is returned, the position bar in the timeline is not present.</p>
+<p><pre lang="cpp">csSDK_int32 getCurrentPos(<br/>  PrTimelineID  timelineData);</pre></p>
+<ul>
+<li><code>timelineData</code>: the timelineData of the current sequence</li>
+</ul>
+</td>
 </tr>
 <tr>
-<td><code>getPreviewFrameEx</code></td>
-<td>Gets a fully rendered frame from the timeline (all layers).<br/><br/>Used by video filters and transitions for previews in a modal setup dialog.<br/><br/>If the return value is -1, an error occurred, but if it is 0, the callback has returned safely.<br/><br/>Exporters rendering final movies should NOT use this callback.<br/><pre>csSDK_int32 getPreviewFrameEx(<br/>  PrTimelineID    timelineData,<br/>  csSDK_int32     inFrame,<br/>  PPixHand<em>       outRenderedFrame,<br/>  const prRect</em>   inFrameRect,<br/>  PrPixelFormat*  inRequestedPixelFormatArray,<br/>  csSDK_int32     inRequestedPixelFormatArrayCount,<br/>  csSDK_uint32    inPixelAspectRatioNumerator,<br/>  csSDK_uint32    inPixelAspectRatioDenominator,<br/>  bool            inAlwaysRender);</pre><ul><li><code>timelineData</code>: The timelineData of the current sequence. Pass a timeline handle as provided in EffectRecord, VideoRecord, compDoCompileInfo, or imGetPrefsRec.</li><li><code>inFrame</code>: The frame to get, specified in the current timebase. If a timelineData handle is specified (first param above), this frame will be relative to the start of the sequence.</li><li><code>outRenderedFrame</code>: The destination buffer. Allocate prior to this call by the plugin using the <a href="../sweetpea-suites/#ppix-suite">PPix Suite</a>. Released by the caller before returning.</li></ul></td>
+<td colspan="1" rowspan="1">
+<p><code>getPreviewFrameEx</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Gets a fully rendered frame from the timeline (all layers).</p>
+<p>Used by video filters and transitions for previews in a modal setup dialog.</p>
+<p>If the return value is -1, an error occurred, but if it is 0, the callback has returned safely.</p>
+<p>Exporters rendering final movies should NOT use this callback.</p>
+<p><pre lang="cpp">csSDK_int32 getPreviewFrameEx(<br/>  PrTimelineID    timelineData,<br/>  csSDK_int32     inFrame,<br/>  PPixHand*       outRenderedFrame,<br/>  const prRect*   inFrameRect,<br/>  PrPixelFormat*  inRequestedPixelFormatArray,<br/>  csSDK_int32     inRequestedPixelFormatArrayCount,<br/>  csSDK_uint32    inPixelAspectRatioNumerator,<br/>  csSDK_uint32    inPixelAspectRatioDenominator,<br/>  bool            inAlwaysRender);</pre></p>
+<ul>
+<li><code>timelineData</code>: The timelineData of the current sequence. Pass a timeline handle as provided in EffectRecord, VideoRecord, compDoCompileInfo, or imGetPrefsRec.</li>
+<li><code>inFrame</code>: The frame to get, specified in the current timebase. If a timelineData handle is specified (first param above), this frame will be relative to the start of the sequence.</li>
+<li><code>outRenderedFrame</code>: The destination buffer. Allocate prior to this call by the plugin using the <a href="../sweetpea-suites/#ppix-suite">PPix Suite</a>. Released by the caller before returning.</li>
+</ul>
+</td>
 </tr>
 <tr>
-<td><code>getClipVideoBounds</code></td>
-<td>Passes back the dimensions of a clip in a sequence. For rolling/ crawling titles, use the Roll/Crawl Suite to get the dimensions instead.<br/><pre>csSDK_int32 getClipVideoBounds (<br/>  PrClipID      inClipData,<br/>  prRect        <em>outBounds,<br/>  csSDK_uint32  </em>outPixelAspectRatioNumerator,<br/>  csSDK_uint32  *outPixelAspectRatioDenominator);</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>getClipVideoBounds</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Passes back the dimensions of a clip in a sequence. For rolling/ crawling titles, use the Roll/Crawl Suite to get the dimensions instead.</p>
+<p><pre lang="cpp">csSDK_int32 getClipVideoBounds (<br/>  PrClipID      inClipData,<br/>  prRect        *outBounds,<br/>  csSDK_uint32  *outPixelAspectRatioNumerator,<br/>  csSDK_uint32  *outPixelAspectRatioDenominator);</pre></p>
+</td>
 </tr>
 <tr>
-<td><code>getClipVideoEx</code></td>
-<td>Superceded by the <a href="../sweetpea-suites/#clip-render-suite">Clip Render Suite</a>, which provides asynchronous import.<br/><br/>Retrieves a frame from a clip in a segment tree returned from the <a href="../sweetpea-suites/#video-segment-suite">Video Segment Suite</a>.<br/>It can be used by to retrieve and store a still frame, such as a title, for playback.<br/><br/>This call is expensive; use it carefully.<br/><pre>csSDK_int32 getClipVideoEx (<br/>  csSDK_int32          inFrame,<br/>  PPixHand             <em>outRenderedFrame,<br/>  const prRect         </em>inFrameRect,<br/>  const PrPixelFormat  *inRequestedPixelFormatArray,<br/>  csSDK_int32          inRequestedPixelFormatArrayCount,<br/>  csSDK_uint32         inPixelAspectRatioNumerator,<br/>  csSDK_uint32         inPixelAspectRatioDenominator,<br/>  PrClipID             inClipData);</pre><ul><li><code>inFrame</code>: the frame number you're requesting, in the timebase of the clip</li><li><code>outRenderedFrame</code>: Allocated by the host. The plugin should dispose of the PPixHand when done</li><li><code>inFrameRect</code>: the boundaries of video to return. To import a frame at its native dimensions, use getClipVideoBounds. If the frame size is not the same as the sequence size, the frame must be positioned in the composite by the plugin.</li><li><code>inClipData</code>: the PrClipID from the video segment</li></ul></td>
+<td colspan="1" rowspan="1">
+<p><code>getClipVideoEx</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Superceded by the <a href="../sweetpea-suites/#clip-render-suite">Clip Render Suite</a>, which provides asynchronous import.</p>
+<p>Retrieves a frame from a clip in a segment tree returned from the <a href="../sweetpea-suites/#video-segment-suite">Video Segment Suite</a>.<br/>It can be used by to retrieve and store a still frame, such as a title, for playback.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This call is expensive; use it carefully.</p>
+</div>
+<p><pre lang="cpp">csSDK_int32 getClipVideoEx (<br/>  csSDK_int32          inFrame,<br/>  PPixHand             *outRenderedFrame,<br/>  const prRect         *inFrameRect,<br/>  const PrPixelFormat  *inRequestedPixelFormatArray,<br/>  csSDK_int32          inRequestedPixelFormatArrayCount,<br/>  csSDK_uint32         inPixelAspectRatioNumerator,<br/>  csSDK_uint32         inPixelAspectRatioDenominator,<br/>  PrClipID             inClipData);</pre></p>
+<ul>
+<li><code>inFrame</code>: the frame number you're requesting, in the timebase of the clip</li>
+<li><code>outRenderedFrame</code>: Allocated by the host. The plugin should dispose of the PPixHand when done</li>
+<li><code>inFrameRect</code>: the boundaries of video to return. To import a frame at its native dimensions, use getClipVideoBounds. If the frame size is not the same as the sequence size, the frame must be positioned in the composite by the plugin.</li>
+<li><code>inClipData</code>: the PrClipID from the video segment</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3227,48 +3568,88 @@
 <span class="w">                                        </span><span class="nb">NULL</span><span class="p">);</span>
 </code></pre></div>
 <table>
-<thead>
-<tr>
-<th>Function</th>
-<th>Description</th>
-<th></th>
-</tr>
-</thead>
 <tbody>
 <tr>
-<td><code>StretchBits</code></td>
-<td>Stretches and copies an image, including the alpha channel.<br/><br/>When the destination is larger than the source, it performs bilinear interpolation for smooth scaling.<br/><pre>void StretchBits (<br/>  PPixHand  srcPix,<br/>  PPixHand  dstPix,<br/>  prRect    srcRect,<br/>  prRect    dstRect,<br/>  int       mode,<br/>  prRgn     rgn);</pre><br/><br/>StretchBits only works on 8-bit PPixs.<br/>srcRect is the area of the source PPix to copy; dstRect is used to scale the copy.<br/><br/>Valid modes are <code>cbBlend</code>, <code>cbInterp</code>, and <code>cbMaskHdl</code><br/><br/>For <code>cbBlend</code>, the low byte of the mode defines the amount of blend between the source and destination in a range of 0-255.<br/><br/>Example:<br/><br/>To blend 30% of the source with the destination, use <code>cbBlend | (30*255/100)</code><br/><br/>While much slower than <code>cbBlend</code>, cbInterp mode does bilinear interpolation when resizing a source PPix to a larger destination, resulting in a much smoother image.<br/><br/>cbMaskHdl tells StretchBits that prRgn is a handle to a 1-bit deep buffer the same size as the source and destination PPixs, to be used as a mask.<br/><br/>Pass 0 for no clipping. The prRgn parameter is only used on Windows.</td>
-<td></td>
+<td colspan="1" rowspan="1">
+<h2 id="function">Function<a class="headerlink" href="#function" title="Permanent link">&para;</a></h2>
+<p><code>StretchBits</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">&para;</a></h2>
+<p>Stretches and copies an image, including the alpha channel.</p>
+<p>When the destination is larger than the source, it performs bilinear interpolation for smooth scaling.</p>
+<p><pre lang="cpp">void StretchBits (<br/>  PPixHand  srcPix,<br/>  PPixHand  dstPix,<br/>  prRect    srcRect,<br/>  prRect    dstRect,<br/>  int       mode,<br/>  prRgn     rgn);</pre></p>
+<p>StretchBits only works on 8-bit PPixs.</p>
+<p><code>srcRect</code> is the area of the source PPix to copy; <code>dstRect</code> is used to scale the copy.</p>
+<p><code>mode</code>:</p>
+<p>Valid modes are <code>cbBlend</code>, <code>cbInterp</code>, and <code>cbMaskHdl</code></p>
+<ul>
+<li><code>cbBlend</code> - The low byte of the mode defines the amount of blend between the source and destination in a range of 0-255.<ul>
+<li>Example:</li>
+<li>To blend 30% of the source with the destination, use <code>cbBlend \^ (30*255/100)</code></li>
+</ul>
+</li>
+<li><code>cbInterp</code> - While much slower than <code>cbBlend</code>, this mode does bilinear interpolation when resizing a source PPix to a larger destination, resulting in a much smoother image.</li>
+<li><code>cbMaskHdl</code> tells StretchBits that prRgn is a handle to a 1-bit deep buffer the same size as the source and destination PPixs, to be used as a mask.</li>
+</ul>
+<p><code>prRgn</code>: Pass <code>0</code> for no clipping. This parameter is only used on Windows.</p>
+</td>
 </tr>
 <tr>
-<td><code>DistortPolygon</code></td>
-<td>Maps the source rectangle to a four-point polygon in the destination.<br/><pre>void DistortPolygon (<br/>  PPixHand  src,<br/>  PPixHand  dest,<br/>  prRect    <em>srcbox,<br/>  prPoint   </em>dstpts);</pre><br/><br/>When scaling up, <code>DistortPolygon</code> uses bilinear interpolation; it uses pixel averaging when scaling down.</td>
-<td></td>
+<td colspan="1" rowspan="1">
+<p><code>DistortPolygon</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Maps the source rectangle to a four-point polygon in the destination.</p>
+<p><pre lang="cpp">void DistortPolygon (<br/>  PPixHand  src,<br/>  PPixHand  dest,<br/>  prRect    *srcbox,<br/>  prPoint   *dstpts);</pre></p>
+<p>When scaling up, <code>DistortPolygon</code> uses bilinear interpolation; it uses pixel averaging when scaling down.</p>
+</td>
 </tr>
 <tr>
-<td><code>MapPolygon</code></td>
-<td>Maps a four-point src polygon into a four-point polygon (dstpts).<br/><br/>If the source polygon is a rectangle, it is equivalent to <code>DistortPolygon</code>.<br/><pre>void MapPolygon (<br/>  PPixHand  src,<br/>  PPixHand  dest,<br/>  prPoint   <em>srcpts,<br/>  prPoint   </em>dstpts );</pre></td>
-<td></td>
+<td colspan="1" rowspan="1">
+<p><code>MapPolygon</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Maps a four-point src polygon into a four-point polygon (dstpts).</p>
+<p>If the source polygon is a rectangle, it is equivalent to <code>DistortPolygon</code>.</p>
+<p><pre lang="cpp">void MapPolygon (<br/>  PPixHand  src,<br/>  PPixHand  dest,<br/>  prPoint   *srcpts,<br/>  prPoint   *dstpts );</pre></p>
+</td>
 </tr>
 <tr>
-<td><code>DistortFixed</code></td>
-<td>Equivalent to DistortPolygon, using fixed-point coordinates.<br/><pre>void DistortFixed (<br/>  PPixHand   src,<br/>  PPixHand   dest,<br/>  prRect     <em>srcbox,<br/>  LongPoint  </em>dstpts);</pre></td>
-<td></td>
+<td colspan="1" rowspan="1">
+<p><code>DistortFixed</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Equivalent to DistortPolygon, using fixed-point coordinates.</p>
+<p><pre lang="cpp">void DistortFixed (<br/>  PPixHand   src,<br/>  PPixHand   dest,<br/>  prRect     *srcbox,<br/>  LongPoint  *dstpts);</pre></p>
+</td>
 </tr>
 <tr>
-<td><code>FixedToFixed</code></td>
-<td>Equivalent to MapPolygon, using fixed-point coordinates.<br/><pre>void FixedToFixed (<br/>  PPixHand   src,<br/>  PPixHand   dest,<br/>  LongPoint  <em>srcpts,<br/>  LongPoint  </em>dstpts);</pre></td>
-<td></td>
+<td colspan="1" rowspan="1">
+<p><code>FixedToFixed</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Equivalent to MapPolygon, using fixed-point coordinates.</p>
+<p><pre lang="cpp">void FixedToFixed (<br/>  PPixHand   src,<br/>  PPixHand   dest,<br/>  LongPoint  *srcpts,<br/>  LongPoint  *dstpts);</pre></p>
+</td>
 </tr>
 <tr>
-<td><code>DoIndexMap</code></td>
-<td>Image map function.<br/><pre>void DoIndexMap (<br/>  char    <em>src,<br/>  char    </em>dst,<br/>  short   row,<br/>  short,  pixwidth,<br/>  short,  height,<br/>  char    <em>lookup1,<br/>  char    </em>lookup2,<br/>  char    *lookup3);</pre></td>
-<td></td>
+<td colspan="1" rowspan="1">
+<p><code>DoIndexMap</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Image map function.</p>
+<p><pre lang="cpp">void DoIndexMap (<br/>  char    *src,<br/>  char    *dst,<br/>  short   row,<br/>  short,  pixwidth,<br/>  short,  height,<br/>  char    *lookup1,<br/>  char    *lookup2,<br/>  char    *lookup3);</pre></p>
+</td>
 </tr>
 <tr>
-<td><code>DoConvolve</code></td>
-<td>Convolution function.<br/><pre>void DoConvolve (<br/>  unsigned char  <em>src,<br/>  unsigned char  </em>dst,<br/>  short          *inmatrix,<br/>  short,         rowBytes,<br/>  short,         width,<br/>  short,         height);</pre></td>
-<td></td>
+<td colspan="1" rowspan="1">
+<p><code>DoConvolve</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Convolution function.</p>
+<p><pre lang="cpp">void DoConvolve (<br/>  unsigned char  *src,<br/>  unsigned char  *dst,<br/>  short          *inmatrix,<br/>  short,         rowBytes,<br/>  short,         width,<br/>  short,         height);</pre></p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3292,7 +3673,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 25, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 11, 2025</span>
   </span>
 
     

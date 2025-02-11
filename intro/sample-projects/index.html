@@ -2835,50 +2835,132 @@
 <table>
 <thead>
 <tr>
-<th>Name</th>
-<th>Description</th>
+<th colspan="1" rowspan="1">
+<p>Name</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Description</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>SDK File Importer</td>
-<td>This importer supports .sdk media files.<br/><br/>To use the importer, choose File &gt; Import, and select an .sdk file.<br/>Such files may be created using the SDK Exporter.<br/><br/>It supports uncompressed 8-bit RGB with or without alpha, and packed 10-bit YUV (v410).<br/>It supports mono, stereo, and 5.1 audio at arbitrary sample rates and 32-bit float.<br/>It supports trimming using the Project Manager, Properties and Data Rate Analysis, Unicode filenames, the avoidAudioConform flag, and can read video frames asynchronously.<br/>It also features a test harness for multistream audio, which can be turned on by uncommenting the <code>MULTISTREAM_AUDIO_TESTING</code> define in the header.</td>
+<td colspan="1" rowspan="1">
+<p>SDK File Importer</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>This importer supports .sdk media files.</p>
+<p>To use the importer, choose File &gt; Import, and select an .sdk file. Such files may be created using the SDK Exporter.</p>
+<p>It supports uncompressed 8-bit RGB with or without alpha, and packed 10-bit YUV (v410).</p>
+<p>It supports mono, stereo, and 5.1 audio at arbitrary sample rates and 32-bit float.</p>
+<p>It supports trimming using the Project Manager, Properties and Data Rate Analysis, Unicode filenames, the avoidAudioConform flag, and can read video frames asynchronously.</p>
+<p>It also features a test harness for multistream audio, which can be turned on by uncommenting the <code>MULTISTREAM_AUDIO_TESTING</code> define in the header.</p>
+</td>
 </tr>
 <tr>
-<td>Synth Import</td>
-<td>This synthetic importer generates 8-bit YUV and RGB, video only.<br/><br/>To use it, choose File &gt; New &gt; SDK Synthetic Importer.<br/><br/>When the clip is created, it demonstrates a sample settings dialog, which can be displayed again by double-clicking the clip in the Project Panel or Timeline Panel.<br/><br/>Every time the settings dialog is displayed, it creates new footage in memory. It creates ten seconds of footage at 24 fps. The video consists of horizontal lines of random colors.<br/><br/>No file is created on disk for an example of that, see the Custom Importer.</td>
+<td colspan="1" rowspan="1">
+<p>Synth Import</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>This synthetic importer generates 8-bit YUV and RGB, video only.</p>
+<p>To use it, choose File &gt; New &gt; SDK Synthetic Importer.</p>
+<p>When the clip is created, it demonstrates a sample settings dialog, which can be displayed again by double-clicking the clip in the Project Panel or Timeline Panel.</p>
+<p>Every time the settings dialog is displayed, it creates new footage in memory. It creates ten seconds of footage at 24 fps. The video consists of horizontal lines of random colors.</p>
+<p>No file is created on disk for an example of that, see the Custom Importer.</p>
+</td>
 </tr>
 <tr>
-<td>SDK Custom Import</td>
-<td>This custom importer creates a clip similar to the Synth Import sample, but generates it to disk, rather than memory.<br/><br/>To use it, choose File &gt; New &gt; SDK Custom Importer.<br/><br/>Or, import an existing .sdkc clip from the File &gt; Import dialog.<br/><br/>On Windows, newly generated files with .sdkc file extensions are created in C:WindowsTemp. On macOS, they are created on the Desktop.<br/><br/>After the sample settings dialog, it optionally displays a background frame from the timeline (useful for titlers).<br/><br/>The generated footage is between 2 and 30 frames at 24 fps, with a random resolution between 32 and 720 pixels wide and between 32 and 480 high, at DV NTSC pixel aspect ratio.</td>
+<td colspan="1" rowspan="1">
+<p>SDK Custom Import</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>This custom importer creates a clip similar to the Synth Import sample, but generates it to disk, rather than memory.</p>
+<p>To use it, choose File &gt; New &gt; SDK Custom Importer.</p>
+<p>Or, import an existing .sdkc clip from the File &gt; Import dialog.</p>
+<p>On Windows, newly generated files with .sdkc file extensions are created in C:WindowsTemp. On macOS, they are created on the Desktop.</p>
+<p>After the sample settings dialog, it optionally displays a background frame from the timeline (useful for titlers).</p>
+<p>The generated footage is between 2 and 30 frames at 24 fps, with a random resolution between 32 and 720 pixels wide and between 32 and 480 high, at DV NTSC pixel aspect ratio.</p>
+</td>
 </tr>
 <tr>
-<td>ExportController</td>
-<td>Adds a new menu item to File &gt; Export &gt; SDK Export Controller.<br/><br/>When selected, it displays a simple message box on Windows, takes the DV NTSC widescreen preset, and exports a file to <code>C:\Windows\Temp</code> on Windows, or to the Desktop on macOS.</td>
+<td colspan="1" rowspan="1">
+<p>ExportController</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Adds a new menu item to File &gt; Export &gt; SDK Export Controller.</p>
+<p>When selected, it displays a simple message box on Windows, takes the DV NTSC widescreen preset, and exports a file to <code>C:\Windows\Temp</code> on Windows, or to the Desktop on macOS.</p>
+</td>
 </tr>
 <tr>
-<td>SDK Exporter</td>
-<td>This exporter writes .sdk files.<br/><br/>To use it, choose File &gt; Export &gt; Media, and in the Export Settings choose File Type: SDK File.<br/><br/>It supports uncompressed 8-bit RGB with or without alpha, and packed 10-bit YUV (v410).<br/><br/>It supports mono, stereo, and 5.1 audio at arbitrary sample rates and 32-bit float.<br/><br/>It demonstrates custom parameters, including a custom settings button.<br/><br/>It also writes marker data to an .html file with the same filename.<br/><br/>To write files with v410 compression using 8-bit RGB sources, this sample uses routines to convert the 8-bit RGB data to 32-bit RGB, then to 32-bit YUV, and finally to v410.<br/><br/>These same routines may be adapted for transitions, filters, and other plugin types.</td>
+<td colspan="1" rowspan="1">
+<p>SDK Exporter</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>This exporter writes .sdk files.</p>
+<p>To use it, choose File &gt; Export &gt; Media, and in the Export Settings choose File Type: SDK File.</p>
+<p>It supports uncompressed 8-bit RGB with or without alpha, and packed 10-bit YUV (v410).</p>
+<p>It supports mono, stereo, and 5.1 audio at arbitrary sample rates and 32-bit float.</p>
+<p>It demonstrates custom parameters, including a custom settings button.</p>
+<p>It also writes marker data to an .html file with the same filename.</p>
+<p>To write files with v410 compression using 8-bit RGB sources, this sample uses routines to convert the 8-bit RGB data to 32-bit RGB, then to 32-bit YUV, and finally to v410.</p>
+<p>These same routines may be adapted for transitions, filters, and other plugin types.</p>
+</td>
 </tr>
 <tr>
-<td>Transmitter</td>
-<td>The sample transmit plugin does not output to any hardware, but can be used to step through interactions between the host and plugin in the debugger.<br/><br/>To use it, go the the Preferences &gt; Playback, and choose the SDK Transmitter as the Audio Device, and as a Video Device.<br/><br/>This transmit plugin provides the basic structure, separating concepts of plugin and instance. For video, it declares support for any pixel format and resolution.<br/><br/>For audio, it declares support for 2 channels. It also declares a small latency value for demonstrative purposes.<br/><br/>On Windows, there is some basic debug logging.<br/><br/>It does not actually provide it's own clock at this time, but on playback it simply pretends to step forward a frame with every frame received.<br/><br/>This may result in some bug behavior such as playing back at speeds faster or slower than normal, depending on how fast the host can push frames.</td>
+<td colspan="1" rowspan="1">
+<p>Transmitter</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The sample transmit plugin does not output to any hardware, but can be used to step through interactions between the host and plugin in the debugger.</p>
+<p>To use it, go the the Preferences &gt; Playback, and choose the SDK Transmitter as the Audio Device, and as a Video Device.</p>
+<p>This transmit plugin provides the basic structure, separating concepts of plugin and instance. For video, it declares support for any pixel format and resolution.</p>
+<p>For audio, it declares support for 2 channels. It also declares a small latency value for demonstrative purposes.</p>
+<p>On Windows, there is some basic debug logging.</p>
+<p>It does not actually provide it's own clock at this time, but on playback it simply pretends to step forward a frame with every frame received.</p>
+<p>This may result in some bug behavior such as playing back at speeds faster or slower than normal, depending on how fast the host can push frames.</p>
+</td>
 </tr>
 <tr>
-<td>SDK_ProcAmp</td>
-<td>This GPU-accelerated effect demonstrates a simple ProcAmp effect using the After Effects API with the Premiere Pro GPU extensions.<br/><br/>The effect is found in the SDK folder of the Video Effects in the Effects Control panel.<br/><br/>It supports Metal acceleration.<br/><br/><strong>This sample requires macOS 10.11.4 and later.</strong></td>
+<td colspan="1" rowspan="1">
+<p>SDK_ProcAmp</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>This GPU-accelerated effect demonstrates a simple ProcAmp effect using the After Effects API with the Premiere Pro GPU extensions.</p>
+<p>The effect is found in the SDK folder of the Video Effects in the Effects Control panel.</p>
+<p>It supports Metal acceleration.</p>
+<p><strong>This sample requires macOS 10.11.4 and later.</strong></p>
+</td>
 </tr>
 <tr>
-<td>Vignette</td>
-<td>This effect creates a vignette on video using the After Effects API with the Premiere Pro GPU extensions.<br/><br/>Has CUDA and software render paths.<br/><br/>Software rendering in Premiere Pro includes 8-bit/32-bit RGB/ YUV software render paths.<br/><br/>Software rendering in After Effects includes 8-bit and 32-bit smart rendering.<br/><br/>Thanks to Bart Walczak for donating this sample.</td>
+<td colspan="1" rowspan="1">
+<p>Vignette</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>This effect creates a vignette on video using the After Effects API with the Premiere Pro GPU extensions.</p>
+<p>Has CUDA and software render paths.</p>
+<p>Software rendering in Premiere Pro includes 8-bit/32-bit RGB/ YUV software render paths.</p>
+<p>Software rendering in After Effects includes 8-bit and 32-bit smart rendering.</p>
+<p>Thanks to Bart Walczak for donating this sample.</p>
+</td>
 </tr>
 <tr>
-<td>SDK_CrossDissolve</td>
-<td>This GPU-accelerated transition demonstrates a simple cross dissolve transition using the After Effects API with the transition extensions.<br/><br/>The transition is found in the SDK folder of the Video Transitions in the Effects Control panel.<br/><br/>It supports CUDA acceleration.</td>
+<td colspan="1" rowspan="1">
+<p>SDK_CrossDissolve</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>This GPU-accelerated transition demonstrates a simple cross dissolve transition using the After Effects API with the transition extensions.</p>
+<p>The transition is found in the SDK folder of the Video Transitions in the Effects Control panel.</p>
+<p>It supports CUDA acceleration.</p>
+</td>
 </tr>
 <tr>
-<td>ControlSurface</td>
-<td>You should see the plugin in the PPro UI in Preferences &gt; Control Surface, when you hit the Add button, as one of the options in the Device Class drop-down next to Mackie and EUCON (currently shows as "SDK Control Surface Sample").<br/><br/>Just a starting point for you to add your functionality.</td>
+<td colspan="1" rowspan="1">
+<p>ControlSurface</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>You should see the plugin in the PPro UI in Preferences &gt; Control Surface, when you hit the Add button, as one of the options in the Device Class drop-down next to Mackie and EUCON (currently shows as "SDK Control Surface Sample").</p>
+<p>Just a starting point for you to add your functionality.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -2934,7 +3016,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 25, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 11, 2025</span>
   </span>
 
     

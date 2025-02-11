@@ -2971,58 +2971,107 @@
 <table>
 <thead>
 <tr>
-<th>Member</th>
-<th>Description</th>
+<th colspan="1" rowspan="1">
+<p>Member</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Description</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>inClipTime</code></td>
-<td>The time of the current render, relative to clip start</td>
+<td colspan="1" rowspan="1">
+<p><code>inClipTime</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The time of the current render, relative to clip start</p>
+</td>
 </tr>
 <tr>
-<td><code>inSequenceTime</code></td>
-<td>The time of the current render, relative to sequence start</td>
+<td colspan="1" rowspan="1">
+<p><code>inSequenceTime</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The time of the current render, relative to sequence start</p>
+</td>
 </tr>
 <tr>
-<td><code>inQuality</code></td>
-<td>Render quality; one of the PrRenderQuality enum values</td>
+<td colspan="1" rowspan="1">
+<p><code>inQuality</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Render quality; one of the <code>PrRenderQuality</code> enum values</p>
+</td>
 </tr>
 <tr>
-<td><code>inDownsampleFactorX</code></td>
-<td>Horizontal downsample factor</td>
+<td colspan="1" rowspan="1">
+<p><code>inDownsampleFactorX</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Horizontal downsample factor</p>
+</td>
 </tr>
 <tr>
-<td><code>inDownsampleFactorY</code></td>
-<td>Vertical downsample factor</td>
+<td colspan="1" rowspan="1">
+<p><code>inDownsampleFactorY</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Vertical downsample factor</p>
+</td>
 </tr>
 <tr>
-<td><code>inRenderWidth</code></td>
-<td>Video resolution</td>
+<td colspan="1" rowspan="1">
+<p><code>inRenderWidth</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Video resolution</p>
+</td>
 </tr>
 <tr>
-<td><code>inRenderHeight</code></td>
-<td></td>
+<td colspan="1" rowspan="1">
+<p><code>inRenderHeight</code></p>
+</td>
+<td colspan="1" rowspan="1"></td>
 </tr>
 <tr>
-<td><code>inRenderPARNum</code></td>
-<td>Video pixel aspect ratio, described as a fractional number with separate values for numerator and denominator.</td>
+<td colspan="1" rowspan="1">
+<p><code>inRenderPARNum</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Video pixel aspect ratio, described as a fractional number with separate values for numerator and denominator.</p>
+</td>
 </tr>
 <tr>
-<td><code>inRenderPARDen</code></td>
-<td></td>
+<td colspan="1" rowspan="1">
+<p><code>inRenderPARDen</code></p>
+</td>
+<td colspan="1" rowspan="1"></td>
 </tr>
 <tr>
-<td><code>inRenderFieldType</code></td>
-<td>Render field type</td>
+<td colspan="1" rowspan="1">
+<p><code>inRenderFieldType</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Render field type</p>
+</td>
 </tr>
 <tr>
-<td><code>inRenderTicksPerFrame</code></td>
-<td>Video frame rate</td>
+<td colspan="1" rowspan="1">
+<p><code>inRenderTicksPerFrame</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Video frame rate</p>
+</td>
 </tr>
 <tr>
-<td><code>inRenderField</code></td>
-<td>GPU rendering is always done on full-height progressive frames unless <code>PrGPUFilterFrameDependency.outNeedsFieldSeparation</code> is false.<br/><br/><code>inRenderField</code> indicates which field is being rendered.</td>
+<td colspan="1" rowspan="1">
+<p><code>inRenderField</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>GPU rendering is always done on full-height progressive frames unless <code>PrGPUFilterFrameDependency.outNeedsFieldSeparation</code> is <code>false</code>.</p>
+<p><code>inRenderField</code> indicates which field is being rendered.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3050,54 +3099,97 @@
 <table>
 <thead>
 <tr>
-<th>Member</th>
-<th>Description</th>
+<th colspan="1" rowspan="1">
+<p>Member</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Description</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>outDependencyType</code></td>
-<td>The dependency type.<br/><br/>Could be either:<ul><li><code>PrGPUDependency_InputFrame</code></li><li><code>PrGPUDependency_Precompute</code></li><li><code>PrGPUDependency_FieldSeparation</code></li></ul></td>
+<td colspan="1" rowspan="1">
+<p><code>outDependencyType</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The dependency type. One of:</p>
+<ul>
+<li><code>PrGPUDependency_InputFrame</code></li>
+<li><code>PrGPUDependency_Precompute</code></li>
+<li><code>PrGPUDependency_FieldSeparation</code></li>
+</ul>
+</td>
 </tr>
 <tr>
-<td><code>outTrackID</code></td>
-<td>Specify which track is a dependency. Set to 0 for the current track</td>
+<td colspan="1" rowspan="1">
+<p><code>outTrackID</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Specify which track is a dependency. Set to 0 for the current track</p>
+</td>
 </tr>
 <tr>
-<td><code>outSequenceTime</code></td>
-<td>Set the sequence time which is a dependency.</td>
+<td colspan="1" rowspan="1">
+<p><code>outSequenceTime</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Set the sequence time which is a dependency.</p>
+</td>
 </tr>
 <tr>
-<td><code>outPrecomputePixelFormat</code></td>
-<td>Dependence on precomputation phase</td>
+<td colspan="1" rowspan="1">
+<p><code>outPrecomputePixelFormat</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Dependence on precomputation phase</p>
+</td>
 </tr>
 <tr>
-<td><code>outPrecomputeFrameWidth</code></td>
-<td></td>
+<td colspan="1" rowspan="1">
+<p><code>outPrecomputeFrameWidth</code></p>
+</td>
+<td colspan="1" rowspan="1"></td>
 </tr>
 <tr>
-<td><code>outPrecomputeFrameHeight</code></td>
-<td></td>
+<td colspan="1" rowspan="1">
+<p><code>outPrecomputeFrameHeight</code></p>
+</td>
+<td colspan="1" rowspan="1"></td>
 </tr>
 <tr>
-<td><code>outPrecomputeFramePARNumerator</code></td>
-<td></td>
+<td colspan="1" rowspan="1">
+<p><code>outPrecomputeFramePARNumerator</code></p>
+</td>
+<td colspan="1" rowspan="1"></td>
 </tr>
 <tr>
-<td><code>outPrecomputeFramePARDenominator</code></td>
-<td></td>
+<td colspan="1" rowspan="1">
+<p><code>outPrecomputeFramePARDenominator</code></p>
+</td>
+<td colspan="1" rowspan="1"></td>
 </tr>
 <tr>
-<td><code>outPrecomputeFrameFieldType</code></td>
-<td></td>
+<td colspan="1" rowspan="1">
+<p><code>outPrecomputeFrameFieldType</code></p>
+</td>
+<td colspan="1" rowspan="1"></td>
 </tr>
 <tr>
-<td><code>outPrecomputeCustomDataSize</code></td>
-<td>Only needed if <code>outPrecomputePixelFormat</code> is custom</td>
+<td colspan="1" rowspan="1">
+<p><code>outPrecomputeCustomDataSize</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Only needed if <code>outPrecomputePixelFormat</code> is custom</p>
+</td>
 </tr>
 <tr>
-<td><code>outNeedsFieldSeparation</code></td>
-<td>Indicates the plugin may operate on both fields simultaneously (eg non-spatial and non-time varying)</td>
+<td colspan="1" rowspan="1">
+<p><code>outNeedsFieldSeparation</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Indicates the plugin may operate on both fields simultaneously (eg non-spatial and non-time varying)</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3121,7 +3213,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 25, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 11, 2025</span>
   </span>
 
     

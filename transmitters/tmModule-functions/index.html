@@ -2750,90 +2750,228 @@
 <table>
 <thead>
 <tr>
-<th>Member</th>
-<th>Description</th>
+<th colspan="1" rowspan="1">
+<p>Member</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Description</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>Startup</code></td>
-<td>Initialize a transmitter, fill in basic plugin info, allocate memory to hold user settings and other data.<br/><pre>tmResult (*Startup)(<br/>tmStdParms* ioStdParms,<br/>tmPluginInfo* outPluginInfo);</pre><code>tmResult_ContinueIterate</code> may be returned to support multiple transmit plugins within the same module.</pre><code>ioPrivatePluginData</code>, <code>ioSerializedPluginData</code> &amp; <code>ioSerializedPluginDataSize</code> may be written from Startup.</td>
+<td colspan="1" rowspan="1">
+<p><code>Startup</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Initialize a transmitter, fill in basic plugin info, allocate memory to hold user settings and other data.</p>
+<p><pre lang="cpp">tmResult (*Startup)(<br/>tmStdParms* ioStdParms,<br/>tmPluginInfo* outPluginInfo);</pre></p>
+<ul>
+<li><code>tmResult_ContinueIterate</code> may be returned to support multiple transmit plugins within the same module.</li>
+<li><code>ioPrivatePluginData</code>, <code>ioSerializedPluginData</code> &amp; <code>ioSerializedPluginDataSize</code> may be written from Startup.</li>
+</ul>
+</td>
 </tr>
 <tr>
-<td><code>Shutdown</code></td>
-<td>Terminate a transmitter.<br/><pre>tmResult (*Shutdown)(<br/>tmStdParms* ioStdParms);</pre>Dispose of <code>ioPrivatePluginData</code> if previously allocated in <code>Startup</code>.</td>
+<td colspan="1" rowspan="1">
+<p><code>Shutdown</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Terminate a transmitter.</p>
+<p><pre lang="cpp">tmResult (*Shutdown)(<br/>tmStdParms* ioStdParms);</pre></p>
+<p>Dispose of <code>ioPrivatePluginData</code> if previously allocated in <code>Startup</code>.</p>
+</td>
 </tr>
 <tr>
-<td><code>QueryAudioMode</code></td>
-<td>Describe the audio modes supported by the transmitter, one at a time.<br/><pre>tmResult (*QueryAudioMode)(<br/>const tmStdParms* inStdParms,<br/>const tmInstance* inInstance,<br/>csSDK_int32 inQueryIterationIndex,<br/>tmAudioMode* outAudioMode);</pre>Note that currently one audio mode is currently supported. You can convert between audio formats using the <a href="../../universals/sweetpea-suites/#audio-suite">Audio Suite</a>.</td>
+<td colspan="1" rowspan="1">
+<p><code>QueryAudioMode</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Describe the audio modes supported by the transmitter, one at a time.</p>
+<p><pre lang="cpp">tmResult (*QueryAudioMode)(<br/>const tmStdParms* inStdParms,<br/>const tmInstance* inInstance,<br/>csSDK_int32 inQueryIterationIndex,<br/>tmAudioMode* outAudioMode);</pre></p>
+<p>Note that currently one audio mode is currently supported. You can convert between audio formats using the <a href="../../universals/sweetpea-suites/#audio-suite">Audio Suite</a>.</p>
+</td>
 </tr>
 <tr>
-<td><code>QueryVideoMode</code></td>
-<td>Describe the video modes supported by the transmitter, one at a time.<br/><pre>tmResult (*QueryVideoMode)(<br/>const tmStdParms* inStdParms,<br/>const tmInstance* inInstance,<br/>csSDK_int32 inQueryIterationIndex,<br/>tmVideoMode* outVideoMode);</pre>The video sent later in <code>PushVideo</code> will be one of the formats specified here.</td>
+<td colspan="1" rowspan="1">
+<p><code>QueryVideoMode</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Describe the video modes supported by the transmitter, one at a time.</p>
+<p><pre lang="cpp">tmResult (*QueryVideoMode)(<br/>const tmStdParms* inStdParms,<br/>const tmInstance* inInstance,<br/>csSDK_int32 inQueryIterationIndex,<br/>tmVideoMode* outVideoMode);</pre></p>
+<p>The video sent later in <code>PushVideo</code> will be one of the formats specified here.</p>
+</td>
 </tr>
 <tr>
-<td><code>SetupDialog</code></td>
-<td>Display your own modal settings dialog.<br/><pre>tmResult (*SetupDialog)(<br/>tmStdParms* ioStdParms,<br/>prParentWnd inParent);</pre>Will only be called if the plugin returned <code>outHasSetup</code>.</pre>Save any settings to <code>ioSerializedPluginData</code> and if needed update <code>ioSerializedPluginDataSize</code>.</pre><code>NeedsReset</code> will be invoked after this call, to allow your transmitter a chance to reset all open plugins and startup with the new settings.</td>
+<td colspan="1" rowspan="1">
+<p><code>SetupDialog</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Display your own modal settings dialog.</p>
+<p><pre lang="cpp">tmResult (*SetupDialog)(<br/>tmStdParms* ioStdParms,<br/>prParentWnd inParent);</pre></p>
+<p>Will only be called if the plugin returned <code>outHasSetup</code>.</p>
+<p>Save any settings to <code>ioSerializedPluginData</code> and if needed update <code>ioSerializedPluginDataSize</code>.</p>
+<p><code>NeedsReset</code> will be invoked after this call, to allow your transmitter a chance to reset all open plugins and startup with the new settings.</p>
+</td>
 </tr>
 <tr>
-<td><code>NeedsReset</code></td>
-<td>Will be called regularly on the first plugin of a module to allow rebuilding on state changes.<br/><pre>tmResult (*NeedsReset)(<br/>const tmStdParms* inStdParms,<br/>prBool* outResetModule);</pre>If the passed in settings differ enough from the created settings, or if the settings on the hardware itself have changed, the transmitter should specify a reset is needed.</pre>If <code>outResetModule</code> is set to true, all open plugins will be shutdown and started up again.</td>
+<td colspan="1" rowspan="1">
+<p><code>NeedsReset</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Will be called regularly on the first plugin of a module to allow rebuilding on state changes.</p>
+<p><pre lang="cpp">tmResult (*NeedsReset)(<br/>const tmStdParms* inStdParms,<br/>prBool* outResetModule);</pre></p>
+<p>If the passed in settings differ enough from the created settings, or if the settings on the hardware itself have changed, the transmitter should specify a reset is needed.</p>
+<p>If <code>outResetModule</code> is set to <code>true</code>, all open plugins will be shutdown and started up again.</p>
+</td>
 </tr>
 <tr>
-<td><code>CreateInstance</code></td>
-<td>Creates an instance of a transmitter.<br/><pre>tmResult (*CreateInstance)(<br/>const tmStdParms* inStdParms,<br/>tmInstance* ioInstance);</pre><code>inPlayID</code> and <code>inTimelineID</code> may be 0 if not driven by a player.</pre>Multiple instances may be created at the same time.</pre>Allocate <code>ioPrivateInstanceData</code>.</td>
+<td colspan="1" rowspan="1">
+<p><code>CreateInstance</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Creates an instance of a transmitter.</p>
+<p><pre lang="cpp">tmResult (*CreateInstance)(<br/>const tmStdParms* inStdParms,<br/>tmInstance* ioInstance);</pre></p>
+<p><code>inPlayID</code> and <code>inTimelineID</code> may be 0 if not driven by a player.</p>
+<p>Multiple instances may be created at the same time.</p>
+<p>Allocate <code>ioPrivateInstanceData</code>.</p>
+</td>
 </tr>
 <tr>
-<td><code>DisposeInstance</code></td>
-<td>Dispose an instance of a transmitter.<br/><pre>tmResult (*DisposeInstance)(<br/>const tmStdParms* inStdParms,<br/>tmInstance* ioInstance);</pre>Any <code>ioPrivateInstanceData</code> should be disposed.</td>
+<td colspan="1" rowspan="1">
+<p><code>DisposeInstance</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Dispose an instance of a transmitter.</p>
+<p><pre lang="cpp">tmResult (*DisposeInstance)(<br/>const tmStdParms* inStdParms,<br/>tmInstance* ioInstance);</pre></p>
+<p>Any <code>ioPrivateInstanceData</code> should be disposed.</p>
+</td>
 </tr>
 <tr>
-<td><code>ActivateDeactivate</code></td>
-<td>Activate or deactivate a transmitter instance, for example during application suspend or switching between monitors.<br/><pre>tmResult (*ActivateDeactivate)(<br/>const tmStdParms* inStdParms,<br/>const tmInstance* inInstance,<br/>PrActivationEvent inActivationEvent,<br/>prBool inAudioActive,<br/>prBool inVideoActive);</pre>Transmitters should manage hardware access with these calls, not <code>Startup</code>/<code>Shutdown</code>, since it is valid for multiple plugins to be simultaneously active for the same device.</pre>Audio and video may be independently activated.</td>
+<td colspan="1" rowspan="1">
+<p><code>ActivateDeactivate</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Activate or deactivate a transmitter instance, for example during application suspend or switching between monitors.</p>
+<p><pre lang="cpp">tmResult (*ActivateDeactivate)(<br/>const tmStdParms* inStdParms,<br/>const tmInstance* inInstance,<br/>PrActivationEvent inActivationEvent,<br/>prBool inAudioActive,<br/>prBool inVideoActive);</pre></p>
+<p>Transmitters should manage hardware access with these calls, not <code>Startup</code>/<code>Shutdown</code>, since it is valid for multiple plugins to be simultaneously active for the same device.</p>
+<p>Audio and video may be independently activated.</p>
+</td>
 </tr>
 <tr>
-<td><code>StartPlaybackClock</code></td>
-<td>Start a clock for playback.<br/><pre>tmResult (*StartPlaybackClock)(<br/>const tmStdParms* inStdParms,<br/>const tmInstance* inInstance,<br/>const tmPlaybackClock* inClock);</pre>This will be sent not only when starting playback, but also for scrubbing.</pre>Will only be called if the transmitter returned <code>outHasClock</code>.</pre>The provided callback must be called each time the time changes, for example once for each frame in response to <code>PushVideo</code>.</pre>Start may be called multiple times without a stop in between to update playback parameters, for example if the speed changes during playback.</pre>Invoke the callback immediately during <code>StartPlaybackClock</code> with a negative number for preroll but do not use this to wait for frames.</pre>If video latency is specified, up to the latency's amount of frame marked as <code>playmode_Playing</code> will be sent before <code>StartPlaybackClock</code> is called.</td>
+<td colspan="1" rowspan="1">
+<p><code>StartPlaybackClock</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Start a clock for playback.</p>
+<p><pre lang="cpp">tmResult (*StartPlaybackClock)(<br/>const tmStdParms* inStdParms,<br/>const tmInstance* inInstance,<br/>const tmPlaybackClock* inClock);</pre></p>
+<p>This will be sent not only when starting playback, but also for scrubbing.</p>
+<p>Will only be called if the transmitter returned <code>outHasClock</code>.</p>
+<p>The provided callback must be called each time the time changes, for example once for each frame in response to <code>PushVideo</code>.</p>
+<p>Start may be called multiple times without a stop in between to update playback parameters, for example if the speed changes during playback.</p>
+<p>Invoke the callback immediately during <code>StartPlaybackClock</code> with a negative number for preroll but do not use this to wait for frames.</p>
+<p>If video latency is specified, up to the latency's amount of frame marked as <code>playmode_Playing</code> will be sent before <code>StartPlaybackClock</code> is called.</p>
+</td>
 </tr>
 <tr>
-<td><code>StopPlaybackClock</code></td>
-<td>Stop a clock for playback.<br/><pre>tmResult (*StopPlaybackClock)(<br/>const tmStdParms* inStdParms,<br/>const tmInstance* inInstance);</td>
+<td colspan="1" rowspan="1">
+<p><code>StopPlaybackClock</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Stop a clock for playback.</p>
+<p><pre lang="cpp">tmResult (*StopPlaybackClock)(<br/>const tmStdParms* inStdParms,<br/>const tmInstance* inInstance);</pre></p>
+</td>
 </tr>
 <tr>
-<td><code>PushVideo</code></td>
-<td>Asynchronously pushes a video frame to a transmitter instance.<br/><pre>tmResult (*PushVideo)(<br/>const tmStdParms* inStdParms,<br/>const tmInstance* inInstance,<br/>const tmPushVideo* inPushVideo);</pre>Will only be called if the transmitter returned <code>outHasVideo</code>.</pre>The list of video frames passed to the transmitter will be negotiated based on the properties returned from <code>QueryVideoMode</code>.</pre>The transmitter is responsible for disposing of all passed in <code>PPixes</code>.</pre>The instance will be created with the properties of the creating video segments which may differ from the actual frames that will be sent to the transmitter.</pre>For example, if a sequence is being played at 1/2 resolution, the instance will be created with the dimensions of the sequence, but the frames rendered and sent to the transmitter will be at 1/2.</pre>These properties may change by segment, for example if your transmitter supports multiple pixel formats, different segments may render to different pixel formats.</td>
+<td colspan="1" rowspan="1">
+<p><code>PushVideo</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Asynchronously pushes a video frame to a transmitter instance.</p>
+<p><pre lang="cpp">tmResult (*PushVideo)(<br/>const tmStdParms* inStdParms,<br/>const tmInstance* inInstance,<br/>const tmPushVideo* inPushVideo);</pre></p>
+<p>Will only be called if the transmitter returned <code>outHasVideo</code>.</p>
+<p>The list of video frames passed to the transmitter will be negotiated based on the properties returned from <code>QueryVideoMode</code>.</p>
+<p>The transmitter is responsible for disposing of all passed in <code>PPixes</code>.</p>
+<p>The instance will be created with the properties of the creating video segments which may differ from the actual frames that will be sent to the transmitter.</p>
+<p>For example, if a sequence is being played at 1/2 resolution, the instance will be created with the dimensions of the sequence, but the frames rendered and sent to the transmitter will be at 1/2.</p>
+<p>These properties may change by segment, for example if your transmitter supports multiple pixel formats, different segments may render to different pixel formats.</p>
+</td>
 </tr>
 <tr>
-<td><code>StartPushAudio</code></td>
-<td>Asynchronously pushes audio samples to a transmitter instance.<br/><pre>tmResult (*StartPushAudio)(<br/>const tmStdParms* inStdParms,<br/>const tmInstance* inInstance,<br/>PrTime inStartTime,<br/>PrTime inOutTime,<br/>prBool inLoop,<br/>prBool inScrubbing,<br/>csSDK_int32* outSamplesPerFrame);</pre>Initializes the device for subsequent PushAudio() calls. Will only be called if the transmitter returned <code>outPushAudioAvailable</code>.<br/>Device will be enabled for a "secondary" mode where audio from the "primary" or "clock" device, is pushed to a secondary device; very useful for remote devices.<br/>Unlick StartPlaybackClock(), StartPushAudio() is only called once, until StopPushAudio() is called.</td>
+<td colspan="1" rowspan="1">
+<p><code>StartPushAudio</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Asynchronously pushes audio samples to a transmitter instance.</p>
+<p><pre lang="cpp">tmResult (*StartPushAudio)(<br/>const tmStdParms* inStdParms,<br/>const tmInstance* inInstance,<br/>PrTime inStartTime,<br/>PrTime inOutTime,<br/>prBool inLoop,<br/>prBool inScrubbing,<br/>csSDK_int32* outSamplesPerFrame);</pre></p>
+<p>Initializes the device for subsequent PushAudio() calls. Will only be called if the transmitter returned <code>outPushAudioAvailable</code>.</p>
+<p>Device will be enabled for a "secondary" mode where audio from the "primary" or "clock" device, is pushed to a secondary device; very useful for remote devices.</p>
+<p>Unlike <code>StartPlaybackClock()</code>, <code>StartPushAudio()</code> is only called once, until <code>StopPushAudio()</code> is called.</p>
+</td>
 </tr>
 <tr>
-<td><code>PushAudio</code></td>
-<td>Asynchronously pushes audio samples to a transmitter instance.  Note: PushAudio() may be called even if another API is called at the same time.<br/><pre>tmResult (*PushAudio)(<br/>const tmStdParms* inStdParms,<br/>const tmInstance* inInstance,<br/>const tmPushAudio* inPushAudio);</td>
+<td colspan="1" rowspan="1">
+<p><code>PushAudio</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Asynchronously pushes audio samples to a transmitter instance.  Note: PushAudio() may be called even if another API is called at the same time.</p>
+<p><pre lang="cpp">tmResult (*PushAudio)(<br/>const tmStdParms* inStdParms,<br/>const tmInstance* inInstance,<br/>const tmPushAudio* inPushAudio);</pre></p>
+</td>
 </tr>
 <tr>
-<td><code>StopPushAudio</code></td>
-<td>StopPushAudio() is called when playback via PushAudio() ends.<br/><pre>tmResult (*StopPushAudio)(<br/>const tmStdParms* inStdParms,<br/>const tmInstance* inInstance);</td>
+<td colspan="1" rowspan="1">
+<p><code>StopPushAudio</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>StopPushAudio() is called when playback via PushAudio() ends.</p>
+<p><pre lang="cpp">tmResult (*StopPushAudio)(<br/>const tmStdParms* inStdParms,<br/>const tmInstance* inInstance);</pre></p>
+</td>
 </tr>
 <tr>
-<td><code>SetStreamingStateChangedCallback</code></td>
-<td>Set the host callback for notification streaming state changes, i.e. when the plug-in becomes active or inactive due to changes connections   or enablement from the host.<br/><pre>tmResult (*SetStreamingStateChangedCallback)(<br/>const tmStdParms* inStdParms,<br/>void* inContext,<br/>tmStreamingStateChangedCallback inCallback);</td>
+<td colspan="1" rowspan="1">
+<p><code>SetStreamingStateChangedCallback</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Set the host callback for notification streaming state changes, i.e. when the plug-in becomes active or inactive due to changes connections or enablement from the host.</p>
+<p><pre lang="cpp">tmResult (*SetStreamingStateChangedCallback)(<br/>const tmStdParms* inStdParms,<br/>void* inContext,<br/>tmStreamingStateChangedCallback inCallback);</pre></p>
+</td>
 </tr>
 <tr>
-<td><code>EnableStreaming</code></td>
-<td>Enable/disable streaming to connected clients without loading or unloading the plug-in.<br/><pre>tmResult (*EnableStreaming)(<br/>const tmStdParms* inStdParms,<br/>prBool            inEnabled);</td>
+<td colspan="1" rowspan="1">
+<p><code>EnableStreaming</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Enable/disable streaming to connected clients without loading or unloading the plug-in.</p>
+<p><pre lang="cpp">tmResult (*EnableStreaming)(<br/>const tmStdParms* inStdParms,<br/>prBool            inEnabled);</pre></p>
+</td>
 </tr>
 <tr>
-<td><code>IsStreamingEnabled</code></td>
-<td>Returns whether streaming is enabled.<br/><pre>tmResult (*IsStreamingEnabled)(<br/>const tmStdParms* inStdParms,<br/>prBool*           outEnabled);</td>
+<td colspan="1" rowspan="1">
+<p><code>IsStreamingEnabled</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns whether streaming is enabled.</p>
+<p><pre lang="cpp">tmResult (*IsStreamingEnabled)(<br/>const tmStdParms* inStdParms,<br/>prBool*           outEnabled);</pre></p>
+</td>
 </tr>
 <tr>
-<td><code>IsStreamingActive</code></td>
-<td>Returns whether the plug-in is actively streaming, i.e. streaming is enabled and the plug-in has active connections.<br/><pre>tmResult (*IsStreamingActive)(<br/>const tmStdParms* inStdParms,<br/>prBool*           outActive);</td>
+<td colspan="1" rowspan="1">
+<p><code>IsStreamingActive</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns whether the plug-in is actively streaming, i.e. streaming is enabled and the plug-in has active connections.</p>
+<p><pre lang="cpp">tmResult (*IsStreamingActive)(<br/>const tmStdParms* inStdParms,<br/>prBool*           outActive);</pre></p>
+</td>
 </tr>
 <tr>
-<td><code>Shutdown</code></td>
-<td>Terminate a transmitter.<br/><pre>tmResult (*Shutdown)(<br />tmStdParms* ioStdParms);</pre>Dispose of <code>ioPrivatePluginData</code> if previously allocated in <code>Startup</code>.</td>
+<td colspan="1" rowspan="1">
+<p><code>Shutdown</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Terminate a transmitter.</p>
+<p><pre lang="cpp">tmResult (*Shutdown)(<br />tmStdParms* ioStdParms);</pre></p>
+<p>Dispose of <code>ioPrivatePluginData</code> if previously allocated in <code>Startup</code>.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -2857,7 +2995,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 25, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 11, 2025</span>
   </span>
 
     

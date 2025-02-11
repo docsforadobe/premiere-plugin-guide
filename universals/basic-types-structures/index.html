@@ -2751,90 +2751,183 @@
 <table>
 <thead>
 <tr>
-<th>Name</th>
-<th>Description</th>
+<th colspan="1" rowspan="1">
+<p>Name</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Description</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>prColor</code></td>
-<td>An unsigned 32-bit integer that stores an RGB color.<br/><br/>This type is useful for the 8-bpc colors retrieved by the color picker in a video effect or transition.<br/><br/>Color channels are stored as BGRA, in order of increasing memory address from left to right.</td>
+<td colspan="1" rowspan="1">
+<p><code>prColor</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>An unsigned 32-bit integer that stores an RGB color.</p>
+<p>This type is useful for the 8-bpc colors retrieved by the color picker in a video effect or transition.</p>
+<p>Color channels are stored as BGRA, in order of increasing memory address from left to right.</p>
+</td>
 </tr>
 <tr>
-<td><code>prWnd</code></td>
-<td>A Windows <code>HWND</code> or Mac OS <code>NSView*</code></td>
+<td colspan="1" rowspan="1">
+<p><code>prWnd</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>A Windows <code>HWND</code> or Mac OS <code>NSView*</code></p>
+</td>
 </tr>
 <tr>
-<td><code>prParentWnd</code></td>
-<td>A Windows <code>HWND</code> or Mac OS <code>NSWindow*</code></td>
+<td colspan="1" rowspan="1">
+<p><code>prParentWnd</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>A Windows <code>HWND</code> or Mac OS <code>NSWindow*</code></p>
+</td>
 </tr>
 <tr>
-<td><code>prOffscreen</code></td>
-<td>A Windows <code>HDC</code></td>
+<td colspan="1" rowspan="1">
+<p><code>prOffscreen</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>A Windows <code>HDC</code></p>
+</td>
 </tr>
 <tr>
-<td><code>prRect</code></td>
-<td>A Windows <code>RECT</code> or Mac OS <code>Rect</code>.<br/><br/>Use the utility function <code>prSetRect</code> to set the dimensions of a <code>prRect</code> struct.<br/><br/>This should be used because Mac OS <code>Rect</code> members have a different ordering than Windows <code>RECT</code> members.</td>
+<td colspan="1" rowspan="1">
+<p><code>prRect</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>A Windows <code>RECT</code> or Mac OS <code>Rect</code>.</p>
+<p>Use the utility function <code>prSetRect</code> to set the dimensions of a <code>prRect</code> struct.</p>
+<p>This should be used because Mac OS <code>Rect</code> members have a different ordering than Windows <code>RECT</code> members.</p>
+</td>
 </tr>
 <tr>
-<td><code>prFloatRect</code></td>
-<td><pre>typedef struct {<br/>  float left;<br/>  float top;<br/>  float right;<br/>  float bottom;<br/>} prFloatRect;</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>prFloatRect</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><pre lang="cpp">typedef struct {<br/>  float left;<br/>  float top;<br/>  float right;<br/>  float bottom;<br/>} prFloatRect;</pre></p>
+</td>
 </tr>
 <tr>
-<td><code>prRgn</code></td>
-<td>A Windows <code>HRGN</code></td>
+<td colspan="1" rowspan="1">
+<p><code>prRgn</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>A Windows <code>HRGN</code></p>
+</td>
 </tr>
 <tr>
-<td><code>prPoint</code>, <code>LongPoint</code></td>
-<td><pre>typedef struct {<br/>  csSDK_int32 x;<br/>  csSDK_int32 y;<br/>} prPoint, LongPoint;</pre><br/><br/><code>LongPoint</code> is deprecated, but still used for a couple of Bottleneck callbacks</td>
+<td colspan="1" rowspan="1">
+<p><code>prPoint</code>, <code>LongPoint</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><pre lang="cpp">typedef struct {<br/>  csSDK_int32 x;<br/>  csSDK_int32 y;<br/>} prPoint, LongPoint;</pre></p>
+<p><code>LongPoint</code> is deprecated, but still used for a couple of Bottleneck callbacks</p>
+</td>
 </tr>
 <tr>
-<td>prFPoint</td>
-<td><pre>typedef struct {<br/>  double x;<br/>  double y;<br/>} prFPoint64;</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>prFPoint</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p><pre lang="cpp">typedef struct {<br/>  double x;<br/>  double y;<br/>} prFPoint64;</pre></p>
+</td>
 </tr>
 <tr>
-<td><code>prPixel</code></td>
-<td>(Deprecated)</td>
+<td colspan="1" rowspan="1">
+<p><code>prPixel</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>(Deprecated)</p>
+</td>
 </tr>
 <tr>
-<td><code>prPixelAspectRatio</code></td>
-<td>(Deprecated)</td>
+<td colspan="1" rowspan="1">
+<p><code>prPixelAspectRatio</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>(Deprecated)</p>
+</td>
 </tr>
 <tr>
-<td><code>PPix</code>, <code>*PPixPtr</code>, <code>**PPixHand</code></td>
-<td>Holds a video frame or field, and contains related attributes such as pixel aspect ratio and pixel format.<br/><br/>Manipulate PPixs using the <a href="../sweetpea-suites/#ppix-suite">PPix Suite</a>, never directly.</td>
+<td colspan="1" rowspan="1">
+<p><code>PPix</code>, <code>*PPixPtr</code>, <code>**PPixHand</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Holds a video frame or field, and contains related attributes such as pixel aspect ratio and pixel format.</p>
+<p>Manipulate PPixs using the <a href="../sweetpea-suites/#ppix-suite">PPix Suite</a>, never directly.</p>
+</td>
 </tr>
 <tr>
-<td><code>TDB_TimeRecord</code></td>
-<td>A time database record representing a time value in the context of a video frame rate.<br/><pre>typedef struct {<br/>  TDB_Time       value;<br/>  TDB_TimeScale  scale;<br/>  TDB_SampSize   sampleSize;<br/>} TDB_TimeRecord;</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>TDB_TimeRecord</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>A time database record representing a time value in the context of a video frame rate.</p>
+<p><pre lang="cpp">typedef struct {<br/>  TDB_Time       value;<br/>  TDB_TimeScale  scale;<br/>  TDB_SampSize   sampleSize;<br/>} TDB_TimeRecord;</pre></p>
+</td>
 </tr>
 <tr>
-<td><code>prBool</code></td>
-<td>Can be either <code>kPrTrue</code> or <code>kPrFalse</code></td>
+<td colspan="1" rowspan="1">
+<p><code>prBool</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Can be either <code>kPrTrue</code> or <code>kPrFalse</code></p>
+</td>
 </tr>
 <tr>
-<td><code>PrMemoryPtr</code>, <code>*PrMemoryHandle</code></td>
-<td>A <code>char*</code></td>
+<td colspan="1" rowspan="1">
+<p><code>PrMemoryPtr</code>, <code>*PrMemoryHandle</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>A <code>char*</code></p>
+</td>
 </tr>
 <tr>
-<td><code>PrTimelineID</code>, <code>PrClipID</code></td>
-<td>A 32-bit signed integer.</td>
+<td colspan="1" rowspan="1">
+<p><code>PrTimelineID</code>, <code>PrClipID</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>A 32-bit signed integer.</p>
+</td>
 </tr>
 <tr>
-<td><code>prUTF8Char</code></td>
-<td>An 8-bit unsigned integer.</td>
+<td colspan="1" rowspan="1">
+<p><code>prUTF8Char</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>An 8-bit unsigned integer.</p>
+</td>
 </tr>
 <tr>
-<td><code>PrSDKString</code></td>
-<td>An opaque data type that should be accessed using the new <a href="../sweetpea-suites/#string-suite">String Suite</a>.</td>
+<td colspan="1" rowspan="1">
+<p><code>PrSDKString</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>An opaque data type that should be accessed using the new <a href="../sweetpea-suites/#string-suite">String Suite</a>.</p>
+</td>
 </tr>
 <tr>
-<td><code>PrParam</code></td>
-<td>Used for exporter parameters<br/><pre>struct PrParam<br/>{<br/>  PrParamType mType;<br/>  union<br/>  {<br/>    csSDK_int8   mInt8;<br/>    csSDK_int16  mInt16;<br/>    csSDK_int32  mInt32;<br/>    csSDK_int64  mInt64;<br/>    float        mFloat32;<br/>    double       mFloat64;<br/>    csSDK_uint8  mBool;<br/>    prFPoint64   mPoint;<br/>    prPluginID   mGuid;<br/>    PrMemoryPtr  mMemoryPtr;<br/>  };<br/>};<br/><br/>enum PrParamType<br/>{<br/>  kPrParamType_Int8 = 1,<br/>  kPrParamType_Int16,<br/>  kPrParamType_Int32,<br/>  kPrParamType_Int64,<br/>  kPrParamType_Float32,<br/>  kPrParamType_Float64,<br/>  kPrParamType_Bool,<br/>  kPrParamType_Point,<br/>  kPrParamType_Guid,<br/>  kPrParamType_PrMemoryPtr<br/>};</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>PrParam</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Used for exporter parameters</p>
+<p><pre lang="cpp">struct PrParam<br/>{<br/>  PrParamType mType;<br/>  union<br/>  {<br/>    csSDK_int8   mInt8;<br/>    csSDK_int16  mInt16;<br/>    csSDK_int32  mInt32;<br/>    csSDK_int64  mInt64;<br/>    float        mFloat32;<br/>    double       mFloat64;<br/>    csSDK_uint8  mBool;<br/>    prFPoint64   mPoint;<br/>    prPluginID   mGuid;<br/>    PrMemoryPtr  mMemoryPtr;<br/>  };<br/>};<br/><br/>enum PrParamType<br/>{<br/>  kPrParamType_Int8 = 1,<br/>  kPrParamType_Int16,<br/>  kPrParamType_Int32,<br/>  kPrParamType_Int64,<br/>  kPrParamType_Float32,<br/>  kPrParamType_Float64,<br/>  kPrParamType_Bool,<br/>  kPrParamType_Point,<br/>  kPrParamType_Guid,<br/>  kPrParamType_PrMemoryPtr<br/>};</pre></p>
+</td>
 </tr>
 <tr>
-<td><code>prDateStamp</code></td>
-<td>Used in by importers in <code>imFileAttributesRec.creationDateStamp</code>.<br/><pre>typedef struct<br/>{<br/>  csSDK_int32  day;<br/>  csSDK_int32  month;<br/>  csSDK_int32  year;<br/>  csSDK_int32  hours;<br/>  csSDK_int32  minutes;<br/>  double       seconds;<br/>} prDateStamp;</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>prDateStamp</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Used in by importers in <code>imFileAttributesRec.creationDateStamp</code>.</p>
+<p><pre lang="cpp">typedef struct<br/>{<br/>  csSDK_int32  day;<br/>  csSDK_int32  month;<br/>  csSDK_int32  year;<br/>  csSDK_int32  hours;<br/>  csSDK_int32  minutes;<br/>  double       seconds;<br/>} prDateStamp;</pre></p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -2858,7 +2951,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 25, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 11, 2025</span>
   </span>
 
     

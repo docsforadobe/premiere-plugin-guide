@@ -3138,70 +3138,136 @@
 <table>
 <thead>
 <tr>
-<th>Member</th>
-<th>Description</th>
+<th colspan="1" rowspan="1">
+<p>Member</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Description</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>exporterPluginID</code></td>
-<td>The host's internal identifier for this exporter, used for various suite calls, such as in the <a href="../suites/#sequence-render-suite">Sequence Render Suite</a> and <a href="../suites/#sequence-audio-suite">Sequence Audio Suite</a>.</td>
+<td colspan="1" rowspan="1">
+<p><code>exporterPluginID</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The host's internal identifier for this exporter, used for various suite calls, such as in the <a href="../suites/#sequence-render-suite">Sequence Render Suite</a> and <a href="../suites/#sequence-audio-suite">Sequence Audio Suite</a>.</p>
+</td>
 </tr>
 <tr>
-<td><code>privateData</code></td>
-<td>Data allocated and managed by the exporter.</td>
+<td colspan="1" rowspan="1">
+<p><code>privateData</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Data allocated and managed by the exporter.</p>
+</td>
 </tr>
 <tr>
-<td><code>fileType</code></td>
-<td>The file format four character code set by the exporter during <a href="../selector-descriptions/#exselstartup">exSelStartup</a>.<br/><br/>Indicates which format the exporter should write, since exporters can support multiple formats.</td>
+<td colspan="1" rowspan="1">
+<p><code>fileType</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The file format four character code set by the exporter during <a href="../selector-descriptions/#exselstartup">exSelStartup</a>.</p>
+<p>Indicates which format the exporter should write, since exporters can support multiple formats.</p>
+</td>
 </tr>
 <tr>
-<td><code>exportAudio</code></td>
-<td>If non-zero, export audio.</td>
+<td colspan="1" rowspan="1">
+<p><code>exportAudio</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>If non-zero, export audio.</p>
+</td>
 </tr>
 <tr>
-<td><code>exportVideo</code></td>
-<td>If non-zero, export video.</td>
+<td colspan="1" rowspan="1">
+<p><code>exportVideo</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>If non-zero, export video.</p>
+</td>
 </tr>
 <tr>
-<td><code>startTime</code></td>
-<td>The start time of the sequence to export.</td>
+<td colspan="1" rowspan="1">
+<p><code>startTime</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The start time of the sequence to export.</p>
+</td>
 </tr>
 <tr>
-<td><code>endTime</code></td>
-<td>The end time of the sequence to export. If startTime is 0, also the total duration to export.<br/><br/>Range specified is <code>[startTime, endTime)</code>, meaning the <code>endTime</code> is not actually included in the range.</td>
+<td colspan="1" rowspan="1">
+<p><code>endTime</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The end time of the sequence to export. If startTime is 0, also the total duration to export.</p>
+<p>Range specified is <code>[startTime, endTime)</code>, meaning the <code>endTime</code> is not actually included in the range.</p>
+</td>
 </tr>
 <tr>
-<td><code>fileObject</code></td>
-<td>For use with the <a href="../suites/#export-file-suite">Export File Suite</a>, to get and manipulate the file specified by the user.</td>
+<td colspan="1" rowspan="1">
+<p><code>fileObject</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>For use with the <a href="../suites/#export-file-suite">Export File Suite</a>, to get and manipulate the file specified by the user.</p>
+</td>
 </tr>
 <tr>
-<td><code>timelineData</code></td>
-<td>Handle used for the Timeline Functions.</td>
+<td colspan="1" rowspan="1">
+<p><code>timelineData</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Handle used for the Timeline Functions.</p>
+</td>
 </tr>
 <tr>
-<td><code>reserveMetaDataSpace</code></td>
-<td>Amount to reserve in a file for metadata storage.</td>
+<td colspan="1" rowspan="1">
+<p><code>reserveMetaDataSpace</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Amount to reserve in a file for metadata storage.</p>
+</td>
 </tr>
 <tr>
-<td><code>maximumRenderQuality</code></td>
-<td>If non-zero, the exporter should set <code>SequenceRender_ParamsRec.inRenderQuality</code> and <code>inDeinterlaceQuality</code> to <code>kPrRenderQuality_Max</code>.</td>
+<td colspan="1" rowspan="1">
+<p><code>maximumRenderQuality</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>If non-zero, the exporter should set <code>SequenceRender_ParamsRec.inRenderQuality</code> and <code>inDeinterlaceQuality</code> to <code>kPrRenderQuality_Max</code>.</p>
+</td>
 </tr>
 <tr>
-<td><code>embedCaptions</code></td>
-<td>New in CC. If non-zero, the exporter should embed captions obtained from the <a href="../../universals/sweetpea-suites/#captioning-suite">Captioning Suite</a>.</td>
+<td colspan="1" rowspan="1">
+<p><code>embedCaptions</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New in CC. If non-zero, the exporter should embed captions obtained from the <a href="../../universals/sweetpea-suites/#captioning-suite">Captioning Suite</a>.</p>
+</td>
 </tr>
 <tr>
-<td><code>colorProfile</code></td>
-<td>Amount to reserve in a file for metadata storage.</td>
+<td colspan="1" rowspan="1">
+<p><code>colorProfile</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Amount to reserve in a file for metadata storage.</p>
+</td>
 </tr>
 <tr>
-<td><code>exportColorSpaceID</code></td>
-<td>Amount to reserve in a file for metadata storage.</td>
+<td colspan="1" rowspan="1">
+<p><code>exportColorSpaceID</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Amount to reserve in a file for metadata storage.</p>
+</td>
 </tr>
 <tr>
-<td><code>maximumFileSize</code></td>
-<td>Amount to reserve in a file for metadata storage.</td>
+<td colspan="1" rowspan="1">
+<p><code>maximumFileSize</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Amount to reserve in a file for metadata storage.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3222,83 +3288,153 @@
 <span class="w">  </span><span class="n">csSDK_int32</span><span class="w">       </span><span class="n">reserveMetaDataSpace</span><span class="p">;</span>
 <span class="w">  </span><span class="n">csSDK_int32</span><span class="w">       </span><span class="n">maximumRenderQuality</span><span class="p">;</span>
 <span class="w">  </span><span class="n">csSDK_int32</span><span class="w">       </span><span class="n">embedCaptions</span><span class="p">;</span>
-<span class="w">  </span><span class="n">ColorProfileRec</span><span class="w">       </span><span class="n">colorProfile</span><span class="p">;</span><span class="w">                         </span><span class="c1">// if color profile is valid, exporter should embed into output per format standards; for formats that set canEmbedColorProfile to True</span>
-<span class="w">  </span><span class="n">PrSDKColorSpaceID</span><span class="w"> </span><span class="n">exportColorSpaceID</span><span class="p">;</span><span class="w">               </span><span class="c1">// opaque color space ID that exporter should pass to the host when using color managed APIs</span>
-<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">             </span><span class="n">maximumFileSize</span><span class="p">;</span><span class="w">                    </span><span class="c1">// if non-0, try to export a file not exceeding this size an possible adjust the TragetBitrate for this.</span>
+<span class="w">  </span><span class="n">ColorProfileRec</span><span class="w">       </span><span class="n">colorProfile</span><span class="p">;</span><span class="w">      </span><span class="c1">// if color profile is valid, exporter should embed into output per format standards; for formats that set canEmbedColorProfile to True</span>
+<span class="w">  </span><span class="n">PrSDKColorSpaceID</span><span class="w"> </span><span class="n">exportColorSpaceID</span><span class="p">;</span><span class="w">    </span><span class="c1">// opaque color space ID that exporter should pass to the host when using color managed APIs</span>
+<span class="w">  </span><span class="n">csSDK_int32</span><span class="w">             </span><span class="n">maximumFileSize</span><span class="p">;</span><span class="w"> </span><span class="c1">// if non-0, try to export a file not exceeding this size an possible adjust the TragetBitrate for this.</span>
 <span class="w">  </span><span class="n">PrSDKLUTID</span><span class="w">              </span><span class="n">exportLUTID</span><span class="p">;</span>
 <span class="p">}</span><span class="w"> </span><span class="n">exDoExportRec2</span><span class="p">;</span>
 </code></pre></div>
 <table>
 <thead>
 <tr>
-<th>Member</th>
-<th>Description</th>
+<th colspan="1" rowspan="1">
+<p>Member</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Description</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>exporterPluginID</code></td>
-<td>The host's internal identifier for this exporter, used for various suite calls, such as in the <a href="../suites/#sequence-render-suite">Sequence Render Suite</a> and <a href="../suites/#sequence-audio-suite">Sequence Audio Suite</a>.</td>
+<td colspan="1" rowspan="1">
+<p><code>exporterPluginID</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The host's internal identifier for this exporter, used for various suite calls, such as in the <a href="../suites/#sequence-render-suite">Sequence Render Suite</a> and <a href="../suites/#sequence-audio-suite">Sequence Audio Suite</a>.</p>
+</td>
 </tr>
 <tr>
-<td><code>privateData</code></td>
-<td>Data allocated and managed by the exporter.</td>
+<td colspan="1" rowspan="1">
+<p><code>privateData</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Data allocated and managed by the exporter.</p>
+</td>
 </tr>
 <tr>
-<td><code>fileType</code></td>
-<td>The file format four character code set by the exporter during <a href="../selector-descriptions/#exselstartup">exSelStartup</a>.<br/><br/>Indicates which format the exporter should write, since exporters can support multiple formats.</td>
+<td colspan="1" rowspan="1">
+<p><code>fileType</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The file format four character code set by the exporter during <a href="../selector-descriptions/#exselstartup">exSelStartup</a>.</p>
+<p>Indicates which format the exporter should write, since exporters can support multiple formats.</p>
+</td>
 </tr>
 <tr>
-<td><code>exportAudio</code></td>
-<td>If non-zero, export audio.</td>
+<td colspan="1" rowspan="1">
+<p><code>exportAudio</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>If non-zero, export audio.</p>
+</td>
 </tr>
 <tr>
-<td><code>exportVideo</code></td>
-<td>If non-zero, export video.</td>
+<td colspan="1" rowspan="1">
+<p><code>exportVideo</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>If non-zero, export video.</p>
+</td>
 </tr>
 <tr>
-<td><code>startTime</code></td>
-<td>The start time of the sequence to export.</td>
+<td colspan="1" rowspan="1">
+<p><code>startTime</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The start time of the sequence to export.</p>
+</td>
 </tr>
 <tr>
-<td><code>endTime</code></td>
-<td>The end time of the sequence to export. If startTime is 0, also the total duration to export.<br/><br/>Range specified is <code>[startTime, endTime)</code>, meaning the <code>endTime</code> is not actually included in the range.</td>
+<td colspan="1" rowspan="1">
+<p><code>endTime</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The end time of the sequence to export. If startTime is 0, also the total duration to export.</p>
+<p>Range specified is <code>[startTime, endTime)</code>, meaning the <code>endTime</code> is not actually included in the range.</p>
+</td>
 </tr>
 <tr>
-<td><code>fileObject</code></td>
-<td>For use with the <a href="../suites/#export-file-suite">Export File Suite</a>, to get and manipulate the file specified by the user.</td>
+<td colspan="1" rowspan="1">
+<p><code>fileObject</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>For use with the <a href="../suites/#export-file-suite">Export File Suite</a>, to get and manipulate the file specified by the user.</p>
+</td>
 </tr>
 <tr>
-<td><code>timelineData</code></td>
-<td>Handle used for the Timeline Functions.</td>
+<td colspan="1" rowspan="1">
+<p><code>timelineData</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Handle used for the Timeline Functions.</p>
+</td>
 </tr>
 <tr>
-<td><code>reserveMetaDataSpace</code></td>
-<td>Amount to reserve in a file for metadata storage.</td>
+<td colspan="1" rowspan="1">
+<p><code>reserveMetaDataSpace</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Amount to reserve in a file for metadata storage.</p>
+</td>
 </tr>
 <tr>
-<td><code>maximumRenderQuality</code></td>
-<td>If non-zero, the exporter should set <code>SequenceRender_ParamsRec.inRenderQuality</code> and <code>inDeinterlaceQuality</code> to <code>kPrRenderQuality_Max</code>.</td>
+<td colspan="1" rowspan="1">
+<p><code>maximumRenderQuality</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>If non-zero, the exporter should set <code>SequenceRender_ParamsRec.inRenderQuality</code> and <code>inDeinterlaceQuality</code> to <code>kPrRenderQuality_Max</code>.</p>
+</td>
 </tr>
 <tr>
-<td><code>embedCaptions</code></td>
-<td>New in CC. If non-zero, the exporter should embed captions obtained from the <a href="../../universals/sweetpea-suites/#captioning-suite">Captioning Suite</a>.</td>
+<td colspan="1" rowspan="1">
+<p><code>embedCaptions</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New in CC. If non-zero, the exporter should embed captions obtained from the <a href="../../universals/sweetpea-suites/#captioning-suite">Captioning Suite</a>.</p>
+</td>
 </tr>
 <tr>
-<td><code>colorProfile</code></td>
-<td>New in 13.1.  Color profile, to be embedded into output per format standards. For formats which have set <code>canEmbedColorProfile</code> to true.</td>
+<td colspan="1" rowspan="1">
+<p><code>colorProfile</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New in 13.1.  Color profile, to be embedded into output per format standards. For formats which have set <code>canEmbedColorProfile</code> to true.</p>
+</td>
 </tr>
 <tr>
-<td><code>exportColorSpaceID</code></td>
-<td>New in 13.1.  ID of the color space to be used. Must not be <code>kPrSDKColorSpaceID_Invalid</code>.</td>
+<td colspan="1" rowspan="1">
+<p><code>exportColorSpaceID</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New in 13.1.  ID of the color space to be used. Must not be <code>kPrSDKColorSpaceID_Invalid</code>.</p>
+</td>
 </tr>
 <tr>
-<td><code>maximumFileSize</code></td>
-<td>New in 15.x.  If non-zero, the Exporter should consider this as a ceiling for file size, and re-compress as needed in order to meet that target.</td>
+<td colspan="1" rowspan="1">
+<p><code>maximumFileSize</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New in 15.x.  If non-zero, the Exporter should consider this as a ceiling for file size, and re-compress as needed in order to meet that target.</p>
+</td>
 </tr>
 <tr>
-<td><code>exportLUTID</code></td>
-<td>New in 14.x. the LUT being used for export.</td>
+<td colspan="1" rowspan="1">
+<p><code>exportLUTID</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New in 14.x. the LUT being used for export.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3332,86 +3468,171 @@
 <table>
 <thead>
 <tr>
-<th>Member</th>
-<th>Description</th>
+<th colspan="1" rowspan="1">
+<p>Member</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Description</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>fileType</code></td>
-<td>The file format four character code (e.g. 'AVIV' = Video for Windows, 'MooV' = QuickTime).</td>
+<td colspan="1" rowspan="1">
+<p><code>fileType</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The file format four character code (e.g. 'AVIV' = Video for Windows, 'MooV' = QuickTime).</p>
+</td>
 </tr>
 <tr>
-<td><code>fileTypeName</code></td>
-<td>The localized display name for the fileype.</td>
+<td colspan="1" rowspan="1">
+<p><code>fileTypeName</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The localized display name for the fileype.</p>
+</td>
 </tr>
 <tr>
-<td><code>fileTypeDefaultExtension</code></td>
-<td>The default extension for the filetype. An exporter can support multiple extensions per filetype, by implementing <code>exSelQueryExportFileExtension</code>.</td>
+<td colspan="1" rowspan="1">
+<p><code>fileTypeDefaultExtension</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The default extension for the filetype. An exporter can support multiple extensions per filetype, by implementing <code>exSelQueryExportFileExtension</code>.</p>
+</td>
 </tr>
 <tr>
-<td><code>classID</code></td>
-<td>Class identifier for the module, differentiates between exporters that support the same filetype and creates associations between different Media Abstraction Layer plugins.</td>
+<td colspan="1" rowspan="1">
+<p><code>classID</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Class identifier for the module, differentiates between exporters that support the same filetype and creates associations between different Media Abstraction Layer plugins.</p>
+</td>
 </tr>
 <tr>
-<td><code>exportReqIndex</code></td>
-<td>If an exporter supports multiple filetypes, this index will be incremented by the host for each call, as the exporter is requested to describe its capabilities for each filetype.<br/><br/>Initially zero, incremented by the host each time the exporter returns <code>exportReturn_IterateExporter</code>.</td>
+<td colspan="1" rowspan="1">
+<p><code>exportReqIndex</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>If an exporter supports multiple filetypes, this index will be incremented by the host for each call, as the exporter is requested to describe its capabilities for each filetype.</p>
+<p>Initially zero, incremented by the host each time the exporter returns <code>exportReturn_IterateExporter</code>.</p>
+</td>
 </tr>
 <tr>
-<td><code>wantsNoProgressBar</code></td>
-<td>If non-zero, the default exporter progress dialog will be turned off, allowing the exporter to display its own progress dialog.<br/><br/>The exporter also will not get <code>exportReturn_Abort</code> errors from the host during callbacks - it must detect an abort on its own, and return <code>exportReturn_Abort</code> from <code>exSelExport</code> if the user aborts the export.</td>
+<td colspan="1" rowspan="1">
+<p><code>wantsNoProgressBar</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>If non-zero, the default exporter progress dialog will be turned off, allowing the exporter to display its own progress dialog.</p>
+<p>The exporter also will not get <code>exportReturn_Abort</code> errors from the host during callbacks - it must detect an abort on its own, and return <code>exportReturn_Abort</code> from <code>exSelExport</code> if the user aborts the export.</p>
+</td>
 </tr>
 <tr>
-<td><code>hideInUI</code></td>
-<td>Set this to non-zero if this filetype should only be used for making preview files, and should not be visible as a general export choice.</td>
+<td colspan="1" rowspan="1">
+<p><code>hideInUI</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Set this to non-zero if this filetype should only be used for making preview files, and should not be visible as a general export choice.</p>
+</td>
 </tr>
 <tr>
-<td><code>doesNotSupportAudioOnly</code></td>
-<td>Set this to non-zero for filetypes that do not support audio-only exports.</td>
+<td colspan="1" rowspan="1">
+<p><code>doesNotSupportAudioOnly</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Set this to non-zero for filetypes that do not support audio-only exports.</p>
+</td>
 </tr>
 <tr>
-<td><code>canExportVideo</code></td>
-<td>Set this to non-zero if the exporter can output video.</td>
+<td colspan="1" rowspan="1">
+<p><code>canExportVideo</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Set this to non-zero if the exporter can output video.</p>
+</td>
 </tr>
 <tr>
-<td><code>canExportAudio</code></td>
-<td>Set this to non-zero if the exporter can output audio.</td>
+<td colspan="1" rowspan="1">
+<p><code>canExportAudio</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Set this to non-zero if the exporter can output audio.</p>
+</td>
 </tr>
 <tr>
-<td><code>singleFrameOnly</code></td>
-<td>Set this to non-zero if the exporter makes single frames (used by still image exporters).</td>
+<td colspan="1" rowspan="1">
+<p><code>singleFrameOnly</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Set this to non-zero if the exporter makes single frames (used by still image exporters).</p>
+</td>
 </tr>
 <tr>
-<td><code>maxAudiences</code></td>
-<td></td>
+<td colspan="1" rowspan="1">
+<p><code>maxAudiences</code></p>
+</td>
+<td colspan="1" rowspan="1"></td>
 </tr>
 <tr>
-<td><code>interfaceVersion</code></td>
-<td>Exporter API version that the plugin supports.</td>
+<td colspan="1" rowspan="1">
+<p><code>interfaceVersion</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Exporter API version that the plugin supports.</p>
+</td>
 </tr>
 <tr>
-<td><code>isCacheable</code></td>
-<td>New in CS5. Set this non-zero to have Premiere Pro cache this exporter.</td>
+<td colspan="1" rowspan="1">
+<p><code>isCacheable</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New in CS5. Set this non-zero to have Premiere Pro cache this exporter.</p>
+</td>
 </tr>
 <tr>
-<td><code>canConformToMatchParams</code></td>
-<td>New in CC. Set this to non-zero if the exporter wants to support the Match Source button.</td>
+<td colspan="1" rowspan="1">
+<p><code>canConformToMatchParams</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New in CC. Set this to non-zero if the exporter wants to support the Match Source button.</p>
+</td>
 </tr>
 <tr>
-<td><code>canEmbedCaptions</code></td>
-<td>New in CC. Set this to non-zero if the exporter can embed Closed Captioning directly in the file.</td>
+<td colspan="1" rowspan="1">
+<p><code>canEmbedCaptions</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New in CC. Set this to non-zero if the exporter can embed Closed Captioning directly in the file.</p>
+</td>
 </tr>
 <tr>
-<td><code>flags</code></td>
-<td>New in 13.0. Will be some combination of the following flag:<ul><li><code>kExInfoRecFlag_None</code></li><li><code>kExInfoRecFlag_VideoOnlyExportNotSupported</code> - exports only video and audio together</li><li><code>kExInfoRecFlag_PostEncodePublishNotSupported</code> - exported result is a complex folder structure or otherwise unsuitable for enabling upload options</li></ul></td>
+<td colspan="1" rowspan="1">
+<p><code>flags</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New in 13.0. Will be some combination of the following flag:</p>
+<ul>
+<li><code>kExInfoRecFlag_None</code></li>
+<li><code>kExInfoRecFlag_VideoOnlyExportNotSupported</code> - exports only video and audio together</li>
+<li><code>kExInfoRecFlag_PostEncodePublishNotSupported</code> - exported result is a complex folder structure or otherwise unsuitable for enabling upload options</li>
+</ul>
+</td>
 </tr>
 <tr>
-<td><code>canEmbedColorProfile</code></td>
-<td>New in 11.1. Set this to non-zero if the exporter can embed color profile into the resulting media file</td>
+<td colspan="1" rowspan="1">
+<p><code>canEmbedColorProfile</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New in 11.1. Set this to non-zero if the exporter can embed color profile into the resulting media file</p>
+</td>
 </tr>
 <tr>
-<td><code>supportsColorManagement</code></td>
-<td>New in 13.0. Set this to non-zero if the exporter supports color management.</td>
+<td colspan="1" rowspan="1">
+<p><code>supportsColorManagement</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New in 13.0. Set this to non-zero if the exporter supports color management.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3550,42 +3771,80 @@
 <table>
 <thead>
 <tr>
-<th>Member</th>
-<th>Description</th>
+<th colspan="1" rowspan="1">
+<p>Member</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Description</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>exporterPluginID</code></td>
-<td>The host's internal identifier for this exporter. Do not modify.</td>
+<td colspan="1" rowspan="1">
+<p><code>exporterPluginID</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The host's internal identifier for this exporter. Do not modify.</p>
+</td>
 </tr>
 <tr>
-<td><code>privateData</code></td>
-<td>Data allocated and managed by the exporter.</td>
+<td colspan="1" rowspan="1">
+<p><code>privateData</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Data allocated and managed by the exporter.</p>
+</td>
 </tr>
 <tr>
-<td><code>fileType</code></td>
-<td>The file format four character code set by the exporter during <a href="../selector-descriptions/#exselstartup">exSelStartup</a>.</td>
+<td colspan="1" rowspan="1">
+<p><code>fileType</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The file format four character code set by the exporter during <a href="../selector-descriptions/#exselstartup">exSelStartup</a>.</p>
+</td>
 </tr>
 <tr>
-<td><code>exportAudio</code></td>
-<td>If non-zero, the current settings are set to export audio.</td>
+<td colspan="1" rowspan="1">
+<p><code>exportAudio</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>If non-zero, the current settings are set to export audio.</p>
+</td>
 </tr>
 <tr>
-<td><code>exportVideo</code></td>
-<td>If non-zero, the current settings are set to export video.</td>
+<td colspan="1" rowspan="1">
+<p><code>exportVideo</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>If non-zero, the current settings are set to export video.</p>
+</td>
 </tr>
 <tr>
-<td><code>multiGroupIndex</code></td>
-<td>Discloses the index of the multi-group, containing the parameter changed by the user.</td>
+<td colspan="1" rowspan="1">
+<p><code>multiGroupIndex</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Discloses the index of the multi-group, containing the parameter changed by the user.</p>
+</td>
 </tr>
 <tr>
-<td><code>changedParamIdentifier</code></td>
-<td>Discloses the parameter ID of the parameter changed by the user.<br/><br/>May be empty if the changed item was exportAudio, exportVideo or the current multiGroupIndex.</td>
+<td colspan="1" rowspan="1">
+<p><code>changedParamIdentifier</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Discloses the parameter ID of the parameter changed by the user.</p>
+<p>May be empty if the changed item was exportAudio, exportVideo or the current multiGroupIndex.</p>
+</td>
 </tr>
 <tr>
-<td><code>rebuildAllParams</code></td>
-<td>Set this to non-zero to tell the host to refresh ALL parameters using the latest provided information.<br/><br/>This can solve various problems when dynamically updating parameter visibility, valid ranges, etc.</td>
+<td colspan="1" rowspan="1">
+<p><code>rebuildAllParams</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Set this to non-zero to tell the host to refresh ALL parameters using the latest provided information.</p>
+<p>This can solve various problems when dynamically updating parameter visibility, valid ranges, etc.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3741,34 +4000,65 @@
 <table>
 <thead>
 <tr>
-<th>Member</th>
-<th>Description</th>
+<th colspan="1" rowspan="1">
+<p>Member</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Description</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>exporterPluginID</code></td>
-<td>The host's internal identifier for this exporter. Do not modify.</td>
+<td colspan="1" rowspan="1">
+<p><code>exporterPluginID</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The host's internal identifier for this exporter. Do not modify.</p>
+</td>
 </tr>
 <tr>
-<td><code>privateData</code></td>
-<td>Data allocated and managed by the exporter.</td>
+<td colspan="1" rowspan="1">
+<p><code>privateData</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Data allocated and managed by the exporter.</p>
+</td>
 </tr>
 <tr>
-<td><code>fileType</code></td>
-<td>The file format four character code set by the exporter during <a href="../selector-descriptions/#exselstartup">exSelStartup</a>.</td>
+<td colspan="1" rowspan="1">
+<p><code>fileType</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The file format four character code set by the exporter during <a href="../selector-descriptions/#exselstartup">exSelStartup</a>.</p>
+</td>
 </tr>
 <tr>
-<td><code>numOutputFiles</code></td>
-<td>On the first call to <code>exSelQueryOutputFileList</code>, provide the number of file paths here.</td>
+<td colspan="1" rowspan="1">
+<p><code>numOutputFiles</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>On the first call to <code>exSelQueryOutputFileList</code>, provide the number of file paths here.</p>
+</td>
 </tr>
 <tr>
-<td><code>path</code></td>
-<td>New in CS5. Contains the primary intended destination path provided by the host.</td>
+<td colspan="1" rowspan="1">
+<p><code>path</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New in CS5. Contains the primary intended destination path provided by the host.</p>
+</td>
 </tr>
 <tr>
-<td><code>outputFileRecs</code></td>
-<td>An array of <code>exOutputFileRecs</code>.<br/><br/>On the second call to <code>exSelQueryOutputFileList</code>, the path length (including trailing null) for each path.<br/><br/>On the third call, fill in the path of each exOutputFileRec.<pre>typedef struct {<br/>  int           pathLength;<br/>  prUTF16Char*  path;<br/>} exOutputFileRec;</pre></td>
+<td colspan="1" rowspan="1">
+<p><code>outputFileRecs</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>An array of <code>exOutputFileRecs</code>.</p>
+<p>On the second call to <code>exSelQueryOutputFileList</code>, the path length (including trailing null) for each path.</p>
+<p>On the third call, fill in the path of each exOutputFileRec.</p>
+<p><pre lang="cpp">typedef struct {<br/>  int           pathLength;<br/>  prUTF16Char*  path;<br/>} exOutputFileRec;</pre></p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3799,42 +4089,81 @@
 <table>
 <thead>
 <tr>
-<th>Member</th>
-<th>Description</th>
+<th colspan="1" rowspan="1">
+<p>Member</p>
+</th>
+<th colspan="1" rowspan="1">
+<p>Description</p>
+</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>exporterPluginID</code></td>
-<td>The host's internal identifier for this exporter. Do not modify.</td>
+<td colspan="1" rowspan="1">
+<p><code>exporterPluginID</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The host's internal identifier for this exporter. Do not modify.</p>
+</td>
 </tr>
 <tr>
-<td><code>privateData</code></td>
-<td>Data allocated and managed by the exporter.</td>
+<td colspan="1" rowspan="1">
+<p><code>privateData</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Data allocated and managed by the exporter.</p>
+</td>
 </tr>
 <tr>
-<td><code>fileType</code></td>
-<td>The file format four character code set by the exporter during <a href="../selector-descriptions/#exselstartup">exSelStartup</a>.</td>
+<td colspan="1" rowspan="1">
+<p><code>fileType</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>The file format four character code set by the exporter during <a href="../selector-descriptions/#exselstartup">exSelStartup</a>.</p>
+</td>
 </tr>
 <tr>
-<td><code>inMultiGroupIndex</code></td>
-<td>Return the parameter settings of the multi-group with this index.</td>
+<td colspan="1" rowspan="1">
+<p><code>inMultiGroupIndex</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Return the parameter settings of the multi-group with this index.</p>
+</td>
 </tr>
 <tr>
-<td><code>inExportVideo</code></td>
-<td>If non-zero, the current settings are set to export video.</td>
+<td colspan="1" rowspan="1">
+<p><code>inExportVideo</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>If non-zero, the current settings are set to export video.</p>
+</td>
 </tr>
 <tr>
-<td><code>inExportAudio</code></td>
-<td>If non-zero, the current settings are set to export audio.</td>
+<td colspan="1" rowspan="1">
+<p><code>inExportAudio</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>If non-zero, the current settings are set to export audio.</p>
+</td>
 </tr>
 <tr>
-<td><code>outVideoWidth</code><br/><code>outVideoHeight</code></td>
-<td>Return each parameter setting, by getting the current value of the parameter using the <a href="../suites/#export-param-suite">Export Param Suite</a>.<br/><br/>Some settings, such as <code>outVideoFieldType</code>, may be implicit, for example if the format only supports progressive frames.</td>
+<td colspan="1" rowspan="1">
+<p><code>outVideoWidth</code>
+<code>outVideoHeight</code>
+</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Return each parameter setting, by getting the current value of the parameter using the <a href="../suites/#export-param-suite">Export Param Suite</a>.</p>
+<p>Some settings, such as <code>outVideoFieldType</code>, may be implicit, for example if the format only supports progressive frames.</p>
+</td>
 </tr>
 <tr>
-<td><code>outUseMaximumRenderPrecision</code></td>
-<td>New in CS6. If non-zero, renders will always be made at maximum bit-depth.</td>
+<td colspan="1" rowspan="1">
+<p><code>outUseMaximumRenderPrecision</code></p>
+</td>
+<td colspan="1" rowspan="1">
+<p>New in CS6. If non-zero, renders will always be made at maximum bit-depth.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -3965,7 +4294,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 25, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 11, 2025</span>
   </span>
 
     
