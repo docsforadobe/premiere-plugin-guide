@@ -42,7 +42,9 @@
 |                         |                                                                                                                                                                                           |
 |                         | The last chapter in the After Effects SDK Guide.pdf, included in the After Effects SDK, contains information on known differences with how Premiere Pro supports the AE API.              |
 +-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| VST                     | Starting in CC, Premiere supports version 3 of the VST specification for audio effects.<br/>In CS6.x and previous versions, support was limited to version 2.4.                           |
+| VST                     | Starting in CC, Premiere supports version 3 of the VST specification for audio effects.                                                                                                   |
+|                         |                                                                                                                                                                                           |
+|                         | In CS6.x and previous versions, support was limited to version 2.4.                                                                                                                       |
 +-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ASIO                    | An ASIO driver is often provided in addition to a transmit plug-in, to provide audio output during editing, playback, and Export To Tape.                                                 |
 |                         |                                                                                                                                                                                           |

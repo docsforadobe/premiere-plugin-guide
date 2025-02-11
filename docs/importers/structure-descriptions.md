@@ -278,14 +278,23 @@ typedef struct {
 } imTrimFileRec;
 ```
 
-|         Member         |                                                                                        Description                                                                                        |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `inPrivateData`        | Instance data gathered during `imGetInfo8` or `imGetPrefs8`.                                                                                                                              |
-| `inPrefs`              | Clip Source Settings gathered during `imGetPrefs8` (setup dialog).                                                                                                                        |
-| `inSourcePath`         | Full unicode path of the source file.                                                                                                                                                     |
-| `inDestPath`           | Full unicode path of the destination file.                                                                                                                                                |
-| `inProgressCallback`   | importProgressFunc callback to call repeatedly to provide progress and to check for cancel by user.<br/>May be a NULL pointer, so make sure the function pointer is valid before calling. |
-| `inProgressCallbackID` | Pass to `progressCallback`.                                                                                                                                                               |
++------------------------+-----------------------------------------------------------------------------------------------------+
+|         Member         |                                             Description                                             |
++========================+=====================================================================================================+
+| `inPrivateData`        | Instance data gathered during `imGetInfo8` or `imGetPrefs8`.                                        |
++------------------------+-----------------------------------------------------------------------------------------------------+
+| `inPrefs`              | Clip Source Settings gathered during `imGetPrefs8` (setup dialog).                                  |
++------------------------+-----------------------------------------------------------------------------------------------------+
+| `inSourcePath`         | Full unicode path of the source file.                                                               |
++------------------------+-----------------------------------------------------------------------------------------------------+
+| `inDestPath`           | Full unicode path of the destination file.                                                          |
++------------------------+-----------------------------------------------------------------------------------------------------+
+| `inProgressCallback`   | importProgressFunc callback to call repeatedly to provide progress and to check for cancel by user. |
+|                        |                                                                                                     |
+|                        | May be a NULL pointer, so make sure the function pointer is valid before calling.                   |
++------------------------+-----------------------------------------------------------------------------------------------------+
+| `inProgressCallbackID` | Pass to `progressCallback`.                                                                         |
++------------------------+-----------------------------------------------------------------------------------------------------+
 
 ---
 

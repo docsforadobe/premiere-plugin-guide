@@ -49,28 +49,67 @@ Memory and handle allocation. Where possible, use the [PPix Creator Suite](sweet
 
 Strings passed to and from Premiere in API structures are always null-terminated C strings.
 
-|          Function           |                                                                    Description                                                                     |
-| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `newPtr`                    | Allocates a block of memory, returns a pointer to the new block.<br/><pre>char* newPtr (csSDK_uint32 size);</pre>                                  |
-| `newPtrClear`               | Equivalent to newPtr, but initializes the memory to 0.<br/><pre>char* newPtrClear (csSDK_uint32 size);</pre>                                       |
-| `setPtrSize`                | Resizes an allocated memory block.<br/><pre>void setPtrSize (<br/>  PrMemoryPtr   *ptr,<br/>  csSDK_uint32  newsize);</pre>                        |
-| `getPtrSize`                | Returns size in bytes of an allocated memory block.<br/><pre>csSDK_int32 getPtrSize (char *ptr);</pre>                                             |
-| `disposePtr`                | Frees an allocated memory block.<br/><pre>void disposePtr (char *ptr);</pre>                                                                       |
-| `newHandle`                 | Allocates a block of memory, returning a handle to it.<br/><pre>char** newHandle (csSDK_uint32 size);</pre>                                        |
-| `newHandleClear`            | Equivalent to newHandle, but initializes the memory to 0.<br/><pre>char** newHandleClear (csSDK_uint32 size);</pre>                                |
-| `setHandleSize`             | Resizes an allocated memory handle.<br/><pre>csSDK_int16 setHandleSize (<br/>  char          **PrMemoryHandle,<br/>  csSDK_uint32  newsize);</pre> |
-| `getHandleSize`             | Returns the size (in bytes) of an allocated block.<br/><pre>csSDK_int32 getHandleSize ( char **PrMemoryHandle);</pre>                              |
-| `disposeHandle`             | Disposes of a previously allocated handle.<br/><pre>void disposeHandle (char **PrMemoryHandle);</pre>                                              |
-| `lockHandle` `unlockHandle` | These legacy functions are deprecated and should no longer be used.                                                                                |
++-----------------------------+-----------------------------------------------------------------------------------------------------------------------+
+|          Function           |                                                      Description                                                      |
++=============================+=======================================================================================================================+
+| `newPtr`                    | Allocates a block of memory, returns a pointer to the new block.                                                      |
+|                             |                                                                                                                       |
+|                             | <pre lang="cpp">char* newPtr (csSDK_uint32 size);</pre>                                                               |
++-----------------------------+-----------------------------------------------------------------------------------------------------------------------+
+| `newPtrClear`               | Equivalent to newPtr, but initializes the memory to 0.                                                                |
+|                             |                                                                                                                       |
+|                             | <pre lang="cpp">char* newPtrClear (csSDK_uint32 size);</pre>                                                          |
++-----------------------------+-----------------------------------------------------------------------------------------------------------------------+
+| `setPtrSize`                | Resizes an allocated memory block.                                                                                    |
+|                             |                                                                                                                       |
+|                             | <pre lang="cpp">void setPtrSize (<br/>  PrMemoryPtr   *ptr,<br/>  csSDK_uint32  newsize);</pre>                       |
++-----------------------------+-----------------------------------------------------------------------------------------------------------------------+
+| `getPtrSize`                | Returns size in bytes of an allocated memory block.                                                                   |
+|                             |                                                                                                                       |
+|                             | <pre lang="cpp">csSDK_int32 getPtrSize (char *ptr);</pre>                                                             |
++-----------------------------+-----------------------------------------------------------------------------------------------------------------------+
+| `disposePtr`                | Frees an allocated memory block.                                                                                      |
+|                             |                                                                                                                       |
+|                             | <pre lang="cpp">void disposePtr (char *ptr);</pre>                                                                    |
++-----------------------------+-----------------------------------------------------------------------------------------------------------------------+
+| `newHandle`                 | Allocates a block of memory, returning a handle to it.                                                                |
+|                             |                                                                                                                       |
+|                             | <pre lang="cpp">char** newHandle (csSDK_uint32 size);</pre>                                                           |
++-----------------------------+-----------------------------------------------------------------------------------------------------------------------+
+| `newHandleClear`            | Equivalent to newHandle, but initializes the memory to 0.                                                             |
+|                             |                                                                                                                       |
+|                             | <pre lang="cpp">char** newHandleClear (csSDK_uint32 size);</pre>                                                      |
++-----------------------------+-----------------------------------------------------------------------------------------------------------------------+
+| `setHandleSize`             | Resizes an allocated memory handle.                                                                                   |
+|                             |                                                                                                                       |
+|                             | <pre lang="cpp">csSDK_int16 setHandleSize (<br/>  char          **PrMemoryHandle,<br/>  csSDK_uint32  newsize);</pre> |
++-----------------------------+-----------------------------------------------------------------------------------------------------------------------+
+| `getHandleSize`             | Returns the size (in bytes) of an allocated block.                                                                    |
+|                             |                                                                                                                       |
+|                             | <pre lang="cpp">csSDK_int32 getHandleSize ( char **PrMemoryHandle);</pre>                                             |
++-----------------------------+-----------------------------------------------------------------------------------------------------------------------+
+| `disposeHandle`             | Disposes of a previously allocated handle.                                                                            |
+|                             |                                                                                                                       |
+|                             | <pre lang="cpp">void disposeHandle (char **PrMemoryHandle);</pre>                                                     |
++-----------------------------+-----------------------------------------------------------------------------------------------------------------------+
+| `lockHandle` `unlockHandle` | These legacy functions are deprecated and should no longer be used.                                                   |
++-----------------------------+-----------------------------------------------------------------------------------------------------------------------+
 
 ### Window Functions
 
 Window management routines. Superceded by the [Window Suite](sweetpea-suites.md#window-suite).
 
-|      Function      |                                               Description                                               |
-| ------------------ | ------------------------------------------------------------------------------------------------------- |
-| `updateAllWindows` | Updates all windows. Windows only, doesn't work on Mac OS.<br/><pre>void updateAllWindows (void);</pre> |
-| `getMainWnd`       | Returns the main application HWND.<br/><pre>void getMainWnd (void);</pre>                               |
++--------------------+------------------------------------------------------------+
+|      Function      |                        Description                         |
++====================+============================================================+
+| `updateAllWindows` | Updates all windows. Windows only, doesn't work on Mac OS. |
+|                    |                                                            |
+|                    | <pre lang="cpp">void updateAllWindows (void);</pre>        |
++--------------------+------------------------------------------------------------+
+| `getMainWnd`       | Returns the main application HWND.                         |
+|                    |                                                            |
+|                    | <pre lang="cpp">void getMainWnd (void);</pre>              |
++--------------------+------------------------------------------------------------+
 
 ### PPix Functions
 
