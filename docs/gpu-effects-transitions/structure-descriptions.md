@@ -69,20 +69,35 @@ typedef struct {
 } PrGPUFilterRenderParams;
 ```
 
-|         Member          |                                                                                              Description                                                                                               |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `inClipTime`            | The time of the current render, relative to clip start                                                                                                                                                 |
-| `inSequenceTime`        | The time of the current render, relative to sequence start                                                                                                                                             |
-| `inQuality`             | Render quality; one of the PrRenderQuality enum values                                                                                                                                                 |
-| `inDownsampleFactorX`   | Horizontal downsample factor                                                                                                                                                                           |
-| `inDownsampleFactorY`   | Vertical downsample factor                                                                                                                                                                             |
-| `inRenderWidth`         | Video resolution                                                                                                                                                                                       |
-| `inRenderHeight`        |                                                                                                                                                                                                        |
-| `inRenderPARNum`        | Video pixel aspect ratio, described as a fractional number with separate values for numerator and denominator.                                                                                         |
-| `inRenderPARDen`        |                                                                                                                                                                                                        |
-| `inRenderFieldType`     | Render field type                                                                                                                                                                                      |
-| `inRenderTicksPerFrame` | Video frame rate                                                                                                                                                                                       |
-| `inRenderField`         | GPU rendering is always done on full-height progressive frames unless `PrGPUFilterFrameDependency.outNeedsFieldSeparation` is false.<br/><br/>`inRenderField` indicates which field is being rendered. |
++-------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
+|         Member          |                                                              Description                                                               |
++=========================+========================================================================================================================================+
+| `inClipTime`            | The time of the current render, relative to clip start                                                                                 |
++-------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
+| `inSequenceTime`        | The time of the current render, relative to sequence start                                                                             |
++-------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
+| `inQuality`             | Render quality; one of the `PrRenderQuality` enum values                                                                               |
++-------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
+| `inDownsampleFactorX`   | Horizontal downsample factor                                                                                                           |
++-------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
+| `inDownsampleFactorY`   | Vertical downsample factor                                                                                                             |
++-------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
+| `inRenderWidth`         | Video resolution                                                                                                                       |
++-------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
+| `inRenderHeight`        |                                                                                                                                        |
++-------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
+| `inRenderPARNum`        | Video pixel aspect ratio, described as a fractional number with separate values for numerator and denominator.                         |
++-------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
+| `inRenderPARDen`        |                                                                                                                                        |
++-------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
+| `inRenderFieldType`     | Render field type                                                                                                                      |
++-------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
+| `inRenderTicksPerFrame` | Video frame rate                                                                                                                       |
++-------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
+| `inRenderField`         | GPU rendering is always done on full-height progressive frames unless `PrGPUFilterFrameDependency.outNeedsFieldSeparation` is `false`. |
+|                         |                                                                                                                                        |
+|                         | `inRenderField` indicates which field is being rendered.                                                                               |
++-------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
 
 ---
 

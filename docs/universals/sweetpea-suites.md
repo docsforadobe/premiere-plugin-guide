@@ -230,13 +230,21 @@ prSuiteError (*RenderImage)(
   PPixHand*      ioPPix);
 ```
 
-|          Parameter          |                                                                                                Description                                                                                                 |
-| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `inLogicalRegion`           | The non-scaled region of the source PPix to overlay                                                                                                                                                        |
-| `inDisplayWidth`            | Width and height of PPix, if provided in ioPPix, scaled to account for Monitor zoom and PAR                                                                                                                |
-| `inDisplayHeight`           |                                                                                                                                                                                                            |
-| `inClearToTransparentBlack` | If `kPrTrue`, the frame will first be cleared to transparent black before render                                                                                                                           |
-| `ioPPix`                    | The frame into which to draw the overlay. If NULL, the host will allocate the PPix.<br/><br/>If provided, the PPix must be BGRA, square pixel aspect ratio, and sized to inDisplayWidth & inDisplayHeight. |
++-----------------------------+---------------------------------------------------------------------------------------------------------------+
+|          Parameter          |                                                  Description                                                  |
++=============================+===============================================================================================================+
+| `inLogicalRegion`           | The non-scaled region of the source PPix to overlay                                                           |
++-----------------------------+---------------------------------------------------------------------------------------------------------------+
+| `inDisplayWidth`            | Width and height of PPix, if provided in ioPPix, scaled to account for Monitor zoom and PAR                   |
++-----------------------------+---------------------------------------------------------------------------------------------------------------+
+| `inDisplayHeight`           |                                                                                                               |
++-----------------------------+---------------------------------------------------------------------------------------------------------------+
+| `inClearToTransparentBlack` | If `kPrTrue`, the frame will first be cleared to transparent black before render                              |
++-----------------------------+---------------------------------------------------------------------------------------------------------------+
+| `ioPPix`                    | The frame into which to draw the overlay. If NULL, the host will allocate the PPix.                           |
+|                             |                                                                                                               |
+|                             | If provided, the PPix must be BGRA, square pixel aspect ratio, and sized to inDisplayWidth & inDisplayHeight. |
++-----------------------------+---------------------------------------------------------------------------------------------------------------+
 
 ### GetIdentifier
 
@@ -311,11 +319,19 @@ prSuiteError (*CreatePPix)(
   const prRect*       inBoundingRect);
 ```
 
-|               Parameter                |                                                                      Description                                                                      |
-| -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `PPixHand *outPPixHand`                | The new PPix handle if the creation was successful.<br/><br/>NULL otherwise.                                                                          |
-| `PrPPixBufferAccess inRequestedAccess` | Requested pixel access. Read-only is not allowed (doesn't make sense).<br/><br/>`PrPPixBufferAccess` values are defined in [PPix Suite](#ppix-suite). |
-| `PrPixelFormat inPixelFormat`          | The pixel format of this PPix                                                                                                                         |
++----------------------------------------+------------------------------------------------------------------------+
+|               Parameter                |                              Description                               |
++========================================+========================================================================+
+| `PPixHand *outPPixHand`                | The new PPix handle if the creation was successful.                    |
+|                                        |                                                                        |
+|                                        | NULL otherwise.                                                        |
++----------------------------------------+------------------------------------------------------------------------+
+| `PrPPixBufferAccess inRequestedAccess` | Requested pixel access. Read-only is not allowed (doesn't make sense). |
+|                                        |                                                                        |
+|                                        | `PrPPixBufferAccess` values are defined in [PPix Suite](#ppix-suite).  |
++----------------------------------------+------------------------------------------------------------------------+
+| `PrPixelFormat inPixelFormat`          | The pixel format of this PPix                                          |
++----------------------------------------+------------------------------------------------------------------------+
 
 ### ClonePPix
 
@@ -330,11 +346,21 @@ prSuiteError (*ClonePPix)(
   PrPPixBufferAccess  inRequestedAccess);
 ```
 
-|               Parameter                |                                                                     Description                                                                      |
-| -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `PPixHand inPPixToClone`               | The PPix to clone from.                                                                                                                              |
-| `PPixHand *outPPixHand`                | The new PPix handle if the creation was successful.<br/><br/>NULL otherwise.                                                                         |
-| `PrPPixBufferAccess inRequestedAccess` | Requested pixel access.<br/><br/>Only read-only is allowed right now.<br/><br/>`PrPPixBufferAccess` values are defined in [PPix Suite](#ppix-suite). |
++----------------------------------------+-----------------------------------------------------------------------+
+|               Parameter                |                              Description                              |
++========================================+=======================================================================+
+| `PPixHand inPPixToClone`               | The PPix to clone from.                                               |
++----------------------------------------+-----------------------------------------------------------------------+
+| `PPixHand *outPPixHand`                | The new PPix handle if the creation was successful.                   |
+|                                        |                                                                       |
+|                                        | NULL otherwise.                                                       |
++----------------------------------------+-----------------------------------------------------------------------+
+| `PrPPixBufferAccess inRequestedAccess` | Requested pixel access.                                               |
+|                                        |                                                                       |
+|                                        | Only read-only is allowed right now.                                  |
+|                                        |                                                                       |
+|                                        | `PrPPixBufferAccess` values are defined in [PPix Suite](#ppix-suite). |
++----------------------------------------+-----------------------------------------------------------------------+
 
 ---
 
@@ -384,11 +410,19 @@ prSuiteError (*GetPixels)(
   char**              outPixelAddress);
 ```
 
-|                                           Parameter                                           |                                              Description                                              |
-| --------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `PPixHand inPPixHand`                                                                         | The PPix handle to operate on.                                                                        |
-| `PrPPixBufferAccess inRequestedAccess`<br/><br/>Most PPixs do not support write access modes. | Requested pixel access.                                                                               |
-| `char** outPixelAddress`                                                                      | The output pixel buffer address.<br/><br/>May be NULL if the requested pixel access is not supported. |
++----------------------------------------+-------------------------------------------------------------+
+|               Parameter                |                         Description                         |
++========================================+=============================================================+
+| `PPixHand inPPixHand`                  | The PPix handle to operate on.                              |
++----------------------------------------+-------------------------------------------------------------+
+| `PrPPixBufferAccess inRequestedAccess` | Requested pixel access.                                     |
+|                                        |                                                             |
+|                                        | Most PPixs do not support write access modes.               |
++----------------------------------------+-------------------------------------------------------------+
+| `char** outPixelAddress`               | The output pixel buffer address.                            |
+|                                        |                                                             |
+|                                        | May be NULL if the requested pixel access is not supported. |
++----------------------------------------+-------------------------------------------------------------+
 
 ### GetBounds
 
@@ -482,10 +516,15 @@ prSuiteError (*GetRenderTime)(
   csSDK_int32*  outRenderMilliseconds);
 ```
 
-|              Parameter               |                                            Description                                            |
-| ------------------------------------ | ------------------------------------------------------------------------------------------------- |
-| `PPixHand inPPixHand`                | The PPix handle to operate on.                                                                    |
-| `csSDK_int32* outRenderMilliseconds` | Returns the render time in milliseconds.<br/><br/>If the frame was cached, the time will be zero. |
++--------------------------------------+-------------------------------------------------+
+|              Parameter               |                   Description                   |
++======================================+=================================================+
+| `PPixHand inPPixHand`                | The PPix handle to operate on.                  |
++--------------------------------------+-------------------------------------------------+
+| `csSDK_int32* outRenderMilliseconds` | Returns the render time in milliseconds.        |
+|                                      |                                                 |
+|                                      | If the frame was cached, the time will be zero. |
++--------------------------------------+-------------------------------------------------+
 
 ---
 

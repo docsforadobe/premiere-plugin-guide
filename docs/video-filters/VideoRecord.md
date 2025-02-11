@@ -132,12 +132,19 @@ typedef short (CALLBACK *VFilterCallBackProcPtr)(
   Handle       privateData);
 ```
 
-|   Parameter   |                                                                                  Description                                                                                  |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `frame`       | Frame requested. The frame value passed in should be frame \* samplesize.<br/><br/>The callback will always return the current field (upper or lower) during field rendering. |
-| `thePort`     | `PPixHand` where Premiere will store the frame                                                                                                                                |
-| `theBox`      | Bounds of the frame you want Premiere to retrieve.                                                                                                                            |
-| `privateData` | Handle provided by Premiere in `VideoRecord.privateData`                                                                                                                      |
++---------------+--------------------------------------------------------------------------------------------+
+|    Member     |                                        Description                                         |
++===============+============================================================================================+
+| `frame`       | Frame requested. The frame value passed in should be frame \* samplesize.                  |
+|               |                                                                                            |
+|               | The callback will always return the current field (upper or lower) during field rendering. |
++---------------+--------------------------------------------------------------------------------------------+
+| `thePort`     | `PPixHand` where Premiere will store the frame                                             |
++---------------+--------------------------------------------------------------------------------------------+
+| `theBox`      | Bounds of the frame you want Premiere to retrieve.                                         |
++---------------+--------------------------------------------------------------------------------------------+
+| `privateData` | Handle provided by Premiere in `VideoRecord.privateData`                                   |
++---------------+--------------------------------------------------------------------------------------------+
 
 ---
 
