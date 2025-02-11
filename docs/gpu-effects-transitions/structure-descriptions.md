@@ -110,16 +110,32 @@ typedef struct {
 } PrGPUFilterFrameDependency;
 ```
 
-|               Member               |                                                                                 Description                                                                                 |
-| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `outDependencyType`                | The dependency type.<br/><br/>Could be either:<ul><li>`PrGPUDependency_InputFrame`</li><li>`PrGPUDependency_Precompute`</li><li>`PrGPUDependency_FieldSeparation`</li></ul> |
-| `outTrackID`                       | Specify which track is a dependency. Set to 0 for the current track                                                                                                         |
-| `outSequenceTime`                  | Set the sequence time which is a dependency.                                                                                                                                |
-| `outPrecomputePixelFormat`         | Dependence on precomputation phase                                                                                                                                          |
-| `outPrecomputeFrameWidth`          |                                                                                                                                                                             |
-| `outPrecomputeFrameHeight`         |                                                                                                                                                                             |
-| `outPrecomputeFramePARNumerator`   |                                                                                                                                                                             |
-| `outPrecomputeFramePARDenominator` |                                                                                                                                                                             |
-| `outPrecomputeFrameFieldType`      |                                                                                                                                                                             |
-| `outPrecomputeCustomDataSize`      | Only needed if `outPrecomputePixelFormat` is custom                                                                                                                         |
-| `outNeedsFieldSeparation`          | Indicates the plugin may operate on both fields simultaneously (eg non-spatial and non-time varying)                                                                        |
++------------------------------------+------------------------------------------------------------------------------------------------------+
+|               Member               |                                             Description                                              |
++====================================+======================================================================================================+
+| `outDependencyType`                | The dependency type. One of:                                                                         |
+|                                    |                                                                                                      |
+|                                    | - `PrGPUDependency_InputFrame`                                                                       |
+|                                    | - `PrGPUDependency_Precompute`                                                                       |
+|                                    | - `PrGPUDependency_FieldSeparation`                                                                  |
++------------------------------------+------------------------------------------------------------------------------------------------------+
+| `outTrackID`                       | Specify which track is a dependency. Set to 0 for the current track                                  |
++------------------------------------+------------------------------------------------------------------------------------------------------+
+| `outSequenceTime`                  | Set the sequence time which is a dependency.                                                         |
++------------------------------------+------------------------------------------------------------------------------------------------------+
+| `outPrecomputePixelFormat`         | Dependence on precomputation phase                                                                   |
++------------------------------------+------------------------------------------------------------------------------------------------------+
+| `outPrecomputeFrameWidth`          |                                                                                                      |
++------------------------------------+------------------------------------------------------------------------------------------------------+
+| `outPrecomputeFrameHeight`         |                                                                                                      |
++------------------------------------+------------------------------------------------------------------------------------------------------+
+| `outPrecomputeFramePARNumerator`   |                                                                                                      |
++------------------------------------+------------------------------------------------------------------------------------------------------+
+| `outPrecomputeFramePARDenominator` |                                                                                                      |
++------------------------------------+------------------------------------------------------------------------------------------------------+
+| `outPrecomputeFrameFieldType`      |                                                                                                      |
++------------------------------------+------------------------------------------------------------------------------------------------------+
+| `outPrecomputeCustomDataSize`      | Only needed if `outPrecomputePixelFormat` is custom                                                  |
++------------------------------------+------------------------------------------------------------------------------------------------------+
+| `outNeedsFieldSeparation`          | Indicates the plugin may operate on both fields simultaneously (eg non-spatial and non-time varying) |
++------------------------------------+------------------------------------------------------------------------------------------------------+

@@ -301,11 +301,23 @@ typedef struct {
 } imStdParms;
 ```
 
-|      Member      |                                                                                                                                                                                             Description                                                                                                                                                                                             |
-| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `imInterfaceVer` | Importer API version<ul><li>Premiere Pro CC 2014 - `IMPORTMOD_VERSION_15`</li><li>Premiere Pro CC - `IMPORTMOD_VERSION_14`</li><li>Premiere Pro CS6.0.2 - `IMPORTMOD_VERSION_13`</li><li>Premiere Pro CS6 - `IMPORTMOD_VERSION_12`</li><li>Premiere Pro CS5.5 - `IMPORTMOD_VERSION_11`</li><li>Premiere Pro CS5 - `IMPORTMOD_VERSION_10`</li><li>Premiere Pro CS4 - `IMPORTMOD_VERSION_9`</li></ul> |
-| `funcs`          | Pointers to callbacks for importers                                                                                                                                                                                                                                                                                                                                                                 |
-| `piSuites`       | Pointer to universal callback suites                                                                                                                                                                                                                                                                                                                                                                |
++------------------+-------------------------------------------------+
+|      Member      |                   Description                   |
++==================+=================================================+
+| `imInterfaceVer` | Importer API version                            |
+|                  |                                                 |
+|                  | - Premiere Pro CC 2014 - `IMPORTMOD_VERSION_15` |
+|                  | - Premiere Pro CC - `IMPORTMOD_VERSION_14`      |
+|                  | - Premiere Pro CS6.0.2 - `IMPORTMOD_VERSION_13` |
+|                  | - Premiere Pro CS6 - `IMPORTMOD_VERSION_12`     |
+|                  | - Premiere Pro CS5.5 - `IMPORTMOD_VERSION_11`   |
+|                  | - Premiere Pro CS5 - `IMPORTMOD_VERSION_10`     |
+|                  | - Premiere Pro CS4 - `IMPORTMOD_VERSION_9`      |
++------------------+-------------------------------------------------+
+| `funcs`          | Pointers to callbacks for importers             |
++------------------+-------------------------------------------------+
+| `piSuites`       | Pointer to universal callback suites            |
++------------------+-------------------------------------------------+
 
 ---
 
@@ -324,7 +336,16 @@ typedef csSDK_int32 (*importProgressFunc){
 void *trimCallbackID};
 ```
 
-|       Function       |                                                                                                                                                                                                 Description                                                                                                                                                                                                 |
-| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `classFuncs`         | See ClassData functions.                                                                                                                                                                                                                                                                                                                                                                                    |
-| `importProgressFunc` | Available in `imSaveFileRec` and `imTrimFileRec` during *imSaveFile8* and *imTrimFile8*.<br/><br/>Callback function pointer for use during project archiving or trimming to call into Premiere and update the progress bar and check for cancellation.<br/><br/>Either `imProgressAbort` or `imProgressCon` tinue will be returned.<br/><br/>The trimCallbackID parameter is passed in the same structures. |
++----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+|       Function       |                                                                     Description                                                                      |
++======================+======================================================================================================================================================+
+| `classFuncs`         | See [ClassData functions](../hardware/classdata-functions.md).                                                                                       |
++----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+| `importProgressFunc` | Available in `imSaveFileRec` and `imTrimFileRec` during *imSaveFile8* and *imTrimFile8*.                                                             |
+|                      |                                                                                                                                                      |
+|                      | Callback function pointer for use during project archiving or trimming to call into Premiere and update the progress bar and check for cancellation. |
+|                      |                                                                                                                                                      |
+|                      | Either `imProgressAbort` or `imProgressCon` tinue will be returned.                                                                                  |
+|                      |                                                                                                                                                      |
+|                      | The trimCallbackID parameter is passed in the same structures.                                                                                       |
++----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+

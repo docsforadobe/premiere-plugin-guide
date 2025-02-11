@@ -70,9 +70,32 @@ In CS6, 16-channel audio export was added.
 
 Starting in CC, the audio channel support is increased to 32 channels.
 
-|        PrAudioChannelType        |                                                                                                                                                                                                Description                                                                                                                                                                                                 |
-| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `kPrAudioChannelType_Mono`       | Mono                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `kPrAudioChannelType_Stereo`     | Stereo. The order of the stereo channels is:<ul><li>`kPrAudioChannelLabel_FrontLeft`</li><li>`kPrAudioChannelLabel_FrontRight`</li></ul>                                                                                                                                                                                                                                                                   |
-| `kPrAudioChannelType_51`         | 5.1 audio.<br/><br/>The order of the 5.1 channels is:<ul><li>`kPrAudioChannelLabel_FrontLeft`</li><li>`kPrAudioChannelLabel_FrontRight`</li><li>`kPrAudioChannelLabel_BackLeft`</li><li>`kPrAudioChannelLabel_BackRight`</li><li>`kPrAudioChannelLabel_FrontCenter`</li><li>`kPrAudioChannelLabel_LowFrequency`</li><li>`kPrAudioChannelLabel_BackLeft`</li><li>`kPrAudioChannelLabel_BackRight`</li></ul> |
-| `kPrAudioChannelType_MaxChannel` | New in CC.<br/><br/>`kMaxAudioChannelCount`, defined as 32 channels as of CC.<br/><br/>All channels use `kPrAudioChannelLabel_Discrete`.                                                                                                                                                                                                                                                                   |
++----------------------------------+-----------------------------------------------------------+
+|        PrAudioChannelType        |                        Description                        |
++==================================+===========================================================+
+| `kPrAudioChannelType_Mono`       | Mono                                                      |
++----------------------------------+-----------------------------------------------------------+
+| `kPrAudioChannelType_Stereo`     | Stereo. The order of the stereo channels is:              |
+|                                  |                                                           |
+|                                  | - `kPrAudioChannelLabel_FrontLeft`                        |
+|                                  | - `kPrAudioChannelLabel_FrontRight`                       |
++----------------------------------+-----------------------------------------------------------+
+| `kPrAudioChannelType_51`         | 5.1 audio.                                                |
+|                                  |                                                           |
+|                                  | The order of the 5.1 channels is:                         |
+|                                  |                                                           |
+|                                  | - `kPrAudioChannelLabel_FrontLeft`                        |
+|                                  | - `kPrAudioChannelLabel_FrontRight`                       |
+|                                  | - `kPrAudioChannelLabel_BackLeft`                         |
+|                                  | - `kPrAudioChannelLabel_BackRight`                        |
+|                                  | - `kPrAudioChannelLabel_FrontCenter`                      |
+|                                  | - `kPrAudioChannelLabel_LowFrequency`                     |
+|                                  | - `kPrAudioChannelLabel_BackLeft`                         |
+|                                  | - `kPrAudioChannelLabel_BackRight`                        |
++----------------------------------+-----------------------------------------------------------+
+| `kPrAudioChannelType_MaxChannel` | New in CC.                                                |
+|                                  |                                                           |
+|                                  | `kMaxAudioChannelCount`, defined as 32 channels as of CC. |
+|                                  |                                                           |
+|                                  | All channels use `kPrAudioChannelLabel_Discrete`.         |
++----------------------------------+-----------------------------------------------------------+

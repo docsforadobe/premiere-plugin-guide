@@ -223,12 +223,21 @@ prSuiteError (*ReportEvent)(
   const prUTF16Char*  inEventDescription);
 ```
 
-|      Parameter       |                                                                                         Description                                                                                         |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `inExporterID`       | Pass in `exporterPluginID` from `exDoExportRec`.                                                                                                                                            |
-| `inEventType`        | Use one of the types from the [Error Suite](../universals/sweetpea-suites.md#error-suite):<ul><li>`kEventTypeInformational`</li><li>`kEventTypeWarning`</li><li>`kEventTypeError`</li></ul> |
-| `inEventTitle`       | Provide information about the event for the user.                                                                                                                                           |
-| `inEventDescription` |                                                                                                                                                                                             |
++----------------------+--------------------------------------------------------------------------------------------+
+|      Parameter       |                                        Description                                         |
++======================+============================================================================================+
+| `inExporterID`       | Pass in `exporterPluginID` from `exDoExportRec`.                                           |
++----------------------+--------------------------------------------------------------------------------------------+
+| `inEventType`        | Use one of the types from the [Error Suite](../universals/sweetpea-suites.md#error-suite): |
+|                      |                                                                                            |
+|                      | - `kEventTypeInformational`                                                                |
+|                      | - `kEventTypeWarning`                                                                      |
+|                      | - `kEventTypeError`                                                                        |
++----------------------+--------------------------------------------------------------------------------------------+
+| `inEventTitle`       | Provide information about the event for the user.                                          |
++----------------------+--------------------------------------------------------------------------------------------+
+| `inEventDescription` |                                                                                            |
++----------------------+--------------------------------------------------------------------------------------------+
 
 ---
 

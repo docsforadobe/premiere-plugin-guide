@@ -15,7 +15,50 @@ typedef struct {
 } ClassDataFuncs, *ClassDataFuncsPtr;
 ```
 
-|    Function    |                                                                                                                                                                                          Description                                                                                                                                                                                          |
-| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `setClassData` | Writes class data, destroys previous data.<br /><pre>int setClassData (<br/>  unsigned int  theClass,<br/>  void          *info);<br/></pre><ul><li>`theClass` - the class being set. Use a unique 4-byte code.</li><li>`info` - the class data to be set. It can be used as a pointer or a handle.</li></ul><br/>Note that all plugins that share the data must use the same data structure. |
-| `getClassData` | Retrieves the class data for the given class.<br /><pre>int getClassData (<br/>  unsigned int  theClass);<br/></pre><ul><li>`theClass` - the class for which to retrieve data.</li></ul>                                                                                                                                                                                                      |
+---
+
+## Methods
+
+### setClassData
+
+`setClassData`
+
+#### Description
+
+Writes class data, destroys previous data.
+
+Note that all plugins that share the data must use the same data structure.
+
+```cpp
+int setClassData (
+    unsigned int  theClass,
+    void          *info);
+```
+
+#### Parameters
+
+| Parameter  |       Type        |                            Description                             |
+| ---------- | ----------------- | ------------------------------------------------------------------ |
+| `theClass` | Unsigned int      | The class being set. Use a unique 4-byte code.                     |
+| `info`     | Pointer or handle | the class data to be set. It can be used as a pointer or a handle. |
+
+---
+
+### getClassData
+
+`getClassData`
+
+#### Description
+
+Retrieves the class data for the given class.
+
+```cpp
+int getClassData (
+    unsigned int  theClass);
+```
+
+#### Parameters
+
+| Parameter  |       Type       |              Description              |
+| ---------- | ---------------- | ------------------------------------- |
+| `theClass` | Unsigned integer | The class for which to retrieve data. |
