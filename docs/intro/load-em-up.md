@@ -1,6 +1,6 @@
 # Load Em Up
 
-## Plug-in Caching
+## Plugin Caching
 
 On its first launch, Premiere Pro loads all the plugins, reads the [Plug-In Property Lists (PiPL) Resource](../resources/pipl-resource.md), and sends any startup selectors to determine the plugins' capabilities. To speed up future application launches, it saves some of these capabilities in what we call the plugin cache (the registry on Windows, a Property List file on macOS).
 
@@ -12,7 +12,7 @@ By default, legacy video filters and device controllers are cached by default. T
 
 ---
 
-## Resolving Plug-in Loading Problems
+## Resolving Plugin Loading Problems
 
 There are various tools to help in the development process.
 

@@ -4,7 +4,7 @@ This introduction information is common to all the plugin types.
 
 All developers should read this chapter, and browse through chapters two and three before diving too deep into plugin development.
 
-[Resources](../resources/resources.md) is a short chapter that describes the Premiere Pro-specific resources used by plugins, including the Plug-in Property List (PiPL).
+[Resources](../resources/resources.md) is a short chapter that describes the Premiere Pro-specific resources used by plugins, including the Plugin Property List (PiPL).
 
 [Universals](../universals/universals.md) documents concepts, data types, and structures used throughout the APIs. It also describes suites and functions used by more than one type of plugin.
 
