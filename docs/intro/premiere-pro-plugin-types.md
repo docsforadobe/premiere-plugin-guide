@@ -46,7 +46,7 @@
 |                         |                                                                                                                                                                                           |
 |                         | In CS6.x and previous versions, support was limited to version 2.4.                                                                                                                       |
 +-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ASIO                    | An ASIO driver is often provided in addition to a transmit plug-in, to provide audio output during editing, playback, and Export To Tape.                                                 |
+| ASIO                    | An ASIO driver is often provided in addition to a transmit plugin, to provide audio output during editing, playback, and Export To Tape.                                                  |
 |                         |                                                                                                                                                                                           |
 |                         | Prior to CS6, an ASIO driver was required to support audio input for voiceover recording in the audio mixer. On macOS, a Core Audio component may be provided rather than an ASIO driver. |
 +-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -55,7 +55,7 @@
 
 ---
 
-### Plug-in Support Across Adobe Video and Audio Applications
+### Plugin Support Across Adobe Video and Audio Applications
 
 This chart shows which third-party plugins are supported by the various Video and Audio applications.
 
@@ -81,9 +81,9 @@ This chart shows which third-party plugins are supported by the various Video an
 
 ---
 
-### Premiere Elements Plug-in Support
+### Premiere Elements Plugin Support
 
-Premiere Elements uses the same core libraries for plug-in support that Premiere Pro does, although Premiere Elements is 32-bit, whereas Premiere Pro is 64-bit starting with CS5.
+Premiere Elements uses the same core libraries for plugin support that Premiere Pro does, although Premiere Elements is 32-bit, whereas Premiere Pro is 64-bit starting with CS5.
 
 | Premiere Elements version | Equivalent Premiere Pro API version |
 | ------------------------- | ----------------------------------- |
@@ -93,7 +93,7 @@ Premiere Elements uses the same core libraries for plug-in support that Premiere
 | 9                         | CS5                                 |
 | 8                         | CS4                                 |
 
-It's always important to test the plug-in fully in each application before advertising compatibility.
+It's always important to test the plugin fully in each application before advertising compatibility.
 
 Check out [Guidelines for Exporters in Premiere Elements](../exporters/additional-details.md#guidelines-for-exporters-in-premiere-elements) for instructions on how to set up your exporter to be used in Premiere Elements.
 
@@ -105,8 +105,8 @@ Premiere plugins contain a single entry point of a type specific to each API.
 
 Plugins are DLLs on Windows, and Carbon or Cocoa Bundles on macOS.
 
-Plug-ins in the \\Plug-ins[language] folder, and any of its subfolders, will be loaded at launch.
+Plugins in the \\Plugins[language] folder, and any of its subfolders, will be loaded at launch.
 
 Plugins can have private resources.
 
-Only one plug-in per file is parsed, unlike After Effects and Photoshop plugins, which can contain multiple entry points.
+Only one plugin per file is parsed, unlike After Effects and Photoshop plugins, which can contain multiple entry points.

@@ -116,21 +116,21 @@ For macOS it is BuildAll.xcodeproj; for Windows, it is \_BuildAll.sln.
 
 You'll need to specify some settings so that the plugins are built into a folder where they will be loaded by the application you are developing for.
 
-We recommend plugins be built into the following folder for macOS: `/Library/Application Support/Adobe/Common/Plug-ins/[version]/MediaCore/`
+We recommend plugins be built into the following folder for macOS: `/Library/Application Support/Adobe/Common/Plugins/[version]/MediaCore/`
 
 Version is locked at 7.0 for all CC versions, or CSx for earlier versions.
 
-For example: `/Library/Application Support/Adobe/Common/Plug-ins/7.0/MediaCore/`
+For example: `/Library/Application Support/Adobe/Common/Plugins/7.0/MediaCore/`
 
-or: `/Library/Application Support/Adobe/Common/Plug-ins/CS6/MediaCore/`
+or: `/Library/Application Support/Adobe/Common/Plugins/CS6/MediaCore/`
 
 and the following path for Windows:
 
-`[Program Files]\Adobe\Common\Plug-ins\[version]\MediaCore\\`
+`[Program Files]\Adobe\Common\Plugins\[version]\MediaCore\\`
 
-for example: `C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore\\`
+for example: `C:\Program Files\Adobe\Common\Plugins\7.0\MediaCore\\`
 
-or: `C:\Program Files\Adobe\Common\Plug-ins\CS6\MediaCore\\`
+or: `C:\Program Files\Adobe\Common\Plugins\CS6\MediaCore\\`
 
 !!! note
     This Windows path is only recommended for development purposes.
@@ -144,7 +144,7 @@ In Visual Studio, for convenience, we have set the Output File for all sample pr
 
 1. On Windows, right-click *My Computer > Properties*, and in the left sidebar choose *Advanced System Settings*.
 2. In the dialog that appears, hit the *Environment Variables* button.
-3. In the *User variables*, create a new variable named PREMSDKBUILDPATH, with the path as described above. (e.g. "C:Program FilesAdobeCommonPlug-ins[version]MediaCore").
+3. In the *User variables*, create a new variable named PREMSDKBUILDPATH, with the path as described above. (e.g. "C:Program FilesAdobeCommonPlugins[version]MediaCore").
 4. Log out of Windows, and log back in so that the variable will be set.
 
 When compiling the plugins, if you see a link error such as:

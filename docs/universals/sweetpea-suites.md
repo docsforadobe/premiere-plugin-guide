@@ -8,7 +8,7 @@ Suites that are only used by one plugin type are documented in the chapter on th
 
 Below is a table of all suites available in Premiere Pro:
 
-|                                    Suite Name                                     |          Relevant to Plug-in Type           |
+|                                    Suite Name                                     |          Relevant to Plugin Type           |
 | --------------------------------------------------------------------------------- | ------------------------------------------- |
 | Accelerated Render Invocation Suite                                               | Exporters                                   |
 | [App Info Suite](#app-info-suite)                                                 | All                                         |

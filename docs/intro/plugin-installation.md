@@ -1,8 +1,8 @@
 # Plug In Installation
 
-Plug-ins must have an installer. This simplifies installation by the user, provides more compact distribution, and ensures all the pieces are installed correctly.
+Plugins must have an installer. This simplifies installation by the user, provides more compact distribution, and ensures all the pieces are installed correctly.
 
-Create a container folder for your plug-in(s) to minimize user confusion.
+Create a container folder for your plugin(s) to minimize user confusion.
 
 Don't unintentionally overwrite existing plugins, or replace newer versions.
 
@@ -34,7 +34,7 @@ Value data: `C:\Program Files\Adobe\Common\Plugins\7.0\MediaCore\\` (or whatever
 
 Starting in CC 2015.3, **control surface plugins** should be installed here:
 
-`/Library/Application Support/Adobe/Common/Plug-ins/ControlSurface/`
+`/Library/Application Support/Adobe/Common/Plugins/ControlSurface/`
 
 **For sequence presets:**
 
@@ -62,7 +62,7 @@ Value data: `[Adobe Premiere Pro installation path]\Adobe Premiere Pro\Plugins\C
 
 Third-party installers can start from this path, and then modify the string to build the path to the language-specific effect presets.
 
-**Prior to CC**, the only path given in the registry was the common plug-in path for the most recently installed version of Premiere Pro:
+**Prior to CC**, the only path given in the registry was the common plugin path for the most recently installed version of Premiere Pro:
 
 HKEY_LOCAL_MACHINE/Software/Adobe/Premiere Pro/CurrentVersion
 
@@ -94,11 +94,11 @@ Previously, starting in CC 2015, Premiere Pro provided installer hints for Mac. 
 
 The **common plugin location** was at:
 
-`/Library/Application Support/Adobe/Common/Plug-ins/[version]/MediaCore/`
+`/Library/Application Support/Adobe/Common/Plugins/[version]/MediaCore/`
 
 Starting in CC 2015.3, **control surface plugins** should be installed here:
 
-`/Library/Application Support/Adobe/Common/Plug-ins/ControlSurface/`
+`/Library/Application Support/Adobe/Common/Plugins/ControlSurface/`
 
 Following OS X Code Signing guidelines, plugins should be installed in this separate shared location rather than in the application bundle.
 
@@ -126,7 +126,7 @@ Following OS X Code Signing guidelines, plugins should be installed in this sepa
 
 ## Plugin Naming Conventions
 
-On Windows, Premiere Pro plugins must have the file extension ".prm". On macOS, they have the file extension ".bundle". Other supported plug-in standards use their conventional file extensions: ".aex" for After Effects plugins, ".dll" for VST plugins.
+On Windows, Premiere Pro plugins must have the file extension ".prm". On macOS, they have the file extension ".bundle". Other supported plugin standards use their conventional file extensions: ".aex" for After Effects plugins, ".dll" for VST plugins.
 
 While it is not required for your plugin to load, naming your plugins using the plugin type as a prefix (e.g. ImporterSDK, FilterSDK, etc.) will help reduce user confusion.
 

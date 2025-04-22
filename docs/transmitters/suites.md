@@ -8,7 +8,7 @@ For information on how to acquire and manage suites, as well as information on m
 
 This suite is used to play audio during playback. There are many more functions that were used by players, still documented in the players chapter. Here we will only consider the single call in the suite that is relevant to transmitters.
 
-### Host-Based, or Plug-in Based Audio?
+### Host-Based, or Plugin Based Audio?
 
 A transmitter has two choices for playing audio: it can ask the host to play the audio through the audio device selected by the user, or it can get audio buffers from the host and handle its own playback of audio.
 

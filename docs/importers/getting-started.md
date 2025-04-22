@@ -14,7 +14,7 @@ Premiere requests audio in arrays of 32-bit float, uninterleaved format.
 
 ---
 
-## Try the Sample Importer Plug-ins
+## Try the Sample Importer Plugins
 
 Choose which one of the three sample importers matches closest with your desired functionality.
 

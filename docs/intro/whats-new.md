@@ -2,7 +2,7 @@
 
 ## What's New in 24.0
 
-With the removal of Capture functionality from Premiere Pro, support for Record modules and Device Control plug-ins have been removed from the SDK.
+With the removal of Capture functionality from Premiere Pro, support for Record modules and Device Control plugins have been removed from the SDK.
 
 ## What's New in 15.4
 
@@ -98,7 +98,7 @@ In [Video Segment Render Suite](../universals/sweetpea-suites.md#video-segment-r
 
 ## What's New in CC 2024.0
 
-The Transmit API has been expanded to enable multiple audio outputs, and plug-ins which stream video and audio information.
+The Transmit API has been expanded to enable multiple audio outputs, and plugins which stream video and audio information.
 
 ## What's New in CC 2015.4
 
