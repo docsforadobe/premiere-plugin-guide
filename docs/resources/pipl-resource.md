@@ -4,19 +4,15 @@ For many plugin types, Premiere loads a PiPL (Plugin Property List) resource. Th
 
 The complete PiPL syntax is described in PiPL.r.
 
-You'll notice that PiPLs are really old. A vestige of 68k macOS programming, they spread to Windows.
-
-However, if you develop from the sample projects, you shouldn't have to do anything to get them to build properly for Latin languages.
+You'll notice that PiPLs are really old. A vestige of 68k macOS programming, they spread to Windows. However, if you develop from the sample projects, you shouldn't have to do anything to get them to build properly for Latin languages.
 
 ---
 
 ## Which Types of Plugins Need PiPLs?
 
-Exporters, players, and recorders do not need PiPLs.
+Exporters do not need PiPLs.
 
 Standard importers do not need PiPLs. Synthetic and custom importers use a basic PiPL to specify their name, and the match name that Premiere uses to identify them. The name appears in the File > New menu.
-
-Device controllers use a basic PiPL to specify their name and the match name that Premiere uses to identify them.
 
 Video filters use an extended PiPL to specify their name, the match name that Premiere uses to identify them, the bin they go in, how they handle pixel aspect ratio, whether or not they have randomness, and their parameters.
 
@@ -52,7 +48,7 @@ resource 'PiPL' (16000) {
 
 ## How PiPLs Are Processed By Resource Compilers
 
-On macOS, .r files are processed natively by Xcode, as a Build Phase of type Build Carbon Resources. This step is already set for the sample projects.
+On macOS, .r files are processed natively by XCode, as a Build Phase of type Build Carbon Resources. This step is already set for the sample projects.
 
 On Windows, .r files are processed with CnvtPiPL.exe, which creates an .rcp file based upon custom build steps in the project. The .rcp file is then included in the .rc file along with any other resources the plugin uses. These custom build steps are already in place in the sample projects.
 

@@ -79,7 +79,6 @@
 |                   |                                                                                                                                                                                                                                         |
 |                   | It supports Metal acceleration.                                                                                                                                                                                                         |
 |                   |                                                                                                                                                                                                                                         |
-|                   | **This sample requires macOS 10.11.4 and later.**                                                                                                                                                                                       |
 +-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Vignette          | This effect creates a vignette on video using the After Effects API with the Premiere Pro GPU extensions.                                                                                                                               |
 |                   |                                                                                                                                                                                                                                         |
@@ -135,7 +134,7 @@ or: `C:\Program Files\Adobe\Common\Plugins\CS6\MediaCore\\`
 !!! note
     This Windows path is only recommended for development purposes.
 
-In Xcode, set the build location for the project in File > Project Settings. Press the Advanced button. Under Build Location choose Custom, select Absolute, and set the Products path.
+In XCode, set the build location for the project in File > Project Settings. Press the Advanced button. Under Build Location choose Custom, select Absolute, and set the Products path.
 
 In Visual Studio, for convenience, we have set the Output File for all sample projects to use the base path set by the environment variable PREMSDKBUILDPATH. You'll need to set this as a user environment variable for your system, and shown in the screenshot below.
 

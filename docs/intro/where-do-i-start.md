@@ -1,10 +1,8 @@
 # Where Do I Start
 
-Read about the sample projects. Decide which one is closest to the functionality you want to provide. Build the plugin into the shared plugins folder.
+Investigate the sample projects, and decide which one is closest to the functionality you want to provide. Clone it (changing names as appropriate), and build the plugin into the shared plugins folder.
 
-Launch Premiere Pro with the debugger attached, and set breakpoints at the plugin's entry point to see all communication between Premiere Pro and the plugin.
-
-The documentation is intended as a reference with detailed explanation where appropriate, but studying the interaction between Premiere Pro and plugins is the best way to understand it.
+Launch Premiere Pro, attach the debugger, and set breakpoints at the plugin's entry point to see all communication between Premiere Pro and the plugin. The documentation is intended as a reference with detailed explanation where appropriate, but studying the interaction between Premiere Pro and plugins is the best way to understand it.
 
 Write plugins by modifying sample plugin source code. This will greatly simplify your efforts, and make it easier for us to help you. Feel free to explore and experiment with the API on your own once you're familiar with it, but please, resist the temptation to start from scratch; you'll only force yourself to repeat other developers' mistakes, including our own.
 
