@@ -2342,17 +2342,6 @@
 </li>
       
         <li class="md-nav__item">
-	<a href="#effect-badging" class="md-nav__link">
-		<span class="md-ellipsis">
-			Effect Badging
-		</span>
-	</a>
-
-	<!-- Table of contents list -->
-	
-</li>
-      
-        <li class="md-nav__item">
 	<a href="#premiere-elements-and-effect-thumbnail-previews" class="md-nav__link">
 		<span class="md-ellipsis">
 			Premiere Elements and Effect Thumbnail Previews
@@ -2944,17 +2933,6 @@
 </li>
       
         <li class="md-nav__item">
-	<a href="#effect-badging" class="md-nav__link">
-		<span class="md-ellipsis">
-			Effect Badging
-		</span>
-	</a>
-
-	<!-- Table of contents list -->
-	
-</li>
-      
-        <li class="md-nav__item">
 	<a href="#premiere-elements-and-effect-thumbnail-previews" class="md-nav__link">
 		<span class="md-ellipsis">
 			Premiere Elements and Effect Thumbnail Previews
@@ -3021,22 +2999,6 @@
 <p>On Windows, newly created presets are saved in the hidden Application Data folder of the user's Documents and Settings (e.g. <code>C:/Documents and Settings/[user]/Application Data/Adobe Premiere Pro/[version]/Effect Presets and Custom Items.prfpset</code>). On Mac OS, they are in the user folder, at <code>~/Library/Application Support/Adobe/Premiere Pro/[version]/Effect Presets and Custom Items.prfpset.</code></p>
 <p>Effect Presets should be installed as described in the section, "Plugin Installation". Once they are installed in that folder, they will be read-only, and the user will not be able to move them to a different folder or change their names. User-created presets will be modifiable.</p>
 <hr />
-<h2 id="effect-badging">Effect Badging<a class="headerlink" href="#effect-badging" title="Permanent link">&para;</a></h2>
-<p>Starting in CS5, video filters now appear with badges in the Effects panel to advertise if they support YUV, 32-bit, and/or accelerated rendering. The user can filter the list of effects to show only the effects that support those rendering modes. Video filters will automatically receive YUV and 32-bit badges if they advertise support using the existing <em>fsGetPixelFormatsSupported</em>. Custom badges can also be created.</p>
-<p>To add your own effect badge, go to the following folder:</p>
-<p>On Windows: <code>[App installation path]\Settings\BadgeIcons\\</code></p>
-<p>On Mac OS: <code>Adobe Premiere Pro CS5.app/Contents/Settings/BadgeIcons/</code></p>
-<p>In that folder are the PNG graphics that are loaded at runtime for various badges, and an additional set of <code>'Sample-*.png'</code> and <code>'Sample.xml'</code> files.</p>
-<ol>
-<li>Make copies of the Sample- <em>.png files, replacing the "Sample" prefix with the prefix that matches whatever you want to call the new badge (like 'NewBadge-</em>.png'). Edit the PNG as you'd like, but don't change the image dimensions.</li>
-<li>Copy the Sample.xml file to a new name that matches whatever you want to call the new badge (like 'NewBadge.xml'). Edit the list of match names that you want to be decorated with your badge. Change the <code>&lt;Name&gt;</code> tag to the name you chose in step 1 (like 'NewBadge'). You can also add your tooltip text as the <code>&lt;DescriptionItem&gt;</code> tags. These tags act as a localization map with the langid as the key. If a language isn't found, 'en_US' is used by default. Provide your own GUID in the <code>&lt;Guid&gt;</code> tag.</li>
-<li>Relaunch the application. You'll get a badge filter icon next to the others and a badge icons next to each effect that was listed in the XML file.</li>
-</ol>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>'Sample' is a special case that is intentionally excluded. Any other set of  <em>.xml/</em>.png files will be used.</p>
-</div>
-<hr />
 <h2 id="premiere-elements-and-effect-thumbnail-previews">Premiere Elements and Effect Thumbnail Previews<a class="headerlink" href="#premiere-elements-and-effect-thumbnail-previews" title="Permanent link">&para;</a></h2>
 <p>Premiere Elements (but not Premiere Pro) displays visual icons for each effect. You will need to provide icons for your effects, or else an empty black icon will be shown for your effects, or even worse behavior in Premiere Elements 8. The icons are 60x45 PNG files, and are placed here:</p>
 <p><code>/[Program Files]/Adobe/Adobe Premiere Elements [version]/Plugins/Common/Effect/Previews/</code></p>
@@ -3061,7 +3023,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 21, 2025 21:51:32">April 21, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 24, 2025 19:27:26">April 24, 2025</span>
   </span>
 
     

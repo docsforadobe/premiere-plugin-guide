@@ -2088,17 +2088,6 @@
 </li>
       
         <li class="md-nav__item">
-	<a href="#dog-ears" class="md-nav__link">
-		<span class="md-ellipsis">
-			Dog Ears
-		</span>
-	</a>
-
-	<!-- Table of contents list -->
-	
-</li>
-      
-        <li class="md-nav__item">
 	<a href="#closed-captioning" class="md-nav__link">
 		<span class="md-ellipsis">
 			Closed Captioning
@@ -3054,17 +3043,6 @@
 </li>
       
         <li class="md-nav__item">
-	<a href="#dog-ears" class="md-nav__link">
-		<span class="md-ellipsis">
-			Dog Ears
-		</span>
-	</a>
-
-	<!-- Table of contents list -->
-	
-</li>
-      
-        <li class="md-nav__item">
 	<a href="#closed-captioning" class="md-nav__link">
 		<span class="md-ellipsis">
 			Closed Captioning
@@ -3157,15 +3135,7 @@
 <hr />
 <h2 id="sync-between-application-ui-and-hardware-output">Sync Between Application UI and Hardware Output<a class="headerlink" href="#sync-between-application-ui-and-hardware-output" title="Permanent link">&para;</a></h2>
 <p>Naturally there is some latency between the time the host sends frames to be displayed on the output, and the time it can actually be displayed. Use tmVideoMode.outLatency to specify the latency. For example, if a transmitter specifies 5 frames of latency, when the user starts playback, the host will send 5 frames of video to the transmitter before sending StartPlaybackClock. This allows time for the transmitter to send frames to the hardware output in advance, so that the hardware output will be in sync with the monitor in the host application UI.</p>
-<p>When the user is scrubbing in the timeline, send the video frames as fast as possible to the output. The host application UI will not wait for the hardware output to catch up, and currently as of</p>
-<p>6.0.1 there may be a noticable latency. To reduce the scrubbing latency as much as possible, when scrubbing or stopped the transmitter should cancel any frames it has pending to immediately display the new one.</p>
-<hr />
-<h2 id="dog-ears">Dog Ears<a class="headerlink" href="#dog-ears" title="Permanent link">&para;</a></h2>
-<p>Turn on dog ears to view statistics about the frames being sent to the transmitter. This is useful to view information such as pixel formats and much more.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This mode may result in duplicate PushVideo calls made for a single frame.</p>
-</div>
+<p>When the user is scrubbing in the timeline, send the video frames as fast as possible to the output. The host application UI will not wait for the hardware output to catch up, and there may be noticable latency. To reduce the scrubbing latency as much as possible, cancel any pending frames to immediately display the new one.</p>
 <hr />
 <h2 id="closed-captioning">Closed Captioning<a class="headerlink" href="#closed-captioning" title="Permanent link">&para;</a></h2>
 <p>This captioning data is attached to a sequence by the user via menu items in the Sequence menu. In the Program Monitor, the Closed Captioning Display options in the fly-out menu give the user control over the display. The hardware should always transmit any Closed Captioning data, and the user can go through the hardware monitor's on-screen display menu to choose which caption track to view. The closed captioning data is accessible using the new <a href="../../universals/sweetpea-suites/#captioning-suite">Captioning Suite</a>. Use this data for the hardware output.</p>
@@ -3202,7 +3172,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 25, 2025 17:22:59">January 25, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 24, 2025 19:27:26">April 24, 2025</span>
   </span>
 
     

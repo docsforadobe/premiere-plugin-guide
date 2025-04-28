@@ -2930,7 +2930,7 @@
 
 
 <h1 id="control-surfaces">Control Surfaces<a class="headerlink" href="#control-surfaces" title="Permanent link">&para;</a></h1>
-<p>Starting in Premiere Pro CC 2014, a control surface plugin can interface with a hardware control surface. This is the API that provides built-in support for EUCON and Mackie devices to control audio mixing and basic transport controls. The API supports two-way communication with Premiere Pro, so that hardware faders, VU meters, etc are in sync with the application.</p>
+<p>A control surface plugin can interface with a hardware control surface. This is the API that provides built-in support for EUCON and Mackie devices to control audio mixing and basic transport controls. The API supports two-way communication with Premiere Pro, so that hardware faders, VU meters, etc are in sync with the application.</p>
 <p>Compile the sample plugin into a subfolder of the main application folder: <code>Plugins\\ ControlSurface\\</code></p>
 <p>You should see the plugin in the PPro UI in Preferences &gt; Control Surface, when you hit the Add button, as one of the options in the Device Class drop-down next to Mackie and EUCON (currently shows as "SDK Control Surface Sample").</p>
 <p>You'll want to implement handlers for any relevant functions defined in the plugin suites here: <code>adobesdk\controlsurface\plugin</code></p>
@@ -2942,7 +2942,7 @@
 <p>Then, CreatePluginInstance() is called. When a project is opened, Connect() is called. Here the plugin instantiates a ControlSurface object, which inherits from any of the previously mentioned base classes. It acquire any host suites it needs, and then it passes back a reference to the ControlSurface object.</p>
 <hr />
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
-<p>Please write us if you would like further guidance.</p>
+<p>Reach out as necessary, for further guidance.</p>
 
 
 
@@ -2963,7 +2963,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 25, 2025 17:36:46">January 25, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 24, 2025 19:27:26">April 24, 2025</span>
   </span>
 
     

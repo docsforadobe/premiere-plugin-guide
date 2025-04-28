@@ -4215,9 +4215,9 @@
 </thead>
 <tbody>
 <tr>
-<td>23 Oct 2023</td>
+<td>23 Oct 2025</td>
 <td>Bruce Bullis</td>
-<td>Version 24.0</td>
+<td>Version 26.0</td>
 </tr>
 <tr>
 <td>6 Oct 2021</td>
@@ -4366,12 +4366,12 @@
                         </h1>
                     <section class="print-page" id="intro-what-premiere-plugins-do" heading-number="3.1"><h1 id="intro-what-premiere-plugins-do-what-premiere-plug-ins-do">What Premiere Plug-Ins Do<a class="headerlink" href="#intro-what-premiere-plugins-do-what-premiere-plug-ins-do" title="Permanent link">&para;</a></h1>
 <p>Premiere APIs provide access to many points of the video editing pipeline.</p>
-<p>Recording from an external device, device control, media import and export, video effects and transitions, playback to external hardware, and integration with control surfaces can all be performed by plugins.</p></section><section class="print-page" id="intro-sdk-audience" heading-number="3.2"><h1 id="intro-sdk-audience-sdk-audience">SDK Audience<a class="headerlink" href="#intro-sdk-audience-sdk-audience" title="Permanent link">&para;</a></h1>
+<p>Media import and export, video effects and transitions, and playback to external hardware can all be performed by plugins.</p></section><section class="print-page" id="intro-sdk-audience" heading-number="3.2"><h1 id="intro-sdk-audience-sdk-audience">SDK Audience<a class="headerlink" href="#intro-sdk-audience-sdk-audience" title="Permanent link">&para;</a></h1>
 <p>The Premiere Pro Software Development Kit enables developers to create plugins for Premiere Pro, After Effects, Audition, Media Encoder, Character Animator, and Premiere Elements.</p>
-<p>The required development environment for the Premiere Pro SDK for Windows is Microsoft Visual Studio 2015 Update 3 on Windows 7 or Windows 10 64-bit. When setting up Visual Studio you may need to adjust some installation settings to install the components for compiling 64-bit plugins. On macOS, the minimum environment is Xcode 7.3 on macOS 10.12 or later.</p>
-<p>The SDK includes sample projects for these development environments. On Windows, projects can often be updated to more current versions of Microsoft Visual Studio by simply opening the project and approving the automatic conversion. The sample code is written in C++. Other compilers and programming languages are not supported. We cannot assist with platform API programming issues not central to Premiere Pro plugin programming.</p>
-<p>If this is your first time developing a Premiere plugin, you can skip <a href="#intro-whats-new">Whats New</a>.</p>
-<p>If you are developing on macOS, see a quickstart video on building a plugin using a similar SDK (on macOS) <a href="https://assets.adobe.com/public/08c43fb7-4633-4007-5201-b3b77405d770?scid=social_20180227_75678337">here</a>, and then go directly to <a href="#intro-where-do-i-start">Where Do I Start</a>.</p></section><section class="print-page" id="intro-whats-new" heading-number="3.3"><h1 id="intro-whats-new-whats-new">Whats New<a class="headerlink" href="#intro-whats-new-whats-new" title="Permanent link">&para;</a></h1>
+<p>The required development environment for Windows is Microsoft Visual Studio 2015 Update 3 on Windows 11.</p>
+<p>On macOS, the minimum environment is XCode 16.2 on macOS 15.4 or later.</p>
+<p>The SDK includes sample projects for these development environments. The sample code is written in C++. Other compilers and programming languages are not supported.</p>
+<p>If this is your first time developing a Premiere plugin, you can skip <a href="#intro-whats-new">Whats New</a>.</p></section><section class="print-page" id="intro-whats-new" heading-number="3.3"><h1 id="intro-whats-new-whats-new">Whats New<a class="headerlink" href="#intro-whats-new-whats-new" title="Permanent link">&para;</a></h1>
 <h2 id="intro-whats-new-whats-new-in-240">What's New in 24.0<a class="headerlink" href="#intro-whats-new-whats-new-in-240" title="Permanent link">&para;</a></h2>
 <p>With the removal of Capture functionality from Premiere Pro, support for Record modules and Device Control plugins have been removed from the SDK.</p>
 <h2 id="intro-whats-new-whats-new-in-154">What's New in 15.4<a class="headerlink" href="#intro-whats-new-whats-new-in-154" title="Permanent link">&para;</a></h2>
@@ -4632,9 +4632,8 @@
 <hr />
 <h2 id="intro-whats-new-legacy-api">Legacy API<a class="headerlink" href="#intro-whats-new-legacy-api" title="Permanent link">&para;</a></h2>
 <p>Legacy API features, such as selectors and callbacks that are superceded by new ones, are deprecated, but are supported, unless indicated.</p></section><section class="print-page" id="intro-where-do-i-start" heading-number="3.4"><h1 id="intro-where-do-i-start-where-do-i-start">Where Do I Start<a class="headerlink" href="#intro-where-do-i-start-where-do-i-start" title="Permanent link">&para;</a></h1>
-<p>Read about the sample projects. Decide which one is closest to the functionality you want to provide. Build the plugin into the shared plugins folder.</p>
-<p>Launch Premiere Pro with the debugger attached, and set breakpoints at the plugin's entry point to see all communication between Premiere Pro and the plugin.</p>
-<p>The documentation is intended as a reference with detailed explanation where appropriate, but studying the interaction between Premiere Pro and plugins is the best way to understand it.</p>
+<p>Investigate the sample projects, and decide which one is closest to the functionality you want to provide. Clone it (changing names as appropriate), and build the plugin into the shared plugins folder.</p>
+<p>Launch Premiere Pro, attach the debugger, and set breakpoints at the plugin's entry point to see all communication between Premiere Pro and the plugin. The documentation is intended as a reference with detailed explanation where appropriate, but studying the interaction between Premiere Pro and plugins is the best way to understand it.</p>
 <p>Write plugins by modifying sample plugin source code. This will greatly simplify your efforts, and make it easier for us to help you. Feel free to explore and experiment with the API on your own once you're familiar with it, but please, resist the temptation to start from scratch; you'll only force yourself to repeat other developers' mistakes, including our own.</p>
 <p>If you run into behavior that seems wrong, see if you can reproduce the behavior using one of the unmodified sample projects. This can save you a lot of time, if you can determine whether the bug behavior was introduced by your modifications, or was already there to begin with.</p></section><section class="print-page" id="intro-document-overview" heading-number="3.5"><h1 id="intro-document-overview-document-overview">Document Overview<a class="headerlink" href="#intro-document-overview-document-overview" title="Permanent link">&para;</a></h1>
 <p>This introduction information is common to all the plugin types.</p>
@@ -5091,8 +5090,8 @@
 <td colspan="1" rowspan="1">
 <p>This GPU-accelerated effect demonstrates a simple ProcAmp effect using the After Effects API with the Premiere Pro GPU extensions.</p>
 <p>The effect is found in the SDK folder of the Video Effects in the Effects Control panel.</p>
-<p>It supports Metal acceleration.</p>
-<p><strong>This sample requires macOS 10.11.4 and later.</strong></p>
+<p>It supports Metal acceleration.
+</p>
 </td>
 </tr>
 <tr>
@@ -5147,7 +5146,7 @@
 <p class="admonition-title">Note</p>
 <p>This Windows path is only recommended for development purposes.</p>
 </div>
-<p>In Xcode, set the build location for the project in File &gt; Project Settings. Press the Advanced button. Under Build Location choose Custom, select Absolute, and set the Products path.</p>
+<p>In XCode, set the build location for the project in File &gt; Project Settings. Press the Advanced button. Under Build Location choose Custom, select Absolute, and set the Products path.</p>
 <p>In Visual Studio, for convenience, we have set the Output File for all sample projects to use the base path set by the environment variable PREMSDKBUILDPATH. You'll need to set this as a user environment variable for your system, and shown in the screenshot below.</p>
 <p><img alt="Setting Environment Variables" src="../_static/env-vars.png" title="Setting Environment Variables" />
 <em>Setting Environment Variables</em></p>
@@ -5171,7 +5170,7 @@
 </ol>
 <h2 id="intro-debugging-plugins-macos">macOS<a class="headerlink" href="#intro-debugging-plugins-macos" title="Permanent link">&para;</a></h2>
 <ol>
-<li>In Xcode, in the Project Navigator, choose the xcodeproj you want to debug</li>
+<li>In XCode, in the Project Navigator, choose the xcodeproj you want to debug</li>
 <li>Choose Product &gt; Scheme &gt; Edit Scheme…</li>
 <li>Under Run, in the Info tab, for Executable, choose the host application the plugins will be running in (this may be Premiere Pro or After Effects)</li>
 <li>From there you can either hit the Play button to build and run the current scheme, or you can launch the application and later at any point choose Debug &gt; Attach to Process.</li>
@@ -5382,13 +5381,11 @@
 <p>This chapter describes these resources, and how certain plugin types use them.</p></section><section class="print-page" id="resources-pipl-resource" heading-number="4.2"><h1 id="resources-pipl-resource-plug-in-property-lists-pipl-resource">Plug-In Property Lists (PiPL) Resource<a class="headerlink" href="#resources-pipl-resource-plug-in-property-lists-pipl-resource" title="Permanent link">&para;</a></h1>
 <p>For many plugin types, Premiere loads a PiPL (Plugin Property List) resource. The PiPL is described in a file with a ".r" extension.</p>
 <p>The complete PiPL syntax is described in PiPL.r.</p>
-<p>You'll notice that PiPLs are really old. A vestige of 68k macOS programming, they spread to Windows.</p>
-<p>However, if you develop from the sample projects, you shouldn't have to do anything to get them to build properly for Latin languages.</p>
+<p>You'll notice that PiPLs are really old. A vestige of 68k macOS programming, they spread to Windows. However, if you develop from the sample projects, you shouldn't have to do anything to get them to build properly for Latin languages.</p>
 <hr />
 <h2 id="resources-pipl-resource-which-types-of-plugins-need-pipls">Which Types of Plugins Need PiPLs?<a class="headerlink" href="#resources-pipl-resource-which-types-of-plugins-need-pipls" title="Permanent link">&para;</a></h2>
-<p>Exporters, players, and recorders do not need PiPLs.</p>
+<p>Exporters do not need PiPLs.</p>
 <p>Standard importers do not need PiPLs. Synthetic and custom importers use a basic PiPL to specify their name, and the match name that Premiere uses to identify them. The name appears in the File &gt; New menu.</p>
-<p>Device controllers use a basic PiPL to specify their name and the match name that Premiere uses to identify them.</p>
 <p>Video filters use an extended PiPL to specify their name, the match name that Premiere uses to identify them, the bin they go in, how they handle pixel aspect ratio, whether or not they have randomness, and their parameters.</p>
 <p>For more information on the <code>ANIM_FilterInfo</code> and <code>ANIM_ParamAtom</code>, see the resources section in <a href="#video-filters-video-filters">Video Filters</a>.</p>
 <hr />
@@ -5415,13 +5412,12 @@
 </span></code></pre></div>
 <hr />
 <h2 id="resources-pipl-resource-how-pipls-are-processed-by-resource-compilers">How PiPLs Are Processed By Resource Compilers<a class="headerlink" href="#resources-pipl-resource-how-pipls-are-processed-by-resource-compilers" title="Permanent link">&para;</a></h2>
-<p>On macOS, .r files are processed natively by Xcode, as a Build Phase of type Build Carbon Resources. This step is already set for the sample projects.</p>
+<p>On macOS, .r files are processed natively by XCode, as a Build Phase of type Build Carbon Resources. This step is already set for the sample projects.</p>
 <p>On Windows, .r files are processed with CnvtPiPL.exe, which creates an .rcp file based upon custom build steps in the project. The .rcp file is then included in the .rc file along with any other resources the plugin uses. These custom build steps are already in place in the sample projects.</p>
 <p>To view them, open up the sample project in .NET. In the Solution Explorer, right-click the .r file and choose Properties. In the dialog, choose the Custom Build Step folder. The Command</p>
 <p>Line contains the script for executing the CnvtPiPL.exe. Unless you are using a different compiler than the support compiler, or adding support for Asian languages, you should not need to modify the custom build steps. This script may also be found as a text file in the SDK at <code>\\Examples\\Resources\\Win\\Custom Build Steps.txt</code>. This text file also describes the additional switches used for Asian languages.</p></section><section class="print-page" id="resources-impt-resource" heading-number="4.3"><h1 id="resources-impt-resource-impt-resource">IMPT Resource<a class="headerlink" href="#resources-impt-resource-impt-resource" title="Permanent link">&para;</a></h1>
 <p>Premiere Pro looks for an IMPT resource to identify a plugin as an importer.</p>
-<p>Before Premiere Pro 1.0, the IMPT resource was also used to declare the file extension supported by an importer.</p>
-<p>Since file extensions are now declared during imGetIndFormat, the drawtype four character code in the IMPT resource is no longer used by Premiere Pro.</p>
+<p>Before Premiere Pro 1.0, the IMPT resource was also used to declare the file extension supported by an importer. Since file extensions are now declared during imGetIndFormat, the drawtype four character code in the IMPT resource is no longer used by Premiere Pro.</p>
 <p>However, a unique drawtype fourcc is needed for the importer to function properly in After Effects on macOS.</p>
 <p>Do not use 0x4D4F6F76. This is already reserved by After Effects.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="mi">1000</span><span class="w"> </span><span class="n">IMPT</span><span class="w"> </span><span class="n">DISCARDABLE</span><span class="w"> </span><span class="n">BEGIN</span>
@@ -6011,11 +6007,7 @@
 <p>When an exporter running in Media Encoder parses the segments in the sequence, it only has a very high-level view. It sees the entire sequence as a single clip (which is actually a temporary project file that has been opened using a Dynamic Link to the PProHeadless process), and it sees any optional cropping or filters as applied effects.</p>
 <p>So when the exporter parses that simple, high-level sequence, if there are no effects, it should use the MediaNode's ClipID with the <a href="#universals-sweetpea-suites-clip-render-suite">Clip Render Suite</a> to get frames directly from the PProHeadless process. In the PProHeadless process, the renderer can step in and parse the real sequence in all its glory.</p>
 <p>It can use the <a href="#universals-sweetpea-suites-clip-render-suite">Clip Render Suite</a> to get the frames in the custom pixel format directly from the importer, and then set the custom PPix as the render result. This custom PPix then is available to the exporter, in a pristine, compressed PPix.</p></section><section class="print-page" id="universals-pixel-aspect-ratio" heading-number="5.5"><h1 id="universals-pixel-aspect-ratio-pixel-aspect-ratio">Pixel Aspect Ratio<a class="headerlink" href="#universals-pixel-aspect-ratio-pixel-aspect-ratio" title="Permanent link">&para;</a></h1>
-<p>Pixel Aspect Ratio (PAR) is usually represented as a rational number, with a numerator and a denominator.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Several PAR values were changed in CS4 to match broadcast standards.</p>
-</div>
+<p>Pixel Aspect Ratio (PAR) is represented as a rational number, with a numerator and a denominator.</p>
 <p>Here are some examples of pixel aspect ratios:</p>
 <ul>
 <li>NTSC DV 0.9091 PAR is (10, 11)</li>
@@ -6023,44 +6015,15 @@
 <li>PAL DV 1.0940 PAR is (768, 702)</li>
 <li>PAL DV 1.4587 PAR is (1024, 702)</li>
 <li>Square 1.0 PAR is (1,1)</li>
-</ul>
-<p>In certain legacy structures, PAR is represented as a single 32-bit integer, such as in <code>recCapInfoRec.pixelAspectRatio</code>.</p>
-<p>This uses a representation where the numerator is bit-shifted 16 to the left, and OR'd with the denominator. For example NTSC DV 0.9091 PAR is <code>(10 &lt;&lt; 16) \| 11</code>.</p></section><section class="print-page" id="universals-fields" heading-number="5.6"><h1 id="universals-fields-fields">Fields<a class="headerlink" href="#universals-fields-fields" title="Permanent link">&para;</a></h1>
+</ul></section><section class="print-page" id="universals-fields" heading-number="5.6"><h1 id="universals-fields-fields">Fields<a class="headerlink" href="#universals-fields-fields" title="Permanent link">&para;</a></h1>
 <p>There are different constants defined for fields. These constants are now largely interchangable in CS4, since the conflicting constants for the old compiler API have been removed.</p>
-<table>
-<thead>
-<tr>
-<th>Exporters, Players, Video Segment Suite, etc</th>
-<th>Recorders</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>prFieldsNone</code></td>
-<td><code>kMALFieldsNone</code></td>
-</tr>
-<tr>
-<td><code>prFieldsUpperFirst</code></td>
-<td><code>kMALFieldsUpperFirst</code></td>
-</tr>
-<tr>
-<td><code>prFieldsLowerFirst</code></td>
-<td><code>kMALFieldsLowerFirst</code></td>
-</tr>
-<tr>
-<td><code>prFieldsUnknown</code></td>
-<td><code>kMALFieldsUnknown</code></td>
-</tr>
-<tr>
-<td><code>prFieldsAny</code></td>
-<td><code>kMALFieldsInvalid</code></td>
-</tr>
-<tr>
-<td><code>prFieldsInvalid</code></td>
-<td></td>
-</tr>
-</tbody>
-</table></section><section class="print-page" id="universals-audio" heading-number="5.7"><h1 id="universals-audio-audio">Audio<a class="headerlink" href="#universals-audio-audio" title="Permanent link">&para;</a></h1>
+<p>| -------------------------------------------- |
+| <code>prFieldsNone</code>                               |
+| <code>prFieldsUpperFirst</code>                         |
+| <code>prFieldsLowerFirst</code>                         |
+| <code>prFieldsUnknown</code>                            |
+| <code>prFieldsAny</code>                                |
+| <code>prFieldsInvalid</code>                            |</p></section><section class="print-page" id="universals-audio" heading-number="5.7"><h1 id="universals-audio-audio">Audio<a class="headerlink" href="#universals-audio-audio" title="Permanent link">&para;</a></h1>
 <h2 id="universals-audio-32-bit-float-uninterleaved-format">32-bit Float, Uninterleaved Format<a class="headerlink" href="#universals-audio-32-bit-float-uninterleaved-format" title="Permanent link">&para;</a></h2>
 <p>All audio calls to and from Premiere use arrays of buffers of 32-bit floats to pass audio. Audio is not interleaved, rather separate channels are stored in separate buffers. So the structure for stereo audio looks like this:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">float</span><span class="o">*</span><span class="w"> </span><span class="n">audio</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
@@ -6220,13 +6183,12 @@
 </tr>
 </tbody>
 </table></section><section class="print-page" id="universals-memory-management" heading-number="5.8"><h1 id="universals-memory-management-memory-management">Memory Management<a class="headerlink" href="#universals-memory-management-memory-management" title="Permanent link">&para;</a></h1>
-<p>Premiere Pro has a media cache in which it stores imported frames, intermediate frames (intermediate stages of a render), fully rendered frames, and audio.</p>
-<p>This is sized based on a specific percentage of physical memory, taking into account if multiple Adobe applications are also running.</p>
+<p>Premiere Pro has a media cache in which it stores imported frames, intermediate frames (intermediate stages of a render), fully rendered frames, and audio. This cache is sized based on a specific percentage of physical memory, taking into account if multiple Adobe applications are also running.</p>
 <p>Premiere Pro manages this cache itself, so as it adds new items to the cache, it flushes least recently used items.</p>
 <hr />
 <h2 id="universals-memory-management-what-really-is-a-memory-problem">What Really is a Memory Problem?<a class="headerlink" href="#universals-memory-management-what-really-is-a-memory-problem" title="Permanent link">&para;</a></h2>
 <p>Often, users monitoring memory usage are alarmed when they see memory growing to a specific point during a render or playback. When the memory doesn't drop right back down after a render or playback, they might think they have found a memory leak. However, keeping in mind the function of the Premiere Pro media cache, this behavior is to be expected.</p>
-<p>On the other hand, memory contention between plugins and the rest of Premiere Pro can lead to memory problems. If a plugin allocates a significant amount of memory and the Premiere Pro media cache has not accounted for it, this means there is less free memory available after the media cache grows to the predefined size. Even if Premiere Pro does not completely run out of memory, limited memory can cause memory thrashing as memory is moved around to make room for video frames, which in turn can cause poor performance.</p>
+<p>Memory contention between plugins and the rest of Premiere Pro can lead to memory problems. If a plugin allocates a significant amount of memory and the Premiere Pro media cache has not accounted for it, this means there is less free memory available after the media cache grows to the predefined size. Even if Premiere Pro does not completely run out of memory, limited memory can cause memory thrashing as memory is moved around to make room for video frames, which in turn can cause poor performance.</p>
 <hr />
 <h2 id="universals-memory-management-solutions-for-memory-contention">Solutions for Memory Contention<a class="headerlink" href="#universals-memory-management-solutions-for-memory-contention" title="Permanent link">&para;</a></h2>
 <p>The best approach to reduce memory contention is to reduce the memory requirements of each plugin. However, if the memory requirements of a plugin are significant, it should also use the <a href="#universals-sweetpea-suites-memory-manager-suite">Memory Manager Suite</a> to report any memory usage that would not already be accounted for.</p>
@@ -6457,7 +6419,7 @@
 </tr>
 <tr>
 <td><a href="#universals-sweetpea-suites-captioning-suite">Captioning Suite</a></td>
-<td>Device Controllers, Exporters, Transmitters</td>
+<td>Exporters, Transmitters</td>
 </tr>
 <tr>
 <td><a href="#universals-sweetpea-suites-clip-render-suite">Clip Render Suite</a></td>
@@ -7972,20 +7934,14 @@
                         <h1>Hardware Integration<a class='headerlink' href='#section-6' title='Permanent link'></a>
                         </h1>
                     <section class="print-page" id="hardware-hardware" heading-number="6.1"><h1 id="hardware-hardware-hardware">Hardware<a class="headerlink" href="#hardware-hardware-hardware" title="Permanent link">&para;</a></h1>
-<p>To integrate hardware with Premiere Pro, you may consider developing up to five types of plugins:</p>
+<p>To integrate hardware with Premiere Pro, you may consider three types of plugins:</p>
 <ul>
 <li>importers,</li>
-<li>recorders,</li>
 <li>exporters,</li>
-<li>transmitters, and</li>
-<li>device controllers</li>
-</ul>
-<p>Premiere Pro provides the user interface for the capture, timeline, monitor, and export panels; the plugins provide the functionality behind the interface.</p></section><section class="print-page" id="hardware-hardware-integration-components" heading-number="6.2"><h1 id="hardware-hardware-integration-components-hardware-integration-components">Hardware Integration Components<a class="headerlink" href="#hardware-hardware-integration-components-hardware-integration-components" title="Permanent link">&para;</a></h1>
+<li>transmitters</li>
+</ul></section><section class="print-page" id="hardware-hardware-integration-components" heading-number="6.2"><h1 id="hardware-hardware-integration-components-hardware-integration-components">Hardware Integration Components<a class="headerlink" href="#hardware-hardware-integration-components-hardware-integration-components" title="Permanent link">&para;</a></h1>
 <h2 id="hardware-hardware-integration-components-importers">Importers<a class="headerlink" href="#hardware-hardware-integration-components-importers" title="Permanent link">&para;</a></h2>
 <p>Importers are used whenever frames of video or audio from a clip are needed. To give Premiere Pro the ability to read media that uses a new format or codec, develop an importer. See <a href="#importers-importers">Importers</a> for more information.</p>
-<hr />
-<h2 id="hardware-hardware-integration-components-recorders">Recorders<a class="headerlink" href="#hardware-hardware-integration-components-recorders" title="Permanent link">&para;</a></h2>
-<p>Users may choose a recorder in Project &gt; Project Settings &gt; General &gt; Capture Format. Recorders are used to grab frames from a hardware source and write them to a file, to be imported for editing.</p>
 <hr />
 <h2 id="hardware-hardware-integration-components-exporters">Exporters<a class="headerlink" href="#hardware-hardware-integration-components-exporters" title="Permanent link">&para;</a></h2>
 <p>Exporters are used whenever Premiere Pro renders preview files, or performs an export on a clip or sequence. To give Premiere Pro the ability to write media that uses a new format or codec, develop an exporter. The exporter used to render preview files in the timeline is set in Sequence &gt; Sequence Settings &gt; Preview File Format. The exporter used for exports is chosen when the user selects File &gt; Export &gt; Media &gt; File Type. See <a href="#exporters-exporters">Exporters</a> for more information.</p>
@@ -8221,7 +8177,7 @@
 <p>New in Premiere Pro 3.1, the new capability flag, <code>imImportInfoRec.canSupplyMetadataClipName</code>, allows an importer to set the clip name from metadata, rather than the filename. The clip name should be set in <code>imFileInfoRec8.streamName</code>. This is useful for clips recorded by some new file-based cameras.</p>
 <p>New in Premiere Pro 3.1, the new <code>imGetFileAttributes</code> selector allows an importer to provide the clip creation date in the new imFileAttributesRec.</p></section><section class="print-page" id="importers-getting-started" heading-number="7.3"><h1 id="importers-getting-started-getting-started">Getting Started<a class="headerlink" href="#importers-getting-started-getting-started" title="Permanent link">&para;</a></h1>
 <h2 id="importers-getting-started-the-basics-of-import">The Basics of Import<a class="headerlink" href="#importers-getting-started-the-basics-of-import" title="Permanent link">&para;</a></h2>
-<p>For each clip, importers can tell Premiere the resolutions and pixel formats they can decode video frames to.</p>
+<p>For each clip, importers can tell Premiere Pro the resolutions and pixel formats they can decode video frames to.</p>
 <p>Premiere will request video frames as needed during scrubbing, playback, or export.</p>
 <p>Audio will be requested right when the clip is imported, if audio conforming or peak file generation is necessary.</p>
 <p>If audio conforming is not necessary, audio frames will be requested as needed during scrubbing, playback, or export.</p>
@@ -13694,20 +13650,17 @@ If not specified, the poster frame will be the first frame of the clip.</p>
                         <h1>Export Controllers<a class='headerlink' href='#section-8' title='Permanent link'></a>
                         </h1>
                     <section class="print-page" id="export-controllers-export-controllers" heading-number="8.1"><h1 id="export-controllers-export-controllers-export-controllers">Export Controllers<a class="headerlink" href="#export-controllers-export-controllers-export-controllers" title="Permanent link">&para;</a></h1>
-<p>Starting in Premiere Pro 5.0.2, an export controller can drive any exporter to generate a file in any format and perform custom post-processing operations. Developers wanting to integrate Premiere Pro with an asset management system will want to use this API instead.</p>
+<p>An export controller can drive any exporter to generate a file in any format and perform custom post-processing operations. </p>
 <p>An export controller adds its own custom menu item to the File &gt; Export submenu. When the user chooses the menu item, the plugin is called with a TimelineID, which represents the current sequence. Although details on the current sequence are not passed in, the export controller can use the <a href="#universals-sweetpea-suites-sequence-info-suite">Sequence Info Suite</a> to query for various properties. The export controller can then optionally display any custom modal UI to allow the user to set any parameters for the export.</p>
-<p>This UI will need to be provided by the export controller.</p>
-<p>The export controller should then call ExportFile in the Export Controller Suite, which takes the TimelineID, a path to an exporter preset, and a path for the output. This will tell Premiere Pro to handle the export, displaying progress. The call will return either a success value, an error, or that the user canceled. During the export, the UI will be blocked, just as when doing a standard export that doesn't use the Adobe Media Encoder Render Queue.</p>
+<p>The Export Controller must provide its own UI, calling ExportFile in the Export Controller Suite, which takes the TimelineID, a path to an exporter preset, and a path for the output. This tells Premiere Pro to handle the export, displaying progress. The call will return either a success value, an error, or that the user canceled. During the export, the UI will be blocked, just as when doing a standard export that doesn't use the Adobe Media Encoder Render Queue.</p>
 <p>Once Premiere Pro completes the export, the call will return to the export controller. The plugin can then perform any post-processing operations, such as transferring the newly exported file over the network, or registering the file in an asset management system.</p></section></section>
                     <section class='print-page md-section' id='section-9' heading-number='9'>
                         <h1>Exporters<a class='headerlink' href='#section-9' title='Permanent link'></a>
                         </h1>
                     <section class="print-page" id="exporters-exporters" heading-number="9.1"><h1 id="exporters-exporters-exporters">Exporters<a class="headerlink" href="#exporters-exporters-exporters" title="Permanent link">&para;</a></h1>
-<p>Exporters are used to export video, audio, and markers in any format. Exporters get individual video frames in a requested pixel format (generally, uncompressed video) and uncompressed audio. The exporter is responsible for any compression of the video and audio data, and wrapping the output in a file format. To reuse an existing exporter, you may provide an export controller.</p>
-<p>Exporters can be used from within Premiere Pro, or from Adobe Media Encoder. From within Premiere Pro, go to the File &gt; Export &gt; Media dialog. From there, the Export Settings dialog appears. The format chosen in the Format drop-down determines the exporter used, and the exporter provides the parameter settings and summary displayed in the Export Settings dialog.</p>
-<p>Exporters can optionally provide hardware acceleration by coordinating with a renderer plugin to render timeline segments. Legacy editing modes are formed by the combination of an exporter and a player; the exporter generates preview files and the player manages the cutlist.</p>
-<p>If you've never developed an exporter before, you can skip <a href="#exporters-whats-new">Whats New</a>, and go directly to <a href="#exporters-getting-started">Getting Started</a>.</p></section><section class="print-page" id="exporters-whats-new" heading-number="9.2"><h1 id="exporters-whats-new-whats-new">Whats New<a class="headerlink" href="#exporters-whats-new-whats-new" title="Permanent link">&para;</a></h1>
-<h2 id="exporters-whats-new-whats-new-in-cc">What's New in CC<a class="headerlink" href="#exporters-whats-new-whats-new-in-cc" title="Permanent link">&para;</a></h2>
+<p>Exporters are used to export video, audio, and markers in any format. Exporters get individual video frames in a requested pixel format (generally, uncompressed video) and uncompressed audio. The exporter is responsible for any compression of the video and audio data, and wrapping the output in a file format.</p>
+<p>Exporters can be used from within Premiere Pro or Adobe Media Encoder. From within Premiere Pro, they are accessed via File &gt; Export &gt; Media. From there, the Export Settings dialog appears. The format chosen in the Format drop-down determines the exporter used, and the exporter provides the parameter settings and summary displayed in the Export Settings dialog.</p></section><section class="print-page" id="exporters-whats-new" heading-number="9.2"><h1 id="exporters-whats-new-whats-new">Whats New<a class="headerlink" href="#exporters-whats-new-whats-new" title="Permanent link">&para;</a></h1>
+<h2 id="exporters-whats-new-whats-new-in-cc-70">What's New in CC (7.0)<a class="headerlink" href="#exporters-whats-new-whats-new-in-cc-70" title="Permanent link">&para;</a></h2>
 <p>A new Captions tab has been added to the Export Settings, for Closed Captioning export. For all formats, a sidecar file containing the captions can be exported.</p>
 <p>To learn how exporters can optionally embed Closed Captioning directly in the output file, see <a href="#exporters-getting-started-closed-captioning">Closed Captioning</a>.</p>
 <p>Two new selectors have been added to GetExportSourceInfo in the <a href="#exporters-suites-export-info-suite">Export Info Suite</a>. You can use <code>kExportInfo_UsePreviewFiles</code> to check if the user has checked "Use Previews" in the Export Settings dialog. If so, if possible, reuse any preview files already rendered. You can use <code>kExportInfo_NumAudioChannels</code> to get the number of audio channels in a given source.</p>
@@ -13783,22 +13736,17 @@ If not specified, the poster frame will be the first frame of the clip.</p>
 <p>In CS4, where the files are saved depends on whether you've opened the Export Settings UI in Premiere Pro or Media Encoder:</p>
 <h3 id="exporters-getting-started-media-encoder-presets">Media Encoder presets<a class="headerlink" href="#exporters-getting-started-media-encoder-presets" title="Permanent link">&para;</a></h3>
 <p>On Windows Vista, presets are saved here: <code>[User folder]\AppData\Roaming\Adobe\Adobe Media Encoder\[version]\Presets\\</code></p>
-<p>On Windows XP: <code>[Documents and Settings folder]\[user name]\Application Data\\ Adobe\Adobe Media Encoder\[version]\Presets\\</code></p>
+<p>On Windows XP: <code>[Documents and Settings folder]\[user name]\Application Data\Adobe\Adobe Media Encoder\[version]\Presets\\</code></p>
 <p>On Mac OS: <code>~/Library/Preferences/Adobe/Adobe Media Encoder/[version]/ Presets/</code></p>
 <h3 id="exporters-getting-started-premiere-pro-presets">Premiere Pro presets<a class="headerlink" href="#exporters-getting-started-premiere-pro-presets" title="Permanent link">&para;</a></h3>
-<p>On Windows Vista, presets are saved here: <code>[User folder]\AppData\Roaming\Adobe\Premiere Pro\[version]\\ Presets\\</code></p>
-<p>On Windows XP: <code>[Documents and Settings folder]\[user name]\Application Data\\ Adobe\Premiere Pro\[version]\Presets\\</code></p>
+<p>On Windows, presets are saved here: <code>[User folder]\AppData\Roaming\Adobe\Premiere Pro\[version]\\ Presets\\</code></p>
 <p>On Mac OS: <code>~/Library/Preferences/Adobe/Adobe Premiere Pro/[version]/Presets/</code></p>
 <h4 id="exporters-getting-started-ame-preset-browser">AME Preset Browser<a class="headerlink" href="#exporters-getting-started-ame-preset-browser" title="Permanent link">&para;</a></h4>
 <p>Starting in CS6, Adobe Media Encoder has a Preset Browser with provides a structured organization of presets. Third-party presets can be added to any folder or subfolder within the main categories. Once you have created a preset, it will default to the Other folder. You can set the desired folder location in the <code>&lt;FolderDisplayPath&gt;</code> tag in the preset XML.</p>
 <p>For example, if you set it to: <code>&lt;FolderDisplayPath&gt;System Presets/Image Sequence/PNG&lt;/ FolderDisplayPath&gt;</code> then AME will display the preset in the <code>System Presets &gt; Image Sequence &gt; PNG folder</code>.</p>
 <p>It is essential to use: "System Presets/xxx/" where the xxx must be any of the existing main categories (use the English name for this). Only one level below can you can create a custom-named folder. If the folder doesn't already exist, it will be created.</p>
-<p>The Preset Browser data is cached in a file at: <code>[User Folder]\AppData\Roaming\Adobe\Common\AME\[version]\Presets\\ PresetTree.xml</code></p>
+<p>The Preset Browser data is cached in a file at: <code>[User Folder]\AppData\Roaming\Adobe\Common\AME\[version]\Presets\PresetTree.xml</code></p>
 <p>If you want to force a refresh of the Preset Browser data, just quit AME, delete this file, and re-launch AME.</p>
-<h3 id="exporters-getting-started-installation-in-cs4">Installation in CS4<a class="headerlink" href="#exporters-getting-started-installation-in-cs4" title="Permanent link">&para;</a></h3>
-<p>For better performance, in CS4, we recommend you install any presets for your exporter in the application folder for Premiere Pro and Media Encoder.</p>
-<p>For both Windows and Mac OS: <code>[App installation path]\MediaIO\systempresets\[exporter subfolder]</code></p>
-<p>The subfolder must be named based on the hexadecimal fourCCs of the ClassID and filetype of the exporter. For example, the SDK exporter has a ClassID of 'DTEK' or 0x4454454B, and a filetype of <code>SDK</code> or 0x53444B5F. So the subfolder must be named '4454454B_53444B5F'. For convenience, you can find the ClassID and filetype fourCCs in the preset file itself, in a decimal representation.</p>
 <hr />
 <h2 id="exporters-getting-started-parameter-caching">Parameter Caching<a class="headerlink" href="#exporters-getting-started-parameter-caching" title="Permanent link">&para;</a></h2>
 <p>During development, when you modify parameters in your exporter and reload the plugin into the host, the Settings UI may continue to show stale parameter data. New parameters that you have added may not appear, or old ones may continue to appear. Or if you have changed the UI for an existing parameter, it may not take effect.</p>
@@ -13818,8 +13766,7 @@ If not specified, the poster frame will be the first frame of the clip.</p>
 <h2 id="exporters-getting-started-multichannel-audio-layouts">Multichannel Audio Layouts<a class="headerlink" href="#exporters-getting-started-multichannel-audio-layouts" title="Permanent link">&para;</a></h2>
 <p>To support multichannel audio layouts, kPrAudioChannelType_MaxChannel should be the type requested in MakeAudioRenderer().</p>
 <p>The audio buffers you use for GetAudio() should likewise be an array of kPrAudioChannelType_MaxChannel channels, and yes, this means you may be allocating more space than actually used.</p>
-<p>In the exporter's Audio tab UI, you can provide a parameter to choose between various multi-channel audio layouts. You can compare your settings to what we have with the built-in formats, QuickTime and MXF (such as MXF OP1a and DNxHD). From the user selection in your audio export settings (e.g., 2x stereo, etc), you will know how many of those channels passed back in GetAudio() should actually be written to the file.</p>
-<p>Here's a helpful video on audio track mapping: <a href="http://www.video2brain.com/en/lessons/changes-in-audio-tracks-and-merged-clip-audio">http://www.video2brain.com/en/lessons/changes-in-audio-tracks-and-merged-clip-audio</a></p>
+<p>In the exporter's Audio tab, you can provide a parameter to choose between various multi-channel audio layouts. You can compare your settings to what we have with the built-in formats, QuickTime and MXF (such as MXF OP1a and DNxHD). From the user selection in your audio export settings (e.g., 2x stereo, etc), you will know how many of those channels passed back in GetAudio() should actually be written to the file.</p>
 <hr />
 <h2 id="exporters-getting-started-closed-captioning">Closed Captioning<a class="headerlink" href="#exporters-getting-started-closed-captioning" title="Permanent link">&para;</a></h2>
 <p>Starting in CC, the Export Settings includes a new Captions tab, for Closed Captioning export. For all formats, a sidecar file containing the captions can be exported. Additionally, exporters can optionally embed Closed Captioning directly in the output file. First, the exporter must set exExporterInfoRec.canEmbedCaptions to true. This will add the option to embed the captions in the output file, from the Export Options drop-down in the Captions tab. If this option is selected during export, exDoExportRec.embedCaptions will be true. The exporter should retrieve the captions using the <a href="#universals-sweetpea-suites-captioning-suite">Captioning Suite</a>.</p>
@@ -13827,32 +13774,6 @@ If not specified, the poster frame will be the first frame of the clip.</p>
 <h2 id="exporters-getting-started-multiple-file-formats">Multiple File Formats<a class="headerlink" href="#exporters-getting-started-multiple-file-formats" title="Permanent link">&para;</a></h2>
 <p>To support more than one file format in a single exporter, describe one format at a time during <code>exSelStartup</code>. After describing the first one, return exportReturn_IterateExporter from <code>exSelStartup</code>, and the exporter will be called again to describe the second format, and so on. After describing the last format, return exportReturn_IterateExporter, and the exporter will be called yet again. This time, return exportReturn_IterateExporterDone.</p>
 <p>Use a unique fileType for each format. When you are later sent <code>exSelGenerateDefaultParams</code>, <code>exSelPostProcessParams</code>, etc, you'll want to pay attention to the fileType, and respond according to the format.</p>
-<hr />
-<h2 id="exporters-getting-started-exporters-used-for-editing-modes">Exporters Used for Editing Modes<a class="headerlink" href="#exporters-getting-started-exporters-used-for-editing-modes" title="Permanent link">&para;</a></h2>
-<p>An exporter that is used in an editing mode must have a codec parameter, and that parameter ID must be ADBEVideoCodec. If Premiere Pro cannot find this parameter, it will not be able to reopen projects in the custom editing mode, and will revert the project to Desktop mode.</p>
-<h3 id="exporters-getting-started-sequence-encoder-presets">Sequence Encoder Presets<a class="headerlink" href="#exporters-getting-started-sequence-encoder-presets" title="Permanent link">&para;</a></h3>
-<p>Sequence preview presets are now required for editing modes. These contain the exporter parameters to generate preview files. This makes preview file formats much easier to define, by using the Media Encoder or Premiere Pro UI to create presets, rather than directly editing XML.</p>
-<p>To create a sequence encoder preset:</p>
-<ol>
-<li>Create a preset. The name that you give it will be the name that will be used in the Sequence Settings &gt; General &gt; Preview File Format drop-down.</li>
-<li>Make sure this preset is installed in the application folder for Premiere Pro, along with the other sequence presets:</li>
-</ol>
-<p>On Windows, they should be installed here: <code>[App installation path]\Settings\EncoderPresets\SequencePreview\[editing mode GUID]*.epr</code></p>
-<p>On MacOS, it is basically the same (inside the application package): <code>[App installation path]/[Premiere Pro package]/Contents/Settings/EncoderPresets/ SequencePreview/[editing mode GUID]/*.epr</code></p>
-<p>As you can see by the installation paths above, Premiere Pro associates the sequence preview presets with the editing mode they go with, by using the presets in the folder that matches the GUID of the editing mode. The editing mode GUID is defined in the editing mode XML file, using the <code>&lt;EditingMode.ID&gt;</code> tag.</p>
-<h3 id="exporters-getting-started-adding-new-preview-file-formats-to-existing-editing-modes">Adding new Preview File Formats to Existing Editing Modes<a class="headerlink" href="#exporters-getting-started-adding-new-preview-file-formats-to-existing-editing-modes" title="Permanent link">&para;</a></h3>
-<p>You can not only provide sequence preview presets for your own editing mode, but you could even add additional sequence preview presets for one of the built-in editing modes. Editing mode GUIDs for built-in editing modes can be found in the Adobe Editing Modes. xml file. For example, the Desktop editing mode on Windows has the GUID 9678AF98A7B7-4bdb-B477-7AC9C8DF4A4E. On Mac OS it is 795454D9-D3C2-429d-9474- 923AB13B7018.</p>
-<p>You can additionally restrict the list and specify which one is chosen by default, by editing the <code>&lt;PresetComments&gt;</code> tag in the preset file.</p>
-<p>If the value of the tag starts with "IsConstrained,", then a comma delimited list of 4ccs follows that dictates which codecs are available, and the first one is chosen by default.</p>
-<p>For example, QuickTime DV NTSC.epr for the Mac DV NTSC editing mode has this: <code>&lt;PresetComments&gt;IsConstrained,dvc &lt;/PresetComments&gt;</code></p>
-<p>Which restricts the codec selection of the exporter to be only the single codec choice.</p>
-<hr />
-<h2 id="exporters-getting-started-stereoscopic-video">Stereoscopic Video<a class="headerlink" href="#exporters-getting-started-stereoscopic-video" title="Permanent link">&para;</a></h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Currently stereoscopic exporters must use the old "pull" model, and only receive stereoscopic video when exporting directly from Premiere Pro. In other words, when exports are queued to run in Adobe Media Encoder, they will not get stereoscopic video.</p>
-</div>
-<p>To get rendered frames for both left and right eye, use the <a href="#universals-sweetpea-suites-video-segment-suite">Video Segment Suite</a> to request the left and right cutlists, and render frames from both. An exporter can tell if segments in both of them are identical (implying that they have nothing stereoscopic about them) by looking at the segment hashes, and you can tell if two frames are identical (by looking at the request identifiers).</p>
 <hr />
 <h2 id="exporters-getting-started-timeline-segments-in-exporters">Timeline Segments in Exporters<a class="headerlink" href="#exporters-getting-started-timeline-segments-in-exporters" title="Permanent link">&para;</a></h2>
 <p>The timeline segments available to exporters do not always fully describe the sequence being exported. To consistently get timeline segments that fully describe the sequence, an exporter needs to work along with a renderer plugin.</p>
@@ -17548,15 +17469,7 @@ If not specified, the poster frame will be the first frame of the clip.</p>
 <hr />
 <h2 id="transmitters-transmitter-basics-sync-between-application-ui-and-hardware-output">Sync Between Application UI and Hardware Output<a class="headerlink" href="#transmitters-transmitter-basics-sync-between-application-ui-and-hardware-output" title="Permanent link">&para;</a></h2>
 <p>Naturally there is some latency between the time the host sends frames to be displayed on the output, and the time it can actually be displayed. Use tmVideoMode.outLatency to specify the latency. For example, if a transmitter specifies 5 frames of latency, when the user starts playback, the host will send 5 frames of video to the transmitter before sending StartPlaybackClock. This allows time for the transmitter to send frames to the hardware output in advance, so that the hardware output will be in sync with the monitor in the host application UI.</p>
-<p>When the user is scrubbing in the timeline, send the video frames as fast as possible to the output. The host application UI will not wait for the hardware output to catch up, and currently as of</p>
-<p>6.0.1 there may be a noticable latency. To reduce the scrubbing latency as much as possible, when scrubbing or stopped the transmitter should cancel any frames it has pending to immediately display the new one.</p>
-<hr />
-<h2 id="transmitters-transmitter-basics-dog-ears">Dog Ears<a class="headerlink" href="#transmitters-transmitter-basics-dog-ears" title="Permanent link">&para;</a></h2>
-<p>Turn on dog ears to view statistics about the frames being sent to the transmitter. This is useful to view information such as pixel formats and much more.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This mode may result in duplicate PushVideo calls made for a single frame.</p>
-</div>
+<p>When the user is scrubbing in the timeline, send the video frames as fast as possible to the output. The host application UI will not wait for the hardware output to catch up, and there may be noticable latency. To reduce the scrubbing latency as much as possible, cancel any pending frames to immediately display the new one.</p>
 <hr />
 <h2 id="transmitters-transmitter-basics-closed-captioning">Closed Captioning<a class="headerlink" href="#transmitters-transmitter-basics-closed-captioning" title="Permanent link">&para;</a></h2>
 <p>This captioning data is attached to a sequence by the user via menu items in the Sequence menu. In the Program Monitor, the Closed Captioning Display options in the fly-out menu give the user control over the display. The hardware should always transmit any Closed Captioning data, and the user can go through the hardware monitor's on-screen display menu to choose which caption track to view. The closed captioning data is accessible using the new <a href="#universals-sweetpea-suites-captioning-suite">Captioning Suite</a>. Use this data for the hardware output.</p>
@@ -19274,22 +19187,6 @@ todo!</p>
 <p>On Windows, newly created presets are saved in the hidden Application Data folder of the user's Documents and Settings (e.g. <code>C:/Documents and Settings/[user]/Application Data/Adobe Premiere Pro/[version]/Effect Presets and Custom Items.prfpset</code>). On Mac OS, they are in the user folder, at <code>~/Library/Application Support/Adobe/Premiere Pro/[version]/Effect Presets and Custom Items.prfpset.</code></p>
 <p>Effect Presets should be installed as described in the section, "Plugin Installation". Once they are installed in that folder, they will be read-only, and the user will not be able to move them to a different folder or change their names. User-created presets will be modifiable.</p>
 <hr />
-<h2 id="video-filters-additional-details-effect-badging">Effect Badging<a class="headerlink" href="#video-filters-additional-details-effect-badging" title="Permanent link">&para;</a></h2>
-<p>Starting in CS5, video filters now appear with badges in the Effects panel to advertise if they support YUV, 32-bit, and/or accelerated rendering. The user can filter the list of effects to show only the effects that support those rendering modes. Video filters will automatically receive YUV and 32-bit badges if they advertise support using the existing <em>fsGetPixelFormatsSupported</em>. Custom badges can also be created.</p>
-<p>To add your own effect badge, go to the following folder:</p>
-<p>On Windows: <code>[App installation path]\Settings\BadgeIcons\\</code></p>
-<p>On Mac OS: <code>Adobe Premiere Pro CS5.app/Contents/Settings/BadgeIcons/</code></p>
-<p>In that folder are the PNG graphics that are loaded at runtime for various badges, and an additional set of <code>'Sample-*.png'</code> and <code>'Sample.xml'</code> files.</p>
-<ol>
-<li>Make copies of the Sample- <em>.png files, replacing the "Sample" prefix with the prefix that matches whatever you want to call the new badge (like 'NewBadge-</em>.png'). Edit the PNG as you'd like, but don't change the image dimensions.</li>
-<li>Copy the Sample.xml file to a new name that matches whatever you want to call the new badge (like 'NewBadge.xml'). Edit the list of match names that you want to be decorated with your badge. Change the <code>&lt;Name&gt;</code> tag to the name you chose in step 1 (like 'NewBadge'). You can also add your tooltip text as the <code>&lt;DescriptionItem&gt;</code> tags. These tags act as a localization map with the langid as the key. If a language isn't found, 'en_US' is used by default. Provide your own GUID in the <code>&lt;Guid&gt;</code> tag.</li>
-<li>Relaunch the application. You'll get a badge filter icon next to the others and a badge icons next to each effect that was listed in the XML file.</li>
-</ol>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>'Sample' is a special case that is intentionally excluded. Any other set of  <em>.xml/</em>.png files will be used.</p>
-</div>
-<hr />
 <h2 id="video-filters-additional-details-premiere-elements-and-effect-thumbnail-previews">Premiere Elements and Effect Thumbnail Previews<a class="headerlink" href="#video-filters-additional-details-premiere-elements-and-effect-thumbnail-previews" title="Permanent link">&para;</a></h2>
 <p>Premiere Elements (but not Premiere Pro) displays visual icons for each effect. You will need to provide icons for your effects, or else an empty black icon will be shown for your effects, or even worse behavior in Premiere Elements 8. The icons are 60x45 PNG files, and are placed here:</p>
 <p><code>/[Program Files]/Adobe/Adobe Premiere Elements [version]/Plugins/Common/Effect/Previews/</code></p>
@@ -19333,7 +19230,7 @@ todo!</p>
 <p>We will be happy to receive any thoughts regarding DirectX or answer any questions. I am reachable at, <a href="mailto:pusingha@adobe.com">pusingha@adobe.com</a> or you can post them on <a href="mailto:ae_api_nda@adobe.com">ae_api_nda@adobe.com</a></p></section><section class="print-page" id="gpu-effects-transitions-getting-started" heading-number="12.2"><h1 id="gpu-effects-transitions-getting-started-getting-started">Getting Started<a class="headerlink" href="#gpu-effects-transitions-getting-started-getting-started" title="Permanent link">&para;</a></h1>
 <h2 id="gpu-effects-transitions-getting-started-setting-up-the-sample-projects">Setting up the Sample Projects<a class="headerlink" href="#gpu-effects-transitions-getting-started-setting-up-the-sample-projects" title="Permanent link">&para;</a></h2>
 <p>If you are developing an effect, begin with one of the two GPU effect sample projects, progressively replacing its functionality with your own. Refer to <a href="#.">Introduction</a> for general instructions on how to build the SDK projects.</p>
-<p>In addition to those general instructions, the sample project is also dependent on the After Effects plugin SDK. On Windows, create an environment variable pointing to it named AE_SDK_BASE_PATH, so that the compiler will find the AE headers that the project includes. On macOS, in <em>Xcode &gt; Preferences &gt; Locations &gt; Custom Paths</em>, specify AE_SDK_BASE_PATH to be the root folder of the AE plugin SDK you have downloaded and unzipped.</p>
+<p>In addition to those general instructions, the sample project is also dependent on the After Effects plugin SDK. On Windows, create an environment variable pointing to it named AE_SDK_BASE_PATH, so that the compiler will find the AE headers that the project includes. On macOS, in <em>XCode &gt; Preferences &gt; Locations &gt; Custom Paths</em>, specify AE_SDK_BASE_PATH to be the root folder of the AE plugin SDK you have downloaded and unzipped.</p>
 <p>The samples also use Boost, which may be downloaded at boost.org. Download that, and create a variable named BOOST_BASE_PATH just as you did with AE_SDK_BASE_PATH above.</p>
 <p>Finally, install Python (version 3.6 or greater), if you do not have it already. It may be downloaded at python.org. The sample projects use this as part of the custom build steps.</p>
 <p>Depending on whether your effect will use CUDA, you'll need to download the CUDA SDK. On Windows, create an environment variable pointing to it named CUDA_SDK_BASE_PATH, so that the linker will find the right libraries.</p>
@@ -19947,7 +19844,7 @@ todo!</p>
 <hr />
 <h2 id="ae-transition-extensions-getting-started-compatibility-considerations">Compatibility Considerations<a class="headerlink" href="#ae-transition-extensions-getting-started-compatibility-considerations" title="Permanent link">&para;</a></h2>
 <p>For compatibility with plugin hosts that doesn't support the AE Transition Extensions, a plugin should check first for the existence of the PF_TransitionSuite suite. If it isn't available, the plugin should act as a normal effect. This is demonstrated in the SDK_CrossDissolve sample project.</p></section><section class="print-page" id="ae-transition-extensions-ae-transition-extensions" heading-number="13.2"><h1 id="ae-transition-extensions-ae-transition-extensions-ae-transition-extensions">AE Transition Extensions<a class="headerlink" href="#ae-transition-extensions-ae-transition-extensions-ae-transition-extensions" title="Permanent link">&para;</a></h1>
-<p>This chapter describes how to build native transitions in Premiere Pro based on the After Effects API. From a user-perspective, plugins built this way can show their parameters directly in the Effect Controls panel, even providing custom parameter UI in that panel or in the Sequence Monitor. Such plugins can run not only in Premiere Pro, but also in After Effects, although they will appear as effects rather than transitions.</p>
+<p>This chapter describes how to build native transitions in Premiere Pro based on the After Effects API. From a user's perspective, plugins built this way can show their parameters directly in the Effect Controls panel, even providing custom parameter UI in that panel or in the Sequence Monitor. Such plugins can run not only in Premiere Pro, but also in After Effects, although they will appear as effects rather than transitions.</p>
 <p>The transition extensions work on top of effects built using the After Effects SDK. Since AE effects only have a single input, the second input is a layer parameter defined by the plugin.</p></section><section class="print-page" id="ae-transition-extensions-pf_transitionsuite" heading-number="13.3"><h1 id="ae-transition-extensions-pf_transitionsuite-pf_transitionsuite">PF_TransitionSuite<a class="headerlink" href="#ae-transition-extensions-pf_transitionsuite-pf_transitionsuite" title="Permanent link">&para;</a></h1>
 <p>In PrSDKAESupport.h, we've added <code>PF_TransitionSuite::RegisterTransitionInputParam()</code>.</p>
 <p>This call must be made before the <code>PF_ADD_PARAM()</code> call during <code>PF_Cmd_PARAM_SETUP</code>.</p>
@@ -19957,7 +19854,7 @@ todo!</p>
                         <h1>Control Surfaces<a class='headerlink' href='#section-14' title='Permanent link'></a>
                         </h1>
                     <section class="print-page" id="control-surfaces-control-surfaces" heading-number="14.1"><h1 id="control-surfaces-control-surfaces-control-surfaces">Control Surfaces<a class="headerlink" href="#control-surfaces-control-surfaces-control-surfaces" title="Permanent link">&para;</a></h1>
-<p>Starting in Premiere Pro CC 2014, a control surface plugin can interface with a hardware control surface. This is the API that provides built-in support for EUCON and Mackie devices to control audio mixing and basic transport controls. The API supports two-way communication with Premiere Pro, so that hardware faders, VU meters, etc are in sync with the application.</p>
+<p>A control surface plugin can interface with a hardware control surface. This is the API that provides built-in support for EUCON and Mackie devices to control audio mixing and basic transport controls. The API supports two-way communication with Premiere Pro, so that hardware faders, VU meters, etc are in sync with the application.</p>
 <p>Compile the sample plugin into a subfolder of the main application folder: <code>Plugins\\ ControlSurface\\</code></p>
 <p>You should see the plugin in the PPro UI in Preferences &gt; Control Surface, when you hit the Add button, as one of the options in the Device Class drop-down next to Mackie and EUCON (currently shows as "SDK Control Surface Sample").</p>
 <p>You'll want to implement handlers for any relevant functions defined in the plugin suites here: <code>adobesdk\controlsurface\plugin</code></p>
@@ -19969,7 +19866,7 @@ todo!</p>
 <p>Then, CreatePluginInstance() is called. When a project is opened, Connect() is called. Here the plugin instantiates a ControlSurface object, which inherits from any of the previously mentioned base classes. It acquire any host suites it needs, and then it passes back a reference to the ControlSurface object.</p>
 <hr />
 <h2 id="control-surfaces-control-surfaces-getting-started">Getting Started<a class="headerlink" href="#control-surfaces-control-surfaces-getting-started" title="Permanent link">&para;</a></h2>
-<p>Please write us if you would like further guidance.</p></section></section></div><style>.print-site-enumerate-headings #index > h1:before { content: '1 ' }
+<p>Reach out as necessary, for further guidance.</p></section></section></div><style>.print-site-enumerate-headings #index > h1:before { content: '1 ' }
 
                 .print-site-enumerate-headings #index h2:before { content: '1.' counter(counter-index-2) ' ' }
                 .print-site-enumerate-headings #index h2 {  counter-reset: counter-index-3 ;  counter-increment: counter-index-2 }

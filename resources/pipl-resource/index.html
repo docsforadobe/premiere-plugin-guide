@@ -2956,13 +2956,11 @@
 <h1 id="plug-in-property-lists-pipl-resource">Plug-In Property Lists (PiPL) Resource<a class="headerlink" href="#plug-in-property-lists-pipl-resource" title="Permanent link">&para;</a></h1>
 <p>For many plugin types, Premiere loads a PiPL (Plugin Property List) resource. The PiPL is described in a file with a ".r" extension.</p>
 <p>The complete PiPL syntax is described in PiPL.r.</p>
-<p>You'll notice that PiPLs are really old. A vestige of 68k macOS programming, they spread to Windows.</p>
-<p>However, if you develop from the sample projects, you shouldn't have to do anything to get them to build properly for Latin languages.</p>
+<p>You'll notice that PiPLs are really old. A vestige of 68k macOS programming, they spread to Windows. However, if you develop from the sample projects, you shouldn't have to do anything to get them to build properly for Latin languages.</p>
 <hr />
 <h2 id="which-types-of-plugins-need-pipls">Which Types of Plugins Need PiPLs?<a class="headerlink" href="#which-types-of-plugins-need-pipls" title="Permanent link">&para;</a></h2>
-<p>Exporters, players, and recorders do not need PiPLs.</p>
+<p>Exporters do not need PiPLs.</p>
 <p>Standard importers do not need PiPLs. Synthetic and custom importers use a basic PiPL to specify their name, and the match name that Premiere uses to identify them. The name appears in the File &gt; New menu.</p>
-<p>Device controllers use a basic PiPL to specify their name and the match name that Premiere uses to identify them.</p>
 <p>Video filters use an extended PiPL to specify their name, the match name that Premiere uses to identify them, the bin they go in, how they handle pixel aspect ratio, whether or not they have randomness, and their parameters.</p>
 <p>For more information on the <code>ANIM_FilterInfo</code> and <code>ANIM_ParamAtom</code>, see the resources section in <a href="../../video-filters/video-filters/">Video Filters</a>.</p>
 <hr />
@@ -2989,7 +2987,7 @@
 </span></code></pre></div>
 <hr />
 <h2 id="how-pipls-are-processed-by-resource-compilers">How PiPLs Are Processed By Resource Compilers<a class="headerlink" href="#how-pipls-are-processed-by-resource-compilers" title="Permanent link">&para;</a></h2>
-<p>On macOS, .r files are processed natively by Xcode, as a Build Phase of type Build Carbon Resources. This step is already set for the sample projects.</p>
+<p>On macOS, .r files are processed natively by XCode, as a Build Phase of type Build Carbon Resources. This step is already set for the sample projects.</p>
 <p>On Windows, .r files are processed with CnvtPiPL.exe, which creates an .rcp file based upon custom build steps in the project. The .rcp file is then included in the .rc file along with any other resources the plugin uses. These custom build steps are already in place in the sample projects.</p>
 <p>To view them, open up the sample project in .NET. In the Solution Explorer, right-click the .r file and choose Properties. In the dialog, choose the Custom Build Step folder. The Command</p>
 <p>Line contains the script for executing the CnvtPiPL.exe. Unless you are using a different compiler than the support compiler, or adding support for Asian languages, you should not need to modify the custom build steps. This script may also be found as a text file in the SDK at <code>\\Examples\\Resources\\Win\\Custom Build Steps.txt</code>. This text file also describes the additional switches used for Asian languages.</p>
@@ -3013,7 +3011,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 21, 2025 21:51:32">April 21, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 24, 2025 19:27:26">April 24, 2025</span>
   </span>
 
     

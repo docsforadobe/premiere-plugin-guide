@@ -2932,13 +2932,12 @@
 
 
 <h1 id="memory-management">Memory Management<a class="headerlink" href="#memory-management" title="Permanent link">&para;</a></h1>
-<p>Premiere Pro has a media cache in which it stores imported frames, intermediate frames (intermediate stages of a render), fully rendered frames, and audio.</p>
-<p>This is sized based on a specific percentage of physical memory, taking into account if multiple Adobe applications are also running.</p>
+<p>Premiere Pro has a media cache in which it stores imported frames, intermediate frames (intermediate stages of a render), fully rendered frames, and audio. This cache is sized based on a specific percentage of physical memory, taking into account if multiple Adobe applications are also running.</p>
 <p>Premiere Pro manages this cache itself, so as it adds new items to the cache, it flushes least recently used items.</p>
 <hr />
 <h2 id="what-really-is-a-memory-problem">What Really is a Memory Problem?<a class="headerlink" href="#what-really-is-a-memory-problem" title="Permanent link">&para;</a></h2>
 <p>Often, users monitoring memory usage are alarmed when they see memory growing to a specific point during a render or playback. When the memory doesn't drop right back down after a render or playback, they might think they have found a memory leak. However, keeping in mind the function of the Premiere Pro media cache, this behavior is to be expected.</p>
-<p>On the other hand, memory contention between plugins and the rest of Premiere Pro can lead to memory problems. If a plugin allocates a significant amount of memory and the Premiere Pro media cache has not accounted for it, this means there is less free memory available after the media cache grows to the predefined size. Even if Premiere Pro does not completely run out of memory, limited memory can cause memory thrashing as memory is moved around to make room for video frames, which in turn can cause poor performance.</p>
+<p>Memory contention between plugins and the rest of Premiere Pro can lead to memory problems. If a plugin allocates a significant amount of memory and the Premiere Pro media cache has not accounted for it, this means there is less free memory available after the media cache grows to the predefined size. Even if Premiere Pro does not completely run out of memory, limited memory can cause memory thrashing as memory is moved around to make room for video frames, which in turn can cause poor performance.</p>
 <hr />
 <h2 id="solutions-for-memory-contention">Solutions for Memory Contention<a class="headerlink" href="#solutions-for-memory-contention" title="Permanent link">&para;</a></h2>
 <p>The best approach to reduce memory contention is to reduce the memory requirements of each plugin. However, if the memory requirements of a plugin are significant, it should also use the <a href="../sweetpea-suites/#memory-manager-suite">Memory Manager Suite</a> to report any memory usage that would not already be accounted for.</p>
@@ -2963,7 +2962,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 25, 2025 17:22:59">January 25, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 24, 2025 19:27:26">April 24, 2025</span>
   </span>
 
     
