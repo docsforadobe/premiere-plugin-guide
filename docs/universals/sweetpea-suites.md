@@ -16,7 +16,7 @@ Below is a table of all suites available in Premiere Pro:
 | [Async File Reader Suite](../importers/suites.md#async-file-reader-suite)         | Importers                                   |
 | Async Operation Suite                                                             | All                                         |
 | [Audio Suite](#audio-suite)                                                       | Importers, Exporters                        |
-| [Captioning Suite](#captioning-suite)                                             | Device Controllers, Exporters, Transmitters |
+| [Captioning Suite](#captioning-suite)                                             | Exporters, Transmitters                     |
 | [Clip Render Suite](#clip-render-suite)                                           | Exporters                                   |
 | [Deferred Processing Suite](../importers/suites.md#deferred-processing-suite)     | Importers                                   |
 | [Error Suite](#error-suite)                                                       | All except Exporters starting in CS6        |

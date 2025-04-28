@@ -37,27 +37,6 @@ Effect Presets should be installed as described in the section, "Plugin Installa
 
 ---
 
-## Effect Badging
-
-Starting in CS5, video filters now appear with badges in the Effects panel to advertise if they support YUV, 32-bit, and/or accelerated rendering. The user can filter the list of effects to show only the effects that support those rendering modes. Video filters will automatically receive YUV and 32-bit badges if they advertise support using the existing *fsGetPixelFormatsSupported*. Custom badges can also be created.
-
-To add your own effect badge, go to the following folder:
-
-On Windows: `[App installation path]\Settings\BadgeIcons\\`
-
-On Mac OS: `Adobe Premiere Pro CS5.app/Contents/Settings/BadgeIcons/`
-
-In that folder are the PNG graphics that are loaded at runtime for various badges, and an additional set of `'Sample-*.png'` and `'Sample.xml'` files.
-
-1. Make copies of the Sample- *.png files, replacing the "Sample" prefix with the prefix that matches whatever you want to call the new badge (like 'NewBadge-*.png'). Edit the PNG as you'd like, but don't change the image dimensions.
-2. Copy the Sample.xml file to a new name that matches whatever you want to call the new badge (like 'NewBadge.xml'). Edit the list of match names that you want to be decorated with your badge. Change the `<Name>` tag to the name you chose in step 1 (like 'NewBadge'). You can also add your tooltip text as the `<DescriptionItem>` tags. These tags act as a localization map with the langid as the key. If a language isn't found, 'en_US' is used by default. Provide your own GUID in the `<Guid>` tag.
-3. Relaunch the application. You'll get a badge filter icon next to the others and a badge icons next to each effect that was listed in the XML file.
-
-!!! note
-    'Sample' is a special case that is intentionally excluded. Any other set of  *.xml/*.png files will be used.
-
----
-
 ## Premiere Elements and Effect Thumbnail Previews
 
 Premiere Elements (but not Premiere Pro) displays visual icons for each effect. You will need to provide icons for your effects, or else an empty black icon will be shown for your effects, or even worse behavior in Premiere Elements 8. The icons are 60x45 PNG files, and are placed here:

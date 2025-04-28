@@ -12,7 +12,7 @@ Once you've got the plugin building directly into the plugins folder as explaine
 
 ## macOS
 
-1. In Xcode, in the Project Navigator, choose the xcodeproj you want to debug
+1. In XCode, in the Project Navigator, choose the xcodeproj you want to debug
 2. Choose Product > Scheme > Edit Scheme…
 3. Under Run, in the Info tab, for Executable, choose the host application the plugins will be running in (this may be Premiere Pro or After Effects)
 4. From there you can either hit the Play button to build and run the current scheme, or you can launch the application and later at any point choose Debug > Attach to Process.

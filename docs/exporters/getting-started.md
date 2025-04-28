@@ -78,15 +78,13 @@ In CS4, where the files are saved depends on whether you've opened the Export Se
 
 On Windows Vista, presets are saved here: `[User folder]\AppData\Roaming\Adobe\Adobe Media Encoder\[version]\Presets\\`
 
-On Windows XP: `[Documents and Settings folder]\[user name]\Application Data\\ Adobe\Adobe Media Encoder\[version]\Presets\\`
+On Windows XP: `[Documents and Settings folder]\[user name]\Application Data\Adobe\Adobe Media Encoder\[version]\Presets\\`
 
 On Mac OS: `~/Library/Preferences/Adobe/Adobe Media Encoder/[version]/ Presets/`
 
 ### Premiere Pro presets
 
-On Windows Vista, presets are saved here: `[User folder]\AppData\Roaming\Adobe\Premiere Pro\[version]\\ Presets\\`
-
-On Windows XP: `[Documents and Settings folder]\[user name]\Application Data\\ Adobe\Premiere Pro\[version]\Presets\\`
+On Windows, presets are saved here: `[User folder]\AppData\Roaming\Adobe\Premiere Pro\[version]\\ Presets\\`
 
 On Mac OS: `~/Library/Preferences/Adobe/Adobe Premiere Pro/[version]/Presets/`
 
@@ -98,17 +96,9 @@ For example, if you set it to: `<FolderDisplayPath>System Presets/Image Sequence
 
 It is essential to use: "System Presets/xxx/" where the xxx must be any of the existing main categories (use the English name for this). Only one level below can you can create a custom-named folder. If the folder doesn't already exist, it will be created.
 
-The Preset Browser data is cached in a file at: `[User Folder]\AppData\Roaming\Adobe\Common\AME\[version]\Presets\\ PresetTree.xml`
+The Preset Browser data is cached in a file at: `[User Folder]\AppData\Roaming\Adobe\Common\AME\[version]\Presets\PresetTree.xml`
 
 If you want to force a refresh of the Preset Browser data, just quit AME, delete this file, and re-launch AME.
-
-### Installation in CS4
-
-For better performance, in CS4, we recommend you install any presets for your exporter in the application folder for Premiere Pro and Media Encoder.
-
-For both Windows and Mac OS: `[App installation path]\MediaIO\systempresets\[exporter subfolder]`
-
-The subfolder must be named based on the hexadecimal fourCCs of the ClassID and filetype of the exporter. For example, the SDK exporter has a ClassID of 'DTEK' or 0x4454454B, and a filetype of `SDK` or 0x53444B5F. So the subfolder must be named '4454454B_53444B5F'. For convenience, you can find the ClassID and filetype fourCCs in the preset file itself, in a decimal representation.
 
 ---
 
@@ -141,9 +131,7 @@ To support multichannel audio layouts, kPrAudioChannelType_MaxChannel should be 
 
 The audio buffers you use for GetAudio() should likewise be an array of kPrAudioChannelType_MaxChannel channels, and yes, this means you may be allocating more space than actually used.
 
-In the exporter's Audio tab UI, you can provide a parameter to choose between various multi-channel audio layouts. You can compare your settings to what we have with the built-in formats, QuickTime and MXF (such as MXF OP1a and DNxHD). From the user selection in your audio export settings (e.g., 2x stereo, etc), you will know how many of those channels passed back in GetAudio() should actually be written to the file.
-
-Here's a helpful video on audio track mapping: [http://www.video2brain.com/en/lessons/changes-in-audio-tracks-and-merged-clip-audio](http://www.video2brain.com/en/lessons/changes-in-audio-tracks-and-merged-clip-audio)
+In the exporter's Audio tab, you can provide a parameter to choose between various multi-channel audio layouts. You can compare your settings to what we have with the built-in formats, QuickTime and MXF (such as MXF OP1a and DNxHD). From the user selection in your audio export settings (e.g., 2x stereo, etc), you will know how many of those channels passed back in GetAudio() should actually be written to the file.
 
 ---
 
@@ -158,48 +146,6 @@ Starting in CC, the Export Settings includes a new Captions tab, for Closed Capt
 To support more than one file format in a single exporter, describe one format at a time during `exSelStartup`. After describing the first one, return exportReturn_IterateExporter from `exSelStartup`, and the exporter will be called again to describe the second format, and so on. After describing the last format, return exportReturn_IterateExporter, and the exporter will be called yet again. This time, return exportReturn_IterateExporterDone.
 
 Use a unique fileType for each format. When you are later sent `exSelGenerateDefaultParams`, `exSelPostProcessParams`, etc, you'll want to pay attention to the fileType, and respond according to the format.
-
----
-
-## Exporters Used for Editing Modes
-
-An exporter that is used in an editing mode must have a codec parameter, and that parameter ID must be ADBEVideoCodec. If Premiere Pro cannot find this parameter, it will not be able to reopen projects in the custom editing mode, and will revert the project to Desktop mode.
-
-### Sequence Encoder Presets
-
-Sequence preview presets are now required for editing modes. These contain the exporter parameters to generate preview files. This makes preview file formats much easier to define, by using the Media Encoder or Premiere Pro UI to create presets, rather than directly editing XML.
-
-To create a sequence encoder preset:
-
-1. Create a preset. The name that you give it will be the name that will be used in the Sequence Settings > General > Preview File Format drop-down.
-2. Make sure this preset is installed in the application folder for Premiere Pro, along with the other sequence presets:
-
-On Windows, they should be installed here: `[App installation path]\Settings\EncoderPresets\SequencePreview\[editing mode GUID]*.epr`
-
-On MacOS, it is basically the same (inside the application package): `[App installation path]/[Premiere Pro package]/Contents/Settings/EncoderPresets/ SequencePreview/[editing mode GUID]/*.epr`
-
-As you can see by the installation paths above, Premiere Pro associates the sequence preview presets with the editing mode they go with, by using the presets in the folder that matches the GUID of the editing mode. The editing mode GUID is defined in the editing mode XML file, using the `<EditingMode.ID>` tag.
-
-### Adding new Preview File Formats to Existing Editing Modes
-
-You can not only provide sequence preview presets for your own editing mode, but you could even add additional sequence preview presets for one of the built-in editing modes. Editing mode GUIDs for built-in editing modes can be found in the Adobe Editing Modes. xml file. For example, the Desktop editing mode on Windows has the GUID 9678AF98A7B7-4bdb-B477-7AC9C8DF4A4E. On Mac OS it is 795454D9-D3C2-429d-9474- 923AB13B7018.
-
-You can additionally restrict the list and specify which one is chosen by default, by editing the `<PresetComments>` tag in the preset file.
-
-If the value of the tag starts with "IsConstrained,", then a comma delimited list of 4ccs follows that dictates which codecs are available, and the first one is chosen by default.
-
-For example, QuickTime DV NTSC.epr for the Mac DV NTSC editing mode has this: `<PresetComments>IsConstrained,dvc </PresetComments>`
-
-Which restricts the codec selection of the exporter to be only the single codec choice.
-
----
-
-## Stereoscopic Video
-
-!!! note
-    Currently stereoscopic exporters must use the old "pull" model, and only receive stereoscopic video when exporting directly from Premiere Pro. In other words, when exports are queued to run in Adobe Media Encoder, they will not get stereoscopic video.
-
-To get rendered frames for both left and right eye, use the [Video Segment Suite](../universals/sweetpea-suites.md#video-segment-suite) to request the left and right cutlists, and render frames from both. An exporter can tell if segments in both of them are identical (implying that they have nothing stereoscopic about them) by looking at the segment hashes, and you can tell if two frames are identical (by looking at the request identifiers).
 
 ---
 

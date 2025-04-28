@@ -1,6 +1,6 @@
 # Whats New
 
-## What's New in CC
+## What's New in CC (7.0)
 
 A new Captions tab has been added to the Export Settings, for Closed Captioning export. For all formats, a sidecar file containing the captions can be exported.
 

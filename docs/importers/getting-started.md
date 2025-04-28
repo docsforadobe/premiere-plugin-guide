@@ -2,7 +2,7 @@
 
 ## The Basics of Import
 
-For each clip, importers can tell Premiere the resolutions and pixel formats they can decode video frames to.
+For each clip, importers can tell Premiere Pro the resolutions and pixel formats they can decode video frames to.
 
 Premiere will request video frames as needed during scrubbing, playback, or export.
 
