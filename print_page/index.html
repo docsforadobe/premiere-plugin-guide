@@ -4193,7 +4193,7 @@
         <section class="print-page">
             <div id="print-page-toc" data-toc-depth="3">
                 <nav role='navigation' class='print-page-toc-nav'>
-                <h1 class='print-page-toc-title'>Table of Contents</h1>
+                <h1 class='print-page-toc-title'>Page Contents</h1>
                 </nav>
             </div>
         </section>
@@ -5196,6 +5196,11 @@
 <p>On macOS, this is: <code>~/Library/Application Support/Adobe/Premiere Pro/[version number]/Plugin Loading.log</code></p>
 <p>Your plugin will be listed by path and filename, and the log will contain details on what happened during the plugin loading process. Starting in CC 2017, it now logs any error codes returned from an effect on <em>PF_Cmd_GLOBAL_SETUP</em>.</p>
 <p>If the log says a plugin has been marked as Ignore, the most common culprit is a library dependency that could not be loaded. If your plugin uses some image processing or proprietary code library, is it installed on the system, and in the right place? On Windows, a tool such as Dependency Walker (depends.exe) is helpful to check a plugin's dependencies.</p>
+<hr />
+<h2 id="intro-load-em-up-loading-unsigned-plugins">Loading unsigned plugins<a class="headerlink" href="#intro-load-em-up-loading-unsigned-plugins" title="Permanent link">&para;</a></h2>
+<p>MacOS versions 15+ prevent the loading of unsigned plugins. You can avoid this difficulty by adding ad-hoc signing as a custom build step.</p>
+<p><code>codesign --force --deep --sign - /path/to/plugin.dylib</code></p>
+<p>Note: Yes, that trailing '-' after '--sign' is important. </p>
 <hr />
 <h2 id="intro-load-em-up-library-linkage">Library Linkage<a class="headerlink" href="#intro-load-em-up-library-linkage" title="Permanent link">&para;</a></h2>
 <p>On Windows, we strongly recommend dynamically linking to libraries, rather than static linking. In Visual Studio, the runtime library linkage setting is in C/C++ &gt; Code Generation &gt; Runtime Library.</p>
