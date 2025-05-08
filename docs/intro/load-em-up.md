@@ -30,6 +30,16 @@ If the log says a plugin has been marked as Ignore, the most common culprit is a
 
 ---
 
+## Loading unsigned plugins
+
+MacOS versions 15+ prevent the loading of unsigned plugins. You can avoid this difficulty by adding ad-hoc signing as a custom build step.
+
+`codesign --force --deep --sign - /path/to/plugin.dylib`
+
+Note: Yes, that trailing '-' after '--sign' is important. 
+
+---
+
 ## Library Linkage
 
 On Windows, we strongly recommend dynamically linking to libraries, rather than static linking. In Visual Studio, the runtime library linkage setting is in C/C++ > Code Generation > Runtime Library.
