@@ -1,8 +1,16 @@
 # Whats New
 
+## What's New in 26.0
+
+Premiere Pro has added support for WinARM-native plugins. Additionally, we've updated the header files included in the SDK, to match the versions we use internally to build Premiere Pro.
+
+## What's New in 25.6
+
+No changes for this version.
+
 ## What's New in 24.0
 
-With the removal of Capture functionality from Premiere Pro, support for Record modules and Device Control plugins have been removed from the SDK.
+With the removal of Capture functionality from Premiere Pro, support for Record modules and Device Control plugins have been removed from the SDK. Also, support for dual-audio Transmit plugins was added.
 
 ## What's New in 15.4
 
@@ -32,7 +40,7 @@ The only significant change to Premiere Pro's C++ APIs for 13.0 is the addition 
 
 The newly provided [PrGPU SDK Macros](../gpu-effects-transitions/PrGPU-SDK-macros.md) and device functions allow you to write kernels that will compile on CUDA, and Metal.
 
-Multiple effects and transitions can now be implemented in a single plugin binary, by defining multiple entry points in software at runtime. The new method for registering entry points will be a replacement for the PiPL resource, and is currently only supported in Premiere Pro. The sample effects and transitions demonstrate this new method, while [Plug-In Property Lists (PiPL) Resource](../resources/pipl-resource.md) remains, for backwards-compatibility in PPro, and compatibility with AE.
+Multiple effects and transitions can now be implemented in a single plugin binary, by defining multiple entry points in software at runtime. The new method for registering entry points will be a replacement for the PiPL resource, and is currently only supported in Premiere Pro. The sample effects and transitions demonstrate this new method, while [plugin Property Lists (PiPL) Resource](../resources/pipl-resource.md) remains, for backwards-compatibility in PPro, and compatibility with AE.
 
 [Sequence Info Suite](../universals/sweetpea-suites.md#sequence-info-suite) is now at version 5, adding the new call GetImmersiveVideoVRConfiguration(), which returns the VR video settings of the specified sequence.
 

@@ -13,7 +13,7 @@ typedef struct {
 
 |        Member         |                                              Description                                               |
 | --------------------- | ------------------------------------------------------------------------------------------------------ |
-| `outInterfaceVersion` | Set to the GPU API version corresponding to the version defined in the SDK you are using.              |
+| `outInterfaceVersion` | Set to the GPU API version corresponding to the version defined in the SDK you are using.             |
 | `outMatchName`        | outMatchName must be equal to a registered software filter, if NULL will default to the module's PiPL. |
 
 ---
@@ -35,11 +35,11 @@ typedef struct {
 
 |        Member         |                                                               Description                                                                |
 | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| `piSuites`            | Standard suites.                                                                                                                         |
-| `inDeviceIndex`       | For use with `PrSDKGPUDeviceSuite`.                                                                                                      |
-| `inTimelineID`        | For use with `PrSDKVideoSegmentSuite`.                                                                                                   |
-| `inNodeID`            | For use with `PrSDKVideoSegmentSuite`.                                                                                                   |
-| `ioPrivatePluginData` | Used by a plugin to store instance data, never touched by the host.                                                                      |
+| `piSuites`            | Standard suites.                                                                                                                        |
+| `inDeviceIndex`       | For use with `PrSDKGPUDeviceSuite`.                                                                                                     |
+| `inTimelineID`        | For use with `PrSDKVideoSegmentSuite`.                                                                                                  |
+| `inNodeID`            | For use with `PrSDKVideoSegmentSuite`.                                                                                                  |
+| `ioPrivatePluginData` | Used by a plugin to store instance data, never touched by the host.                                                                     |
 | `outIsRealtime`       | Specify if the plugin is likely to play in real-time, used to determine whether the segment is red, yellow, or unmarked in the timeline. |
 
 ---
@@ -86,7 +86,7 @@ typedef struct {
 +-------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
 | `inRenderHeight`        |                                                                                                                                        |
 +-------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-| `inRenderPARNum`        | Video pixel aspect ratio, described as a fractional number with separate values for numerator and denominator.                         |
+| `inRenderPARNum`        | Video pixel aspect ratio, described as a fractional number with separate values for numerator and denominator.                        |
 +-------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
 | `inRenderPARDen`        |                                                                                                                                        |
 +-------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
@@ -96,7 +96,7 @@ typedef struct {
 +-------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
 | `inRenderField`         | GPU rendering is always done on full-height progressive frames unless `PrGPUFilterFrameDependency.outNeedsFieldSeparation` is `false`. |
 |                         |                                                                                                                                        |
-|                         | `inRenderField` indicates which field is being rendered.                                                                               |
+|                         | `inRenderField` indicates which field is being rendered.                                                                              |
 +-------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
 
 ---
@@ -136,7 +136,7 @@ typedef struct {
 +------------------------------------+------------------------------------------------------------------------------------------------------+
 | `outTrackID`                       | Specify which track is a dependency. Set to 0 for the current track                                  |
 +------------------------------------+------------------------------------------------------------------------------------------------------+
-| `outSequenceTime`                  | Set the sequence time which is a dependency.                                                         |
+| `outSequenceTime`                  | Set the sequence time which is a dependency.                                                        |
 +------------------------------------+------------------------------------------------------------------------------------------------------+
 | `outPrecomputePixelFormat`         | Dependence on precomputation phase                                                                   |
 +------------------------------------+------------------------------------------------------------------------------------------------------+

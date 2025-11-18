@@ -3,4 +3,4 @@
 |    Return Code    |  Reason   |
 | ----------------- | --------- |
 | `malNoError`      | No error. |
-| `malUnknownError` | Error.    |
+| `malUnknownError` | Error.   |
