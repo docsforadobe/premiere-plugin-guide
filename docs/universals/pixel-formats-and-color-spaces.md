@@ -94,7 +94,7 @@ The 16-bit formats use channels that go from black at 0 to white at 32768, like 
 | VUYX_4444_32f     | 32             | Y'UV            |                                                                                                                                                                                                                                   |
 | VUYX_4444_32f_709 | 32             | Y'UV            |                                                                                                                                                                                                                                   |
 | XRGB_4444_32f     | 32             | RGB             |                                                                                                                                                                                                                                   |
-| BGRP_4444_8u      | 8              | RGB             | Premultiplied alpha. New in Premiere Pro CS5.                                                                                                                                                                                     |
+| BGRP_4444_8u      | 8              | RGB             | Premultiplied alpha. New in Premiere Pro CS5.                                                                                                                                                                                    |
 | VUYP_4444_8u      | 8              | Y'UV            |                                                                                                                                                                                                                                   |
 | VUYP_4444_8u_709  | 8              | Y'UV            |                                                                                                                                                                                                                                   |
 | PRGB_4444_8u      | 8              | RGB             |                                                                                                                                                                                                                                   |
@@ -121,14 +121,14 @@ The 16-bit formats use channels that go from black at 0 to white at 32768, like 
 |  PrPixelFormat   | Bits / Channel | Format / FourCC |                       Additional Details                        |
 | ---------------- | -------------- | --------------- | --------------------------------------------------------------- |
 | RGB_444_10u      |                |                 | New in Premiere Pro CC. Full range 10-bit 444 RGB little-endian |
-| YUYV_422_8u_601  | 8              | 'YUY2'          | New in Premiere Pro CS4.                                        |
-| YUYV_422_8u_709  | 8              | 'YUY2'          | Rec. 709 color space. New in Premiere Pro CS4.                  |
-| UYVY_422_8u_601  | 8              | 'UYVY'          | New in Premiere Pro CS4.                                        |
-| UYVY_422_8u_709  | 8              | 'UYVY'          | Rec. 709 color space. New in Premiere Pro CS4.                  |
-| V210_422_10u_601 | 10             | 'v210'          | New in Premiere Pro CS4.                                        |
-| V210_422_10u_709 | 10             | 'v210'          | Rec. 709 color space. New in Premiere Pro CS4.                  |
-| UYVY_422_32f_601 | 32             | 'UYVY'          | New in Premiere Pro CC.                                         |
-| UYVY_422_32f_709 | 32             | 'UYVY'          | New in Premiere Pro CC.                                         |
+| YUYV_422_8u_601  | 8              | 'YUY2'          | New in Premiere Pro CS4.                                       |
+| YUYV_422_8u_709  | 8              | 'YUY2'          | Rec. 709 color space. New in Premiere Pro CS4.                 |
+| UYVY_422_8u_601  | 8              | 'UYVY'          | New in Premiere Pro CS4.                                       |
+| UYVY_422_8u_709  | 8              | 'UYVY'          | Rec. 709 color space. New in Premiere Pro CS4.                 |
+| V210_422_10u_601 | 10             | 'v210'          | New in Premiere Pro CS4.                                       |
+| V210_422_10u_709 | 10             | 'v210'          | Rec. 709 color space. New in Premiere Pro CS4.                 |
+| UYVY_422_32f_601 | 32             | 'UYVY'          | New in Premiere Pro CC.                                        |
+| UYVY_422_32f_709 | 32             | 'UYVY'          | New in Premiere Pro CC.                                        |
 
 ### Compressed Y'UV
 

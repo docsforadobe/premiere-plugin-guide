@@ -339,13 +339,13 @@ void *trimCallbackID};
 +----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
 |       Function       |                                                                     Description                                                                      |
 +======================+======================================================================================================================================================+
-| `classFuncs`         | See [ClassData functions](../hardware/classdata-functions.md).                                                                                       |
+| `classFuncs`         | See [ClassData functions](../hardware/classdata-functions.md).                                                                                      |
 +----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `importProgressFunc` | Available in `imSaveFileRec` and `imTrimFileRec` during *imSaveFile8* and *imTrimFile8*.                                                             |
+| `importProgressFunc` | Available in `imSaveFileRec` and `imTrimFileRec` during *imSaveFile8* and *imTrimFile8*.                                                            |
 |                      |                                                                                                                                                      |
 |                      | Callback function pointer for use during project archiving or trimming to call into Premiere and update the progress bar and check for cancellation. |
 |                      |                                                                                                                                                      |
-|                      | Either `imProgressAbort` or `imProgressCon` tinue will be returned.                                                                                  |
+|                      | Either `imProgressAbort` or `imProgressCon` tinue will be returned.                                                                                 |
 |                      |                                                                                                                                                      |
-|                      | The trimCallbackID parameter is passed in the same structures.                                                                                       |
+|                      | The trimCallbackID parameter is passed in the same structures.                                                                                      |
 +----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+

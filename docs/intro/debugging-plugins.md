@@ -1,4 +1,4 @@
-# Debugging Plug-Ins
+# Debugging plugins
 
 Once you've got the plugin building directly into the plugins folder as explained above, here's how to specify Premiere Pro as the application to run during debug sessions:
 

@@ -39,7 +39,7 @@ int setClassData (
 
 | Parameter  |       Type        |                            Description                             |
 | ---------- | ----------------- | ------------------------------------------------------------------ |
-| `theClass` | Unsigned int      | The class being set. Use a unique 4-byte code.                     |
+| `theClass` | Unsigned int      | The class being set. Use a unique 4-byte code.                    |
 | `info`     | Pointer or handle | the class data to be set. It can be used as a pointer or a handle. |
 
 ---

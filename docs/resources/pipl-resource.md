@@ -1,4 +1,4 @@
-# Plug-In Property Lists (PiPL) Resource
+# plugin Property Lists (PiPL) Resource
 
 For many plugin types, Premiere loads a PiPL (Plugin Property List) resource. The PiPL is described in a file with a ".r" extension.
 

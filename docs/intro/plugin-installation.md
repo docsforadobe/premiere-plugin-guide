@@ -20,7 +20,7 @@ Other plugin types, such as QuickTime and VfW codecs should be installed at the 
 
 ## Windows
 
-As of Premiere Pro version 22.0, the `\Plug-ins` directories have been renamed `\Plugins`, to better coincide with Apple's Human Interface Guidelines. Premiere Pro will continue to attempt to load plugins from `\Plug-Ins` directories as well, for the foreseeable future. We will continue to specify
+As of Premiere Pro version 22.0, the `\Plug-ins` directories have been renamed `\Plugins`, to better coincide with Apple's Human Interface Guidelines. Premiere Pro will continue to attempt to load plugins from `\Plug-Ins` directories as well, for the foreseeable future.
 
 Starting in CC, each version of Premiere Pro will create a unique registry key that provide locations of folders of interest for third-party installations for that version.
 
