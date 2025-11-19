@@ -4,6 +4,8 @@
 
 Premiere Pro has added support for WinARM-native plugins. Additionally, we've updated the header files included in the SDK, to match the versions we use internally to build Premiere Pro.
 
+Good news: The only significant changes required was re-targeting the Windows sample projects to build for WinARM architecture. The GPU samples will be updated to build for WinARM, in a subsequent update.
+
 ## What's New in 25.6
 
 No changes for this version.
@@ -130,13 +132,13 @@ There is now a shared location for Control Surface plugins. On Mac:
 
 On Win:
 
-C:Program FilesAdobeCommonPluginsControlSurface
+C:\Program Files\Adobe\Common\Plugins\ControlSurface
 
-### Importers
+### 2015.3 : Importers
 
 Video duration can now be reported as a 64-bit integer, using the new imFileInfoRec8. vidDurationInFrames, to support longer file lengths. There is also a new suite function, SetImporterInstanceStreamFileCount(), for importers to specify how many files they open.
 
-### Exporters
+### 2015.3 : Exporters
 
 New flags can be set in exExporterInfoRec.flags, to restrict an exporter from being used in a way that doesn't make sense. Now, an exporter can specify that video-only export is not supported. Also, an exporter can turn off the Publish tab if it chooses to.
 
@@ -156,7 +158,7 @@ Using the [Sequence Info Suite](../universals/sweetpea-suites.md#sequence-info-s
 
 ## What's New in CC 2015.1?
 
-### Transmit
+### 2015.1 : Transmit
 
 Native support for 12-bit Dolby PQ pixel formats, with Rec. 709, P3, and Rec. 2020 primaries, have been added.
 
@@ -198,17 +200,17 @@ imSourceSettingsCommandRec and PF Source Settings Suite allow the effect to comm
 
 DPX, the initial parameters and default prefs are based on the bit depth of the video. These default prefs are passed back to the effect, which sets the initial param values and stashes a copy of them in sequence_data to use again for future calls to *PF_Cmd_SEQUENCE_RESETUP*.
 
-### Importers
+### 2015.0 : Importers
 
 For any importers that are using imClipFrameDescriptorRec, note that the structure definition has changed. Any importers that use this in both CC 2014 and CC 2015 or later will need to do a runtime check before accessing the members of this structure.
 
-### Exporters
+### 2015.0 : Exporters
 
 Exporters can now use standard parameters for audio channel configuration, as used with the built-in QuickTime exporter. The new exporter parameters ADBEAudioChannelConfigurationGroup and ADBEAudioChannelConfiguration supercede ADBEAudioNumChannels. The new Export Audio Param Suite can be used to query/change the audio channel configuration.
 
 The [Sequence Audio Suite](../exporters/suites.md#sequence-audio-suite) is now at version 2, revising `MakeAudioRenderer()` to take `PrAudioChannelLabel*` as a parameter.
 
-### Transmitters
+### 2015.0 : Transmitters
 
 Transmitters can get a few new bits of information to aid with A/V sync. In the [Playmod Audio Suite](../transmitters/suites.md#playmod-audio-suite), the new function GetNextAudioBuffer2() returns the actual time the rendered buffer is from.
 
@@ -216,13 +218,13 @@ Also, in `tmPlaybackClock`, the new members `inAudioOffset` and `inVideoOffset` 
 
 The host accounts for these offsets automatically by sending frames early, but if a transmitter is manually trying to line up audio and video times, it can use this to know how far apart from each other they are supposed to be.
 
-### Miscellaneous
+### 2015.0 : Miscellaneous
 
 Legacy callbacks bottlenecks->ConvolvePtr() and IndexMapPtr() have had their parameter types updated to fix a bug. Any plugins that use these in both previous versions and CC 2015 will need to do a runtime check before calling this function.
 
 Starting in CC 2015, we now provide installer hints for Mac. You'll find a new plist file "com. Adobe.Premiere Pro.paths.plist" at "/Library/Preferences". This contains hints for your Mac installer to know where to install plugins, and is similar to the registry entries we have been providing on Win.
 
-### New Sample Projects
+### 2015.0 : New Sample Projects
 
 This SDK includes updated GPU effect and transition samples that demonstrate GPU rendering. Thanks to Rama Hoetzlein from nVidia for the CUDA render path provided for the SDK_CrossDissolve sample!
 
@@ -357,7 +359,7 @@ We are also adding API support for stereoscopic video throughout the render pipe
 
 ### Other Changes
 
-#### Importers
+#### CS6 : Importers
 
 Importers can now support growing files in Premiere Pro. We have also added a way for importers to specify all their source files to be copied by Collect Files in After Effects. There is also a new function in the Media Accelerator Suite to validate the content state of a media accelerator. See additional details of what's new in [Importers](../importers/importers.md).
 
@@ -395,19 +397,19 @@ MPEG-4 pixel formats and full-range Rec. 709 MPEG-2 and MPEG-4 formats have now 
 
 ## What's New in CS5.5?
 
-#### Importers
+### CS5.5 : Importers
 
 Importers can now support color management, when running in After Effects. Now, even nonsynthetic importers can explicitly provide peak audio data. And a new return value allows an importer to specify that it is dependent on a library that needs to be activated. See additional details of what's new in [Importers](../importers/importers.md).
 
-#### Players
+### CS5.5 : Players
 
 Players can now support closed captioning. See additional details of what's new in the players chapter.
 
-#### Exporters
+### CS5.5 : Exporters
 
 Exporters now have a call to request a rendered frame and then conform it to a specific pixel format. See additional details of what's new in [Exporters](../exporters/exporters.md).
 
-#### Export Controller
+### Export Controller
 
 We have opened up a new Export Controller API that can drive any exporter to output a file in any format and perform custom post-processing operations. Developers wanting to integrate Premiere Pro with an asset management system will want to use this API instead of the exporter API. See [Export Controllers](../export-controllers/export-controllers.md) for more details.
 
@@ -428,22 +430,21 @@ The [Image Processing Suite](../universals/sweetpea-suites.md#image-processing-s
 
 ## What's New in CS5?
 
-#### Importers
+### CS5 : Importers
 
 Importers now have access to the resolution, pixel aspect ratio, timebase, and audio sample rate of the source clip from a setup dialog. Custom importers can use a new call to update a clip after it has modified by the user in the setup dialog. Please refer to [Importers](../importers/importers.md) for more info on what's new.
 
-#### Recorders
+### CS5 : Recorders
 
 Recorders can now provide audio metering during preview and capture.
 
-#### Exporters and players
+### Exporters and players
 
 Exporters and players can automatically take advantage of GPU acceleration, if available on the end-user's system. Each project now has a setting for the renderer that the user can choose in the project settings dialog. When renders occur through the [Sequence Render Suite](../exporters/suites.md#sequence-render-suite) or the Playmod Render Suite, they now go through the renderer chosen for the current project. This allows third-party exporters and players to use the built-in GPU acceleration available in the new Mercury Playback Engine.
 
 Exporters and players can now handle any pixel format, with the new [Image Processing Suite](../universals/sweetpea-suites.md#image-processing-suite). Exporters and players that parse segments and perform their own rendering can now call the host for subtree rendering. See the [Video Segment Render Suite](../universals/sweetpea-suites.md#video-segment-render-suite) for details.
 
-!!! note
-    If you provide an installer for an exporter, custom presets created in Premiere Pro are now visible in AME and vice-versa.
+NOTE: If you provide an installer for an exporter, custom presets created in Premiere Pro are now visible in AME and vice-versa.
 
 ### Mac 64-Bit and Cocoa
 
