@@ -70,7 +70,7 @@ Starting in CS5, all the presets are saved to the same location, regardless of w
 
 On Windows 7, presets are saved here: `[User folder]\AppData\Roaming\Adobe\Common\AME\[version]\Presets\\`
 
-On MacOS: `~/Library/Preferences/Adobe/Common/AME/[version]/Presets/`
+On Mac OS: `~/Library/Preferences/Adobe/Common/AME/[version]/Presets/`
 
 In CS4, where the files are saved depends on whether you've opened the Export Settings UI in Premiere Pro or Media Encoder:
 
@@ -80,13 +80,13 @@ On Windows Vista, presets are saved here: `[User folder]\AppData\Roaming\Adobe\A
 
 On Windows XP: `[Documents and Settings folder]\[user name]\Application Data\Adobe\Adobe Media Encoder\[version]\Presets\\`
 
-On MacOS: `~/Library/Preferences/Adobe/Adobe Media Encoder/[version]/ Presets/`
+On Mac OS: `~/Library/Preferences/Adobe/Adobe Media Encoder/[version]/ Presets/`
 
 ### Premiere Pro presets
 
 On Windows, presets are saved here: `[User folder]\AppData\Roaming\Adobe\Premiere Pro\[version]\\ Presets\\`
 
-On MacOS: `~/Library/Preferences/Adobe/Adobe Premiere Pro/[version]/Presets/`
+On Mac OS: `~/Library/Preferences/Adobe/Adobe Premiere Pro/[version]/Presets/`
 
 #### AME Preset Browser
 

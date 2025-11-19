@@ -52,7 +52,7 @@ Value data: `[Adobe Premiere Pro installation path]\Settings\EncoderPresets\Sequ
 
 Value name: `CommonExporterPresetsPath`
 
-Value data: **[User folder]AppDataRoamingAdobeCommonAME7.0Presets\**
+Value data: **[User folder]AppDataRoamingAdobeCommonAME7.0Presets\\**
 
 **Effects presets:**
 
@@ -74,7 +74,7 @@ As an example: `C:\Program Files\Adobe\Common\Plugins\7.0\MediaCore\`
 
 The best way to locate other preset folders was to start from the root path for Premiere Pro in the registry at
 
-`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\ Adobe Premiere Pro.exe`.
+`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\\ Adobe Premiere Pro.exe`.
 
 Then, just add the proper subdirectories as described in the macOS section.
 
@@ -84,7 +84,7 @@ Then, just add the proper subdirectories as described in the macOS section.
 
 Starting in Premiere Pro version 22.0, The **common plugin location** is:
 
-`/Library/Application Support/Adobe/Common/Plugins/7.0/MediaCore/`
+`/Library/Application Support/Adobe/Common/Plugins/[version]/MediaCore/`
 
 Starting in CC 2015.3, **control surface plugins** should be installed here:
 
@@ -94,7 +94,7 @@ Previously, starting in CC 2015, Premiere Pro provided installer hints for Mac. 
 
 The **common plugin location** was at:
 
-`/Library/Application Support/Adobe/Common/Plugins/7.0/MediaCore/`
+`/Library/Application Support/Adobe/Common/Plugins/[version]/MediaCore/`
 
 Starting in CC 2015.3, **control surface plugins** should be installed here:
 
@@ -168,7 +168,7 @@ On MacOS: `NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirector y,NS
 
 This should get you started getting the Application Support folder which you can add onto to create something like:
 
-`/Library/Application Support/Adobe/Premiere Pro/[version]/MyPlugin.preferences`
+`/Library/Application Support/Adobe/Premiere Pro/[version]/ MyPlugin.preferences`
 
 ---
 
