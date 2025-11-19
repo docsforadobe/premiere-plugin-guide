@@ -182,7 +182,7 @@ On the effects side, a new PF Source Settings Suite has been added to PrSDKAESup
 
 A source settings effect is used primarily for the parameter UI and management. A source settings effect doesn't provide the actual frames. In fact, the effect isn't even called with *PF_Cmd_RENDER*. The frames come directly from the importer, which provides frames based on the settings as passed to the importer via prefs data.
 
-When a clip is first imported, the effect is called with *PF_Cmd_SEQUENCE_SETUP*. It should call PerformSourceSettingsCommand() in the Source Settings Suite, to initialize the prefs. This causes the importer to get called with *imPerformSourceSettingsCommand*, where it can read the file and set the default prefs. param1 of that function is imFileAccessRec8\*, and param2 is imSourceSettingsCommandRec\*.
+When a clip is first imported, the effect is called with *PF_Cmd_SEQUENCE_SETUP*. It should call PerformSourceSettingsCommand() in the Source Settings Suite, to initialize the prefs. This causes the importer to get called with *imPerformSourceSettingsCommand*, where it can read the file and set the default prefs. param1 of that function is imFileAccessRec8*, and param2 is imSourceSettingsCommandRec*.
 
 When the source settings effect parameters are changed, the effect gets called with *PF_Cmd_TRANSLATE_PARAMS_TO_PREFS*. The function signature is:
 

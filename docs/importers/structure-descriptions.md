@@ -600,7 +600,7 @@ Selectors:
 - [imImportImage](selector-descriptions.md#imimportimage),
 - [imImportAudio7](selector-descriptions.md#imimportaudio7)
 
-A file HANDLE on Windows, or a void\* on MacOS.
+A file HANDLE on Windows, or a void* on MacOS.
 
 `imFileRef` is also a member of `imFileAccessRec`.
 
@@ -837,7 +837,7 @@ typedef struct {
 |          Member          |                                                   Description                                                   |
 | ------------------------ | --------------------------------------------------------------------------------------------------------------- |
 | `importerID`             | `Can` be used as the ID for calls in the [PPix Cache Suite](../universals/sweetpea-suites.md#ppix-cache-suite). |
-| `supportsAsyncIO`        | Set this to true if the importer supports `imCreateAsyncImporter` and ai\* selectors.                          |
+| `supportsAsyncIO`        | Set this to true if the importer supports `imCreateAsyncImporter` and ai* selectors.                          |
 | `supportsGetSourceVideo` | Set this to true if the importer supports the `imGetSourceVideo` selector.                                     |
 
 ### Bounds Info
@@ -1086,7 +1086,7 @@ typedef struct {
 +------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `pix`            | Pointer to a buffer into which the importer should draw. Allocated based on information from the `imGetInfo8`.                                                                                                                     |
 +------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `pixsize`        | The number of pixels. rowbytes \* height.                                                                                                                                                                                          |
+| `pixsize`        | The number of pixels. rowbytes * height.                                                                                                                                                                                          |
 +------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `pixformat`      | The pixel format Premiere requests.                                                                                                                                                                                                |
 +------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1830,11 +1830,11 @@ typedef struct {
 +---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `ioProfileRec`      | A structure describing the color profile.                                                                                                                                                                                 |
 |                     |                                                                                                                                                                                                                            |
-|                     | <pre lang="cpp">csSDK_int32  ioBufferSize;<br/>void*        inDestinationBuffer;<br/>PrSDKString  outName;</pre>                                                                                                           |
+|                     | `csSDK_int32  ioBufferSize;void*        inDestinationBuffer;PrSDKString  outName;`                                                                                                           |
 +---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `outSEICodesRec`    | A structure describing the color space using codes; used with H.265, HEVC, AVC and ProRes media.                                                                                                                          |
 |                     |                                                                                                                                                                                                                            |
-|                     | <pre lang="cpp">csSDK_int32  colorPrimariesCode;<br/>csSDK_int32  transferCharacteristicCode;<br/>csSDK_int32  matrixEquationsCode;<br/>csSDK_int32  bitDepth;<br/>prBool       isFullRange;<br/>prBool       isRGB;</pre> |
+|                     | `csSDK_int32  colorPrimariesCode;csSDK_int32  transferCharacteristicCode;csSDK_int32  matrixEquationsCode;csSDK_int32  bitDepth;prBool       isFullRange;prBool       isRGB;` |
 +---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ## RawColorSpaceRec
@@ -1866,11 +1866,11 @@ typedef struct
 +------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `profileRec`     | A structure describing the color space.                                                                                                                                                                                   |
 |                  |                                                                                                                                                                                                                            |
-|                  | <pre lang="cpp">csSDK_int32  ioBufferSize;<br/>void*        inDestinationBuffer;<br/>PrSDKString  outName;</pre>                                                                                                           |
+|                  | `csSDK_int32  ioBufferSize;void*        inDestinationBuffer;PrSDKString  outName;`                                                                                                           |
 +------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `seiCodesRec`    | A structure describing the color space; used with H.265, HEVC, AVC and ProRes media.                                                                                                                                      |
 |                  |                                                                                                                                                                                                                            |
-|                  | <pre lang="cpp">csSDK_int32  colorPrimariesCode;<br/>csSDK_int32  transferCharacteristicCode;<br/>csSDK_int32  matrixEquationsCode;<br/>csSDK_int32  bitDepth;<br/>prBool       isFullRange;<br/>prBool       isRGB;</pre> |
+|                  | `csSDK_int32  colorPrimariesCode;csSDK_int32  transferCharacteristicCode;csSDK_int32  matrixEquationsCode;csSDK_int32  bitDepth;prBool       isFullRange;prBool       isRGB;` |
 +------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Colorspace can be described via multiple way, type depends on `colorSpaceType`.

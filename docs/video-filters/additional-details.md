@@ -31,7 +31,7 @@ Effect presets appear in the Presets bin in the Effects panel, and can be applie
 5. Organize the presets in the preset folders
 6. Select the bins and/or presets you wish to export, right-click, and choose "Export Preset"
 
-On Windows, newly created presets are saved in the hidden Application Data folder of the user's Documents and Settings (e.g. `C:/Documents and Settings/[user]/Application Data/Adobe Premiere Pro/[version]/Effect Presets and Custom Items.prfpset`). On Mac OS, they are in the user folder, at `~/Library/Application Support/Adobe/Premiere Pro/[version]/Effect Presets and Custom Items.prfpset.`
+On Windows, newly created presets are saved in the hidden Application Data folder of the user's Documents and Settings (e.g. `C:/Documents and Settings/[user]/Application Data/Adobe Premiere Pro/[version]/Effect Presets and Custom Items.prfpset`). On MacOS, they are in the user folder, at `~/Library/Application Support/Adobe/Premiere Pro/[version]/Effect Presets and Custom Items.prfpset.`
 
 Effect Presets should be installed as described in the section, "Plugin Installation". Once they are installed in that folder, they will be read-only, and the user will not be able to move them to a different folder or change their names. User-created presets will be modifiable.
 
