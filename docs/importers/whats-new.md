@@ -129,13 +129,13 @@ Importers can specify an initial poster frame for a clip in imImageInfoRec.
 
 Importers can specify subtype names during the new `imGetSubTypeNames` selector. This selector is sent after each `imGetIndFormat`, which gives an importer the opportunity to enumerate all the fourCCs and display names (e.g. "Cinepak") of their known compression types for a specific filetype. The importer can return imUnsupported, or create an array of `imSubTypeDescriptionRec` records (pairs of fourCCs and codec name strings) for all the codecs/subtypes it knows about.
 
-Importers that open their own files should specify how many files they keep open between `imOpenFile8` and `imQuietFile` using the new Importer File Manager Suite, if the number is not equal to one. Importers that don't open their own files, or importers that only open a single file should not use this suite. Premiere's File Manager now keeps track of the number of files held open by importers, and limits the number open at a time by closing the least recently used files when too many are open. On Windows, this helps memory usage, but on Mac OS this addresses a whole class of bugs that may occur when too many files are open.
+Importers that open their own files should specify how many files they keep open between `imOpenFile8` and `imQuietFile` using the new Importer File Manager Suite, if the number is not equal to one. Importers that don't open their own files, or importers that only open a single file should not use this suite. Premiere's File Manager now keeps track of the number of files held open by importers, and limits the number open at a time by closing the least recently used files when too many are open. On Windows, this helps memory usage, but on MacOS this addresses a whole class of bugs that may occur when too many files are open.
 
 Importers can also specify that certain files have very high memory usage, by setting `imFileInfoRec8.highMemUsage`. The number of files allowed to be open with this flag set to true is currently capped at 5.
 
 Importers can now specify an arbitrary matte color for premultiplied alpha channels in `imImageInfoRec.matteColor`. Importers can state that they are uncertain about a clip's pixel aspect ratio, field type, or alpha info in imImageInfoRec.interpretationUncertain.
 
-The imInvalidHandleValue is now -1 for Mac OS.
+The imInvalidHandleValue is now -1 for MacOS.
 
 Importers can specify a transform matrix for frames by setting `imImageInfoRec.canTransform = kPrTrue`, and then during `imImportImage`, when `imImportImageRec.applyTransform` is non-zero, use `imImportImageRec.transform`, and `destClipRect` to calculate the transform - This code path is currently not called by Premiere Pro. After Effects uses this call to import Flash video.
 

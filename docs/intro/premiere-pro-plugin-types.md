@@ -1,57 +1,31 @@
 # Premiere Pro plugin Types
 
-+------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
-|                                        Type                                        |                                                                        Description                                                                        |
-+====================================================================================+===========================================================================================================================================================+
-| [Importers](../importers/importers.md)                                             | Import video and audio media into Premiere.                                                                                                              |
-|                                                                                    |                                                                                                                                                           |
+| Type | Description |
+|-|-|
+| [Importers](../importers/importers.md)                                             | Import video and audio media into Premiere.                                                                                                                                                                                                                                        |
 |                                                                                    | Synthetic importers, a subset, dynamically synthesize media without creating an actual file on disk.                                                     |
-|                                                                                    |                                                                                                                                                           |
 |                                                                                    | Custom importers, dynamically synthesize media to disk.                                                                                                  |
-+------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
 | [Export Controllers](../export-controllers/export-controllers.md)                  | Can drive any exporter to generate a file in any format and perform custom post-processing operations.                                                   |
-|                                                                                    |                                                                                                                                                           |
 |                                                                                    | Developers wanting to integrate Premiere Pro with an asset management system will want to use this API instead of the exporter API.                      |
-+------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
 | [Exporters](../exporters/exporters.md)                                             | Allows the user to output media to disk.                                                                                                                 |
-+------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
 | [Transmitters](../transmitters/transmitters.md)                                    | Sends video, audio, and closed captioning to any external device during playback and editing.                                                            |
-+------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
 | [Video Filters](../video-filters/video-filters.md)                                 | **We strongly recommend using the After Effects SDK to develop effects plugins. Most of the effects included in Premiere Pro are After Effects plugins.** |
-|                                                                                    |                                                                                                                                                           |
 |                                                                                    | Process a series of video frames with parameters that can be animated over time.                                                                         |
-+------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
 | [GPU Effects & Transitions](../gpu-effects-transitions/gpu-effects-transitions.md) | Process two video sources into a single destination over time.                                                                                           |
-|                                                                                    |                                                                                                                                                           |
 |                                                                                    | This API is based on the After Effects API, with certain functions to enable transition functionality in Premiere Pro.                                   |
-+------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
 | [Control Surfaces](../control-surfaces/control-surfaces.md)                        | Interface with a hardware control surface to support audio mixing, basic transport controls, and the Lumetri Color panel.                                |
-|                                                                                    |                                                                                                                                                           |
 |                                                                                    | The API supports two-way communication with Premiere Pro, so that motorized hardware faders, VU meters, etc can be in sync with the application.         |
-+------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ## Other Supported plugin Standards
 
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|          Type           |                                                                                        Description                                                                                        |
-+=========================+===========================================================================================================================================================================================+
-| Adobe After Effects API | Premiere Pro supports a portion of the AE API.                                                                                                                                           |
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|                         |                                                                                                                                                                                           |
-|                         | The After Effects SDK is not included in the Premiere Pro SDK.                                                                                                                           |
-|                         |                                                                                                                                                                                           |
-|                         | The last chapter in the After Effects SDK Guide.pdf, included in the After Effects SDK, contains information on known differences with how Premiere Pro supports the AE API.             |
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|          Type           |    Description |
+|-|-|
+| Adobe After Effects API | Premiere Pro supports a portion of the AE API. The After Effects SDK is not included in the Premiere Pro SDK. The last chapter in the After Effects SDK Guide.pdf, included in the After Effects SDK, contains information on known differences with how Premiere Pro supports the AE API. |
 | VST                     | Starting in CC, Premiere supports version 3 of the VST specification for audio effects.                                                                                                  |
-|                         |                                                                                                                                                                                           |
 |                         | In CS6.x and previous versions, support was limited to version 2.4.                                                                                                                      |
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | ASIO                    | An ASIO driver is often provided in addition to a transmit plugin, to provide audio output during editing, playback, and Export To Tape.                                                 |
-|                         |                                                                                                                                                                                           |
 |                         | Prior to CS6, an ASIO driver was required to support audio input for voiceover recording in the audio mixer. On macOS, a Core Audio component may be provided rather than an ASIO driver. |
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Core Audio              | macOS only. May be provided instead of an ASIO driver.                                                                                                                                   |
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ---
 
