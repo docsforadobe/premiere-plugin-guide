@@ -200,19 +200,14 @@ typedef struct {
 } exportStdParms;
 ```
 
-+-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
 |      Member       |                                                                          Description                                                                          |
-+===================+===============================================================================================================================================================+
+|-|-|
 | `interfaceVer`    | Exporter API version, one of :                                                                                                                                |
-|                   |                                                                                                                                                               |
-|                   | - Premiere Pro CC - `prExportVersion400`                                                                                                                      |
-|                   | - Premiere Pro CS6 - `prExportVersion300`                                                                                                                     |
-|                   | - Premiere Pro CS5.5 - `prExportVersion250`                                                                                                                   |
-|                   | - Premiere Pro CS5 - `prExportVersion200`                                                                                                                     |
-|                   | - Premiere Pro 4.0.1 through 4.2.1 - `prExportVersion101`                                                                                                     |
-|                   | - Premiere Pro CS4 - `prExportVersion100`                                                                                                                     |
-+-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                   | Premiere Pro CC - `prExportVersion400`                                                                                                                      |
+|                   | Premiere Pro CS6 - `prExportVersion300`                                                                                                                     |
+|                   | Premiere Pro CS5.5 - `prExportVersion250`                                                                                                                   |
+|                   | Premiere Pro CS5 - `prExportVersion200`                                                                                                                     |
+|                   | Premiere Pro 4.0.1 through 4.2.1 - `prExportVersion101`                                                                                                     |
+|                   | Premiere Pro CS4 - `prExportVersion100`                                                                                                                     |
 | `getSPBasicSuite` | This very important call returns the SweetPea suite that allows plugins to acquire and release all other [SweetPea Suites](../universals/sweetpea-suites.md). |
-|                   |                                                                                                                                                               |
 |                   | ```SPBasicSuite* getSPBasicSuite();```                                                                                                                        |
-+-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+

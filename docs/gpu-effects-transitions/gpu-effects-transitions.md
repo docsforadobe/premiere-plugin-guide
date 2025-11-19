@@ -25,11 +25,13 @@ Caution: GPU Effects built using CUDA SDK 11.8 will not work with NVIDIA Kepler 
 ### CUDA Runtime API vs. Driver API
 
 1. Utilize CUDA Driver API
-   - For best compatibility, we highly recommend utilizing CUDA Driver API only. Unlike the runtime API, the driver API is directly backwards compatible with future drivers. Please note that the CUDA Runtime API is built to handle/automate some of the housekeeping that is exposed and needs to be handled in the Driver APIs, so there might be some new steps/code you would need to learn and implement for migrating from Runtime API to Driver API.
+For best compatibility, we highly recommend utilizing CUDA Driver API only. Unlike the runtime API, the driver API is directly backwards compatible with future drivers. Please note that the CUDA Runtime API is built to handle/automate some of the housekeeping that is exposed and needs to be handled in the Driver APIs, so there might be some new steps/code you would need to learn and implement for migrating from Runtime API to Driver API.
+
 2. Statically Link to CUDA Runtime
-  - If you must stick to CUDA Runtime API, we recommend you statically link to the CUDA Runtime. That's an alternative way for leveraging the backwards compatibility of the driver into the future. This can be done by linking cudart_static.lib.
+If you must stick to CUDA Runtime API, we recommend you statically link to the CUDA Runtime. That's an alternative way for leveraging the backwards compatibility of the driver into the future. This can be done by linking cudart_static.lib.
+
 3. Dynamically Link to CUDA Runtime
-  - This also works but would be prone to compatibility issues. A compatible CUDA Runtime DLL needs to be available on users' systems so that driver can understand and be backward compatible. Currently Premiere Pro ships a copy of CUDA Runtime DLL of our recommended CUDA SDK version. This may change in future. If you must dynamically link to CUDA Runtime, we recommend you ship a copy of the CUDA Runtime DLL with your plugin and leverage dlopen/LoadLibrary to explicitly load the desired runtimes. For more details, see the CUDA Compatibility section of NVIDIA's GPU Management and Deployment guide: [https://docs.nvidia.com/deploy/cuda-compatibility/](https://docs.nvidia.com/deploy/cuda-compatibility/)
+This also works but would be prone to compatibility issues. A compatible CUDA Runtime DLL needs to be available on users' systems so that driver can understand and be backward compatible. Currently Premiere Pro ships a copy of CUDA Runtime DLL of our recommended CUDA SDK version. This may change in future. If you must dynamically link to CUDA Runtime, we recommend you ship a copy of the CUDA Runtime DLL with your plugin and leverage dlopen/LoadLibrary to explicitly load the desired runtimes. For more details, see the CUDA Compatibility section of NVIDIA's GPU Management and Deployment guide: [https://docs.nvidia.com/deploy/cuda-compatibility/](https://docs.nvidia.com/deploy/cuda-compatibility/)
 
 ---
 

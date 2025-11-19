@@ -30,12 +30,12 @@ You need to add some include paths to your kernel compilation environment:
 You will also need to define a symbol to tell the header file what API to process when compiling the kernel:
 
 - Metal:
-    - `DGF_DEVICE_TARGET_METAL=1`
+    `DGF_DEVICE_TARGET_METAL=1`
 - OpenCL:
-    - `DGF_DEVICE_TARGET_OPENCL=1`
-    - `DGF_OPENCL_SUPPORTS_16F=1` or `0`, depending on whether you will support half (16-bit float) access for this device. Some older cards are quite slow at half support, or just don't support it.
+    `DGF_DEVICE_TARGET_OPENCL=1`
+    `DGF_OPENCL_SUPPORTS_16F=1` or `0`, depending on whether you will support half (16-bit float) access for this device. Some older cards are quite slow at half support, or just don't support it.
 - CUDA:
-    - the KernelCore.h header will automatically sense the cuda compiler and will `#define GF_DEVICE_TARGET_CUDA 1` for you.
+    the KernelCore.h header will automatically sense the cuda compiler and will `#define GF_DEVICE_TARGET_CUDA 1` for you.
 
 Only one device target flag will be active in any given compilation. The header the define the device target macros to 0 for the inactive APIs. Feel free to use these macros in your code for any API specializations. Outside of the header, we don't need to do this much.
 
