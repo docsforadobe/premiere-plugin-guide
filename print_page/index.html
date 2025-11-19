@@ -4977,10 +4977,10 @@
 <p>/Library/Application Support/Adobe/Common/Plugins/ControlSurface, and</p>
 <p>~/Library/Application Support/Adobe/Common/Plugins/ControlSurface</p>
 <p>On Win:</p>
-<p>C:Program FilesAdobeCommonPluginsControlSurface</p>
-<h3 id="intro-whats-new-importers_1">Importers<a class="headerlink" href="#intro-whats-new-importers_1" title="Permanent link">&para;</a></h3>
+<p>C:\Program Files\Adobe\Common\Plugins\ControlSurface</p>
+<h3 id="intro-whats-new-20153-importers">2015.3 : Importers<a class="headerlink" href="#intro-whats-new-20153-importers" title="Permanent link">&para;</a></h3>
 <p>Video duration can now be reported as a 64-bit integer, using the new imFileInfoRec8. vidDurationInFrames, to support longer file lengths. There is also a new suite function, SetImporterInstanceStreamFileCount(), for importers to specify how many files they open.</p>
-<h3 id="intro-whats-new-exporters_1">Exporters<a class="headerlink" href="#intro-whats-new-exporters_1" title="Permanent link">&para;</a></h3>
+<h3 id="intro-whats-new-20153-exporters">2015.3 : Exporters<a class="headerlink" href="#intro-whats-new-20153-exporters" title="Permanent link">&para;</a></h3>
 <p>New flags can be set in exExporterInfoRec.flags, to restrict an exporter from being used in a way that doesn't make sense. Now, an exporter can specify that video-only export is not supported. Also, an exporter can turn off the Publish tab if it chooses to.</p>
 <h3 id="intro-whats-new-effects">Effects<a class="headerlink" href="#intro-whats-new-effects" title="Permanent link">&para;</a></h3>
 <p>Source settings effects should use the updated Source Settings suite with new</p>
@@ -4990,7 +4990,7 @@
 <p>Using the <a href="#universals-sweetpea-suites-sequence-info-suite">Sequence Info Suite</a>, a new call has been added, GetProxyFlag(), for a plugin to know whether the proxy mode is on or off.</p>
 <hr />
 <h2 id="intro-whats-new-whats-new-in-cc-20151">What's New in CC 2015.1?<a class="headerlink" href="#intro-whats-new-whats-new-in-cc-20151" title="Permanent link">&para;</a></h2>
-<h3 id="intro-whats-new-transmit_1">Transmit<a class="headerlink" href="#intro-whats-new-transmit_1" title="Permanent link">&para;</a></h3>
+<h3 id="intro-whats-new-20151-transmit">2015.1 : Transmit<a class="headerlink" href="#intro-whats-new-20151-transmit" title="Permanent link">&para;</a></h3>
 <p>Native support for 12-bit Dolby PQ pixel formats, with Rec. 709, P3, and Rec. 2020 primaries, have been added.</p>
 <hr />
 <h2 id="intro-whats-new-whats-new-in-cc-2015">What's New in CC 2015?<a class="headerlink" href="#intro-whats-new-whats-new-in-cc-2015" title="Permanent link">&para;</a></h2>
@@ -5013,19 +5013,19 @@
 <p>With the new prefs, the importer will be sent <em>imOpenFile8, imGetInfo8, imGetIndPixelFormat, imGetPreferredFrameSize, imGetSourceVideo</em>, etc.</p>
 <p>imSourceSettingsCommandRec and PF Source Settings Suite allow the effect to communicate directly with the importer, so that it can initialize its parameters properly, based on the source media. In the DPX source settings effect, for example, in <em>PF_Cmd_SEQUENCE_SETUP</em>, it calls PF_SourceSettingsSuite-&gt;PerformSourceSettingsCommand(), which calls through to the importer with the selector <em>imPerformSourceSettingsCommand</em>. Here, the importer opens the media, looks at the header and initializes the prefs based on the media. For</p>
 <p>DPX, the initial parameters and default prefs are based on the bit depth of the video. These default prefs are passed back to the effect, which sets the initial param values and stashes a copy of them in sequence_data to use again for future calls to <em>PF_Cmd_SEQUENCE_RESETUP</em>.</p>
-<h3 id="intro-whats-new-importers_2">Importers<a class="headerlink" href="#intro-whats-new-importers_2" title="Permanent link">&para;</a></h3>
+<h3 id="intro-whats-new-20150-importers">2015.0 : Importers<a class="headerlink" href="#intro-whats-new-20150-importers" title="Permanent link">&para;</a></h3>
 <p>For any importers that are using imClipFrameDescriptorRec, note that the structure definition has changed. Any importers that use this in both CC 2014 and CC 2015 or later will need to do a runtime check before accessing the members of this structure.</p>
-<h3 id="intro-whats-new-exporters_2">Exporters<a class="headerlink" href="#intro-whats-new-exporters_2" title="Permanent link">&para;</a></h3>
+<h3 id="intro-whats-new-20150-exporters">2015.0 : Exporters<a class="headerlink" href="#intro-whats-new-20150-exporters" title="Permanent link">&para;</a></h3>
 <p>Exporters can now use standard parameters for audio channel configuration, as used with the built-in QuickTime exporter. The new exporter parameters ADBEAudioChannelConfigurationGroup and ADBEAudioChannelConfiguration supercede ADBEAudioNumChannels. The new Export Audio Param Suite can be used to query/change the audio channel configuration.</p>
 <p>The <a href="#exporters-suites-sequence-audio-suite">Sequence Audio Suite</a> is now at version 2, revising <code>MakeAudioRenderer()</code> to take <code>PrAudioChannelLabel*</code> as a parameter.</p>
-<h3 id="intro-whats-new-transmitters">Transmitters<a class="headerlink" href="#intro-whats-new-transmitters" title="Permanent link">&para;</a></h3>
+<h3 id="intro-whats-new-20150-transmitters">2015.0 : Transmitters<a class="headerlink" href="#intro-whats-new-20150-transmitters" title="Permanent link">&para;</a></h3>
 <p>Transmitters can get a few new bits of information to aid with A/V sync. In the <a href="#transmitters-suites-playmod-audio-suite">Playmod Audio Suite</a>, the new function GetNextAudioBuffer2() returns the actual time the rendered buffer is from.</p>
 <p>Also, in <code>tmPlaybackClock</code>, the new members <code>inAudioOffset</code> and <code>inVideoOffset</code> have been added to specify the offset chosen by the user in the preferences.</p>
 <p>The host accounts for these offsets automatically by sending frames early, but if a transmitter is manually trying to line up audio and video times, it can use this to know how far apart from each other they are supposed to be.</p>
-<h3 id="intro-whats-new-miscellaneous_1">Miscellaneous<a class="headerlink" href="#intro-whats-new-miscellaneous_1" title="Permanent link">&para;</a></h3>
+<h3 id="intro-whats-new-20150-miscellaneous">2015.0 : Miscellaneous<a class="headerlink" href="#intro-whats-new-20150-miscellaneous" title="Permanent link">&para;</a></h3>
 <p>Legacy callbacks bottlenecks-&gt;ConvolvePtr() and IndexMapPtr() have had their parameter types updated to fix a bug. Any plugins that use these in both previous versions and CC 2015 will need to do a runtime check before calling this function.</p>
 <p>Starting in CC 2015, we now provide installer hints for Mac. You'll find a new plist file "com. Adobe.Premiere Pro.paths.plist" at "/Library/Preferences". This contains hints for your Mac installer to know where to install plugins, and is similar to the registry entries we have been providing on Win.</p>
-<h3 id="intro-whats-new-new-sample-projects_1">New Sample Projects<a class="headerlink" href="#intro-whats-new-new-sample-projects_1" title="Permanent link">&para;</a></h3>
+<h3 id="intro-whats-new-20150-new-sample-projects">2015.0 : New Sample Projects<a class="headerlink" href="#intro-whats-new-20150-new-sample-projects" title="Permanent link">&para;</a></h3>
 <p>This SDK includes updated GPU effect and transition samples that demonstrate GPU rendering. Thanks to Rama Hoetzlein from nVidia for the CUDA render path provided for the SDK_CrossDissolve sample!</p>
 <p>A barebones Control Surface sample is now provided, too.</p>
 <hr />
@@ -5101,7 +5101,7 @@
 <h3 id="intro-whats-new-stereoscopic-video-pipeline">Stereoscopic Video Pipeline<a class="headerlink" href="#intro-whats-new-stereoscopic-video-pipeline" title="Permanent link">&para;</a></h3>
 <p>We are also adding API support for stereoscopic video throughout the render pipeline. This affects importers, effects built using the After Effects API, and exporters.</p>
 <h3 id="intro-whats-new-other-changes">Other Changes<a class="headerlink" href="#intro-whats-new-other-changes" title="Permanent link">&para;</a></h3>
-<h4 id="intro-whats-new-importers_3">Importers<a class="headerlink" href="#intro-whats-new-importers_3" title="Permanent link">&para;</a></h4>
+<h4 id="intro-whats-new-cs6-importers">CS6 : Importers<a class="headerlink" href="#intro-whats-new-cs6-importers" title="Permanent link">&para;</a></h4>
 <p>Importers can now support growing files in Premiere Pro. We have also added a way for importers to specify all their source files to be copied by Collect Files in After Effects. There is also a new function in the Media Accelerator Suite to validate the content state of a media accelerator. See additional details of what's new in <a href="#importers-importers">Importers</a>.</p>
 <h4 id="intro-whats-new-recorders">Recorders<a class="headerlink" href="#intro-whats-new-recorders" title="Permanent link">&para;</a></h4>
 <p>For Recorders, the parent window handle is now properly passed in during <em>recmod_ShowOptions</em></p>
@@ -5126,13 +5126,13 @@
 <p>MPEG-4 pixel formats and full-range Rec. 709 MPEG-2 and MPEG-4 formats have now been added for native support in the render pipeline.</p>
 <hr />
 <h2 id="intro-whats-new-whats-new-in-cs55">What's New in CS5.5?<a class="headerlink" href="#intro-whats-new-whats-new-in-cs55" title="Permanent link">&para;</a></h2>
-<h4 id="intro-whats-new-importers_4">Importers<a class="headerlink" href="#intro-whats-new-importers_4" title="Permanent link">&para;</a></h4>
+<h3 id="intro-whats-new-cs55-importers">CS5.5 : Importers<a class="headerlink" href="#intro-whats-new-cs55-importers" title="Permanent link">&para;</a></h3>
 <p>Importers can now support color management, when running in After Effects. Now, even nonsynthetic importers can explicitly provide peak audio data. And a new return value allows an importer to specify that it is dependent on a library that needs to be activated. See additional details of what's new in <a href="#importers-importers">Importers</a>.</p>
-<h4 id="intro-whats-new-players_1">Players<a class="headerlink" href="#intro-whats-new-players_1" title="Permanent link">&para;</a></h4>
+<h3 id="intro-whats-new-cs55-players">CS5.5 : Players<a class="headerlink" href="#intro-whats-new-cs55-players" title="Permanent link">&para;</a></h3>
 <p>Players can now support closed captioning. See additional details of what's new in the players chapter.</p>
-<h4 id="intro-whats-new-exporters_3">Exporters<a class="headerlink" href="#intro-whats-new-exporters_3" title="Permanent link">&para;</a></h4>
+<h3 id="intro-whats-new-cs55-exporters">CS5.5 : Exporters<a class="headerlink" href="#intro-whats-new-cs55-exporters" title="Permanent link">&para;</a></h3>
 <p>Exporters now have a call to request a rendered frame and then conform it to a specific pixel format. See additional details of what's new in <a href="#exporters-exporters">Exporters</a>.</p>
-<h4 id="intro-whats-new-export-controller">Export Controller<a class="headerlink" href="#intro-whats-new-export-controller" title="Permanent link">&para;</a></h4>
+<h3 id="intro-whats-new-export-controller">Export Controller<a class="headerlink" href="#intro-whats-new-export-controller" title="Permanent link">&para;</a></h3>
 <p>We have opened up a new Export Controller API that can drive any exporter to output a file in any format and perform custom post-processing operations. Developers wanting to integrate Premiere Pro with an asset management system will want to use this API instead of the exporter API. See <a href="#export-controllers-export-controllers">Export Controllers</a> for more details.</p>
 <p>A new pair of pixel formats was added to natively support full-range Rec. 601 4:2:0 YUV planar video, both progressive and interlaced: PrPixelFormat_YUV_420_MPEG2_FRAME_PICTURE_PLANAR_8u_601_FullRange and PrPixelFormat_YUV_420_MPEG2_FIELD_PICTURE_PLANAR_8u_601_FullRange.</p>
 <p>The <a href="#universals-sweetpea-suites-video-segment-suite">Video Segment Suite</a> now provides a new call to retrieve a segment node for a requested time. There are also a few new properties for media nodes:</p>
@@ -5146,17 +5146,14 @@
 <p>The <a href="#universals-sweetpea-suites-image-processing-suite">Image Processing Suite</a> has a new call to set the aspect ratio flag of a DV frame.</p>
 <hr />
 <h2 id="intro-whats-new-whats-new-in-cs5">What's New in CS5?<a class="headerlink" href="#intro-whats-new-whats-new-in-cs5" title="Permanent link">&para;</a></h2>
-<h4 id="intro-whats-new-importers_5">Importers<a class="headerlink" href="#intro-whats-new-importers_5" title="Permanent link">&para;</a></h4>
+<h3 id="intro-whats-new-cs5-importers">CS5 : Importers<a class="headerlink" href="#intro-whats-new-cs5-importers" title="Permanent link">&para;</a></h3>
 <p>Importers now have access to the resolution, pixel aspect ratio, timebase, and audio sample rate of the source clip from a setup dialog. Custom importers can use a new call to update a clip after it has modified by the user in the setup dialog. Please refer to <a href="#importers-importers">Importers</a> for more info on what's new.</p>
-<h4 id="intro-whats-new-recorders_1">Recorders<a class="headerlink" href="#intro-whats-new-recorders_1" title="Permanent link">&para;</a></h4>
+<h3 id="intro-whats-new-cs5-recorders">CS5 : Recorders<a class="headerlink" href="#intro-whats-new-cs5-recorders" title="Permanent link">&para;</a></h3>
 <p>Recorders can now provide audio metering during preview and capture.</p>
-<h4 id="intro-whats-new-exporters-and-players">Exporters and players<a class="headerlink" href="#intro-whats-new-exporters-and-players" title="Permanent link">&para;</a></h4>
+<h3 id="intro-whats-new-exporters-and-players">Exporters and players<a class="headerlink" href="#intro-whats-new-exporters-and-players" title="Permanent link">&para;</a></h3>
 <p>Exporters and players can automatically take advantage of GPU acceleration, if available on the end-user's system. Each project now has a setting for the renderer that the user can choose in the project settings dialog. When renders occur through the <a href="#exporters-suites-sequence-render-suite">Sequence Render Suite</a> or the Playmod Render Suite, they now go through the renderer chosen for the current project. This allows third-party exporters and players to use the built-in GPU acceleration available in the new Mercury Playback Engine.</p>
 <p>Exporters and players can now handle any pixel format, with the new <a href="#universals-sweetpea-suites-image-processing-suite">Image Processing Suite</a>. Exporters and players that parse segments and perform their own rendering can now call the host for subtree rendering. See the <a href="#universals-sweetpea-suites-video-segment-render-suite">Video Segment Render Suite</a> for details.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you provide an installer for an exporter, custom presets created in Premiere Pro are now visible in AME and vice-versa.</p>
-</div>
+<p>NOTE: If you provide an installer for an exporter, custom presets created in Premiere Pro are now visible in AME and vice-versa.</p>
 <h3 id="intro-whats-new-mac-64-bit-and-cocoa">Mac 64-Bit and Cocoa<a class="headerlink" href="#intro-whats-new-mac-64-bit-and-cocoa" title="Permanent link">&para;</a></h3>
 <p>It is invalid to unload any bundle that uses Cocoa because of restrictions in the Objective-C runtime which do not support unregistering classes. If a plugin uses Cocoa, it must call CFRetain on its own bundle, otherwise it will cause a crash when the application is closing and tries to unload the plugins.</p>
 <hr />
