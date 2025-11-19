@@ -4,8 +4,11 @@
 
 Premiere Pro has added support for WinARM-native plugins. Additionally, we've updated the header files included in the SDK, to match the versions we use internally to build Premiere Pro.
 
+<<<<<<< Updated upstream
 Good news: The only significant changes required was re-targeting the Windows sample projects to build for WinARM architecture. The GPU samples will be updated to build for WinARM, in a subsequent update.
 
+=======
+>>>>>>> Stashed changes
 ## What's New in 25.6
 
 No changes for this version.
