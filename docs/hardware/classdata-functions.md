@@ -55,7 +55,6 @@ int getClassData (
     unsigned int  theClass);
 ```
 
-
 | Parameter  |       Type       |              Description              |
 | ---------- | ---------------- | ------------------------------------- |
 | `theClass` | Unsigned integer | The class for which to retrieve data. |
