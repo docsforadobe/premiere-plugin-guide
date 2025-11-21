@@ -1512,9 +1512,9 @@ Describes the colorspace in use with the media.
 ```cpp
 typedef struct
 {
-        PrSDKColorSpaceType           colorSpaceType;
-        RawColorProfileRec            profileRec;   // for ICC and Predefined Color Spaces
-        prSEIColorCodesRec            seiCodesRec;  // H-265 codes for HEVC, AVC, ProRes
+  PrSDKColorSpaceType           colorSpaceType;
+  RawColorProfileRec            profileRec;   // for ICC and Predefined Color Spaces
+  prSEIColorCodesRec            seiCodesRec;  // H-265 codes for HEVC, AVC, ProRes
 } RawColorSpaceRec;
 ```
 
