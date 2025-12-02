@@ -48,16 +48,12 @@ int setClassData (
 
 `getClassData`
 
-#### Description
-
 Retrieves the class data for the given class.
 
 ```cpp
 int getClassData (
     unsigned int  theClass);
 ```
-
-#### Parameters
 
 | Parameter  |       Type       |              Description              |
 | ---------- | ---------------- | ------------------------------------- |

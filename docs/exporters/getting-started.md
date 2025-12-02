@@ -70,7 +70,7 @@ Starting in CS5, all the presets are saved to the same location, regardless of w
 
 On Windows 7, presets are saved here: `[User folder]\AppData\Roaming\Adobe\Common\AME\[version]\Presets\\`
 
-On Mac OS: `~/Library/Preferences/Adobe/Common/AME/[version]/Presets/`
+On MacOS: `~/Library/Preferences/Adobe/Common/AME/[version]/Presets/`
 
 In CS4, where the files are saved depends on whether you've opened the Export Settings UI in Premiere Pro or Media Encoder:
 
@@ -80,13 +80,13 @@ On Windows Vista, presets are saved here: `[User folder]\AppData\Roaming\Adobe\A
 
 On Windows XP: `[Documents and Settings folder]\[user name]\Application Data\Adobe\Adobe Media Encoder\[version]\Presets\\`
 
-On Mac OS: `~/Library/Preferences/Adobe/Adobe Media Encoder/[version]/ Presets/`
+On MacOS: `~/Library/Preferences/Adobe/Adobe Media Encoder/[version]/ Presets/`
 
 ### Premiere Pro presets
 
 On Windows, presets are saved here: `[User folder]\AppData\Roaming\Adobe\Premiere Pro\[version]\\ Presets\\`
 
-On Mac OS: `~/Library/Preferences/Adobe/Adobe Premiere Pro/[version]/Presets/`
+On MacOS: `~/Library/Preferences/Adobe/Adobe Premiere Pro/[version]/Presets/`
 
 #### AME Preset Browser
 
@@ -200,19 +200,14 @@ typedef struct {
 } exportStdParms;
 ```
 
-+-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
 |      Member       |                                                                          Description                                                                          |
-+===================+===============================================================================================================================================================+
+|-|-|
 | `interfaceVer`    | Exporter API version, one of :                                                                                                                                |
-|                   |                                                                                                                                                               |
-|                   | - Premiere Pro CC - `prExportVersion400`                                                                                                                      |
-|                   | - Premiere Pro CS6 - `prExportVersion300`                                                                                                                     |
-|                   | - Premiere Pro CS5.5 - `prExportVersion250`                                                                                                                   |
-|                   | - Premiere Pro CS5 - `prExportVersion200`                                                                                                                     |
-|                   | - Premiere Pro 4.0.1 through 4.2.1 - `prExportVersion101`                                                                                                     |
-|                   | - Premiere Pro CS4 - `prExportVersion100`                                                                                                                     |
-+-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                   | Premiere Pro CC - `prExportVersion400`                                                                                                                      |
+|                   | Premiere Pro CS6 - `prExportVersion300`                                                                                                                     |
+|                   | Premiere Pro CS5.5 - `prExportVersion250`                                                                                                                   |
+|                   | Premiere Pro CS5 - `prExportVersion200`                                                                                                                     |
+|                   | Premiere Pro 4.0.1 through 4.2.1 - `prExportVersion101`                                                                                                     |
+|                   | Premiere Pro CS4 - `prExportVersion100`                                                                                                                     |
 | `getSPBasicSuite` | This very important call returns the SweetPea suite that allows plugins to acquire and release all other [SweetPea Suites](../universals/sweetpea-suites.md). |
-|                   |                                                                                                                                                               |
 |                   | ```SPBasicSuite* getSPBasicSuite();```                                                                                                                        |
-+-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+

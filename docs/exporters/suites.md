@@ -27,57 +27,31 @@ prSuiteError (*GetExportSourceInfo)(
   PrParam                     *outSourceInfo);
 ```
 
-+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|                 Value                  |    Type     |                                                                                                     Description                                                                                                     |
-+========================================+=============+=====================================================================================================================================================================================================================+
+|                 Value                  |    Type     |  Description |
+|-|-|-|
 | `kExportInfo_VideoWidth`               | Int32       | Width of source video                                                                                                                                                                                               |
-+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `kExportInfo_VideoHeight`              | Int32       | Height of source video                                                                                                                                                                                              |
-+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `kExportInfo_VideoFrameRate`           | PrTime      | Frame rate                                                                                                                                                                                                          |
-+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `kExportInfo_VideoFieldType`           | Int32       | One of the prFieldType values                                                                                                                                                                                       |
-+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `kExportInfo_VideoDuration`            | Int64       | A PrTime value                                                                                                                                                                                                      |
-+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `kExportInfo_PixelAspectNumerator`     | Int32       | Pixel aspect ratio (PAR) numerator                                                                                                                                                                                  |
-+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `kExportInfo_PixelAspectDenominator`   | Int32       | Pixel aspect ratio denominator                                                                                                                                                                                      |
-+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `kExportInfo_AudioDuration`            | Int64       | A PrTime value                                                                                                                                                                                                      |
-+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `kExportInfo_AudioChannelsType`        | Int32       | One of the `PrAudioChannelType` values.                                                                                                                                                                            |
-|                                        |             |                                                                                                                                                                                                                     |
-|                                        |             | Returns `0` (which is undefined) if there's no audio.                                                                                                                                                              |
-+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| `kExportInfo_AudioChannelsType`        | Int32       | One of the `PrAudioChannelType` values. Returns 0 (which is undefined) if there's no audio. |
 | `kExportInfo_AudioSampleRate`          | Float64     |                                                                                                                                                                                                                     |
-+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `kExportInfo_SourceHasAudio`           | Bool        | Non-zero if source has audio                                                                                                                                                                                        |
-+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `kExportInfo_SourceHasVideo`           | Bool        | Non-zero if source has video                                                                                                                                                                                        |
-+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `kExportInfo_RenderAsPreview`          | Bool        | Returns a non-zero value if currently rendering preview files.                                                                                                                                                     |
-+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `kExportInfo_SequenceGUID`             | Guid        | A `PrPluginID`, which is a unique GUID for the sequence.                                                                                                                                                           |
-+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `kExportInfo_SessionFilePath`          | PrMemoryPtr | A `prUTF16Char` array. The exporter should release the pointer using the [Memory Manager Suite](../universals/sweetpea-suites.md#memory-manager-suite).                                                            |
-+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `kExportInfo_VideoPosterFrameTickTime` | Int64       | New in CS5. A PrTime value.                                                                                                                                                                                        |
-+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `kExportInfo_SourceTimecode`           | PrMemoryPtr | New in CS5.0.2. The timecode of the source clip or sequence.                                                                                                                                                       |
-|                                        |             |                                                                                                                                                                                                                     |
 |                                        |             | The sequence timecode is set by the Start Time of a sequence using the sequence wing-menu. A pointer to a ExporterTimecodeRec structure.                                                                           |
-|                                        |             |                                                                                                                                                                                                                     |
 |                                        |             | The exporter should release the pointer using the [Memory Manager Suite](../universals/sweetpea-suites.md#memory-manager-suite).                                                                                   |
-+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `kExportInfo_UsePreviewFiles`          | Bool        | New in CC. Use this to check if the user has checked "Use Previews" in the Export Settings dialog.                                                                                                                 |
-|                                        |             |                                                                                                                                                                                                                     |
-|                                        |             | If so, if possible, reuse any preview files already rendered, which can be retrieved using `AcquireVideoSegmentsWithPreviewsID` in the [Video Segment Suite](../universals/sweetpea-suites.md#video-segment-suite). |
-+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| | | If so, if possible, reuse any preview files already rendered, which can be retrieved using `AcquireVideoSegmentsWithPreviewsID` in the [Video Segment Suite](../universals/sweetpea-suites.md#video-segment-suite). |
 | `kExportInfo_NumAudioChannels`         | Int32       | New in CC. Get the number of audio channels in a given source.                                                                                                                                                     |
-|                                        |             |                                                                                                                                                                                                                     |
-|                                        |             | This can be used to automatically initialize the audio channel parameter in the Audio tab of the Export Settings to match the source.                                                                              |
-+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                                        |             |                                                                                                                                                                                                                      This can be used to automatically initialize the audio channel parameter in the Audio tab of the Export Settings to match the source.                                                                              |
 
 ```cpp
 typedef struct {
@@ -139,15 +113,11 @@ prSuiteError (*AddStandardParams)(
   PrSDKStdParamType  inSDKStdParamType);
 ```
 
-+---------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|       Member        |                                                                                                                                                                             Description                                                                                                                                                                             |
-+=====================+=====================================================================================================================================================================================================================================================================================================================================================================+
+|       Member        | Description |
+|-|-|
 | `inExporterID`      | Pass in `exporterPluginID` from `exDoExportRec`.                                                                                                                                                                                                                                                                                                                   |
-+---------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `inSDKStdParamType` | Use one of the following:                                                                                                                                                                                                                                                                                                                                           |
-|                     |                                                                                                                                                                                                                                                                                                                                                                     |
-|                     | <pre lang="cpp">enum PrSDKStdParamType {<br/>  SDKStdParams_Video,<br/>  SDKStdParams_Audio,<br/>  SDKStdParams_Still,<br/>  SDKStdParams_VideoBitrateGroup,<br/>  SDKStdParams_Video_NoRenderMax,<br/>  SDKStdParams_Video_AddRenderMax,<br/>  SDKStdParams_AudioTabOnly,<br/>  SDKStdParams_AudioBitrateGroup,<br/>  SDKStdParams_VideoWithSizePopup<br/>};</pre> |
-+---------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| `inSDKStdParamType` | Use one of the following: |
+|                     | `enum PrSDKStdParamType {  SDKStdParams_Video,  SDKStdParams_Audio,  SDKStdParams_Still,  SDKStdParams_VideoBitrateGroup,  SDKStdParams_Video_NoRenderMax,  SDKStdParams_Video_AddRenderMax,  SDKStdParams_AudioTabOnly,  SDKStdParams_AudioBitrateGroup,  SDKStdParams_VideoWithSizePopup};` |
 
 ### PostProcessParamNames
 
@@ -219,31 +189,19 @@ prSuiteError (*DoMultiPassExportLoop)(
   void*                                            inCompletionParam);
 ```
 
-+------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|         Member         |                                                                                                                                                                                                                      Description                                                                                                                                                                                                                       |
-+========================+========================================================================================================================================================================================================================================================================================================================================================================================================================================================+
+|         Member         | Description |
+|-|-|
 | `inExporterID`         | Pass in `exporterPluginID` from `exDoExportRec`.                                                                                                                                                                                                                                                                                                                                                                                                      |
-+------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `inRenderParams`       | Pass in the parameters that will be used for the render loop that will push rendered frames via the provided callback `inCompletionFunction`.                                                                                                                                                                                                                                                                                                         |
-|                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 |                        | `inReservedProgressPreRender` and `inReservedProgressPostRender` should be set to the amount of progress to be shown in any progress bar before starting the render loop, and how much is remaining after finishing the render loop.                                                                                                                                                                                                                  |
-|                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 |                        | These values default to zero.                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-|                        | <pre lang="cpp">typedef struct {<br/>  csSDK_int32    inRenderParamsSize;<br/>  csSDK_int32    inRenderParamsVersion;<br/>  PrPixelFormat  inFinalPixelFormat;<br/>  PrTime         inStartTime;<br/>  PrTime         inEndTime;<br/>  float          inReservedProgressPreRender;<br/>  float          inReservedProgressPostRender;<br/>  bool           inHardwareResidentFrameOutputSupported;  // new in 14.x<br/>} ExportLoopRenderParams;</pre> |
-+------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                        | `typedef struct {  csSDK_int32    inRenderParamsSize;  csSDK_int32    inRenderParamsVersion;  PrPixelFormat  inFinalPixelFormat;  PrTime         inStartTime;  PrTime         inEndTime;  float          inReservedProgressPreRender;  float          inReservedProgressPostRender;  bool           inHardwareResidentFrameOutputSupported;  // new in 14.x} ExportLoopRenderParams;` |
 | `inNumberOfPasses`     | Set to 1, unless you need multipass encoding such as two-pass or three-pass encoding.                                                                                                                                                                                                                                                                                                                                                                 |
-+------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `inCompletionFunction` | Provide your own callback here, which will be called when the host pushes rendered frames. Use the following function signature:                                                                                                                                                                                                                                                                                                                       |
-|                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-|                        | <pre lang="cpp">typedef prSuiteError (\*PrSDKMultipassExportLoop FrameCompletionFunction)(<br/>  csSDK_uint32  inWhichPass,<br/>  csSDK_uint32  inFrameNumber,<br/>  csSDK_uint32  inFrameRepeatCount,<br/>  PPixHand      inRenderedFrame,<br/>  void*         inCallbackData);</pre>                                                                                                                                                                 |
-|                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+|                        | `typedef prSuiteError (*PrSDKMultipassExportLoop FrameCompletionFunction)(  csSDK_uint32  inWhichPass,  csSDK_uint32  inFrameNumber,  csSDK_uint32  inFrameRepeatCount,  PPixHand      inRenderedFrame,  void*         inCallbackData);`                                                                                                                                                                 |
 |                        | Currently, there is no simple way to ensure that pushed frames survive longer than the life of the function call.                                                                                                                                                                                                                                                                                                                                     |
-|                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 |                        | If you are interested in this capability, please contact us and explain your need.                                                                                                                                                                                                                                                                                                                                                                    |
-+------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `inCompletionParam`    | Pass in a void \* to the data you wish to send to your `inCompletionFunction` above in `inCallbackData`.                                                                                                                                                                                                                                                                                                                                              |
-+------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| `inCompletionParam`    | Pass in a void * to the data you wish to send to your `inCompletionFunction` above in `inCallbackData`.                                                                                                                                                                                                                                                                                                                                              |
 
 ### ReportIntermediateProgressForRepeatedVideoFrame
 
@@ -276,21 +234,15 @@ prSuiteError (*ReportEvent)(
   const prUTF16Char*  inEventDescription);
 ```
 
-+----------------------+--------------------------------------------------------------------------------------------+
 |        Member        |                                        Description                                         |
-+======================+============================================================================================+
+|-|-|
 | `inExporterID`       | Pass in `exporterPluginID` from `exDoExportRec`.                                          |
-+----------------------+--------------------------------------------------------------------------------------------+
 | `inEventType`        | Use one of the types from the [Error Suite](../universals/sweetpea-suites.md#error-suite): |
-|                      |                                                                                            |
-|                      | - `kEventTypeInformational`                                                                |
-|                      | - `kEventTypeWarning`                                                                      |
-|                      | - `kEventTypeError`                                                                        |
-+----------------------+--------------------------------------------------------------------------------------------+
+|                      | `kEventTypeInformational`                                                                |
+|                      | `kEventTypeWarning`                                                                      |
+|                      | `kEventTypeError`                                                                        |
 | `inEventTitle`       | Provide information about the event for the user.                                         |
-+----------------------+--------------------------------------------------------------------------------------------+
 | `inEventDescription` |                                                                                            |
-+----------------------+--------------------------------------------------------------------------------------------+
 
 ---
 
@@ -360,23 +312,15 @@ prSuiteError (*GetAudio)(
   char          inClipAudio);
 ```
 
-+-------------------+----------------------------------------------------------------------------------------------------------------+
 |      Member       |                                                  Description                                                   |
-+===================+================================================================================================================+
+|-|-|
 | `inAudioRenderID` | Pass in the `outAudioRenderID` returned from `MakeAudioRenderer()`.                                           |
-|                   |                                                                                                                |
 |                   | This gives the host the context of the audio render.                                                          |
-+-------------------+----------------------------------------------------------------------------------------------------------------+
 | `inFrameCount`    | The number of audio frames to return in inBuffer.                                                             |
-|                   |                                                                                                                |
 |                   | The next contiguous audio frames will always be returned, unless `ResetAudioToBeginning` has just been called. |
-+-------------------+----------------------------------------------------------------------------------------------------------------+
 | `inBuffer`        | An array of float arrays, allocated by the exporter.                                                          |
-|                   |                                                                                                                |
 |                   | The host returns the samples for each audio channel in a separate array.                                      |
-+-------------------+----------------------------------------------------------------------------------------------------------------+
 | `inClipAudio`     | When true, `GetAudio` will return audio clipped at +/- 1.0. Otherwise, it will return unclipped audio.        |
-+-------------------+----------------------------------------------------------------------------------------------------------------+
 
 ### ResetAudioToBeginning
 
@@ -534,8 +478,8 @@ typedef struct {
   csSDK_int32           inDeinterlace;
   PrRenderQuality       inDeinterlaceQuality;
   csSDK_int32           inCompositeOnBlack;
-  PrSDKColorSpaceID       inPrSDKColorSpaceID;
-      PrSDKLUTID                      inPrSDKLUTID;                   // Added to support export LUT
+  PrSDKColorSpaceID     inPrSDKColorSpaceID;
+  PrSDKLUTID            inPrSDKLUTID;                   // Added to support export LUT
 } SequenceRender_ParamsRecExt2;
 ```
 
@@ -569,23 +513,15 @@ typedef struct {
 } SequenceRender_GetFrameReturnRec;
 ```
 
-+-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
 |        Member         |                                                                   Description                                                                    |
-+=======================+==================================================================================================================================================+
+|-|-|
 | `asyncCompletionData` | Passed to `PrSDKSequenceAsyncRenderCompletionProc()` from `QueueAsyncVideoFrameRender()`.                                                       |
-|                       |                                                                                                                                                  |
 |                       | Not used by `RenderVideoFrame()`.                                                                                                               |
-+-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
 | `returnVal`           | `ErrNone`, `Abort`, `Done`, or an error code.                                                                                                   |
-+-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
 | `repeatCount`         | The number of repeated frames from this frame forward.                                                                                          |
-|                       |                                                                                                                                                  |
 |                       | In the output file, this could be writing NULL frames, changing the current frame's duration, or whatever is appropriate according to the codec. |
-+-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
 | `onMarker`            | If non-zero, there is a marker on this frame.                                                                                                   |
-+-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
 | `outFrame`            | Returned from `RenderVideoFrame()`. Not returned from `PrSDKSequenceAsyncRenderCompletionProc()`                                                 |
-+-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ### RenderVideoFrame()
 
@@ -607,21 +543,14 @@ prSuiteError (*RenderVideoFrame)(
   SequenceRender_GetFrameReturnRec*  getFrameReturn);
 ```
 
-+-------------------+-----------------------------------------------------------------------------------------------------+
 |      Member       |                                             Description                                             |
-+===================+=====================================================================================================+
+|-|-|
 | `inVideoRenderID` | Pass in the `outVideoRenderID` returned from `MakeVideoRenderer()`.                                |
-|                   |                                                                                                     |
 |                   | This gives the host the context of the video render.                                               |
-+-------------------+-----------------------------------------------------------------------------------------------------+
 | `inTime`          | The frame time requested.                                                                          |
-+-------------------+-----------------------------------------------------------------------------------------------------+
 | `inRenderParams`  | The details of the render.                                                                         |
-+-------------------+-----------------------------------------------------------------------------------------------------+
 | `inCacheFlags`    | One or more cache flags.                                                                           |
-+-------------------+-----------------------------------------------------------------------------------------------------+
 | `getFrameReturn`  | Passes back a structure that contains info about the frame returned, and the rendered frame itself. |
-+-------------------+-----------------------------------------------------------------------------------------------------+
 
 ### GetFrameInfo()
 
@@ -631,8 +560,8 @@ Currently, `SequenceRender_FrameInfoRec` only contains `repeatCount`, which is t
 
 ```cpp
 prSuiteError (*GetFrameInfo)(
-  csSDK_uint32                 inVideoRenderID,
-  PrTime                       inTime,
+  csSDK_uint32                  inVideoRenderID,
+  PrTime                        inTime,
   SequenceRender_FrameInfoRec*  outFrameInfo);
 ```
 
@@ -649,19 +578,13 @@ prSuiteError (*SetAsyncRenderCompletionProc)(
   long                                    callbackRef);
 ```
 
-+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
 |         Member          |                                                             Description                                                              |
-+=========================+======================================================================================================================================+
+|-|-|
 | `inVideoRenderID`       | Pass in the `outVideoRenderID` returned from `MakeVideoRenderer()`.                                                                 |
-|                         |                                                                                                                                      |
 |                         | This will be passed to `PrSDKSequenceAsyncRenderCompletionProc`.                                                                    |
-+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
 | `asyncGetFrameCallback` | The notification callback.                                                                                                          |
-+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
 | `inCallbackRef`         | A pointer holding data private to the exporter.                                                                                     |
-|                         |                                                                                                                                      |
 |                         | This could be, for example, a pointer to an exporter instance. This will also be passed to `PrSDKSequenceAsyncRenderCompletionProc`. |
-+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
 
 ### PrSDKSequenceAsyncRenderCompletionProc()
 
@@ -672,27 +595,20 @@ Error status (error or abort) is returned in `inGetFrameReturn`.
 ```cpp
 void (*PrSDKSequenceAsyncRenderCompletionProc)(
   csSDK_uint32                      inVideoRenderID,
-  void*                              inCallbackRef,
+  void*                             inCallbackRef,
   PrTime                            inTime,
   PPixHand                          inRenderedFrame,
   SequenceRender_GetFrameReturnRec  *inGetFrameReturn);
 ```
 
-+--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 |       Member       |                                                                                 Description                                                                                  |
-+====================+==============================================================================================================================================================================+
+|-|-|
 | `inVideoRenderID`  | The outVideoRenderID that the exporter passed to `SetAsyncRenderCompletionProc` earlier.                                                                                    |
-+--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `inCallbackRef`    | A pointer that the exporter sets using `SetAsyncRenderCompletionProc()`.                                                                                                    |
-|                    |                                                                                                                                                                              |
 |                    | This could be, for example, a pointer to an exporter instance.                                                                                                              |
-+--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `inTime`           | The frame time requested.                                                                                                                                                   |
-+--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `inRenderedFrame`  | The rendered frame. The exporter is reponsible for `disposing` of this PPixHand using the `Dispose()` call in the [PPix Suite](../universals/sweetpea-suites.md#ppix-suite). |
-+--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `inGetFrameReturn` | A structure that contains info about the frame returned, and it includes the `inAsyncCompletionData` originally passed to `QueueAsyncVideoFrameRender()`.                   |
-+--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ### QueueAsyncVideoFrameRender()
 
@@ -712,23 +628,15 @@ prSuiteError (*QueueAsyncVideoFrameRender)(
   void*                      inAsyncCompletionData);
 ```
 
-+-------------------------+---------------------------------------------------------------------------------------------------------------------+
 |         Member          |                                                     Description                                                     |
-+=========================+=====================================================================================================================+
+|-|-|
 | `inVideoRenderID`       | Pass in the `outVideoRenderID` returned from `MakeVideoRenderer()`.                                                |
-|                         |                                                                                                                     |
 |                         | This gives the host the context of the video render.                                                               |
-+-------------------------+---------------------------------------------------------------------------------------------------------------------+
 | `inTime`                | The frame time requested.                                                                                          |
-+-------------------------+---------------------------------------------------------------------------------------------------------------------+
 | `outRequestID`          | Passes back a request ID, which… doesn't seem to have any use.                                                     |
-+-------------------------+---------------------------------------------------------------------------------------------------------------------+
 | `inRenderParams`        | The details of the render.                                                                                         |
-+-------------------------+---------------------------------------------------------------------------------------------------------------------+
 | `inCacheFlags`          | One or more cache flags.                                                                                           |
-+-------------------------+---------------------------------------------------------------------------------------------------------------------+
 | `inAsyncCompletionData` | This data will be passed to the `PrSDKSequenceAsyncRenderCompletionProc` in `inGetFrameReturn.asyncCompletionData`. |
-+-------------------------+---------------------------------------------------------------------------------------------------------------------+
 
 ### PrefetchMedia()
 
@@ -844,11 +752,11 @@ Renders a frame of video, using the specified color management.
 
 ```cpp
 prSuiteError (*RenderColorManagedVideoFrame)(
-        csSDK_uint32                                    inVideoRenderID,
-        PrTime                                                  inTime,
-        SequenceRender_ParamsRecExt*    inRenderParamsExt,
-        PrRenderCacheType                               inCacheFlags,
-        SequenceRender_GetFrameReturnRec*       getFrameReturn);
+        csSDK_uint32                        inVideoRenderID,
+        PrTime                              inTime,
+        SequenceRender_ParamsRecExt*        inRenderParamsExt,
+        PrRenderCacheType                   inCacheFlags,
+        SequenceRender_GetFrameReturnRec*   getFrameReturn);
 ```
 
 ### QueueAsyncColorManagedVideoFrameRender()
@@ -857,12 +765,12 @@ Queues a render for a frame of video, using the specified color management.
 
 ```cpp
 prSuiteError (*QueueAsyncColorManagedVideoFrameRender)(
-        csSDK_uint32                                    inVideoRenderID,
-        PrTime                                                  inTime,
-        csSDK_uint32*                                   outRequestID,
+        csSDK_uint32                    inVideoRenderID,
+        PrTime                          inTime,
+        csSDK_uint32*                   outRequestID,
         SequenceRender_ParamsRecExt*    inRenderParamsExt,
-        PrRenderCacheType                               inCacheFlags,
-        void*                                                   inAsyncCompletionData);
+        PrRenderCacheType               inCacheFlags,
+        void*                           inAsyncCompletionData);
 ```
 
 ### PrefetchColorManagedMedia()
@@ -871,9 +779,9 @@ Pre-fetches a frame of color-managed media.
 
 ```cpp
 prSuiteError (*PrefetchColorManagedMedia)(
-        csSDK_uint32            inVideoRenderID,
-        PrTime                          inFrame,
-        PrSDKColorSpaceID inPrSDKColorSpaceID);
+        csSDK_uint32          inVideoRenderID,
+        PrTime                inFrame,
+        PrSDKColorSpaceID     inPrSDKColorSpaceID);
 ```
 
 ### PrefetchColorManagedMediaWithRenderParameters()
@@ -882,8 +790,8 @@ Pre-fetches a frame of color-managed media, using the specified render parameter
 
 ```cpp
 prSuiteError (*PrefetchColorManagedMediaWithRenderParameters)(
-        csSDK_uint32                                    inVideoRenderID,
-        PrTime                                                  inTime,
+        csSDK_uint32                    inVideoRenderID,
+        PrTime                          inTime,
         SequenceRender_ParamsRecExt*    inRenderParamsExt);
 ```
 
@@ -893,12 +801,12 @@ Renders a frame of color-managed media, to the specified pixel format.
 
 ```cpp
 prSuiteError (*RenderColorManagedVideoFrameAndConformToPixelFormat)(
-        csSDK_uint32                                    inVideoRenderID,
-        PrTime                                                  inTime,
-        SequenceRender_ParamsRecExt*    inRenderParamsExt,
-        PrRenderCacheType                               inCacheFlags,
-        PrPixelFormat                                   inConformToFormat,
-        SequenceRender_GetFrameReturnRec*       getFrameReturn);
+        csSDK_uint32                      inVideoRenderID,
+        PrTime                            inTime,
+        SequenceRender_ParamsRecExt*      inRenderParamsExt,
+        PrRenderCacheType                 inCacheFlags,
+        PrPixelFormat                     inConformToFormat,
+        SequenceRender_GetFrameReturnRec* getFrameReturn);
 ```
 
 ### RenderColorManagedVideoFrame2()
@@ -907,10 +815,10 @@ Renders a frame of color-managed media, to the specified pixel format, using set
 
 ```cpp
 prSuiteError (*RenderColorManagedVideoFrame2)(
-        csSDK_uint32                    inVideoRenderID,
-        PrTime                          inTime,
-        SequenceRender_ParamsRecExt2*   inRenderParamsExt2,
-        PrRenderCacheType               inCacheFlags,
+        csSDK_uint32                        inVideoRenderID,
+        PrTime                              inTime,
+        SequenceRender_ParamsRecExt2*       inRenderParamsExt2,
+        PrRenderCacheType                   inCacheFlags,
         SequenceRender_GetFrameReturnRec*   outGetFrameReturn);
 ```
 
@@ -945,15 +853,15 @@ Renders a frame of color-managed media, to the specified pixel format, using set
 
 ```cpp
 prSuiteError (*RenderColorManagedVideoFrameAndConformToPixelFormat2)(
-        csSDK_uint32                    inVideoRenderID,
-        PrTime                          inTime,
-        SequenceRender_ParamsRecExt2*   inRenderParamsExt2,
-        PrRenderCacheType               inCacheFlags,
-        PrPixelFormat                   inConformToFormat,
+        csSDK_uint32                        inVideoRenderID,
+        PrTime                              inTime,
+        SequenceRender_ParamsRecExt2*       inRenderParamsExt2,
+        PrRenderCacheType                   inCacheFlags,
+        PrPixelFormat                       inConformToFormat,
         SequenceRender_GetFrameReturnRec*   outGetFrameReturn);
 ```
 
-----
+---
 
 ## PF Utility Suite
 
@@ -988,8 +896,8 @@ Retrieves the speed multiplier of the clip.
 
 ```cpp
 prSuiteError(*GetClipSpeed)(
-              PF_ProgPtr effect_ref,
-              double* speed);
+  PF_ProgPtr  effect_ref,
+  double*     speed);
 ```
 
 ### GetClipDuration()
@@ -998,8 +906,8 @@ Retrieves the duration of the clip.
 
 ```cpp
 prSuiteError(*GetClipDuration)(
-              PF_ProgPtr effect_ref,
-              A_long* frameDuration);
+  PF_ProgPtr  effect_ref,
+  A_long*     frameDuration);
 ```
 
 ### GetClipStart()
@@ -1008,8 +916,8 @@ Retrieves the start time of the clip.
 
 ```cpp
 prSuiteError(*GetClipStart)(
-        PF_ProgPtr effect_ref,
-        A_long* frameDuration);
+  PF_ProgPtr effect_ref,
+  A_long* frameDuration);
 ```
 
 ### GetUnscaledClipDuration()
@@ -1018,8 +926,8 @@ Retrieves the duration of the clip, unaffected by any speed or retiming changes.
 
 ```cpp
 prSuiteError(*GetUnscaledClipDuration)(
-              PF_ProgPtr effect_ref,
-              A_long* frameDuration);
+  PF_ProgPtr effect_ref,
+  A_long* frameDuration);
 ```
 
 ### GetUnscaledClipStart()
@@ -1028,8 +936,8 @@ Retrives the start time of the clip, unaffected by any speed or retiming changes
 
 ```cpp
 prSuiteError(*GetUnscaledClipStart)(
-              PF_ProgPtr effect_ref,
-              A_long* frameDuration);
+  PF_ProgPtr effect_ref,
+  A_long* frameDuration);
 ```
 
 ### GetTrackItemStart()
@@ -1038,8 +946,8 @@ Gets the start time of the track item.
 
 ```cpp
 prSuiteError(*GetTrackItemStart)(
-              PF_ProgPtr    effect_ref,
-              A_long*       frameDuration);
+  PF_ProgPtr    effect_ref,
+  A_long*       frameDuration);
 ```
 
 ### GetMediaFieldType()
@@ -1048,8 +956,8 @@ Retrieves the filed type in use with the media.
 
 ```cpp
 prSuiteError(*GetMediaFieldType)(
-              PF_ProgPtr    effect_ref,
-              prFieldType*  outFieldType); // prFieldsNone, prFieldsUpperFirst, prFieldsLowerFirst, prFieldsUnknown
+  PF_ProgPtr    effect_ref,
+  prFieldType*  outFieldType); // prFieldsNone, prFieldsUpperFirst, prFieldsLowerFirst, prFieldsUnknown
 ```
 
 ### GetMediaFrameRate()
@@ -1068,8 +976,8 @@ Gets the ID of the timeline containing the clip to which the effect is applied.
 
 ```cpp
 prSuiteError(*GetContainingTimelineID)(
-              PF_ProgPtr    effect_ref,
-              PrTimelineID* outTimelineID);
+  PF_ProgPtr    effect_ref,
+  PrTimelineID* outTimelineID);
 ```
 
 ### GetClipName()
@@ -1078,9 +986,9 @@ Gets the name of the clip to which the effect is applied (or the master clip).
 
 ```cpp
 prSuiteError(*GetClipName)(
-              PF_ProgPtr    effect_ref,
-              A_Boolean     inGetMasterClipName,
-              PrSDKString*  outSDKString);
+  PF_ProgPtr    effect_ref,
+  A_Boolean     inGetMasterClipName,
+  PrSDKString*  outSDKString);
 ```
 
 ### EffectWantsCheckedOutFramesToMatchRenderPixelFormat()
@@ -1089,7 +997,7 @@ Indicates that the effect wants to received checked out frames, in the same form
 
 ```cpp
 prSuiteError(*EffectWantsCheckedOutFramesToMatchRenderPixelFormat)(
-        PF_ProgPtr  effect_ref);
+  PF_ProgPtr  effect_ref);
 ```
 
 ### EffectDependsOnClipName()
@@ -1098,16 +1006,16 @@ Indicates (based on second parameter) whether the effect depends on the name of 
 
 ```cpp
 prSuiteError(*EffectDependsOnClipName)(
-              PF_ProgPtr    effect_ref,
-              A_Boolean     inDependsOnClipName);
+  PF_ProgPtr    effect_ref,
+  A_Boolean     inDependsOnClipName);
 ```
 
 ### SetEffectInstanceName()
 
 ```cpp
 prSuiteError(*SetEffectInstanceName)(
-              PF_ProgPtr effect_ref,
-              const PrSDKString* inSDKString);
+  PF_ProgPtr          effect_ref,
+  const PrSDKString*  inSDKString);
 ```
 
 ### GetFileName()
@@ -1116,8 +1024,8 @@ Retrieves the name of the media file to which the effect instance is applied.
 
 ```cpp
 prSuiteError(*GetFileName)(
-              PF_ProgPtr      effect_ref,
-              PrSDKString*    outSDKString);
+  PF_ProgPtr      effect_ref,
+  PrSDKString*    outSDKString);
 ```
 
 ### GetOriginalClipFrameRate()
@@ -1126,8 +1034,8 @@ Retrieves the original (non-interpreted, un-re-timed) frame rate, of the media t
 
 ```cpp
 prSuiteError(*GetOriginalClipFrameRate)(
-              PF_ProgPtr    effect_ref,
-              PrTime*       outTicksPerFrame);
+  PF_ProgPtr    effect_ref,
+  PrTime*       outTicksPerFrame);
 ```
 
 ### GetSourceTrackMediaTimecode()
@@ -1136,11 +1044,11 @@ Retrieves the source media timecode for the specified frame within the specified
 
 ```cpp
 prSuiteError(*GetSourceTrackMediaTimecode)(
-              PF_ProgPtr      effect_ref,
-              csSDK_uint32    inLayerParamIndex,
-              bool            inApplyTransform,
-              bool            inAddStartTimeOffset,
-              A_long*         outCurrentFrame);
+  PF_ProgPtr      effect_ref,
+  csSDK_uint32    inLayerParamIndex,
+  bool            inApplyTransform,
+  bool            inAddStartTimeOffset,
+  A_long*         outCurrentFrame);
 ```
 
 ### GetSourceTrackClipName()
@@ -1149,10 +1057,10 @@ Retrieves the name of the layer in use by the effect instance.
 
 ```cpp
 prSuiteError(*GetSourceTrackClipName)(
-              PF_ProgPtr      effect_ref,
-              csSDK_uint32    inLayerParamIndex,
-              A_Boolean       inGetMasterClipName,
-              PrSDKString*    outSDKString);
+  PF_ProgPtr      effect_ref,
+  csSDK_uint32    inLayerParamIndex,
+  A_Boolean       inGetMasterClipName,
+  PrSDKString*    outSDKString);
 ```
 
 ### GetSourceTrackFileName()
@@ -1161,9 +1069,9 @@ Retrieves the file name of the source track item for the specified layer paramet
 
 ```cpp
 prSuiteError(*GetSourceTrackFileName)(
-              PF_ProgPtr      effect_ref,
-              csSDK_uint32    inLayerParamIndex,
-              PrSDKString*    outSDKString);
+  PF_ProgPtr      effect_ref,
+  csSDK_uint32    inLayerParamIndex,
+  PrSDKString*    outSDKString);
 ```
 
 ### EffectDependsOnClipName2()
@@ -1172,9 +1080,9 @@ Specifies whether the effect instance depends on the specified layer parameter.
 
 ```cpp
 prSuiteError(*EffectDependsOnClipName2)(
-              PF_ProgPtr    effect_ref,
-              A_Boolean     inDependsOnClipName,
-              csSDK_uint32  inLayerParamIndex);
+  PF_ProgPtr    effect_ref,
+  A_Boolean     inDependsOnClipName,
+  csSDK_uint32  inLayerParamIndex);
 ```
 
 ### GetMediaTimecode2()
@@ -1183,10 +1091,10 @@ Retrieves formatted timecode and current frame number, with or without trims app
 
 ```cpp
 prSuiteError(*GetMediaTimecode2)(
-              PF_ProgPtr      effect_ref,
-              bool            inApplyTrim,
-              A_long*         outCurrentFrame,
-              PF_TimeDisplay* outTimeDisplay);
+  PF_ProgPtr      effect_ref,
+  bool            inApplyTrim,
+  A_long*         outCurrentFrame,
+  PF_TimeDisplay* outTimeDisplay);
 ```
 
 ### GetSourceTrackMediaTimecode2()
@@ -1195,12 +1103,12 @@ Given a specific sequence time, retrieves the source track media timecode for th
 
 ```cpp
 prSuiteError(*GetSourceTrackMediaTimecode2)(
-              PF_ProgPtr      effect_ref,
-              csSDK_uint32    inLayerParamIndex,
-              bool            inApplyTransform,
-              bool            inAddStartTimeOffset,
-              PrTime          inSequenceTime,
-              A_long*         outCurrentFrame);
+  PF_ProgPtr      effect_ref,
+  csSDK_uint32    inLayerParamIndex,
+  bool            inApplyTransform,
+  bool            inAddStartTimeOffset,
+  PrTime          inSequenceTime,
+  A_long*         outCurrentFrame);
 ```
 
 ### GetSourceTrackClipName2()
@@ -1209,11 +1117,11 @@ Retrieves the clip name used by the specific layer parameter.
 
 ```cpp
 prSuiteError(*GetSourceTrackClipName2)(
-              PF_ProgPtr      effect_ref,
-              csSDK_uint32    inLayerParamIndex,
-              A_Boolean       inGetMasterClipName,
-              PrSDKString*    outSDKString,
-              PrTime          inSequenceTime);
+  PF_ProgPtr      effect_ref,
+  csSDK_uint32    inLayerParamIndex,
+  A_Boolean       inGetMasterClipName,
+  PrSDKString*    outSDKString,
+  PrTime          inSequenceTime);
 ```
 
 ### GetSourceTrackFileName2()
@@ -1222,10 +1130,10 @@ Retreives the clip name in use by the specified layer parameter.
 
 ```cpp
 prSuiteError(*GetSourceTrackFileName2)(
-              PF_ProgPtr    effect_ref,
-              csSDK_uint32  inLayerParamIndex,
-              PrSDKString*  outSDKString,
-              PrTime        inSequenceTime);
+  PF_ProgPtr    effect_ref,
+  csSDK_uint32  inLayerParamIndex,
+  PrSDKString*  outSDKString,
+  PrTime        inSequenceTime);
 ```
 
 ### GetCommentString()
@@ -1234,10 +1142,10 @@ Retrieves the comment string associated with the specified source track item, at
 
 ```cpp
 prSuiteError(*GetCommentString)(
-              PF_ProgPtr    inEffectRef,
-              int32_t       inSourceTrack,
-              PrTime        inSequenceTime,
-              PrSDKString*  outSDKString);
+  PF_ProgPtr    inEffectRef,
+  int32_t       inSourceTrack,
+  PrTime        inSequenceTime,
+  PrSDKString*  outSDKString);
 ```
 
 ### GetLogNoteString()
@@ -1246,10 +1154,10 @@ Retrieves the log note associated with the source track, at the specified time.
 
 ```cpp
 prSuiteError(*GetLogNoteString)(
-              PF_ProgPtr    inEffectRef,
-              int32_t       inSourceTrack,
-              PrTime        inSequenceTime,
-              PrSDKString*  outSDKString);
+  PF_ProgPtr    inEffectRef,
+  int32_t       inSourceTrack,
+  PrTime        inSequenceTime,
+  PrSDKString*  outSDKString);
 ```
 
 ### GetCameraRollString()
@@ -1258,10 +1166,11 @@ Retrieves the log note associated with the source track, at the specified time.
 
 ```cpp
 prSuiteError(*GetCameraRollString)(
-              PF_ProgPtr    inEffectRef,
-              int32_t       inSourceTrack,
-              PrTime        inSequenceTime,
-              PrSDKString*  outSDKString);
+  PF_ProgPtr    inEffectRef,
+  int32_t       inSourceTrack,
+  int32_t       inSourceTrack,
+  PrTime        inSequenceTime,
+  PrSDKString*  outSDKString);
 ```
 
 ### GetClientMetadataString()
@@ -1270,10 +1179,10 @@ Retrieves the metadata string associated with the source track, at the specified
 
 ```cpp
 prSuiteError(*GetClientMetadataString)(
-              PF_ProgPtr    inEffectRef,
-              int32_t       inSourceTrack,
-              PrTime        inSequenceTime,
-              PrSDKString*  outSDKString);
+  PF_ProgPtr    inEffectRef,
+  int32_t       inSourceTrack,
+  PrTime        inSequenceTime,
+  PrSDKString*  outSDKString);
 ```
 
 ### GetDailyRollString()
@@ -1282,10 +1191,10 @@ Retrieves the daily roll string associated with the source track, at the specifi
 
 ```cpp
 prSuiteError(*GetDailyRollString)(
-              PF_ProgPtr    inEffectRef,
-              int32_t       inSourceTrack,
-              PrTime        inSequenceTime,
-              PrSDKString*  outSDKString);
+  PF_ProgPtr    inEffectRef,
+  int32_t       inSourceTrack,
+  PrTime        inSequenceTime,
+  PrSDKString*  outSDKString);
 ```
 
 ### GetDescriptionString()
@@ -1294,10 +1203,10 @@ Retrieves the daily roll string associated with the source track, at the specifi
 
 ```cpp
 prSuiteError(*GetDescriptionString)(
-              PF_ProgPtr    inEffectRef,
-              int32_t       inSourceTrack,
-              PrTime        inSequenceTime,
-              PrSDKString*  outSDKString);
+  PF_ProgPtr    inEffectRef,
+  int32_t       inSourceTrack,
+  PrTime        inSequenceTime,
+  PrSDKString*  outSDKString);
 ```
 
 ### GetLabRollString()
@@ -1306,10 +1215,10 @@ Retrieves the lab roll string associated with the source track, at the specified
 
 ```cpp
 prSuiteError(*GetLabRollString)(
-              PF_ProgPtr    inEffectRef,
-              int32_t       inSourceTrack,
-              PrTime        inSequenceTime,
-              PrSDKString*  outSDKString);
+  PF_ProgPtr    inEffectRef,
+  int32_t       inSourceTrack,
+  PrTime        inSequenceTime,
+  PrSDKString*  outSDKString);
 ```
 
 ### GetSceneString()
@@ -1318,10 +1227,10 @@ Retrieves the scene string associated with the source track, at the specified ti
 
 ```cpp
 prSuiteError(*GetSceneString)(
-              PF_ProgPtr    inEffectRef,
-              int32_t       inSourceTrack,
-              PrTime        inSequenceTime,
-              PrSDKString*  outSDKString);
+  PF_ProgPtr    inEffectRef,
+  int32_t       inSourceTrack,
+  PrTime        inSequenceTime,
+  PrSDKString*  outSDKString);
 ```
 
 ### GetShotString()
@@ -1330,10 +1239,10 @@ Retrieves the shot string associated with the source track item, at the specifie
 
 ```cpp
 prSuiteError(*GetShotString)(
-              PF_ProgPtr    inEffectRef,
-              int32_t       inSourceTrack,
-              PrTime        inSequenceTime,
-              PrSDKString*  outSDKString);
+  PF_ProgPtr    inEffectRef,
+  int32_t       inSourceTrack,
+  PrTime        inSequenceTime,
+  PrSDKString*  outSDKString);
 ```
 
 ### GetTapeNameString()
@@ -1342,10 +1251,10 @@ Retrieves the tape name string associated with the source track item, at the spe
 
 ```cpp
 prSuiteError(*GetTapeNameString)(
-              PF_ProgPtr    inEffectRef,
-              int32_t       inSourceTrack,
-              PrTime        inSequenceTime,
-              PrSDKString*  outSDKString);
+  PF_ProgPtr    inEffectRef,
+  int32_t       inSourceTrack,
+  PrTime        inSequenceTime,
+  PrSDKString*  outSDKString);
 ```
 
 ### GetVideoCodecString()
@@ -1354,10 +1263,10 @@ Retrieves a string representing the video codec associated with the source track
 
 ```cpp
 prSuiteError(*GetVideoCodecString)(
-              PF_ProgPtr    inEffectRef,
-              int32_t       inSourceTrack,
-              PrTime        inSequenceTime,
-              PrSDKString*  outSDKString);
+  PF_ProgPtr    inEffectRef,
+  int32_t       inSourceTrack,
+  PrTime        inSequenceTime,
+  PrSDKString*  outSDKString);
 ```
 
 ### GetGoodMetadataString()
@@ -1366,10 +1275,10 @@ Retrieves a string representing the "good" state of the source track item, at th
 
 ```cpp
 prSuiteError(*GetGoodMetadataString)(
-              PF_ProgPtr    inEffectRef,
-              int32_t       inSourceTrack,
-              PrTime        inSequenceTime,
-              PrSDKString*  outSDKString);
+  PF_ProgPtr    inEffectRef,
+  int32_t       inSourceTrack,
+  PrTime        inSequenceTime,
+  PrSDKString*  outSDKString);
 ```
 
 ### GetSoundRollString()
@@ -1378,10 +1287,10 @@ Retrieves a string representing the "sound roll" state of the source track item,
 
 ```cpp
 prSuiteError(*GetSoundRollString)(
-              PF_ProgPtr    inEffectRef,
-              int32_t       inSourceTrack,
-              PrTime        inSequenceTime,
-              PrSDKString*  outSDKString);
+  PF_ProgPtr    inEffectRef,
+  int32_t       inSourceTrack,
+  PrTime        inSequenceTime,
+  PrSDKString*  outSDKString);
 ```
 
 ### GetSequenceTime()
@@ -1390,8 +1299,8 @@ Retrieves the timebase of the sequence in which the effect is applied.
 
 ```cpp
 prSuiteError(*GetSequenceTime)(
-              PF_ProgPtr  inEffectRef,
-              PrTime*     outSequenceTime);
+  PF_ProgPtr  inEffectRef,
+  PrTime*     outSequenceTime);
 ```
 
 ### GetSoundTimecode()
@@ -1400,10 +1309,10 @@ Retrieves the frame of the specified source time.
 
 ```cpp
 prSuiteError(*GetSoundTimecode)(
-              PF_ProgPtr    inEffectRef,
-              int32_t       inSourceTrack,
-              PrTime        inSequenceTime,
-              A_long*       outCurrentFrame);
+  PF_ProgPtr    inEffectRef,
+  int32_t       inSourceTrack,
+  PrTime        inSequenceTime,
+  A_long*       outCurrentFrame);
 ```
 
 ### GetOriginalClipFrameRateForSourceTrack()
@@ -1412,9 +1321,9 @@ Retrieves the original "ticks per frame" for the specified source track.
 
 ```cpp
 prSuiteError(*GetOriginalClipFrameRateForSourceTrack)(
-              PF_ProgPtr    inEffectRef,
-              int32_t       inSourceTrack,
-              PrTime*       outTicksPerFrame);
+  PF_ProgPtr    inEffectRef,
+  int32_t       inSourceTrack,
+  PrTime*       outTicksPerFrame);
 ```
 
 ### GetMediaFrameRateForSourceTrack()
@@ -1423,10 +1332,10 @@ Retrieves the media frame rate for the specified source track.
 
 ```cpp
 prSuiteError(*GetMediaFrameRateForSourceTrack)(
-              PF_ProgPtr    inEffectRef,
-              int32_t       inSourceTrack,
-              PrTime        inSequenceTime,
-              PrTime*       outTicksPerFrame);
+  PF_ProgPtr    inEffectRef,
+  int32_t       inSourceTrack,
+  PrTime        inSequenceTime,
+  PrTime*       outTicksPerFrame);
 ```
 
 ### GetSourceTrackMediaActualStartTime()
@@ -1435,10 +1344,10 @@ Retrieves the start time of the specified layer parameter.
 
 ```cpp
 prSuiteError(*GetSourceTrackMediaActualStartTime)(
-              PF_ProgPtr      inEffectRef,
-              csSDK_uint32    inLayerParamIndex,
-              PrTime          inSequenceTime,
-              PrTime*         outClipActualStartTime);
+  PF_ProgPtr      inEffectRef,
+  csSDK_uint32    inLayerParamIndex,
+  PrTime          inSequenceTime,
+  PrTime*         outClipActualStartTime);
 ```
 
 ### IsSourceTrackMediaTrimmed()
@@ -1447,10 +1356,10 @@ Retrieves whether the source track item has been trimmed.
 
 ```cpp
 prSuiteError(*IsSourceTrackMediaTrimmed)(
-              PF_ProgPtr      inEffectRef,
-              csSDK_uint32    inLayerParamIndex,
-              PrTime          inSequenceTime,
-              bool*           outTrimApplied);
+  PF_ProgPtr      inEffectRef,
+  csSDK_uint32    inLayerParamIndex,
+  PrTime          inSequenceTime,
+  bool*           outTrimApplied);
 ```
 
 ### IsMediaTrimmed()
@@ -1459,9 +1368,9 @@ Retrieves whether the track item has been trimmed.
 
 ```cpp
 prSuiteError(*IsMediaTrimmed)(
-              PF_ProgPtr    inEffectRef,
-              PrTime        inSequenceTime,
-              bool*         outTrimApplied);
+  PF_ProgPtr    inEffectRef,
+  PrTime        inSequenceTime,
+  bool*         outTrimApplied);
 ```
 
 ### IsTrackEmpty()
@@ -1470,10 +1379,10 @@ Retrieves whether, for the specified layer parameter, the track is empty.
 
 ```cpp
 prSuiteError(*IsTrackEmpty)(
-              PF_ProgPtr      inEffectRef,
-              csSDK_uint32    inLayerParamIndex,
-              PrTime          inSequenceTime,
-              bool*           outIsTrackEmpty);
+  PF_ProgPtr      inEffectRef,
+  csSDK_uint32    inLayerParamIndex,
+  PrTime          inSequenceTime,
+  bool*           outIsTrackEmpty);
 ```
 
 ### IsTrackItemEffectAppliedToSynthetic()
@@ -1482,8 +1391,8 @@ Retrieves whether the effect is applied to a track item backed by a synthetic im
 
 ```cpp
 prSuiteError(*IsTrackItemEffectAppliedToSynthetic)(
-              PF_ProgPtr    inEffectRef,
-              bool*         outIsTrackItemEffectAppliedToSynthetic);
+  PF_ProgPtr    inEffectRef,
+  bool*         outIsTrackItemEffectAppliedToSynthetic);
 ```
 
 ### GetSourceTrackCurrentMediaTimeInfo()
@@ -1492,13 +1401,13 @@ Retrieves the current media time, including ticks per frame and a formatted stri
 
 ```cpp
 prSuiteError(*GetSourceTrackCurrentMediaTimeInfo)(
-              PF_ProgPtr      effect_ref,
-              csSDK_uint32    inLayerParamIndex,
-              bool            inUseSoundTimecodeAsStartTime,
-              PrTime          inSequenceTime,
-              PrTime*         outCurrentMediaTime,
-              PrTime*         outMediaTicksPerFrame,
-              PF_TimeDisplay* outMediaTimeDisplay);
+  PF_ProgPtr      effect_ref,
+  csSDK_uint32    inLayerParamIndex,
+  bool            inUseSoundTimecodeAsStartTime,
+  PrTime          inSequenceTime,
+  PrTime*         outCurrentMediaTime,
+  PrTime*         outMediaTicksPerFrame,
+  PF_TimeDisplay* outMediaTimeDisplay);
 ```
 
 ### GetSequenceZeroPoint()
@@ -1507,8 +1416,8 @@ Retrieves the zero point (start time) of the sequence in which the effect is app
 
 ```cpp
 prSuiteError(*GetSequenceZeroPoint)(
-              PF_ProgPtr    inEffectRef,
-              PrTime*       outZeroPointTime);
+  PF_ProgPtr    inEffectRef,
+  PrTime*       outZeroPointTime);
 ```
 
 ### GetSourceTrackCurrentClipDuration()
@@ -1517,10 +1426,10 @@ Retrieves the duration of the clip, at the specified layer index, at inSequenceT
 
 ```cpp
 prSuiteError(*GetSourceTrackCurrentClipDuration)(
-              PF_ProgPtr        inEffectRef,
-              csSDK_uint32      inLayerParamIndex,
-              PrTime            inSequenceTime,
-              PrTime*           outClipDuration);
+  PF_ProgPtr        inEffectRef,
+  csSDK_uint32      inLayerParamIndex,
+  PrTime            inSequenceTime,
+  PrTime*           outClipDuration);
 ```
 
 ### GetSequenceDuration()
@@ -1529,8 +1438,8 @@ Retrieves the duration of the sequence in which the effect is applied.
 
 ```cpp
 prSuiteError(*GetSequenceDuration)(
-              PF_ProgPtr    inEffectRef,
-              PrTime*       outSequenceDuration);
+  PF_ProgPtr    inEffectRef,
+  PrTime*       outSequenceDuration);
 
       /*
       ** Get the video resolution string, formatted as a 'width x height',
@@ -1546,8 +1455,8 @@ Retrieve a string representing the dimensions of the track item to which the eff
 
 ```cpp
 prSuiteError(*GetVideoResolutionString)(
-              PF_ProgPtr    inEffectRef,
-              int32_t       inSourceTrack,
-              PrTime        inSequenceTime,
-              PrSDKString*  outSDKString);
+  PF_ProgPtr    inEffectRef,
+  int32_t       inSourceTrack,
+  PrTime        inSequenceTime,
+  PrSDKString*  outSDKString);
 ```

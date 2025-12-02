@@ -36,7 +36,7 @@ MacOS versions 15+ prevent the loading of unsigned plugins. You can avoid this d
 
 `codesign --force --deep --sign - /path/to/plugin.dylib`
 
-Note: Yes, that trailing '-' after '--sign' is important. 
+Note: Yes, that trailing '-' after '--sign' is important.
 
 ---
 
