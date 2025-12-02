@@ -3636,24 +3636,44 @@
 </span><span id="__span-0-6"><span class="w">  </span><span class="n">piSuitesPtr</span><span class="w">   </span><span class="n">piSuites</span><span class="p">;</span>
 </span><span id="__span-0-7"><span class="p">}</span><span class="w"> </span><span class="n">tmStdParms</span><span class="p">;</span>
 </span></code></pre></div>
-<pre class="grid-table-error">+------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|            Member            |                                                                                                    Description                                                                                                    |
-+==============================+===================================================================================================================================================================================================================+
-| <code>inPluginIndex
-</code>              | If the plugin has defined multiple transmitters in the same module, this index value tells them apart.                                                                                                           |
-+------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>ioSerializedPluginData</code>     | This data should contain user-selectable settings for the transmitter, that would be shown in the transmitter settings dialog, and need to persist so they can be saved and restored from one session to another. |
-|                              |                                                                                                                                                                                                                   |
-|                              | When allocating this for the first time during Startup, this must be allocated using <code>NewPtr</code> so it can be disposed by the host on shutdown.                                                                     |
-|                              |                                                                                                                                                                                                                   |
-|                              | This must be flat memory that can be serialized by by the host and will be already filled in when Startup is called if previously available.                                                                     |
-+------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>ioSerializedPluginDataSize</code> | Size of the data above. Set this during Startup, if not already set.                                                                                                                                             |
-+------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>ioPrivatePluginData</code>        | This data should contain any memory needed for use across calls to the transmitter, except the settings data stored in <code>ioSerializedPluginData</code>.                                                                 |
-|                              |                                                                                                                                                                                                                   |
-|                              | Allocate this during Startup. Unlike <code>ioSerializedPluginData</code>, it does not need to be flat, and must be disposed of by the plugin on Shutdown.                                                                   |
-+------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</pre>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>inPluginIndex</code></td>
+<td>If the plugin has defined multiple transmitters in the same module, this index value tells them apart.</td>
+</tr>
+<tr>
+<td><code>ioSerializedPluginData</code></td>
+<td>This data should contain user-selectable settings for the transmitter, that would be shown in the transmitter settings dialog, and need to persist so they can be saved and restored from one session to another.</td>
+</tr>
+<tr>
+<td></td>
+<td>When allocating this for the first time during Startup, this must be allocated using <code>NewPtr</code> so it can be disposed by the host on shutdown.</td>
+</tr>
+<tr>
+<td></td>
+<td>This must be flat memory that can be serialized by by the host and will be already filled in when Startup is called if previously available.</td>
+</tr>
+<tr>
+<td><code>ioSerializedPluginDataSize</code></td>
+<td>Size of the data above. Set this during Startup, if not already set.</td>
+</tr>
+<tr>
+<td><code>ioPrivatePluginData</code></td>
+<td>This data should contain any memory needed for use across calls to the transmitter, except the settings data stored in <code>ioSerializedPluginData</code>.</td>
+</tr>
+<tr>
+<td></td>
+<td>Allocate this during Startup. Unlike <code>ioSerializedPluginData</code>, it does not need to be flat, and must be disposed of by the plugin on Shutdown.</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h2 id="tmplugininfo">tmPluginInfo<a class="headerlink" href="#tmplugininfo" title="Permanent link">&para;</a></h2>
 <p>This is to be filled in by the transmitter on Startup.</p>
@@ -3671,45 +3691,72 @@
 </span><span id="__span-1-12"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">outInterfaceVersion</span><span class="p">;</span>
 </span><span id="__span-1-13"><span class="p">}</span><span class="w"> </span><span class="n">tmPluginInfo</span><span class="p">;</span>
 </span></code></pre></div>
-<pre class="grid-table-error">+--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|          Member          |                                                                                                    Description                                                                                                     |
-+==========================+====================================================================================================================================================================================================================+
-| <code>outIdentifier
-</code>          | Persistent plugin identifier.                                                                                                                                                                                     |
-+--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>outPriority</code>            | <code>0</code> is default, higher priority wins.                                                                                                                                                                             |
-+--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>outAudioAvailable</code>      | Set this to <code>kPrTrue</code> if the transmitter supports audio.                                                                                                                                                          |
-+--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>outAudioDefaultEnabled</code> | Set this to <code>kPrTrue</code> if you want to be turned on to handle audio by default.                                                                                                                                     |
-+--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>outClockAvailable</code>      | Set this to <code>kPrTrue</code> if providing plugin based audio.                                                                                                                                                            |
-|                          |                                                                                                                                                                                                                    |
-|                          | Currently, even if using host-based audio, a transmitter must provide a clock - please let us know if you would like to use host-based audio only, and we will log a bug on this.                                 |
-+--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>outVideoAvailable</code>      | Set this to <code>kPrTrue</code> if the transmitter supports video.                                                                                                                                                          |
-+--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>outVideoDefaultEnabled</code> | Set this to <code>kPrTrue</code> if you want to be turned on to handle video by default.                                                                                                                                     |
-+--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>outDisplayName[256]</code>    | Set the display name of the transmitter, up 256 UTF-16 characters, including NULL terminator.                                                                                                                     |
-+--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>outHideInUI</code>            | Set this to <code>kPrTrue</code> if you don't want this to show up as a user-selectable option in the transmitter choices.                                                                                                   |
-+--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>outHasSetup</code>            | Set this to <code>kPrTrue</code> if providing a setup dialog.                                                                                                                                                                |
-+--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>outInterfaceVersion</code>    | Set this to the <code>tmInterfaceVersion</code> that the transmitter is being compiled for.                                                                                                                                  |
-+--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>outPushAudioAvailable</code>  | New in 24.0. Set this to <code>kPrTrue</code> if the transmitter supports push audio functionality. The device will be enabled for a 'secondary' mode where audio from the 'primary' or 'clock' device is pushed to this one. |
-+--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>outHasStreaming</code>        | New in 24.0. Set this to <code>kPrTrue</code> if the transmitter streams audio or video (over a network).                                                                                                                    |
-+--------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</pre>
-<div class="admonition bug">
-<p class="admonition-title">Bug</p>
-<p>The following text block was present here, though seems to be misplaced.
-todo!</p>
-<p>The device will be enabled for a "secondary" mode where audio from the "primary" or "clock" device is pushed to this one. This is especially useful for remote devices. PushAudio APIs will only be used in this "mirror" case. StartPushAudio() initializes the device for subsequent PushAudio() calls. Unlike StartPlaybackClock, StartPushAudio() is only called once until StopPushAudio() is called. PushAudio() is called whenever the desired buffer size is</p>
-</div>
-<hr />
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>outIdentifier</code></td>
+<td>Persistent plugin identifier.</td>
+</tr>
+<tr>
+<td><code>outPriority</code></td>
+<td><code>0</code> is default, higher priority wins.</td>
+</tr>
+<tr>
+<td><code>outAudioAvailable</code></td>
+<td>Set this to <code>kPrTrue</code> if the transmitter supports audio.</td>
+</tr>
+<tr>
+<td><code>outAudioDefaultEnabled</code></td>
+<td>Set this to <code>kPrTrue</code> if you want to be turned on to handle audio by default.</td>
+</tr>
+<tr>
+<td><code>outClockAvailable</code></td>
+<td>Set this to <code>kPrTrue</code> if providing plugin based audio.</td>
+</tr>
+<tr>
+<td></td>
+<td>Currently, even if using host-based audio, a transmitter must provide a clock - please let us know if you would like to use host-based audio only, and we will log a bug on this.</td>
+</tr>
+<tr>
+<td><code>outVideoAvailable</code></td>
+<td>Set this to <code>kPrTrue</code> if the transmitter supports video.</td>
+</tr>
+<tr>
+<td><code>outVideoDefaultEnabled</code></td>
+<td>Set this to <code>kPrTrue</code> if you want to be turned on to handle video by default.</td>
+</tr>
+<tr>
+<td><code>outDisplayName[256]</code></td>
+<td>Set the display name of the transmitter, up 256 UTF-16 characters, including NULL terminator.</td>
+</tr>
+<tr>
+<td><code>outHideInUI</code></td>
+<td>Set this to <code>kPrTrue</code> if you don't want this to show up as a user-selectable option in the transmitter choices.</td>
+</tr>
+<tr>
+<td><code>outHasSetup</code></td>
+<td>Set this to <code>kPrTrue</code> if providing a setup dialog.</td>
+</tr>
+<tr>
+<td><code>outInterfaceVersion</code></td>
+<td>Set this to the <code>tmInterfaceVersion</code> that the transmitter is being compiled for.</td>
+</tr>
+<tr>
+<td><code>outPushAudioAvailable</code></td>
+<td>New in 24.0. Set this to <code>kPrTrue</code> if the transmitter supports push audio functionality. The device will be enabled for a 'secondary' mode where audio from the 'primary' or 'clock' device is pushed to this one.</td>
+</tr>
+<tr>
+<td><code>outHasStreaming</code></td>
+<td>New in 24.0. Set this to <code>kPrTrue</code> if the transmitter streams audio or video (over a network).</td>
+</tr>
+</tbody>
+</table>
 <h2 id="tminstance">tmInstance<a class="headerlink" href="#tminstance" title="Permanent link">&para;</a></h2>
 <p>This structure contains information for the transmitter to use for initializing an instance.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
@@ -3818,30 +3865,52 @@ todo!</p>
 </span><span id="__span-3-7"><span class="w">  </span><span class="n">PrSDKString</span><span class="w">          </span><span class="n">outAudioOutputNames</span><span class="p">[</span><span class="mi">16</span><span class="p">]</span>
 </span><span id="__span-3-8"><span class="p">}</span><span class="w"> </span><span class="n">tmAudioMode</span><span class="p">;</span>
 </span></code></pre></div>
-<pre class="grid-table-error">+---------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|          Member           |                                                                                                                              Description                                                                                                                               |
-+===========================+========================================================================================================================================================================================================================================================================+
-| <code>outAudioSampleRate
-</code>      | The preferred audio sample rate.                                                                                                                                                                                                                                      |
-+---------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>outMaxBufferSize</code>        | The maximum audio buffer size needed if the transmitter uses plugin-based audio to request audio buffers using the <a href="../suites/#playmod-audio-suite">Playmod Audio Suite</a>.                                                                                              |
-+---------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>outNumChannels</code>          | The maximum number of audio channels supported.                                                                                                                                                                                                                       |
-+---------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>outChannelLabels[16]</code>    | Set the audio channel configuration for the output hardware using the appropriate identifiers for each audio channel.                                                                                                                                                 |
-+---------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>outLatency</code>              | This value is only used for playback, not when scrubbing.                                                                                                                                                                                                             |
-|                           |                                                                                                                                                                                                                                                                        |
-|                           | It specifies how early to send frames in advance when audio-only playback starts, and how many frames that will be sent prior to a <code>StartPlaybackClock</code> call. Use this value to get playback in sync between the Source/Program Monitors and external hardware output. |
-|                           |                                                                                                                                                                                                                                                                        |
-|                           | All modes must have the same latency.                                                                                                                                                                                                                                 |
-|                           |                                                                                                                                                                                                                                                                        |
-|                           | Take care to not set this value any higher than necessary, since playback start will delayed by this amount. A value equivalent to 5 video frames or less is recommended.                                                                                             |
-+---------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>outAudioOutputNames[16]</code> | New in CS6.0.2. These must be displayable names of physical audio outputs like "XYZ HD Speaker 1"                                                                                                                                                                      |
-|                           |                                                                                                                                                                                                                                                                        |
-|                           | The audio output names in tmAudioMode should be allocated by the plugin using the <a href="../../universals/sweetpea-suites/#string-suite">String Suite</a> and NOT disposed by the plugin. The host will take care of disposing these strings.                                   |
-+---------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</pre>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>outAudioSampleRate</code></td>
+<td>The preferred audio sample rate.</td>
+</tr>
+<tr>
+<td><code>outMaxBufferSize</code></td>
+<td>The maximum audio buffer size needed if the transmitter uses plugin-based audio to request audio buffers using the <a href="../suites/#playmod-audio-suite">Playmod Audio Suite</a>.</td>
+</tr>
+<tr>
+<td><code>outNumChannels</code></td>
+<td>The maximum number of audio channels supported.</td>
+</tr>
+<tr>
+<td><code>outChannelLabels[16]</code></td>
+<td>Set the audio channel configuration for the output hardware using the appropriate identifiers for each audio channel.</td>
+</tr>
+<tr>
+<td><code>outLatency</code></td>
+<td>This value is only used for playback, not when scrubbing.</td>
+</tr>
+<tr>
+<td></td>
+<td>It specifies how early to send frames in advance when audio-only playback starts, and how many frames that will be sent prior to a <code>StartPlaybackClock</code> call. Use this value to get playback in sync between the Source/Program Monitors and external hardware output. All modes must have the same latency.</td>
+</tr>
+<tr>
+<td></td>
+<td>Take care to not set this value any higher than necessary, since playback start will delayed by this amount. A value equivalent to 5 video frames or less is recommended.</td>
+</tr>
+<tr>
+<td><code>outAudioOutputNames[16]</code></td>
+<td>New in CS6.0.2. These must be displayable names of physical audio outputs like "XYZ HD Speaker 1"</td>
+</tr>
+<tr>
+<td></td>
+<td>The audio output names in tmAudioMode should be allocated by the plugin using the <a href="../../universals/sweetpea-suites/#string-suite">String Suite</a> and NOT disposed by the plugin. The host will take care of disposing these strings.</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h2 id="tmvideomode">tmVideoMode<a class="headerlink" href="#tmvideomode" title="Permanent link">&para;</a></h2>
 <p>A full description of a video mode that the transmitter will support.</p>
@@ -3858,48 +3927,88 @@ todo!</p>
 </span><span id="__span-4-10"><span class="w">  </span><span class="n">ColorSpaceRec</span><span class="w">  </span><span class="n">outColorSpaceRec</span><span class="p">;</span>
 </span><span id="__span-4-11"><span class="p">}</span><span class="w"> </span><span class="n">tmVideoMode</span><span class="p">;</span>
 </span></code></pre></div>
-<pre class="grid-table-error">+--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|       Member       |                                                                             Description                                                                             |
-+====================+=====================================================================================================================================================================+
-| <code>outWidth
-</code>         | The preferred video resolution.                                                                                                                                    |
-|                    |                                                                                                                                                                     |
-|                    | Set to 0 if any resolution is supported.                                                                                                                           |
-+--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>outHeight</code>        |                                                                                                                                                                     |
-+--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>outPARNum</code>        | The preferred video pixel aspect ratio.                                                                                                                            |
-|                    |                                                                                                                                                                     |
-|                    | Set to 0 if any pixel aspect ratio is supported.                                                                                                                   |
-+--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>outPARDen</code>        |                                                                                                                                                                     |
-+--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>outFieldType</code>     | The supported video field type.                                                                                                                                    |
-|                    |                                                                                                                                                                     |
-|                    | Set to prFieldsAny if any field dominance is supported.                                                                                                            |
-+--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>outPixelFormat</code>   | The preferred video pixel format.                                                                                                                                  |
-|                    |                                                                                                                                                                     |
-|                    | Set to <code>PrPixelFormat_Any</code> if any format is acceptable.                                                                                                            |
-|                    |                                                                                                                                                                     |
-|                    | If your transmitter would benefit from on-GPU frames, please let us know.                                                                                          |
-+--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>outStreamLabel</code>   | Leave this as 0 for now. Stream labels are not yet supported by transmitters (bug group BG127571)                                                                   |
-+--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>outLatency</code>       | This value is only used for playback, not when scrubbing.                                                                                                          |
-|                    |                                                                                                                                                                     |
-|                    | It specifies how early to send frames in advance when playback starts, and how many frames that will be sent prior to a <code>StartPlaybackClock</code> call.                 |
-|                    |                                                                                                                                                                     |
-|                    | Use this value to get playback in sync between the Source/Program Monitors and external hardware output.                                                           |
-|                    |                                                                                                                                                                     |
-|                    | All modes must have the same latency.                                                                                                                              |
-|                    |                                                                                                                                                                     |
-|                    | Take care to not set this value any higher than necessary, since playback start will delayed by this amount. A value equivalent to 5 frames or less is recommended. |
-+--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>outColorSpaceRec</code> | New in 14.x. Definition of the colorspace in use; defaults to BT 709 full range 32f.                                                                               |
-|                    |                                                                                                                                                                     |
-|                    | Transmitter can request host application to send frame in specific colorspace. See to <code>ColorSpaceRec</code> for detailed description.                                    |
-+--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+</pre>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>outWidth</code>, <code>outHeight</code></td>
+<td>The preferred video resolution. Set to 0 if any resolution is supported.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>outPARNum</code>, <code>outPARDen</code></td>
+<td>The preferred video pixel aspect ratio. Set to 0 if any pixel aspect ratio is supported.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>outFieldType</code></td>
+<td>The supported video field type.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Set to prFieldsAny if any field dominance is supported.</td>
+</tr>
+<tr>
+<td><code>outPixelFormat</code></td>
+<td>The preferred video pixel format.</td>
+</tr>
+<tr>
+<td></td>
+<td>Set to <code>PrPixelFormat_Any</code> if any format is acceptable.</td>
+</tr>
+<tr>
+<td></td>
+<td>If your transmitter would benefit from on-GPU frames, please let us know.</td>
+</tr>
+<tr>
+<td><code>outStreamLabel</code></td>
+<td>Leave this as 0; stream labels are not supported by transmitters.</td>
+</tr>
+<tr>
+<td><code>outLatency</code></td>
+<td>This value is only used for playback, not when scrubbing.</td>
+</tr>
+<tr>
+<td></td>
+<td>It specifies how early to send frames in advance when playback starts, and how many frames that will be sent prior to a <code>StartPlaybackClock</code> call.</td>
+</tr>
+<tr>
+<td></td>
+<td>Use this value to get playback in sync between the Source/Program Monitors and external hardware output.</td>
+</tr>
+<tr>
+<td></td>
+<td>All modes must have the same latency.</td>
+</tr>
+<tr>
+<td></td>
+<td>Take care to not set this value any higher than necessary, since playback start will delayed by this amount. A value equivalent to 5 frames or less is recommended.</td>
+</tr>
+<tr>
+<td><code>outColorSpaceRec</code></td>
+<td>New in 14.x. Definition of the colorspace in use; defaults to BT 709 full range 32f.</td>
+</tr>
+<tr>
+<td></td>
+<td>Transmitter can request host application to send frame in specific colorspace. See to <code>ColorSpaceRec</code> for detailed description.</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h2 id="tmplaybackclock">tmPlaybackClock<a class="headerlink" href="#tmplaybackclock" title="Permanent link">&para;</a></h2>
 <p>This structure is filled out by the host and sent to the transmitter to describe the playback clock to be managed by the transmitter.</p>
@@ -3916,54 +4025,92 @@ todo!</p>
 </span><span id="__span-5-10"><span class="w">  </span><span class="n">tmDroppedFrameCallback</span><span class="w">  </span><span class="n">inDroppedFrameCallback</span><span class="p">;</span>
 </span><span id="__span-5-11"><span class="p">}</span><span class="w"> </span><span class="n">tmPlaybackClock</span><span class="p">;</span>
 </span></code></pre></div>
-<pre class="grid-table-error">+--------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|          Member          |                                                                                                              Description                                                                                                               |
-+==========================+========================================================================================================================================================================================================================================+
-| <code>tmClockCallback
-</code>        | A pointer to a call with the following signature:                                                                                                                                                                                      |
-|                          |                                                                                                                                                                                                                                        |
-|                          | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">tmClockCallback</span><span class="p">)(</span>
-</span><span id="__span-0-2"><span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">   </span><span class="n">inContext</span><span class="p">,</span>
-</span><span id="__span-0-3"><span class="w">  </span><span class="n">PrTime</span><span class="w">  </span><span class="n">inRelativeTimeAdjustment</span><span class="p">);</span>
-</span></code></pre></div>Call this function when the time changes with a non-speed adjusted amount to increment the clock by.                |
-|                          |                                                                                                                                                                                                                                        |
-|                          | This can be called once per frame in response to PushVideo.                                                                                                                                                                           |
-|                          |                                                                                                                                                                                                                                        |
-|                          | Using a negative time should only be used to wait for device, not to achieve sync.                                                                                                                                                    |
-|                          |                                                                                                                                                                                                                                        |
-|                          | The transmitter will not receive any frames while using a negative time.                                                                                                                                                              |
-|                          |                                                                                                                                                                                                                                        |
-|                          | After the first positive valued clock callback, the time will be in <code>StartTime + inRelativeTimeAdjustment * inSpeed</code>.                                                                                                                 |
-+--------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>inCallbackContext</code>      | Pass this into the clock callback above.                                                                                                                                                                                              |
-+--------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>inStartTime</code>            | Start the clock at this time.                                                                                                                                                                                                         |
-+--------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>inPlayMode</code>             | Specifies whether the <code>StartPlaybackClock</code> was set for playback or scrubbing.                                                                                                                                                         |
-+--------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>inSpeed</code>                | 1.0 is normal speed, -2.0 is double speed backwards.                                                                                                                                                                                  |
-|                          |                                                                                                                                                                                                                                        |
-|                          | Informational only.                                                                                                                                                                                                                   |
-|                          |                                                                                                                                                                                                                                        |
-|                          | This is useful for the built-in DV transmitter, which only writes DV captions if playing at regular speed.                                                                                                                            |
-+--------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>inInTime</code>               | Informational only and will be handled by the host.                                                                                                                                                                                   |
-+--------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>inOutTime</code>              |                                                                                                                                                                                                                                        |
-+--------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>inLoop</code>                 |                                                                                                                                                                                                                                        |
-+--------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>inDroppedFrameCallback</code> | A pointer to a call with the following signature:                                                                                                                                                                                      |
-|                          |                                                                                                                                                                                                                                        |
-|                          | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">tmDroppedFrameCallback</span><span class="p">)(</span>
-</span><span id="__span-0-2"><span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">        </span><span class="n">inContext</span><span class="p">,</span>
-</span><span id="__span-0-3"><span class="w">  </span><span class="n">csSDK_int64</span><span class="w">  </span><span class="n">inNewDroppedFrames</span><span class="p">);</span>
-</span></code></pre></div>Use this call to report frames pushed to the transmit plugin on PushVideo but not delivered to the device. |
-|                          |                                                                                                                                                                                                                                        |
-|                          | If every frame pushed to the transmitter is sent out to hardware on time, then this should never need to be called as the host will count frames not pushed to the plugin.                                                            |
-|                          |                                                                                                                                                                                                                                        |
-|                          | <code>inNewDroppedFrames</code> should be the number of additional dropped frames since the last time <code>tmDroppedFrameCall</code> back was called.                                                                                                      |
-+--------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</pre>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tmClockCallback</code></td>
+<td>A pointer to a call with the following signature:</td>
+</tr>
+<tr>
+<td></td>
+<td><code>void (*tmClockCallback)(  void*   inContext,  PrTime  inRelativeTimeAdjustment);</code>Call this function when the time changes with a non-speed adjusted amount to increment the clock by.</td>
+</tr>
+<tr>
+<td></td>
+<td>This can be called once per frame in response to PushVideo.</td>
+</tr>
+<tr>
+<td></td>
+<td>Using a negative time should only be used to wait for device, not to achieve sync.</td>
+</tr>
+<tr>
+<td></td>
+<td>The transmitter will not receive any frames while using a negative time.</td>
+</tr>
+<tr>
+<td></td>
+<td>After the first positive valued clock callback, the time will be in <code>StartTime + inRelativeTimeAdjustment * inSpeed</code>.</td>
+</tr>
+<tr>
+<td><code>inCallbackContext</code></td>
+<td>Pass this into the clock callback above.</td>
+</tr>
+<tr>
+<td><code>inStartTime</code></td>
+<td>Start the clock at this time.</td>
+</tr>
+<tr>
+<td><code>inPlayMode</code></td>
+<td>Specifies whether the <code>StartPlaybackClock</code> was set for playback or scrubbing.</td>
+</tr>
+<tr>
+<td><code>inSpeed</code></td>
+<td>1.0 is normal speed, -2.0 is double speed backwards.</td>
+</tr>
+<tr>
+<td></td>
+<td>Informational only.</td>
+</tr>
+<tr>
+<td></td>
+<td>This is useful for the built-in DV transmitter, which only writes DV captions if playing at regular speed.</td>
+</tr>
+<tr>
+<td><code>inInTime</code></td>
+<td>Informational only and will be handled by the host.</td>
+</tr>
+<tr>
+<td><code>inOutTime</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>inLoop</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>inDroppedFrameCallback</code></td>
+<td>A pointer to a call with the following signature:</td>
+</tr>
+<tr>
+<td></td>
+<td><code>void (*tmDroppedFrameCallback)(  void*        inContext,  csSDK_int64  inNewDroppedFrames);</code>Use this call to report frames pushed to the transmit plugin on PushVideo but not delivered to the device.</td>
+</tr>
+<tr>
+<td></td>
+<td>If every frame pushed to the transmitter is sent out to hardware on time, then this should never need to be called as the host will count frames not pushed to the plugin.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>inNewDroppedFrames</code> should be the number of additional dropped frames since the last time <code>tmDroppedFrameCall</code> back was called.</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h2 id="tmpushvideo">tmPushVideo<a class="headerlink" href="#tmpushvideo" title="Permanent link">&para;</a></h2>
 <p>Describes a frame of video to be transmitted.</p>
@@ -3975,34 +4122,56 @@ todo!</p>
 </span><span id="__span-6-6"><span class="w">  </span><span class="n">csSDK_size_t</span><span class="w">           </span><span class="n">inFrameCount</span><span class="p">;</span>
 </span><span id="__span-6-7"><span class="p">}</span><span class="w"> </span><span class="n">tmPushVideo</span><span class="p">;</span>
 </span></code></pre></div>
-<pre class="grid-table-error">+----------------+--------------------------------------------------------------------------------------------------------------------------------------+
-|     Member     |                                                             Description                                                              |
-+================+======================================================================================================================================+
-| <code>inTime
-</code>       | Describes which frame of the video is being passed in.                                                                              |
-|                |                                                                                                                                      |
-|                | A negative value means the frame should be displayed immediately.                                                                   |
-|                |                                                                                                                                      |
-|                | Use this value to determine the corresponding timecode for the frame being pushed.                                                  |
-+----------------+--------------------------------------------------------------------------------------------------------------------------------------+
-| <code>inPlayMode</code>   | Pass this into the clock callback above.                                                                                            |
-+----------------+--------------------------------------------------------------------------------------------------------------------------------------+
-| <code>inQuality</code>    | The quality of the render.                                                                                                          |
-+----------------+--------------------------------------------------------------------------------------------------------------------------------------+
-| <code>inFrames</code>     | The frame or set of frames to transmit. As of CS6, this will always be a single frame.                                              |
-|                |                                                                                                                                      |
-|                | <code>tmLabeledFrame</code> is defined as:                                                                                                      |
-|                |                                                                                                                                      |
-|                | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-2"><span class="w">  </span><span class="n">PPixHand</span><span class="w">          </span><span class="n">inFrame</span><span class="p">;</span>
-</span><span id="__span-0-3"><span class="w">  </span><span class="n">PrSDKStreamLabel</span><span class="w">  </span><span class="n">inStreamLabel</span><span class="p">;</span>
-</span><span id="__span-0-4"><span class="p">}</span><span class="w"> </span><span class="n">tmLabeledFrame</span><span class="p">;</span>
-</span></code></pre></div> |
-|                |                                                                                                                                      |
-|                | The frame(s) must be disposed of by the transmitter when done.                                                                      |
-+----------------+--------------------------------------------------------------------------------------------------------------------------------------+
-| <code>inFrameCount</code> | The number of frames in inFrames.                                                                                                   |
-+----------------+--------------------------------------------------------------------------------------------------------------------------------------+</pre>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>inTime</code></td>
+<td>Describes which frame of the video is being passed in.</td>
+</tr>
+<tr>
+<td></td>
+<td>A negative value means the frame should be displayed immediately.</td>
+</tr>
+<tr>
+<td></td>
+<td>Use this value to determine the corresponding timecode for the frame being pushed.</td>
+</tr>
+<tr>
+<td><code>inPlayMode</code></td>
+<td>Pass this into the clock callback above.</td>
+</tr>
+<tr>
+<td><code>inQuality</code></td>
+<td>The quality of the render.</td>
+</tr>
+<tr>
+<td><code>inFrames</code></td>
+<td>The frame or set of frames to transmit. As of CS6, this will always be a single frame.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>tmLabeledFrame</code> is defined as:</td>
+</tr>
+<tr>
+<td></td>
+<td><code>typedef struct {  PPixHand          inFrame;  PrSDKStreamLabel  inStreamLabel;} tmLabeledFrame;</code></td>
+</tr>
+<tr>
+<td></td>
+<td>The frame(s) must be disposed of by the transmitter when done.</td>
+</tr>
+<tr>
+<td><code>inFrameCount</code></td>
+<td>The number of frames in <code>inFrames</code>.</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h2 id="tmpushaudio">tmPushAudio<a class="headerlink" href="#tmpushaudio" title="Permanent link">&para;</a></h2>
 <p>Describes audio samples to be transmitted.</p>
@@ -4023,23 +4192,7 @@ todo!</p>
 <tbody>
 <tr>
 <td><code>inTime</code></td>
-<td>Describes which frame of the video is being passed in.</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>A negative value means the frame should be displayed immediately.</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>Use this value to determine the corresponding timecode for the frame being pushed.</td>
+<td>Describes which frame of the video is being passed in. A negative value means the frame should be displayed immediately. Use this value to determine the corresponding timecode for the frame being pushed.</td>
 </tr>
 <tr>
 <td><code>inBuffers</code></td>
@@ -4065,22 +4218,36 @@ todo!</p>
 </span><span id="__span-8-5"><span class="w">      </span><span class="n">csSDK_uint32</span><span class="w">    </span><span class="n">inNumChannels</span><span class="p">;</span>
 </span><span id="__span-8-6"><span class="p">}</span><span class="w"> </span><span class="n">tmPushAudio</span><span class="p">;</span>
 </span></code></pre></div>
-<pre class="grid-table-error">+-----------------+------------------------------------------------------------------------------------+
-|     Member      |                                    Description                                     |
-+=================+====================================================================================+
-| <code>inTime
-</code>        | Describes which frame of the video is being passed in.                            |
-|                 |                                                                                    |
-|                 | A negative value means the frame should be displayed immediately.                 |
-|                 |                                                                                    |
-|                 | Use this value to determine the corresponding timecode for the frame being pushed. |
-+-----------------+------------------------------------------------------------------------------------+
-| <code>inBuffers</code>     | The audio date to be transmitted.                                                 |
-+-----------------+------------------------------------------------------------------------------------+
-| <code>inNumSamples</code>  | Number of samples to process.                                                     |
-+-----------------+------------------------------------------------------------------------------------+
-| <code>inNumChannels</code> | Number of channels to output.                                                     |
-+-----------------+------------------------------------------------------------------------------------+</pre>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>inTime</code></td>
+<td>Describes which frame of the video is being passed in.</td>
+</tr>
+<tr>
+<td></td>
+<td>A negative value means the frame should be displayed immediately. Use this value to determine the corresponding timecode for the frame being pushed.</td>
+</tr>
+<tr>
+<td><code>inBuffers</code></td>
+<td>The audio date to be transmitted.</td>
+</tr>
+<tr>
+<td><code>inNumSamples</code></td>
+<td>Number of samples to process.</td>
+</tr>
+<tr>
+<td><code>inNumChannels</code></td>
+<td>Number of channels to output.</td>
+</tr>
+</tbody>
+</table>
 
 
 
@@ -4101,7 +4268,7 @@ todo!</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 19, 2025 19:00:13 UTC">November 19, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 19, 2025 19:00:00 UTC">November 19, 2025</span>
   </span>
 
     

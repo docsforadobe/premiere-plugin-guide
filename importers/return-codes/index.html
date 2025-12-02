@@ -3381,106 +3381,192 @@
 
 
 <h1 id="return-codes">Return Codes<a class="headerlink" href="#return-codes" title="Permanent link">&para;</a></h1>
-<pre class="grid-table-error">+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|          Return Code           |                                                                                 Reason                                                                                 |
-+================================+========================================================================================================================================================================+
-| <code>imNoErr
-</code>                      | Operation has completed without error.                                                                                                                                |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imTooWide</code>                    | File dimensions too large.                                                                                                                                            |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imBadFile</code>                    | Bad file format.                                                                                                                                                      |
-|                                |                                                                                                                                                                        |
-|                                | To defer an unsupported subtype to a lower priority importer, return this during <code>imOpenFile8</code> or <code>imGetInfo8</code>.                                                       |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imUnsupported</code>                | Unsupported selector.                                                                                                                                                 |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imMemErr</code>                     | Memory error.                                                                                                                                                         |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imOtherErr</code>                   | Unknown error.                                                                                                                                                        |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imNoContent</code>                  | No audio or video.                                                                                                                                                    |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imBadRate</code>                    | Bad audio rate.                                                                                                                                                       |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imBadCompression</code>             | Bad compression.                                                                                                                                                      |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imBadCodec</code>                   | Codec not found.                                                                                                                                                      |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imNotFlat</code>                    | Unflattened QuickTime movie.                                                                                                                                          |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imBadSndComp</code>                 | Bad sound compression.                                                                                                                                                |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imNoTimecode</code>                 | Timecode supported, but not found.                                                                                                                                    |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imMissingComponent</code>           | Missing component needed to open the file.                                                                                                                            |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imSaveErr</code>                    | Error saving file.                                                                                                                                                    |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imDeleteErr</code>                  | Error deleting file.                                                                                                                                                  |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imNotFoundErr</code>                | The requested metadata chunk was not found.                                                                                                                           |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imSetFile</code>                    | Return this from <code>imGetPrefs8</code> only if you are a custom importer and you need Premiere to alter it's file access information (e.g. a new path or filename is created). |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imIterateStreams</code>             | Return from <code>imGetInfo8</code> to indicate that there are more streams to describe.                                                                                         |
-|                                |                                                                                                                                                                        |
-|                                | Premiere will send <code>imGetInfo8</code> for the next stream.                                                                                                                  |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imBadStreamIndex</code>             | Return from <code>imGetInfo8</code> after interating through streams to indicate that there are no more streams to describe.                                                     |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imCantTrim</code>                   | Return from <code>imCheckTrim</code> if the file cannot be trimmed by the importer.                                                                                              |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imDiskFull</code>                   | Return from <code>imTrimFile8</code> if there is not enough space to complete the trim operation.                                                                                |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imDiskErr</code>                    | Return from <code>imTrimFile8</code> if there is a general disk or I/O error during the trim operation.                                                                          |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imFileShareViolation</code>         | Return from <code>imOpenFile8</code> if file cannot be opened due to another process having exclusive read access                                                                 |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imIterateFrameSizes</code>          | Return from <code>imGetPreferredFrameSize</code>, to be called again to describe more frame sizes for a particular pixel format.                                                 |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imMediaPending</code>               | Return from <code>imGetSourceVideo</code> or <code>imCreateAsyncImporter</code> if the importer is still processing the file and cannot return video frames yet.                            |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imDRMControlled</code>              | Return from <code>imOpenFile8</code> if the file cannot be opened because it is under rights management.                                                                         |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imActivationFailed</code>           | Activation of a component failed (usually due to user cancellation).                                                                                                  |
-|                                |                                                                                                                                                                        |
-|                                | This is used by Premiere Elements.                                                                                                                                    |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imFrameNotFound</code>              | New in CS4. Return if an importer could not find the requested frame (typically used with async importers)                                                             |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imBadHeader</code>                  | New in CS5. The file cannot be opened because of a header error                                                                                                        |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imUnsupportedCompression</code>     | New in CS5. The file has a compression type that the importer does not support                                                                                         |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imFileOpenFailed</code>             | New in CS5. The importer was unable to open the file on disk                                                                                                           |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imFileHasNoImportableStreams</code> | New in CS5. The file has no audio or video stream                                                                                                                      |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imFileReadFailed</code>             | New in CS5. A read from an open file failed                                                                                                                            |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imUnsupportedAudioFormat</code>     | New in CS5. The importer cannot import something in the audio format                                                                                                   |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imUnsupportedVideoBitDepth</code>   | New in CS5. The video bit depth of this file is unsupported by the importer                                                                                            |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imDecompressionError</code>         | New in CS5. The importer hit an error decompressing the audio or video                                                                                                 |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imInvalidPreferences</code>         | New in CS5. Invalid prefs data was passed to the importer                                                                                                              |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>inFileNotAvailable</code>           | New in CS5. Return from <code>imQueryContentState</code> if the file/stream is no longer available because it is offline or deleted                                               |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imRequiresProtectedContent</code>   | New in CS5.5. Return from <code>imInit</code> if the importer depends on a library that has not been activated yet.                                                              |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imNoCaptions</code>                 | New in CC. Return from <code>imInitiateAsyncClosedCaptionScan</code> if the clip has no closed captions, or return from <code>imGetNextClosedCaption</code> when there are no more captions. |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imCancel</code>                     | Return from <code>imGetPrefs8</code> if user cancels or the plugin cannot open the file (custom/synthetic importer).                                                             |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imBadFormatIndex</code>             | Return this when given an out of range format index, and from <code>imGetIndFormat</code> when plugin has no more formats to enumerate.                                          |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>imIsCacheable</code>                | Return from <code>imInit</code> if a plugin does not need to be called to initialize every time Premiere is launched.                                                            |
-|                                |                                                                                                                                                                        |
-|                                | This will help reduce the time to launch the application.                                                                                                             |
-+--------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</pre>
+<table>
+<thead>
+<tr>
+<th>Return Code</th>
+<th>Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>imNoErr</code></td>
+<td>Operation has completed without error.</td>
+</tr>
+<tr>
+<td><code>imTooWide</code></td>
+<td>File dimensions too large.</td>
+</tr>
+<tr>
+<td><code>imBadFile</code></td>
+<td>Bad file format. To defer an unsupported subtype to a lower priority importer, return this during <code>imOpenFile8</code> or <code>imGetInfo8</code>.</td>
+</tr>
+<tr>
+<td><code>imUnsupported</code></td>
+<td>Unsupported selector.</td>
+</tr>
+<tr>
+<td><code>imMemErr</code></td>
+<td>Memory error.</td>
+</tr>
+<tr>
+<td><code>imOtherErr</code></td>
+<td>Unknown error.</td>
+</tr>
+<tr>
+<td><code>imNoContent</code></td>
+<td>No audio or video.</td>
+</tr>
+<tr>
+<td><code>imBadRate</code></td>
+<td>Bad audio rate.</td>
+</tr>
+<tr>
+<td><code>imBadCompression</code></td>
+<td>Bad compression.</td>
+</tr>
+<tr>
+<td><code>imBadCodec</code></td>
+<td>Codec not found.</td>
+</tr>
+<tr>
+<td><code>imNotFlat</code></td>
+<td>Unflattened QuickTime movie.</td>
+</tr>
+<tr>
+<td><code>imBadSndComp</code></td>
+<td>Bad sound compression.</td>
+</tr>
+<tr>
+<td><code>imNoTimecode</code></td>
+<td>Timecode supported, but not found.</td>
+</tr>
+<tr>
+<td><code>imMissingComponent</code></td>
+<td>Missing component needed to open the file.</td>
+</tr>
+<tr>
+<td><code>imSaveErr</code></td>
+<td>Error saving file.</td>
+</tr>
+<tr>
+<td><code>imDeleteErr</code></td>
+<td>Error deleting file.</td>
+</tr>
+<tr>
+<td><code>imNotFoundErr</code></td>
+<td>The requested metadata chunk was not found.</td>
+</tr>
+<tr>
+<td><code>imSetFile</code></td>
+<td>Return this from <code>imGetPrefs8</code> only if you are a custom importer and you need Premiere to alter it's file access information (e.g. a new path or filename is created).</td>
+</tr>
+<tr>
+<td><code>imIterateStreams</code></td>
+<td>Return from <code>imGetInfo8</code> to indicate that there are more streams to describe. Premiere will send <code>imGetInfo8</code> for the next stream.</td>
+</tr>
+<tr>
+<td><code>imBadStreamIndex</code></td>
+<td>Return from <code>imGetInfo8</code> after interating through streams to indicate that there are no more streams to describe.</td>
+</tr>
+<tr>
+<td><code>imCantTrim</code></td>
+<td>Return from <code>imCheckTrim</code> if the file cannot be trimmed by the importer.</td>
+</tr>
+<tr>
+<td><code>imDiskFull</code></td>
+<td>Return from <code>imTrimFile8</code> if there is not enough space to complete the trim operation.</td>
+</tr>
+<tr>
+<td><code>imDiskErr</code></td>
+<td>Return from <code>imTrimFile8</code> if there is a general disk or I/O error during the trim operation.</td>
+</tr>
+<tr>
+<td><code>imFileShareViolation</code></td>
+<td>Return from <code>imOpenFile8</code> if file cannot be opened due to another process having exclusive read access</td>
+</tr>
+<tr>
+<td><code>imIterateFrameSizes</code></td>
+<td>Return from <code>imGetPreferredFrameSize</code>, to be called again to describe more frame sizes for a particular pixel format.</td>
+</tr>
+<tr>
+<td><code>imMediaPending</code></td>
+<td>Return from <code>imGetSourceVideo</code> or <code>imCreateAsyncImporter</code> if the importer is still processing the file and cannot return video frames yet.</td>
+</tr>
+<tr>
+<td><code>imDRMControlled</code></td>
+<td>Return from <code>imOpenFile8</code> if the file cannot be opened because it is under rights management.</td>
+</tr>
+<tr>
+<td><code>imActivationFailed</code></td>
+<td>Activation of a component failed (usually due to user cancellation). This is used by Premiere Elements.</td>
+</tr>
+<tr>
+<td><code>imFrameNotFound</code></td>
+<td>New in CS4. Return if an importer could not find the requested frame (typically used with async importers)</td>
+</tr>
+<tr>
+<td><code>imBadHeader</code></td>
+<td>New in CS5. The file cannot be opened because of a header error</td>
+</tr>
+<tr>
+<td><code>imUnsupportedCompression</code></td>
+<td>New in CS5. The file has a compression type that the importer does not support</td>
+</tr>
+<tr>
+<td><code>imFileOpenFailed</code></td>
+<td>New in CS5. The importer was unable to open the file on disk</td>
+</tr>
+<tr>
+<td><code>imFileHasNoImportableStreams</code></td>
+<td>New in CS5. The file has no audio or video stream</td>
+</tr>
+<tr>
+<td><code>imFileReadFailed</code></td>
+<td>New in CS5. A read from an open file failed</td>
+</tr>
+<tr>
+<td><code>imUnsupportedAudioFormat</code></td>
+<td>New in CS5. The importer cannot import something in the audio format</td>
+</tr>
+<tr>
+<td><code>imUnsupportedVideoBitDepth</code></td>
+<td>New in CS5. The video bit depth of this file is unsupported by the importer</td>
+</tr>
+<tr>
+<td><code>imDecompressionError</code></td>
+<td>New in CS5. The importer hit an error decompressing the audio or video</td>
+</tr>
+<tr>
+<td><code>imInvalidPreferences</code></td>
+<td>New in CS5. Invalid prefs data was passed to the importer</td>
+</tr>
+<tr>
+<td><code>inFileNotAvailable</code></td>
+<td>New in CS5. Return from <code>imQueryContentState</code> if the file/stream is no longer available because it is offline or deleted</td>
+</tr>
+<tr>
+<td><code>imRequiresProtectedContent</code></td>
+<td>New in CS5.5. Return from <code>imInit</code> if the importer depends on a library that has not been activated yet.</td>
+</tr>
+<tr>
+<td><code>imNoCaptions</code></td>
+<td>New in CC. Return from <code>imInitiateAsyncClosedCaptionScan</code> if the clip has no closed captions, or return from <code>imGetNextClosedCaption</code> when there are no more captions.</td>
+</tr>
+<tr>
+<td><code>imCancel</code></td>
+<td>Return from <code>imGetPrefs8</code> if user cancels or the plugin cannot open the file (custom/synthetic importer).</td>
+</tr>
+<tr>
+<td><code>imBadFormatIndex</code></td>
+<td>Return this when given an out of range format index, and from <code>imGetIndFormat</code> when plugin has no more formats to enumerate.</td>
+</tr>
+<tr>
+<td><code>imIsCacheable</code></td>
+<td>Return from <code>imInit</code> if a plugin does not need to be called to initialize every time Premiere is launched. This will help reduce the time to launch the application.</td>
+</tr>
+</tbody>
+</table>
 
 
 
@@ -3501,7 +3587,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 18, 2025 18:57:47 UTC">November 18, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 19, 2025 22:58:34 UTC">November 19, 2025</span>
   </span>
 
     

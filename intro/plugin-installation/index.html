@@ -3608,7 +3608,7 @@
 <p>Value data: <code>[Adobe Premiere Pro installation path]\Settings\EncoderPresets\SequencePreview\</code></p>
 <p><strong>For exporter presets:</strong></p>
 <p>Value name: <code>CommonExporterPresetsPath</code></p>
-<p>Value data: <strong>[User folder]AppDataRoamingAdobeCommonAME7.0Presets\</strong></p>
+<p>Value data: *<em>[User folder]AppDataRoamingAdobeCommonAME7.0Presets*</em></p>
 <p><strong>Effects presets:</strong></p>
 <p>Value name: <code>PluginInstallPath</code></p>
 <p>Value data: <code>[Adobe Premiere Pro installation path]\Adobe Premiere Pro\Plugins\Common</code></p>
@@ -3619,17 +3619,17 @@
 <p>Value data: <code>REG_SZ</code> containing the full path of the plugin folder.</p>
 <p>As an example: <code>C:\Program Files\Adobe\Common\Plugins\7.0\MediaCore\</code></p>
 <p>The best way to locate other preset folders was to start from the root path for Premiere Pro in the registry at</p>
-<p><code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\\ Adobe Premiere Pro.exe</code>.</p>
+<p><code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\ Adobe Premiere Pro.exe</code>.</p>
 <p>Then, just add the proper subdirectories as described in the macOS section.</p>
 <hr />
 <h2 id="macos">macOS<a class="headerlink" href="#macos" title="Permanent link">&para;</a></h2>
 <p>Starting in Premiere Pro version 22.0, The <strong>common plugin location</strong> is:</p>
-<p><code>/Library/Application Support/Adobe/Common/Plugins/[version]/MediaCore/</code></p>
+<p><code>/Library/Application Support/Adobe/Common/Plugins/7.0/MediaCore/</code></p>
 <p>Starting in CC 2015.3, <strong>control surface plugins</strong> should be installed here:</p>
 <p><code>/Library/Application Support/Adobe/Common/Plugins/ControlSurface/</code></p>
 <p>Previously, starting in CC 2015, Premiere Pro provided installer hints for Mac. You'll find <code>com.Adobe.Premiere Pro.paths.plist</code> at <code>/Library/Preferences</code>, which contains hints for your Mac installer to know where to install plugins, and is similar to the registry entries we have been providing on Win.</p>
 <p>The <strong>common plugin location</strong> was at:</p>
-<p><code>/Library/Application Support/Adobe/Common/Plugins/[version]/MediaCore/</code></p>
+<p><code>/Library/Application Support/Adobe/Common/Plugins/7.0/MediaCore/</code></p>
 <p>Starting in CC 2015.3, <strong>control surface plugins</strong> should be installed here:</p>
 <p><code>/Library/Application Support/Adobe/Common/Plugins/ControlSurface/</code></p>
 <p>Following OS X Code Signing guidelines, plugins should be installed in this separate shared location rather than in the application bundle.</p>
@@ -3669,7 +3669,7 @@
 </span></code></pre></div>
 <p>On MacOS: <code>NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirector y,NSLocalDomainMask,…)</code></p>
 <p>This should get you started getting the Application Support folder which you can add onto to create something like:</p>
-<p><code>/Library/Application Support/Adobe/Premiere Pro/[version]/ MyPlugin.preferences</code></p>
+<p><code>/Library/Application Support/Adobe/Premiere Pro/[version]/MyPlugin.preferences</code></p>
 <hr />
 <h2 id="dog-ears">Dog Ears<a class="headerlink" href="#dog-ears" title="Permanent link">&para;</a></h2>
 <p>Premiere Pro's built-in player has a mode to display statistics, historically known as "dog ears", which can be useful in debugging and tuning performance of importers, effects, transitions, and transmitters. The statistics include frames per second, frames dropped during playback, pixel format rendered, render size, and field type being rendered.</p>
@@ -3705,7 +3705,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 19, 2025 19:00:13 UTC">November 19, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 19, 2025 19:00:00 UTC">November 19, 2025</span>
   </span>
 
     

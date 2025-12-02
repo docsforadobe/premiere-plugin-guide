@@ -4265,54 +4265,50 @@
 <table>
 <thead>
 <tr>
-<th colspan="1" rowspan="1">
-<p>Member</p>
-</th>
-<th colspan="1" rowspan="1">
-<p>Description</p>
-</th>
+<th>Member</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td colspan="1" rowspan="1">
-<p><code>imInterfaceVer</code><br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-</p>
-</td>
-<td colspan="1" rowspan="1">
-<p>Importer API version<br />
-<br />
-- Premiere Pro CC 2014 - <code>IMPORTMOD_VERSION_15</code><br />
-- Premiere Pro CC - <code>IMPORTMOD_VERSION_14</code><br />
-- Premiere Pro CS6.0.2 - <code>IMPORTMOD_VERSION_13</code><br />
-- Premiere Pro CS6 - <code>IMPORTMOD_VERSION_12</code><br />
-- Premiere Pro CS5.5 - <code>IMPORTMOD_VERSION_11</code><br />
-- Premiere Pro CS5 - <code>IMPORTMOD_VERSION_10</code><br />
-- Premiere Pro CS4 - <code>IMPORTMOD_VERSION_9</code></p>
-</td>
+<td><code>imInterfaceVer</code></td>
+<td>Importer API version</td>
 </tr>
 <tr>
-<td colspan="1" rowspan="1">
-<p><code>funcs</code></p>
-</td>
-<td colspan="1" rowspan="1">
-<p>Pointers to callbacks for importers</p>
-</td>
+<td></td>
+<td>Premiere Pro CC 2014 - <code>IMPORTMOD_VERSION_15</code></td>
 </tr>
 <tr>
-<td colspan="1" rowspan="1">
-<p><code>piSuites</code></p>
-</td>
-<td colspan="1" rowspan="1">
-<p>Pointer to universal callback suites</p>
-</td>
+<td></td>
+<td>Premiere Pro CC - <code>IMPORTMOD_VERSION_14</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Premiere Pro CS6.0.2 - <code>IMPORTMOD_VERSION_13</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Premiere Pro CS6 - <code>IMPORTMOD_VERSION_12</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Premiere Pro CS5.5 - <code>IMPORTMOD_VERSION_11</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Premiere Pro CS5 - <code>IMPORTMOD_VERSION_10</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Premiere Pro CS4 - <code>IMPORTMOD_VERSION_9</code></td>
+</tr>
+<tr>
+<td><code>funcs</code></td>
+<td>Pointers to callbacks for importers</td>
+</tr>
+<tr>
+<td><code>piSuites</code></td>
+<td>Pointer to universal callback suites</td>
 </tr>
 </tbody>
 </table>
@@ -4329,20 +4325,36 @@
 </span><span id="__span-2-9"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">totalToDo</span><span class="p">;</span>
 </span><span id="__span-2-10"><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">trimCallbackID</span><span class="p">};</span>
 </span></code></pre></div>
-<pre class="grid-table-error">+----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-|       Function       |                                                                     Description                                                                      |
-+======================+======================================================================================================================================================+
-| <code>classFuncs
-</code>         | See <a href="../../hardware/classdata-functions/">ClassData functions</a>.                                                                                      |
-+----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>importProgressFunc</code> | Available in <code>imSaveFileRec</code> and <code>imTrimFileRec</code> during <em>imSaveFile8</em> and <em>imTrimFile8</em>.                                                            |
-|                      |                                                                                                                                                      |
-|                      | Callback function pointer for use during project archiving or trimming to call into Premiere and update the progress bar and check for cancellation. |
-|                      |                                                                                                                                                      |
-|                      | Either <code>imProgressAbort</code> or <code>imProgressCon</code> tinue will be returned.                                                                                 |
-|                      |                                                                                                                                                      |
-|                      | The trimCallbackID parameter is passed in the same structures.                                                                                      |
-+----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+</pre>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>classFuncs</code></td>
+<td>See <a href="../../hardware/classdata-functions/">ClassData functions</a>.</td>
+</tr>
+<tr>
+<td><code>importProgressFunc</code></td>
+<td>Available in <code>imSaveFileRec</code> and <code>imTrimFileRec</code> during <em>imSaveFile8</em> and <em>imTrimFile8</em>.</td>
+</tr>
+<tr>
+<td></td>
+<td>Callback function pointer for use during project archiving or trimming to call into Premiere and update the progress bar and check for cancellation.</td>
+</tr>
+<tr>
+<td></td>
+<td>Either <code>imProgressAbort</code> or <code>imProgressCon</code> tinue will be returned.</td>
+</tr>
+<tr>
+<td></td>
+<td>The trimCallbackID parameter is passed in the same structures.</td>
+</tr>
+</tbody>
+</table>
 
 
 

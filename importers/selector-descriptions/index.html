@@ -1860,9 +1860,9 @@
 				
 				
 					<li class="md-nav__item">
-	<a href="#synthetic-importers_1" class="md-nav__link">
+	<a href="#selectors-synthetic-importers" class="md-nav__link">
 		<span class="md-ellipsis">
-			Synthetic Importers
+			Selectors : Synthetic Importers
 		</span>
 	</a>
 
@@ -1978,9 +1978,9 @@
 				
 				
 					<li class="md-nav__item">
-	<a href="#synthetic-importers_2" class="md-nav__link">
+	<a href="#notes-for-synthetic-importers" class="md-nav__link">
 		<span class="md-ellipsis">
-			Synthetic Importers
+			Notes for Synthetic Importers
 		</span>
 	</a>
 
@@ -1991,9 +1991,9 @@
 				
 				
 					<li class="md-nav__item">
-	<a href="#custom-importers_1" class="md-nav__link">
+	<a href="#notes-for-custom-importers" class="md-nav__link">
 		<span class="md-ellipsis">
-			Custom Importers
+			Notes for Custom Importers
 		</span>
 	</a>
 
@@ -4111,9 +4111,9 @@
 				
 				
 					<li class="md-nav__item">
-	<a href="#synthetic-importers_1" class="md-nav__link">
+	<a href="#selectors-synthetic-importers" class="md-nav__link">
 		<span class="md-ellipsis">
-			Synthetic Importers
+			Selectors : Synthetic Importers
 		</span>
 	</a>
 
@@ -4229,9 +4229,9 @@
 				
 				
 					<li class="md-nav__item">
-	<a href="#synthetic-importers_2" class="md-nav__link">
+	<a href="#notes-for-synthetic-importers" class="md-nav__link">
 		<span class="md-ellipsis">
-			Synthetic Importers
+			Notes for Synthetic Importers
 		</span>
 	</a>
 
@@ -4242,9 +4242,9 @@
 				
 				
 					<li class="md-nav__item">
-	<a href="#custom-importers_1" class="md-nav__link">
+	<a href="#notes-for-custom-importers" class="md-nav__link">
 		<span class="md-ellipsis">
-			Custom Importers
+			Notes for Custom Importers
 		</span>
 	</a>
 
@@ -4689,7 +4689,7 @@
 <p>Describe a clip, or a single stream of a clip if the clip has multiple streams.</p>
 <p>Called when a specific file is instantiated.</p>
 <p>Importer checks file validity, optionally allocates file instance data, and describes the properties of the file being imported by populating the imFileInfoRec8.</p>
-<h3 id="synthetic-importers_1">Synthetic Importers<a class="headerlink" href="#synthetic-importers_1" title="Permanent link">&para;</a></h3>
+<h3 id="selectors-synthetic-importers">Selectors : Synthetic Importers<a class="headerlink" href="#selectors-synthetic-importers" title="Permanent link">&para;</a></h3>
 <p>You can create a still frame, a movie of a set duration, or an 'infinite' length movie, but cannot change the properties of a synthetic file once imported.</p>
 <hr />
 <h2 id="imclosefile">imCloseFile<a class="headerlink" href="#imclosefile" title="Permanent link">&para;</a></h2>
@@ -4783,11 +4783,11 @@
 <p>Starting in Premiere Pro 1.5, the importer can get a frame from the timeline beneath the current clip or timeline location.</p>
 <p>This is useful for titler plugins.</p>
 <p>Use the <code>getPreviewFrameEx</code> callback with the time given by <code>TDB_TimeRecord</code> <code>tdbTimelocation</code> in <code>imGetPrefsRec</code>.</p>
-<h3 id="synthetic-importers_2">Synthetic Importers<a class="headerlink" href="#synthetic-importers_2" title="Permanent link">&para;</a></h3>
+<h3 id="notes-for-synthetic-importers">Notes for Synthetic Importers<a class="headerlink" href="#notes-for-synthetic-importers" title="Permanent link">&para;</a></h3>
 <p>Synthetic importers can specify the displayable name by changing the <code>newfilename</code> member of <code>imFileAccessRec8</code>.</p>
 <p>The first time this selector is sent, the <code>imGetPrefsRec.timelineData</code>, though non-null, contains garbage and should not be used.</p>
 <p>It will only contain valid information once the user has put the clip into the timeline, and is double-clicking on it.</p>
-<h3 id="custom-importers_1">Custom Importers<a class="headerlink" href="#custom-importers_1" title="Permanent link">&para;</a></h3>
+<h3 id="notes-for-custom-importers">Notes for Custom Importers<a class="headerlink" href="#notes-for-custom-importers" title="Permanent link">&para;</a></h3>
 <p>Custom importers should return imSetFile after successfully creating a new file, storing the file access information in imFileAccessRec8.</p>
 <p>Premiere will use this data to then ask the importer to open the file it created.</p>
 <p>See Additional Details for more information on custom importers.</p>
@@ -4805,7 +4805,7 @@
 <p>Importers that open their own files should specify how many files they keep open between <code>imOpenFile8</code> and <code>imQuietFile</code> using the new Importer File Manager Suite, if the number is not equal to one.</p>
 <p>Importers that don't open their own files, or importers that only open a single file should not use this suite.</p>
 <p>Premiere's File Manager now keeps track of the number of files held open by importers, and limits the number open at a time by closing the least recently used files when too many are open.</p>
-<p>On Windows, this helps memory usage, but on Mac OS this addresses a whole class of bugs that may occur when too many files are open.</p>
+<p>On Windows, this helps memory usage, but on MacOS this addresses a whole class of bugs that may occur when too many files are open.</p>
 <hr />
 <h2 id="imquietfile">imQuietFile<a class="headerlink" href="#imquietfile" title="Permanent link">&para;</a></h2>
 <ul>
@@ -5099,7 +5099,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 19, 2025 19:00:13 UTC">November 19, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 19, 2025 19:00:00 UTC">November 19, 2025</span>
   </span>
 
     

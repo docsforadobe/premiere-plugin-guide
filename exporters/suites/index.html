@@ -6179,58 +6179,132 @@
 </span><span id="__span-0-3"><span class="w">  </span><span class="n">PrExportSourceInfoSelector</span><span class="w">  </span><span class="n">inSelector</span><span class="p">,</span>
 </span><span id="__span-0-4"><span class="w">  </span><span class="n">PrParam</span><span class="w">                     </span><span class="o">*</span><span class="n">outSourceInfo</span><span class="p">);</span>
 </span></code></pre></div>
-<pre class="grid-table-error">+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|                 Value                  |    Type     |                                                                                                     Description                                                                                                     |
-+========================================+=============+=====================================================================================================================================================================================================================+
-| <code>kExportInfo_VideoWidth
-</code>               | Int32       | Width of source video                                                                                                                                                                                               |
-+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>kExportInfo_VideoHeight</code>              | Int32       | Height of source video                                                                                                                                                                                              |
-+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>kExportInfo_VideoFrameRate</code>           | PrTime      | Frame rate                                                                                                                                                                                                          |
-+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>kExportInfo_VideoFieldType</code>           | Int32       | One of the prFieldType values                                                                                                                                                                                       |
-+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>kExportInfo_VideoDuration</code>            | Int64       | A PrTime value                                                                                                                                                                                                      |
-+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>kExportInfo_PixelAspectNumerator</code>     | Int32       | Pixel aspect ratio (PAR) numerator                                                                                                                                                                                  |
-+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>kExportInfo_PixelAspectDenominator</code>   | Int32       | Pixel aspect ratio denominator                                                                                                                                                                                      |
-+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>kExportInfo_AudioDuration</code>            | Int64       | A PrTime value                                                                                                                                                                                                      |
-+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>kExportInfo_AudioChannelsType</code>        | Int32       | One of the <code>PrAudioChannelType</code> values.                                                                                                                                                                            |
-|                                        |             |                                                                                                                                                                                                                     |
-|                                        |             | Returns <code>0</code> (which is undefined) if there's no audio.                                                                                                                                                              |
-+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>kExportInfo_AudioSampleRate</code>          | Float64     |                                                                                                                                                                                                                     |
-+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>kExportInfo_SourceHasAudio</code>           | Bool        | Non-zero if source has audio                                                                                                                                                                                        |
-+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>kExportInfo_SourceHasVideo</code>           | Bool        | Non-zero if source has video                                                                                                                                                                                        |
-+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>kExportInfo_RenderAsPreview</code>          | Bool        | Returns a non-zero value if currently rendering preview files.                                                                                                                                                     |
-+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>kExportInfo_SequenceGUID</code>             | Guid        | A <code>PrPluginID</code>, which is a unique GUID for the sequence.                                                                                                                                                           |
-+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>kExportInfo_SessionFilePath</code>          | PrMemoryPtr | A <code>prUTF16Char</code> array. The exporter should release the pointer using the <a href="../../universals/sweetpea-suites/#memory-manager-suite">Memory Manager Suite</a>.                                                            |
-+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>kExportInfo_VideoPosterFrameTickTime</code> | Int64       | New in CS5. A PrTime value.                                                                                                                                                                                        |
-+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>kExportInfo_SourceTimecode</code>           | PrMemoryPtr | New in CS5.0.2. The timecode of the source clip or sequence.                                                                                                                                                       |
-|                                        |             |                                                                                                                                                                                                                     |
-|                                        |             | The sequence timecode is set by the Start Time of a sequence using the sequence wing-menu. A pointer to a ExporterTimecodeRec structure.                                                                           |
-|                                        |             |                                                                                                                                                                                                                     |
-|                                        |             | The exporter should release the pointer using the <a href="../../universals/sweetpea-suites/#memory-manager-suite">Memory Manager Suite</a>.                                                                                   |
-+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>kExportInfo_UsePreviewFiles</code>          | Bool        | New in CC. Use this to check if the user has checked "Use Previews" in the Export Settings dialog.                                                                                                                 |
-|                                        |             |                                                                                                                                                                                                                     |
-|                                        |             | If so, if possible, reuse any preview files already rendered, which can be retrieved using <code>AcquireVideoSegmentsWithPreviewsID</code> in the <a href="../../universals/sweetpea-suites/#video-segment-suite">Video Segment Suite</a>. |
-+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>kExportInfo_NumAudioChannels</code>         | Int32       | New in CC. Get the number of audio channels in a given source.                                                                                                                                                     |
-|                                        |             |                                                                                                                                                                                                                     |
-|                                        |             | This can be used to automatically initialize the audio channel parameter in the Audio tab of the Export Settings to match the source.                                                                              |
-+----------------------------------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</pre>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>kExportInfo_VideoWidth</code></td>
+<td>Int32</td>
+<td>Width of source video</td>
+</tr>
+<tr>
+<td><code>kExportInfo_VideoHeight</code></td>
+<td>Int32</td>
+<td>Height of source video</td>
+</tr>
+<tr>
+<td><code>kExportInfo_VideoFrameRate</code></td>
+<td>PrTime</td>
+<td>Frame rate</td>
+</tr>
+<tr>
+<td><code>kExportInfo_VideoFieldType</code></td>
+<td>Int32</td>
+<td>One of the prFieldType values</td>
+</tr>
+<tr>
+<td><code>kExportInfo_VideoDuration</code></td>
+<td>Int64</td>
+<td>A PrTime value</td>
+</tr>
+<tr>
+<td><code>kExportInfo_PixelAspectNumerator</code></td>
+<td>Int32</td>
+<td>Pixel aspect ratio (PAR) numerator</td>
+</tr>
+<tr>
+<td><code>kExportInfo_PixelAspectDenominator</code></td>
+<td>Int32</td>
+<td>Pixel aspect ratio denominator</td>
+</tr>
+<tr>
+<td><code>kExportInfo_AudioDuration</code></td>
+<td>Int64</td>
+<td>A PrTime value</td>
+</tr>
+<tr>
+<td><code>kExportInfo_AudioChannelsType</code></td>
+<td>Int32</td>
+<td>One of the <code>PrAudioChannelType</code> values. Returns 0 (which is undefined) if there's no audio.</td>
+</tr>
+<tr>
+<td><code>kExportInfo_AudioSampleRate</code></td>
+<td>Float64</td>
+<td></td>
+</tr>
+<tr>
+<td><code>kExportInfo_SourceHasAudio</code></td>
+<td>Bool</td>
+<td>Non-zero if source has audio</td>
+</tr>
+<tr>
+<td><code>kExportInfo_SourceHasVideo</code></td>
+<td>Bool</td>
+<td>Non-zero if source has video</td>
+</tr>
+<tr>
+<td><code>kExportInfo_RenderAsPreview</code></td>
+<td>Bool</td>
+<td>Returns a non-zero value if currently rendering preview files.</td>
+</tr>
+<tr>
+<td><code>kExportInfo_SequenceGUID</code></td>
+<td>Guid</td>
+<td>A <code>PrPluginID</code>, which is a unique GUID for the sequence.</td>
+</tr>
+<tr>
+<td><code>kExportInfo_SessionFilePath</code></td>
+<td>PrMemoryPtr</td>
+<td>A <code>prUTF16Char</code> array. The exporter should release the pointer using the <a href="../../universals/sweetpea-suites/#memory-manager-suite">Memory Manager Suite</a>.</td>
+</tr>
+<tr>
+<td><code>kExportInfo_VideoPosterFrameTickTime</code></td>
+<td>Int64</td>
+<td>New in CS5. A PrTime value.</td>
+</tr>
+<tr>
+<td><code>kExportInfo_SourceTimecode</code></td>
+<td>PrMemoryPtr</td>
+<td>New in CS5.0.2. The timecode of the source clip or sequence.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>The sequence timecode is set by the Start Time of a sequence using the sequence wing-menu. A pointer to a ExporterTimecodeRec structure.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>The exporter should release the pointer using the <a href="../../universals/sweetpea-suites/#memory-manager-suite">Memory Manager Suite</a>.</td>
+</tr>
+<tr>
+<td><code>kExportInfo_UsePreviewFiles</code></td>
+<td>Bool</td>
+<td>New in CC. Use this to check if the user has checked "Use Previews" in the Export Settings dialog.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>If so, if possible, reuse any preview files already rendered, which can be retrieved using <code>AcquireVideoSegmentsWithPreviewsID</code> in the <a href="../../universals/sweetpea-suites/#video-segment-suite">Video Segment Suite</a>.</td>
+</tr>
+<tr>
+<td><code>kExportInfo_NumAudioChannels</code></td>
+<td>Int32</td>
+<td>New in CC. Get the number of audio channels in a given source.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>This can be used to automatically initialize the audio channel parameter in the Audio tab of the Export Settings to match the source.</td>
+</tr>
+</tbody>
+</table>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-1-2"><span class="w">  </span><span class="n">csSDK_int64</span><span class="w">  </span><span class="n">mTimecodeTicks</span><span class="p">;</span>
 </span><span id="__span-1-3"><span class="w">  </span><span class="n">csSDK_int64</span><span class="w">  </span><span class="n">mTicksPerFrame</span><span class="p">;</span>
@@ -6264,27 +6338,28 @@
 </span><span id="__span-2-2"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">       </span><span class="n">inExporterID</span><span class="p">,</span>
 </span><span id="__span-2-3"><span class="w">  </span><span class="n">PrSDKStdParamType</span><span class="w">  </span><span class="n">inSDKStdParamType</span><span class="p">);</span>
 </span></code></pre></div>
-<pre class="grid-table-error">+---------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|       Member        |                                                                                                                                                                             Description                                                                                                                                                                             |
-+=====================+=====================================================================================================================================================================================================================================================================================================================================================================+
-| <code>inExporterID
-</code>      | Pass in <code>exporterPluginID</code> from <code>exDoExportRec</code>.                                                                                                                                                                                                                                                                                                                   |
-+---------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>inSDKStdParamType</code> | Use one of the following:                                                                                                                                                                                                                                                                                                                                           |
-|                     |                                                                                                                                                                                                                                                                                                                                                                     |
-|                     | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="k">enum</span><span class="w"> </span><span class="nc">PrSDKStdParamType</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-2"><span class="w">  </span><span class="n">SDKStdParams_Video</span><span class="p">,</span>
-</span><span id="__span-0-3"><span class="w">  </span><span class="n">SDKStdParams_Audio</span><span class="p">,</span>
-</span><span id="__span-0-4"><span class="w">  </span><span class="n">SDKStdParams_Still</span><span class="p">,</span>
-</span><span id="__span-0-5"><span class="w">  </span><span class="n">SDKStdParams_VideoBitrateGroup</span><span class="p">,</span>
-</span><span id="__span-0-6"><span class="w">  </span><span class="n">SDKStdParams_Video_NoRenderMax</span><span class="p">,</span>
-</span><span id="__span-0-7"><span class="w">  </span><span class="n">SDKStdParams_Video_AddRenderMax</span><span class="p">,</span>
-</span><span id="__span-0-8"><span class="w">  </span><span class="n">SDKStdParams_AudioTabOnly</span><span class="p">,</span>
-</span><span id="__span-0-9"><span class="w">  </span><span class="n">SDKStdParams_AudioBitrateGroup</span><span class="p">,</span>
-</span><span id="__span-0-10"><span class="w">  </span><span class="n">SDKStdParams_VideoWithSizePopup</span>
-</span><span id="__span-0-11"><span class="p">};</span>
-</span></code></pre></div> |
-+---------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</pre>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>inExporterID</code></td>
+<td>Pass in <code>exporterPluginID</code> from <code>exDoExportRec</code>.</td>
+</tr>
+<tr>
+<td><code>inSDKStdParamType</code></td>
+<td>Use one of the following:</td>
+</tr>
+<tr>
+<td></td>
+<td><code>enum PrSDKStdParamType {  SDKStdParams_Video,  SDKStdParams_Audio,  SDKStdParams_Still,  SDKStdParams_VideoBitrateGroup,  SDKStdParams_Video_NoRenderMax,  SDKStdParams_Video_AddRenderMax,  SDKStdParams_AudioTabOnly,  SDKStdParams_AudioBitrateGroup,  SDKStdParams_VideoWithSizePopup};</code></td>
+</tr>
+</tbody>
+</table>
 <h3 id="postprocessparamnames">PostProcessParamNames<a class="headerlink" href="#postprocessparamnames" title="Permanent link">&para;</a></h3>
 <p>Call during <code>exSelPostProcessParams</code>.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">PostProcessParamNames</span><span class="p">)(</span>
@@ -6384,48 +6459,60 @@
 </span><span id="__span-6-5"><span class="w">  </span><span class="n">PrSDKMultipassExportLoopFrameCompletionFunction</span><span class="w">  </span><span class="n">inCompletionFunction</span><span class="p">,</span>
 </span><span id="__span-6-6"><span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">                                            </span><span class="n">inCompletionParam</span><span class="p">);</span>
 </span></code></pre></div>
-<pre class="grid-table-error">+------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|         Member         |                                                                                                                                                                                                                      Description                                                                                                                                                                                                                       |
-+========================+========================================================================================================================================================================================================================================================================================================================================================================================================================================================+
-| <code>inExporterID
-</code>         | Pass in <code>exporterPluginID</code> from <code>exDoExportRec</code>.                                                                                                                                                                                                                                                                                                                                                                                                      |
-+------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>inRenderParams</code>       | Pass in the parameters that will be used for the render loop that will push rendered frames via the provided callback <code>inCompletionFunction</code>.                                                                                                                                                                                                                                                                                                         |
-|                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-|                        | <code>inReservedProgressPreRender</code> and <code>inReservedProgressPostRender</code> should be set to the amount of progress to be shown in any progress bar before starting the render loop, and how much is remaining after finishing the render loop.                                                                                                                                                                                                                  |
-|                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-|                        | These values default to zero.                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-|                        | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-2"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">inRenderParamsSize</span><span class="p">;</span>
-</span><span id="__span-0-3"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">    </span><span class="n">inRenderParamsVersion</span><span class="p">;</span>
-</span><span id="__span-0-4"><span class="w">  </span><span class="n">PrPixelFormat</span><span class="w">  </span><span class="n">inFinalPixelFormat</span><span class="p">;</span>
-</span><span id="__span-0-5"><span class="w">  </span><span class="n">PrTime</span><span class="w">         </span><span class="n">inStartTime</span><span class="p">;</span>
-</span><span id="__span-0-6"><span class="w">  </span><span class="n">PrTime</span><span class="w">         </span><span class="n">inEndTime</span><span class="p">;</span>
-</span><span id="__span-0-7"><span class="w">  </span><span class="kt">float</span><span class="w">          </span><span class="n">inReservedProgressPreRender</span><span class="p">;</span>
-</span><span id="__span-0-8"><span class="w">  </span><span class="kt">float</span><span class="w">          </span><span class="n">inReservedProgressPostRender</span><span class="p">;</span>
-</span><span id="__span-0-9"><span class="w">  </span><span class="kt">bool</span><span class="w">           </span><span class="n">inHardwareResidentFrameOutputSupported</span><span class="p">;</span><span class="w">  </span><span class="c1">// new in 14.x</span>
-</span><span id="__span-0-10"><span class="p">}</span><span class="w"> </span><span class="n">ExportLoopRenderParams</span><span class="p">;</span>
-</span></code></pre></div> |
-+------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>inNumberOfPasses</code>     | Set to 1, unless you need multipass encoding such as two-pass or three-pass encoding.                                                                                                                                                                                                                                                                                                                                                                 |
-+------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>inCompletionFunction</code> | Provide your own callback here, which will be called when the host pushes rendered frames. Use the following function signature:                                                                                                                                                                                                                                                                                                                       |
-|                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-|                        | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="k">typedef</span><span class="w"> </span><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">PrSDKMultipassExportLoop</span><span class="w"> </span><span class="n">FrameCompletionFunction</span><span class="p">)(</span>
-</span><span id="__span-0-2"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">inWhichPass</span><span class="p">,</span>
-</span><span id="__span-0-3"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">inFrameNumber</span><span class="p">,</span>
-</span><span id="__span-0-4"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">inFrameRepeatCount</span><span class="p">,</span>
-</span><span id="__span-0-5"><span class="w">  </span><span class="n">PPixHand</span><span class="w">      </span><span class="n">inRenderedFrame</span><span class="p">,</span>
-</span><span id="__span-0-6"><span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">         </span><span class="n">inCallbackData</span><span class="p">);</span>
-</span></code></pre></div>                                                                                                                                                                 |
-|                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-|                        | Currently, there is no simple way to ensure that pushed frames survive longer than the life of the function call.                                                                                                                                                                                                                                                                                                                                     |
-|                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-|                        | If you are interested in this capability, please contact us and explain your need.                                                                                                                                                                                                                                                                                                                                                                    |
-+------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>inCompletionParam</code>    | Pass in a void * to the data you wish to send to your <code>inCompletionFunction</code> above in <code>inCallbackData</code>.                                                                                                                                                                                                                                                                                                                                              |
-+------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</pre>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>inExporterID</code></td>
+<td>Pass in <code>exporterPluginID</code> from <code>exDoExportRec</code>.</td>
+</tr>
+<tr>
+<td><code>inRenderParams</code></td>
+<td>Pass in the parameters that will be used for the render loop that will push rendered frames via the provided callback <code>inCompletionFunction</code>.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>inReservedProgressPreRender</code> and <code>inReservedProgressPostRender</code> should be set to the amount of progress to be shown in any progress bar before starting the render loop, and how much is remaining after finishing the render loop.</td>
+</tr>
+<tr>
+<td></td>
+<td>These values default to zero.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>typedef struct {  csSDK_int32    inRenderParamsSize;  csSDK_int32    inRenderParamsVersion;  PrPixelFormat  inFinalPixelFormat;  PrTime         inStartTime;  PrTime         inEndTime;  float          inReservedProgressPreRender;  float          inReservedProgressPostRender;  bool           inHardwareResidentFrameOutputSupported;  // new in 14.x} ExportLoopRenderParams;</code></td>
+</tr>
+<tr>
+<td><code>inNumberOfPasses</code></td>
+<td>Set to 1, unless you need multipass encoding such as two-pass or three-pass encoding.</td>
+</tr>
+<tr>
+<td><code>inCompletionFunction</code></td>
+<td>Provide your own callback here, which will be called when the host pushes rendered frames. Use the following function signature:</td>
+</tr>
+<tr>
+<td></td>
+<td><code>typedef prSuiteError (*PrSDKMultipassExportLoop FrameCompletionFunction)(  csSDK_uint32  inWhichPass,  csSDK_uint32  inFrameNumber,  csSDK_uint32  inFrameRepeatCount,  PPixHand      inRenderedFrame,  void*         inCallbackData);</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Currently, there is no simple way to ensure that pushed frames survive longer than the life of the function call.</td>
+</tr>
+<tr>
+<td></td>
+<td>If you are interested in this capability, please contact us and explain your need.</td>
+</tr>
+<tr>
+<td><code>inCompletionParam</code></td>
+<td>Pass in a void * to the data you wish to send to your <code>inCompletionFunction</code> above in <code>inCallbackData</code>.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="reportintermediateprogressforrepeatedvideoframe">ReportIntermediateProgressForRepeatedVideoFrame<a class="headerlink" href="#reportintermediateprogressforrepeatedvideoframe" title="Permanent link">&para;</a></h3>
 <p>Register the callback to be made to push video frames to the exporter.</p>
 <p>This function assumes that your exporter supports <code>exSelQueryOutputSettings</code>, which will be called.</p>
@@ -6460,22 +6547,44 @@
 </span><span id="__span-8-4"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prUTF16Char</span><span class="o">*</span><span class="w">  </span><span class="n">inEventTitle</span><span class="p">,</span>
 </span><span id="__span-8-5"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prUTF16Char</span><span class="o">*</span><span class="w">  </span><span class="n">inEventDescription</span><span class="p">);</span>
 </span></code></pre></div>
-<pre class="grid-table-error">+----------------------+--------------------------------------------------------------------------------------------+
-|        Member        |                                        Description                                         |
-+======================+============================================================================================+
-| <code>inExporterID
-</code>       | Pass in <code>exporterPluginID</code> from <code>exDoExportRec</code>.                                          |
-+----------------------+--------------------------------------------------------------------------------------------+
-| <code>inEventType</code>        | Use one of the types from the <a href="../../universals/sweetpea-suites/#error-suite">Error Suite</a>: |
-|                      |                                                                                            |
-|                      | - <code>kEventTypeInformational</code>                                                                |
-|                      | - <code>kEventTypeWarning</code>                                                                      |
-|                      | - <code>kEventTypeError</code>                                                                        |
-+----------------------+--------------------------------------------------------------------------------------------+
-| <code>inEventTitle</code>       | Provide information about the event for the user.                                         |
-+----------------------+--------------------------------------------------------------------------------------------+
-| <code>inEventDescription</code> |                                                                                            |
-+----------------------+--------------------------------------------------------------------------------------------+</pre>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>inExporterID</code></td>
+<td>Pass in <code>exporterPluginID</code> from <code>exDoExportRec</code>.</td>
+</tr>
+<tr>
+<td><code>inEventType</code></td>
+<td>Use one of the types from the <a href="../../universals/sweetpea-suites/#error-suite">Error Suite</a>:</td>
+</tr>
+<tr>
+<td></td>
+<td><code>kEventTypeInformational</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>kEventTypeWarning</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>kEventTypeError</code></td>
+</tr>
+<tr>
+<td><code>inEventTitle</code></td>
+<td>Provide information about the event for the user.</td>
+</tr>
+<tr>
+<td><code>inEventDescription</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h2 id="palette-suite">Palette Suite<a class="headerlink" href="#palette-suite" title="Permanent link">&para;</a></h2>
 <p>A seldom-used suite for palettizing an image, for example, for GIFs. See PrSDKPaletteSuite.h.</p>
@@ -6561,24 +6670,44 @@
 </span><span id="__span-11-4"><span class="w">  </span><span class="kt">float</span><span class="o">**</span><span class="w">       </span><span class="n">inBuffer</span><span class="p">,</span>
 </span><span id="__span-11-5"><span class="w">  </span><span class="kt">char</span><span class="w">          </span><span class="n">inClipAudio</span><span class="p">);</span>
 </span></code></pre></div>
-<pre class="grid-table-error">+-------------------+----------------------------------------------------------------------------------------------------------------+
-|      Member       |                                                  Description                                                   |
-+===================+================================================================================================================+
-| <code>inAudioRenderID
-</code> | Pass in the <code>outAudioRenderID</code> returned from <code>MakeAudioRenderer()</code>.                                           |
-|                   |                                                                                                                |
-|                   | This gives the host the context of the audio render.                                                          |
-+-------------------+----------------------------------------------------------------------------------------------------------------+
-| <code>inFrameCount</code>    | The number of audio frames to return in inBuffer.                                                             |
-|                   |                                                                                                                |
-|                   | The next contiguous audio frames will always be returned, unless <code>ResetAudioToBeginning</code> has just been called. |
-+-------------------+----------------------------------------------------------------------------------------------------------------+
-| <code>inBuffer</code>        | An array of float arrays, allocated by the exporter.                                                          |
-|                   |                                                                                                                |
-|                   | The host returns the samples for each audio channel in a separate array.                                      |
-+-------------------+----------------------------------------------------------------------------------------------------------------+
-| <code>inClipAudio</code>     | When true, <code>GetAudio</code> will return audio clipped at +/- 1.0. Otherwise, it will return unclipped audio.        |
-+-------------------+----------------------------------------------------------------------------------------------------------------+</pre>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>inAudioRenderID</code></td>
+<td>Pass in the <code>outAudioRenderID</code> returned from <code>MakeAudioRenderer()</code>.</td>
+</tr>
+<tr>
+<td></td>
+<td>This gives the host the context of the audio render.</td>
+</tr>
+<tr>
+<td><code>inFrameCount</code></td>
+<td>The number of audio frames to return in inBuffer.</td>
+</tr>
+<tr>
+<td></td>
+<td>The next contiguous audio frames will always be returned, unless <code>ResetAudioToBeginning</code> has just been called.</td>
+</tr>
+<tr>
+<td><code>inBuffer</code></td>
+<td>An array of float arrays, allocated by the exporter.</td>
+</tr>
+<tr>
+<td></td>
+<td>The host returns the samples for each audio channel in a separate array.</td>
+</tr>
+<tr>
+<td><code>inClipAudio</code></td>
+<td>When true, <code>GetAudio</code> will return audio clipped at +/- 1.0. Otherwise, it will return unclipped audio.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="resetaudiotobeginning">ResetAudioToBeginning<a class="headerlink" href="#resetaudiotobeginning" title="Permanent link">&para;</a></h3>
 <p>This call will reset the position on the audio generation to time zero. This can be used for multipass encoding.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-12-1"><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">ResetAudioToBeginning</span><span class="p">)(</span>
@@ -6819,8 +6948,8 @@
 </span><span id="__span-18-10"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">           </span><span class="n">inDeinterlace</span><span class="p">;</span>
 </span><span id="__span-18-11"><span class="w">  </span><span class="n">PrRenderQuality</span><span class="w">       </span><span class="n">inDeinterlaceQuality</span><span class="p">;</span>
 </span><span id="__span-18-12"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">           </span><span class="n">inCompositeOnBlack</span><span class="p">;</span>
-</span><span id="__span-18-13"><span class="w">  </span><span class="n">PrSDKColorSpaceID</span><span class="w">       </span><span class="n">inPrSDKColorSpaceID</span><span class="p">;</span>
-</span><span id="__span-18-14"><span class="w">      </span><span class="n">PrSDKLUTID</span><span class="w">                      </span><span class="n">inPrSDKLUTID</span><span class="p">;</span><span class="w">                   </span><span class="c1">// Added to support export LUT</span>
+</span><span id="__span-18-13"><span class="w">  </span><span class="n">PrSDKColorSpaceID</span><span class="w">     </span><span class="n">inPrSDKColorSpaceID</span><span class="p">;</span>
+</span><span id="__span-18-14"><span class="w">  </span><span class="n">PrSDKLUTID</span><span class="w">            </span><span class="n">inPrSDKLUTID</span><span class="p">;</span><span class="w">                   </span><span class="c1">// Added to support export LUT</span>
 </span><span id="__span-18-15"><span class="p">}</span><span class="w"> </span><span class="n">SequenceRender_ParamsRecExt2</span><span class="p">;</span>
 </span></code></pre></div>
 <table>
@@ -6895,24 +7024,44 @@
 </span><span id="__span-19-6"><span class="w">  </span><span class="n">PPixHand</span><span class="w">     </span><span class="n">outFrame</span><span class="p">;</span>
 </span><span id="__span-19-7"><span class="p">}</span><span class="w"> </span><span class="n">SequenceRender_GetFrameReturnRec</span><span class="p">;</span>
 </span></code></pre></div>
-<pre class="grid-table-error">+-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
-|        Member         |                                                                   Description                                                                    |
-+=======================+==================================================================================================================================================+
-| <code>asyncCompletionData
-</code> | Passed to <code>PrSDKSequenceAsyncRenderCompletionProc()</code> from <code>QueueAsyncVideoFrameRender()</code>.                                                       |
-|                       |                                                                                                                                                  |
-|                       | Not used by <code>RenderVideoFrame()</code>.                                                                                                               |
-+-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>returnVal</code>           | <code>ErrNone</code>, <code>Abort</code>, <code>Done</code>, or an error code.                                                                                                   |
-+-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>repeatCount</code>         | The number of repeated frames from this frame forward.                                                                                          |
-|                       |                                                                                                                                                  |
-|                       | In the output file, this could be writing NULL frames, changing the current frame's duration, or whatever is appropriate according to the codec. |
-+-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>onMarker</code>            | If non-zero, there is a marker on this frame.                                                                                                   |
-+-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>outFrame</code>            | Returned from <code>RenderVideoFrame()</code>. Not returned from <code>PrSDKSequenceAsyncRenderCompletionProc()</code>                                                 |
-+-----------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+</pre>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>asyncCompletionData</code></td>
+<td>Passed to <code>PrSDKSequenceAsyncRenderCompletionProc()</code> from <code>QueueAsyncVideoFrameRender()</code>.</td>
+</tr>
+<tr>
+<td></td>
+<td>Not used by <code>RenderVideoFrame()</code>.</td>
+</tr>
+<tr>
+<td><code>returnVal</code></td>
+<td><code>ErrNone</code>, <code>Abort</code>, <code>Done</code>, or an error code.</td>
+</tr>
+<tr>
+<td><code>repeatCount</code></td>
+<td>The number of repeated frames from this frame forward.</td>
+</tr>
+<tr>
+<td></td>
+<td>In the output file, this could be writing NULL frames, changing the current frame's duration, or whatever is appropriate according to the codec.</td>
+</tr>
+<tr>
+<td><code>onMarker</code></td>
+<td>If non-zero, there is a marker on this frame.</td>
+</tr>
+<tr>
+<td><code>outFrame</code></td>
+<td>Returned from <code>RenderVideoFrame()</code>. Not returned from <code>PrSDKSequenceAsyncRenderCompletionProc()</code></td>
+</tr>
+</tbody>
+</table>
 <h3 id="rendervideoframe">RenderVideoFrame()<a class="headerlink" href="#rendervideoframe" title="Permanent link">&para;</a></h3>
 <p>The basic, synchronous call to get a rendered frame from the host.</p>
 <p>Returns:</p>
@@ -6929,28 +7078,46 @@
 </span><span id="__span-20-5"><span class="w">  </span><span class="n">PrRenderCacheType</span><span class="w">                  </span><span class="n">inCacheFlags</span><span class="p">,</span>
 </span><span id="__span-20-6"><span class="w">  </span><span class="n">SequenceRender_GetFrameReturnRec</span><span class="o">*</span><span class="w">  </span><span class="n">getFrameReturn</span><span class="p">);</span>
 </span></code></pre></div>
-<pre class="grid-table-error">+-------------------+-----------------------------------------------------------------------------------------------------+
-|      Member       |                                             Description                                             |
-+===================+=====================================================================================================+
-| <code>inVideoRenderID
-</code> | Pass in the <code>outVideoRenderID</code> returned from <code>MakeVideoRenderer()</code>.                                |
-|                   |                                                                                                     |
-|                   | This gives the host the context of the video render.                                               |
-+-------------------+-----------------------------------------------------------------------------------------------------+
-| <code>inTime</code>          | The frame time requested.                                                                          |
-+-------------------+-----------------------------------------------------------------------------------------------------+
-| <code>inRenderParams</code>  | The details of the render.                                                                         |
-+-------------------+-----------------------------------------------------------------------------------------------------+
-| <code>inCacheFlags</code>    | One or more cache flags.                                                                           |
-+-------------------+-----------------------------------------------------------------------------------------------------+
-| <code>getFrameReturn</code>  | Passes back a structure that contains info about the frame returned, and the rendered frame itself. |
-+-------------------+-----------------------------------------------------------------------------------------------------+</pre>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>inVideoRenderID</code></td>
+<td>Pass in the <code>outVideoRenderID</code> returned from <code>MakeVideoRenderer()</code>.</td>
+</tr>
+<tr>
+<td></td>
+<td>This gives the host the context of the video render.</td>
+</tr>
+<tr>
+<td><code>inTime</code></td>
+<td>The frame time requested.</td>
+</tr>
+<tr>
+<td><code>inRenderParams</code></td>
+<td>The details of the render.</td>
+</tr>
+<tr>
+<td><code>inCacheFlags</code></td>
+<td>One or more cache flags.</td>
+</tr>
+<tr>
+<td><code>getFrameReturn</code></td>
+<td>Passes back a structure that contains info about the frame returned, and the rendered frame itself.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="getframeinfo">GetFrameInfo()<a class="headerlink" href="#getframeinfo" title="Permanent link">&para;</a></h3>
 <p>Gets information about a given frame.</p>
 <p>Currently, <code>SequenceRender_FrameInfoRec</code> only contains <code>repeatCount</code>, which is the number of repeated frames from this frame forward.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-21-1"><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">GetFrameInfo</span><span class="p">)(</span>
-</span><span id="__span-21-2"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">                 </span><span class="n">inVideoRenderID</span><span class="p">,</span>
-</span><span id="__span-21-3"><span class="w">  </span><span class="n">PrTime</span><span class="w">                       </span><span class="n">inTime</span><span class="p">,</span>
+</span><span id="__span-21-2"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">                  </span><span class="n">inVideoRenderID</span><span class="p">,</span>
+</span><span id="__span-21-3"><span class="w">  </span><span class="n">PrTime</span><span class="w">                        </span><span class="n">inTime</span><span class="p">,</span>
 </span><span id="__span-21-4"><span class="w">  </span><span class="n">SequenceRender_FrameInfoRec</span><span class="o">*</span><span class="w">  </span><span class="n">outFrameInfo</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="setasyncrendercompletionproc">SetAsyncRenderCompletionProc()<a class="headerlink" href="#setasyncrendercompletionproc" title="Permanent link">&para;</a></h3>
@@ -6961,46 +7128,80 @@
 </span><span id="__span-22-3"><span class="w">  </span><span class="n">PrSDKSequenceAsyncRenderCompletionProc</span><span class="w">  </span><span class="n">asyncGetFrameCallback</span><span class="p">,</span>
 </span><span id="__span-22-4"><span class="w">  </span><span class="kt">long</span><span class="w">                                    </span><span class="n">callbackRef</span><span class="p">);</span>
 </span></code></pre></div>
-<pre class="grid-table-error">+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
-|         Member          |                                                             Description                                                              |
-+=========================+======================================================================================================================================+
-| <code>inVideoRenderID
-</code>       | Pass in the <code>outVideoRenderID</code> returned from <code>MakeVideoRenderer()</code>.                                                                 |
-|                         |                                                                                                                                      |
-|                         | This will be passed to <code>PrSDKSequenceAsyncRenderCompletionProc</code>.                                                                    |
-+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
-| <code>asyncGetFrameCallback</code> | The notification callback.                                                                                                          |
-+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
-| <code>inCallbackRef</code>         | A pointer holding data private to the exporter.                                                                                     |
-|                         |                                                                                                                                      |
-|                         | This could be, for example, a pointer to an exporter instance. This will also be passed to <code>PrSDKSequenceAsyncRenderCompletionProc</code>. |
-+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------+</pre>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>inVideoRenderID</code></td>
+<td>Pass in the <code>outVideoRenderID</code> returned from <code>MakeVideoRenderer()</code>.</td>
+</tr>
+<tr>
+<td></td>
+<td>This will be passed to <code>PrSDKSequenceAsyncRenderCompletionProc</code>.</td>
+</tr>
+<tr>
+<td><code>asyncGetFrameCallback</code></td>
+<td>The notification callback.</td>
+</tr>
+<tr>
+<td><code>inCallbackRef</code></td>
+<td>A pointer holding data private to the exporter.</td>
+</tr>
+<tr>
+<td></td>
+<td>This could be, for example, a pointer to an exporter instance. This will also be passed to <code>PrSDKSequenceAsyncRenderCompletionProc</code>.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="prsdksequenceasyncrendercompletionproc">PrSDKSequenceAsyncRenderCompletionProc()<a class="headerlink" href="#prsdksequenceasyncrendercompletionproc" title="Permanent link">&para;</a></h3>
 <p>Use this function signature for your callback used for async frame notification, passed to <code>SetAsyncRenderCompletionProc</code>.</p>
 <p>Error status (error or abort) is returned in <code>inGetFrameReturn</code>.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-23-1"><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">PrSDKSequenceAsyncRenderCompletionProc</span><span class="p">)(</span>
 </span><span id="__span-23-2"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">                      </span><span class="n">inVideoRenderID</span><span class="p">,</span>
-</span><span id="__span-23-3"><span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">                              </span><span class="n">inCallbackRef</span><span class="p">,</span>
+</span><span id="__span-23-3"><span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">                             </span><span class="n">inCallbackRef</span><span class="p">,</span>
 </span><span id="__span-23-4"><span class="w">  </span><span class="n">PrTime</span><span class="w">                            </span><span class="n">inTime</span><span class="p">,</span>
 </span><span id="__span-23-5"><span class="w">  </span><span class="n">PPixHand</span><span class="w">                          </span><span class="n">inRenderedFrame</span><span class="p">,</span>
 </span><span id="__span-23-6"><span class="w">  </span><span class="n">SequenceRender_GetFrameReturnRec</span><span class="w">  </span><span class="o">*</span><span class="n">inGetFrameReturn</span><span class="p">);</span>
 </span></code></pre></div>
-<pre class="grid-table-error">+--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|       Member       |                                                                                 Description                                                                                  |
-+====================+==============================================================================================================================================================================+
-| <code>inVideoRenderID
-</code>  | The outVideoRenderID that the exporter passed to <code>SetAsyncRenderCompletionProc</code> earlier.                                                                                    |
-+--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>inCallbackRef</code>    | A pointer that the exporter sets using <code>SetAsyncRenderCompletionProc()</code>.                                                                                                    |
-|                    |                                                                                                                                                                              |
-|                    | This could be, for example, a pointer to an exporter instance.                                                                                                              |
-+--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>inTime</code>           | The frame time requested.                                                                                                                                                   |
-+--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>inRenderedFrame</code>  | The rendered frame. The exporter is reponsible for <code>disposing</code> of this PPixHand using the <code>Dispose()</code> call in the <a href="../../universals/sweetpea-suites/#ppix-suite">PPix Suite</a>. |
-+--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>inGetFrameReturn</code> | A structure that contains info about the frame returned, and it includes the <code>inAsyncCompletionData</code> originally passed to <code>QueueAsyncVideoFrameRender()</code>.                   |
-+--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</pre>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>inVideoRenderID</code></td>
+<td>The outVideoRenderID that the exporter passed to <code>SetAsyncRenderCompletionProc</code> earlier.</td>
+</tr>
+<tr>
+<td><code>inCallbackRef</code></td>
+<td>A pointer that the exporter sets using <code>SetAsyncRenderCompletionProc()</code>.</td>
+</tr>
+<tr>
+<td></td>
+<td>This could be, for example, a pointer to an exporter instance.</td>
+</tr>
+<tr>
+<td><code>inTime</code></td>
+<td>The frame time requested.</td>
+</tr>
+<tr>
+<td><code>inRenderedFrame</code></td>
+<td>The rendered frame. The exporter is reponsible for <code>disposing</code> of this PPixHand using the <code>Dispose()</code> call in the <a href="../../universals/sweetpea-suites/#ppix-suite">PPix Suite</a>.</td>
+</tr>
+<tr>
+<td><code>inGetFrameReturn</code></td>
+<td>A structure that contains info about the frame returned, and it includes the <code>inAsyncCompletionData</code> originally passed to <code>QueueAsyncVideoFrameRender()</code>.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="queueasyncvideoframerender">QueueAsyncVideoFrameRender()<a class="headerlink" href="#queueasyncvideoframerender" title="Permanent link">&para;</a></h3>
 <p>Use this call rather than <code>RenderVideoFrame()</code> to queue up a request to render a specific frame asynchronously.</p>
 <p>The rendering can happen on a separate thread or processor.</p>
@@ -7013,24 +7214,44 @@
 </span><span id="__span-24-6"><span class="w">  </span><span class="n">PrRenderCacheType</span><span class="w">          </span><span class="n">inCacheFlags</span><span class="p">,</span>
 </span><span id="__span-24-7"><span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">                      </span><span class="n">inAsyncCompletionData</span><span class="p">);</span>
 </span></code></pre></div>
-<pre class="grid-table-error">+-------------------------+---------------------------------------------------------------------------------------------------------------------+
-|         Member          |                                                     Description                                                     |
-+=========================+=====================================================================================================================+
-| <code>inVideoRenderID
-</code>       | Pass in the <code>outVideoRenderID</code> returned from <code>MakeVideoRenderer()</code>.                                                |
-|                         |                                                                                                                     |
-|                         | This gives the host the context of the video render.                                                               |
-+-------------------------+---------------------------------------------------------------------------------------------------------------------+
-| <code>inTime</code>                | The frame time requested.                                                                                          |
-+-------------------------+---------------------------------------------------------------------------------------------------------------------+
-| <code>outRequestID</code>          | Passes back a request ID, which… doesn't seem to have any use.                                                     |
-+-------------------------+---------------------------------------------------------------------------------------------------------------------+
-| <code>inRenderParams</code>        | The details of the render.                                                                                         |
-+-------------------------+---------------------------------------------------------------------------------------------------------------------+
-| <code>inCacheFlags</code>          | One or more cache flags.                                                                                           |
-+-------------------------+---------------------------------------------------------------------------------------------------------------------+
-| <code>inAsyncCompletionData</code> | This data will be passed to the <code>PrSDKSequenceAsyncRenderCompletionProc</code> in <code>inGetFrameReturn.asyncCompletionData</code>. |
-+-------------------------+---------------------------------------------------------------------------------------------------------------------+</pre>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>inVideoRenderID</code></td>
+<td>Pass in the <code>outVideoRenderID</code> returned from <code>MakeVideoRenderer()</code>.</td>
+</tr>
+<tr>
+<td></td>
+<td>This gives the host the context of the video render.</td>
+</tr>
+<tr>
+<td><code>inTime</code></td>
+<td>The frame time requested.</td>
+</tr>
+<tr>
+<td><code>outRequestID</code></td>
+<td>Passes back a request ID, which… doesn't seem to have any use.</td>
+</tr>
+<tr>
+<td><code>inRenderParams</code></td>
+<td>The details of the render.</td>
+</tr>
+<tr>
+<td><code>inCacheFlags</code></td>
+<td>One or more cache flags.</td>
+</tr>
+<tr>
+<td><code>inAsyncCompletionData</code></td>
+<td>This data will be passed to the <code>PrSDKSequenceAsyncRenderCompletionProc</code> in <code>inGetFrameReturn.asyncCompletionData</code>.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="prefetchmedia">PrefetchMedia()<a class="headerlink" href="#prefetchmedia" title="Permanent link">&para;</a></h3>
 <p>Prefetch the media needed to render this frame. This is a hint to the importers to begin reading media needed to render this video frame.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-25-1"><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">PrefetchMedia</span><span class="p">)(</span>
@@ -7100,53 +7321,53 @@
 <h3 id="rendercolormanagedvideoframe">RenderColorManagedVideoFrame()<a class="headerlink" href="#rendercolormanagedvideoframe" title="Permanent link">&para;</a></h3>
 <p>Renders a frame of video, using the specified color management.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-34-1"><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">RenderColorManagedVideoFrame</span><span class="p">)(</span>
-</span><span id="__span-34-2"><span class="w">        </span><span class="n">csSDK_uint32</span><span class="w">                                    </span><span class="n">inVideoRenderID</span><span class="p">,</span>
-</span><span id="__span-34-3"><span class="w">        </span><span class="n">PrTime</span><span class="w">                                                  </span><span class="n">inTime</span><span class="p">,</span>
-</span><span id="__span-34-4"><span class="w">        </span><span class="n">SequenceRender_ParamsRecExt</span><span class="o">*</span><span class="w">    </span><span class="n">inRenderParamsExt</span><span class="p">,</span>
-</span><span id="__span-34-5"><span class="w">        </span><span class="n">PrRenderCacheType</span><span class="w">                               </span><span class="n">inCacheFlags</span><span class="p">,</span>
-</span><span id="__span-34-6"><span class="w">        </span><span class="n">SequenceRender_GetFrameReturnRec</span><span class="o">*</span><span class="w">       </span><span class="n">getFrameReturn</span><span class="p">);</span>
+</span><span id="__span-34-2"><span class="w">        </span><span class="n">csSDK_uint32</span><span class="w">                        </span><span class="n">inVideoRenderID</span><span class="p">,</span>
+</span><span id="__span-34-3"><span class="w">        </span><span class="n">PrTime</span><span class="w">                              </span><span class="n">inTime</span><span class="p">,</span>
+</span><span id="__span-34-4"><span class="w">        </span><span class="n">SequenceRender_ParamsRecExt</span><span class="o">*</span><span class="w">        </span><span class="n">inRenderParamsExt</span><span class="p">,</span>
+</span><span id="__span-34-5"><span class="w">        </span><span class="n">PrRenderCacheType</span><span class="w">                   </span><span class="n">inCacheFlags</span><span class="p">,</span>
+</span><span id="__span-34-6"><span class="w">        </span><span class="n">SequenceRender_GetFrameReturnRec</span><span class="o">*</span><span class="w">   </span><span class="n">getFrameReturn</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="queueasynccolormanagedvideoframerender">QueueAsyncColorManagedVideoFrameRender()<a class="headerlink" href="#queueasynccolormanagedvideoframerender" title="Permanent link">&para;</a></h3>
 <p>Queues a render for a frame of video, using the specified color management.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-35-1"><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">QueueAsyncColorManagedVideoFrameRender</span><span class="p">)(</span>
-</span><span id="__span-35-2"><span class="w">        </span><span class="n">csSDK_uint32</span><span class="w">                                    </span><span class="n">inVideoRenderID</span><span class="p">,</span>
-</span><span id="__span-35-3"><span class="w">        </span><span class="n">PrTime</span><span class="w">                                                  </span><span class="n">inTime</span><span class="p">,</span>
-</span><span id="__span-35-4"><span class="w">        </span><span class="n">csSDK_uint32</span><span class="o">*</span><span class="w">                                   </span><span class="n">outRequestID</span><span class="p">,</span>
+</span><span id="__span-35-2"><span class="w">        </span><span class="n">csSDK_uint32</span><span class="w">                    </span><span class="n">inVideoRenderID</span><span class="p">,</span>
+</span><span id="__span-35-3"><span class="w">        </span><span class="n">PrTime</span><span class="w">                          </span><span class="n">inTime</span><span class="p">,</span>
+</span><span id="__span-35-4"><span class="w">        </span><span class="n">csSDK_uint32</span><span class="o">*</span><span class="w">                   </span><span class="n">outRequestID</span><span class="p">,</span>
 </span><span id="__span-35-5"><span class="w">        </span><span class="n">SequenceRender_ParamsRecExt</span><span class="o">*</span><span class="w">    </span><span class="n">inRenderParamsExt</span><span class="p">,</span>
-</span><span id="__span-35-6"><span class="w">        </span><span class="n">PrRenderCacheType</span><span class="w">                               </span><span class="n">inCacheFlags</span><span class="p">,</span>
-</span><span id="__span-35-7"><span class="w">        </span><span class="kt">void</span><span class="o">*</span><span class="w">                                                   </span><span class="n">inAsyncCompletionData</span><span class="p">);</span>
+</span><span id="__span-35-6"><span class="w">        </span><span class="n">PrRenderCacheType</span><span class="w">               </span><span class="n">inCacheFlags</span><span class="p">,</span>
+</span><span id="__span-35-7"><span class="w">        </span><span class="kt">void</span><span class="o">*</span><span class="w">                           </span><span class="n">inAsyncCompletionData</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="prefetchcolormanagedmedia">PrefetchColorManagedMedia()<a class="headerlink" href="#prefetchcolormanagedmedia" title="Permanent link">&para;</a></h3>
 <p>Pre-fetches a frame of color-managed media.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-36-1"><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">PrefetchColorManagedMedia</span><span class="p">)(</span>
-</span><span id="__span-36-2"><span class="w">        </span><span class="n">csSDK_uint32</span><span class="w">            </span><span class="n">inVideoRenderID</span><span class="p">,</span>
-</span><span id="__span-36-3"><span class="w">        </span><span class="n">PrTime</span><span class="w">                          </span><span class="n">inFrame</span><span class="p">,</span>
-</span><span id="__span-36-4"><span class="w">        </span><span class="n">PrSDKColorSpaceID</span><span class="w"> </span><span class="n">inPrSDKColorSpaceID</span><span class="p">);</span>
+</span><span id="__span-36-2"><span class="w">        </span><span class="n">csSDK_uint32</span><span class="w">          </span><span class="n">inVideoRenderID</span><span class="p">,</span>
+</span><span id="__span-36-3"><span class="w">        </span><span class="n">PrTime</span><span class="w">                </span><span class="n">inFrame</span><span class="p">,</span>
+</span><span id="__span-36-4"><span class="w">        </span><span class="n">PrSDKColorSpaceID</span><span class="w">     </span><span class="n">inPrSDKColorSpaceID</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="prefetchcolormanagedmediawithrenderparameters">PrefetchColorManagedMediaWithRenderParameters()<a class="headerlink" href="#prefetchcolormanagedmediawithrenderparameters" title="Permanent link">&para;</a></h3>
 <p>Pre-fetches a frame of color-managed media, using the specified render parameters.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-37-1"><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">PrefetchColorManagedMediaWithRenderParameters</span><span class="p">)(</span>
-</span><span id="__span-37-2"><span class="w">        </span><span class="n">csSDK_uint32</span><span class="w">                                    </span><span class="n">inVideoRenderID</span><span class="p">,</span>
-</span><span id="__span-37-3"><span class="w">        </span><span class="n">PrTime</span><span class="w">                                                  </span><span class="n">inTime</span><span class="p">,</span>
+</span><span id="__span-37-2"><span class="w">        </span><span class="n">csSDK_uint32</span><span class="w">                    </span><span class="n">inVideoRenderID</span><span class="p">,</span>
+</span><span id="__span-37-3"><span class="w">        </span><span class="n">PrTime</span><span class="w">                          </span><span class="n">inTime</span><span class="p">,</span>
 </span><span id="__span-37-4"><span class="w">        </span><span class="n">SequenceRender_ParamsRecExt</span><span class="o">*</span><span class="w">    </span><span class="n">inRenderParamsExt</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="rendercolormanagedvideoframeandconformtopixelformat">RenderColorManagedVideoFrameAndConformToPixelFormat()<a class="headerlink" href="#rendercolormanagedvideoframeandconformtopixelformat" title="Permanent link">&para;</a></h3>
 <p>Renders a frame of color-managed media, to the specified pixel format.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-38-1"><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">RenderColorManagedVideoFrameAndConformToPixelFormat</span><span class="p">)(</span>
-</span><span id="__span-38-2"><span class="w">        </span><span class="n">csSDK_uint32</span><span class="w">                                    </span><span class="n">inVideoRenderID</span><span class="p">,</span>
-</span><span id="__span-38-3"><span class="w">        </span><span class="n">PrTime</span><span class="w">                                                  </span><span class="n">inTime</span><span class="p">,</span>
-</span><span id="__span-38-4"><span class="w">        </span><span class="n">SequenceRender_ParamsRecExt</span><span class="o">*</span><span class="w">    </span><span class="n">inRenderParamsExt</span><span class="p">,</span>
-</span><span id="__span-38-5"><span class="w">        </span><span class="n">PrRenderCacheType</span><span class="w">                               </span><span class="n">inCacheFlags</span><span class="p">,</span>
-</span><span id="__span-38-6"><span class="w">        </span><span class="n">PrPixelFormat</span><span class="w">                                   </span><span class="n">inConformToFormat</span><span class="p">,</span>
-</span><span id="__span-38-7"><span class="w">        </span><span class="n">SequenceRender_GetFrameReturnRec</span><span class="o">*</span><span class="w">       </span><span class="n">getFrameReturn</span><span class="p">);</span>
+</span><span id="__span-38-2"><span class="w">        </span><span class="n">csSDK_uint32</span><span class="w">                      </span><span class="n">inVideoRenderID</span><span class="p">,</span>
+</span><span id="__span-38-3"><span class="w">        </span><span class="n">PrTime</span><span class="w">                            </span><span class="n">inTime</span><span class="p">,</span>
+</span><span id="__span-38-4"><span class="w">        </span><span class="n">SequenceRender_ParamsRecExt</span><span class="o">*</span><span class="w">      </span><span class="n">inRenderParamsExt</span><span class="p">,</span>
+</span><span id="__span-38-5"><span class="w">        </span><span class="n">PrRenderCacheType</span><span class="w">                 </span><span class="n">inCacheFlags</span><span class="p">,</span>
+</span><span id="__span-38-6"><span class="w">        </span><span class="n">PrPixelFormat</span><span class="w">                     </span><span class="n">inConformToFormat</span><span class="p">,</span>
+</span><span id="__span-38-7"><span class="w">        </span><span class="n">SequenceRender_GetFrameReturnRec</span><span class="o">*</span><span class="w"> </span><span class="n">getFrameReturn</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="rendercolormanagedvideoframe2">RenderColorManagedVideoFrame2()<a class="headerlink" href="#rendercolormanagedvideoframe2" title="Permanent link">&para;</a></h3>
 <p>Renders a frame of color-managed media, to the specified pixel format, using settings specified in SequenceRender_ParamsRecExt2.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-39-1"><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">RenderColorManagedVideoFrame2</span><span class="p">)(</span>
-</span><span id="__span-39-2"><span class="w">        </span><span class="n">csSDK_uint32</span><span class="w">                    </span><span class="n">inVideoRenderID</span><span class="p">,</span>
-</span><span id="__span-39-3"><span class="w">        </span><span class="n">PrTime</span><span class="w">                          </span><span class="n">inTime</span><span class="p">,</span>
-</span><span id="__span-39-4"><span class="w">        </span><span class="n">SequenceRender_ParamsRecExt2</span><span class="o">*</span><span class="w">   </span><span class="n">inRenderParamsExt2</span><span class="p">,</span>
-</span><span id="__span-39-5"><span class="w">        </span><span class="n">PrRenderCacheType</span><span class="w">               </span><span class="n">inCacheFlags</span><span class="p">,</span>
+</span><span id="__span-39-2"><span class="w">        </span><span class="n">csSDK_uint32</span><span class="w">                        </span><span class="n">inVideoRenderID</span><span class="p">,</span>
+</span><span id="__span-39-3"><span class="w">        </span><span class="n">PrTime</span><span class="w">                              </span><span class="n">inTime</span><span class="p">,</span>
+</span><span id="__span-39-4"><span class="w">        </span><span class="n">SequenceRender_ParamsRecExt2</span><span class="o">*</span><span class="w">       </span><span class="n">inRenderParamsExt2</span><span class="p">,</span>
+</span><span id="__span-39-5"><span class="w">        </span><span class="n">PrRenderCacheType</span><span class="w">                   </span><span class="n">inCacheFlags</span><span class="p">,</span>
 </span><span id="__span-39-6"><span class="w">        </span><span class="n">SequenceRender_GetFrameReturnRec</span><span class="o">*</span><span class="w">   </span><span class="n">outGetFrameReturn</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="queueasynccolormanagedvideoframerender2">QueueAsyncColorManagedVideoFrameRender2()<a class="headerlink" href="#queueasynccolormanagedvideoframerender2" title="Permanent link">&para;</a></h3>
@@ -7169,11 +7390,11 @@
 <h3 id="rendercolormanagedvideoframeandconformtopixelformat2">RenderColorManagedVideoFrameAndConformToPixelFormat2()<a class="headerlink" href="#rendercolormanagedvideoframeandconformtopixelformat2" title="Permanent link">&para;</a></h3>
 <p>Renders a frame of color-managed media, to the specified pixel format, using settings specified in SequenceRender_ParamsRecExt2.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-42-1"><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">RenderColorManagedVideoFrameAndConformToPixelFormat2</span><span class="p">)(</span>
-</span><span id="__span-42-2"><span class="w">        </span><span class="n">csSDK_uint32</span><span class="w">                    </span><span class="n">inVideoRenderID</span><span class="p">,</span>
-</span><span id="__span-42-3"><span class="w">        </span><span class="n">PrTime</span><span class="w">                          </span><span class="n">inTime</span><span class="p">,</span>
-</span><span id="__span-42-4"><span class="w">        </span><span class="n">SequenceRender_ParamsRecExt2</span><span class="o">*</span><span class="w">   </span><span class="n">inRenderParamsExt2</span><span class="p">,</span>
-</span><span id="__span-42-5"><span class="w">        </span><span class="n">PrRenderCacheType</span><span class="w">               </span><span class="n">inCacheFlags</span><span class="p">,</span>
-</span><span id="__span-42-6"><span class="w">        </span><span class="n">PrPixelFormat</span><span class="w">                   </span><span class="n">inConformToFormat</span><span class="p">,</span>
+</span><span id="__span-42-2"><span class="w">        </span><span class="n">csSDK_uint32</span><span class="w">                        </span><span class="n">inVideoRenderID</span><span class="p">,</span>
+</span><span id="__span-42-3"><span class="w">        </span><span class="n">PrTime</span><span class="w">                              </span><span class="n">inTime</span><span class="p">,</span>
+</span><span id="__span-42-4"><span class="w">        </span><span class="n">SequenceRender_ParamsRecExt2</span><span class="o">*</span><span class="w">       </span><span class="n">inRenderParamsExt2</span><span class="p">,</span>
+</span><span id="__span-42-5"><span class="w">        </span><span class="n">PrRenderCacheType</span><span class="w">                   </span><span class="n">inCacheFlags</span><span class="p">,</span>
+</span><span id="__span-42-6"><span class="w">        </span><span class="n">PrPixelFormat</span><span class="w">                       </span><span class="n">inConformToFormat</span><span class="p">,</span>
 </span><span id="__span-42-7"><span class="w">        </span><span class="n">SequenceRender_GetFrameReturnRec</span><span class="o">*</span><span class="w">   </span><span class="n">outGetFrameReturn</span><span class="p">);</span>
 </span></code></pre></div>
 <hr />
@@ -7196,44 +7417,44 @@
 <h3 id="getclipspeed">GetClipSpeed()<a class="headerlink" href="#getclipspeed" title="Permanent link">&para;</a></h3>
 <p>Retrieves the speed multiplier of the clip.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-45-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetClipSpeed</span><span class="p">)(</span>
-</span><span id="__span-45-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w"> </span><span class="n">effect_ref</span><span class="p">,</span>
-</span><span id="__span-45-3"><span class="w">              </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">speed</span><span class="p">);</span>
+</span><span id="__span-45-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">  </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-45-3"><span class="w">  </span><span class="kt">double</span><span class="o">*</span><span class="w">     </span><span class="n">speed</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="getclipduration">GetClipDuration()<a class="headerlink" href="#getclipduration" title="Permanent link">&para;</a></h3>
 <p>Retrieves the duration of the clip.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-46-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetClipDuration</span><span class="p">)(</span>
-</span><span id="__span-46-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w"> </span><span class="n">effect_ref</span><span class="p">,</span>
-</span><span id="__span-46-3"><span class="w">              </span><span class="n">A_long</span><span class="o">*</span><span class="w"> </span><span class="n">frameDuration</span><span class="p">);</span>
+</span><span id="__span-46-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">  </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-46-3"><span class="w">  </span><span class="n">A_long</span><span class="o">*</span><span class="w">     </span><span class="n">frameDuration</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="getclipstart">GetClipStart()<a class="headerlink" href="#getclipstart" title="Permanent link">&para;</a></h3>
 <p>Retrieves the start time of the clip.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-47-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetClipStart</span><span class="p">)(</span>
-</span><span id="__span-47-2"><span class="w">        </span><span class="n">PF_ProgPtr</span><span class="w"> </span><span class="n">effect_ref</span><span class="p">,</span>
-</span><span id="__span-47-3"><span class="w">        </span><span class="n">A_long</span><span class="o">*</span><span class="w"> </span><span class="n">frameDuration</span><span class="p">);</span>
+</span><span id="__span-47-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w"> </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-47-3"><span class="w">  </span><span class="n">A_long</span><span class="o">*</span><span class="w"> </span><span class="n">frameDuration</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="getunscaledclipduration">GetUnscaledClipDuration()<a class="headerlink" href="#getunscaledclipduration" title="Permanent link">&para;</a></h3>
 <p>Retrieves the duration of the clip, unaffected by any speed or retiming changes.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-48-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetUnscaledClipDuration</span><span class="p">)(</span>
-</span><span id="__span-48-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w"> </span><span class="n">effect_ref</span><span class="p">,</span>
-</span><span id="__span-48-3"><span class="w">              </span><span class="n">A_long</span><span class="o">*</span><span class="w"> </span><span class="n">frameDuration</span><span class="p">);</span>
+</span><span id="__span-48-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w"> </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-48-3"><span class="w">  </span><span class="n">A_long</span><span class="o">*</span><span class="w"> </span><span class="n">frameDuration</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="getunscaledclipstart">GetUnscaledClipStart()<a class="headerlink" href="#getunscaledclipstart" title="Permanent link">&para;</a></h3>
 <p>Retrives the start time of the clip, unaffected by any speed or retiming changes.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-49-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetUnscaledClipStart</span><span class="p">)(</span>
-</span><span id="__span-49-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w"> </span><span class="n">effect_ref</span><span class="p">,</span>
-</span><span id="__span-49-3"><span class="w">              </span><span class="n">A_long</span><span class="o">*</span><span class="w"> </span><span class="n">frameDuration</span><span class="p">);</span>
+</span><span id="__span-49-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w"> </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-49-3"><span class="w">  </span><span class="n">A_long</span><span class="o">*</span><span class="w"> </span><span class="n">frameDuration</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="gettrackitemstart">GetTrackItemStart()<a class="headerlink" href="#gettrackitemstart" title="Permanent link">&para;</a></h3>
 <p>Gets the start time of the track item.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-50-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetTrackItemStart</span><span class="p">)(</span>
-</span><span id="__span-50-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">effect_ref</span><span class="p">,</span>
-</span><span id="__span-50-3"><span class="w">              </span><span class="n">A_long</span><span class="o">*</span><span class="w">       </span><span class="n">frameDuration</span><span class="p">);</span>
+</span><span id="__span-50-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-50-3"><span class="w">  </span><span class="n">A_long</span><span class="o">*</span><span class="w">       </span><span class="n">frameDuration</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="getmediafieldtype">GetMediaFieldType()<a class="headerlink" href="#getmediafieldtype" title="Permanent link">&para;</a></h3>
 <p>Retrieves the filed type in use with the media.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-51-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetMediaFieldType</span><span class="p">)(</span>
-</span><span id="__span-51-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">effect_ref</span><span class="p">,</span>
-</span><span id="__span-51-3"><span class="w">              </span><span class="n">prFieldType</span><span class="o">*</span><span class="w">  </span><span class="n">outFieldType</span><span class="p">);</span><span class="w"> </span><span class="c1">// prFieldsNone, prFieldsUpperFirst, prFieldsLowerFirst, prFieldsUnknown</span>
+</span><span id="__span-51-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-51-3"><span class="w">  </span><span class="n">prFieldType</span><span class="o">*</span><span class="w">  </span><span class="n">outFieldType</span><span class="p">);</span><span class="w"> </span><span class="c1">// prFieldsNone, prFieldsUpperFirst, prFieldsLowerFirst, prFieldsUnknown</span>
 </span></code></pre></div>
 <h3 id="getmediaframerate">GetMediaFrameRate()<a class="headerlink" href="#getmediaframerate" title="Permanent link">&para;</a></h3>
 <p>Gets the number of ticks per frame, for the media.</p>
@@ -7244,310 +7465,311 @@
 <h3 id="getcontainingtimelineid">GetContainingTimelineID()<a class="headerlink" href="#getcontainingtimelineid" title="Permanent link">&para;</a></h3>
 <p>Gets the ID of the timeline containing the clip to which the effect is applied.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-53-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetContainingTimelineID</span><span class="p">)(</span>
-</span><span id="__span-53-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">effect_ref</span><span class="p">,</span>
-</span><span id="__span-53-3"><span class="w">              </span><span class="n">PrTimelineID</span><span class="o">*</span><span class="w"> </span><span class="n">outTimelineID</span><span class="p">);</span>
+</span><span id="__span-53-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-53-3"><span class="w">  </span><span class="n">PrTimelineID</span><span class="o">*</span><span class="w"> </span><span class="n">outTimelineID</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="getclipname">GetClipName()<a class="headerlink" href="#getclipname" title="Permanent link">&para;</a></h3>
 <p>Gets the name of the clip to which the effect is applied (or the master clip).</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-54-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetClipName</span><span class="p">)(</span>
-</span><span id="__span-54-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">effect_ref</span><span class="p">,</span>
-</span><span id="__span-54-3"><span class="w">              </span><span class="n">A_Boolean</span><span class="w">     </span><span class="n">inGetMasterClipName</span><span class="p">,</span>
-</span><span id="__span-54-4"><span class="w">              </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">  </span><span class="n">outSDKString</span><span class="p">);</span>
+</span><span id="__span-54-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-54-3"><span class="w">  </span><span class="n">A_Boolean</span><span class="w">     </span><span class="n">inGetMasterClipName</span><span class="p">,</span>
+</span><span id="__span-54-4"><span class="w">  </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">  </span><span class="n">outSDKString</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="effectwantscheckedoutframestomatchrenderpixelformat">EffectWantsCheckedOutFramesToMatchRenderPixelFormat()<a class="headerlink" href="#effectwantscheckedoutframestomatchrenderpixelformat" title="Permanent link">&para;</a></h3>
 <p>Indicates that the effect wants to received checked out frames, in the same format used for destination rendering.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-55-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">EffectWantsCheckedOutFramesToMatchRenderPixelFormat</span><span class="p">)(</span>
-</span><span id="__span-55-2"><span class="w">        </span><span class="n">PF_ProgPtr</span><span class="w">  </span><span class="n">effect_ref</span><span class="p">);</span>
+</span><span id="__span-55-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">  </span><span class="n">effect_ref</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="effectdependsonclipname">EffectDependsOnClipName()<a class="headerlink" href="#effectdependsonclipname" title="Permanent link">&para;</a></h3>
 <p>Indicates (based on second parameter) whether the effect depends on the name of the clip to which it is applied.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-56-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">EffectDependsOnClipName</span><span class="p">)(</span>
-</span><span id="__span-56-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">effect_ref</span><span class="p">,</span>
-</span><span id="__span-56-3"><span class="w">              </span><span class="n">A_Boolean</span><span class="w">     </span><span class="n">inDependsOnClipName</span><span class="p">);</span>
+</span><span id="__span-56-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-56-3"><span class="w">  </span><span class="n">A_Boolean</span><span class="w">     </span><span class="n">inDependsOnClipName</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="seteffectinstancename">SetEffectInstanceName()<a class="headerlink" href="#seteffectinstancename" title="Permanent link">&para;</a></h3>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-57-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">SetEffectInstanceName</span><span class="p">)(</span>
-</span><span id="__span-57-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w"> </span><span class="n">effect_ref</span><span class="p">,</span>
-</span><span id="__span-57-3"><span class="w">              </span><span class="k">const</span><span class="w"> </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w"> </span><span class="n">inSDKString</span><span class="p">);</span>
+</span><span id="__span-57-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">          </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-57-3"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">  </span><span class="n">inSDKString</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="getfilename">GetFileName()<a class="headerlink" href="#getfilename" title="Permanent link">&para;</a></h3>
 <p>Retrieves the name of the media file to which the effect instance is applied.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-58-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetFileName</span><span class="p">)(</span>
-</span><span id="__span-58-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">      </span><span class="n">effect_ref</span><span class="p">,</span>
-</span><span id="__span-58-3"><span class="w">              </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">    </span><span class="n">outSDKString</span><span class="p">);</span>
+</span><span id="__span-58-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">      </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-58-3"><span class="w">  </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">    </span><span class="n">outSDKString</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="getoriginalclipframerate">GetOriginalClipFrameRate()<a class="headerlink" href="#getoriginalclipframerate" title="Permanent link">&para;</a></h3>
 <p>Retrieves the original (non-interpreted, un-re-timed) frame rate, of the media to which the effect instance is applied.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-59-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetOriginalClipFrameRate</span><span class="p">)(</span>
-</span><span id="__span-59-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">effect_ref</span><span class="p">,</span>
-</span><span id="__span-59-3"><span class="w">              </span><span class="n">PrTime</span><span class="o">*</span><span class="w">       </span><span class="n">outTicksPerFrame</span><span class="p">);</span>
+</span><span id="__span-59-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-59-3"><span class="w">  </span><span class="n">PrTime</span><span class="o">*</span><span class="w">       </span><span class="n">outTicksPerFrame</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="getsourcetrackmediatimecode">GetSourceTrackMediaTimecode()<a class="headerlink" href="#getsourcetrackmediatimecode" title="Permanent link">&para;</a></h3>
 <p>Retrieves the source media timecode for the specified frame within the specified layer, with or without transforms and start time offsets applied.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-60-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetSourceTrackMediaTimecode</span><span class="p">)(</span>
-</span><span id="__span-60-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">      </span><span class="n">effect_ref</span><span class="p">,</span>
-</span><span id="__span-60-3"><span class="w">              </span><span class="n">csSDK_uint32</span><span class="w">    </span><span class="n">inLayerParamIndex</span><span class="p">,</span>
-</span><span id="__span-60-4"><span class="w">              </span><span class="kt">bool</span><span class="w">            </span><span class="n">inApplyTransform</span><span class="p">,</span>
-</span><span id="__span-60-5"><span class="w">              </span><span class="kt">bool</span><span class="w">            </span><span class="n">inAddStartTimeOffset</span><span class="p">,</span>
-</span><span id="__span-60-6"><span class="w">              </span><span class="n">A_long</span><span class="o">*</span><span class="w">         </span><span class="n">outCurrentFrame</span><span class="p">);</span>
+</span><span id="__span-60-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">      </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-60-3"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">    </span><span class="n">inLayerParamIndex</span><span class="p">,</span>
+</span><span id="__span-60-4"><span class="w">  </span><span class="kt">bool</span><span class="w">            </span><span class="n">inApplyTransform</span><span class="p">,</span>
+</span><span id="__span-60-5"><span class="w">  </span><span class="kt">bool</span><span class="w">            </span><span class="n">inAddStartTimeOffset</span><span class="p">,</span>
+</span><span id="__span-60-6"><span class="w">  </span><span class="n">A_long</span><span class="o">*</span><span class="w">         </span><span class="n">outCurrentFrame</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="getsourcetrackclipname">GetSourceTrackClipName()<a class="headerlink" href="#getsourcetrackclipname" title="Permanent link">&para;</a></h3>
 <p>Retrieves the name of the layer in use by the effect instance.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-61-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetSourceTrackClipName</span><span class="p">)(</span>
-</span><span id="__span-61-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">      </span><span class="n">effect_ref</span><span class="p">,</span>
-</span><span id="__span-61-3"><span class="w">              </span><span class="n">csSDK_uint32</span><span class="w">    </span><span class="n">inLayerParamIndex</span><span class="p">,</span>
-</span><span id="__span-61-4"><span class="w">              </span><span class="n">A_Boolean</span><span class="w">       </span><span class="n">inGetMasterClipName</span><span class="p">,</span>
-</span><span id="__span-61-5"><span class="w">              </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">    </span><span class="n">outSDKString</span><span class="p">);</span>
+</span><span id="__span-61-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">      </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-61-3"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">    </span><span class="n">inLayerParamIndex</span><span class="p">,</span>
+</span><span id="__span-61-4"><span class="w">  </span><span class="n">A_Boolean</span><span class="w">       </span><span class="n">inGetMasterClipName</span><span class="p">,</span>
+</span><span id="__span-61-5"><span class="w">  </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">    </span><span class="n">outSDKString</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="getsourcetrackfilename">GetSourceTrackFileName()<a class="headerlink" href="#getsourcetrackfilename" title="Permanent link">&para;</a></h3>
 <p>Retrieves the file name of the source track item for the specified layer parameter.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-62-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetSourceTrackFileName</span><span class="p">)(</span>
-</span><span id="__span-62-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">      </span><span class="n">effect_ref</span><span class="p">,</span>
-</span><span id="__span-62-3"><span class="w">              </span><span class="n">csSDK_uint32</span><span class="w">    </span><span class="n">inLayerParamIndex</span><span class="p">,</span>
-</span><span id="__span-62-4"><span class="w">              </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">    </span><span class="n">outSDKString</span><span class="p">);</span>
+</span><span id="__span-62-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">      </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-62-3"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">    </span><span class="n">inLayerParamIndex</span><span class="p">,</span>
+</span><span id="__span-62-4"><span class="w">  </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">    </span><span class="n">outSDKString</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="effectdependsonclipname2">EffectDependsOnClipName2()<a class="headerlink" href="#effectdependsonclipname2" title="Permanent link">&para;</a></h3>
 <p>Specifies whether the effect instance depends on the specified layer parameter.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-63-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">EffectDependsOnClipName2</span><span class="p">)(</span>
-</span><span id="__span-63-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">effect_ref</span><span class="p">,</span>
-</span><span id="__span-63-3"><span class="w">              </span><span class="n">A_Boolean</span><span class="w">     </span><span class="n">inDependsOnClipName</span><span class="p">,</span>
-</span><span id="__span-63-4"><span class="w">              </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">inLayerParamIndex</span><span class="p">);</span>
+</span><span id="__span-63-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-63-3"><span class="w">  </span><span class="n">A_Boolean</span><span class="w">     </span><span class="n">inDependsOnClipName</span><span class="p">,</span>
+</span><span id="__span-63-4"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">inLayerParamIndex</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="getmediatimecode2">GetMediaTimecode2()<a class="headerlink" href="#getmediatimecode2" title="Permanent link">&para;</a></h3>
 <p>Retrieves formatted timecode and current frame number, with or without trims applied.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-64-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetMediaTimecode2</span><span class="p">)(</span>
-</span><span id="__span-64-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">      </span><span class="n">effect_ref</span><span class="p">,</span>
-</span><span id="__span-64-3"><span class="w">              </span><span class="kt">bool</span><span class="w">            </span><span class="n">inApplyTrim</span><span class="p">,</span>
-</span><span id="__span-64-4"><span class="w">              </span><span class="n">A_long</span><span class="o">*</span><span class="w">         </span><span class="n">outCurrentFrame</span><span class="p">,</span>
-</span><span id="__span-64-5"><span class="w">              </span><span class="n">PF_TimeDisplay</span><span class="o">*</span><span class="w"> </span><span class="n">outTimeDisplay</span><span class="p">);</span>
+</span><span id="__span-64-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">      </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-64-3"><span class="w">  </span><span class="kt">bool</span><span class="w">            </span><span class="n">inApplyTrim</span><span class="p">,</span>
+</span><span id="__span-64-4"><span class="w">  </span><span class="n">A_long</span><span class="o">*</span><span class="w">         </span><span class="n">outCurrentFrame</span><span class="p">,</span>
+</span><span id="__span-64-5"><span class="w">  </span><span class="n">PF_TimeDisplay</span><span class="o">*</span><span class="w"> </span><span class="n">outTimeDisplay</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="getsourcetrackmediatimecode2">GetSourceTrackMediaTimecode2()<a class="headerlink" href="#getsourcetrackmediatimecode2" title="Permanent link">&para;</a></h3>
 <p>Given a specific sequence time, retrieves the source track media timecode for the specified layer parameter.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-65-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetSourceTrackMediaTimecode2</span><span class="p">)(</span>
-</span><span id="__span-65-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">      </span><span class="n">effect_ref</span><span class="p">,</span>
-</span><span id="__span-65-3"><span class="w">              </span><span class="n">csSDK_uint32</span><span class="w">    </span><span class="n">inLayerParamIndex</span><span class="p">,</span>
-</span><span id="__span-65-4"><span class="w">              </span><span class="kt">bool</span><span class="w">            </span><span class="n">inApplyTransform</span><span class="p">,</span>
-</span><span id="__span-65-5"><span class="w">              </span><span class="kt">bool</span><span class="w">            </span><span class="n">inAddStartTimeOffset</span><span class="p">,</span>
-</span><span id="__span-65-6"><span class="w">              </span><span class="n">PrTime</span><span class="w">          </span><span class="n">inSequenceTime</span><span class="p">,</span>
-</span><span id="__span-65-7"><span class="w">              </span><span class="n">A_long</span><span class="o">*</span><span class="w">         </span><span class="n">outCurrentFrame</span><span class="p">);</span>
+</span><span id="__span-65-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">      </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-65-3"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">    </span><span class="n">inLayerParamIndex</span><span class="p">,</span>
+</span><span id="__span-65-4"><span class="w">  </span><span class="kt">bool</span><span class="w">            </span><span class="n">inApplyTransform</span><span class="p">,</span>
+</span><span id="__span-65-5"><span class="w">  </span><span class="kt">bool</span><span class="w">            </span><span class="n">inAddStartTimeOffset</span><span class="p">,</span>
+</span><span id="__span-65-6"><span class="w">  </span><span class="n">PrTime</span><span class="w">          </span><span class="n">inSequenceTime</span><span class="p">,</span>
+</span><span id="__span-65-7"><span class="w">  </span><span class="n">A_long</span><span class="o">*</span><span class="w">         </span><span class="n">outCurrentFrame</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="getsourcetrackclipname2">GetSourceTrackClipName2()<a class="headerlink" href="#getsourcetrackclipname2" title="Permanent link">&para;</a></h3>
 <p>Retrieves the clip name used by the specific layer parameter.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-66-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetSourceTrackClipName2</span><span class="p">)(</span>
-</span><span id="__span-66-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">      </span><span class="n">effect_ref</span><span class="p">,</span>
-</span><span id="__span-66-3"><span class="w">              </span><span class="n">csSDK_uint32</span><span class="w">    </span><span class="n">inLayerParamIndex</span><span class="p">,</span>
-</span><span id="__span-66-4"><span class="w">              </span><span class="n">A_Boolean</span><span class="w">       </span><span class="n">inGetMasterClipName</span><span class="p">,</span>
-</span><span id="__span-66-5"><span class="w">              </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">    </span><span class="n">outSDKString</span><span class="p">,</span>
-</span><span id="__span-66-6"><span class="w">              </span><span class="n">PrTime</span><span class="w">          </span><span class="n">inSequenceTime</span><span class="p">);</span>
+</span><span id="__span-66-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">      </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-66-3"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">    </span><span class="n">inLayerParamIndex</span><span class="p">,</span>
+</span><span id="__span-66-4"><span class="w">  </span><span class="n">A_Boolean</span><span class="w">       </span><span class="n">inGetMasterClipName</span><span class="p">,</span>
+</span><span id="__span-66-5"><span class="w">  </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">    </span><span class="n">outSDKString</span><span class="p">,</span>
+</span><span id="__span-66-6"><span class="w">  </span><span class="n">PrTime</span><span class="w">          </span><span class="n">inSequenceTime</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="getsourcetrackfilename2">GetSourceTrackFileName2()<a class="headerlink" href="#getsourcetrackfilename2" title="Permanent link">&para;</a></h3>
 <p>Retreives the clip name in use by the specified layer parameter.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-67-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetSourceTrackFileName2</span><span class="p">)(</span>
-</span><span id="__span-67-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">effect_ref</span><span class="p">,</span>
-</span><span id="__span-67-3"><span class="w">              </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">inLayerParamIndex</span><span class="p">,</span>
-</span><span id="__span-67-4"><span class="w">              </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">  </span><span class="n">outSDKString</span><span class="p">,</span>
-</span><span id="__span-67-5"><span class="w">              </span><span class="n">PrTime</span><span class="w">        </span><span class="n">inSequenceTime</span><span class="p">);</span>
+</span><span id="__span-67-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-67-3"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">inLayerParamIndex</span><span class="p">,</span>
+</span><span id="__span-67-4"><span class="w">  </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">  </span><span class="n">outSDKString</span><span class="p">,</span>
+</span><span id="__span-67-5"><span class="w">  </span><span class="n">PrTime</span><span class="w">        </span><span class="n">inSequenceTime</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="getcommentstring">GetCommentString()<a class="headerlink" href="#getcommentstring" title="Permanent link">&para;</a></h3>
 <p>Retrieves the comment string associated with the specified source track item, at the specified time.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-68-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetCommentString</span><span class="p">)(</span>
-</span><span id="__span-68-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
-</span><span id="__span-68-3"><span class="w">              </span><span class="kt">int32_t</span><span class="w">       </span><span class="n">inSourceTrack</span><span class="p">,</span>
-</span><span id="__span-68-4"><span class="w">              </span><span class="n">PrTime</span><span class="w">        </span><span class="n">inSequenceTime</span><span class="p">,</span>
-</span><span id="__span-68-5"><span class="w">              </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">  </span><span class="n">outSDKString</span><span class="p">);</span>
+</span><span id="__span-68-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
+</span><span id="__span-68-3"><span class="w">  </span><span class="kt">int32_t</span><span class="w">       </span><span class="n">inSourceTrack</span><span class="p">,</span>
+</span><span id="__span-68-4"><span class="w">  </span><span class="n">PrTime</span><span class="w">        </span><span class="n">inSequenceTime</span><span class="p">,</span>
+</span><span id="__span-68-5"><span class="w">  </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">  </span><span class="n">outSDKString</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="getlognotestring">GetLogNoteString()<a class="headerlink" href="#getlognotestring" title="Permanent link">&para;</a></h3>
 <p>Retrieves the log note associated with the source track, at the specified time.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-69-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetLogNoteString</span><span class="p">)(</span>
-</span><span id="__span-69-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
-</span><span id="__span-69-3"><span class="w">              </span><span class="kt">int32_t</span><span class="w">       </span><span class="n">inSourceTrack</span><span class="p">,</span>
-</span><span id="__span-69-4"><span class="w">              </span><span class="n">PrTime</span><span class="w">        </span><span class="n">inSequenceTime</span><span class="p">,</span>
-</span><span id="__span-69-5"><span class="w">              </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">  </span><span class="n">outSDKString</span><span class="p">);</span>
+</span><span id="__span-69-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
+</span><span id="__span-69-3"><span class="w">  </span><span class="kt">int32_t</span><span class="w">       </span><span class="n">inSourceTrack</span><span class="p">,</span>
+</span><span id="__span-69-4"><span class="w">  </span><span class="n">PrTime</span><span class="w">        </span><span class="n">inSequenceTime</span><span class="p">,</span>
+</span><span id="__span-69-5"><span class="w">  </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">  </span><span class="n">outSDKString</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="getcamerarollstring">GetCameraRollString()<a class="headerlink" href="#getcamerarollstring" title="Permanent link">&para;</a></h3>
 <p>Retrieves the log note associated with the source track, at the specified time.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-70-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetCameraRollString</span><span class="p">)(</span>
-</span><span id="__span-70-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
-</span><span id="__span-70-3"><span class="w">              </span><span class="kt">int32_t</span><span class="w">       </span><span class="n">inSourceTrack</span><span class="p">,</span>
-</span><span id="__span-70-4"><span class="w">              </span><span class="n">PrTime</span><span class="w">        </span><span class="n">inSequenceTime</span><span class="p">,</span>
-</span><span id="__span-70-5"><span class="w">              </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">  </span><span class="n">outSDKString</span><span class="p">);</span>
+</span><span id="__span-70-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
+</span><span id="__span-70-3"><span class="w">  </span><span class="kt">int32_t</span><span class="w">       </span><span class="n">inSourceTrack</span><span class="p">,</span>
+</span><span id="__span-70-4"><span class="w">  </span><span class="kt">int32_t</span><span class="w">       </span><span class="n">inSourceTrack</span><span class="p">,</span>
+</span><span id="__span-70-5"><span class="w">  </span><span class="n">PrTime</span><span class="w">        </span><span class="n">inSequenceTime</span><span class="p">,</span>
+</span><span id="__span-70-6"><span class="w">  </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">  </span><span class="n">outSDKString</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="getclientmetadatastring">GetClientMetadataString()<a class="headerlink" href="#getclientmetadatastring" title="Permanent link">&para;</a></h3>
 <p>Retrieves the metadata string associated with the source track, at the specified time.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-71-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetClientMetadataString</span><span class="p">)(</span>
-</span><span id="__span-71-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
-</span><span id="__span-71-3"><span class="w">              </span><span class="kt">int32_t</span><span class="w">       </span><span class="n">inSourceTrack</span><span class="p">,</span>
-</span><span id="__span-71-4"><span class="w">              </span><span class="n">PrTime</span><span class="w">        </span><span class="n">inSequenceTime</span><span class="p">,</span>
-</span><span id="__span-71-5"><span class="w">              </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">  </span><span class="n">outSDKString</span><span class="p">);</span>
+</span><span id="__span-71-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
+</span><span id="__span-71-3"><span class="w">  </span><span class="kt">int32_t</span><span class="w">       </span><span class="n">inSourceTrack</span><span class="p">,</span>
+</span><span id="__span-71-4"><span class="w">  </span><span class="n">PrTime</span><span class="w">        </span><span class="n">inSequenceTime</span><span class="p">,</span>
+</span><span id="__span-71-5"><span class="w">  </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">  </span><span class="n">outSDKString</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="getdailyrollstring">GetDailyRollString()<a class="headerlink" href="#getdailyrollstring" title="Permanent link">&para;</a></h3>
 <p>Retrieves the daily roll string associated with the source track, at the specified time.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-72-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetDailyRollString</span><span class="p">)(</span>
-</span><span id="__span-72-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
-</span><span id="__span-72-3"><span class="w">              </span><span class="kt">int32_t</span><span class="w">       </span><span class="n">inSourceTrack</span><span class="p">,</span>
-</span><span id="__span-72-4"><span class="w">              </span><span class="n">PrTime</span><span class="w">        </span><span class="n">inSequenceTime</span><span class="p">,</span>
-</span><span id="__span-72-5"><span class="w">              </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">  </span><span class="n">outSDKString</span><span class="p">);</span>
+</span><span id="__span-72-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
+</span><span id="__span-72-3"><span class="w">  </span><span class="kt">int32_t</span><span class="w">       </span><span class="n">inSourceTrack</span><span class="p">,</span>
+</span><span id="__span-72-4"><span class="w">  </span><span class="n">PrTime</span><span class="w">        </span><span class="n">inSequenceTime</span><span class="p">,</span>
+</span><span id="__span-72-5"><span class="w">  </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">  </span><span class="n">outSDKString</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="getdescriptionstring">GetDescriptionString()<a class="headerlink" href="#getdescriptionstring" title="Permanent link">&para;</a></h3>
 <p>Retrieves the daily roll string associated with the source track, at the specified time.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-73-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetDescriptionString</span><span class="p">)(</span>
-</span><span id="__span-73-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
-</span><span id="__span-73-3"><span class="w">              </span><span class="kt">int32_t</span><span class="w">       </span><span class="n">inSourceTrack</span><span class="p">,</span>
-</span><span id="__span-73-4"><span class="w">              </span><span class="n">PrTime</span><span class="w">        </span><span class="n">inSequenceTime</span><span class="p">,</span>
-</span><span id="__span-73-5"><span class="w">              </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">  </span><span class="n">outSDKString</span><span class="p">);</span>
+</span><span id="__span-73-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
+</span><span id="__span-73-3"><span class="w">  </span><span class="kt">int32_t</span><span class="w">       </span><span class="n">inSourceTrack</span><span class="p">,</span>
+</span><span id="__span-73-4"><span class="w">  </span><span class="n">PrTime</span><span class="w">        </span><span class="n">inSequenceTime</span><span class="p">,</span>
+</span><span id="__span-73-5"><span class="w">  </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">  </span><span class="n">outSDKString</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="getlabrollstring">GetLabRollString()<a class="headerlink" href="#getlabrollstring" title="Permanent link">&para;</a></h3>
 <p>Retrieves the lab roll string associated with the source track, at the specified time.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-74-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetLabRollString</span><span class="p">)(</span>
-</span><span id="__span-74-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
-</span><span id="__span-74-3"><span class="w">              </span><span class="kt">int32_t</span><span class="w">       </span><span class="n">inSourceTrack</span><span class="p">,</span>
-</span><span id="__span-74-4"><span class="w">              </span><span class="n">PrTime</span><span class="w">        </span><span class="n">inSequenceTime</span><span class="p">,</span>
-</span><span id="__span-74-5"><span class="w">              </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">  </span><span class="n">outSDKString</span><span class="p">);</span>
+</span><span id="__span-74-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
+</span><span id="__span-74-3"><span class="w">  </span><span class="kt">int32_t</span><span class="w">       </span><span class="n">inSourceTrack</span><span class="p">,</span>
+</span><span id="__span-74-4"><span class="w">  </span><span class="n">PrTime</span><span class="w">        </span><span class="n">inSequenceTime</span><span class="p">,</span>
+</span><span id="__span-74-5"><span class="w">  </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">  </span><span class="n">outSDKString</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="getscenestring">GetSceneString()<a class="headerlink" href="#getscenestring" title="Permanent link">&para;</a></h3>
 <p>Retrieves the scene string associated with the source track, at the specified time.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-75-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetSceneString</span><span class="p">)(</span>
-</span><span id="__span-75-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
-</span><span id="__span-75-3"><span class="w">              </span><span class="kt">int32_t</span><span class="w">       </span><span class="n">inSourceTrack</span><span class="p">,</span>
-</span><span id="__span-75-4"><span class="w">              </span><span class="n">PrTime</span><span class="w">        </span><span class="n">inSequenceTime</span><span class="p">,</span>
-</span><span id="__span-75-5"><span class="w">              </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">  </span><span class="n">outSDKString</span><span class="p">);</span>
+</span><span id="__span-75-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
+</span><span id="__span-75-3"><span class="w">  </span><span class="kt">int32_t</span><span class="w">       </span><span class="n">inSourceTrack</span><span class="p">,</span>
+</span><span id="__span-75-4"><span class="w">  </span><span class="n">PrTime</span><span class="w">        </span><span class="n">inSequenceTime</span><span class="p">,</span>
+</span><span id="__span-75-5"><span class="w">  </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">  </span><span class="n">outSDKString</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="getshotstring">GetShotString()<a class="headerlink" href="#getshotstring" title="Permanent link">&para;</a></h3>
 <p>Retrieves the shot string associated with the source track item, at the specified time.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-76-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetShotString</span><span class="p">)(</span>
-</span><span id="__span-76-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
-</span><span id="__span-76-3"><span class="w">              </span><span class="kt">int32_t</span><span class="w">       </span><span class="n">inSourceTrack</span><span class="p">,</span>
-</span><span id="__span-76-4"><span class="w">              </span><span class="n">PrTime</span><span class="w">        </span><span class="n">inSequenceTime</span><span class="p">,</span>
-</span><span id="__span-76-5"><span class="w">              </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">  </span><span class="n">outSDKString</span><span class="p">);</span>
+</span><span id="__span-76-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
+</span><span id="__span-76-3"><span class="w">  </span><span class="kt">int32_t</span><span class="w">       </span><span class="n">inSourceTrack</span><span class="p">,</span>
+</span><span id="__span-76-4"><span class="w">  </span><span class="n">PrTime</span><span class="w">        </span><span class="n">inSequenceTime</span><span class="p">,</span>
+</span><span id="__span-76-5"><span class="w">  </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">  </span><span class="n">outSDKString</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="gettapenamestring">GetTapeNameString()<a class="headerlink" href="#gettapenamestring" title="Permanent link">&para;</a></h3>
 <p>Retrieves the tape name string associated with the source track item, at the specified time.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-77-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetTapeNameString</span><span class="p">)(</span>
-</span><span id="__span-77-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
-</span><span id="__span-77-3"><span class="w">              </span><span class="kt">int32_t</span><span class="w">       </span><span class="n">inSourceTrack</span><span class="p">,</span>
-</span><span id="__span-77-4"><span class="w">              </span><span class="n">PrTime</span><span class="w">        </span><span class="n">inSequenceTime</span><span class="p">,</span>
-</span><span id="__span-77-5"><span class="w">              </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">  </span><span class="n">outSDKString</span><span class="p">);</span>
+</span><span id="__span-77-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
+</span><span id="__span-77-3"><span class="w">  </span><span class="kt">int32_t</span><span class="w">       </span><span class="n">inSourceTrack</span><span class="p">,</span>
+</span><span id="__span-77-4"><span class="w">  </span><span class="n">PrTime</span><span class="w">        </span><span class="n">inSequenceTime</span><span class="p">,</span>
+</span><span id="__span-77-5"><span class="w">  </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">  </span><span class="n">outSDKString</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="getvideocodecstring">GetVideoCodecString()<a class="headerlink" href="#getvideocodecstring" title="Permanent link">&para;</a></h3>
 <p>Retrieves a string representing the video codec associated with the source track item, at the specified time.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-78-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetVideoCodecString</span><span class="p">)(</span>
-</span><span id="__span-78-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
-</span><span id="__span-78-3"><span class="w">              </span><span class="kt">int32_t</span><span class="w">       </span><span class="n">inSourceTrack</span><span class="p">,</span>
-</span><span id="__span-78-4"><span class="w">              </span><span class="n">PrTime</span><span class="w">        </span><span class="n">inSequenceTime</span><span class="p">,</span>
-</span><span id="__span-78-5"><span class="w">              </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">  </span><span class="n">outSDKString</span><span class="p">);</span>
+</span><span id="__span-78-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
+</span><span id="__span-78-3"><span class="w">  </span><span class="kt">int32_t</span><span class="w">       </span><span class="n">inSourceTrack</span><span class="p">,</span>
+</span><span id="__span-78-4"><span class="w">  </span><span class="n">PrTime</span><span class="w">        </span><span class="n">inSequenceTime</span><span class="p">,</span>
+</span><span id="__span-78-5"><span class="w">  </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">  </span><span class="n">outSDKString</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="getgoodmetadatastring">GetGoodMetadataString()<a class="headerlink" href="#getgoodmetadatastring" title="Permanent link">&para;</a></h3>
 <p>Retrieves a string representing the "good" state of the source track item, at the specified time.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-79-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetGoodMetadataString</span><span class="p">)(</span>
-</span><span id="__span-79-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
-</span><span id="__span-79-3"><span class="w">              </span><span class="kt">int32_t</span><span class="w">       </span><span class="n">inSourceTrack</span><span class="p">,</span>
-</span><span id="__span-79-4"><span class="w">              </span><span class="n">PrTime</span><span class="w">        </span><span class="n">inSequenceTime</span><span class="p">,</span>
-</span><span id="__span-79-5"><span class="w">              </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">  </span><span class="n">outSDKString</span><span class="p">);</span>
+</span><span id="__span-79-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
+</span><span id="__span-79-3"><span class="w">  </span><span class="kt">int32_t</span><span class="w">       </span><span class="n">inSourceTrack</span><span class="p">,</span>
+</span><span id="__span-79-4"><span class="w">  </span><span class="n">PrTime</span><span class="w">        </span><span class="n">inSequenceTime</span><span class="p">,</span>
+</span><span id="__span-79-5"><span class="w">  </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">  </span><span class="n">outSDKString</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="getsoundrollstring">GetSoundRollString()<a class="headerlink" href="#getsoundrollstring" title="Permanent link">&para;</a></h3>
 <p>Retrieves a string representing the "sound roll" state of the source track item, at the specified time.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-80-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetSoundRollString</span><span class="p">)(</span>
-</span><span id="__span-80-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
-</span><span id="__span-80-3"><span class="w">              </span><span class="kt">int32_t</span><span class="w">       </span><span class="n">inSourceTrack</span><span class="p">,</span>
-</span><span id="__span-80-4"><span class="w">              </span><span class="n">PrTime</span><span class="w">        </span><span class="n">inSequenceTime</span><span class="p">,</span>
-</span><span id="__span-80-5"><span class="w">              </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">  </span><span class="n">outSDKString</span><span class="p">);</span>
+</span><span id="__span-80-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
+</span><span id="__span-80-3"><span class="w">  </span><span class="kt">int32_t</span><span class="w">       </span><span class="n">inSourceTrack</span><span class="p">,</span>
+</span><span id="__span-80-4"><span class="w">  </span><span class="n">PrTime</span><span class="w">        </span><span class="n">inSequenceTime</span><span class="p">,</span>
+</span><span id="__span-80-5"><span class="w">  </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">  </span><span class="n">outSDKString</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="getsequencetime">GetSequenceTime()<a class="headerlink" href="#getsequencetime" title="Permanent link">&para;</a></h3>
 <p>Retrieves the timebase of the sequence in which the effect is applied.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-81-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetSequenceTime</span><span class="p">)(</span>
-</span><span id="__span-81-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">  </span><span class="n">inEffectRef</span><span class="p">,</span>
-</span><span id="__span-81-3"><span class="w">              </span><span class="n">PrTime</span><span class="o">*</span><span class="w">     </span><span class="n">outSequenceTime</span><span class="p">);</span>
+</span><span id="__span-81-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">  </span><span class="n">inEffectRef</span><span class="p">,</span>
+</span><span id="__span-81-3"><span class="w">  </span><span class="n">PrTime</span><span class="o">*</span><span class="w">     </span><span class="n">outSequenceTime</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="getsoundtimecode">GetSoundTimecode()<a class="headerlink" href="#getsoundtimecode" title="Permanent link">&para;</a></h3>
 <p>Retrieves the frame of the specified source time.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-82-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetSoundTimecode</span><span class="p">)(</span>
-</span><span id="__span-82-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
-</span><span id="__span-82-3"><span class="w">              </span><span class="kt">int32_t</span><span class="w">       </span><span class="n">inSourceTrack</span><span class="p">,</span>
-</span><span id="__span-82-4"><span class="w">              </span><span class="n">PrTime</span><span class="w">        </span><span class="n">inSequenceTime</span><span class="p">,</span>
-</span><span id="__span-82-5"><span class="w">              </span><span class="n">A_long</span><span class="o">*</span><span class="w">       </span><span class="n">outCurrentFrame</span><span class="p">);</span>
+</span><span id="__span-82-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
+</span><span id="__span-82-3"><span class="w">  </span><span class="kt">int32_t</span><span class="w">       </span><span class="n">inSourceTrack</span><span class="p">,</span>
+</span><span id="__span-82-4"><span class="w">  </span><span class="n">PrTime</span><span class="w">        </span><span class="n">inSequenceTime</span><span class="p">,</span>
+</span><span id="__span-82-5"><span class="w">  </span><span class="n">A_long</span><span class="o">*</span><span class="w">       </span><span class="n">outCurrentFrame</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="getoriginalclipframerateforsourcetrack">GetOriginalClipFrameRateForSourceTrack()<a class="headerlink" href="#getoriginalclipframerateforsourcetrack" title="Permanent link">&para;</a></h3>
 <p>Retrieves the original "ticks per frame" for the specified source track.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-83-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetOriginalClipFrameRateForSourceTrack</span><span class="p">)(</span>
-</span><span id="__span-83-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
-</span><span id="__span-83-3"><span class="w">              </span><span class="kt">int32_t</span><span class="w">       </span><span class="n">inSourceTrack</span><span class="p">,</span>
-</span><span id="__span-83-4"><span class="w">              </span><span class="n">PrTime</span><span class="o">*</span><span class="w">       </span><span class="n">outTicksPerFrame</span><span class="p">);</span>
+</span><span id="__span-83-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
+</span><span id="__span-83-3"><span class="w">  </span><span class="kt">int32_t</span><span class="w">       </span><span class="n">inSourceTrack</span><span class="p">,</span>
+</span><span id="__span-83-4"><span class="w">  </span><span class="n">PrTime</span><span class="o">*</span><span class="w">       </span><span class="n">outTicksPerFrame</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="getmediaframerateforsourcetrack">GetMediaFrameRateForSourceTrack()<a class="headerlink" href="#getmediaframerateforsourcetrack" title="Permanent link">&para;</a></h3>
 <p>Retrieves the media frame rate for the specified source track.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-84-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetMediaFrameRateForSourceTrack</span><span class="p">)(</span>
-</span><span id="__span-84-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
-</span><span id="__span-84-3"><span class="w">              </span><span class="kt">int32_t</span><span class="w">       </span><span class="n">inSourceTrack</span><span class="p">,</span>
-</span><span id="__span-84-4"><span class="w">              </span><span class="n">PrTime</span><span class="w">        </span><span class="n">inSequenceTime</span><span class="p">,</span>
-</span><span id="__span-84-5"><span class="w">              </span><span class="n">PrTime</span><span class="o">*</span><span class="w">       </span><span class="n">outTicksPerFrame</span><span class="p">);</span>
+</span><span id="__span-84-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
+</span><span id="__span-84-3"><span class="w">  </span><span class="kt">int32_t</span><span class="w">       </span><span class="n">inSourceTrack</span><span class="p">,</span>
+</span><span id="__span-84-4"><span class="w">  </span><span class="n">PrTime</span><span class="w">        </span><span class="n">inSequenceTime</span><span class="p">,</span>
+</span><span id="__span-84-5"><span class="w">  </span><span class="n">PrTime</span><span class="o">*</span><span class="w">       </span><span class="n">outTicksPerFrame</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="getsourcetrackmediaactualstarttime">GetSourceTrackMediaActualStartTime()<a class="headerlink" href="#getsourcetrackmediaactualstarttime" title="Permanent link">&para;</a></h3>
 <p>Retrieves the start time of the specified layer parameter.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-85-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetSourceTrackMediaActualStartTime</span><span class="p">)(</span>
-</span><span id="__span-85-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">      </span><span class="n">inEffectRef</span><span class="p">,</span>
-</span><span id="__span-85-3"><span class="w">              </span><span class="n">csSDK_uint32</span><span class="w">    </span><span class="n">inLayerParamIndex</span><span class="p">,</span>
-</span><span id="__span-85-4"><span class="w">              </span><span class="n">PrTime</span><span class="w">          </span><span class="n">inSequenceTime</span><span class="p">,</span>
-</span><span id="__span-85-5"><span class="w">              </span><span class="n">PrTime</span><span class="o">*</span><span class="w">         </span><span class="n">outClipActualStartTime</span><span class="p">);</span>
+</span><span id="__span-85-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">      </span><span class="n">inEffectRef</span><span class="p">,</span>
+</span><span id="__span-85-3"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">    </span><span class="n">inLayerParamIndex</span><span class="p">,</span>
+</span><span id="__span-85-4"><span class="w">  </span><span class="n">PrTime</span><span class="w">          </span><span class="n">inSequenceTime</span><span class="p">,</span>
+</span><span id="__span-85-5"><span class="w">  </span><span class="n">PrTime</span><span class="o">*</span><span class="w">         </span><span class="n">outClipActualStartTime</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="issourcetrackmediatrimmed">IsSourceTrackMediaTrimmed()<a class="headerlink" href="#issourcetrackmediatrimmed" title="Permanent link">&para;</a></h3>
 <p>Retrieves whether the source track item has been trimmed.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-86-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">IsSourceTrackMediaTrimmed</span><span class="p">)(</span>
-</span><span id="__span-86-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">      </span><span class="n">inEffectRef</span><span class="p">,</span>
-</span><span id="__span-86-3"><span class="w">              </span><span class="n">csSDK_uint32</span><span class="w">    </span><span class="n">inLayerParamIndex</span><span class="p">,</span>
-</span><span id="__span-86-4"><span class="w">              </span><span class="n">PrTime</span><span class="w">          </span><span class="n">inSequenceTime</span><span class="p">,</span>
-</span><span id="__span-86-5"><span class="w">              </span><span class="kt">bool</span><span class="o">*</span><span class="w">           </span><span class="n">outTrimApplied</span><span class="p">);</span>
+</span><span id="__span-86-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">      </span><span class="n">inEffectRef</span><span class="p">,</span>
+</span><span id="__span-86-3"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">    </span><span class="n">inLayerParamIndex</span><span class="p">,</span>
+</span><span id="__span-86-4"><span class="w">  </span><span class="n">PrTime</span><span class="w">          </span><span class="n">inSequenceTime</span><span class="p">,</span>
+</span><span id="__span-86-5"><span class="w">  </span><span class="kt">bool</span><span class="o">*</span><span class="w">           </span><span class="n">outTrimApplied</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="ismediatrimmed">IsMediaTrimmed()<a class="headerlink" href="#ismediatrimmed" title="Permanent link">&para;</a></h3>
 <p>Retrieves whether the track item has been trimmed.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-87-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">IsMediaTrimmed</span><span class="p">)(</span>
-</span><span id="__span-87-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
-</span><span id="__span-87-3"><span class="w">              </span><span class="n">PrTime</span><span class="w">        </span><span class="n">inSequenceTime</span><span class="p">,</span>
-</span><span id="__span-87-4"><span class="w">              </span><span class="kt">bool</span><span class="o">*</span><span class="w">         </span><span class="n">outTrimApplied</span><span class="p">);</span>
+</span><span id="__span-87-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
+</span><span id="__span-87-3"><span class="w">  </span><span class="n">PrTime</span><span class="w">        </span><span class="n">inSequenceTime</span><span class="p">,</span>
+</span><span id="__span-87-4"><span class="w">  </span><span class="kt">bool</span><span class="o">*</span><span class="w">         </span><span class="n">outTrimApplied</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="istrackempty">IsTrackEmpty()<a class="headerlink" href="#istrackempty" title="Permanent link">&para;</a></h3>
 <p>Retrieves whether, for the specified layer parameter, the track is empty.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-88-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">IsTrackEmpty</span><span class="p">)(</span>
-</span><span id="__span-88-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">      </span><span class="n">inEffectRef</span><span class="p">,</span>
-</span><span id="__span-88-3"><span class="w">              </span><span class="n">csSDK_uint32</span><span class="w">    </span><span class="n">inLayerParamIndex</span><span class="p">,</span>
-</span><span id="__span-88-4"><span class="w">              </span><span class="n">PrTime</span><span class="w">          </span><span class="n">inSequenceTime</span><span class="p">,</span>
-</span><span id="__span-88-5"><span class="w">              </span><span class="kt">bool</span><span class="o">*</span><span class="w">           </span><span class="n">outIsTrackEmpty</span><span class="p">);</span>
+</span><span id="__span-88-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">      </span><span class="n">inEffectRef</span><span class="p">,</span>
+</span><span id="__span-88-3"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">    </span><span class="n">inLayerParamIndex</span><span class="p">,</span>
+</span><span id="__span-88-4"><span class="w">  </span><span class="n">PrTime</span><span class="w">          </span><span class="n">inSequenceTime</span><span class="p">,</span>
+</span><span id="__span-88-5"><span class="w">  </span><span class="kt">bool</span><span class="o">*</span><span class="w">           </span><span class="n">outIsTrackEmpty</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="istrackitemeffectappliedtosynthetic">IsTrackItemEffectAppliedToSynthetic()<a class="headerlink" href="#istrackitemeffectappliedtosynthetic" title="Permanent link">&para;</a></h3>
 <p>Retrieves whether the effect is applied to a track item backed by a synthetic importer.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-89-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">IsTrackItemEffectAppliedToSynthetic</span><span class="p">)(</span>
-</span><span id="__span-89-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
-</span><span id="__span-89-3"><span class="w">              </span><span class="kt">bool</span><span class="o">*</span><span class="w">         </span><span class="n">outIsTrackItemEffectAppliedToSynthetic</span><span class="p">);</span>
+</span><span id="__span-89-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
+</span><span id="__span-89-3"><span class="w">  </span><span class="kt">bool</span><span class="o">*</span><span class="w">         </span><span class="n">outIsTrackItemEffectAppliedToSynthetic</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="getsourcetrackcurrentmediatimeinfo">GetSourceTrackCurrentMediaTimeInfo()<a class="headerlink" href="#getsourcetrackcurrentmediatimeinfo" title="Permanent link">&para;</a></h3>
 <p>Retrieves the current media time, including ticks per frame and a formatted string representing that time.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-90-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetSourceTrackCurrentMediaTimeInfo</span><span class="p">)(</span>
-</span><span id="__span-90-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">      </span><span class="n">effect_ref</span><span class="p">,</span>
-</span><span id="__span-90-3"><span class="w">              </span><span class="n">csSDK_uint32</span><span class="w">    </span><span class="n">inLayerParamIndex</span><span class="p">,</span>
-</span><span id="__span-90-4"><span class="w">              </span><span class="kt">bool</span><span class="w">            </span><span class="n">inUseSoundTimecodeAsStartTime</span><span class="p">,</span>
-</span><span id="__span-90-5"><span class="w">              </span><span class="n">PrTime</span><span class="w">          </span><span class="n">inSequenceTime</span><span class="p">,</span>
-</span><span id="__span-90-6"><span class="w">              </span><span class="n">PrTime</span><span class="o">*</span><span class="w">         </span><span class="n">outCurrentMediaTime</span><span class="p">,</span>
-</span><span id="__span-90-7"><span class="w">              </span><span class="n">PrTime</span><span class="o">*</span><span class="w">         </span><span class="n">outMediaTicksPerFrame</span><span class="p">,</span>
-</span><span id="__span-90-8"><span class="w">              </span><span class="n">PF_TimeDisplay</span><span class="o">*</span><span class="w"> </span><span class="n">outMediaTimeDisplay</span><span class="p">);</span>
+</span><span id="__span-90-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">      </span><span class="n">effect_ref</span><span class="p">,</span>
+</span><span id="__span-90-3"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">    </span><span class="n">inLayerParamIndex</span><span class="p">,</span>
+</span><span id="__span-90-4"><span class="w">  </span><span class="kt">bool</span><span class="w">            </span><span class="n">inUseSoundTimecodeAsStartTime</span><span class="p">,</span>
+</span><span id="__span-90-5"><span class="w">  </span><span class="n">PrTime</span><span class="w">          </span><span class="n">inSequenceTime</span><span class="p">,</span>
+</span><span id="__span-90-6"><span class="w">  </span><span class="n">PrTime</span><span class="o">*</span><span class="w">         </span><span class="n">outCurrentMediaTime</span><span class="p">,</span>
+</span><span id="__span-90-7"><span class="w">  </span><span class="n">PrTime</span><span class="o">*</span><span class="w">         </span><span class="n">outMediaTicksPerFrame</span><span class="p">,</span>
+</span><span id="__span-90-8"><span class="w">  </span><span class="n">PF_TimeDisplay</span><span class="o">*</span><span class="w"> </span><span class="n">outMediaTimeDisplay</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="getsequencezeropoint">GetSequenceZeroPoint()<a class="headerlink" href="#getsequencezeropoint" title="Permanent link">&para;</a></h3>
 <p>Retrieves the zero point (start time) of the sequence in which the effect is applied.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-91-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetSequenceZeroPoint</span><span class="p">)(</span>
-</span><span id="__span-91-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
-</span><span id="__span-91-3"><span class="w">              </span><span class="n">PrTime</span><span class="o">*</span><span class="w">       </span><span class="n">outZeroPointTime</span><span class="p">);</span>
+</span><span id="__span-91-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
+</span><span id="__span-91-3"><span class="w">  </span><span class="n">PrTime</span><span class="o">*</span><span class="w">       </span><span class="n">outZeroPointTime</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="getsourcetrackcurrentclipduration">GetSourceTrackCurrentClipDuration()<a class="headerlink" href="#getsourcetrackcurrentclipduration" title="Permanent link">&para;</a></h3>
 <p>Retrieves the duration of the clip, at the specified layer index, at inSequenceTime.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-92-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetSourceTrackCurrentClipDuration</span><span class="p">)(</span>
-</span><span id="__span-92-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">        </span><span class="n">inEffectRef</span><span class="p">,</span>
-</span><span id="__span-92-3"><span class="w">              </span><span class="n">csSDK_uint32</span><span class="w">      </span><span class="n">inLayerParamIndex</span><span class="p">,</span>
-</span><span id="__span-92-4"><span class="w">              </span><span class="n">PrTime</span><span class="w">            </span><span class="n">inSequenceTime</span><span class="p">,</span>
-</span><span id="__span-92-5"><span class="w">              </span><span class="n">PrTime</span><span class="o">*</span><span class="w">           </span><span class="n">outClipDuration</span><span class="p">);</span>
+</span><span id="__span-92-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">        </span><span class="n">inEffectRef</span><span class="p">,</span>
+</span><span id="__span-92-3"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">      </span><span class="n">inLayerParamIndex</span><span class="p">,</span>
+</span><span id="__span-92-4"><span class="w">  </span><span class="n">PrTime</span><span class="w">            </span><span class="n">inSequenceTime</span><span class="p">,</span>
+</span><span id="__span-92-5"><span class="w">  </span><span class="n">PrTime</span><span class="o">*</span><span class="w">           </span><span class="n">outClipDuration</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="getsequenceduration">GetSequenceDuration()<a class="headerlink" href="#getsequenceduration" title="Permanent link">&para;</a></h3>
 <p>Retrieves the duration of the sequence in which the effect is applied.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-93-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetSequenceDuration</span><span class="p">)(</span>
-</span><span id="__span-93-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
-</span><span id="__span-93-3"><span class="w">              </span><span class="n">PrTime</span><span class="o">*</span><span class="w">       </span><span class="n">outSequenceDuration</span><span class="p">);</span>
+</span><span id="__span-93-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
+</span><span id="__span-93-3"><span class="w">  </span><span class="n">PrTime</span><span class="o">*</span><span class="w">       </span><span class="n">outSequenceDuration</span><span class="p">);</span>
 </span><span id="__span-93-4">
 </span><span id="__span-93-5"><span class="w">      </span><span class="cm">/*</span>
 </span><span id="__span-93-6"><span class="cm">      ** Get the video resolution string, formatted as a &#39;width x height&#39;,</span>
@@ -7559,10 +7781,10 @@
 <h3 id="getvideoresolutionstring">GetVideoResolutionString()<a class="headerlink" href="#getvideoresolutionstring" title="Permanent link">&para;</a></h3>
 <p>Retrieve a string representing the dimensions of the track item to which the effect is applied.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-94-1"><span class="n">prSuiteError</span><span class="p">(</span><span class="o">*</span><span class="n">GetVideoResolutionString</span><span class="p">)(</span>
-</span><span id="__span-94-2"><span class="w">              </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
-</span><span id="__span-94-3"><span class="w">              </span><span class="kt">int32_t</span><span class="w">       </span><span class="n">inSourceTrack</span><span class="p">,</span>
-</span><span id="__span-94-4"><span class="w">              </span><span class="n">PrTime</span><span class="w">        </span><span class="n">inSequenceTime</span><span class="p">,</span>
-</span><span id="__span-94-5"><span class="w">              </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">  </span><span class="n">outSDKString</span><span class="p">);</span>
+</span><span id="__span-94-2"><span class="w">  </span><span class="n">PF_ProgPtr</span><span class="w">    </span><span class="n">inEffectRef</span><span class="p">,</span>
+</span><span id="__span-94-3"><span class="w">  </span><span class="kt">int32_t</span><span class="w">       </span><span class="n">inSourceTrack</span><span class="p">,</span>
+</span><span id="__span-94-4"><span class="w">  </span><span class="n">PrTime</span><span class="w">        </span><span class="n">inSequenceTime</span><span class="p">,</span>
+</span><span id="__span-94-5"><span class="w">  </span><span class="n">PrSDKString</span><span class="o">*</span><span class="w">  </span><span class="n">outSDKString</span><span class="p">);</span>
 </span></code></pre></div>
 
 
@@ -7584,7 +7806,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 19, 2025 19:00:13 UTC">November 19, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 19, 2025 19:00:00 UTC">November 19, 2025</span>
   </span>
 
     

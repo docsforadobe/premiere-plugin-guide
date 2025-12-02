@@ -4942,7 +4942,7 @@
 <p>Calls to convert to and from the native audio format used by the Premiere API, at various bit depths. See PrSDKAudioSuite.h.</p>
 <hr />
 <h2 id="captioning-suite">Captioning Suite<a class="headerlink" href="#captioning-suite" title="Permanent link">&para;</a></h2>
-<p>This suite enables a device controller, exporter, player, or transmitter to get the closed captioning data attached to a sequence. This suite provides the data in either Scenarist (CEA-608, *.scc) and MacCaption (CEA-708, *.mcc) formats. In the case of CEA-708, it includes not just the text to display, but it's also the position information, and background, font, etc. If the transmitter or player just wants to overlay the captioning data on a frame, it can use the <a href="#playmod-overlay-suite">Playmod Overlay Suite</a> instead.</p>
+<p>This suite enables a device controller, exporter, player, or transmitter to get the closed captioning data attached to a sequence. This suite provides the data in either Scenarist (CEA-608, <em>.scc) and MacCaption (CEA-708, /</em>.mcc) formats. In the case of CEA-708, it includes not just the text to display, but it's also the position information, and background, font, etc. If the transmitter or player just wants to overlay the captioning data on a frame, it can use the <a href="#playmod-overlay-suite">Playmod Overlay Suite</a> instead.</p>
 <hr />
 <h2 id="clip-render-suite">Clip Render Suite<a class="headerlink" href="#clip-render-suite" title="Permanent link">&para;</a></h2>
 <p>New in 2.0. Use this suite in the player or renderer, to request source frames directly from the importer. There are calls to find the supported frame sizes and pixel formats, so that the caller can make an informed decision about what format to request. Frames can be retrieved synchronously or asynchronously. Asynchronous requests can be cancelled, for example if the frames have passed their window of playback. See PrSDKClipRenderSuite.h.</p>
@@ -4998,22 +4998,36 @@
 </span><span id="__span-2-7"><span class="w">  </span><span class="n">prBool</span><span class="w">         </span><span class="n">inClearToTransparentBlack</span><span class="p">,</span>
 </span><span id="__span-2-8"><span class="w">  </span><span class="n">PPixHand</span><span class="o">*</span><span class="w">      </span><span class="n">ioPPix</span><span class="p">);</span>
 </span></code></pre></div>
-<pre class="grid-table-error">+-----------------------------+---------------------------------------------------------------------------------------------------------------+
-|          Parameter          |                                                  Description                                                  |
-+=============================+===============================================================================================================+
-| <code>inLogicalRegion
-</code>           | The non-scaled region of the source PPix to overlay                                                           |
-+-----------------------------+---------------------------------------------------------------------------------------------------------------+
-| <code>inDisplayWidth</code>            | Width and height of PPix, if provided in ioPPix, scaled to account for Monitor zoom and PAR                   |
-+-----------------------------+---------------------------------------------------------------------------------------------------------------+
-| <code>inDisplayHeight</code>           |                                                                                                               |
-+-----------------------------+---------------------------------------------------------------------------------------------------------------+
-| <code>inClearToTransparentBlack</code> | If <code>kPrTrue</code>, the frame will first be cleared to transparent black before render                              |
-+-----------------------------+---------------------------------------------------------------------------------------------------------------+
-| <code>ioPPix</code>                    | The frame into which to draw the overlay. If NULL, the host will allocate the PPix.                          |
-|                             |                                                                                                               |
-|                             | If provided, the PPix must be BGRA, square pixel aspect ratio, and sized to inDisplayWidth &amp; inDisplayHeight. |
-+-----------------------------+---------------------------------------------------------------------------------------------------------------+</pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>inLogicalRegion</code></td>
+<td>The non-scaled region of the source PPix to overlay</td>
+</tr>
+<tr>
+<td><code>inDisplayWidth</code></td>
+<td>Width and height of PPix, if provided in ioPPix, scaled to account for Monitor zoom and PAR</td>
+</tr>
+<tr>
+<td><code>inDisplayHeight</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>inClearToTransparentBlack</code></td>
+<td>If <code>kPrTrue</code>, the frame will first be cleared to transparent black before render</td>
+</tr>
+<tr>
+<td><code>ioPPix</code></td>
+<td>The frame into which to draw the overlay. If NULL, the host will allocate the PPix. If provided, the PPix must be BGRA, square pixel aspect ratio, and sized to <code>inDisplayWidth</code> and <code>inDisplayHeight</code>.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="getidentifier">GetIdentifier<a class="headerlink" href="#getidentifier" title="Permanent link">&para;</a></h3>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">GetIdentifier</span><span class="p">)(</span>
 </span><span id="__span-3-2"><span class="w">  </span><span class="n">PrPlayID</span><span class="w">       </span><span class="n">inPlayID</span><span class="p">,</span>
@@ -5060,20 +5074,36 @@
 </span><span id="__span-6-4"><span class="w">  </span><span class="n">PrPixelFormat</span><span class="w">       </span><span class="n">inPixelFormat</span><span class="p">,</span>
 </span><span id="__span-6-5"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prRect</span><span class="o">*</span><span class="w">       </span><span class="n">inBoundingRect</span><span class="p">);</span>
 </span></code></pre></div>
-<pre class="grid-table-error">+----------------------------------------+------------------------------------------------------------------------+
-|               Parameter                |                              Description                               |
-+========================================+========================================================================+
-| <code>PPixHand *outPPixHand
-</code>                | The new PPix handle if the creation was successful.                   |
-|                                        |                                                                        |
-|                                        | NULL otherwise.                                                       |
-+----------------------------------------+------------------------------------------------------------------------+
-| <code>PrPPixBufferAccess inRequestedAccess</code> | Requested pixel access. Read-only is not allowed (doesn't make sense). |
-|                                        |                                                                        |
-|                                        | <code>PrPPixBufferAccess</code> values are defined in <a href="#ppix-suite">PPix Suite</a>. |
-+----------------------------------------+------------------------------------------------------------------------+
-| <code>PrPixelFormat inPixelFormat</code>          | The pixel format of this PPix                                          |
-+----------------------------------------+------------------------------------------------------------------------+</pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PPixHand *outPPixHand</code></td>
+<td>The new PPix handle if the creation was successful.</td>
+</tr>
+<tr>
+<td></td>
+<td>NULL otherwise.</td>
+</tr>
+<tr>
+<td><code>PrPPixBufferAccess inRequestedAccess</code></td>
+<td>Requested pixel access. Read-only is not allowed (doesn't make sense).</td>
+</tr>
+<tr>
+<td></td>
+<td><code>PrPPixBufferAccess</code> values are defined in <a href="#ppix-suite">PPix Suite</a>.</td>
+</tr>
+<tr>
+<td><code>PrPixelFormat inPixelFormat</code></td>
+<td>The pixel format of this PPix</td>
+</tr>
+</tbody>
+</table>
 <h3 id="cloneppix">ClonePPix<a class="headerlink" href="#cloneppix" title="Permanent link">&para;</a></h3>
 <p>Clones an existing PPix.</p>
 <p>It will ref-count the PPix if only read access is requested and the PPix to copy from is read-only as well, otherwise it will create a new one and copy.</p>
@@ -5082,22 +5112,28 @@
 </span><span id="__span-7-3"><span class="w">  </span><span class="n">PPixHand</span><span class="o">*</span><span class="w">           </span><span class="n">outPPixHand</span><span class="p">,</span>
 </span><span id="__span-7-4"><span class="w">  </span><span class="n">PrPPixBufferAccess</span><span class="w">  </span><span class="n">inRequestedAccess</span><span class="p">);</span>
 </span></code></pre></div>
-<pre class="grid-table-error">+----------------------------------------+-----------------------------------------------------------------------+
-|               Parameter                |                              Description                              |
-+========================================+=======================================================================+
-| <code>PPixHand inPPixToClone
-</code>               | The PPix to clone from.                                              |
-+----------------------------------------+-----------------------------------------------------------------------+
-| <code>PPixHand *outPPixHand</code>                | The new PPix handle if the creation was successful.                  |
-|                                        |                                                                       |
-|                                        | NULL otherwise.                                                      |
-+----------------------------------------+-----------------------------------------------------------------------+
-| <code>PrPPixBufferAccess inRequestedAccess</code> | Requested pixel access.                                              |
-|                                        |                                                                       |
-|                                        | Only read-only is allowed right now.                                 |
-|                                        |                                                                       |
-|                                        | <code>PrPPixBufferAccess</code> values are defined in <a href="#ppix-suite">PPix Suite</a>. |
-+----------------------------------------+-----------------------------------------------------------------------+</pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>inPPixToClone</code></td>
+<td>The PPix to clone from.</td>
+</tr>
+<tr>
+<td><code>*outPPixHand</code></td>
+<td>The new PPix handle if the creation was successful; otherwise, <code>NULL</code>.</td>
+</tr>
+<tr>
+<td><code>inRequestedAccess</code></td>
+<td>Requested pixel access; Only read-only is supported. <code>PrPPixBufferAccess</code> values are defined in <a href="#ppix-suite">PPix Suite</a>.</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h2 id="ppix-creator-2-suite">PPix Creator 2 Suite<a class="headerlink" href="#ppix-creator-2-suite" title="Permanent link">&para;</a></h2>
 <p>More callbacks to create PPixs, including raw PPixs.</p>
@@ -5139,20 +5175,28 @@
 </span><span id="__span-9-3"><span class="w">  </span><span class="n">PrPPixBufferAccess</span><span class="w">  </span><span class="n">inRequestedAccess</span><span class="p">,</span>
 </span><span id="__span-9-4"><span class="w">  </span><span class="kt">char</span><span class="o">**</span><span class="w">              </span><span class="n">outPixelAddress</span><span class="p">);</span>
 </span></code></pre></div>
-<pre class="grid-table-error">+----------------------------------------+-------------------------------------------------------------+
-|               Parameter                |                         Description                         |
-+========================================+=============================================================+
-| <code>PPixHand inPPixHand
-</code>                  | The PPix handle to operate on.                             |
-+----------------------------------------+-------------------------------------------------------------+
-| <code>PrPPixBufferAccess inRequestedAccess</code> | Requested pixel access.                                    |
-|                                        |                                                             |
-|                                        | Most PPixs do not support write access modes.              |
-+----------------------------------------+-------------------------------------------------------------+
-| <code>char** outPixelAddress</code>               | The output pixel buffer address.                           |
-|                                        |                                                             |
-|                                        | May be NULL if the requested pixel access is not supported. |
-+----------------------------------------+-------------------------------------------------------------+</pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>inPPixHand</code></td>
+<td>The PPix handle to operate on.</td>
+</tr>
+<tr>
+<td><code>inRequestedAccess</code></td>
+<td>Requested pixel access; Most PPixs do not support write access modes.</td>
+</tr>
+<tr>
+<td><code>outPixelAddress</code></td>
+<td>The output pixel buffer address; May be NULL if the requested pixel access is not supported.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="getbounds">GetBounds<a class="headerlink" href="#getbounds" title="Permanent link">&para;</a></h3>
 <p>This will return the bounding rect.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-10-1"><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">GetBounds</span><span class="p">)(</span>
@@ -5302,16 +5346,24 @@
 </span><span id="__span-15-2"><span class="w">  </span><span class="n">PPixHand</span><span class="w">      </span><span class="n">inPPixHand</span><span class="p">,</span>
 </span><span id="__span-15-3"><span class="w">  </span><span class="n">csSDK_int32</span><span class="o">*</span><span class="w">  </span><span class="n">outRenderMilliseconds</span><span class="p">);</span>
 </span></code></pre></div>
-<pre class="grid-table-error">+--------------------------------------+-------------------------------------------------+
-|              Parameter               |                   Description                   |
-+======================================+=================================================+
-| <code>PPixHand inPPixHand
-</code>                | The PPix handle to operate on.                 |
-+--------------------------------------+-------------------------------------------------+
-| <code>csSDK_int32* outRenderMilliseconds</code> | Returns the render time in milliseconds.       |
-|                                      |                                                 |
-|                                      | If the frame was cached, the time will be zero. |
-+--------------------------------------+-------------------------------------------------+</pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>inPPixHand</code></td>
+<td>The PPix handle to operate on.</td>
+</tr>
+<tr>
+<td><code>outRenderMilliseconds</code></td>
+<td>Returns the render time in milliseconds. If the frame was cached, the time will be zero.</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h2 id="ppix-2-suite">PPix 2 Suite<a class="headerlink" href="#ppix-2-suite" title="Permanent link">&para;</a></h2>
 <p>A call to get the size of a PPix. Starting in version 2 of this suite, introduced in CS4, there is a new <code>GetYUV420PlanarBuffers</code> call to get buffer offsets and rowbytes of YUV_420_MPEG2 pixel formats. See PrSDKPPix2Suite.h.</p>
@@ -5485,7 +5537,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 19, 2025 19:00:13 UTC">November 19, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 19, 2025 19:00:00 UTC">November 19, 2025</span>
   </span>
 
     

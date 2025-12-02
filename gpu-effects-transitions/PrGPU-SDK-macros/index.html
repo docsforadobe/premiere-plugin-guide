@@ -3644,19 +3644,13 @@
 <h2 id="defines">Defines<a class="headerlink" href="#defines" title="Permanent link">&para;</a></h2>
 <p>You will also need to define a symbol to tell the header file what API to process when compiling the kernel:</p>
 <ul>
-<li>Metal:<ul>
-<li><code>DGF_DEVICE_TARGET_METAL=1</code></li>
-</ul>
-</li>
-<li>OpenCL:<ul>
-<li><code>DGF_DEVICE_TARGET_OPENCL=1</code></li>
-<li><code>DGF_OPENCL_SUPPORTS_16F=1</code> or <code>0</code>, depending on whether you will support half (16-bit float) access for this device. Some older cards are quite slow at half support, or just don't support it.</li>
-</ul>
-</li>
-<li>CUDA:<ul>
-<li>the KernelCore.h header will automatically sense the cuda compiler and will <code>#define GF_DEVICE_TARGET_CUDA 1</code> for you.</li>
-</ul>
-</li>
+<li>Metal:
+    <code>DGF_DEVICE_TARGET_METAL=1</code></li>
+<li>OpenCL:
+    <code>DGF_DEVICE_TARGET_OPENCL=1</code>
+    <code>DGF_OPENCL_SUPPORTS_16F=1</code> or <code>0</code>, depending on whether you will support half (16-bit float) access for this device. Some older cards are quite slow at half support, or just don't support it.</li>
+<li>CUDA:
+    the KernelCore.h header will automatically sense the cuda compiler and will <code>#define GF_DEVICE_TARGET_CUDA 1</code> for you.</li>
 </ul>
 <p>Only one device target flag will be active in any given compilation. The header the define the device target macros to 0 for the inactive APIs. Feel free to use these macros in your code for any API specializations. Outside of the header, we don't need to do this much.</p>
 <hr />

@@ -3609,36 +3609,64 @@
 </span><span id="__span-2-17"><span class="w">  </span><span class="n">pmFieldDisplay</span><span class="w">  </span><span class="n">inRenderField</span><span class="p">;</span>
 </span><span id="__span-2-18"><span class="p">}</span><span class="w"> </span><span class="n">PrGPUFilterRenderParams</span><span class="p">;</span>
 </span></code></pre></div>
-<pre class="grid-table-error">+-------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-|         Member          |                                                              Description                                                               |
-+=========================+========================================================================================================================================+
-| <code>inClipTime
-</code>            | The time of the current render, relative to clip start                                                                                 |
-+-------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-| <code>inSequenceTime</code>        | The time of the current render, relative to sequence start                                                                             |
-+-------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-| <code>inQuality</code>             | Render quality; one of the <code>PrRenderQuality</code> enum values                                                                               |
-+-------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-| <code>inDownsampleFactorX</code>   | Horizontal downsample factor                                                                                                           |
-+-------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-| <code>inDownsampleFactorY</code>   | Vertical downsample factor                                                                                                             |
-+-------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-| <code>inRenderWidth</code>         | Video resolution                                                                                                                       |
-+-------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-| <code>inRenderHeight</code>        |                                                                                                                                        |
-+-------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-| <code>inRenderPARNum</code>        | Video pixel aspect ratio, described as a fractional number with separate values for numerator and denominator.                        |
-+-------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-| <code>inRenderPARDen</code>        |                                                                                                                                        |
-+-------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-| <code>inRenderFieldType</code>     | Render field type                                                                                                                      |
-+-------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-| <code>inRenderTicksPerFrame</code> | Video frame rate                                                                                                                       |
-+-------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-| <code>inRenderField</code>         | GPU rendering is always done on full-height progressive frames unless <code>PrGPUFilterFrameDependency.outNeedsFieldSeparation</code> is <code>false</code>. |
-|                         |                                                                                                                                        |
-|                         | <code>inRenderField</code> indicates which field is being rendered.                                                                              |
-+-------------------------+----------------------------------------------------------------------------------------------------------------------------------------+</pre>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>inClipTime</code></td>
+<td>The time of the current render, relative to clip start</td>
+</tr>
+<tr>
+<td><code>inSequenceTime</code></td>
+<td>The time of the current render, relative to sequence start</td>
+</tr>
+<tr>
+<td><code>inQuality</code></td>
+<td>Render quality; one of the <code>PrRenderQuality</code> enum values</td>
+</tr>
+<tr>
+<td><code>inDownsampleFactorX</code></td>
+<td>Horizontal downsample factor</td>
+</tr>
+<tr>
+<td><code>inDownsampleFactorY</code></td>
+<td>Vertical downsample factor</td>
+</tr>
+<tr>
+<td><code>inRenderWidth</code></td>
+<td>Video resolution</td>
+</tr>
+<tr>
+<td><code>inRenderHeight</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>inRenderPARNum</code></td>
+<td>Video pixel aspect ratio, described as a fractional number with separate values for numerator and denominator.</td>
+</tr>
+<tr>
+<td><code>inRenderPARDen</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>inRenderFieldType</code></td>
+<td>Render field type</td>
+</tr>
+<tr>
+<td><code>inRenderTicksPerFrame</code></td>
+<td>Video frame rate</td>
+</tr>
+<tr>
+<td><code>inRenderField</code></td>
+<td>GPU rendering is always done on full-height progressive frames unless <code>PrGPUFilterFrameDependency.outNeedsFieldSeparation</code> is <code>false</code>. <code>inRenderField</code> indicates which field is being rendered.</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h2 id="prgpufilterframedependency">PrGPUFilterFrameDependency<a class="headerlink" href="#prgpufilterframedependency" title="Permanent link">&para;</a></h2>
 <p>This structure describes any dependencies for a rendered frame.</p>
@@ -3660,36 +3688,72 @@
 </span><span id="__span-3-16"><span class="w">  </span><span class="n">prBool</span><span class="w">         </span><span class="n">outNeedsFieldSeparation</span><span class="p">;</span>
 </span><span id="__span-3-17"><span class="p">}</span><span class="w"> </span><span class="n">PrGPUFilterFrameDependency</span><span class="p">;</span>
 </span></code></pre></div>
-<pre class="grid-table-error">+------------------------------------+------------------------------------------------------------------------------------------------------+
-|               Member               |                                             Description                                              |
-+====================================+======================================================================================================+
-| <code>outDependencyType
-</code>                | The dependency type. One of:                                                                         |
-|                                    |                                                                                                      |
-|                                    | - <code>PrGPUDependency_InputFrame</code>                                                                       |
-|                                    | - <code>PrGPUDependency_Precompute</code>                                                                       |
-|                                    | - <code>PrGPUDependency_FieldSeparation</code>                                                                  |
-+------------------------------------+------------------------------------------------------------------------------------------------------+
-| <code>outTrackID</code>                       | Specify which track is a dependency. Set to 0 for the current track                                  |
-+------------------------------------+------------------------------------------------------------------------------------------------------+
-| <code>outSequenceTime</code>                  | Set the sequence time which is a dependency.                                                        |
-+------------------------------------+------------------------------------------------------------------------------------------------------+
-| <code>outPrecomputePixelFormat</code>         | Dependence on precomputation phase                                                                   |
-+------------------------------------+------------------------------------------------------------------------------------------------------+
-| <code>outPrecomputeFrameWidth</code>          |                                                                                                      |
-+------------------------------------+------------------------------------------------------------------------------------------------------+
-| <code>outPrecomputeFrameHeight</code>         |                                                                                                      |
-+------------------------------------+------------------------------------------------------------------------------------------------------+
-| <code>outPrecomputeFramePARNumerator</code>   |                                                                                                      |
-+------------------------------------+------------------------------------------------------------------------------------------------------+
-| <code>outPrecomputeFramePARDenominator</code> |                                                                                                      |
-+------------------------------------+------------------------------------------------------------------------------------------------------+
-| <code>outPrecomputeFrameFieldType</code>      |                                                                                                      |
-+------------------------------------+------------------------------------------------------------------------------------------------------+
-| <code>outPrecomputeCustomDataSize</code>      | Only needed if <code>outPrecomputePixelFormat</code> is custom                                                  |
-+------------------------------------+------------------------------------------------------------------------------------------------------+
-| <code>outNeedsFieldSeparation</code>          | Indicates the plugin may operate on both fields simultaneously (eg non-spatial and non-time varying) |
-+------------------------------------+------------------------------------------------------------------------------------------------------+</pre>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>outDependencyType</code></td>
+<td>The dependency type. One of:</td>
+</tr>
+<tr>
+<td></td>
+<td><code>PrGPUDependency_InputFrame</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>PrGPUDependency_Precompute</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>PrGPUDependency_FieldSeparation</code></td>
+</tr>
+<tr>
+<td><code>outTrackID</code></td>
+<td>Specify which track is a dependency. Set to 0 for the current track</td>
+</tr>
+<tr>
+<td><code>outSequenceTime</code></td>
+<td>Set the sequence time which is a dependency.</td>
+</tr>
+<tr>
+<td><code>outPrecomputePixelFormat</code></td>
+<td>Dependence on precomputation phase</td>
+</tr>
+<tr>
+<td><code>outPrecomputeFrameWidth</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>outPrecomputeFrameHeight</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>outPrecomputeFramePARNumerator</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>outPrecomputeFramePARDenominator</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>outPrecomputeFrameFieldType</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>outPrecomputeCustomDataSize</code></td>
+<td>Only needed if <code>outPrecomputePixelFormat</code> is custom</td>
+</tr>
+<tr>
+<td><code>outNeedsFieldSeparation</code></td>
+<td>Indicates the plugin may operate on both fields simultaneously (eg non-spatial and non-time varying)</td>
+</tr>
+</tbody>
+</table>
 
 
 

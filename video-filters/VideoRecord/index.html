@@ -3498,93 +3498,192 @@
 </span><span id="__span-0-23"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">             </span><span class="n">sessionPluginID</span><span class="p">;</span>
 </span><span id="__span-0-24"><span class="p">}</span><span class="w"> </span><span class="n">VideoRecord</span><span class="p">,</span><span class="w"> </span><span class="o">**</span><span class="n">VideoHandle</span><span class="p">;</span>
 </span></code></pre></div>
-<pre class="grid-table-error">+------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|         Member         |                                                                                                                              Description                                                                                                                              |
-+========================+=======================================================================================================================================================================================================================================================================+
-| <code>specsHandle
-</code>          | Instance settings, persistent across Premiere sessions.                                                                                                                                                                                                              |
-|                        |                                                                                                                                                                                                                                                                       |
-|                        | Create this handle during <code>fsInitSpec</code> or <code>fsSetup</code>.                                                                                                                                                                                                                 |
-|                        |                                                                                                                                                                                                                                                                       |
-|                        | Populated by Premiere if the filter's parameters can be manipulated in the Effect Controls Panel.                                                                                                                                                                    |
-|                        |                                                                                                                                                                                                                                                                       |
-|                        | Use Premiere's memory allocation callbacks to allocate memory for the <code>specsHandle</code>.                                                                                                                                                                                 |
-+------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>source</code>               | <code>PPixHand</code> for the source video frame.                                                                                                                                                                                                                               |
-+------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>destination</code>          | <code>PPixHand</code> for the destination video frame, always the same size as source.                                                                                                                                                                                          |
-|                        |                                                                                                                                                                                                                                                                       |
-|                        | Store the output frame here during <code>fsExecute</code>.                                                                                                                                                                                                                      |
-+------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>part</code>                 | How far into the effect you are.                                                                                                                                                                                                                                     |
-|                        |                                                                                                                                                                                                                                                                       |
-|                        | <code>part</code> varies from 0 to total, inclusive.                                                                                                                                                                                                                            |
-+------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>total</code>                | Total length of the video filter.                                                                                                                                                                                                                                    |
-|                        |                                                                                                                                                                                                                                                                       |
-|                        | Divide part by total to calculate the percentage of the time-variant filter for a given <code>fsExecute</code>.                                                                                                                                                                 |
-|                        |                                                                                                                                                                                                                                                                       |
-|                        | This value doesn't necessarily correspond to frames or fields.                                                                                                                                                                                                       |
-+------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>previewing</code>           | Unsupported                                                                                                                                                                                                                                                           |
-+------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>privateData</code>          | Data private to Premiere.                                                                                                                                                                                                                                            |
-|                        |                                                                                                                                                                                                                                                                       |
-|                        | Pass to the frame-retrieval callback when requesting a frame.                                                                                                                                                                                                        |
-+------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>callBack</code>             | Pointer to <code>VFilterCallbackProcPtr</code>, used for retrieving frames (or fields, for interlaced video) from source clips.                                                                                                                                                 |
-+------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>bottleNecks</code>          | Pointer to Premiere's bottleRec functions.                                                                                                                                                                                                                           |
-+------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>version</code>              | Version of this structure (<code>kVideoFilterVersion</code>).                                                                                                                                                                                                                   |
-|                        |                                                                                                                                                                                                                                                                       |
-|                        | - Premiere Pro CS5 = <code>VIDEO_FILTER_VERSION_11</code>                                                                                                                                                                                                                        |
-|                        | - Premiere Pro CS3 = <code>VIDEO_FILTER_VERSION_10</code>                                                                                                                                                                                                                        |
-+------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>sizeFlags</code>            | Field-rendering information.                                                                                                                                                                                                                                         |
-+------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>flags</code>                | If doing a lower-quality render, Premiere will pass in <code>kEffectFlags_DraftQuality</code> during <code>fsExecute</code>.                                                                                                                                                               |
-|                        |                                                                                                                                                                                                                                                                       |
-|                        | The filter can then optionally render a faster, lower-quality image for previewing.                                                                                                                                                                                  |
-+------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>tdb</code>                  | Pointer to a time database record describing the sequence timebase.                                                                                                                                                                                                  |
-+------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>instanceData</code>         | Handle to private instance data that persists across invocations.                                                                                                                                                                                                    |
-|                        |                                                                                                                                                                                                                                                                       |
-|                        | Allocate the memory for this during <code>fsExecute</code> and deallocate during <code>fsDisposeData</code>.                                                                                                                                                                               |
-|                        |                                                                                                                                                                                                                                                                       |
-|                        | Do not use this field during fsSetup.                                                                                                                                                                                                                                |
-+------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>piSuites</code>             | Pointer to callback <a href="../../universals/legacy-callback-suites/#pisuites">piSuites</a>.                                                                                                                                                                                    |
-+------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>timelineData</code>         | Only available during <code>fsInitSpec</code> and <code>fsSetup</code>.                                                                                                                                                                                                                    |
-|                        |                                                                                                                                                                                                                                                                       |
-|                        | This opaque handle to the timeline database is required by <code>timelineFuncs</code> callbacks available in <a href="../../universals/legacy-callback-suites/#pisuites">piSuites</a>.                                                                                                      |
-|                        |                                                                                                                                                                                                                                                                       |
-|                        | This handle is useful in order to have a preview in a modal setup dialog during <code>fsSetup</code>.                                                                                                                                                                           |
-+------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>altName</code>              | Unused.                                                                                                                                                                                                                                                              |
-+------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>pixelFormatSupported</code> | Only valid during <code>fsGetPixelFormatsSupported</code>.                                                                                                                                                                                                                      |
-|                        |                                                                                                                                                                                                                                                                       |
-|                        | Return pixel type supported.                                                                                                                                                                                                                                         |
-+------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>pixelFormatIndex</code>     | Only valid during <code>fsGetPixelFormatsSupported</code>.                                                                                                                                                                                                                      |
-|                        |                                                                                                                                                                                                                                                                       |
-|                        | Index of fourCC of pixel type supported.                                                                                                                                                                                                                             |
-+------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>instanceID</code>           | The runtime instance ID uniquely identifies filters during a session.                                                                                                                                                                                                |
-|                        |                                                                                                                                                                                                                                                                       |
-|                        | This is the same ID that is passed to players in <code>prtFilterRec</code>.                                                                                                                                                                                                     |
-+------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>tdbTimelineLocation</code>  | A time database record describing the location of the filter in sequence.                                                                                                                                                                                            |
-|                        |                                                                                                                                                                                                                                                                       |
-|                        | Only valid during <code>fsInitSpec</code> and <code>fsSetup</code>.                                                                                                                                                                                                                        |
-+------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>sessionPluginID</code>      | This ID should be used in the <a href="../../universals/sweetpea-suites/#file-registration-suite">File Registration Suite</a> for registering external files (such as textures, logos, etc) that are used by a plugin instance but do not appear as footage in the Project Panel. |
-|                        |                                                                                                                                                                                                                                                                       |
-|                        | Registered files will be taken into account when trimming or copying a project using the Project Manager.                                                                                                                                                            |
-+------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</pre>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>specsHandle</code></td>
+<td>Instance settings, persistent across Premiere sessions.</td>
+</tr>
+<tr>
+<td></td>
+<td>Create this handle during <code>fsInitSpec</code> or <code>fsSetup</code>.</td>
+</tr>
+<tr>
+<td></td>
+<td>Populated by Premiere if the filter's parameters can be manipulated in the Effect Controls Panel.</td>
+</tr>
+<tr>
+<td></td>
+<td>Use Premiere's memory allocation callbacks to allocate memory for the <code>specsHandle</code>.</td>
+</tr>
+<tr>
+<td><code>source</code></td>
+<td><code>PPixHand</code> for the source video frame.</td>
+</tr>
+<tr>
+<td><code>destination</code></td>
+<td><code>PPixHand</code> for the destination video frame, always the same size as source.</td>
+</tr>
+<tr>
+<td></td>
+<td>Store the output frame here during <code>fsExecute</code>.</td>
+</tr>
+<tr>
+<td><code>part</code></td>
+<td>How far into the effect you are.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>part</code> varies from 0 to total, inclusive.</td>
+</tr>
+<tr>
+<td><code>total</code></td>
+<td>Total length of the video filter.</td>
+</tr>
+<tr>
+<td></td>
+<td>Divide part by total to calculate the percentage of the time-variant filter for a given <code>fsExecute</code>.</td>
+</tr>
+<tr>
+<td></td>
+<td>This value doesn't necessarily correspond to frames or fields.</td>
+</tr>
+<tr>
+<td><code>previewing</code></td>
+<td>Unsupported</td>
+</tr>
+<tr>
+<td><code>privateData</code></td>
+<td>Data private to Premiere.</td>
+</tr>
+<tr>
+<td></td>
+<td>Pass to the frame-retrieval callback when requesting a frame.</td>
+</tr>
+<tr>
+<td><code>callBack</code></td>
+<td>Pointer to <code>VFilterCallbackProcPtr</code>, used for retrieving frames (or fields, for interlaced video) from source clips.</td>
+</tr>
+<tr>
+<td><code>bottleNecks</code></td>
+<td>Pointer to Premiere's bottleRec functions.</td>
+</tr>
+<tr>
+<td><code>version</code></td>
+<td>Version of this structure (<code>kVideoFilterVersion</code>).</td>
+</tr>
+<tr>
+<td></td>
+<td>- Premiere Pro CS5 = <code>VIDEO_FILTER_VERSION_11</code></td>
+</tr>
+<tr>
+<td></td>
+<td>- Premiere Pro CS3 = <code>VIDEO_FILTER_VERSION_10</code></td>
+</tr>
+<tr>
+<td><code>sizeFlags</code></td>
+<td>Field-rendering information.</td>
+</tr>
+<tr>
+<td><code>flags</code></td>
+<td>If doing a lower-quality render, Premiere will pass in <code>kEffectFlags_DraftQuality</code> during <code>fsExecute</code>.</td>
+</tr>
+<tr>
+<td></td>
+<td>The filter can then optionally render a faster, lower-quality image for previewing.</td>
+</tr>
+<tr>
+<td><code>tdb</code></td>
+<td>Pointer to a time database record describing the sequence timebase.</td>
+</tr>
+<tr>
+<td><code>instanceData</code></td>
+<td>Handle to private instance data that persists across invocations.</td>
+</tr>
+<tr>
+<td></td>
+<td>Allocate the memory for this during <code>fsExecute</code> and deallocate during <code>fsDisposeData</code>.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Do not use this field during fsSetup.</td>
+</tr>
+<tr>
+<td><code>piSuites</code></td>
+<td>Pointer to callback <a href="../../universals/legacy-callback-suites/#pisuites">piSuites</a>.</td>
+</tr>
+<tr>
+<td><code>timelineData</code></td>
+<td>Only available during <code>fsInitSpec</code> and <code>fsSetup</code>.</td>
+</tr>
+<tr>
+<td></td>
+<td>This opaque handle to the timeline database is required by <code>timelineFuncs</code> callbacks available in <a href="../../universals/legacy-callback-suites/#pisuites">piSuites</a>.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>This handle is useful in order to have a preview in a modal setup dialog during <code>fsSetup</code>.</td>
+</tr>
+<tr>
+<td><code>altName</code></td>
+<td>Unused.</td>
+</tr>
+<tr>
+<td><code>pixelFormatSupported</code></td>
+<td>Only valid during <code>fsGetPixelFormatsSupported</code>.</td>
+</tr>
+<tr>
+<td></td>
+<td>Return pixel type supported.</td>
+</tr>
+<tr>
+<td><code>pixelFormatIndex</code></td>
+<td>Only valid during <code>fsGetPixelFormatsSupported</code>.</td>
+</tr>
+<tr>
+<td></td>
+<td>Index of fourCC of pixel type supported.</td>
+</tr>
+<tr>
+<td><code>instanceID</code></td>
+<td>The runtime instance ID uniquely identifies filters during a session.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>This is the same ID that is passed to players in <code>prtFilterRec</code>.</td>
+</tr>
+<tr>
+<td><code>tdbTimelineLocation</code></td>
+<td>A time database record describing the location of the filter in sequence.</td>
+</tr>
+<tr>
+<td></td>
+<td>Only valid during <code>fsInitSpec</code> and <code>fsSetup</code>.</td>
+</tr>
+<tr>
+<td><code>sessionPluginID</code></td>
+<td>This ID should be used in the <a href="../../universals/sweetpea-suites/#file-registration-suite">File Registration Suite</a> for registering external files (such as textures, logos, etc) that are used by a plugin instance but do not appear as footage in the Project Panel.</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h2 id="vfiltercallbackprocptr">VFilterCallBackProcPtr<a class="headerlink" href="#vfiltercallbackprocptr" title="Permanent link">&para;</a></h2>
 <p>Pointer to a callback for retrieving frames (or fields, for interlaced video) from the source clip.</p>
@@ -3595,20 +3694,36 @@
 </span><span id="__span-1-4"><span class="w">  </span><span class="n">RECT</span><span class="o">*</span><span class="w">        </span><span class="n">theBox</span><span class="p">;</span>
 </span><span id="__span-1-5"><span class="w">  </span><span class="n">Handle</span><span class="w">       </span><span class="n">privateData</span><span class="p">);</span>
 </span></code></pre></div>
-<pre class="grid-table-error">+---------------+--------------------------------------------------------------------------------------------+
-|    Member     |                                        Description                                         |
-+===============+============================================================================================+
-| <code>frame
-</code>       | Frame requested. The frame value passed in should be frame * samplesize.                 |
-|               |                                                                                            |
-|               | The callback will always return the current field (upper or lower) during field rendering. |
-+---------------+--------------------------------------------------------------------------------------------+
-| <code>thePort</code>     | <code>PPixHand</code> where Premiere will store the frame                                             |
-+---------------+--------------------------------------------------------------------------------------------+
-| <code>theBox</code>      | Bounds of the frame you want Premiere to retrieve.                                        |
-+---------------+--------------------------------------------------------------------------------------------+
-| <code>privateData</code> | Handle provided by Premiere in <code>VideoRecord.privateData</code>                                   |
-+---------------+--------------------------------------------------------------------------------------------+</pre>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>frame</code></td>
+<td>Frame requested. The frame value passed in should be frame * samplesize.</td>
+</tr>
+<tr>
+<td></td>
+<td>The callback will always return the current field (upper or lower) during field rendering.</td>
+</tr>
+<tr>
+<td><code>thePort</code></td>
+<td><code>PPixHand</code> where Premiere will store the frame</td>
+</tr>
+<tr>
+<td><code>theBox</code></td>
+<td>Bounds of the frame you want Premiere to retrieve.</td>
+</tr>
+<tr>
+<td><code>privateData</code></td>
+<td>Handle provided by Premiere in <code>VideoRecord.privateData</code></td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h2 id="sizeflags">sizeFlags<a class="headerlink" href="#sizeflags" title="Permanent link">&para;</a></h2>
 <p>For sizeFlags, the following bit flags are of interest:</p>
@@ -3654,7 +3769,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 19, 2025 19:00:13 UTC">November 19, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 19, 2025 19:00:00 UTC">November 19, 2025</span>
   </span>
 
     

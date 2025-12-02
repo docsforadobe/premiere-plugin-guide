@@ -3383,20 +3383,36 @@
 <h1 id="classid-filetype-and-subtype">ClassID, Filetype and Subtype<a class="headerlink" href="#classid-filetype-and-subtype" title="Permanent link">&para;</a></h1>
 <p>All plugin types that support media must identify unique classID, filetype, and subtype.</p>
 <p>These are all four character codes, or 'fourCCs'.</p>
-<pre class="grid-table-error">+------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| Identifier |                                                                    Purpose                                                                     |
-+============+================================================================================================================================================+
-| <code>filetype
-</code> | Identifies the plugin's associated file type(s). Plugins create lists of filetypes they support.                                              |
-+------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>subtype</code>  | Differentiates between files of the same filetype. Identifies the codec or compression to be used.                                            |
-+------------+------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>classID</code>  | With the new editing mode system starting in CS4, the classID is far less important.                                                          |
-|            |                                                                                                                                                |
-|            | It is used as part of the identification for exporters in the Editing Mode XML.                                                               |
-|            |                                                                                                                                                |
-|            | And plugins may share information with most other plugins running in the same process using the <a href="../classdata-functions/">ClassData Functions</a>. |
-+------------+------------------------------------------------------------------------------------------------------------------------------------------------+</pre>
+<table>
+<thead>
+<tr>
+<th>Identifier</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>filetype</code></td>
+<td>Identifies the plugin's associated file type(s). Plugins create lists of filetypes they support.</td>
+</tr>
+<tr>
+<td><code>subtype</code></td>
+<td>Differentiates between files of the same filetype. Identifies the codec or compression to be used.</td>
+</tr>
+<tr>
+<td><code>classID</code></td>
+<td>With the new editing mode system starting in CS4, the classID is far less important.</td>
+</tr>
+<tr>
+<td></td>
+<td>It is used as part of the identification for exporters in the Editing Mode XML.</td>
+</tr>
+<tr>
+<td></td>
+<td>And plugins may share information with most other plugins running in the same process using the <a href="../classdata-functions/">ClassData Functions</a>.</td>
+</tr>
+</tbody>
+</table>
 
 
 

@@ -3625,358 +3625,571 @@
 </span><span id="__span-0-7"><span class="w">  </span><span class="n">PlugTimelineFuncsPtr</span><span class="w">  </span><span class="n">timelineFuncs</span><span class="p">;</span>
 </span><span id="__span-0-8"><span class="p">}</span><span class="w"> </span><span class="n">piSuites</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">piSuitesPtr</span><span class="p">;</span>
 </span></code></pre></div>
-<pre class="grid-table-error">+--------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|                Member                |                                                                         Description                                                                          |
-+======================================+==============================================================================================================================================================+
-| <code>piInterfaceVer
-</code>                     | API version                                                                                                                                                  |
-|                                      |                                                                                                                                                              |
-|                                      | - Premiere Pro CS4 - <code>PR_PISUITES_VERSION_9</code>                                                                                                                 |
-|                                      | - Premiere Pro CS3 - <code>PR_PISUITES_VERSION_8</code>                                                                                                                 |
-|                                      | - Premiere Pro 2.0 - <code>PR_PISUITES_VERSION_7</code>                                                                                                                 |
-|                                      | - Premiere Pro 1.5.1 - <code>PR_PISUITES_VERSION_6</code>                                                                                                               |
-|                                      | - Premiere Pro 1.5 - <code>PR_PISUITES_VERSION_5</code>                                                                                                                 |
-|                                      | - Premiere Pro 1.0 - <code>PR_PISUITES_VERSION_4</code>                                                                                                                 |
-|                                      | - Premiere 6.x - <code>PR_PISUITES_VERSION_3</code>                                                                                                                     |
-|                                      | - Premiere 5.1 - <code>PR_PISUITES_VERSION_2</code>                                                                                                                     |
-|                                      | - Premiere 5.0 - <code>PR_PISUITES_VERSION_1</code>                                                                                                                     |
-+--------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <a href="#memory-functions">memfuncs</a>        | Pointer to memory functions                                                                                                                                  |
-+--------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <a href="#window-functions">windFuncs</a>       | Pointer window functions                                                                                                                                     |
-+--------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <a href="#ppix-functions">ppixFuncs</a>         | Pointer PPix functions                                                                                                                                       |
-+--------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <a href="#utility-functions">utilFuncs</a>      | Pointer to utility functions.                                                                                                                               |
-|                                      |                                                                                                                                                              |
-|                                      | In the utilFuncs, the getSPBasicSuite callback provides access to the <a href="../sweetpea-suites/">SweetPea Suites</a>, which are used for most of the newer functions. |
-+--------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <a href="#timeline-functions">timelineFuncs</a> | Pointer to timeline functions                                                                                                                                |
-+--------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+</pre>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>piInterfaceVer</code></td>
+<td>API version</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Premiere Pro CS4 - <code>PR_PISUITES_VERSION_9</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Premiere Pro CS3 - <code>PR_PISUITES_VERSION_8</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Premiere Pro 2.0 - <code>PR_PISUITES_VERSION_7</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Premiere Pro 1.5.1 - <code>PR_PISUITES_VERSION_6</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Premiere Pro 1.5 - <code>PR_PISUITES_VERSION_5</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Premiere Pro 1.0 - <code>PR_PISUITES_VERSION_4</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Premiere 6.x - <code>PR_PISUITES_VERSION_3</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Premiere 5.1 - <code>PR_PISUITES_VERSION_2</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Premiere 5.0 - <code>PR_PISUITES_VERSION_1</code></td>
+</tr>
+<tr>
+<td><a href="#memory-functions">memfuncs</a></td>
+<td>Pointer to memory functions</td>
+</tr>
+<tr>
+<td><a href="#window-functions">windFuncs</a></td>
+<td>Pointer window functions</td>
+</tr>
+<tr>
+<td><a href="#ppix-functions">ppixFuncs</a></td>
+<td>Pointer PPix functions</td>
+</tr>
+<tr>
+<td><a href="#utility-functions">utilFuncs</a></td>
+<td>Pointer to utility functions. In the utilFuncs, the getSPBasicSuite callback provides access to the <a href="../sweetpea-suites/">SweetPea Suites</a>, which are used for most of the newer functions.</td>
+</tr>
+<tr>
+<td><a href="#timeline-functions">timelineFuncs</a></td>
+<td>Pointer to timeline functions.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="memory-functions">Memory Functions<a class="headerlink" href="#memory-functions" title="Permanent link">&para;</a></h3>
 <p>Memory and handle allocation. Where possible, use the <a href="../sweetpea-suites/#ppix-creator-suite">PPix Creator Suite</a> for PPix-specific allocation.</p>
 <p>Strings passed to and from Premiere in API structures are always null-terminated C strings.</p>
-<pre class="grid-table-error">+-----------------------------+-----------------------------------------------------------------------------------------------------------------------+
-|          Function           |                                                      Description                                                      |
-+=============================+=======================================================================================================================+
-| <code>newPtr
-</code>                    | Allocates a block of memory, returns a pointer to the new block.                                                     |
-|                             |                                                                                                                       |
-|                             | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">char</span><span class="o">&lt;</span><span class="n">em</span><span class="o">&gt;</span><span class="w"> </span><span class="n">newPtr</span><span class="w"> </span><span class="p">(</span><span class="n">csSDK_uint32</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
-</span></code></pre></div>                                                               |
-+-----------------------------+-----------------------------------------------------------------------------------------------------------------------+
-| <code>newPtrClear</code>               | Equivalent to newPtr, but initializes the memory to 0.                                                               |
-|                             |                                                                                                                       |
-|                             | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">char</span><span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;</span><span class="w"> </span><span class="n">newPtrClear</span><span class="w"> </span><span class="p">(</span><span class="n">csSDK_uint32</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
-</span></code></pre></div>                                                          |
-+-----------------------------+-----------------------------------------------------------------------------------------------------------------------+
-| <code>setPtrSize</code>                | Resizes an allocated memory block.                                                                                   |
-|                             |                                                                                                                       |
-|                             | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">void</span><span class="w"> </span><span class="nf">setPtrSize</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-0-2"><span class="w">  </span><span class="n">PrMemoryPtr</span><span class="w">   </span><span class="o">&lt;</span><span class="n">em</span><span class="o">&gt;</span><span class="n">ptr</span><span class="p">,</span>
-</span><span id="__span-0-3"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">newsize</span><span class="p">);</span>
-</span></code></pre></div>                       |
-+-----------------------------+-----------------------------------------------------------------------------------------------------------------------+
-| <code>getPtrSize</code>                | Returns size in bytes of an allocated memory block.                                                                  |
-|                             |                                                                                                                       |
-|                             | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">csSDK_int32</span><span class="w"> </span><span class="nf">getPtrSize</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;</span><span class="n">ptr</span><span class="p">);</span>
-</span></code></pre></div>                                                             |
-+-----------------------------+-----------------------------------------------------------------------------------------------------------------------+
-| <code>disposePtr</code>                | Frees an allocated memory block.                                                                                     |
-|                             |                                                                                                                       |
-|                             | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">void</span><span class="w"> </span><span class="nf">disposePtr</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">&lt;</span><span class="n">em</span><span class="o">&gt;</span><span class="n">ptr</span><span class="p">);</span>
-</span></code></pre></div>                                                                    |
-+-----------------------------+-----------------------------------------------------------------------------------------------------------------------+
-| <code>newHandle</code>                 | Allocates a block of memory, returning a handle to it.                                                               |
-|                             |                                                                                                                       |
-|                             | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">char</span><span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;&lt;</span><span class="n">em</span><span class="o">&gt;</span><span class="w"> </span><span class="n">newHandle</span><span class="w"> </span><span class="p">(</span><span class="n">csSDK_uint32</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
-</span></code></pre></div>                                                           |
-+-----------------------------+-----------------------------------------------------------------------------------------------------------------------+
-| <code>newHandleClear</code>            | Equivalent to newHandle, but initializes the memory to 0.                                                            |
-|                             |                                                                                                                       |
-|                             | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">char</span><span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;&lt;</span><span class="n">em</span><span class="o">&gt;</span><span class="w"> </span><span class="n">newHandleClear</span><span class="w"> </span><span class="p">(</span><span class="n">csSDK_uint32</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
-</span></code></pre></div>                                                      |
-+-----------------------------+-----------------------------------------------------------------------------------------------------------------------+
-| <code>setHandleSize</code>             | Resizes an allocated memory handle.                                                                                  |
-|                             |                                                                                                                       |
-|                             | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">csSDK_int16</span><span class="w"> </span><span class="nf">setHandleSize</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-0-2"><span class="w">  </span><span class="kt">char</span><span class="w">          </span><span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;&lt;</span><span class="n">em</span><span class="o">&gt;</span><span class="n">PrMemoryHandle</span><span class="p">,</span>
-</span><span id="__span-0-3"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">newsize</span><span class="p">);</span>
-</span></code></pre></div> |
-+-----------------------------+-----------------------------------------------------------------------------------------------------------------------+
-| <code>getHandleSize</code>             | Returns the size (in bytes) of an allocated block.                                                                   |
-|                             |                                                                                                                       |
-|                             | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">csSDK_int32</span><span class="w"> </span><span class="nf">getHandleSize</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;&lt;</span><span class="n">em</span><span class="o">&gt;</span><span class="n">PrMemoryHandle</span><span class="p">);</span>
-</span></code></pre></div>                                             |
-+-----------------------------+-----------------------------------------------------------------------------------------------------------------------+
-| <code>disposeHandle</code>             | Disposes of a previously allocated handle.                                                                           |
-|                             |                                                                                                                       |
-|                             | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">void</span><span class="w"> </span><span class="nf">disposeHandle</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;*</span><span class="n">PrMemoryHandle</span><span class="p">);</span>
-</span></code></pre></div>                                                     |
-+-----------------------------+-----------------------------------------------------------------------------------------------------------------------+
-| <code>lockHandle</code> <code>unlockHandle</code> | These legacy functions are deprecated and should no longer be used.                                                  |
-+-----------------------------+-----------------------------------------------------------------------------------------------------------------------+</pre>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>newPtr</code></td>
+<td>Allocates a block of memory, returns a pointer to the new block.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>char* newPtr (csSDK_uint32 size);</code></td>
+</tr>
+<tr>
+<td><code>newPtrClear</code></td>
+<td>Equivalent to newPtr, but initializes the memory to 0.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>char* newPtrClear (csSDK_uint32 size);</code></td>
+</tr>
+<tr>
+<td><code>setPtrSize</code></td>
+<td>Resizes an allocated memory block.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>void setPtrSize (  PrMemoryPtr   *ptr,  csSDK_uint32  newsize);</code></td>
+</tr>
+<tr>
+<td><code>getPtrSize</code></td>
+<td>Returns size in bytes of an allocated memory block.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>csSDK_int32 getPtrSize (char *ptr);</code></td>
+</tr>
+<tr>
+<td><code>disposePtr</code></td>
+<td>Frees an allocated memory block.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>void disposePtr (char *ptr);</code></td>
+</tr>
+<tr>
+<td><code>newHandle</code></td>
+<td>Allocates a block of memory, returning a handle to it.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>char** newHandle (csSDK_uint32 size);</code></td>
+</tr>
+<tr>
+<td><code>newHandleClear</code></td>
+<td>Equivalent to newHandle, but initializes the memory to 0.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>char** newHandleClear (csSDK_uint32 size);</code></td>
+</tr>
+<tr>
+<td><code>setHandleSize</code></td>
+<td>Resizes an allocated memory handle.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>csSDK_int16 setHandleSize (  char          **PrMemoryHandle,  csSDK_uint32  newsize);</code></td>
+</tr>
+<tr>
+<td><code>getHandleSize</code></td>
+<td>Returns the size (in bytes) of an allocated block.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>csSDK_int32 getHandleSize ( char **PrMemoryHandle);</code></td>
+</tr>
+<tr>
+<td><code>disposeHandle</code></td>
+<td>Disposes of a previously allocated handle.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>void disposeHandle (char **PrMemoryHandle);</code></td>
+</tr>
+<tr>
+<td><code>lockHandle</code>, <code>unlockHandle</code></td>
+<td>These legacy functions are deprecated and should no longer be used.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="window-functions">Window Functions<a class="headerlink" href="#window-functions" title="Permanent link">&para;</a></h3>
 <p>Window management routines. Superceded by the <a href="../sweetpea-suites/#window-suite">Window Suite</a>.</p>
-<pre class="grid-table-error">+--------------------+------------------------------------------------------------+
-|      Function      |                        Description                         |
-+====================+============================================================+
-| <code>updateAllWindows
-</code> | Updates all windows. Windows only, doesn't work on Mac OS. |
-|                    |                                                            |
-|                    | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">void</span><span class="w"> </span><span class="nf">updateAllWindows</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
-</span></code></pre></div>        |
-+--------------------+------------------------------------------------------------+
-| <code>getMainWnd</code>       | Returns the main application HWND.                        |
-|                    |                                                            |
-|                    | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">void</span><span class="w"> </span><span class="nf">getMainWnd</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
-</span></code></pre></div>              |
-+--------------------+------------------------------------------------------------+</pre>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>updateAllWindows</code></td>
+<td>Updates all windows. Windows only, doesn't work on MacOS.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>void updateAllWindows (void);</code></td>
+</tr>
+<tr>
+<td><code>getMainWnd</code></td>
+<td>Returns the main application HWND.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>void getMainWnd (void);</code></td>
+</tr>
+</tbody>
+</table>
 <h3 id="ppix-functions">PPix Functions<a class="headerlink" href="#ppix-functions" title="Permanent link">&para;</a></h3>
 <p>Used to manipulate a PPix. Superceded by the <a href="../sweetpea-suites/#ppix-creator-suite">PPix Creator Suite</a> for PPix allocation and the <a href="../sweetpea-suites/#ppix-suite">PPix Suite</a> for general PPix functions.</p>
-<pre class="grid-table-error">+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------+
-|              Function               |                                                           Description                                                            |
-+=====================================+==================================================================================================================================+
-| <code>ppixGetPixels
-</code>                     | Returns a pointer to the array of pixels contained in a PPix.                                                                   |
-|                                     |                                                                                                                                  |
-|                                     | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">char</span><span class="o">&lt;</span><span class="n">em</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ppixGetPixels</span><span class="w"> </span><span class="p">(</span><span class="n">PPixHand</span><span class="w"> </span><span class="n">pix</span><span class="p">);</span>
-</span></code></pre></div>                                                                        |
-+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------+
-| <code>ppixGetBounds</code>                     | Returns the bounds of a PPix.                                                                                                   |
-|                                     |                                                                                                                                  |
-|                                     | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">void</span><span class="w"> </span><span class="n">ppixGetBounds</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-0-2"><span class="w">  </span><span class="n">PPixHand</span><span class="w">  </span><span class="n">pix</span><span class="p">;</span>
-</span><span id="__span-0-3"><span class="w">  </span><span class="n">prRect</span><span class="w">    </span><span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;</span><span class="n">bounds</span><span class="p">);</span>
-</span></code></pre></div>                                        |
-+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------+
-| <code>ppixGetRowbytes</code>                   | Returns the rowbytes of a PPix so you can properly parse the pixels returned by ppixGetPixels.                                  |
-|                                     |                                                                                                                                  |
-|                                     | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">int</span><span class="w"> </span><span class="nf">ppixGetRowbytes</span><span class="w"> </span><span class="p">(</span><span class="n">PPixHand</span><span class="w"> </span><span class="n">pix</span><span class="p">);</span>
-</span></code></pre></div>                                                                        |
-+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------+
-| <code>ppixNew</code>                           | Allocates and returns a handle to a new PPix, with specified bounds.                                                            |
-|                                     |                                                                                                                                  |
-|                                     | Since this is an older call, the pixel format is hardcoded to BGRA_4444_8u.                                                     |
-|                                     |                                                                                                                                  |
-|                                     | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">PPixHandle</span><span class="w"> </span><span class="nf">ppixNew</span><span class="w"> </span><span class="p">(</span><span class="n">prRect</span><span class="w"> </span><span class="o">&lt;</span><span class="n">em</span><span class="o">&gt;</span><span class="n">bounds</span><span class="p">);</span>
-</span></code></pre></div>                                                                       |
-+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------+
-| <code>ppixDispose</code>                       | Frees a PPixHand.                                                                                                               |
-|                                     |                                                                                                                                  |
-|                                     | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">void</span><span class="w"> </span><span class="nf">ppixDispose</span><span class="w"> </span><span class="p">(</span><span class="n">PPixHand</span><span class="w"> </span><span class="n">pix</span><span class="p">);</span>
-</span></code></pre></div>                                                                           |
-+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------+
-| <code>ppixLockPixels</code> <code>ppixUnlockPixels</code> | These legacy functions are deprecated and should no longer be used.                                                             |
-+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------+
-| <code>ppixGetPixelAspectRatio</code>           | Passes back the pixel aspect ratio of a PPixHand.                                                                               |
-|                                     |                                                                                                                                  |
-|                                     | Premiere populates the longs with the PAR numerator and denominator.                                                            |
-|                                     |                                                                                                                                  |
-|                                     | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">int</span><span class="w"> </span><span class="n">ppixGetPixelAspectRatio</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-0-2"><span class="w">  </span><span class="n">PPixHand</span><span class="w">      </span><span class="n">pix</span><span class="p">,</span>
-</span><span id="__span-0-3"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;</span><span class="n">num</span><span class="p">,</span>
-</span><span id="__span-0-4"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="o">&lt;</span><span class="n">em</span><span class="o">&gt;</span><span class="n">den</span><span class="p">)</span>
-</span></code></pre></div> |
-+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------+
-| <code>ppixGetAlphaBounds</code>                | Passes back the alpha bounds of a PPixHand.                                                                                     |
-|                                     |                                                                                                                                  |
-|                                     | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">void</span><span class="w"> </span><span class="n">ppixGetAlphaBounds</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-0-2"><span class="w">  </span><span class="n">PPixHand</span><span class="w">  </span><span class="n">pix</span><span class="p">,</span>
-</span><span id="__span-0-3"><span class="w">  </span><span class="n">prRect</span><span class="w">    </span><span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;</span><span class="n">alphaBounds</span><span class="p">)</span>
-</span></code></pre></div>                               |
-+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------+</pre>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ppixGetPixels</code></td>
+<td>Returns a pointer to the array of pixels contained in a PPix.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>char* ppixGetPixels (PPixHand pix);</code></td>
+</tr>
+<tr>
+<td><code>ppixGetBounds</code></td>
+<td>Returns the bounds of a PPix.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>void ppixGetBounds (  PPixHand  pix;  prRect    *bounds);</code></td>
+</tr>
+<tr>
+<td><code>ppixGetRowbytes</code></td>
+<td>Returns the rowbytes of a PPix so you can properly parse the pixels returned by ppixGetPixels.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>int ppixGetRowbytes (PPixHand pix);</code></td>
+</tr>
+<tr>
+<td><code>ppixNew</code></td>
+<td>Allocates and returns a handle to a new PPix, with specified bounds.</td>
+</tr>
+<tr>
+<td></td>
+<td>Since this is an older call, the pixel format is hardcoded to BGRA_4444_8u.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>PPixHandle ppixNew (prRect *bounds);</code></td>
+</tr>
+<tr>
+<td><code>ppixDispose</code></td>
+<td>Frees a PPixHand.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>void ppixDispose (PPixHand pix);</code></td>
+</tr>
+<tr>
+<td><code>ppixLockPixels</code> <code>ppixUnlockPixels</code></td>
+<td>These legacy functions are deprecated and should no longer be used.</td>
+</tr>
+<tr>
+<td><code>ppixGetPixelAspectRatio</code></td>
+<td>Passes back the pixel aspect ratio of a PPixHand.</td>
+</tr>
+<tr>
+<td></td>
+<td>Premiere populates the longs with the PAR numerator and denominator.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>int ppixGetPixelAspectRatio (  PPixHand      pix,  csSDK_uint32  *num,  csSDK_uint32*den)</code></td>
+</tr>
+<tr>
+<td><code>ppixGetAlphaBounds</code></td>
+<td>Passes back the alpha bounds of a PPixHand.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>void ppixGetAlphaBounds (  PPixHand  pix,  prRect    *alphaBounds)</code></td>
+</tr>
+</tbody>
+</table>
 <h3 id="utility-functions">Utility Functions<a class="headerlink" href="#utility-functions" title="Permanent link">&para;</a></h3>
-<pre class="grid-table-error">+----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|       Function       |                                                                                                     Description                                                                                                     |
-+======================+=====================================================================================================================================================================================================================+
-| <code>getSerialNumber
-</code>    | Passes back Premiere's serial number.                                                                                                                                                                              |
-|                      |                                                                                                                                                                                                                     |
-|                      | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">void</span><span class="w"> </span><span class="nf">getSerialNumber</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="o">&lt;</span><span class="n">em</span><span class="o">&gt;</span><span class="w"> </span><span class="n">buffer</span><span class="p">);</span>
-</span></code></pre></div>                                                                                                                                                          |
-|                      |                                                                                                                                                                                                                     |
-|                      | - <code>buffer</code>: must be at least 40 characters long.                                                                                                                                                                   |
-+----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>getFileTimebase</code>    | Passes back a file's timebase in a <code>TDB_TimeRecord</code> (allocated by the plugin).                                                                                                                                     |
-|                      |                                                                                                                                                                                                                     |
-|                      | If the file is already in the sequence, it is preferable to get a file's timebase using the <a href="../sweetpea-suites/#video-segment-suite">Video Segment Suite</a> to get the <code>kVideoSegmentProperty_Media_StreamFrameRate</code>. |
-|                      |                                                                                                                                                                                                                     |
-|                      | Note: Know your formats. Don't ask an audio only format for video, you may get unexpected results.                                                                                                                 |
-|                      |                                                                                                                                                                                                                     |
-|                      | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">csSDK_int32</span><span class="w"> </span><span class="nf">getFileTimebase</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-0-2"><span class="w">  </span><span class="n">prFileSpec</span><span class="w">      </span><span class="o">*</span><span class="n">filespec</span><span class="p">,</span>
-</span><span id="__span-0-3"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">     </span><span class="n">audioOnly</span><span class="p">,</span>
-</span><span id="__span-0-4"><span class="w">  </span><span class="n">TDB_TimeRecord</span><span class="w">  </span><span class="o">*</span><span class="n">result</span><span class="p">);</span>
-</span></code></pre></div>                                                             |
-|                      |                                                                                                                                                                                                                     |
-|                      | - <code>filespec</code>: description of the file, use before getFileVideo                                                                                                                                                      |
-|                      | - <code>audioOnly</code>: if non-zero, return the audio timebase. If zero, return the video timebase.                                                                                                                         |
-|                      | - <code>result</code>: the returned timebase                                                                                                                                                                                   |
-+----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>getFileVideo</code>       | Gets a frame of video (at a specified time) from a file.                                                                                                                                                           |
-|                      |                                                                                                                                                                                                                     |
-|                      | If the file is already in the sequence, it is preferable to get a file's video using the <a href="../sweetpea-suites/#clip-render-suite">Clip Render Suite</a>.                                                                |
-|                      |                                                                                                                                                                                                                     |
-|                      | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">csSDK_int32</span><span class="w"> </span><span class="nf">getFileVideo</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-0-2"><span class="w">  </span><span class="n">prFileSpec</span><span class="w">   </span><span class="o">*</span><span class="n">filespec</span><span class="p">,</span>
-</span><span id="__span-0-3"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">frame</span><span class="p">,</span>
-</span><span id="__span-0-4"><span class="w">  </span><span class="n">PPixHand</span><span class="w">     </span><span class="n">thePort</span><span class="p">,</span>
-</span><span id="__span-0-5"><span class="w">  </span><span class="n">prRect</span><span class="w">       </span><span class="o">*</span><span class="n">bounds</span><span class="p">,</span>
-</span><span id="__span-0-6"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">flags</span><span class="p">);</span>
-</span></code></pre></div>                       |
-|                      |                                                                                                                                                                                                                     |
-|                      | - <code>filespec</code>: the description of the file                                                                                                                                                                           |
-|                      | - <code>frame</code>: the frame to retrieve                                                                                                                                                                                    |
-|                      | - <code>thePort</code>: where the frame will be delivered, allocate prior to calling                                                                                                                                           |
-|                      | - <code>bounds</code>: the boundary of the port                                                                                                                                                                                |
-|                      | - <code>flags</code>: unused                                                                                                                                                                                                   |
-+----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>getFileVideoBounds</code> | Passes back the bounds of a file.                                                                                                                                                                                  |
-|                      |                                                                                                                                                                                                                     |
-|                      | If the file is already in the sequence, it is preferable to get a file's video bounds using the <a href="../sweetpea-suites/#clip-render-suite">Clip Render Suite</a>.                                                         |
-|                      |                                                                                                                                                                                                                     |
-|                      | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">csSDK_int32</span><span class="w"> </span><span class="nf">getFileVideoBounds</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-0-2"><span class="w">  </span><span class="n">prFileSpec</span><span class="w"> </span><span class="o">*</span><span class="n">filespec</span><span class="p">,</span>
-</span><span id="__span-0-3"><span class="w">  </span><span class="n">prRect</span><span class="w"> </span><span class="o">*</span><span class="n">bounds</span><span class="p">);</span>
-</span></code></pre></div>                                                                                                         |
-+----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>getSPBasicSuite</code>    | This very important call returns the SweetPea suite that allows plugins to acquire and release all other <a href="../sweetpea-suites/">SweetPea Suites</a>.                                                                    |
-|                      |                                                                                                                                                                                                                     |
-|                      | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">SPBasicSuite</span><span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;</span><span class="w"> </span><span class="n">getSPBasicSuite</span><span class="p">();</span>
-</span></code></pre></div>                                                                                                                                                              |
-+----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>getFileExtString</code>   | Passes back the list of valid entensions/filter strings given a class of media (see file types constants below).                                                                                                   |
-|                      |                                                                                                                                                                                                                     |
-|                      | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">csSDK_int32</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">plugGetFileExtStringFunc</span><span class="p">)(</span>
-</span><span id="__span-0-2"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">fileTypes</span><span class="p">,</span>
-</span><span id="__span-0-3"><span class="w">  </span><span class="kt">char</span><span class="w">          </span><span class="o">*</span><span class="n">inBuffer</span><span class="p">,</span>
-</span><span id="__span-0-4"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="n">inBufferSize</span><span class="p">);</span>
-</span></code></pre></div>                                                    |
-|                      |                                                                                                                                                                                                                     |
-|                      | - <code>kFileTypes_Still</code>: still media                                                                                                                                                                                   |
-|                      | - <code>kFileTypes_AudioOnly</code>: audio-only media                                                                                                                                                                          |
-|                      | - <code>kFileTypes_AudioVideo</code>: audio and video media                                                                                                                                                                    |
-|                      | - <code>kFileTypes_AllNoIntrinsics</code>: all importable media types via importer plugins (no prproj, txt, etc)                                                                                                               |
-+----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</pre>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>getSerialNumber</code></td>
+<td>Passes back Premiere's serial number.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>void getSerialNumber (char* buffer);</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>buffer</code>: must be at least 40 characters long.</td>
+</tr>
+<tr>
+<td><code>getFileTimebase</code></td>
+<td>Passes back a file's timebase in a <code>TDB_TimeRecord</code> (allocated by the plugin).</td>
+</tr>
+<tr>
+<td></td>
+<td>If the file is already in the sequence, it is preferable to get a file's timebase using the <a href="../sweetpea-suites/#video-segment-suite">Video Segment Suite</a> to get the <code>kVideoSegmentProperty_Media_StreamFrameRate</code>.</td>
+</tr>
+<tr>
+<td></td>
+<td>Note: Know your formats. Don't ask an audio only format for video, you may get unexpected results.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>csSDK_int32 getFileTimebase (  prFileSpec      *filespec,  csSDK_int32     audioOnly,  TDB_TimeRecord  *result);</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>filespec</code>: description of the file, use before getFileVideo</td>
+</tr>
+<tr>
+<td></td>
+<td><code>audioOnly</code>: if non-zero, return the audio timebase. If zero, return the video timebase.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>result</code>: the returned timebase</td>
+</tr>
+<tr>
+<td><code>getFileVideo</code></td>
+<td>Gets a frame of video (at a specified time) from a file.</td>
+</tr>
+<tr>
+<td></td>
+<td>If the file is already in the sequence, it is preferable to get a file's video using the <a href="../sweetpea-suites/#clip-render-suite">Clip Render Suite</a>.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>csSDK_int32 getFileVideo (  prFileSpec   *filespec,  csSDK_int32  frame,  PPixHand     thePort,  prRect       *bounds,  csSDK_int32  flags);</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>filespec</code>: the description of the file</td>
+</tr>
+<tr>
+<td></td>
+<td><code>frame</code>: the frame to retrieve</td>
+</tr>
+<tr>
+<td></td>
+<td><code>thePort</code>: where the frame will be delivered, allocate prior to calling</td>
+</tr>
+<tr>
+<td></td>
+<td><code>bounds</code>: the boundary of the port</td>
+</tr>
+<tr>
+<td></td>
+<td><code>flags</code>: unused</td>
+</tr>
+<tr>
+<td><code>getFileVideoBounds</code></td>
+<td>Passes back the bounds of a file.</td>
+</tr>
+<tr>
+<td></td>
+<td>If the file is already in the sequence, it is preferable to get a file's video bounds using the <a href="../sweetpea-suites/#clip-render-suite">Clip Render Suite</a>.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>csSDK_int32 getFileVideoBounds (  prFileSpec *filespec,  prRect *bounds);</code></td>
+</tr>
+<tr>
+<td><code>getSPBasicSuite</code></td>
+<td>This very important call returns the SweetPea suite that allows plugins to acquire and release all other <a href="../sweetpea-suites/">SweetPea Suites</a>.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>SPBasicSuite* getSPBasicSuite();</code></td>
+</tr>
+<tr>
+<td><code>getFileExtString</code></td>
+<td>Passes back the list of valid entensions/filter strings given a class of media (see file types constants below).</td>
+</tr>
+<tr>
+<td></td>
+<td><code>csSDK_int32 (*plugGetFileExtStringFunc)(  csSDK_uint32  fileTypes,  char          *inBuffer,  csSDK_uint32  inBufferSize);</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>kFileTypes_Still</code>: still media</td>
+</tr>
+<tr>
+<td></td>
+<td><code>kFileTypes_AudioOnly</code>: audio-only media</td>
+</tr>
+<tr>
+<td></td>
+<td><code>kFileTypes_AudioVideo</code>: audio and video media</td>
+</tr>
+<tr>
+<td></td>
+<td><code>kFileTypes_AllNoIntrinsics</code>: all importable media types via importer plugins (no prproj, txt, etc)</td>
+</tr>
+</tbody>
+</table>
 <h3 id="timeline-functions">Timeline Functions<a class="headerlink" href="#timeline-functions" title="Permanent link">&para;</a></h3>
-<pre class="grid-table-error">+----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|       Function       |                                                                                                                                                                                                                                                                                                                                                                                                                        Description                                                                                                                                                                                                                                                                                                                                                                                                                        |
-+======================+===========================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================+
-| <code>getClipVideo
-</code>       | Superceded by the <a href="../sweetpea-suites/#clip-render-suite">Clip Render Suite</a>, which provides asynchronous import.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|                      | Retrieves a frame from a clip in a segment tree returned from the <a href="../sweetpea-suites/#video-segment-suite">Video Segment Suite</a>.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|                      | It can be used by to retrieve and store a still frame, such as a title, for playback.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-|                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|                      | !!! warning                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-|                      |     This call is expensive; use it carefully.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-|                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|                      | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">csSDK_int32</span><span class="w"> </span><span class="nf">getClipVideo</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-0-2"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">frame</span><span class="p">,</span>
-</span><span id="__span-0-3"><span class="w">  </span><span class="n">PPixHand</span><span class="w">     </span><span class="n">thePort</span><span class="p">,</span>
-</span><span id="__span-0-4"><span class="w">  </span><span class="n">prRect</span><span class="w">       </span><span class="o">*</span><span class="n">bounds</span><span class="p">,</span>
-</span><span id="__span-0-5"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">  </span><span class="n">flags</span><span class="p">,</span>
-</span><span id="__span-0-6"><span class="w">  </span><span class="n">PrClipID</span><span class="w">     </span><span class="n">clipData</span><span class="p">);</span>
-</span></code></pre></div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-|                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|                      | - <code>frame</code>: the frame number you're requesting                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-|                      | - <code>thePort</code>: allocate using the <a href="../sweetpea-suites/#ppix-creator-suite">PPix Creator Suite</a> before calling                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-|                      | - <code>bounds</code>: the boundaries of video to return                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-|                      | - <code>flags</code>: either <code>kGCVFlag_UseFilePixelAspectRatio</code> or 0. Setting it to <code>kGCVFlag_UseFilePixelAspectRatio</code> will return a PPix stamped with the PAR of the file. Setting it to 0 will return a PPix adjusted to the PAR of the project and stamped accordingly. It scales, but does not stretch the PPix to fit the destination PPix that is passed in. So if the destination PPix is larger than the frame asked for, the frame will maintain its frame aspect ratio, letterboxing or pillarboxing the frame with transparent black. To import a frame at its native dimensions, use getClipVideoBounds, allocate the destination PPix using the dimensions returned, and pass the PPixHand and the dimensions into <code>getClipVideo</code>. If the frame size is not the same as the sequence size, the frame must be positioned in the composite by the plugin. |
-|                      | - <code>clipData</code>: the clipData handle found in prtFileRec                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-+----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>getWorkArea</code>        | Passes back two longs with the start and end of the current work area (read-only).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-|                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|                      | Set timelineData to the timelineData of the current sequence.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-|                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|                      | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">csSDK_int32</span><span class="w"> </span><span class="nf">getWorkArea</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-0-2"><span class="w">  </span><span class="n">PrTimelineID</span><span class="w">  </span><span class="n">timelineData</span><span class="p">,</span>
-</span><span id="__span-0-3"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="o">*</span><span class="n">workAreaStart</span><span class="p">,</span>
-</span><span id="__span-0-4"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="o">*</span><span class="n">workAreaEnd</span><span class="p">);</span>
-</span></code></pre></div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-+----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>getCurrentTimebase</code> | Passes back the current timebase of the timeline (<code>scale + sampleSize</code>).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-|                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|                      | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">void</span><span class="w"> </span><span class="nf">getCurrentTimebase</span><span class="p">(</span>
-</span><span id="__span-0-2"><span class="w">  </span><span class="n">PrTimelineID</span><span class="w">  </span><span class="n">timelineData</span><span class="p">,</span>
-</span><span id="__span-0-3"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="o">*</span><span class="n">scale</span><span class="p">,</span>
-</span><span id="__span-0-4"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="o">*</span><span class="n">sampleSize</span><span class="p">);</span>
-</span></code></pre></div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-|                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|                      | - <code>timelineData</code>: the timelineData of the current sequence                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-|                      | - <code>scale</code>: the sequence scale                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-|                      | - <code>sampleSize</code>: the sequence sampleSize                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-+----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>getCurrentPos</code>      | Returns the position of the current time indicator (the position bar set by the user).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-|                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|                      | If (-1) is returned, the position bar in the timeline is not present.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-|                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|                      | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">csSDK_int32</span><span class="w"> </span><span class="nf">getCurrentPos</span><span class="p">(</span>
-</span><span id="__span-0-2"><span class="w">  </span><span class="n">PrTimelineID</span><span class="w">  </span><span class="n">timelineData</span><span class="p">);</span>
-</span></code></pre></div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-|                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|                      | - <code>timelineData</code>: the timelineData of the current sequence                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-+----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>getPreviewFrameEx</code>  | Gets a fully rendered frame from the timeline (all layers).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-|                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|                      | Used by video filters and transitions for previews in a modal setup dialog.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-|                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|                      | If the return value is -1, an error occurred, but if it is 0, the callback has returned safely.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-|                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|                      | Exporters rendering final movies should NOT use this callback.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|                      | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">csSDK_int32</span><span class="w"> </span><span class="nf">getPreviewFrameEx</span><span class="p">(</span>
-</span><span id="__span-0-2"><span class="w">  </span><span class="n">PrTimelineID</span><span class="w">    </span><span class="n">timelineData</span><span class="p">,</span>
-</span><span id="__span-0-3"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">     </span><span class="n">inFrame</span><span class="p">,</span>
-</span><span id="__span-0-4"><span class="w">  </span><span class="n">PPixHand</span><span class="o">*</span><span class="w">       </span><span class="n">outRenderedFrame</span><span class="p">,</span>
-</span><span id="__span-0-5"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prRect</span><span class="o">*</span><span class="w">   </span><span class="n">inFrameRect</span><span class="p">,</span>
-</span><span id="__span-0-6"><span class="w">  </span><span class="n">PrPixelFormat</span><span class="o">*</span><span class="w">  </span><span class="n">inRequestedPixelFormatArray</span><span class="p">,</span>
-</span><span id="__span-0-7"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">     </span><span class="n">inRequestedPixelFormatArrayCount</span><span class="p">,</span>
-</span><span id="__span-0-8"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">    </span><span class="n">inPixelAspectRatioNumerator</span><span class="p">,</span>
-</span><span id="__span-0-9"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">    </span><span class="n">inPixelAspectRatioDenominator</span><span class="p">,</span>
-</span><span id="__span-0-10"><span class="w">  </span><span class="kt">bool</span><span class="w">            </span><span class="n">inAlwaysRender</span><span class="p">);</span>
-</span></code></pre></div>                                                                                                                                                                                                                                                                                                                                                                                           |
-|                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|                      | - <code>timelineData</code>: The timelineData of the current sequence. Pass a timeline handle as provided in EffectRecord, VideoRecord, compDoCompileInfo, or imGetPrefsRec.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-|                      | - <code>inFrame</code>: The frame to get, specified in the current timebase. If a timelineData handle is specified (first param above), this frame will be relative to the start of the sequence.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-|                      | - <code>outRenderedFrame</code>: The destination buffer. Allocate prior to this call by the plugin using the <a href="../sweetpea-suites/#ppix-suite">PPix Suite</a>. Released by the caller before returning.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-+----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>getClipVideoBounds</code> | Passes back the dimensions of a clip in a sequence. For rolling/ crawling titles, use the Roll/Crawl Suite to get the dimensions instead.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-|                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|                      | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">csSDK_int32</span><span class="w"> </span><span class="nf">getClipVideoBounds</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-0-2"><span class="w">  </span><span class="n">PrClipID</span><span class="w">      </span><span class="n">inClipData</span><span class="p">,</span>
-</span><span id="__span-0-3"><span class="w">  </span><span class="n">prRect</span><span class="w">        </span><span class="o">*</span><span class="n">outBounds</span><span class="p">,</span>
-</span><span id="__span-0-4"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="o">*</span><span class="n">outPixelAspectRatioNumerator</span><span class="p">,</span>
-</span><span id="__span-0-5"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">  </span><span class="o">*</span><span class="n">outPixelAspectRatioDenominator</span><span class="p">);</span>
-</span></code></pre></div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-+----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>getClipVideoEx</code>     | Superceded by the <a href="../sweetpea-suites/#clip-render-suite">Clip Render Suite</a>, which provides asynchronous import.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|                      | Retrieves a frame from a clip in a segment tree returned from the <a href="../sweetpea-suites/#video-segment-suite">Video Segment Suite</a>.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|                      | It can be used by to retrieve and store a still frame, such as a title, for playback.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-|                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|                      | !!! warning                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-|                      |     This call is expensive; use it carefully.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-|                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|                      | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">csSDK_int32</span><span class="w"> </span><span class="nf">getClipVideoEx</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-0-2"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">          </span><span class="n">inFrame</span><span class="p">,</span>
-</span><span id="__span-0-3"><span class="w">  </span><span class="n">PPixHand</span><span class="w">             </span><span class="o">*</span><span class="n">outRenderedFrame</span><span class="p">,</span>
-</span><span id="__span-0-4"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">prRect</span><span class="w">         </span><span class="o">*</span><span class="n">inFrameRect</span><span class="p">,</span>
-</span><span id="__span-0-5"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">PrPixelFormat</span><span class="w">  </span><span class="o">*</span><span class="n">inRequestedPixelFormatArray</span><span class="p">,</span>
-</span><span id="__span-0-6"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">          </span><span class="n">inRequestedPixelFormatArrayCount</span><span class="p">,</span>
-</span><span id="__span-0-7"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">         </span><span class="n">inPixelAspectRatioNumerator</span><span class="p">,</span>
-</span><span id="__span-0-8"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">         </span><span class="n">inPixelAspectRatioDenominator</span><span class="p">,</span>
-</span><span id="__span-0-9"><span class="w">  </span><span class="n">PrClipID</span><span class="w">             </span><span class="n">inClipData</span><span class="p">);</span>
-</span></code></pre></div>                                                                                                                                                                                                                                                                                                                                                                                          |
-|                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|                      | - <code>inFrame</code>: the frame number you're requesting, in the timebase of the clip                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-|                      | - <code>outRenderedFrame</code>: Allocated by the host. The plugin should dispose of the PPixHand when done                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-|                      | - <code>inFrameRect</code>: the boundaries of video to return. To import a frame at its native dimensions, use getClipVideoBounds. If the frame size is not the same as the sequence size, the frame must be positioned in the composite by the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-|                      | - <code>inClipData</code>: the PrClipID from the video segment                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-+----------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</pre>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>getClipVideo</code></td>
+<td>Superceded by the <a href="../sweetpea-suites/#clip-render-suite">Clip Render Suite</a>, which provides asynchronous import.</td>
+</tr>
+<tr>
+<td></td>
+<td>Retrieves a frame from a clip in a segment tree returned from the <a href="../sweetpea-suites/#video-segment-suite">Video Segment Suite</a>.</td>
+</tr>
+<tr>
+<td></td>
+<td>It can be used by to retrieve and store a still frame, such as a title, for playback.</td>
+</tr>
+<tr>
+<td></td>
+<td>!!! warning</td>
+</tr>
+<tr>
+<td></td>
+<td>This call is expensive; use it carefully.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>csSDK_int32 getClipVideo (  csSDK_int32  frame,  PPixHand     thePort,  prRect       *bounds,  csSDK_int32  flags,  PrClipID     clipData);</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>frame</code>: the frame number you're requesting</td>
+</tr>
+<tr>
+<td></td>
+<td><code>thePort</code>: allocate using the <a href="../sweetpea-suites/#ppix-creator-suite">PPix Creator Suite</a> before calling</td>
+</tr>
+<tr>
+<td></td>
+<td><code>bounds</code>: the boundaries of video to return</td>
+</tr>
+<tr>
+<td></td>
+<td><code>flags</code>: either <code>kGCVFlag_UseFilePixelAspectRatio</code> or 0. Setting it to <code>kGCVFlag_UseFilePixelAspectRatio</code> will return a PPix stamped with the PAR of the file. Setting it to 0 will return a PPix adjusted to the PAR of the project and stamped accordingly. It scales, but does not stretch the PPix to fit the destination PPix that is passed in. So if the destination PPix is larger than the frame asked for, the frame will maintain its frame aspect ratio, letterboxing or pillarboxing the frame with transparent black. To import a frame at its native dimensions, use getClipVideoBounds, allocate the destination PPix using the dimensions returned, and pass the PPixHand and the dimensions into <code>getClipVideo</code>. If the frame size is not the same as the sequence size, the frame must be positioned in the composite by the plugin.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>clipData</code>: the clipData handle found in prtFileRec</td>
+</tr>
+<tr>
+<td><code>getWorkArea</code></td>
+<td>Passes back two longs with the start and end of the current work area (read-only).</td>
+</tr>
+<tr>
+<td></td>
+<td>Set timelineData to the timelineData of the current sequence.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>csSDK_int32 getWorkArea (  PrTimelineID  timelineData,  csSDK_int32   *workAreaStart,  csSDK_int32   *workAreaEnd);</code></td>
+</tr>
+<tr>
+<td><code>getCurrentTimebase</code></td>
+<td>Passes back the current timebase of the timeline (<code>scale + sampleSize</code>).</td>
+</tr>
+<tr>
+<td></td>
+<td><code>void getCurrentTimebase(  PrTimelineID  timelineData,  csSDK_uint32  *scale,  csSDK_int32   *sampleSize);</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>timelineData</code>: the timelineData of the current sequence</td>
+</tr>
+<tr>
+<td></td>
+<td><code>scale</code>: the sequence scale</td>
+</tr>
+<tr>
+<td></td>
+<td><code>sampleSize</code>: the sequence sampleSize</td>
+</tr>
+<tr>
+<td><code>getCurrentPos</code></td>
+<td>Returns the position of the current time indicator (the position bar set by the user).</td>
+</tr>
+<tr>
+<td></td>
+<td>If (-1) is returned, the position bar in the timeline is not present.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>csSDK_int32 getCurrentPos(  PrTimelineID  timelineData);</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>timelineData</code>: the timelineData of the current sequence</td>
+</tr>
+<tr>
+<td><code>getPreviewFrameEx</code></td>
+<td>Gets a fully rendered frame from the timeline (all layers). Used by video filters and transitions for previews in a modal setup dialog. If the return value is -1, an error occurred, but if it is 0, the callback has returned safely. Exporters rendering final movies should NOT use this callback.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>csSDK_int32 getPreviewFrameEx(  PrTimelineID    timelineData,  csSDK_int32     inFrame,  PPixHand*       outRenderedFrame,  const prRect*   inFrameRect,  PrPixelFormat*  inRequestedPixelFormatArray,  csSDK_int32     inRequestedPixelFormatArrayCount,  csSDK_uint32    inPixelAspectRatioNumerator,  csSDK_uint32    inPixelAspectRatioDenominator,  bool            inAlwaysRender);</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>timelineData</code>: The timelineData of the current sequence. Pass a timeline handle as provided in EffectRecord, VideoRecord, compDoCompileInfo, or imGetPrefsRec.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>inFrame</code>: The frame to get, specified in the current timebase. If a timelineData handle is specified (first param above), this frame will be relative to the start of the sequence.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>outRenderedFrame</code>: The destination buffer. Allocate prior to this call by the plugin using the <a href="../sweetpea-suites/#ppix-suite">PPix Suite</a>. Released by the caller before returning.</td>
+</tr>
+<tr>
+<td><code>getClipVideoBounds</code></td>
+<td>Passes back the dimensions of a clip in a sequence. For rolling/ crawling titles, use the Roll/Crawl Suite to get the dimensions instead.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>csSDK_int32 getClipVideoBounds (  PrClipID      inClipData,  prRect        *outBounds,  csSDK_uint32  *outPixelAspectRatioNumerator,  csSDK_uint32  *outPixelAspectRatioDenominator);</code></td>
+</tr>
+<tr>
+<td><code>getClipVideoEx</code></td>
+<td>Superceded by the <a href="../sweetpea-suites/#clip-render-suite">Clip Render Suite</a>, which provides asynchronous import. Retrieves a frame from a clip in a segment tree returned from the <a href="../sweetpea-suites/#video-segment-suite">Video Segment Suite</a>. It can be used by to retrieve and store a still frame, such as a title, for playback. This call is expensive; use it carefully.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>csSDK_int32 getClipVideoEx (  csSDK_int32          inFrame,  PPixHand             *outRenderedFrame,  const prRect         *inFrameRect,  const PrPixelFormat  *inRequestedPixelFormatArray,  csSDK_int32          inRequestedPixelFormatArrayCount,  csSDK_uint32         inPixelAspectRatioNumerator,  csSDK_uint32         inPixelAspectRatioDenominator,  PrClipID             inClipData);</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>inFrame</code>: the frame number you're requesting, in the timebase of the clip</td>
+</tr>
+<tr>
+<td></td>
+<td><code>outRenderedFrame</code>: Allocated by the host. The plugin should dispose of the PPixHand when done</td>
+</tr>
+<tr>
+<td></td>
+<td><code>inFrameRect</code>: the boundaries of video to return. To import a frame at its native dimensions, use getClipVideoBounds. If the frame size is not the same as the sequence size, the frame must be positioned in the composite by the plugin.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>inClipData</code>: the PrClipID from the video segment</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h2 id="bottleneck-functions">Bottleneck Functions<a class="headerlink" href="#bottleneck-functions" title="Permanent link">&para;</a></h2>
 <p>The pointer to the legacy bottleneck functions is passed only to transitions and video filters.</p>
@@ -3990,103 +4203,124 @@
 </span><span id="__span-1-5"><span class="w">                                        </span><span class="mi">0</span><span class="p">,</span>
 </span><span id="__span-1-6"><span class="w">                                        </span><span class="nb">NULL</span><span class="p">);</span>
 </span></code></pre></div>
-<pre class="grid-table-error">+------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Function         | Description                                                                                                                                                                                                                    |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <code>StretchBits
-</code>    | Stretches and copies an image, including the alpha channel.                                                                                                                                                                   |
-|                  |                                                                                                                                                                                                                                |
-|                  | When the destination is larger than the source, it performs bilinear interpolation for smooth scaling.                                                                                                                        |
-|                  |                                                                                                                                                                                                                                |
-|                  | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">void</span><span class="w"> </span><span class="nf">StretchBits</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-0-2"><span class="w">  </span><span class="n">PPixHand</span><span class="w">  </span><span class="n">srcPix</span><span class="p">,</span>
-</span><span id="__span-0-3"><span class="w">  </span><span class="n">PPixHand</span><span class="w">  </span><span class="n">dstPix</span><span class="p">,</span>
-</span><span id="__span-0-4"><span class="w">  </span><span class="n">prRect</span><span class="w">    </span><span class="n">srcRect</span><span class="p">,</span>
-</span><span id="__span-0-5"><span class="w">  </span><span class="n">prRect</span><span class="w">    </span><span class="n">dstRect</span><span class="p">,</span>
-</span><span id="__span-0-6"><span class="w">  </span><span class="kt">int</span><span class="w">       </span><span class="n">mode</span><span class="p">,</span>
-</span><span id="__span-0-7"><span class="w">  </span><span class="n">prRgn</span><span class="w">     </span><span class="n">rgn</span><span class="p">);</span>
-</span></code></pre></div>                                         |
-|                  |                                                                                                                                                                                                                                |
-|                  | StretchBits only works on 8-bit PPixs.                                                                                                                                                                                        |
-|                  |                                                                                                                                                                                                                                |
-|                  | <code>srcRect</code> is the area of the source PPix to copy; <code>dstRect</code> is used to scale the copy.                                                                                                                                        |
-|                  |                                                                                                                                                                                                                                |
-|                  | <code>mode</code>:                                                                                                                                                                                                                        |
-|                  |                                                                                                                                                                                                                                |
-|                  | Valid modes are <code>cbBlend</code>, <code>cbInterp</code>, and <code>cbMaskHdl</code>                                                                                                                                                                         |
-|                  |                                                                                                                                                                                                                                |
-|                  | - <code>cbBlend</code> - The low byte of the mode defines the amount of blend between the source and destination in a range of 0-255.                                                                                                    |
-|                  |      - Example:                                                                                                                                                                                                                |
-|                  |      - To blend 30% of the source with the destination, use <code>cbBlend \^ (30*255/100)</code>                                                                                                                                          |
-|                  | - <code>cbInterp</code> - While much slower than <code>cbBlend</code>, this mode does bilinear interpolation when resizing a source PPix to a larger destination, resulting in a much smoother image.                                               |
-|                  | - <code>cbMaskHdl</code> tells StretchBits that prRgn is a handle to a 1-bit deep buffer the same size as the source and destination PPixs, to be used as a mask.                                                                        |
-|                  |                                                                                                                                                                                                                                |
-|                  | <code>prRgn</code>: Pass <code>0</code> for no clipping. This parameter is only used on Windows.                                                                                                                                                    |
-+------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>DistortPolygon</code> | Maps the source rectangle to a four-point polygon in the destination.                                                                                                                                                         |
-|                  |                                                                                                                                                                                                                                |
-|                  | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">void</span><span class="w"> </span><span class="nf">DistortPolygon</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-0-2"><span class="w">  </span><span class="n">PPixHand</span><span class="w">  </span><span class="n">src</span><span class="p">,</span>
-</span><span id="__span-0-3"><span class="w">  </span><span class="n">PPixHand</span><span class="w">  </span><span class="n">dest</span><span class="p">,</span>
-</span><span id="__span-0-4"><span class="w">  </span><span class="n">prRect</span><span class="w">    </span><span class="o">*</span><span class="n">srcbox</span><span class="p">,</span>
-</span><span id="__span-0-5"><span class="w">  </span><span class="n">prPoint</span><span class="w">   </span><span class="o">*</span><span class="n">dstpts</span><span class="p">);</span>
-</span></code></pre></div>                                                                                    |
-|                  |                                                                                                                                                                                                                                |
-|                  | When scaling up, <code>DistortPolygon</code> uses bilinear interpolation; it uses pixel averaging when scaling down.                                                                                                                     |
-+------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>MapPolygon</code>     | Maps a four-point src polygon into a four-point polygon (dstpts).                                                                                                                                                             |
-|                  |                                                                                                                                                                                                                                |
-|                  | If the source polygon is a rectangle, it is equivalent to <code>DistortPolygon</code>.                                                                                                                                                   |
-|                  |                                                                                                                                                                                                                                |
-|                  | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">void</span><span class="w"> </span><span class="nf">MapPolygon</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-0-2"><span class="w">  </span><span class="n">PPixHand</span><span class="w">  </span><span class="n">src</span><span class="p">,</span>
-</span><span id="__span-0-3"><span class="w">  </span><span class="n">PPixHand</span><span class="w">  </span><span class="n">dest</span><span class="p">,</span>
-</span><span id="__span-0-4"><span class="w">  </span><span class="n">prPoint</span><span class="w">   </span><span class="o">*</span><span class="n">srcpts</span><span class="p">,</span>
-</span><span id="__span-0-5"><span class="w">  </span><span class="n">prPoint</span><span class="w">   </span><span class="o">*</span><span class="n">dstpts</span><span class="w"> </span><span class="p">);</span>
-</span></code></pre></div>                                                                                       |
-+------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>DistortFixed</code>   | Equivalent to DistortPolygon, using fixed-point coordinates.                                                                                                                                                                  |
-|                  |                                                                                                                                                                                                                                |
-|                  | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">void</span><span class="w"> </span><span class="nf">DistortFixed</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-0-2"><span class="w">  </span><span class="n">PPixHand</span><span class="w">   </span><span class="n">src</span><span class="p">,</span>
-</span><span id="__span-0-3"><span class="w">  </span><span class="n">PPixHand</span><span class="w">   </span><span class="n">dest</span><span class="p">,</span>
-</span><span id="__span-0-4"><span class="w">  </span><span class="n">prRect</span><span class="w">     </span><span class="o">*</span><span class="n">srcbox</span><span class="p">,</span>
-</span><span id="__span-0-5"><span class="w">  </span><span class="n">LongPoint</span><span class="w">  </span><span class="o">*</span><span class="n">dstpts</span><span class="p">);</span>
-</span></code></pre></div>                                                                                  |
-+------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>FixedToFixed</code>   | Equivalent to MapPolygon, using fixed-point coordinates.                                                                                                                                                                      |
-|                  |                                                                                                                                                                                                                                |
-|                  | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">void</span><span class="w"> </span><span class="nf">FixedToFixed</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-0-2"><span class="w">  </span><span class="n">PPixHand</span><span class="w">   </span><span class="n">src</span><span class="p">,</span>
-</span><span id="__span-0-3"><span class="w">  </span><span class="n">PPixHand</span><span class="w">   </span><span class="n">dest</span><span class="p">,</span>
-</span><span id="__span-0-4"><span class="w">  </span><span class="n">LongPoint</span><span class="w">  </span><span class="o">*</span><span class="n">srcpts</span><span class="p">,</span>
-</span><span id="__span-0-5"><span class="w">  </span><span class="n">LongPoint</span><span class="w">  </span><span class="o">*</span><span class="n">dstpts</span><span class="p">);</span>
-</span></code></pre></div>                                                                                  |
-+------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>DoIndexMap</code>     | Image map function.                                                                                                                                                                                                           |
-|                  |                                                                                                                                                                                                                                |
-|                  | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">void</span><span class="w"> </span><span class="nf">DoIndexMap</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-0-2"><span class="w">  </span><span class="kt">char</span><span class="w">    </span><span class="o">*</span><span class="n">src</span><span class="p">,</span>
-</span><span id="__span-0-3"><span class="w">  </span><span class="kt">char</span><span class="w">    </span><span class="o">*</span><span class="n">dst</span><span class="p">,</span>
-</span><span id="__span-0-4"><span class="w">  </span><span class="kt">short</span><span class="w">   </span><span class="n">row</span><span class="p">,</span>
-</span><span id="__span-0-5"><span class="w">  </span><span class="kt">short</span><span class="p">,</span><span class="w">  </span><span class="n">pixwidth</span><span class="p">,</span>
-</span><span id="__span-0-6"><span class="w">  </span><span class="kt">short</span><span class="p">,</span><span class="w">  </span><span class="n">height</span><span class="p">,</span>
-</span><span id="__span-0-7"><span class="w">  </span><span class="kt">char</span><span class="w">    </span><span class="o">*</span><span class="n">lookup1</span><span class="p">,</span>
-</span><span id="__span-0-8"><span class="w">  </span><span class="kt">char</span><span class="w">    </span><span class="o">*</span><span class="n">lookup2</span><span class="p">,</span>
-</span><span id="__span-0-9"><span class="w">  </span><span class="kt">char</span><span class="w">    </span><span class="o">*</span><span class="n">lookup3</span><span class="p">);</span>
-</span></code></pre></div> |
-+------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <code>DoConvolve</code>     | Convolution function.                                                                                                                                                                                                         |
-|                  |                                                                                                                                                                                                                                |
-|                  | <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="kt">void</span><span class="w"> </span><span class="nf">DoConvolve</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-0-2"><span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w">  </span><span class="o">*</span><span class="n">src</span><span class="p">,</span>
-</span><span id="__span-0-3"><span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w">  </span><span class="o">*</span><span class="n">dst</span><span class="p">,</span>
-</span><span id="__span-0-4"><span class="w">  </span><span class="kt">short</span><span class="w">          </span><span class="o">*</span><span class="n">inmatrix</span><span class="p">,</span>
-</span><span id="__span-0-5"><span class="w">  </span><span class="kt">short</span><span class="p">,</span><span class="w">         </span><span class="n">rowBytes</span><span class="p">,</span>
-</span><span id="__span-0-6"><span class="w">  </span><span class="kt">short</span><span class="p">,</span><span class="w">         </span><span class="n">width</span><span class="p">,</span>
-</span><span id="__span-0-7"><span class="w">  </span><span class="kt">short</span><span class="p">,</span><span class="w">         </span><span class="n">height</span><span class="p">);</span>
-</span></code></pre></div>      |
-+------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</pre>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>StretchBits</code></td>
+<td>Stretches and copies an image, including the alpha channel.</td>
+</tr>
+<tr>
+<td></td>
+<td>When the destination is larger than the source, it performs bilinear interpolation for smooth scaling.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>void StretchBits (  PPixHand  srcPix,  PPixHand  dstPix,  prRect    srcRect,  prRect    dstRect,  int       mode,  prRgn     rgn);</code></td>
+</tr>
+<tr>
+<td></td>
+<td>StretchBits only works on 8-bit PPixs.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>srcRect</code> is the area of the source PPix to copy; <code>dstRect</code> is used to scale the copy.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>mode</code>:</td>
+</tr>
+<tr>
+<td></td>
+<td>Valid modes are <code>cbBlend</code>, <code>cbInterp</code>, and <code>cbMaskHdl</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>cbBlend</code> - The low byte of the mode defines the amount of blend between the source and destination in a range of 0-255.</td>
+</tr>
+<tr>
+<td></td>
+<td>- Example:</td>
+</tr>
+<tr>
+<td></td>
+<td>- To blend 30% of the source with the destination, use <code>cbBlend \^ (30*255/100)</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>cbInterp</code> - While much slower than <code>cbBlend</code>, this mode does bilinear interpolation when resizing a source PPix to a larger destination, resulting in a much smoother image.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>cbMaskHdl</code> tells StretchBits that prRgn is a handle to a 1-bit deep buffer the same size as the source and destination PPixs, to be used as a mask.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>prRgn</code>: Pass <code>0</code> for no clipping. This parameter is only used on Windows.</td>
+</tr>
+<tr>
+<td><code>DistortPolygon</code></td>
+<td>Maps the source rectangle to a four-point polygon in the destination.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>void DistortPolygon (  PPixHand  src,  PPixHand  dest,  prRect    *srcbox,  prPoint   *dstpts);</code></td>
+</tr>
+<tr>
+<td></td>
+<td>When scaling up, <code>DistortPolygon</code> uses bilinear interpolation; it uses pixel averaging when scaling down.</td>
+</tr>
+<tr>
+<td><code>MapPolygon</code></td>
+<td>Maps a four-point src polygon into a four-point polygon (dstpts).</td>
+</tr>
+<tr>
+<td></td>
+<td>If the source polygon is a rectangle, it is equivalent to <code>DistortPolygon</code>.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>void MapPolygon (  PPixHand  src,  PPixHand  dest,  prPoint   *srcpts,  prPoint   *dstpts );</code></td>
+</tr>
+<tr>
+<td><code>DistortFixed</code></td>
+<td>Equivalent to DistortPolygon, using fixed-point coordinates.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>void DistortFixed (  PPixHand   src,  PPixHand   dest,  prRect     *srcbox,  LongPoint  *dstpts);</code></td>
+</tr>
+<tr>
+<td><code>FixedToFixed</code></td>
+<td>Equivalent to MapPolygon, using fixed-point coordinates.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>void FixedToFixed (  PPixHand   src,  PPixHand   dest,  LongPoint  *srcpts,  LongPoint  *dstpts);</code></td>
+</tr>
+<tr>
+<td><code>DoIndexMap</code></td>
+<td>Image map function.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>void DoIndexMap (char    *src,  char    *dst,  short   row,  short,  pixwidth,  short,  height,  char    *lookup1,  char    *lookup2,  char    *lookup3);</code></td>
+</tr>
+<tr>
+<td><code>DoConvolve</code></td>
+<td>Convolution function.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>void DoConvolve (  unsigned char  *src,  unsigned char  *dst,  short          *inmatrix,  short,         rowBytes,  short,         width,  short,         height);</code></td>
+</tr>
+</tbody>
+</table>
 
 
 
@@ -4107,7 +4341,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 19, 2025 19:00:13 UTC">November 19, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 19, 2025 19:00:00 UTC">November 19, 2025</span>
   </span>
 
     

@@ -3634,36 +3634,88 @@
 <p>Greater than 5.1 channel support was originally added in Premiere Pro 4.0.1, with partial support for a 16 channel master audio track, only for importing OMFs and playing out to hardware.</p>
 <p>In CS6, 16-channel audio export was added.</p>
 <p>Starting in CC, the audio channel support is increased to 32 channels.</p>
-<pre class="grid-table-error">+----------------------------------+-----------------------------------------------------------+
-|        PrAudioChannelType        |                        Description                        |
-+==================================+===========================================================+
-| <code>kPrAudioChannelType_Mono
-</code>       | Mono                                                      |
-+----------------------------------+-----------------------------------------------------------+
-| <code>kPrAudioChannelType_Stereo</code>     | Stereo. The order of the stereo channels is:              |
-|                                  |                                                           |
-|                                  | - <code>kPrAudioChannelLabel_FrontLeft</code>                        |
-|                                  | - <code>kPrAudioChannelLabel_FrontRight</code>                       |
-+----------------------------------+-----------------------------------------------------------+
-| <code>kPrAudioChannelType_51</code>         | 5.1 audio.                                               |
-|                                  |                                                           |
-|                                  | The order of the 5.1 channels is:                         |
-|                                  |                                                           |
-|                                  | - <code>kPrAudioChannelLabel_FrontLeft</code>                        |
-|                                  | - <code>kPrAudioChannelLabel_FrontRight</code>                       |
-|                                  | - <code>kPrAudioChannelLabel_BackLeft</code>                         |
-|                                  | - <code>kPrAudioChannelLabel_BackRight</code>                        |
-|                                  | - <code>kPrAudioChannelLabel_FrontCenter</code>                      |
-|                                  | - <code>kPrAudioChannelLabel_LowFrequency</code>                     |
-|                                  | - <code>kPrAudioChannelLabel_BackLeft</code>                         |
-|                                  | - <code>kPrAudioChannelLabel_BackRight</code>                        |
-+----------------------------------+-----------------------------------------------------------+
-| <code>kPrAudioChannelType_MaxChannel</code> | New in CC.                                               |
-|                                  |                                                           |
-|                                  | <code>kMaxAudioChannelCount</code>, defined as 32 channels as of CC. |
-|                                  |                                                           |
-|                                  | All channels use <code>kPrAudioChannelLabel_Discrete</code>.        |
-+----------------------------------+-----------------------------------------------------------+</pre>
+<table>
+<thead>
+<tr>
+<th>PrAudioChannelType</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>kPrAudioChannelType_Mono</code></td>
+<td>Mono</td>
+</tr>
+<tr>
+<td><code>kPrAudioChannelType_Stereo</code></td>
+<td>Stereo. The order of the stereo channels is:</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>kPrAudioChannelLabel_FrontLeft</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>kPrAudioChannelLabel_FrontRight</code></td>
+</tr>
+<tr>
+<td><code>kPrAudioChannelType_51</code></td>
+<td>5.1 audio.</td>
+</tr>
+<tr>
+<td></td>
+<td>The order of the 5.1 channels is:</td>
+</tr>
+<tr>
+<td></td>
+<td><code>kPrAudioChannelLabel_FrontLeft</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>kPrAudioChannelLabel_FrontRight</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>kPrAudioChannelLabel_BackLeft</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>kPrAudioChannelLabel_BackRight</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>kPrAudioChannelLabel_FrontCenter</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>kPrAudioChannelLabel_LowFrequency</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>kPrAudioChannelLabel_BackLeft</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>kPrAudioChannelLabel_BackRight</code></td>
+</tr>
+<tr>
+<td><code>kPrAudioChannelType_MaxChannel</code></td>
+<td>New in CC.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>kMaxAudioChannelCount</code>, defined as 32 channels as of CC.</td>
+</tr>
+<tr>
+<td></td>
+<td>All channels use <code>kPrAudioChannelLabel_Discrete</code>.</td>
+</tr>
+</tbody>
+</table>
 
 
 
@@ -3684,7 +3736,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 19, 2025 19:00:13 UTC">November 19, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 19, 2025 19:00:00 UTC">November 19, 2025</span>
   </span>
 
     
