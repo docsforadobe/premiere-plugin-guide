@@ -2,7 +2,7 @@
 
 |       Date        |         Maintainer          |               Version               |
 | ----------------- | --------------------------- | ----------------------------------- |
-| 2 Feb 2025        | Bruce Bullis                | Version 26.0                        |
+| 2 Feb 2026        | Bruce Bullis                | Version 26.2                        |
 | 17 Oct 2025       | Bruce Bullis                | Version 25.6                        |
 | 6 Oct 2021        | Sanaz Golbabaei             | Version 22.0                        |
 | 8 May 2020        | Bruce Bullis                | Version 14.2                        |
