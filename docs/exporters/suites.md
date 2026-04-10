@@ -1,14 +1,17 @@
 # Suites
 
-For information on how to acquire and manage suites, see [SweetPea Suites](../universals/sweetpea-suites.md).
+For information on how to acquire and manage suites, see
+[SweetPea Suites](../universals/sweetpea-suites.md).
 
 ---
 
 ## Export File Suite
 
-A cross-platform suite for writing to files on disk. Also provides a call to get the file path, given the file object.
+A cross-platform suite for writing to files on disk. Also provides a call to get
+the file path, given the file object.
 
-Version 2 resolves a mismatch in seek modes in version 1, where `fileSeekMode_End` was handled as `fileSeekMode_Current` and visa versa.
+Version 2 resolves a mismatch in seek modes in version 1, where
+`fileSeekMode_End` was handled as `fileSeekMode_Current` and visa versa.
 
 See PrSDKExportFileSuite.h.
 
@@ -27,8 +30,8 @@ prSuiteError (*GetExportSourceInfo)(
   PrParam                     *outSourceInfo);
 ```
 
-|                 Value                  |    Type     |  Description |
-|-|-|-|
+| Value                                  | Type        | Description                                                                                                                                                                                                         |
+| -------------------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `kExportInfo_VideoWidth`               | Int32       | Width of source video                                                                                                                                                                                               |
 | `kExportInfo_VideoHeight`              | Int32       | Height of source video                                                                                                                                                                                              |
 | `kExportInfo_VideoFrameRate`           | PrTime      | Frame rate                                                                                                                                                                                                          |
@@ -37,21 +40,21 @@ prSuiteError (*GetExportSourceInfo)(
 | `kExportInfo_PixelAspectNumerator`     | Int32       | Pixel aspect ratio (PAR) numerator                                                                                                                                                                                  |
 | `kExportInfo_PixelAspectDenominator`   | Int32       | Pixel aspect ratio denominator                                                                                                                                                                                      |
 | `kExportInfo_AudioDuration`            | Int64       | A PrTime value                                                                                                                                                                                                      |
-| `kExportInfo_AudioChannelsType`        | Int32       | One of the `PrAudioChannelType` values. Returns 0 (which is undefined) if there's no audio. |
+| `kExportInfo_AudioChannelsType`        | Int32       | One of the `PrAudioChannelType` values. Returns 0 (which is undefined) if there's no audio.                                                                                                                         |
 | `kExportInfo_AudioSampleRate`          | Float64     |                                                                                                                                                                                                                     |
 | `kExportInfo_SourceHasAudio`           | Bool        | Non-zero if source has audio                                                                                                                                                                                        |
 | `kExportInfo_SourceHasVideo`           | Bool        | Non-zero if source has video                                                                                                                                                                                        |
-| `kExportInfo_RenderAsPreview`          | Bool        | Returns a non-zero value if currently rendering preview files.                                                                                                                                                     |
-| `kExportInfo_SequenceGUID`             | Guid        | A `PrPluginID`, which is a unique GUID for the sequence.                                                                                                                                                           |
-| `kExportInfo_SessionFilePath`          | PrMemoryPtr | A `prUTF16Char` array. The exporter should release the pointer using the [Memory Manager Suite](../universals/sweetpea-suites.md#memory-manager-suite).                                                            |
-| `kExportInfo_VideoPosterFrameTickTime` | Int64       | New in CS5. A PrTime value.                                                                                                                                                                                        |
-| `kExportInfo_SourceTimecode`           | PrMemoryPtr | New in CS5.0.2. The timecode of the source clip or sequence.                                                                                                                                                       |
-|                                        |             | The sequence timecode is set by the Start Time of a sequence using the sequence wing-menu. A pointer to a ExporterTimecodeRec structure.                                                                           |
-|                                        |             | The exporter should release the pointer using the [Memory Manager Suite](../universals/sweetpea-suites.md#memory-manager-suite).                                                                                   |
-| `kExportInfo_UsePreviewFiles`          | Bool        | New in CC. Use this to check if the user has checked "Use Previews" in the Export Settings dialog.                                                                                                                 |
-| | | If so, if possible, reuse any preview files already rendered, which can be retrieved using `AcquireVideoSegmentsWithPreviewsID` in the [Video Segment Suite](../universals/sweetpea-suites.md#video-segment-suite). |
-| `kExportInfo_NumAudioChannels`         | Int32       | New in CC. Get the number of audio channels in a given source.                                                                                                                                                     |
-|                                        |             |                                                                                                                                                                                                                      This can be used to automatically initialize the audio channel parameter in the Audio tab of the Export Settings to match the source.                                                                              |
+| `kExportInfo_RenderAsPreview`          | Bool        | Returns a non-zero value if currently rendering preview files.                                                                                                                                                      |
+| `kExportInfo_SequenceGUID`             | Guid        | A `PrPluginID`, which is a unique GUID for the sequence.                                                                                                                                                            |
+| `kExportInfo_SessionFilePath`          | PrMemoryPtr | A `prUTF16Char` array. The exporter should release the pointer using the [Memory Manager Suite](../universals/sweetpea-suites.md#memory-manager-suite).                                                             |
+| `kExportInfo_VideoPosterFrameTickTime` | Int64       | New in CS5. A PrTime value.                                                                                                                                                                                         |
+| `kExportInfo_SourceTimecode`           | PrMemoryPtr | New in CS5.0.2. The timecode of the source clip or sequence.                                                                                                                                                        |
+|                                        |             | The sequence timecode is set by the Start Time of a sequence using the sequence wing-menu. A pointer to a ExporterTimecodeRec structure.                                                                            |
+|                                        |             | The exporter should release the pointer using the [Memory Manager Suite](../universals/sweetpea-suites.md#memory-manager-suite).                                                                                    |
+| `kExportInfo_UsePreviewFiles`          | Bool        | New in CC. Use this to check if the user has checked "Use Previews" in the Export Settings dialog.                                                                                                                  |
+|                                        |             | If so, if possible, reuse any preview files already rendered, which can be retrieved using `AcquireVideoSegmentsWithPreviewsID` in the [Video Segment Suite](../universals/sweetpea-suites.md#video-segment-suite). |
+| `kExportInfo_NumAudioChannels`         | Int32       | New in CC. Get the number of audio channels in a given source.                                                                                                                                                      |
+|                                        |             | This can be used to automatically initialize the audio channel parameter in the Audio tab of the Export Settings to match the source.                                                                               |
 
 ```cpp
 typedef struct {
@@ -69,7 +72,8 @@ Specify all parameters for your exporter UI. See PrSDKExportParamSuite.h.
 
 Also, see the SDK Export sample for a demonstration of how to use this suite.
 
-To provide either a set of radio buttons or a drop-down list of choices, use AddConstrainedValuePair().
+To provide either a set of radio buttons or a drop-down list of choices, use
+AddConstrainedValuePair().
 
 Adding two choices will result in a pair of radio buttons side-by-side.
 
@@ -77,29 +81,37 @@ Three or more choices will be displayed as a drop-down box.
 
 Adding only one value will result in a hard-coded string.
 
-In CS5, and later fixed in 5.0.2, there is an issue where width and height ranges aren't correctly set.
+In CS5, and later fixed in 5.0.2, there is an issue where width and height
+ranges aren't correctly set.
 
-You may notice this when adjusting the width and height in the Export Settings UI.
+You may notice this when adjusting the width and height in the Export Settings
+UI.
 
-By unclicking the chain that constrains width and height ratio, you will be able to modify the width and height.
+By unclicking the chain that constrains width and height ratio, you will be able
+to modify the width and height.
 
-As a side-effect of this bug, if the exporter is used to render preview files in an Editing Mode, the user will be able to choose any preview frame size between 24x24 and 10240x8192.
+As a side-effect of this bug, if the exporter is used to render preview files in
+an Editing Mode, the user will be able to choose any preview frame size between
+24x24 and 10240x8192.
 
 CS6 adds SetParamDescription(), to set tooltip strings for parameters.
 
-CC adds MoveParam(), to move an existing parameter to a new location. This can be used for both standard parameters and group parameters.
+CC adds MoveParam(), to move an existing parameter to a new location. This can
+be used for both standard parameters and group parameters.
 
 ---
 
 ## Export Progress Suite
 
-For pull-model exporters. Report progress during the export. Also, handle the case where the user pauses or cancels an export. See PrSDKExportProgressSuite.h.
+For pull-model exporters. Report progress during the export. Also, handle the
+case where the user pauses or cancels an export. See PrSDKExportProgressSuite.h.
 
 ---
 
 ## Export Standard Param Suite
 
-New in CS6. A suite for registering one of several common parameter sets, reducing parameter management code on the plugin side.
+New in CS6. A suite for registering one of several common parameter sets,
+reducing parameter management code on the plugin side.
 
 ### AddStandardParams
 
@@ -113,10 +125,10 @@ prSuiteError (*AddStandardParams)(
   PrSDKStdParamType  inSDKStdParamType);
 ```
 
-|       Member        | Description |
-|-|-|
-| `inExporterID`      | Pass in `exporterPluginID` from `exDoExportRec`.                                                                                                                                                                                                                                                                                                                   |
-| `inSDKStdParamType` | Use one of the following: |
+| Member              | Description                                                                                                                                                                                                                                                                                   |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `inExporterID`      | Pass in `exporterPluginID` from `exDoExportRec`.                                                                                                                                                                                                                                              |
+| `inSDKStdParamType` | Use one of the following:                                                                                                                                                                                                                                                                     |
 |                     | `enum PrSDKStdParamType {  SDKStdParams_Video,  SDKStdParams_Audio,  SDKStdParams_Still,  SDKStdParams_VideoBitrateGroup,  SDKStdParams_Video_NoRenderMax,  SDKStdParams_Video_AddRenderMax,  SDKStdParams_AudioTabOnly,  SDKStdParams_AudioBitrateGroup,  SDKStdParams_VideoWithSizePopup};` |
 
 ### PostProcessParamNames
@@ -129,9 +141,9 @@ prSuiteError (*PostProcessParamNames)(
   PrAudioChannelType  inSourceAudioChannelType);
 ```
 
-|           Member           |                                                             Description                                                              |
+| Member                     | Description                                                                                                                          |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| `inExporterID`             | Pass in `exporterPluginID` from `exDoExportRec`.                                                                                    |
+| `inExporterID`             | Pass in `exporterPluginID` from `exDoExportRec`.                                                                                     |
 | `inSourceAudioChannelType` | Pass in the source audio channel type, which can be queried from GetExportSourceInfo in the [Export Info Suite](#export-info-suite). |
 
 ### QueryOutputSettings
@@ -144,9 +156,9 @@ prSuiteError (*QueryOutputSettings)(
   exQueryOutputSettingsRec*  outOutputSettings);
 ```
 
-|       Member        |                                 Description                                 |
+| Member              | Description                                                                 |
 | ------------------- | --------------------------------------------------------------------------- |
-| `inExporterID`      | Pass in exporterPluginID from exDoExportRec.                               |
+| `inExporterID`      | Pass in exporterPluginID from exDoExportRec.                                |
 | `outOutputSettings` | This structure will be filled out based on the standard parameter settings. |
 
 ### MakeParamSummary
@@ -162,23 +174,27 @@ prSuiteError (*MakeParamSummary)(
   prUTF16Char*  outAudioDescription);
 ```
 
-|        Member         |                                                                Description                                                                 |
+| Member                | Description                                                                                                                                |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| `inExporterID`        | Pass in `exporterPluginID` from `exDoExportRec`.                                                                                          |
+| `inExporterID`        | Pass in `exporterPluginID` from `exDoExportRec`.                                                                                           |
 | `inDoVideo`           | Pass in `exParamSummaryRec.exportVideo` / `exportAudio` so that the summary will be set based on whether video / audio are being exported. |
 | `inDoAudio`           |                                                                                                                                            |
-| `outVideoDescription` | These will be filled out based on the standard parameter settings.                                                                        |
+| `outVideoDescription` | These will be filled out based on the standard parameter settings.                                                                         |
 | `outAudioDescription` |                                                                                                                                            |
 
 ---
 
 ## Exporter Utility Suite
 
-New in CS6. Provides functions for push-model exporters, and also provides a way to register an export event (error, warning, or info) to be displayed by the host and written to the log.
+New in CS6. Provides functions for push-model exporters, and also provides a way
+to register an export event (error, warning, or info) to be displayed by the
+host and written to the log.
 
 ### DoMultiPassExportLoop
 
-Register the callback to be made to push video frames to the exporter. This function assumes that your exporter supports `exSelQueryOutputSettings`, which will be called.
+Register the callback to be made to push video frames to the exporter. This
+function assumes that your exporter supports `exSelQueryOutputSettings`, which
+will be called.
 
 ```cpp
 prSuiteError (*DoMultiPassExportLoop)(
@@ -189,25 +205,26 @@ prSuiteError (*DoMultiPassExportLoop)(
   void*                                            inCompletionParam);
 ```
 
-|         Member         | Description |
-|-|-|
-| `inExporterID`         | Pass in `exporterPluginID` from `exDoExportRec`.                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `inRenderParams`       | Pass in the parameters that will be used for the render loop that will push rendered frames via the provided callback `inCompletionFunction`.                                                                                                                                                                                                                                                                                                         |
-|                        | `inReservedProgressPreRender` and `inReservedProgressPostRender` should be set to the amount of progress to be shown in any progress bar before starting the render loop, and how much is remaining after finishing the render loop.                                                                                                                                                                                                                  |
-|                        | These values default to zero.                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| Member                 | Description                                                                                                                                                                                                                                                                                                                                                                           |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `inExporterID`         | Pass in `exporterPluginID` from `exDoExportRec`.                                                                                                                                                                                                                                                                                                                                      |
+| `inRenderParams`       | Pass in the parameters that will be used for the render loop that will push rendered frames via the provided callback `inCompletionFunction`.                                                                                                                                                                                                                                         |
+|                        | `inReservedProgressPreRender` and `inReservedProgressPostRender` should be set to the amount of progress to be shown in any progress bar before starting the render loop, and how much is remaining after finishing the render loop.                                                                                                                                                  |
+|                        | These values default to zero.                                                                                                                                                                                                                                                                                                                                                         |
 |                        | `typedef struct {  csSDK_int32    inRenderParamsSize;  csSDK_int32    inRenderParamsVersion;  PrPixelFormat  inFinalPixelFormat;  PrTime         inStartTime;  PrTime         inEndTime;  float          inReservedProgressPreRender;  float          inReservedProgressPostRender;  bool           inHardwareResidentFrameOutputSupported;  // new in 14.x} ExportLoopRenderParams;` |
-| `inNumberOfPasses`     | Set to 1, unless you need multipass encoding such as two-pass or three-pass encoding.                                                                                                                                                                                                                                                                                                                                                                 |
-| `inCompletionFunction` | Provide your own callback here, which will be called when the host pushes rendered frames. Use the following function signature:                                                                                                                                                                                                                                                                                                                       |
-|                        | `typedef prSuiteError (*PrSDKMultipassExportLoop FrameCompletionFunction)(  csSDK_uint32  inWhichPass,  csSDK_uint32  inFrameNumber,  csSDK_uint32  inFrameRepeatCount,  PPixHand      inRenderedFrame,  void*         inCallbackData);`                                                                                                                                                                 |
-|                        | Currently, there is no simple way to ensure that pushed frames survive longer than the life of the function call.                                                                                                                                                                                                                                                                                                                                     |
-|                        | If you are interested in this capability, please contact us and explain your need.                                                                                                                                                                                                                                                                                                                                                                    |
-| `inCompletionParam`    | Pass in a void * to the data you wish to send to your `inCompletionFunction` above in `inCallbackData`.                                                                                                                                                                                                                                                                                                                                              |
+| `inNumberOfPasses`     | Set to 1, unless you need multipass encoding such as two-pass or three-pass encoding.                                                                                                                                                                                                                                                                                                 |
+| `inCompletionFunction` | Provide your own callback here, which will be called when the host pushes rendered frames. Use the following function signature:                                                                                                                                                                                                                                                      |
+|                        | `typedef prSuiteError (*PrSDKMultipassExportLoop FrameCompletionFunction)(  csSDK_uint32  inWhichPass,  csSDK_uint32  inFrameNumber,  csSDK_uint32  inFrameRepeatCount,  PPixHand      inRenderedFrame,  void*         inCallbackData);`                                                                                                                                              |
+|                        | Currently, there is no simple way to ensure that pushed frames survive longer than the life of the function call.                                                                                                                                                                                                                                                                     |
+|                        | If you are interested in this capability, please contact us and explain your need.                                                                                                                                                                                                                                                                                                    |
+| `inCompletionParam`    | Pass in a void \* to the data you wish to send to your `inCompletionFunction` above in `inCallbackData`.                                                                                                                                                                                                                                                                              |
 
 ### ReportIntermediateProgressForRepeatedVideoFrame
 
 Register the callback to be made to push video frames to the exporter.
 
-This function assumes that your exporter supports `exSelQueryOutputSettings`, which will be called.
+This function assumes that your exporter supports `exSelQueryOutputSettings`,
+which will be called.
 
 ```cpp
 prSuiteError (*ReportIntermediateProgressForRepeatedVideoFrame)(
@@ -215,16 +232,18 @@ prSuiteError (*ReportIntermediateProgressForRepeatedVideoFrame)(
   csSDK_uint32  inRepetitionsProcessedSinceLastUpdate);
 ```
 
-|                 Member                  |                                      Description                                      |
+| Member                                  | Description                                                                           |
 | --------------------------------------- | ------------------------------------------------------------------------------------- |
-| `inExporterID`                          | Pass in `exporterPluginID` from `exDoExportRec`.                                     |
+| `inExporterID`                          | Pass in `exporterPluginID` from `exDoExportRec`.                                      |
 | `inRepetitionsProcessedSinceLastUpdate` | Pass in the number of repeated frames processed since the last call was made, if any. |
 
 ### ReportEvent
 
-Report an event to the host, for a specific encode in progress in the Adobe Media Encoder render queue or Premiere Pro.
+Report an event to the host, for a specific encode in progress in the Adobe
+Media Encoder render queue or Premiere Pro.
 
-These events are displayed in the application UI, and are also added to the AME encoding log.
+These events are displayed in the application UI, and are also added to the AME
+encoding log.
 
 ```cpp
 prSuiteError (*ReportEvent)(
@@ -234,21 +253,22 @@ prSuiteError (*ReportEvent)(
   const prUTF16Char*  inEventDescription);
 ```
 
-|        Member        |                                        Description                                         |
-|-|-|
-| `inExporterID`       | Pass in `exporterPluginID` from `exDoExportRec`.                                          |
+| Member               | Description                                                                                |
+| -------------------- | ------------------------------------------------------------------------------------------ |
+| `inExporterID`       | Pass in `exporterPluginID` from `exDoExportRec`.                                           |
 | `inEventType`        | Use one of the types from the [Error Suite](../universals/sweetpea-suites.md#error-suite): |
-|                      | `kEventTypeInformational`                                                                |
-|                      | `kEventTypeWarning`                                                                      |
-|                      | `kEventTypeError`                                                                        |
-| `inEventTitle`       | Provide information about the event for the user.                                         |
+|                      | `kEventTypeInformational`                                                                  |
+|                      | `kEventTypeWarning`                                                                        |
+|                      | `kEventTypeError`                                                                          |
+| `inEventTitle`       | Provide information about the event for the user.                                          |
 | `inEventDescription` |                                                                                            |
 
 ---
 
 ## Palette Suite
 
-A seldom-used suite for palettizing an image, for example, for GIFs. See PrSDKPaletteSuite.h.
+A seldom-used suite for palettizing an image, for example, for GIFs. See
+PrSDKPaletteSuite.h.
 
 ---
 
@@ -270,14 +290,14 @@ prSuiteError (*MakeAudioRenderer)(
   csSDK_uint32*       outAudioRenderID);
 ```
 
-|       Member       |                                     Description                                     |
+| Member             | Description                                                                         |
 | ------------------ | ----------------------------------------------------------------------------------- |
-| `inPluginID`       | Pass in `exporterPluginID` from `exDoExportRec`.                                   |
-| `inStartTime`      | Start time for the audio requests.                                                 |
-| `inChannelType`    | `PrAudioChannelType` enum value for the channel type needed.                       |
+| `inPluginID`       | Pass in `exporterPluginID` from `exDoExportRec`.                                    |
+| `inStartTime`      | Start time for the audio requests.                                                  |
+| `inChannelType`    | `PrAudioChannelType` enum value for the channel type needed.                        |
 | `inSampleType`     | This should always be `kPrAudioSampleType_32BitFloat`. Other types are unsupported. |
-| `inSampleRate`     | Samples per second.                                                                |
-| `outAudioRenderID` | This ID passed back is needed for subsequent calls to this suite.                  |
+| `inSampleRate`     | Samples per second.                                                                 |
+| `outAudioRenderID` | This ID passed back is needed for subsequent calls to this suite.                   |
 
 ### ReleaseAudioRenderer
 
@@ -289,20 +309,25 @@ prSuiteError (*ReleaseAudioRenderer)(
   csSDK_uint32  inAudioRenderID);
 ```
 
-|      Member       |                      Description                       |
+| Member            | Description                                            |
 | ----------------- | ------------------------------------------------------ |
-| `inPluginID`      | Pass in `exporterPluginID` from `exDoExportRec`.      |
+| `inPluginID`      | Pass in `exporterPluginID` from `exDoExportRec`.       |
 | `inAudioRenderID` | The call will release the audio renderer with this ID. |
 
 ### GetAudio
 
-Returns from the host the next contiguous requested number of audio sample frames, specified in inFrameCount, in inBuffer as arrays of uninterleaved floating point values.
+Returns from the host the next contiguous requested number of audio sample
+frames, specified in inFrameCount, in inBuffer as arrays of uninterleaved
+floating point values.
 
 Returns `suiteError_NoError` if no error.
 
-The plugin must manage the memory allocation of inBuffer, which must point to n buffers of floating point values of length inFrameCount, where n is the number of channels.
+The plugin must manage the memory allocation of inBuffer, which must point to n
+buffers of floating point values of length inFrameCount, where n is the number
+of channels.
 
-When inClipAudio is non-zero, this parameter makes GetAudio clip the audio samples at +/- 1.0.
+When inClipAudio is non-zero, this parameter makes GetAudio clip the audio
+samples at +/- 1.0.
 
 ```cpp
 prSuiteError (*GetAudio)(
@@ -312,19 +337,20 @@ prSuiteError (*GetAudio)(
   char          inClipAudio);
 ```
 
-|      Member       |                                                  Description                                                   |
-|-|-|
-| `inAudioRenderID` | Pass in the `outAudioRenderID` returned from `MakeAudioRenderer()`.                                           |
-|                   | This gives the host the context of the audio render.                                                          |
-| `inFrameCount`    | The number of audio frames to return in inBuffer.                                                             |
+| Member            | Description                                                                                                    |
+| ----------------- | -------------------------------------------------------------------------------------------------------------- |
+| `inAudioRenderID` | Pass in the `outAudioRenderID` returned from `MakeAudioRenderer()`.                                            |
+|                   | This gives the host the context of the audio render.                                                           |
+| `inFrameCount`    | The number of audio frames to return in inBuffer.                                                              |
 |                   | The next contiguous audio frames will always be returned, unless `ResetAudioToBeginning` has just been called. |
-| `inBuffer`        | An array of float arrays, allocated by the exporter.                                                          |
-|                   | The host returns the samples for each audio channel in a separate array.                                      |
-| `inClipAudio`     | When true, `GetAudio` will return audio clipped at +/- 1.0. Otherwise, it will return unclipped audio.        |
+| `inBuffer`        | An array of float arrays, allocated by the exporter.                                                           |
+|                   | The host returns the samples for each audio channel in a separate array.                                       |
+| `inClipAudio`     | When true, `GetAudio` will return audio clipped at +/- 1.0. Otherwise, it will return unclipped audio.         |
 
 ### ResetAudioToBeginning
 
-This call will reset the position on the audio generation to time zero. This can be used for multipass encoding.
+This call will reset the position on the audio generation to time zero. This can
+be used for multipass encoding.
 
 ```cpp
 prSuiteError (*ResetAudioToBeginning)(
@@ -333,7 +359,8 @@ prSuiteError (*ResetAudioToBeginning)(
 
 ### GetMaxBlip
 
-Returns the maximum number of audio sample frames that can be requested from one call to `GetAudio` in `maxBlipSize`.
+Returns the maximum number of audio sample frames that can be requested from one
+call to `GetAudio` in `maxBlipSize`.
 
 ```cpp
 prSuiteError (*GetMaxBlip)(
@@ -346,7 +373,10 @@ prSuiteError (*GetMaxBlip)(
 
 ## Sequence Render Suite
 
-Get rendered video from one of the renderers available to the host. This may use one of the host's built-in renderers, or a plugin renderer, if available For best performance, use the asynchronous render requests with the source media prefetching calls, although synchronous rendering is available too.
+Get rendered video from one of the renderers available to the host. This may use
+one of the host's built-in renderers, or a plugin renderer, if available For
+best performance, use the asynchronous render requests with the source media
+prefetching calls, although synchronous rendering is available too.
 
 Version 4, new in CS5.5, adds `RenderVideoFrameAndConformToPixelFormat()`.
 
@@ -361,11 +391,11 @@ prSuiteError (*MakeVideoRenderer)(
   PrTime         inFrameRate);
 ```
 
-|       Member       |                            Description                            |
+| Member             | Description                                                       |
 | ------------------ | ----------------------------------------------------------------- |
-| `pluginID`         | Pass in `exporterPluginID` from `exDoExportRec`.                 |
+| `pluginID`         | Pass in `exporterPluginID` from `exDoExportRec`.                  |
 | `outVideoRenderID` | This ID passed back is needed for subsequent calls to this suite. |
-| `inFrameRate`      | Frame rate, in ticks.                                            |
+| `inFrameRate`      | Frame rate, in ticks.                                             |
 
 ### ReleaseVideoRenderer()
 
@@ -377,17 +407,19 @@ prSuiteError (*ReleaseVideoRenderer)(
   csSDK_uint32  inVideoRenderID);
 ```
 
-|      Member       |                      Description                       |
+| Member            | Description                                            |
 | ----------------- | ------------------------------------------------------ |
-| `pluginID`        | Pass in `exporterPluginID` from `exDoExportRec`.      |
+| `pluginID`        | Pass in `exporterPluginID` from `exDoExportRec`.       |
 | `inVideoRenderID` | The call will release the video renderer with this ID. |
 
 ### struct SequenceRender_ParamsRec
 
-Fill this structure in before calling `RenderVideoFrame()`, `QueueAsyncVideoFrameRender()`, or `PrefetchMediaWithRenderParameters()`.
+Fill this structure in before calling `RenderVideoFrame()`,
+`QueueAsyncVideoFrameRender()`, or `PrefetchMediaWithRenderParameters()`.
 
-!!! note
-    If the frame aspect ratio of the request does not match that of the sequence, the frame will be letterboxed or pillarboxed, rather than stretched to fit the frame.
+!!! note If the frame aspect ratio of the request does not match that of the
+sequence, the frame will be letterboxed or pillarboxed, rather than stretched to
+fit the frame.
 
 ```cpp
 typedef struct {
@@ -405,26 +437,28 @@ typedef struct {
 } SequenceRender_ParamsRec;
 ```
 
-|               Member               |                                                                                      Description                                                                                       |
+| Member                             | Description                                                                                                                                                                            |
 | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `inRequestedPixelFormatArray`      | An array of PrPixelFormats that list your format preferences in order.                                                                                                                |
-| `inRequestedPixelFormatArrayCount` | Size of the pixel format array.                                                                                                                                                       |
-| `inWidth`                          | Width to render at.                                                                                                                                                                   |
-| `inHeight`                         | Height to render at.                                                                                                                                                                  |
-| `inPixelAspectRatioNumerator`      | Numerator of the pixel aspect ratio.                                                                                                                                                  |
-| `inPixelAspectRatioDenominator`    | Denominator of the pixel aspect ratio.                                                                                                                                                |
-| `inRenderQuality`                  | Use one of the PrRenderQuality enumerated values.                                                                                                                                     |
-| `inFieldType`                      | Use one of the prFieldType constants.                                                                                                                                                 |
+| `inRequestedPixelFormatArray`      | An array of PrPixelFormats that list your format preferences in order.                                                                                                                 |
+| `inRequestedPixelFormatArrayCount` | Size of the pixel format array.                                                                                                                                                        |
+| `inWidth`                          | Width to render at.                                                                                                                                                                    |
+| `inHeight`                         | Height to render at.                                                                                                                                                                   |
+| `inPixelAspectRatioNumerator`      | Numerator of the pixel aspect ratio.                                                                                                                                                   |
+| `inPixelAspectRatioDenominator`    | Denominator of the pixel aspect ratio.                                                                                                                                                 |
+| `inRenderQuality`                  | Use one of the PrRenderQuality enumerated values.                                                                                                                                      |
+| `inFieldType`                      | Use one of the prFieldType constants.                                                                                                                                                  |
 | `inDeinterlace`                    | Set to non-zero, to force an explicit deinterlace. Otherwise, the renderer will use the output field setting to determine whether to automatically deinterlace any interlaced sources. |
-| `inDeinterlaceQuality`             | Use one of the PrRenderQuality enumerated values.                                                                                                                                     |
-| `inCompositeOnBlack`               | Set to non-zero, to composite the render on black.                                                                                                                                    |
+| `inDeinterlaceQuality`             | Use one of the PrRenderQuality enumerated values.                                                                                                                                      |
+| `inCompositeOnBlack`               | Set to non-zero, to composite the render on black.                                                                                                                                     |
 
 ### struct SequenceRender_ParamsRecExt
 
-Fill this structure in before calling `RenderVideoFrame()`, `QueueAsyncVideoFrameRender()`, or `PrefetchMediaWithRenderParameters()`.
+Fill this structure in before calling `RenderVideoFrame()`,
+`QueueAsyncVideoFrameRender()`, or `PrefetchMediaWithRenderParameters()`.
 
-!!! note
-    If the frame aspect ratio of the request does not match that of the sequence, the frame will be letterboxed or pillarboxed, rather than stretched to fit the frame.
+!!! note If the frame aspect ratio of the request does not match that of the
+sequence, the frame will be letterboxed or pillarboxed, rather than stretched to
+fit the frame.
 
 ```cpp
 typedef struct {
@@ -443,27 +477,29 @@ typedef struct {
 } SequenceRender_ParamsRecExt;
 ```
 
-|               Member               |                                                                                      Description                                                                                       |
+| Member                             | Description                                                                                                                                                                            |
 | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `inRequestedPixelFormatArray`      | An array of PrPixelFormats that list your format preferences in order.                                                                                                                |
-| `inRequestedPixelFormatArrayCount` | Size of the pixel format array.                                                                                                                                                       |
-| `inWidth`                          | Width to render at.                                                                                                                                                                   |
-| `inHeight`                         | Height to render at.                                                                                                                                                                  |
-| `inPixelAspectRatioNumerator`      | Numerator of the pixel aspect ratio.                                                                                                                                                  |
-| `inPixelAspectRatioDenominator`    | Denominator of the pixel aspect ratio.                                                                                                                                                |
-| `inRenderQuality`                  | Use one of the PrRenderQuality enumerated values.                                                                                                                                     |
-| `inFieldType`                      | Use one of the prFieldType constants.                                                                                                                                                 |
+| `inRequestedPixelFormatArray`      | An array of PrPixelFormats that list your format preferences in order.                                                                                                                 |
+| `inRequestedPixelFormatArrayCount` | Size of the pixel format array.                                                                                                                                                        |
+| `inWidth`                          | Width to render at.                                                                                                                                                                    |
+| `inHeight`                         | Height to render at.                                                                                                                                                                   |
+| `inPixelAspectRatioNumerator`      | Numerator of the pixel aspect ratio.                                                                                                                                                   |
+| `inPixelAspectRatioDenominator`    | Denominator of the pixel aspect ratio.                                                                                                                                                 |
+| `inRenderQuality`                  | Use one of the PrRenderQuality enumerated values.                                                                                                                                      |
+| `inFieldType`                      | Use one of the prFieldType constants.                                                                                                                                                  |
 | `inDeinterlace`                    | Set to non-zero, to force an explicit deinterlace. Otherwise, the renderer will use the output field setting to determine whether to automatically deinterlace any interlaced sources. |
-| `inDeinterlaceQuality`             | Use one of the PrRenderQuality enumerated values.                                                                                                                                     |
-| `inCompositeOnBlack`               | Set to non-zero, to composite the render on black.                                                                                                                                    |
-| `inPrSDKColorSpaceID`              | Identifies the color space being used.                                                                                                                                                |
+| `inDeinterlaceQuality`             | Use one of the PrRenderQuality enumerated values.                                                                                                                                      |
+| `inCompositeOnBlack`               | Set to non-zero, to composite the render on black.                                                                                                                                     |
+| `inPrSDKColorSpaceID`              | Identifies the color space being used.                                                                                                                                                 |
 
 ### struct SequenceRender_ParamsRecExt2
 
-Fill this structure in before calling `RenderVideoFrame()`, `QueueAsyncVideoFrameRender()`, or `PrefetchMediaWithRenderParameters()`.
+Fill this structure in before calling `RenderVideoFrame()`,
+`QueueAsyncVideoFrameRender()`, or `PrefetchMediaWithRenderParameters()`.
 
-!!! note
-    If the frame aspect ratio of the request does not match that of the sequence, the frame will be letterboxed or pillarboxed, rather than stretched to fit the frame.
+!!! note If the frame aspect ratio of the request does not match that of the
+sequence, the frame will be letterboxed or pillarboxed, rather than stretched to
+fit the frame.
 
 ```cpp
 typedef struct {
@@ -483,25 +519,26 @@ typedef struct {
 } SequenceRender_ParamsRecExt2;
 ```
 
-|               Member               |                                                                                      Description                                                                                       |
+| Member                             | Description                                                                                                                                                                            |
 | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `inRequestedPixelFormatArray`      | An array of PrPixelFormats that list your format preferences in order.                                                                                                                |
-| `inRequestedPixelFormatArrayCount` | Size of the pixel format array.                                                                                                                                                       |
-| `inWidth`                          | Width to render at.                                                                                                                                                                   |
-| `inHeight`                         | Height to render at.                                                                                                                                                                  |
-| `inPixelAspectRatioNumerator`      | Numerator of the pixel aspect ratio.                                                                                                                                                  |
-| `inPixelAspectRatioDenominator`    | Denominator of the pixel aspect ratio.                                                                                                                                                |
-| `inRenderQuality`                  | Use one of the PrRenderQuality enumerated values.                                                                                                                                     |
-| `inFieldType`                      | Use one of the prFieldType constants.                                                                                                                                                 |
+| `inRequestedPixelFormatArray`      | An array of PrPixelFormats that list your format preferences in order.                                                                                                                 |
+| `inRequestedPixelFormatArrayCount` | Size of the pixel format array.                                                                                                                                                        |
+| `inWidth`                          | Width to render at.                                                                                                                                                                    |
+| `inHeight`                         | Height to render at.                                                                                                                                                                   |
+| `inPixelAspectRatioNumerator`      | Numerator of the pixel aspect ratio.                                                                                                                                                   |
+| `inPixelAspectRatioDenominator`    | Denominator of the pixel aspect ratio.                                                                                                                                                 |
+| `inRenderQuality`                  | Use one of the PrRenderQuality enumerated values.                                                                                                                                      |
+| `inFieldType`                      | Use one of the prFieldType constants.                                                                                                                                                  |
 | `inDeinterlace`                    | Set to non-zero, to force an explicit deinterlace. Otherwise, the renderer will use the output field setting to determine whether to automatically deinterlace any interlaced sources. |
-| `inDeinterlaceQuality`             | Use one of the PrRenderQuality enumerated values.                                                                                                                                     |
-| `inCompositeOnBlack`               | Set to non-zero, to composite the render on black.                                                                                                                                    |
-| `inPrSDKColorSpaceID`              | New in 13.0. Identifies the color space being used.                                                                                                                                   |
-| `inPrSDKLUTID`                     | New in 14.4. Identifies the color space being used.                                                                                                                                   |
+| `inDeinterlaceQuality`             | Use one of the PrRenderQuality enumerated values.                                                                                                                                      |
+| `inCompositeOnBlack`               | Set to non-zero, to composite the render on black.                                                                                                                                     |
+| `inPrSDKColorSpaceID`              | New in 13.0. Identifies the color space being used.                                                                                                                                    |
+| `inPrSDKLUTID`                     | New in 14.4. Identifies the color space being used.                                                                                                                                    |
 
 ### struct SequenceRender_GetFrameReturnRec
 
-Returned from `RenderVideoFrame()` and passed by `PrSDKSequenceAsyncRenderCompletionProc()`.
+Returned from `RenderVideoFrame()` and passed by
+`PrSDKSequenceAsyncRenderCompletionProc()`.
 
 ```cpp
 typedef struct {
@@ -513,14 +550,14 @@ typedef struct {
 } SequenceRender_GetFrameReturnRec;
 ```
 
-|        Member         |                                                                   Description                                                                    |
-|-|-|
-| `asyncCompletionData` | Passed to `PrSDKSequenceAsyncRenderCompletionProc()` from `QueueAsyncVideoFrameRender()`.                                                       |
-|                       | Not used by `RenderVideoFrame()`.                                                                                                               |
-| `returnVal`           | `ErrNone`, `Abort`, `Done`, or an error code.                                                                                                   |
-| `repeatCount`         | The number of repeated frames from this frame forward.                                                                                          |
+| Member                | Description                                                                                                                                      |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `asyncCompletionData` | Passed to `PrSDKSequenceAsyncRenderCompletionProc()` from `QueueAsyncVideoFrameRender()`.                                                        |
+|                       | Not used by `RenderVideoFrame()`.                                                                                                                |
+| `returnVal`           | `ErrNone`, `Abort`, `Done`, or an error code.                                                                                                    |
+| `repeatCount`         | The number of repeated frames from this frame forward.                                                                                           |
 |                       | In the output file, this could be writing NULL frames, changing the current frame's duration, or whatever is appropriate according to the codec. |
-| `onMarker`            | If non-zero, there is a marker on this frame.                                                                                                   |
+| `onMarker`            | If non-zero, there is a marker on this frame.                                                                                                    |
 | `outFrame`            | Returned from `RenderVideoFrame()`. Not returned from `PrSDKSequenceAsyncRenderCompletionProc()`                                                 |
 
 ### RenderVideoFrame()
@@ -543,20 +580,21 @@ prSuiteError (*RenderVideoFrame)(
   SequenceRender_GetFrameReturnRec*  getFrameReturn);
 ```
 
-|      Member       |                                             Description                                             |
-|-|-|
-| `inVideoRenderID` | Pass in the `outVideoRenderID` returned from `MakeVideoRenderer()`.                                |
-|                   | This gives the host the context of the video render.                                               |
-| `inTime`          | The frame time requested.                                                                          |
-| `inRenderParams`  | The details of the render.                                                                         |
-| `inCacheFlags`    | One or more cache flags.                                                                           |
+| Member            | Description                                                                                         |
+| ----------------- | --------------------------------------------------------------------------------------------------- |
+| `inVideoRenderID` | Pass in the `outVideoRenderID` returned from `MakeVideoRenderer()`.                                 |
+|                   | This gives the host the context of the video render.                                                |
+| `inTime`          | The frame time requested.                                                                           |
+| `inRenderParams`  | The details of the render.                                                                          |
+| `inCacheFlags`    | One or more cache flags.                                                                            |
 | `getFrameReturn`  | Passes back a structure that contains info about the frame returned, and the rendered frame itself. |
 
 ### GetFrameInfo()
 
 Gets information about a given frame.
 
-Currently, `SequenceRender_FrameInfoRec` only contains `repeatCount`, which is the number of repeated frames from this frame forward.
+Currently, `SequenceRender_FrameInfoRec` only contains `repeatCount`, which is
+the number of repeated frames from this frame forward.
 
 ```cpp
 prSuiteError (*GetFrameInfo)(
@@ -567,9 +605,11 @@ prSuiteError (*GetFrameInfo)(
 
 ### SetAsyncRenderCompletionProc()
 
-Register a notification callback for getting asynchronously rendered frames when the render completes.
+Register a notification callback for getting asynchronously rendered frames when
+the render completes.
 
-`asyncGetFrameCallback` should have the signature described in `PrSDKSequenceAsyncRenderCompletionProc` below.
+`asyncGetFrameCallback` should have the signature described in
+`PrSDKSequenceAsyncRenderCompletionProc` below.
 
 ```cpp
 prSuiteError (*SetAsyncRenderCompletionProc)(
@@ -578,17 +618,18 @@ prSuiteError (*SetAsyncRenderCompletionProc)(
   long                                    callbackRef);
 ```
 
-|         Member          |                                                             Description                                                              |
-|-|-|
-| `inVideoRenderID`       | Pass in the `outVideoRenderID` returned from `MakeVideoRenderer()`.                                                                 |
-|                         | This will be passed to `PrSDKSequenceAsyncRenderCompletionProc`.                                                                    |
-| `asyncGetFrameCallback` | The notification callback.                                                                                                          |
-| `inCallbackRef`         | A pointer holding data private to the exporter.                                                                                     |
+| Member                  | Description                                                                                                                          |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `inVideoRenderID`       | Pass in the `outVideoRenderID` returned from `MakeVideoRenderer()`.                                                                  |
+|                         | This will be passed to `PrSDKSequenceAsyncRenderCompletionProc`.                                                                     |
+| `asyncGetFrameCallback` | The notification callback.                                                                                                           |
+| `inCallbackRef`         | A pointer holding data private to the exporter.                                                                                      |
 |                         | This could be, for example, a pointer to an exporter instance. This will also be passed to `PrSDKSequenceAsyncRenderCompletionProc`. |
 
 ### PrSDKSequenceAsyncRenderCompletionProc()
 
-Use this function signature for your callback used for async frame notification, passed to `SetAsyncRenderCompletionProc`.
+Use this function signature for your callback used for async frame notification,
+passed to `SetAsyncRenderCompletionProc`.
 
 Error status (error or abort) is returned in `inGetFrameReturn`.
 
@@ -601,22 +642,24 @@ void (*PrSDKSequenceAsyncRenderCompletionProc)(
   SequenceRender_GetFrameReturnRec  *inGetFrameReturn);
 ```
 
-|       Member       |                                                                                 Description                                                                                  |
-|-|-|
-| `inVideoRenderID`  | The outVideoRenderID that the exporter passed to `SetAsyncRenderCompletionProc` earlier.                                                                                    |
-| `inCallbackRef`    | A pointer that the exporter sets using `SetAsyncRenderCompletionProc()`.                                                                                                    |
-|                    | This could be, for example, a pointer to an exporter instance.                                                                                                              |
-| `inTime`           | The frame time requested.                                                                                                                                                   |
+| Member             | Description                                                                                                                                                                  |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `inVideoRenderID`  | The outVideoRenderID that the exporter passed to `SetAsyncRenderCompletionProc` earlier.                                                                                     |
+| `inCallbackRef`    | A pointer that the exporter sets using `SetAsyncRenderCompletionProc()`.                                                                                                     |
+|                    | This could be, for example, a pointer to an exporter instance.                                                                                                               |
+| `inTime`           | The frame time requested.                                                                                                                                                    |
 | `inRenderedFrame`  | The rendered frame. The exporter is reponsible for `disposing` of this PPixHand using the `Dispose()` call in the [PPix Suite](../universals/sweetpea-suites.md#ppix-suite). |
-| `inGetFrameReturn` | A structure that contains info about the frame returned, and it includes the `inAsyncCompletionData` originally passed to `QueueAsyncVideoFrameRender()`.                   |
+| `inGetFrameReturn` | A structure that contains info about the frame returned, and it includes the `inAsyncCompletionData` originally passed to `QueueAsyncVideoFrameRender()`.                    |
 
 ### QueueAsyncVideoFrameRender()
 
-Use this call rather than `RenderVideoFrame()` to queue up a request to render a specific frame asynchronously.
+Use this call rather than `RenderVideoFrame()` to queue up a request to render a
+specific frame asynchronously.
 
 The rendering can happen on a separate thread or processor.
 
-When the render is completed, the `PrSDKSequenceAsyncRenderCompletionProc` that was set using `SetAsyncRenderCompletionProc` will be called.
+When the render is completed, the `PrSDKSequenceAsyncRenderCompletionProc` that
+was set using `SetAsyncRenderCompletionProc` will be called.
 
 ```cpp
 prSuiteError (*QueueAsyncVideoFrameRender)(
@@ -628,19 +671,20 @@ prSuiteError (*QueueAsyncVideoFrameRender)(
   void*                      inAsyncCompletionData);
 ```
 
-|         Member          |                                                     Description                                                     |
-|-|-|
-| `inVideoRenderID`       | Pass in the `outVideoRenderID` returned from `MakeVideoRenderer()`.                                                |
-|                         | This gives the host the context of the video render.                                                               |
-| `inTime`                | The frame time requested.                                                                                          |
-| `outRequestID`          | Passes back a request ID, which… doesn't seem to have any use.                                                     |
-| `inRenderParams`        | The details of the render.                                                                                         |
-| `inCacheFlags`          | One or more cache flags.                                                                                           |
+| Member                  | Description                                                                                                         |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `inVideoRenderID`       | Pass in the `outVideoRenderID` returned from `MakeVideoRenderer()`.                                                 |
+|                         | This gives the host the context of the video render.                                                                |
+| `inTime`                | The frame time requested.                                                                                           |
+| `outRequestID`          | Passes back a request ID, which… doesn't seem to have any use.                                                      |
+| `inRenderParams`        | The details of the render.                                                                                          |
+| `inCacheFlags`          | One or more cache flags.                                                                                            |
 | `inAsyncCompletionData` | This data will be passed to the `PrSDKSequenceAsyncRenderCompletionProc` in `inGetFrameReturn.asyncCompletionData`. |
 
 ### PrefetchMedia()
 
-Prefetch the media needed to render this frame. This is a hint to the importers to begin reading media needed to render this video frame.
+Prefetch the media needed to render this frame. This is a hint to the importers
+to begin reading media needed to render this video frame.
 
 ```cpp
 prSuiteError (*PrefetchMedia)(
@@ -650,9 +694,11 @@ prSuiteError (*PrefetchMedia)(
 
 ### PrefetchMediaWithRenderParameters()
 
-Prefetch the media needed to render this frame, using all of the parameters used to render the frame.
+Prefetch the media needed to render this frame, using all of the parameters used
+to render the frame.
 
-This is a hint to the importers to begin reading media needed to render this video frame.
+This is a hint to the importers to begin reading media needed to render this
+video frame.
 
 ```cpp
 prSuiteError (*PrefetchMediaWithRenderParameters)(
@@ -697,7 +743,8 @@ prSuiteError (*MakeVideoRendererForTimeline)(
 
 ### MakeVideoRendererForTimelineWithFrameRate()
 
-Similar to MakeVideoRendererForTimeline, with an additional frame rate parameter.
+Similar to MakeVideoRendererForTimeline, with an additional frame rate
+parameter.
 
 This is useful for the case of a nested multicam sequence.
 
@@ -710,7 +757,8 @@ prSuiteError (*MakeVideoRendererForTimelineWithFrameRate)(
 
 ### ReleaseVideoRendererForTimeline()
 
-Similar to ReleaseVideoRenderer, but for use by renderer plugins. Release the video renderer when the renderer plugin is done requesting video.
+Similar to ReleaseVideoRenderer, but for use by renderer plugins. Release the
+video renderer when the renderer plugin is done requesting video.
 
 ```cpp
 prSuiteError (*ReleaseVideoRendererForTimeline)(
@@ -719,7 +767,8 @@ prSuiteError (*ReleaseVideoRendererForTimeline)(
 
 ### RenderVideoFrameAndConformToPixelFormat()
 
-New in CS5.5. Similar to RenderVideoFrame., but conforms the resulting frame to a specific pixel format.
+New in CS5.5. Similar to RenderVideoFrame., but conforms the resulting frame to
+a specific pixel format.
 
 Allows an exporter to request a frame in a specific pixel format.
 
@@ -786,7 +835,8 @@ prSuiteError (*PrefetchColorManagedMedia)(
 
 ### PrefetchColorManagedMediaWithRenderParameters()
 
-Pre-fetches a frame of color-managed media, using the specified render parameters.
+Pre-fetches a frame of color-managed media, using the specified render
+parameters.
 
 ```cpp
 prSuiteError (*PrefetchColorManagedMediaWithRenderParameters)(
@@ -811,7 +861,8 @@ prSuiteError (*RenderColorManagedVideoFrameAndConformToPixelFormat)(
 
 ### RenderColorManagedVideoFrame2()
 
-Renders a frame of color-managed media, to the specified pixel format, using settings specified in SequenceRender_ParamsRecExt2.
+Renders a frame of color-managed media, to the specified pixel format, using
+settings specified in SequenceRender_ParamsRecExt2.
 
 ```cpp
 prSuiteError (*RenderColorManagedVideoFrame2)(
@@ -824,7 +875,8 @@ prSuiteError (*RenderColorManagedVideoFrame2)(
 
 ### QueueAsyncColorManagedVideoFrameRender2()
 
-Queues a request for a frame of color-managed media, to the specified pixel format, using settings specified in SequenceRender_ParamsRecExt2.
+Queues a request for a frame of color-managed media, to the specified pixel
+format, using settings specified in SequenceRender_ParamsRecExt2.
 
 ```cpp
 prSuiteError (*QueueAsyncColorManagedVideoFrameRender2)(
@@ -838,7 +890,8 @@ prSuiteError (*QueueAsyncColorManagedVideoFrameRender2)(
 
 ### PrefetchColorManagedMediaWithRenderParameters2()
 
-Pre-fetches a request for a frame of color-managed media, to the specified pixel format, using settings specified in SequenceRender_ParamsRecExt2.
+Pre-fetches a request for a frame of color-managed media, to the specified pixel
+format, using settings specified in SequenceRender_ParamsRecExt2.
 
 ```cpp
 prSuiteError(*PrefetchColorManagedMediaWithRenderParameters2)(
@@ -849,7 +902,8 @@ prSuiteError(*PrefetchColorManagedMediaWithRenderParameters2)(
 
 ### RenderColorManagedVideoFrameAndConformToPixelFormat2()
 
-Renders a frame of color-managed media, to the specified pixel format, using settings specified in SequenceRender_ParamsRecExt2.
+Renders a frame of color-managed media, to the specified pixel format, using
+settings specified in SequenceRender_ParamsRecExt2.
 
 ```cpp
 prSuiteError (*RenderColorManagedVideoFrameAndConformToPixelFormat2)(
@@ -932,7 +986,8 @@ prSuiteError(*GetUnscaledClipDuration)(
 
 ### GetUnscaledClipStart()
 
-Retrives the start time of the clip, unaffected by any speed or retiming changes.
+Retrives the start time of the clip, unaffected by any speed or retiming
+changes.
 
 ```cpp
 prSuiteError(*GetUnscaledClipStart)(
@@ -993,7 +1048,8 @@ prSuiteError(*GetClipName)(
 
 ### EffectWantsCheckedOutFramesToMatchRenderPixelFormat()
 
-Indicates that the effect wants to received checked out frames, in the same format used for destination rendering.
+Indicates that the effect wants to received checked out frames, in the same
+format used for destination rendering.
 
 ```cpp
 prSuiteError(*EffectWantsCheckedOutFramesToMatchRenderPixelFormat)(
@@ -1002,7 +1058,8 @@ prSuiteError(*EffectWantsCheckedOutFramesToMatchRenderPixelFormat)(
 
 ### EffectDependsOnClipName()
 
-Indicates (based on second parameter) whether the effect depends on the name of the clip to which it is applied.
+Indicates (based on second parameter) whether the effect depends on the name of
+the clip to which it is applied.
 
 ```cpp
 prSuiteError(*EffectDependsOnClipName)(
@@ -1030,7 +1087,8 @@ prSuiteError(*GetFileName)(
 
 ### GetOriginalClipFrameRate()
 
-Retrieves the original (non-interpreted, un-re-timed) frame rate, of the media to which the effect instance is applied.
+Retrieves the original (non-interpreted, un-re-timed) frame rate, of the media
+to which the effect instance is applied.
 
 ```cpp
 prSuiteError(*GetOriginalClipFrameRate)(
@@ -1040,7 +1098,8 @@ prSuiteError(*GetOriginalClipFrameRate)(
 
 ### GetSourceTrackMediaTimecode()
 
-Retrieves the source media timecode for the specified frame within the specified layer, with or without transforms and start time offsets applied.
+Retrieves the source media timecode for the specified frame within the specified
+layer, with or without transforms and start time offsets applied.
 
 ```cpp
 prSuiteError(*GetSourceTrackMediaTimecode)(
@@ -1065,7 +1124,8 @@ prSuiteError(*GetSourceTrackClipName)(
 
 ### GetSourceTrackFileName()
 
-Retrieves the file name of the source track item for the specified layer parameter.
+Retrieves the file name of the source track item for the specified layer
+parameter.
 
 ```cpp
 prSuiteError(*GetSourceTrackFileName)(
@@ -1087,7 +1147,8 @@ prSuiteError(*EffectDependsOnClipName2)(
 
 ### GetMediaTimecode2()
 
-Retrieves formatted timecode and current frame number, with or without trims applied.
+Retrieves formatted timecode and current frame number, with or without trims
+applied.
 
 ```cpp
 prSuiteError(*GetMediaTimecode2)(
@@ -1099,7 +1160,8 @@ prSuiteError(*GetMediaTimecode2)(
 
 ### GetSourceTrackMediaTimecode2()
 
-Given a specific sequence time, retrieves the source track media timecode for the specified layer parameter.
+Given a specific sequence time, retrieves the source track media timecode for
+the specified layer parameter.
 
 ```cpp
 prSuiteError(*GetSourceTrackMediaTimecode2)(
@@ -1138,7 +1200,8 @@ prSuiteError(*GetSourceTrackFileName2)(
 
 ### GetCommentString()
 
-Retrieves the comment string associated with the specified source track item, at the specified time.
+Retrieves the comment string associated with the specified source track item, at
+the specified time.
 
 ```cpp
 prSuiteError(*GetCommentString)(
@@ -1175,7 +1238,8 @@ prSuiteError(*GetCameraRollString)(
 
 ### GetClientMetadataString()
 
-Retrieves the metadata string associated with the source track, at the specified time.
+Retrieves the metadata string associated with the source track, at the specified
+time.
 
 ```cpp
 prSuiteError(*GetClientMetadataString)(
@@ -1187,7 +1251,8 @@ prSuiteError(*GetClientMetadataString)(
 
 ### GetDailyRollString()
 
-Retrieves the daily roll string associated with the source track, at the specified time.
+Retrieves the daily roll string associated with the source track, at the
+specified time.
 
 ```cpp
 prSuiteError(*GetDailyRollString)(
@@ -1199,7 +1264,8 @@ prSuiteError(*GetDailyRollString)(
 
 ### GetDescriptionString()
 
-Retrieves the daily roll string associated with the source track, at the specified time.
+Retrieves the daily roll string associated with the source track, at the
+specified time.
 
 ```cpp
 prSuiteError(*GetDescriptionString)(
@@ -1211,7 +1277,8 @@ prSuiteError(*GetDescriptionString)(
 
 ### GetLabRollString()
 
-Retrieves the lab roll string associated with the source track, at the specified time.
+Retrieves the lab roll string associated with the source track, at the specified
+time.
 
 ```cpp
 prSuiteError(*GetLabRollString)(
@@ -1223,7 +1290,8 @@ prSuiteError(*GetLabRollString)(
 
 ### GetSceneString()
 
-Retrieves the scene string associated with the source track, at the specified time.
+Retrieves the scene string associated with the source track, at the specified
+time.
 
 ```cpp
 prSuiteError(*GetSceneString)(
@@ -1235,7 +1303,8 @@ prSuiteError(*GetSceneString)(
 
 ### GetShotString()
 
-Retrieves the shot string associated with the source track item, at the specified time.
+Retrieves the shot string associated with the source track item, at the
+specified time.
 
 ```cpp
 prSuiteError(*GetShotString)(
@@ -1247,7 +1316,8 @@ prSuiteError(*GetShotString)(
 
 ### GetTapeNameString()
 
-Retrieves the tape name string associated with the source track item, at the specified time.
+Retrieves the tape name string associated with the source track item, at the
+specified time.
 
 ```cpp
 prSuiteError(*GetTapeNameString)(
@@ -1259,7 +1329,8 @@ prSuiteError(*GetTapeNameString)(
 
 ### GetVideoCodecString()
 
-Retrieves a string representing the video codec associated with the source track item, at the specified time.
+Retrieves a string representing the video codec associated with the source track
+item, at the specified time.
 
 ```cpp
 prSuiteError(*GetVideoCodecString)(
@@ -1271,7 +1342,8 @@ prSuiteError(*GetVideoCodecString)(
 
 ### GetGoodMetadataString()
 
-Retrieves a string representing the "good" state of the source track item, at the specified time.
+Retrieves a string representing the "good" state of the source track item, at
+the specified time.
 
 ```cpp
 prSuiteError(*GetGoodMetadataString)(
@@ -1283,7 +1355,8 @@ prSuiteError(*GetGoodMetadataString)(
 
 ### GetSoundRollString()
 
-Retrieves a string representing the "sound roll" state of the source track item, at the specified time.
+Retrieves a string representing the "sound roll" state of the source track item,
+at the specified time.
 
 ```cpp
 prSuiteError(*GetSoundRollString)(
@@ -1387,7 +1460,8 @@ prSuiteError(*IsTrackEmpty)(
 
 ### IsTrackItemEffectAppliedToSynthetic()
 
-Retrieves whether the effect is applied to a track item backed by a synthetic importer.
+Retrieves whether the effect is applied to a track item backed by a synthetic
+importer.
 
 ```cpp
 prSuiteError(*IsTrackItemEffectAppliedToSynthetic)(
@@ -1397,7 +1471,8 @@ prSuiteError(*IsTrackItemEffectAppliedToSynthetic)(
 
 ### GetSourceTrackCurrentMediaTimeInfo()
 
-Retrieves the current media time, including ticks per frame and a formatted string representing that time.
+Retrieves the current media time, including ticks per frame and a formatted
+string representing that time.
 
 ```cpp
 prSuiteError(*GetSourceTrackCurrentMediaTimeInfo)(
@@ -1412,7 +1487,8 @@ prSuiteError(*GetSourceTrackCurrentMediaTimeInfo)(
 
 ### GetSequenceZeroPoint()
 
-Retrieves the zero point (start time) of the sequence in which the effect is applied.
+Retrieves the zero point (start time) of the sequence in which the effect is
+applied.
 
 ```cpp
 prSuiteError(*GetSequenceZeroPoint)(
@@ -1422,7 +1498,8 @@ prSuiteError(*GetSequenceZeroPoint)(
 
 ### GetSourceTrackCurrentClipDuration()
 
-Retrieves the duration of the clip, at the specified layer index, at inSequenceTime.
+Retrieves the duration of the clip, at the specified layer index, at
+inSequenceTime.
 
 ```cpp
 prSuiteError(*GetSourceTrackCurrentClipDuration)(
@@ -1451,7 +1528,8 @@ prSuiteError(*GetSequenceDuration)(
 
 ### GetVideoResolutionString()
 
-Retrieve a string representing the dimensions of the track item to which the effect is applied.
+Retrieve a string representing the dimensions of the track item to which the
+effect is applied.
 
 ```cpp
 prSuiteError(*GetVideoResolutionString)(

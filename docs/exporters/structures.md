@@ -1,6 +1,6 @@
 # Structures
 
-|                                        Structure                                         |                                                         Sent with selector                                                          |
+| Structure                                                                                | Sent with selector                                                                                                                  |
 | ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | [exDoExportRec](structure-descriptions.md#exdoexportrec)                                 | [exSelExport](selector-descriptions.md#exselexport)                                                                                 |
 | [exExporterInfoRec](structure-descriptions.md#exexporterinforec)                         | [exSelStartup](selector-descriptions.md#exselstartup)                                                                               |

@@ -2,7 +2,9 @@
 
 ## PrGPUFilterInfo
 
-This structure contains some basic info about a GPU filter. It provides access to various suites, and access to private data where the instance can allocate memory and store data which will be passed to subsequent functions.
+This structure contains some basic info about a GPU filter. It provides access
+to various suites, and access to private data where the instance can allocate
+memory and store data which will be passed to subsequent functions.
 
 ```cpp
 typedef struct {
@@ -11,16 +13,18 @@ typedef struct {
 } PrGPUFilterInfo;
 ```
 
-|        Member         |                                              Description                                               |
+| Member                | Description                                                                                            |
 | --------------------- | ------------------------------------------------------------------------------------------------------ |
-| `outInterfaceVersion` | Set to the GPU API version corresponding to the version defined in the SDK you are using.             |
+| `outInterfaceVersion` | Set to the GPU API version corresponding to the version defined in the SDK you are using.              |
 | `outMatchName`        | outMatchName must be equal to a registered software filter, if NULL will default to the module's PiPL. |
 
 ---
 
 ## PrGPUFilterInstance
 
-This structure contains some basic info about a GPU filter. It provides access to various suites, and access to private data where the instance can allocate memory and store data which will be passed to subsequent functions.
+This structure contains some basic info about a GPU filter. It provides access
+to various suites, and access to private data where the instance can allocate
+memory and store data which will be passed to subsequent functions.
 
 ```cpp
 typedef struct {
@@ -33,13 +37,13 @@ typedef struct {
 } PrGPUFilterInstance;
 ```
 
-|        Member         |                                                               Description                                                                |
+| Member                | Description                                                                                                                              |
 | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| `piSuites`            | Standard suites.                                                                                                                        |
-| `inDeviceIndex`       | For use with `PrSDKGPUDeviceSuite`.                                                                                                     |
-| `inTimelineID`        | For use with `PrSDKVideoSegmentSuite`.                                                                                                  |
-| `inNodeID`            | For use with `PrSDKVideoSegmentSuite`.                                                                                                  |
-| `ioPrivatePluginData` | Used by a plugin to store instance data, never touched by the host.                                                                     |
+| `piSuites`            | Standard suites.                                                                                                                         |
+| `inDeviceIndex`       | For use with `PrSDKGPUDeviceSuite`.                                                                                                      |
+| `inTimelineID`        | For use with `PrSDKVideoSegmentSuite`.                                                                                                   |
+| `inNodeID`            | For use with `PrSDKVideoSegmentSuite`.                                                                                                   |
+| `ioPrivatePluginData` | Used by a plugin to store instance data, never touched by the host.                                                                      |
 | `outIsRealtime`       | Specify if the plugin is likely to play in real-time, used to determine whether the segment is red, yellow, or unmarked in the timeline. |
 
 ---
@@ -69,20 +73,20 @@ typedef struct {
 } PrGPUFilterRenderParams;
 ```
 
-|         Member          |                                                              Description                                                               |
-|-|-|
-| `inClipTime`            | The time of the current render, relative to clip start                                                                                 |
-| `inSequenceTime`        | The time of the current render, relative to sequence start                                                                             |
-| `inQuality`             | Render quality; one of the `PrRenderQuality` enum values                                                                               |
-| `inDownsampleFactorX`   | Horizontal downsample factor                                                                                                           |
-| `inDownsampleFactorY`   | Vertical downsample factor                                                                                                             |
-| `inRenderWidth`         | Video resolution                                                                                                                       |
-| `inRenderHeight`        |                                                                                                                                        |
-| `inRenderPARNum`        | Video pixel aspect ratio, described as a fractional number with separate values for numerator and denominator.                        |
-| `inRenderPARDen`        |                                                                                                                                        |
-| `inRenderFieldType`     | Render field type                                                                                                                      |
-| `inRenderTicksPerFrame` | Video frame rate                                                                                                                       |
-| `inRenderField`         | GPU rendering is always done on full-height progressive frames unless `PrGPUFilterFrameDependency.outNeedsFieldSeparation` is `false`. `inRenderField` indicates which field is being rendered.  |
+| Member                  | Description                                                                                                                                                                                     |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `inClipTime`            | The time of the current render, relative to clip start                                                                                                                                          |
+| `inSequenceTime`        | The time of the current render, relative to sequence start                                                                                                                                      |
+| `inQuality`             | Render quality; one of the `PrRenderQuality` enum values                                                                                                                                        |
+| `inDownsampleFactorX`   | Horizontal downsample factor                                                                                                                                                                    |
+| `inDownsampleFactorY`   | Vertical downsample factor                                                                                                                                                                      |
+| `inRenderWidth`         | Video resolution                                                                                                                                                                                |
+| `inRenderHeight`        |                                                                                                                                                                                                 |
+| `inRenderPARNum`        | Video pixel aspect ratio, described as a fractional number with separate values for numerator and denominator.                                                                                  |
+| `inRenderPARDen`        |                                                                                                                                                                                                 |
+| `inRenderFieldType`     | Render field type                                                                                                                                                                               |
+| `inRenderTicksPerFrame` | Video frame rate                                                                                                                                                                                |
+| `inRenderField`         | GPU rendering is always done on full-height progressive frames unless `PrGPUFilterFrameDependency.outNeedsFieldSeparation` is `false`. `inRenderField` indicates which field is being rendered. |
 
 ---
 
@@ -110,14 +114,14 @@ typedef struct {
 } PrGPUFilterFrameDependency;
 ```
 
-|               Member               |                                             Description                                              |
-|-|-|
+| Member                             | Description                                                                                          |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------- |
 | `outDependencyType`                | The dependency type. One of:                                                                         |
-|                                    | `PrGPUDependency_InputFrame`                                                                       |
-|                                    | `PrGPUDependency_Precompute`                                                                       |
-|                                    | `PrGPUDependency_FieldSeparation`                                                                  |
+|                                    | `PrGPUDependency_InputFrame`                                                                         |
+|                                    | `PrGPUDependency_Precompute`                                                                         |
+|                                    | `PrGPUDependency_FieldSeparation`                                                                    |
 | `outTrackID`                       | Specify which track is a dependency. Set to 0 for the current track                                  |
-| `outSequenceTime`                  | Set the sequence time which is a dependency.                                                        |
+| `outSequenceTime`                  | Set the sequence time which is a dependency.                                                         |
 | `outPrecomputePixelFormat`         | Dependence on precomputation phase                                                                   |
 | `outPrecomputeFrameWidth`          |                                                                                                      |
 | `outPrecomputeFrameHeight`         |                                                                                                      |
