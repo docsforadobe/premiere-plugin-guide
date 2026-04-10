@@ -1,7 +1,8 @@
 # Version History
 
-|       Date        |         Maintainer          |               Version               |
+| Date              | Maintainer                  | Version                             |
 | ----------------- | --------------------------- | ----------------------------------- |
+| 10 Apr 2026       | Bruce Bullis                | Formatting and editing updates.     |
 | 2 Feb 2026        | Bruce Bullis                | Version 26.2                        |
 | 17 Oct 2025       | Bruce Bullis                | Version 25.6                        |
 | 6 Oct 2021        | Sanaz Golbabaei             | Version 22.0                        |

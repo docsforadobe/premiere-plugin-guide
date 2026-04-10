@@ -1,12 +1,16 @@
 # ClassData Functions
 
-All plugin types that support media can use these callbacks to share information associated with their classID.
+All plugin types that support media can use these callbacks to share information
+associated with their classID.
 
-For example, these plugins can confirm their hardware is present and operational using the ClassData functions.
+For example, these plugins can confirm their hardware is present and operational
+using the ClassData functions.
 
-They all call `getClassData` during initialization. If `getClassData` returns 0, the module checks for and initialize the hardware.
+They all call `getClassData` during initialization. If `getClassData` returns 0,
+the module checks for and initialize the hardware.
 
-It then calls setClassData to store information about the current context. Use handles, not pointers, for storing info.
+It then calls setClassData to store information about the current context. Use
+handles, not pointers, for storing info.
 
 ```c++
 typedef struct {
@@ -37,9 +41,9 @@ int setClassData (
 
 #### Parameters
 
-| Parameter  |       Type        |                            Description                             |
+| Parameter  | Type              | Description                                                        |
 | ---------- | ----------------- | ------------------------------------------------------------------ |
-| `theClass` | Unsigned int      | The class being set. Use a unique 4-byte code.                    |
+| `theClass` | Unsigned int      | The class being set. Use a unique 4-byte code.                     |
 | `info`     | Pointer or handle | the class data to be set. It can be used as a pointer or a handle. |
 
 ---
@@ -55,6 +59,6 @@ int getClassData (
     unsigned int  theClass);
 ```
 
-| Parameter  |       Type       |              Description              |
+| Parameter  | Type             | Description                           |
 | ---------- | ---------------- | ------------------------------------- |
 | `theClass` | Unsigned integer | The class for which to retrieve data. |

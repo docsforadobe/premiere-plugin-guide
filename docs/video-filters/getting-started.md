@@ -1,16 +1,20 @@
 # Getting Started
 
-Begin with one of the two video filter sample projects, progressively replacing its functionality with your own.
+Begin with one of the two video filter sample projects, progressively replacing
+its functionality with your own.
 
 ---
 
 ## Resources
 
-Filter plugins can use PiPL resources to define their behaviors and supported properties.
+Filter plugins can use PiPL resources to define their behaviors and supported
+properties.
 
-To provide any parameters in the Effect Controls panel, they must be defined in the PiPL in ANIM_ParamAtom sections, as demonstrated in the example below.
+To provide any parameters in the Effect Controls panel, they must be defined in
+the PiPL in ANIM_ParamAtom sections, as demonstrated in the example below.
 
-The 'no UI' UI type is for non-keyframeable parameters. After making changes to the PiPL, rebuild the plugin each time, so that the PiPL will be recompiled.
+The 'no UI' UI type is for non-keyframeable parameters. After making changes to
+the PiPL, rebuild the plugin each time, so that the PiPL will be recompiled.
 
 ### A Filter PiPL Example
 
@@ -164,6 +168,7 @@ short xFilter (
 ```
 
 - `selector` is the action Premiere wants the video filter to perform.
-- `EffectHandle` provides source and destination buffers, and other useful information.
+- `EffectHandle` provides source and destination buffers, and other useful
+  information.
 
 Return `fsNoErr` if successful, or an appropriate return code.

@@ -1,6 +1,7 @@
 # Pixel Aspect Ratio
 
-Pixel Aspect Ratio (PAR) is represented as a rational number, with a numerator and a denominator.
+Pixel Aspect Ratio (PAR) is represented as a rational number, with a numerator
+and a denominator.
 
 Here are some examples of pixel aspect ratios:
 
