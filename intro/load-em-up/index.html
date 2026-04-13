@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -2087,34 +2087,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../exporters/whats-new/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Whats New
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../exporters/getting-started/" class="md-nav__link">
         
   
@@ -2615,34 +2587,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../video-filters/whats-new/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Whats New
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../video-filters/getting-started/" class="md-nav__link">
         
   
@@ -2929,90 +2873,6 @@
     
   
     CUDA, OpenCL, Metal, or OpenGL?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gpu-effects-transitions/whats-new-in-ppro-12/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro 12.0?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gpu-effects-transitions/whats-new-in-ppro-cc2015/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro CC 2015.4?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gpu-effects-transitions/whats-new-in-ppro-cc2014/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro CC 2014?
   
 
     
@@ -3539,34 +3399,75 @@
 
 <h1 id="load-em-up">Load Em Up<a class="headerlink" href="#load-em-up" title="Permanent link">&para;</a></h1>
 <h2 id="plugin-caching">Plugin Caching<a class="headerlink" href="#plugin-caching" title="Permanent link">&para;</a></h2>
-<p>On its first launch, Premiere Pro loads all the plugins, reads the <a href="../../resources/pipl-resource/">plugin Property Lists (PiPL) Resource</a>, and sends any startup selectors to determine the plugins' capabilities. To speed up future application launches, it saves some of these capabilities in what we call the plugin cache (the registry on Windows, a Property List file on macOS).</p>
-<p>The next time the application is launched, the cached data is used wherever possible, rather than loading all the plugins on startup. Using this changed data will make the application launch faster, but for a small set of plugins that need to be initialized every time, it may be undesirable. These include plugins that need to get run-time information that might change in between app launches (i.e. installed codec lists), and plugins that check for hardware and need to be able to fail. So we give your plugin control final say over whether or not it is reloaded each time.</p>
-<p>By default, importers, recorders, and exporters are not cached. Exporters can be cached by setting exExporterInfoRec.isCacheable to non-zero during <em>exSelStartup</em>. Importers and recorders can be cached by returning <code>*IsCacheable</code> instead of <code>*NoError</code> (e.g. for importers, imIsCacheable instead of imNoError) on the startup selector.</p>
-<p>By default, legacy video filters and device controllers are cached by default. To specify that legacy video filters must be reloaded each time, rather than cached, Premiere filters should respond to <em>fsCacheOnLoad</em>.</p>
+<p>On its first launch, Premiere Pro loads all the plugins, reads the
+<a href="../../resources/pipl-resource/">plugin Property Lists (PiPL) Resource</a>, and
+sends any startup selectors to determine the plugins' capabilities. To speed up
+future application launches, it saves some of these capabilities in what we call
+the plugin cache (the registry on Windows, a Property List file on macOS).</p>
+<p>The next time the application is launched, the cached data is used wherever
+possible, rather than loading all the plugins on startup. Using this changed
+data will make the application launch faster, but for a small set of plugins
+that need to be initialized every time, it may be undesirable. These include
+plugins that need to get run-time information that might change in between app
+launches (i.e. installed codec lists), and plugins that check for hardware and
+need to be able to fail. So we give your plugin control final say over whether
+or not it is reloaded each time.</p>
+<p>By default, importers, recorders, and exporters are not cached. Exporters can be
+cached by setting exExporterInfoRec.isCacheable to non-zero during
+<em>exSelStartup</em>. Importers and recorders can be cached by returning
+<code>*IsCacheable</code> instead of <code>*NoError</code> (e.g. for importers, imIsCacheable instead
+of imNoError) on the startup selector.</p>
+<p>By default, legacy video filters and device controllers are cached by default.
+To specify that legacy video filters must be reloaded each time, rather than
+cached, Premiere filters should respond to <em>fsCacheOnLoad</em>.</p>
 <hr />
 <h2 id="resolving-plugin-loading-problems">Resolving Plugin Loading Problems<a class="headerlink" href="#resolving-plugin-loading-problems" title="Permanent link">&para;</a></h2>
 <p>There are various tools to help in the development process.</p>
-<p>On Windows only, you can force Premiere to reload all the plugins by holding down shift on startup. The plugin cache on macOS may be deleted manually from the user folder, at <code>~/Library/Preferences/com.Adobe.Premiere Pro [version].plist.</code></p>
+<p>On Windows only, you can force Premiere to reload all the plugins by holding
+down shift on startup. The plugin cache on macOS may be deleted manually from
+the user folder, at
+<code>~/Library/Preferences/com.Adobe.Premiere Pro [version].plist.</code></p>
 <p>For plugin loading issues, you may first check one of the plugin loading logs.</p>
-<p>On Windows: <code>[user folder]\AppData\Roaming\Adobe\Premiere Pro\[version number]\Plugin Loading.log</code></p>
-<p>On macOS, this is: <code>~/Library/Application Support/Adobe/Premiere Pro/[version number]/Plugin Loading.log</code></p>
-<p>Your plugin will be listed by path and filename, and the log will contain details on what happened during the plugin loading process. Starting in CC 2017, it now logs any error codes returned from an effect on <em>PF_Cmd_GLOBAL_SETUP</em>.</p>
-<p>If the log says a plugin has been marked as Ignore, the most common culprit is a library dependency that could not be loaded. If your plugin uses some image processing or proprietary code library, is it installed on the system, and in the right place? On Windows, a tool such as Dependency Walker (depends.exe) is helpful to check a plugin's dependencies.</p>
+<p>On Windows:
+<code>[user folder]\AppData\Roaming\Adobe\Premiere Pro\[version number]\Plugin Loading.log</code></p>
+<p>On macOS, this is:
+<code>~/Library/Application Support/Adobe/Premiere Pro/[version number]/Plugin Loading.log</code></p>
+<p>Your plugin will be listed by path and filename, and the log will contain
+details on what happened during the plugin loading process. Starting in CC 2017,
+it now logs any error codes returned from an effect on <em>PF_Cmd_GLOBAL_SETUP</em>.</p>
+<p>If the log says a plugin has been marked as Ignore, the most common culprit is a
+library dependency that could not be loaded. If your plugin uses some image
+processing or proprietary code library, is it installed on the system, and in
+the right place? On Windows, a tool such as Dependency Walker (depends.exe) is
+helpful to check a plugin's dependencies.</p>
 <hr />
 <h2 id="loading-unsigned-plugins">Loading unsigned plugins<a class="headerlink" href="#loading-unsigned-plugins" title="Permanent link">&para;</a></h2>
-<p>MacOS versions 15+ prevent the loading of unsigned plugins. You can avoid this difficulty by adding ad-hoc signing as a custom build step.</p>
+<p>MacOS versions 15+ prevent the loading of unsigned plugins. You can avoid this
+difficulty by adding ad-hoc signing as a custom build step.</p>
 <p><code>codesign --force --deep --sign - /path/to/plugin.dylib</code></p>
 <p>Note: Yes, that trailing '-' after '--sign' is important.</p>
 <hr />
 <h2 id="library-linkage">Library Linkage<a class="headerlink" href="#library-linkage" title="Permanent link">&para;</a></h2>
-<p>On Windows, we strongly recommend dynamically linking to libraries, rather than static linking. In Visual Studio, the runtime library linkage setting is in C/C++ &gt; Code Generation &gt; Runtime Library.</p>
-<p>We ask developers to compile with the /MD flag (or /MDd for debug builds), and not with the /MT flag.</p>
-<p>Failure to do so can contribute to the problem where the Premiere Pro process can run out of fiber-local storage slots, and subsequent plugins fail to load.</p>
+<p>On Windows, we strongly recommend dynamically linking to libraries, rather than
+static linking. In Visual Studio, the runtime library linkage setting is in
+C/C++ &gt; Code Generation &gt; Runtime Library.</p>
+<p>We ask developers to compile with the /MD flag (or /MDd for debug builds), and
+not with the /MT flag.</p>
+<p>Failure to do so can contribute to the problem where the Premiere Pro process
+can run out of fiber-local storage slots, and subsequent plugins fail to load.</p>
 <hr />
 <h2 id="no-shortcuts">No Shortcuts<a class="headerlink" href="#no-shortcuts" title="Permanent link">&para;</a></h2>
-<p>The Premiere Pro plugin loader does not follow Windows shortcuts. Although it does follow macOS symbolic links, we recommend against using symbolic links in the plugins folder, since the plugin loader checks the timestamp of the symbolic link rather than the timestamp of the plugin pointed to.</p>
-<p>Explanation: If you use a symbolic link and the plugin fails to load once (for example, if the plugin pointed to isn't there) it will be marked to ignore when Premiere launches. Even if the plugin is restored to the proper location, the plugin loader will check the modification time of</p>
-<p>the symbolic link, rather than the plugin pointed to, and continue to ignore the plugin until the modification date of the symbolic link is updated. So plugins should be placed directly in a plugins folder or subfolder.</p>
+<p>The Premiere Pro plugin loader does not follow Windows shortcuts. Although it
+does follow macOS symbolic links, we recommend against using symbolic links in
+the plugins folder, since the plugin loader checks the timestamp of the symbolic
+link rather than the timestamp of the plugin pointed to.</p>
+<p>Explanation: If you use a symbolic link and the plugin fails to load once (for
+example, if the plugin pointed to isn't there) it will be marked to ignore when
+Premiere launches. Even if the plugin is restored to the proper location, the
+plugin loader will check the modification time of</p>
+<p>the symbolic link, rather than the plugin pointed to, and continue to ignore the
+plugin until the modification date of the symbolic link is updated. So plugins
+should be placed directly in a plugins folder or subfolder.</p>
 
 
 
@@ -3587,7 +3488,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 19, 2025 22:58:34 UTC">November 19, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 10, 2026 21:38:11 UTC">April 10, 2026</span>
   </span>
 
     

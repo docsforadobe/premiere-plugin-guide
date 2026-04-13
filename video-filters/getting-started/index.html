@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://ppro-plugins.docsforadobe.dev/video-filters/getting-started/">
       
       
-        <link rel="prev" href="../whats-new/">
+        <link rel="prev" href="../video-filters/">
       
       
         <link rel="next" href="../selector-table/">
@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -1981,34 +1981,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../exporters/whats-new/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Whats New
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../exporters/getting-started/" class="md-nav__link">
         
   
@@ -2508,34 +2480,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../whats-new/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Whats New
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -2915,90 +2859,6 @@
     
   
     CUDA, OpenCL, Metal, or OpenGL?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gpu-effects-transitions/whats-new-in-ppro-12/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro 12.0?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gpu-effects-transitions/whats-new-in-ppro-cc2015/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro CC 2015.4?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gpu-effects-transitions/whats-new-in-ppro-cc2014/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro CC 2014?
   
 
     
@@ -3510,12 +3370,16 @@
 
 
 <h1 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h1>
-<p>Begin with one of the two video filter sample projects, progressively replacing its functionality with your own.</p>
+<p>Begin with one of the two video filter sample projects, progressively replacing
+its functionality with your own.</p>
 <hr />
 <h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<p>Filter plugins can use PiPL resources to define their behaviors and supported properties.</p>
-<p>To provide any parameters in the Effect Controls panel, they must be defined in the PiPL in ANIM_ParamAtom sections, as demonstrated in the example below.</p>
-<p>The 'no UI' UI type is for non-keyframeable parameters. After making changes to the PiPL, rebuild the plugin each time, so that the PiPL will be recompiled.</p>
+<p>Filter plugins can use PiPL resources to define their behaviors and supported
+properties.</p>
+<p>To provide any parameters in the Effect Controls panel, they must be defined in
+the PiPL in ANIM_ParamAtom sections, as demonstrated in the example below.</p>
+<p>The 'no UI' UI type is for non-keyframeable parameters. After making changes to
+the PiPL, rebuild the plugin each time, so that the PiPL will be recompiled.</p>
 <h3 id="a-filter-pipl-example">A Filter PiPL Example<a class="headerlink" href="#a-filter-pipl-example" title="Permanent link">&para;</a></h3>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;PrSDKPiPLVer.h&quot;</span>
 </span><span id="__span-0-2"><span class="cp">#ifndef PRWIN_ENV</span>
@@ -3662,7 +3526,8 @@
 </span></code></pre></div>
 <ul>
 <li><code>selector</code> is the action Premiere wants the video filter to perform.</li>
-<li><code>EffectHandle</code> provides source and destination buffers, and other useful information.</li>
+<li><code>EffectHandle</code> provides source and destination buffers, and other useful
+  information.</li>
 </ul>
 <p>Return <code>fsNoErr</code> if successful, or an appropriate return code.</p>
 
@@ -3685,7 +3550,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 25, 2025 19:43:22 UTC">January 25, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 10, 2026 21:38:11 UTC">April 10, 2026</span>
   </span>
 
     

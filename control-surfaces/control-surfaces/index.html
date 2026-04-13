@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -1979,34 +1979,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../exporters/whats-new/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Whats New
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../exporters/getting-started/" class="md-nav__link">
         
   
@@ -2507,34 +2479,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../video-filters/whats-new/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Whats New
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../video-filters/getting-started/" class="md-nav__link">
         
   
@@ -2821,90 +2765,6 @@
     
   
     CUDA, OpenCL, Metal, or OpenGL?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gpu-effects-transitions/whats-new-in-ppro-12/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro 12.0?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gpu-effects-transitions/whats-new-in-ppro-cc2015/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro CC 2015.4?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gpu-effects-transitions/whats-new-in-ppro-cc2014/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro CC 2014?
   
 
     
@@ -3470,16 +3330,36 @@
 
 
 <h1 id="control-surfaces">Control Surfaces<a class="headerlink" href="#control-surfaces" title="Permanent link">&para;</a></h1>
-<p>A control surface plugin can interface with a hardware control surface. This is the API that provides built-in support for EUCON and Mackie devices to control audio mixing and basic transport controls. The API supports two-way communication with Premiere Pro, so that hardware faders, VU meters, etc are in sync with the application.</p>
-<p>Compile the sample plugin into a subfolder of the main application folder: <code>Plugins\\ ControlSurface\\</code></p>
-<p>You should see the plugin in the PPro UI in Preferences &gt; Control Surface, when you hit the Add button, as one of the options in the Device Class drop-down next to Mackie and EUCON (currently shows as "SDK Control Surface Sample").</p>
-<p>You'll want to implement handlers for any relevant functions defined in the plugin suites here: <code>adobesdk\controlsurface\plugin</code></p>
-<p>And to do that, you can use any APIs to call into the host defined in the host suites here: <code>adobesdk\controlsurface\host</code></p>
+<p>A control surface plugin can interface with a hardware control surface. This is
+the API that provides built-in support for EUCON and Mackie devices to control
+audio mixing and basic transport controls. The API supports two-way
+communication with Premiere Pro, so that hardware faders, VU meters, etc are in
+sync with the application.</p>
+<p>Compile the sample plugin into a subfolder of the main application folder:
+<code>Plugins\\ ControlSurface\\</code></p>
+<p>You should see the plugin in the PPro UI in Preferences &gt; Control Surface, when
+you hit the Add button, as one of the options in the Device Class drop-down next
+to Mackie and EUCON (currently shows as "SDK Control Surface Sample").</p>
+<p>You'll want to implement handlers for any relevant functions defined in the
+plugin suites here: <code>adobesdk\controlsurface\plugin</code></p>
+<p>And to do that, you can use any APIs to call into the host defined in the host
+suites here: <code>adobesdk\controlsurface\host</code></p>
 <hr />
 <h2 id="calling-sequence">Calling Sequence<a class="headerlink" href="#calling-sequence" title="Permanent link">&para;</a></h2>
-<p>When the application is launched, the control surface plugins are loaded, and the entry point is called. The host ID and API version is passed in, and the plugin passes back ADOBESDK_ControlSurfacePluginFuncs, an array of function pointers.</p>
-<p>Next, the Startup() function is called, where the plugin registers a suite of functions as defined in ControlSurfacePluginSuite.h. For each base class it will inherit from (defined in adobesdkcontrolsurfacepluginwrapper), it calls RegisterSuite(). These suites are the way for the host application to call the control surface plugin later on. There are separate base classes for the transport controls, audio mixer, Lumetri Color controls, and more.</p>
-<p>Then, CreatePluginInstance() is called. When a project is opened, Connect() is called. Here the plugin instantiates a ControlSurface object, which inherits from any of the previously mentioned base classes. It acquire any host suites it needs, and then it passes back a reference to the ControlSurface object.</p>
+<p>When the application is launched, the control surface plugins are loaded, and
+the entry point is called. The host ID and API version is passed in, and the
+plugin passes back ADOBESDK_ControlSurfacePluginFuncs, an array of function
+pointers.</p>
+<p>Next, the Startup() function is called, where the plugin registers a suite of
+functions as defined in ControlSurfacePluginSuite.h. For each base class it will
+inherit from (defined in adobesdkcontrolsurfacepluginwrapper), it calls
+RegisterSuite(). These suites are the way for the host application to call the
+control surface plugin later on. There are separate base classes for the
+transport controls, audio mixer, Lumetri Color controls, and more.</p>
+<p>Then, CreatePluginInstance() is called. When a project is opened, Connect() is
+called. Here the plugin instantiates a ControlSurface object, which inherits
+from any of the previously mentioned base classes. It acquire any host suites it
+needs, and then it passes back a reference to the ControlSurface object.</p>
 <hr />
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
 <p>Reach out as necessary, for further guidance.</p>
@@ -3503,7 +3383,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 24, 2025 19:27:26 UTC">April 24, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 10, 2026 21:38:11 UTC">April 10, 2026</span>
   </span>
 
     

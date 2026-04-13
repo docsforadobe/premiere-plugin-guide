@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -2662,34 +2662,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../exporters/whats-new/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Whats New
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../exporters/getting-started/" class="md-nav__link">
         
   
@@ -3190,34 +3162,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../video-filters/whats-new/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Whats New
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../video-filters/getting-started/" class="md-nav__link">
         
   
@@ -3504,90 +3448,6 @@
     
   
     CUDA, OpenCL, Metal, or OpenGL?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gpu-effects-transitions/whats-new-in-ppro-12/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro 12.0?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gpu-effects-transitions/whats-new-in-ppro-cc2015/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro CC 2015.4?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gpu-effects-transitions/whats-new-in-ppro-cc2014/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro CC 2014?
   
 
     
@@ -4690,7 +4550,8 @@
 <h1 id="sweetpea-suites">SweetPea Suites<a class="headerlink" href="#sweetpea-suites" title="Permanent link">&para;</a></h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>Suites common to more than one plugin type are documented in this chapter below.</p>
-<p>Suites that are only used by one plugin type are documented in the chapter on that plugin type.</p>
+<p>Suites that are only used by one plugin type are documented in the chapter on
+that plugin type.</p>
 <p>Below is a table of all suites available in Premiere Pro:</p>
 <table>
 <thead>
@@ -4904,7 +4765,8 @@
 </table>
 <hr />
 <h2 id="acquiring-and-releasing-the-suites">Acquiring and Releasing the Suites<a class="headerlink" href="#acquiring-and-releasing-the-suites" title="Permanent link">&para;</a></h2>
-<p>All SweetPea suites are accessed through the Utilities Suite. Plugins can acquire the suites.</p>
+<p>All SweetPea suites are accessed through the Utilities Suite. Plugins can
+acquire the suites.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">SPBasicSuite</span><span class="w"> </span><span class="n">SPBasic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
 </span><span id="__span-0-2"><span class="n">PrSDKPixelFormatSuite</span><span class="w"> </span><span class="o">*</span><span class="n">PixelFormatSuite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
 </span><span id="__span-0-3">
@@ -4922,73 +4784,173 @@
 </span><span id="__span-1-5"><span class="p">}</span>
 </span></code></pre></div>
 <h3 id="versioning">Versioning<a class="headerlink" href="#versioning" title="Permanent link">&para;</a></h3>
-<p>Generally from version to version, the changes made to a suite are additive, so it is recommended to work with the most recent version of a suite if possible. However the latest version of a suite may not be supported by older versions of Premiere Pro or other host applications. Attempting to acquire suites that are unsupported by the host application will result in a NULL pointer being returned from AcquireSuite.</p>
-<p>For a plugin to support multiple versions, it may choose to use a specific older version of the suite that is supported across those multiple versions. Alternatively, it may check the version of the host application (using the <a href="#app-info-suite">App Info Suite</a>), and use the new suites where available, or the older suites when running in an older version. To acquire a specific older version of a suite, rather than requesting kPrSDKPixelFormatSuiteVersion in the example above, use a specific version number instead.</p>
+<p>Generally from version to version, the changes made to a suite are additive, so
+it is recommended to work with the most recent version of a suite if possible.
+However the latest version of a suite may not be supported by older versions of
+Premiere Pro or other host applications. Attempting to acquire suites that are
+unsupported by the host application will result in a NULL pointer being returned
+from AcquireSuite.</p>
+<p>For a plugin to support multiple versions, it may choose to use a specific older
+version of the suite that is supported across those multiple versions.
+Alternatively, it may check the version of the host application (using the
+<a href="#app-info-suite">App Info Suite</a>), and use the new suites where available, or
+the older suites when running in an older version. To acquire a specific older
+version of a suite, rather than requesting kPrSDKPixelFormatSuiteVersion in the
+example above, use a specific version number instead.</p>
 <hr />
 <h2 id="app-info-suite">App Info Suite<a class="headerlink" href="#app-info-suite" title="Permanent link">&para;</a></h2>
-<p>Useful for plug-i that are shared between different applications, such as After Effects plugins, Premiere exporters, transmitters, and importers, where it may be important to know which host, version, or language the plugin is currently running in.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This suite is not available to AE effects running in AE.</p>
-</div>
-<p>This suite provides the host application and version number. For a version such as 6.0.3, it will return major = 6, minor = 0, and patch = 3. See PrSDKAppInfoSuite.h.</p>
-<p>Starting in version 2 of the suite, introduced in CC, the suite has a new selector to retrieve the build number. SpeedGrade CC supports this suite starting with the July 2013 update.</p>
-<p>In version 3, starting in CC 2014, the suite has a new selector to retrieve the language as a NULL-terminated string identifying the locale used in the host application. For example: "en_US", "ja_JP", "zh_CN".</p>
+<p>Useful for plug-i that are shared between different applications, such as After
+Effects plugins, Premiere exporters, transmitters, and importers, where it may
+be important to know which host, version, or language the plugin is currently
+running in.</p>
+<p>!!! note This suite is not available to AE effects running in AE.</p>
+<p>This suite provides the host application and version number. For a version such
+as 6.0.3, it will return major = 6, minor = 0, and patch = 3. See
+PrSDKAppInfoSuite.h.</p>
+<p>Starting in version 2 of the suite, introduced in CC, the suite has a new
+selector to retrieve the build number. SpeedGrade CC supports this suite
+starting with the July 2013 update.</p>
+<p>In version 3, starting in CC 2014, the suite has a new selector to retrieve the
+language as a NULL-terminated string identifying the locale used in the host
+application. For example: "en_US", "ja_JP", "zh_CN".</p>
 <hr />
 <h2 id="application-settings-suite">Application Settings Suite<a class="headerlink" href="#application-settings-suite" title="Permanent link">&para;</a></h2>
-<p>New in CS4. This suite provides calls to get the scratch disk folder paths defined in the current project, where the captured files and preview files are created. It also provides a call to get the project file path. All paths are passed back as PrSDKStrings. Use the new <a href="#string-suite">String Suite</a> to extract the strings to UTF-8 or UTF-16. See PrSDKApplicationSettingsSuite.h.</p>
+<p>New in CS4. This suite provides calls to get the scratch disk folder paths
+defined in the current project, where the captured files and preview files are
+created. It also provides a call to get the project file path. All paths are
+passed back as PrSDKStrings. Use the new <a href="#string-suite">String Suite</a> to
+extract the strings to UTF-8 or UTF-16. See PrSDKApplicationSettingsSuite.h.</p>
 <hr />
 <h2 id="audio-suite">Audio Suite<a class="headerlink" href="#audio-suite" title="Permanent link">&para;</a></h2>
-<p>Calls to convert to and from the native audio format used by the Premiere API, at various bit depths. See PrSDKAudioSuite.h.</p>
+<p>Calls to convert to and from the native audio format used by the Premiere API,
+at various bit depths. See PrSDKAudioSuite.h.</p>
 <hr />
 <h2 id="captioning-suite">Captioning Suite<a class="headerlink" href="#captioning-suite" title="Permanent link">&para;</a></h2>
-<p>This suite enables a device controller, exporter, player, or transmitter to get the closed captioning data attached to a sequence. This suite provides the data in either Scenarist (CEA-608, <em>.scc) and MacCaption (CEA-708, /</em>.mcc) formats. In the case of CEA-708, it includes not just the text to display, but it's also the position information, and background, font, etc. If the transmitter or player just wants to overlay the captioning data on a frame, it can use the <a href="#playmod-overlay-suite">Playmod Overlay Suite</a> instead.</p>
+<p>This suite enables a device controller, exporter, player, or transmitter to get
+the closed captioning data attached to a sequence. This suite provides the data
+in either Scenarist (CEA-608, <em>.scc) and MacCaption (CEA-708, /</em>.mcc) formats.
+In the case of CEA-708, it includes not just the text to display, but it's also
+the position information, and background, font, etc. If the transmitter or
+player just wants to overlay the captioning data on a frame, it can use the
+<a href="#playmod-overlay-suite">Playmod Overlay Suite</a> instead.</p>
 <hr />
 <h2 id="clip-render-suite">Clip Render Suite<a class="headerlink" href="#clip-render-suite" title="Permanent link">&para;</a></h2>
-<p>New in 2.0. Use this suite in the player or renderer, to request source frames directly from the importer. There are calls to find the supported frame sizes and pixel formats, so that the caller can make an informed decision about what format to request. Frames can be retrieved synchronously or asynchronously. Asynchronous requests can be cancelled, for example if the frames have passed their window of playback. See PrSDKClipRenderSuite.h.</p>
-<p>Starting in CS4, this suite includes calls to find any custom pixel format supported by a clip, and to get frames in those custom pixel formats.</p>
-<p>An exporter can use this suite to request frames from the renderer in a compressed pixel format.</p>
+<p>New in 2.0. Use this suite in the player or renderer, to request source frames
+directly from the importer. There are calls to find the supported frame sizes
+and pixel formats, so that the caller can make an informed decision about what
+format to request. Frames can be retrieved synchronously or asynchronously.
+Asynchronous requests can be cancelled, for example if the frames have passed
+their window of playback. See PrSDKClipRenderSuite.h.</p>
+<p>Starting in CS4, this suite includes calls to find any custom pixel format
+supported by a clip, and to get frames in those custom pixel formats.</p>
+<p>An exporter can use this suite to request frames from the renderer in a
+compressed pixel format.</p>
 <hr />
 <h2 id="error-suite">Error Suite<a class="headerlink" href="#error-suite" title="Permanent link">&para;</a></h2>
-<p>Uses a single callback for errors, warnings, and info. This callback will activate a flashing icon in the lower left-hand corner of the main application window, which when clicked, will open up the new Events Window containing the error information. See PrSDKErrorSuite.h.</p>
-<p>Starting in version 3 of the suite, introduced in CS4, the suite supports UTF-16 strings. Starting in CS6, exporters should use the <a href="../../exporters/suites/#exporter-utility-suite">Exporter Utility Suite</a> to report events.</p>
+<p>Uses a single callback for errors, warnings, and info. This callback will
+activate a flashing icon in the lower left-hand corner of the main application
+window, which when clicked, will open up the new Events Window containing the
+error information. See PrSDKErrorSuite.h.</p>
+<p>Starting in version 3 of the suite, introduced in CS4, the suite supports UTF-16
+strings. Starting in CS6, exporters should use the
+<a href="../../exporters/suites/#exporter-utility-suite">Exporter Utility Suite</a> to
+report events.</p>
 <hr />
 <h2 id="file-registration-suite">File Registration Suite<a class="headerlink" href="#file-registration-suite" title="Permanent link">&para;</a></h2>
-<p>Used for registering external files (such as textures, logos, etc) that are used by a plugin instance but do not appear as footage in the Project Window. Registered files will be taken into account when trimming or copying a project using the Project Manager. See PrSDKFileRegistrationSuite.h.</p>
+<p>Used for registering external files (such as textures, logos, etc) that are used
+by a plugin instance but do not appear as footage in the Project Window.
+Registered files will be taken into account when trimming or copying a project
+using the Project Manager. See PrSDKFileRegistrationSuite.h.</p>
 <hr />
 <h2 id="flash-cue-marker-data-suite">Flash Cue Marker Data Suite<a class="headerlink" href="#flash-cue-marker-data-suite" title="Permanent link">&para;</a></h2>
-<p>New in CS4. Specific utilities to read Flash cue points. Use in conjunction with the <a href="#marker-suite">Marker Suite</a>. See PrSDKFlashCueMarkerDataSuite.h.</p>
+<p>New in CS4. Specific utilities to read Flash cue points. Use in conjunction with
+the <a href="#marker-suite">Marker Suite</a>. See PrSDKFlashCueMarkerDataSuite.h.</p>
 <hr />
 <h2 id="image-processing-suite">Image Processing Suite<a class="headerlink" href="#image-processing-suite" title="Permanent link">&para;</a></h2>
-<p>New in CS5. Various calls to get information on pixel formats and process frames. The ScaleConvert() call is the way to copy-convert from a buffer of any supported pixel format to a separate memory buffer.</p>
-<p>In version 2, new in CS5.5, we have added StampDVFrameAspect(), which allows a plugin to set the aspect ratio of a DV frame. This was added to supplement ScaleConvert(), which doesn't have an aspect ratio parameter.</p>
+<p>New in CS5. Various calls to get information on pixel formats and process
+frames. The ScaleConvert() call is the way to copy-convert from a buffer of any
+supported pixel format to a separate memory buffer.</p>
+<p>In version 2, new in CS5.5, we have added StampDVFrameAspect(), which allows a
+plugin to set the aspect ratio of a DV frame. This was added to supplement
+ScaleConvert(), which doesn't have an aspect ratio parameter.</p>
 <hr />
 <h2 id="marker-suite">Marker Suite<a class="headerlink" href="#marker-suite" title="Permanent link">&para;</a></h2>
 <p>New in CS4. New way to read markers of all types. See PrSDKMarkerSuite.h.</p>
 <hr />
 <h2 id="memory-manager-suite">Memory Manager Suite<a class="headerlink" href="#memory-manager-suite" title="Permanent link">&para;</a></h2>
-<p>New in Premiere Pro 2.0. Calls to allocate and deallocate memory, and to reserve an amount of memory so that it is not used by the host. See PrSDKMemoryManagerSuite.h.</p>
-<p>In CS6, the suite is now at version 4. AdjustReservedMemorySize provides a way to adjust the reserved memory size relative to the current size. This may be easier for the plugin, rather than maintaining the absolute memory usage and updating it using the older ReserveMemory call.</p>
+<p>New in Premiere Pro 2.0. Calls to allocate and deallocate memory, and to reserve
+an amount of memory so that it is not used by the host. See
+PrSDKMemoryManagerSuite.h.</p>
+<p>In CS6, the suite is now at version 4. AdjustReservedMemorySize provides a way
+to adjust the reserved memory size relative to the current size. This may be
+easier for the plugin, rather than maintaining the absolute memory usage and
+updating it using the older ReserveMemory call.</p>
 <h3 id="reservememory">ReserveMemory<a class="headerlink" href="#reservememory" title="Permanent link">&para;</a></h3>
-<p>A plugin instance can call ReserveMemory as a request to reserve space so that Premiere's media cache does not use it. Each time ReserveMemory is called, it updates Premiere Pro on how many bytes the plugin instance is currently reserving. The amount specified is absolute, rather than cumulative. So to release any reserved memory to be made available to Premiere Pro's media cache, call it with a size of 0. However, it's not needed to reset this when exporters are destructed on <em>exSDK_EndInstance</em>, since the media manager will be deleting all the references anyways.</p>
-<p>ReserveMemory changes the maximum size of Premiere's Media Cache. So if the cache size starts at 10 GB, and you reserve 1 GB, then the cache will not grow beyond 9 GB. ReserveMemory will reserve a different amount of memory, depending on the amount of available memory in the system, and what other plugin instances have already reserved. The media cache needs a minimum amount of memory to play audio, render, etc.</p>
-<p>Starting in version 2 of the suite, introduced in CS4, there are calls to allocate/deallocate memory. This is necessary for exporters, which are not passed the legacy memFuncs.</p>
+<p>A plugin instance can call ReserveMemory as a request to reserve space so that
+Premiere's media cache does not use it. Each time ReserveMemory is called, it
+updates Premiere Pro on how many bytes the plugin instance is currently
+reserving. The amount specified is absolute, rather than cumulative. So to
+release any reserved memory to be made available to Premiere Pro's media cache,
+call it with a size of 0. However, it's not needed to reset this when exporters
+are destructed on <em>exSDK_EndInstance</em>, since the media manager will be deleting
+all the references anyways.</p>
+<p>ReserveMemory changes the maximum size of Premiere's Media Cache. So if the
+cache size starts at 10 GB, and you reserve 1 GB, then the cache will not grow
+beyond 9 GB. ReserveMemory will reserve a different amount of memory, depending
+on the amount of available memory in the system, and what other plugin instances
+have already reserved. The media cache needs a minimum amount of memory to play
+audio, render, etc.</p>
+<p>Starting in version 2 of the suite, introduced in CS4, there are calls to
+allocate/deallocate memory. This is necessary for exporters, which are not
+passed the legacy memFuncs.</p>
 <hr />
 <h2 id="pixel-format-suite">Pixel Format Suite<a class="headerlink" href="#pixel-format-suite" title="Permanent link">&para;</a></h2>
-<p>See the table of supported pixel formats. GetBlackForPixelFormat returns the minimum (black) value for a given pixel format. GetWhiteForPixelFormat returns the maximum (white) value for a given pixel format. Pixel types like YUYV actually contain a group of two pixels to specify a color completely, so the data size returned in this case will be 4 bytes (rather than 2). This call does not support MPEG-2 planar formats.</p>
-<p>ConvertColorToPixelFormattedData converts an BGRA/ARGB value into a value of a different pixel type. These functions are not meant to convert entire frames from one colorspace to another, but may be used to convert a single color value from a filter color picker or transition border. To convert frames between pixel formats, see the <a href="#image-processing-suite">Image Processing Suite</a>.</p>
-<p>New in Premiere Pro 4.0.1, <code>MAKE_THIRD_PARTY_CUSTOM_PIXEL_FORMAT_FOURCC()</code> defines a custom pixel format.</p>
+<p>See the table of supported pixel formats. GetBlackForPixelFormat returns the
+minimum (black) value for a given pixel format. GetWhiteForPixelFormat returns
+the maximum (white) value for a given pixel format. Pixel types like YUYV
+actually contain a group of two pixels to specify a color completely, so the
+data size returned in this case will be 4 bytes (rather than 2). This call does
+not support MPEG-2 planar formats.</p>
+<p>ConvertColorToPixelFormattedData converts an BGRA/ARGB value into a value of a
+different pixel type. These functions are not meant to convert entire frames
+from one colorspace to another, but may be used to convert a single color value
+from a filter color picker or transition border. To convert frames between pixel
+formats, see the <a href="#image-processing-suite">Image Processing Suite</a>.</p>
+<p>New in Premiere Pro 4.0.1, <code>MAKE_THIRD_PARTY_CUSTOM_PIXEL_FORMAT_FOURCC()</code>
+defines a custom pixel format.</p>
 <hr />
 <h2 id="playmod-overlay-suite">Playmod Overlay Suite<a class="headerlink" href="#playmod-overlay-suite" title="Permanent link">&para;</a></h2>
-<p>New in CS5.5. A transmitter can ask Premiere Pro to render the overlay for a specific time. As of CS6, this is only used for closed captioning.</p>
-<p>To render the closed captioning overlay, it is not necessary to know anything about the closed captioning data, whether it is CEA-608 or CEA-708. RenderImage will simply produce a PPixHand.</p>
-<p>The reason why it's not called Closed Captioning Overlay Suite is because going forward we want to use it as a general suite that provides all kinds of overlays. That way, when we add more overlay types in the future, you don't need to worry about updating your player each time to mirror the implementation on your side. In the future, we will likely use this same suite to render static overlays, such as safe areas. To support those, even if VariesOverTime returns false, you can call HasVisibleRegions at time 0.</p>
+<p>New in CS5.5. A transmitter can ask Premiere Pro to render the overlay for a
+specific time. As of CS6, this is only used for closed captioning.</p>
+<p>To render the closed captioning overlay, it is not necessary to know anything
+about the closed captioning data, whether it is CEA-608 or CEA-708. RenderImage
+will simply produce a PPixHand.</p>
+<p>The reason why it's not called Closed Captioning Overlay Suite is because going
+forward we want to use it as a general suite that provides all kinds of
+overlays. That way, when we add more overlay types in the future, you don't need
+to worry about updating your player each time to mirror the implementation on
+your side. In the future, we will likely use this same suite to render static
+overlays, such as safe areas. To support those, even if VariesOverTime returns
+false, you can call HasVisibleRegions at time 0.</p>
 <p>Version 2 in CC 2014 removes <code>CalculateVisibleRegions()</code>.</p>
 <h3 id="renderimage">RenderImage<a class="headerlink" href="#renderimage" title="Permanent link">&para;</a></h3>
-<p>Render the overlay into an optionally provided BGRA PPixHand. RenderImage does not composite the overlay onto an existing frame, it just renders the overlay into the visible regions. After rendering the overlay at the player's display size, you will then need to composite that result over the frame.</p>
-<p>If the user has zoomed the video, it could be wasteful to render a full-sized overlay image and then scale it. For better performance, the overlay can be rendered at the actual display size. The inDisplayWidth, inDisplayHeight and inLogicalRegion parameters provide this extra information needed to optimize for scaling in the UI.</p>
-<p>As an example, let's say the sequence is 720x480 at 0.9091 PAR, and the Sequence Monitor is set to show the full frame at square PAR. Set inLogicalRegion to (0, 0, 720, 480), and inDisplayWidth to 654 and inDisplayHeight to 480.</p>
-<p>If the Monitor zoom level was set to 50%, then the inLogicalRegion should stay the same, but display width and height should be set to 327x240. If zoomed to 200%, display width and height should be set to 1308x960. To pan around (as opposed to showing the entire frame), the logical region should be adjusted to represent the part of the sequence frame currently being displayed.</p>
+<p>Render the overlay into an optionally provided BGRA PPixHand. RenderImage does
+not composite the overlay onto an existing frame, it just renders the overlay
+into the visible regions. After rendering the overlay at the player's display
+size, you will then need to composite that result over the frame.</p>
+<p>If the user has zoomed the video, it could be wasteful to render a full-sized
+overlay image and then scale it. For better performance, the overlay can be
+rendered at the actual display size. The inDisplayWidth, inDisplayHeight and
+inLogicalRegion parameters provide this extra information needed to optimize for
+scaling in the UI.</p>
+<p>As an example, let's say the sequence is 720x480 at 0.9091 PAR, and the Sequence
+Monitor is set to show the full frame at square PAR. Set inLogicalRegion to (0,
+0, 720, 480), and inDisplayWidth to 654 and inDisplayHeight to 480.</p>
+<p>If the Monitor zoom level was set to 50%, then the inLogicalRegion should stay
+the same, but display width and height should be set to 327x240. If zoomed to
+200%, display width and height should be set to 1308x960. To pan around (as
+opposed to showing the entire frame), the logical region should be adjusted to
+represent the part of the sequence frame currently being displayed.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">RenderImage</span><span class="p">)(</span>
 </span><span id="__span-2-2"><span class="w">  </span><span class="n">PrPlayID</span><span class="w">       </span><span class="n">inPlayID</span><span class="p">,</span>
 </span><span id="__span-2-3"><span class="w">  </span><span class="n">PrTime</span><span class="w">         </span><span class="n">inTime</span><span class="p">,</span>
@@ -5054,20 +5016,43 @@
 </span></code></pre></div>
 <hr />
 <h2 id="ppix-cache-suite">PPix Cache Suite<a class="headerlink" href="#ppix-cache-suite" title="Permanent link">&para;</a></h2>
-<p>Used by an importer, player, or renderer to take advantage of the host application's PPix cache. See PrSDKPPixCacheSuite.h.</p>
-<p>Starting in version 2 of this suite, introduced in Premiere Pro 4.1, <code>AddFrameToCache</code> and <code>GetFrameFromCache</code> now have two extra parameters, <code>inPreferences</code> and <code>inPreferencesLength</code>. Now frames are differentiated within the cache, based on the importer preferences, so when the preferences change, the host will not use the old frame when it gets a frame request.</p>
-<p>Version 4, new in CS5.0.3, adds <code>ExpireNamedPPixFromCache()</code> and <code>ExpireAllPPixesFromCache()</code>, which allow a plugin to remove one or all PPixes from the Media Cache, which can be useful if the media is changing due to being edited in a separate application.</p>
-<p>To expire an individual frames expired using <code>ExpireNamedPPixFromCache()</code>, the identifier must be known. The plugin may specify an identifier using <code>AddNamedPPixToCache()</code>. If a frame is in the cache with multiple names, and you expire any one of those names, then the frame will be expired. Alternatively, for rendered frames, the identifier may be retrieved using <code>GetIdentifierForProduceFrameAsync()</code> in the <a href="#video-segment-render-suite">Video Segment Render Suite</a>.</p>
-<p>Clearing the cache will not interfere with any outstanding requests, because each request holds dependencies on the needed frames.</p>
-<p>Version 5, new in CS5.5, adds the new color profile-aware calls <code>AddFrameToCacheWithColorProfile()</code> and <code>GetFrameFromCacheWithColorProfile()</code>.</p>
-<p>Version 6, new in CC 2014, adds <code>AddFrameToCacheWithColorProfile2()</code> and <code>GetFrameFromCacheWithColorProfile2()</code>, which are the same as the ones added in version 5 with the addition of a <code>PrRenderQuality</code> parameter.</p>
-<p>Version 7, adds <code>AddFrameToCacheWithColorSpace()</code> and <code>GetFrameFromCacheWithColorSpace()</code>, these APIs deprecate <code>AddFrameToCacheWithColorProfile2()</code> and <code>GetFrameFromCacheWithColorProfile2()</code>.</p>
+<p>Used by an importer, player, or renderer to take advantage of the host
+application's PPix cache. See PrSDKPPixCacheSuite.h.</p>
+<p>Starting in version 2 of this suite, introduced in Premiere Pro 4.1,
+<code>AddFrameToCache</code> and <code>GetFrameFromCache</code> now have two extra parameters,
+<code>inPreferences</code> and <code>inPreferencesLength</code>. Now frames are differentiated within
+the cache, based on the importer preferences, so when the preferences change,
+the host will not use the old frame when it gets a frame request.</p>
+<p>Version 4, new in CS5.0.3, adds <code>ExpireNamedPPixFromCache()</code> and
+<code>ExpireAllPPixesFromCache()</code>, which allow a plugin to remove one or all PPixes
+from the Media Cache, which can be useful if the media is changing due to being
+edited in a separate application.</p>
+<p>To expire an individual frames expired using <code>ExpireNamedPPixFromCache()</code>, the
+identifier must be known. The plugin may specify an identifier using
+<code>AddNamedPPixToCache()</code>. If a frame is in the cache with multiple names, and you
+expire any one of those names, then the frame will be expired. Alternatively,
+for rendered frames, the identifier may be retrieved using
+<code>GetIdentifierForProduceFrameAsync()</code> in the
+<a href="#video-segment-render-suite">Video Segment Render Suite</a>.</p>
+<p>Clearing the cache will not interfere with any outstanding requests, because
+each request holds dependencies on the needed frames.</p>
+<p>Version 5, new in CS5.5, adds the new color profile-aware calls
+<code>AddFrameToCacheWithColorProfile()</code> and <code>GetFrameFromCacheWithColorProfile()</code>.</p>
+<p>Version 6, new in CC 2014, adds <code>AddFrameToCacheWithColorProfile2()</code> and
+<code>GetFrameFromCacheWithColorProfile2()</code>, which are the same as the ones added in
+version 5 with the addition of a <code>PrRenderQuality</code> parameter.</p>
+<p>Version 7, adds <code>AddFrameToCacheWithColorSpace()</code> and
+<code>GetFrameFromCacheWithColorSpace()</code>, these APIs deprecate
+<code>AddFrameToCacheWithColorProfile2()</code> and <code>GetFrameFromCacheWithColorProfile2()</code>.</p>
 <hr />
 <h2 id="ppix-creator-suite">PPix Creator Suite<a class="headerlink" href="#ppix-creator-suite" title="Permanent link">&para;</a></h2>
-<p>Includes callbacks to create and copy PPixs. See also the <a href="#ppix-creator-2-suite">PPix Creator 2 Suite</a>.</p>
+<p>Includes callbacks to create and copy PPixs. See also the
+<a href="#ppix-creator-2-suite">PPix Creator 2 Suite</a>.</p>
 <h3 id="createppix">CreatePPix<a class="headerlink" href="#createppix" title="Permanent link">&para;</a></h3>
-<p>Creates a new PPix. The advantage of using this callback is that frames allocated are accounted for in the media cache, and are 16-byte aligned.</p>
-<p><code>ppixNew</code> and <code>newPtr</code> don't allocate memory in the media cache, or perform any alignment.</p>
+<p>Creates a new PPix. The advantage of using this callback is that frames
+allocated are accounted for in the media cache, and are 16-byte aligned.</p>
+<p><code>ppixNew</code> and <code>newPtr</code> don't allocate memory in the media cache, or perform any
+alignment.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-6-1"><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">CreatePPix</span><span class="p">)(</span>
 </span><span id="__span-6-2"><span class="w">  </span><span class="n">PPixHand</span><span class="o">*</span><span class="w">           </span><span class="n">outPPixHand</span><span class="p">,</span>
 </span><span id="__span-6-3"><span class="w">  </span><span class="n">PrPPixBufferAccess</span><span class="w">  </span><span class="n">inRequestedAccess</span><span class="p">,</span>
@@ -5106,7 +5091,8 @@
 </table>
 <h3 id="cloneppix">ClonePPix<a class="headerlink" href="#cloneppix" title="Permanent link">&para;</a></h3>
 <p>Clones an existing PPix.</p>
-<p>It will ref-count the PPix if only read access is requested and the PPix to copy from is read-only as well, otherwise it will create a new one and copy.</p>
+<p>It will ref-count the PPix if only read access is requested and the PPix to copy
+from is read-only as well, otherwise it will create a new one and copy.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-7-1"><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">ClonePPix</span><span class="p">)(</span>
 </span><span id="__span-7-2"><span class="w">  </span><span class="n">PPixHand</span><span class="w">            </span><span class="n">inPPixToClone</span><span class="p">,</span>
 </span><span id="__span-7-3"><span class="w">  </span><span class="n">PPixHand</span><span class="o">*</span><span class="w">           </span><span class="n">outPPixHand</span><span class="p">,</span>
@@ -5137,8 +5123,11 @@
 <hr />
 <h2 id="ppix-creator-2-suite">PPix Creator 2 Suite<a class="headerlink" href="#ppix-creator-2-suite" title="Permanent link">&para;</a></h2>
 <p>More callbacks to create PPixs, including raw PPixs.</p>
-<p>Starting in version 2 of this suite, introduced in Premiere Pro 4.0.1, there is a new <code>CreateCustomPPix</code> call to create a PPix in a custom pixel format.</p>
-<p>New APIs added to create PPix with specific color space. Color aware Importers should use new color managed APIs for PPix creation. See PrSDKPPixCreator2Suite.h.</p>
+<p>Starting in version 2 of this suite, introduced in Premiere Pro 4.0.1, there is
+a new <code>CreateCustomPPix</code> call to create a PPix in a custom pixel format.</p>
+<p>New APIs added to create PPix with specific color space. Color aware Importers
+should use new color managed APIs for PPix creation. See
+PrSDKPPixCreator2Suite.h.</p>
 <hr />
 <h2 id="ppix-suite">PPix Suite<a class="headerlink" href="#ppix-suite" title="Permanent link">&para;</a></h2>
 <p>Callbacks and enums pertaining to PPixs. See also <a href="#ppix-2-suite">PPix 2 Suite</a>.</p>
@@ -5150,7 +5139,8 @@
 <li><code>PrPPixBufferAccess_ReadWrite</code></li>
 </ul>
 <h3 id="dispose">Dispose<a class="headerlink" href="#dispose" title="Permanent link">&para;</a></h3>
-<p>This will free this PPix. The PPix is no longer valid after this function is called.</p>
+<p>This will free this PPix. The PPix is no longer valid after this function is
+called.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-8-1"><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">Dispose</span><span class="p">)(</span>
 </span><span id="__span-8-2"><span class="w">  </span><span class="n">PPixHand</span><span class="w">  </span><span class="n">inPPixHand</span><span class="p">);</span>
 </span></code></pre></div>
@@ -5322,7 +5312,8 @@
 </tbody>
 </table>
 <h3 id="getuniquekeysize">GetUniqueKeySize<a class="headerlink" href="#getuniquekeysize" title="Permanent link">&para;</a></h3>
-<p>This will return the unique key size. This will not change for the entire run of the application.</p>
+<p>This will return the unique key size. This will not change for the entire run of
+the application.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-14-1"><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">GetUniqueKeySize</span><span class="p">)(</span>
 </span><span id="__span-14-2"><span class="w">  </span><span class="kt">size_t</span><span class="o">*</span><span class="w">  </span><span class="n">outKeyBufferSize</span><span class="p">);</span>
 </span></code></pre></div>
@@ -5366,21 +5357,33 @@
 </table>
 <hr />
 <h2 id="ppix-2-suite">PPix 2 Suite<a class="headerlink" href="#ppix-2-suite" title="Permanent link">&para;</a></h2>
-<p>A call to get the size of a PPix. Starting in version 2 of this suite, introduced in CS4, there is a new <code>GetYUV420PlanarBuffers</code> call to get buffer offsets and rowbytes of YUV_420_MPEG2 pixel formats. See PrSDKPPix2Suite.h.</p>
+<p>A call to get the size of a PPix. Starting in version 2 of this suite,
+introduced in CS4, there is a new <code>GetYUV420PlanarBuffers</code> call to get buffer
+offsets and rowbytes of YUV_420_MPEG2 pixel formats. See PrSDKPPix2Suite.h.</p>
 <hr />
 <h2 id="rollcrawl-suite">RollCrawl Suite<a class="headerlink" href="#rollcrawl-suite" title="Permanent link">&para;</a></h2>
-<p>Used by a player or renderer to obtain the pixels for a roll/crawl. The player or render can then move and composite it using accelerated algorithms or hardware. See PrSDKRollCrawlSuite.h.</p>
+<p>Used by a player or renderer to obtain the pixels for a roll/crawl. The player
+or render can then move and composite it using accelerated algorithms or
+hardware. See PrSDKRollCrawlSuite.h.</p>
 <hr />
 <h2 id="sequence-info-suite">Sequence Info Suite<a class="headerlink" href="#sequence-info-suite" title="Permanent link">&para;</a></h2>
-<p>New in CS4. Calls to get the frame size and pixel aspect ratio of a sequence. This is useful for importers, transitions, or video filters, that provide a custom setup dialog with a preview of the video, so that the preview frame can be rendered at the right dimensions. See PrSDKSequenceInfoSuite.h.</p>
+<p>New in CS4. Calls to get the frame size and pixel aspect ratio of a sequence.
+This is useful for importers, transitions, or video filters, that provide a
+custom setup dialog with a preview of the video, so that the preview frame can
+be rendered at the right dimensions. See PrSDKSequenceInfoSuite.h.</p>
 <p>Version 2, new in CS5.5, adds <code>GetFrameRate()</code>.</p>
-<p>Version 3, new in CC, adds <code>GetFieldType()</code>, <code>GetZeroPoint()</code>, and <code>GetTimecodeDropFrame()</code>.</p>
+<p>Version 3, new in CC, adds <code>GetFieldType()</code>, <code>GetZeroPoint()</code>, and
+<code>GetTimecodeDropFrame()</code>.</p>
 <hr />
 <h2 id="string-suite">String Suite<a class="headerlink" href="#string-suite" title="Permanent link">&para;</a></h2>
-<p>New in CS4. Calls to allocate, copy, and dispose of PrSDKStrings. See PrSDKStringSuite.h.</p>
+<p>New in CS4. Calls to allocate, copy, and dispose of PrSDKStrings. See
+PrSDKStringSuite.h.</p>
 <hr />
 <h2 id="threaded-work-suite">Threaded Work Suite<a class="headerlink" href="#threaded-work-suite" title="Permanent link">&para;</a></h2>
-<p>New in CS4. Calls to register and queue up a threaded work callback for processing on a render thread. If you queue multiple times, it is possible for multiple threads to call your callback. If this is a problem, you'll need to handle this on your end.</p>
+<p>New in CS4. Calls to register and queue up a threaded work callback for
+processing on a render thread. If you queue multiple times, it is possible for
+multiple threads to call your callback. If this is a problem, you'll need to
+handle this on your end.</p>
 <hr />
 <h2 id="time-suite">Time Suite<a class="headerlink" href="#time-suite" title="Permanent link">&para;</a></h2>
 <p>A SweetPea suite that includes the following structure, callbacks, and enum:</p>
@@ -5455,12 +5458,14 @@
 </tbody>
 </table>
 <h3 id="gettickspersecond">GetTicksPerSecond<a class="headerlink" href="#gettickspersecond" title="Permanent link">&para;</a></h3>
-<p>Get the current ticks per second. This is guaranteed to be constant for the duration of the runtime.</p>
+<p>Get the current ticks per second. This is guaranteed to be constant for the
+duration of the runtime.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-16-1"><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">GetTicksPerSecond</span><span class="p">)(</span>
 </span><span id="__span-16-2"><span class="w">  </span><span class="n">PrTime</span><span class="o">*</span><span class="w">  </span><span class="n">outTicksPerSec</span><span class="p">);</span>
 </span></code></pre></div>
 <h3 id="gettickspervideoframe">GetTicksPerVideoFrame<a class="headerlink" href="#gettickspervideoframe" title="Permanent link">&para;</a></h3>
-<p>Get the current ticks in a video frame rate. inVideoFrameRate may be any of the <code>PrVideoFrameRates</code> enum.</p>
+<p>Get the current ticks in a video frame rate. inVideoFrameRate may be any of the
+<code>PrVideoFrameRates</code> enum.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-17-1"><span class="n">prSuiteError</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">GetTicksPerVideoFrame</span><span class="p">)(</span>
 </span><span id="__span-17-2"><span class="w">  </span><span class="n">PrVideoFrameRates</span><span class="w">  </span><span class="n">inVideoFrameRate</span><span class="p">,</span>
 </span><span id="__span-17-3"><span class="w">  </span><span class="n">PrTime</span><span class="o">*</span><span class="w">            </span><span class="n">outTicksPerFrame</span><span class="p">);</span>
@@ -5491,17 +5496,39 @@
 </span></code></pre></div>
 <hr />
 <h2 id="video-segment-render-suite">Video Segment Render Suite<a class="headerlink" href="#video-segment-render-suite" title="Permanent link">&para;</a></h2>
-<p>This suite uses the built-in software path for rendering, and supports subtree rendering. This means the plugin can ask the host to render a part of the segment, and then still handle the rest of the rendering. This is useful if, for example, one of the layers has an effect that the plugin cannot render itself. The plugin can have the host render that layer, but then handle the other layers along with the compositing.</p>
-<p>In version 2, new in CS5.5, the new call <code>SupportsInitiateClipPrefetch()</code> can be used to query whether or not a clip supports prefetching.</p>
-<p>In version 3, new in CS6, the function signatures have been modernized, using <code>inSequenceTicksPerFrame</code> rather than <code>inFrameRateScale</code> and <code>inFrameRateSampleSize</code>.</p>
+<p>This suite uses the built-in software path for rendering, and supports subtree
+rendering. This means the plugin can ask the host to render a part of the
+segment, and then still handle the rest of the rendering. This is useful if, for
+example, one of the layers has an effect that the plugin cannot render itself.
+The plugin can have the host render that layer, but then handle the other layers
+along with the compositing.</p>
+<p>In version 2, new in CS5.5, the new call <code>SupportsInitiateClipPrefetch()</code> can be
+used to query whether or not a clip supports prefetching.</p>
+<p>In version 3, new in CS6, the function signatures have been modernized, using
+<code>inSequenceTicksPerFrame</code> rather than <code>inFrameRateScale</code> and
+<code>inFrameRateSampleSize</code>.</p>
 <hr />
 <h2 id="video-segment-suite">Video Segment Suite<a class="headerlink" href="#video-segment-suite" title="Permanent link">&para;</a></h2>
-<p>This suite provides calls to parse a sequence and get details on video segments. All the queryable node properties are in PrSDKVideoSegmentProperties.h. These properties will be returned as PrSDKStrings, and should be managed using the <a href="#string-suite">String Suite</a>. The segments provide a hash value that the caller can use to quickly determine whether or not a segment has changed. This hash value can be maintained even if a segment is shifted in time</p>
-<p>In version 4, new in CS5.5, the new call <code>AcquireNodeForTime()</code> passes back a segment node for a requested time. There are also a few new properties for media nodes: StreamIsContinuousTime, ColorProfileName, ColorProfileData, and ScanlineOffsetToImproveVerticalCentering.</p>
-<p>In version 5, new in CC, a new video segment property is available: Effect_ClipName. In version 6, new in CC 2014, <code>AcquireFirstNodeInTimeRange()</code> and</p>
-<p><code>AcquireOperatorOwnerNodeID()</code> were added, along with the new node type kVideoSegment_NodeType_AdjustmentEffect.</p>
-<p>The basic structure of the video segments is that of a tree structure. There is a Compositor node with n inputs. Each of those inputs is a Clip node, which has one input which is a Media node, and it also has n Operators, which are effects.</p>
-<p>So, a simple example, three clips in a stack, the top one with three effects looks like this:</p>
+<p>This suite provides calls to parse a sequence and get details on video segments.
+All the queryable node properties are in PrSDKVideoSegmentProperties.h. These
+properties will be returned as PrSDKStrings, and should be managed using the
+<a href="#string-suite">String Suite</a>. The segments provide a hash value that the caller
+can use to quickly determine whether or not a segment has changed. This hash
+value can be maintained even if a segment is shifted in time</p>
+<p>In version 4, new in CS5.5, the new call <code>AcquireNodeForTime()</code> passes back a
+segment node for a requested time. There are also a few new properties for media
+nodes: StreamIsContinuousTime, ColorProfileName, ColorProfileData, and
+ScanlineOffsetToImproveVerticalCentering.</p>
+<p>In version 5, new in CC, a new video segment property is available:
+Effect_ClipName. In version 6, new in CC 2014, <code>AcquireFirstNodeInTimeRange()</code>
+and</p>
+<p><code>AcquireOperatorOwnerNodeID()</code> were added, along with the new node type
+kVideoSegment_NodeType_AdjustmentEffect.</p>
+<p>The basic structure of the video segments is that of a tree structure. There is
+a Compositor node with n inputs. Each of those inputs is a Clip node, which has
+one input which is a Media node, and it also has n Operators, which are effects.</p>
+<p>So, a simple example, three clips in a stack, the top one with three effects
+looks like this:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-19-1"><span class="n">Segment</span>
 </span><span id="__span-19-2"><span class="w">  </span><span class="n">Compositor</span><span class="w"> </span><span class="n">Node</span>
 </span><span id="__span-19-3"><span class="w">    </span><span class="n">Clip</span><span class="w"> </span><span class="n">Node</span>
@@ -5512,11 +5539,15 @@
 </span><span id="__span-19-8"><span class="w">      </span><span class="n">Media</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="p">(</span><span class="n">top</span><span class="w"> </span><span class="n">clip</span><span class="p">)</span>
 </span><span id="__span-19-9"><span class="w">      </span><span class="n">Clip</span><span class="w"> </span><span class="n">Operators</span><span class="w"> </span><span class="p">(</span><span class="n">Blur</span><span class="p">,</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="n">Corrector</span><span class="p">,</span><span class="w"> </span><span class="n">Motion</span><span class="p">)</span>
 </span></code></pre></div>
-<p>To get a good idea of the segment structure, try the SDK player, create a sequence using the SDK Editing Mode, and watch the text overlay in the Sequence Monitor as you perform edits.</p>
+<p>To get a good idea of the segment structure, try the SDK player, create a
+sequence using the SDK Editing Mode, and watch the text overlay in the Sequence
+Monitor as you perform edits.</p>
 <p>See PrSDKVideoSegmentSuite.h and PrSDKVideoSegmentProperties.h.</p>
 <hr />
 <h2 id="window-suite">Window Suite<a class="headerlink" href="#window-suite" title="Permanent link">&para;</a></h2>
-<p>New in CS4. This is the new preferred way to get the handle of the mainframe window, especially for exporters, who don't have access to the legacy <a href="../legacy-callback-suites/#pisuites">piSuites</a>.</p>
+<p>New in CS4. This is the new preferred way to get the handle of the mainframe
+window, especially for exporters, who don't have access to the legacy
+<a href="../legacy-callback-suites/#pisuites">piSuites</a>.</p>
 
 
 
@@ -5537,7 +5568,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 19, 2025 19:00:00 UTC">November 19, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 10, 2026 21:38:11 UTC">April 10, 2026</span>
   </span>
 
     

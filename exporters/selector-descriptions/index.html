@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -1983,34 +1983,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../whats-new/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Whats New
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../getting-started/" class="md-nav__link">
         
   
@@ -2747,34 +2719,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../video-filters/whats-new/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Whats New
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../video-filters/getting-started/" class="md-nav__link">
         
   
@@ -3061,90 +3005,6 @@
     
   
     CUDA, OpenCL, Metal, or OpenGL?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gpu-effects-transitions/whats-new-in-ppro-12/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro 12.0?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gpu-effects-transitions/whats-new-in-ppro-cc2015/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro CC 2015.4?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gpu-effects-transitions/whats-new-in-ppro-cc2014/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro CC 2014?
   
 
     
@@ -3802,7 +3662,8 @@
 
 
 <h1 id="selector-descriptions">Selector Descriptions<a class="headerlink" href="#selector-descriptions" title="Permanent link">&para;</a></h1>
-<p>This section provides a brief overview of each selector and highlights implementation issues.</p>
+<p>This section provides a brief overview of each selector and highlights
+implementation issues.</p>
 <p>Additional implementation details are at the end of the chapter.</p>
 <hr />
 <h2 id="exselstartup">exSelStartup<a class="headerlink" href="#exselstartup" title="Permanent link">&para;</a></h2>
@@ -3812,117 +3673,167 @@
 </ul>
 <p>Sent during application launch, unless the exporter has been cached.</p>
 <p>A single exporter can support multiple codecs and file extensions.</p>
-<p><code>exExporterInfoRec</code> describes the exporter's attributes, such as the format display name.</p>
+<p><code>exExporterInfoRec</code> describes the exporter's attributes, such as the format
+display name.</p>
 <hr />
 <h2 id="exselbegininstance">exSelBeginInstance<a class="headerlink" href="#exselbegininstance" title="Permanent link">&para;</a></h2>
 <ul>
-<li>param1 - <a href="../structure-descriptions/#exexporterinstancerec">exExporterInstanceRec*</a></li>
+<li>param1 -
+  <a href="../structure-descriptions/#exexporterinstancerec">exExporterInstanceRec*</a></li>
 <li>param2 - <code>unused</code></li>
 </ul>
 <p>Allocate any private data.</p>
 <hr />
 <h2 id="exselgeneratedefaultparams">exSelGenerateDefaultParams<a class="headerlink" href="#exselgeneratedefaultparams" title="Permanent link">&para;</a></h2>
 <ul>
-<li>param1 - <a href="../structure-descriptions/#exgeneratedefaultparamrec">exGenerateDefaultParamRec*</a></li>
+<li>param1 -
+  <a href="../structure-descriptions/#exgeneratedefaultparamrec">exGenerateDefaultParamRec*</a></li>
 <li>param2 - <code>unused</code></li>
 </ul>
-<p>Set the exporter's default parameters using the <a href="../suites/#export-param-suite">Export Param Suite</a>.</p>
+<p>Set the exporter's default parameters using the
+<a href="../suites/#export-param-suite">Export Param Suite</a>.</p>
 <hr />
 <h2 id="exselpostprocessparams">exSelPostProcessParams<a class="headerlink" href="#exselpostprocessparams" title="Permanent link">&para;</a></h2>
 <ul>
-<li>param1 - <a href="../structure-descriptions/#expostprocessparamsrec">exPostProcessParamsRec*</a></li>
+<li>param1 -
+  <a href="../structure-descriptions/#expostprocessparamsrec">exPostProcessParamsRec*</a></li>
 <li>param2 - <code>unused</code></li>
 </ul>
-<p>Post process parameters. This is where the localized strings for the parameter UI must be provided.</p>
+<p>Post process parameters. This is where the localized strings for the parameter
+UI must be provided.</p>
 <hr />
 <h2 id="exselvalidateparamchanged">exSelValidateParamChanged<a class="headerlink" href="#exselvalidateparamchanged" title="Permanent link">&para;</a></h2>
 <ul>
 <li>param1 - <a href="../structure-descriptions/#exparamchangedrec">exParamChangedRec*</a></li>
 <li>param2 - <code>unused</code></li>
 </ul>
-<p>Validate any parameters that have changed. Based on a change to a parameter value, the exporter may update other parameter values, or show/hide certain parameter controls, using the <a href="../suites/#export-param-suite">Export Param Suite</a>.</p>
-<p>To notify the host that the plugin is changing other parameters, set <code>exParamChangedRec.rebuildAllParams</code> to a non-zero value.</p>
+<p>Validate any parameters that have changed. Based on a change to a parameter
+value, the exporter may update other parameter values, or show/hide certain
+parameter controls, using the
+<a href="../suites/#export-param-suite">Export Param Suite</a>.</p>
+<p>To notify the host that the plugin is changing other parameters, set
+<code>exParamChangedRec.rebuildAllParams</code> to a non-zero value.</p>
 <hr />
 <h2 id="exselgetparamsummary">exSelGetParamSummary<a class="headerlink" href="#exselgetparamsummary" title="Permanent link">&para;</a></h2>
 <ul>
 <li>param1 - <a href="../structure-descriptions/#exparamsummaryrec">exParamSummaryRec*</a></li>
 <li>param2 - <code>unused</code></li>
 </ul>
-<p>Provide a text summary of the current parameter settings, which will be displayed in the summary area of the Export Settings dialog.</p>
+<p>Provide a text summary of the current parameter settings, which will be
+displayed in the summary area of the Export Settings dialog.</p>
 <hr />
 <h2 id="exselparambutton">exSelParamButton<a class="headerlink" href="#exselparambutton" title="Permanent link">&para;</a></h2>
 <ul>
 <li>param1 - <a href="../structure-descriptions/#exparambuttonrec">exParamButtonRec*</a></li>
 <li>param2 - <code>unused</code></li>
 </ul>
-<p>Sent if exporter has one or more buttons in its parameter UI, and the user clicks one of the buttons in the Export Settings.</p>
-<p>The ID of the button pressed is passed in <code>exParamButtonRec.buttonParamIdentifier</code>.</p>
-<p>Display any dialog using platform-specific UI, collect any user input, and save any changes back to <code>privateData</code>.</p>
-<p>If the user cancels the dialog, return <code>exportReturn_ParamButtonCancel</code> to signify that nothing in the <code>privateData</code> has changed.</p>
+<p>Sent if exporter has one or more buttons in its parameter UI, and the user
+clicks one of the buttons in the Export Settings.</p>
+<p>The ID of the button pressed is passed in
+<code>exParamButtonRec.buttonParamIdentifier</code>.</p>
+<p>Display any dialog using platform-specific UI, collect any user input, and save
+any changes back to <code>privateData</code>.</p>
+<p>If the user cancels the dialog, return <code>exportReturn_ParamButtonCancel</code> to
+signify that nothing in the <code>privateData</code> has changed.</p>
 <hr />
 <h2 id="exselexport">exSelExport<a class="headerlink" href="#exselexport" title="Permanent link">&para;</a></h2>
 <ul>
 <li>param1 - <a href="../structure-descriptions/#exdoexportrec">exDoExportRec*</a></li>
 <li>param2 - <code>unused</code></li>
 </ul>
-<p>Do the export! Sent when the user starts an export to the format supported by the exporter, or if the exporter is used in an Editing Mode and the user renders the work area.</p>
-<p>Single file exporters are sent this selector only once per export (e.g. AVI, QuickTime). To create a single file, setup a loop where you request each frame in the startTime to endTime range using one of the render calls in the <a href="../suites/#sequence-render-suite">Sequence Render Suite</a> and GetAudio in the <a href="../suites/#sequence-audio-suite">Sequence Audio Suite</a>. For better performance, you can use the asynchronous calls in the <a href="../suites/#sequence-render-suite">Sequence Render Suite</a> to have the host render multiple frames on multiple threads.</p>
-<p>Still frame exporters are sent <code>exSelExport</code> for each frame in the sequence (e.g. numbered TIFFs). The host will name the files appropriately.</p>
-<p>Save render time by checking to see if frames are repeated. Inspect the SequenceRender_GetFrameReturnRec.repeatCount returned from a render call, which holds a frame repeat count.</p>
+<p>Do the export! Sent when the user starts an export to the format supported by
+the exporter, or if the exporter is used in an Editing Mode and the user renders
+the work area.</p>
+<p>Single file exporters are sent this selector only once per export (e.g. AVI,
+QuickTime). To create a single file, setup a loop where you request each frame
+in the startTime to endTime range using one of the render calls in the
+<a href="../suites/#sequence-render-suite">Sequence Render Suite</a> and GetAudio in the
+<a href="../suites/#sequence-audio-suite">Sequence Audio Suite</a>. For better performance,
+you can use the asynchronous calls in the
+<a href="../suites/#sequence-render-suite">Sequence Render Suite</a> to have the host render
+multiple frames on multiple threads.</p>
+<p>Still frame exporters are sent <code>exSelExport</code> for each frame in the sequence
+(e.g. numbered TIFFs). The host will name the files appropriately.</p>
+<p>Save render time by checking to see if frames are repeated. Inspect the
+SequenceRender_GetFrameReturnRec.repeatCount returned from a render call, which
+holds a frame repeat count.</p>
 <hr />
 <h2 id="exselexport2">exSelExport2<a class="headerlink" href="#exselexport2" title="Permanent link">&para;</a></h2>
 <ul>
 <li>param1 - <a href="../structure-descriptions/#exdoexportrec2">exDoExportRec2*</a></li>
 <li>param2 - <code>unused</code></li>
 </ul>
-<p>Do the export! Identical to exSelExport, except that exDoExportRec2 (which contains a LUT description) is passed.</p>
-<p>Exporter can specify the ID of the LUT that needs to be applied as last step in export processing. This is for including LUT for doing color space conversion in export path.</p>
-<p>In case LUT is specified, <code>ExportColorSpace</code> signifies the output color space of LUT.</p>
+<p>Do the export! Identical to exSelExport, except that exDoExportRec2 (which
+contains a LUT description) is passed.</p>
+<p>Exporter can specify the ID of the LUT that needs to be applied as last step in
+export processing. This is for including LUT for doing color space conversion in
+export path.</p>
+<p>In case LUT is specified, <code>ExportColorSpace</code> signifies the output color space of
+LUT.</p>
 <hr />
 <h2 id="exselqueryexportfileextension">exSelQueryExportFileExtension<a class="headerlink" href="#exselqueryexportfileextension" title="Permanent link">&para;</a></h2>
 <ul>
-<li>param1 - <a href="../structure-descriptions/#exqueryexportfileextensionrec">exQueryExportFileExtensionRec*</a></li>
+<li>param1 -
+  <a href="../structure-descriptions/#exqueryexportfileextensionrec">exQueryExportFileExtensionRec*</a></li>
 <li>param2 - <code>unused</code></li>
 </ul>
-<p>For exporters that support more than one file extension, specify an extension given the file type.</p>
-<p>If this selector is not supported by the exporter, the extension is specified by the exporter in <code>exExporterInfoRec.fileTypeDefaultExtension</code>.</p>
+<p>For exporters that support more than one file extension, specify an extension
+given the file type.</p>
+<p>If this selector is not supported by the exporter, the extension is specified by
+the exporter in <code>exExporterInfoRec.fileTypeDefaultExtension</code>.</p>
 <hr />
 <h2 id="exselqueryoutputfilelist">exSelQueryOutputFileList<a class="headerlink" href="#exselqueryoutputfilelist" title="Permanent link">&para;</a></h2>
 <ul>
-<li>param1 - <a href="../structure-descriptions/#exqueryoutputfilelistrec">exQueryOutputFileListRec*</a></li>
+<li>param1 -
+  <a href="../structure-descriptions/#exqueryoutputfilelistrec">exQueryOutputFileListRec*</a></li>
 <li>param2 - <code>unused</code></li>
 </ul>
-<p>For exporters that export to more than one file. This is called before an export for the host to find out which files would need to be overwritten.</p>
-<p>It is called after an export so the host will know about all the files created, for any post encoding tasks, such as FTP. If this selector is not supported by the exporter, the host application will only know about the original path.</p>
-<p>This selector will be called three times. On the first call, the plugin fills out numOutputFiles. The host will then make numOutputFiles count of outputFileRecs, but empty.</p>
-<p>On the second call, the plugin fills out the path length (incl trailing null) for each exOutputFileRec element in outputFileRecs. The host will then allocate all paths in each outputFileRec.</p>
+<p>For exporters that export to more than one file. This is called before an export
+for the host to find out which files would need to be overwritten.</p>
+<p>It is called after an export so the host will know about all the files created,
+for any post encoding tasks, such as FTP. If this selector is not supported by
+the exporter, the host application will only know about the original path.</p>
+<p>This selector will be called three times. On the first call, the plugin fills
+out numOutputFiles. The host will then make numOutputFiles count of
+outputFileRecs, but empty.</p>
+<p>On the second call, the plugin fills out the path length (incl trailing null)
+for each exOutputFileRec element in outputFileRecs. The host will then allocate
+all paths in each outputFileRec.</p>
 <p>On the third call, the plugin fills in the path members of the outputFileRecs.</p>
 <hr />
 <h2 id="exselquerystillsequence">exSelQueryStillSequence<a class="headerlink" href="#exselquerystillsequence" title="Permanent link">&para;</a></h2>
 <ul>
-<li>param1 - <a href="../structure-descriptions/#exquerystillsequencerec">exQueryStillSequenceRec*</a></li>
+<li>param1 -
+  <a href="../structure-descriptions/#exquerystillsequencerec">exQueryStillSequenceRec*</a></li>
 <li>param2 - <code>unused</code></li>
 </ul>
-<p>The host application asks a still-only exporter if it wants to export as a sequence, and at what frame rate.</p>
+<p>The host application asks a still-only exporter if it wants to export as a
+sequence, and at what frame rate.</p>
 <hr />
 <h2 id="exselqueryoutputsettings">exSelQueryOutputSettings<a class="headerlink" href="#exselqueryoutputsettings" title="Permanent link">&para;</a></h2>
 <ul>
-<li>param1 - <a href="../structure-descriptions/#exqueryoutputsettingsrec">exQueryOutputSettingsRec*</a></li>
+<li>param1 -
+  <a href="../structure-descriptions/#exqueryoutputsettingsrec">exQueryOutputSettingsRec*</a></li>
 <li>param2 - <code>unused</code></li>
 </ul>
-<p>The host application asks the exporter for general details about the current settings. This is a required selector.</p>
+<p>The host application asks the exporter for general details about the current
+settings. This is a required selector.</p>
 <hr />
 <h2 id="exselvalidateoutputsettings">exSelValidateOutputSettings<a class="headerlink" href="#exselvalidateoutputsettings" title="Permanent link">&para;</a></h2>
 <ul>
-<li>param1 - <a href="../structure-descriptions/#exvalidateoutputsettingsrec">exValidateOutputSettingsRec*</a></li>
+<li>param1 -
+  <a href="../structure-descriptions/#exvalidateoutputsettingsrec">exValidateOutputSettingsRec*</a></li>
 <li>param2 - <code>unused</code></li>
 </ul>
-<p>The host application asks the exporter if it can export with the current settings.</p>
-<p>The exporter should return <code>exportReturn_ErrLastErrorSet</code> if not, and the error string should be set to a description of the failure.</p>
+<p>The host application asks the exporter if it can export with the current
+settings.</p>
+<p>The exporter should return <code>exportReturn_ErrLastErrorSet</code> if not, and the error
+string should be set to a description of the failure.</p>
 <hr />
 <h2 id="exselendinstance">exSelEndInstance<a class="headerlink" href="#exselendinstance" title="Permanent link">&para;</a></h2>
 <ul>
-<li>param1 - <a href="../structure-descriptions/#exexporterinstancerec">exExporterInstanceRec*</a></li>
+<li>param1 -
+  <a href="../structure-descriptions/#exexporterinstancerec">exExporterInstanceRec*</a></li>
 <li>param2 - <code>unused</code></li>
 </ul>
 <p>Deallocate any private data.</p>
@@ -3932,11 +3843,13 @@
 <li>param1 - <code>unused</code></li>
 <li>param2 - <code>unused</code></li>
 </ul>
-<p>Sent immediately before shutdown. Free all remaining memory and close any open file handles.</p>
+<p>Sent immediately before shutdown. Free all remaining memory and close any open
+file handles.</p>
 <hr />
 <h2 id="exselqueryexportcolorspace">exSelQueryExportColorSpace<a class="headerlink" href="#exselqueryexportcolorspace" title="Permanent link">&para;</a></h2>
 <ul>
-<li>param1 - <a href="../structure-descriptions/#exqueryexportcolorspacerec">exExporterInstanceRec*</a></li>
+<li>param1 -
+  <a href="../structure-descriptions/#exqueryexportcolorspacerec">exExporterInstanceRec*</a></li>
 <li>param2 - <code>unused</code></li>
 </ul>
 <p>Describe the color space to be used during export.</p>
@@ -3960,7 +3873,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 19, 2025 19:00:00 UTC">November 19, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 10, 2026 21:38:11 UTC">April 10, 2026</span>
   </span>
 
     

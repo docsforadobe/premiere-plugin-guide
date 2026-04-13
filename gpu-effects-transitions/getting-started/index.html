@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -1981,34 +1981,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../exporters/whats-new/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Whats New
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../exporters/getting-started/" class="md-nav__link">
         
   
@@ -2509,34 +2481,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../video-filters/whats-new/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Whats New
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../video-filters/getting-started/" class="md-nav__link">
         
   
@@ -2972,90 +2916,6 @@
     
   
     CUDA, OpenCL, Metal, or OpenGL?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../whats-new-in-ppro-12/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro 12.0?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../whats-new-in-ppro-cc2015/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro CC 2015.4?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../whats-new-in-ppro-cc2014/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro CC 2014?
   
 
     
@@ -3625,29 +3485,64 @@
 
 <h1 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h1>
 <h2 id="setting-up-the-sample-projects">Setting up the Sample Projects<a class="headerlink" href="#setting-up-the-sample-projects" title="Permanent link">&para;</a></h2>
-<p>If you are developing an effect, begin with one of the two GPU effect sample projects, progressively replacing its functionality with your own. Refer to <a href="../../">Introduction</a> for general instructions on how to build the SDK projects.</p>
-<p>In addition to those general instructions, the sample project is also dependent on the After Effects plugin SDK. On Windows, create an environment variable pointing to it named AE_SDK_BASE_PATH, so that the compiler will find the AE headers that the project includes. On macOS, in <em>XCode &gt; Preferences &gt; Locations &gt; Custom Paths</em>, specify AE_SDK_BASE_PATH to be the root folder of the AE plugin SDK you have downloaded and unzipped.</p>
-<p>The samples also use Boost, which may be downloaded at boost.org. Download that, and create a variable named BOOST_BASE_PATH just as you did with AE_SDK_BASE_PATH above.</p>
-<p>Finally, install Python (version 3.6 or greater), if you do not have it already. It may be downloaded at python.org. The sample projects use this as part of the custom build steps.</p>
-<p>Depending on whether your effect will use CUDA, you'll need to download the CUDA SDK. On Windows, create an environment variable pointing to it named CUDA_SDK_BASE_PATH, so that the linker will find the right libraries.</p>
+<p>If you are developing an effect, begin with one of the two GPU effect sample
+projects, progressively replacing its functionality with your own. Refer to
+<a href="../../">Introduction</a> for general instructions on how to build the SDK
+projects.</p>
+<p>In addition to those general instructions, the sample project is also dependent
+on the After Effects plugin SDK. On Windows, create an environment variable
+pointing to it named AE_SDK_BASE_PATH, so that the compiler will find the AE
+headers that the project includes. On macOS, in <em>XCode &gt; Preferences &gt;
+Locations &gt; Custom Paths</em>, specify AE_SDK_BASE_PATH to be the root folder of the
+AE plugin SDK you have downloaded and unzipped.</p>
+<p>The samples also use Boost, which may be downloaded at boost.org. Download that,
+and create a variable named BOOST_BASE_PATH just as you did with
+AE_SDK_BASE_PATH above.</p>
+<p>Finally, install Python (version 3.6 or greater), if you do not have it already.
+It may be downloaded at python.org. The sample projects use this as part of the
+custom build steps.</p>
+<p>Depending on whether your effect will use CUDA, you'll need to download the CUDA
+SDK. On Windows, create an environment variable pointing to it named
+CUDA_SDK_BASE_PATH, so that the linker will find the right libraries.</p>
 <hr />
 <h2 id="querying-for-parameters-and-other-attributes-of-a-effect-or-transition">Querying for Parameters and other Attributes of a Effect or Transition<a class="headerlink" href="#querying-for-parameters-and-other-attributes-of-a-effect-or-transition" title="Permanent link">&para;</a></h2>
-<p>You'll notice that PrGPUFilterRenderParams has some attributes about an effect or transition, but many things, such as the parameters or duration of the clip to which the plugin is applied, are not found in that structure. These attributes will need to be queried using the GetParam() and GetProperty() helper functions in PrGPUFilterModule.h. For example:</p>
+<p>You'll notice that PrGPUFilterRenderParams has some attributes about an effect
+or transition, but many things, such as the parameters or duration of the clip
+to which the plugin is applied, are not found in that structure. These
+attributes will need to be queried using the GetParam() and GetProperty() helper
+functions in PrGPUFilterModule.h. For example:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">GetProperty</span><span class="p">(</span><span class="n">kVideoSegmentProperty_Effect_EffectDuration</span><span class="p">,</span><span class="w"> </span><span class="n">duration</span><span class="p">);</span>
 </span><span id="__span-0-2"><span class="n">GetProperty</span><span class="p">(</span><span class="n">kVideoSegmentProperty_Transition_TransitionDuration</span><span class="p">,</span><span class="w"> </span><span class="n">duration</span><span class="p">);</span>
 </span></code></pre></div>
 <hr />
 <h2 id="lifetime-of-a-gpu-effect-transition">Lifetime of a GPU Effect / Transition<a class="headerlink" href="#lifetime-of-a-gpu-effect-transition" title="Permanent link">&para;</a></h2>
-<p>A new GPU effect instance is created when an effect/transition is applied in the timeline, or when an effect parameter is changed. When rendering a series of frames it won't needlessly be recreated. The <a href="../suites/#opaque-effect-data-suite">Opaque Effect Data Suite</a> should be used to share unflattened sequence data between instances of the same effect on a track item.</p>
+<p>A new GPU effect instance is created when an effect/transition is applied in the
+timeline, or when an effect parameter is changed. When rendering a series of
+frames it won't needlessly be recreated. The
+<a href="../suites/#opaque-effect-data-suite">Opaque Effect Data Suite</a> should be used to
+share unflattened sequence data between instances of the same effect on a track
+item.</p>
 <hr />
 <h2 id="fallback-to-software-rendering">Fallback to Software Rendering<a class="headerlink" href="#fallback-to-software-rendering" title="Permanent link">&para;</a></h2>
-<p>When a new GPU effect instance is created, the instance has the option of opting-in or out of providing GPU rendering. The GPU effect should be reasonably sure it has sufficient resources to complete the render if it opts-in, because there is no API support to fall back to software rendering in the middle of a render.</p>
-<p>Calling GetDeviceInfo() in the <a href="../suites/#gpu-device-suite">GPU Device Suite</a>, and checking <code>outDeviceInfo.outMeetsMinimumRequirementsForAcceleration</code>, you can see if supports the minimum system requirements for acceleration. Do not proceed with</p>
+<p>When a new GPU effect instance is created, the instance has the option of
+opting-in or out of providing GPU rendering. The GPU effect should be reasonably
+sure it has sufficient resources to complete the render if it opts-in, because
+there is no API support to fall back to software rendering in the middle of a
+render.</p>
+<p>Calling GetDeviceInfo() in the <a href="../suites/#gpu-device-suite">GPU Device Suite</a>,
+and checking <code>outDeviceInfo.outMeetsMinimumRequirementsForAcceleration</code>, you can
+see if supports the minimum system requirements for acceleration. Do not proceed
+with</p>
 <p>AcquireExclusiveDeviceAccess(), if the minimum requirements are not met.</p>
-<p>In emergency situations, when there is not enough GPU memory available to complete a render, an effect may call PurgeDeviceMemory in the <a href="../suites/#gpu-device-suite">GPU Device Suite</a> to free up memory not initially available. This will impact performance, and should be used only if absolutely necessary.</p>
+<p>In emergency situations, when there is not enough GPU memory available to
+complete a render, an effect may call PurgeDeviceMemory in the
+<a href="../suites/#gpu-device-suite">GPU Device Suite</a> to free up memory not initially
+available. This will impact performance, and should be used only if absolutely
+necessary.</p>
 <hr />
 <h2 id="opengl-interoperability">OpenGL Interoperability<a class="headerlink" href="#opengl-interoperability" title="Permanent link">&para;</a></h2>
-<p>If you want, you have the ability to transfer frames from CUDA to OpenGL (though not always efficiently).</p>
+<p>If you want, you have the ability to transfer frames from CUDA to OpenGL (though
+not always efficiently).</p>
 <p>For CUDA interoperability with OpenGL:</p>
 <h3 id="cuda-opengl">CUDA -&gt; OpenGL<a class="headerlink" href="#cuda-opengl" title="Permanent link">&para;</a></h3>
 <ul>
@@ -3664,14 +3559,18 @@
 <li>copy from the mapped address to CUDA with <code>cuMemcpyDtoDAsync</code></li>
 <li>unmap with <code>cuGraphicsUnmapResources</code></li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>On the Mac there is no real OpenGL/CUDA interoperability, and these calls will go through system memory.</p>
-</div>
+<p>!!! note On the Mac there is no real OpenGL/CUDA interoperability, and these
+calls will go through system memory.</p>
 <hr />
 <h2 id="entry-point">Entry Point<a class="headerlink" href="#entry-point" title="Permanent link">&para;</a></h2>
-<p>The GPU entry point function will only be called if the current project is using GPU acceleration. Otherwise, the normal entry point function will be called as described in the After Effects SDK, or <a href="../gpu-effects-transitions/">GPU Effects &amp; Transitions</a> or <a href="../../video-filters/video-filters/">Video Filters</a> in this SDK Guide.</p>
-<p>Make sure GPU acceleration is activated in File &gt; Project Settings &gt; General &gt; Video Rendering and Playback &gt; Renderer. If a GPU option is not available, then you will need to install a suitable video card in your system.</p>
+<p>The GPU entry point function will only be called if the current project is using
+GPU acceleration. Otherwise, the normal entry point function will be called as
+described in the After Effects SDK, or
+<a href="../gpu-effects-transitions/">GPU Effects &amp; Transitions</a> or
+<a href="../../video-filters/video-filters/">Video Filters</a> in this SDK Guide.</p>
+<p>Make sure GPU acceleration is activated in File &gt; Project Settings &gt; General &gt;
+Video Rendering and Playback &gt; Renderer. If a GPU option is not available, then
+you will need to install a suitable video card in your system.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><span class="n">prSuiteError</span><span class="w"> </span><span class="n">xGPUFilterEntry</span><span class="w"> </span><span class="p">(</span>
 </span><span id="__span-1-2"><span class="w">  </span><span class="n">csSDK_uint32</span><span class="w">      </span><span class="n">inHostInterfaceVersion</span><span class="p">,</span>
 </span><span id="__span-1-3"><span class="w">  </span><span class="n">csSDK_int32</span><span class="o">*</span><span class="w">      </span><span class="n">ioIndex</span><span class="p">,</span>
@@ -3680,10 +3579,14 @@
 </span><span id="__span-1-6"><span class="w">  </span><span class="n">PrGPUFilter</span><span class="o">*</span><span class="w">      </span><span class="n">outFilter</span><span class="p">,</span>
 </span><span id="__span-1-7"><span class="w">  </span><span class="n">PrGPUFilterInfo</span><span class="o">*</span><span class="w">  </span><span class="n">outFilterInfo</span><span class="p">)</span>
 </span></code></pre></div>
-<p>If <code>inStartup</code> is non-zero, the effect/transition should startup and initialize the functions needed to implement PrGPUFilter, as well as the info in PrGPUFilterInfo.</p>
-<p>If <code>inStartup</code> is false, then the effect/transition should shutdown, unloading any resources it loaded on startup.</p>
+<p>If <code>inStartup</code> is non-zero, the effect/transition should startup and initialize
+the functions needed to implement PrGPUFilter, as well as the info in
+PrGPUFilterInfo.</p>
+<p>If <code>inStartup</code> is false, then the effect/transition should shutdown, unloading
+any resources it loaded on startup.</p>
 <p>As of CC, inHostInterfaceVersion is <code>PrSDKGPUFilterInterfaceVersion1 == 1</code></p>
-<p>If a single plugin supports multiple effects, increment ioIndex to the next value before returning, in order to be called again to describe the next effect.</p>
+<p>If a single plugin supports multiple effects, increment ioIndex to the next
+value before returning, in order to be called again to describe the next effect.</p>
 
 
 
@@ -3704,7 +3607,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 24, 2025 19:27:26 UTC">April 24, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 10, 2026 21:38:11 UTC">April 10, 2026</span>
   </span>
 
     

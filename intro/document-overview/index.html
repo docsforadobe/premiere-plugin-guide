@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -2043,34 +2043,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../exporters/whats-new/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Whats New
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../exporters/getting-started/" class="md-nav__link">
         
   
@@ -2571,34 +2543,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../video-filters/whats-new/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Whats New
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../video-filters/getting-started/" class="md-nav__link">
         
   
@@ -2885,90 +2829,6 @@
     
   
     CUDA, OpenCL, Metal, or OpenGL?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gpu-effects-transitions/whats-new-in-ppro-12/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro 12.0?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gpu-effects-transitions/whats-new-in-ppro-cc2015/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro CC 2015.4?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gpu-effects-transitions/whats-new-in-ppro-cc2014/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro CC 2014?
   
 
     
@@ -3451,15 +3311,27 @@
 
 <h1 id="document-overview">Document Overview<a class="headerlink" href="#document-overview" title="Permanent link">&para;</a></h1>
 <p>This introduction information is common to all the plugin types.</p>
-<p>All developers should read this chapter, and browse through chapters two and three before diving too deep into plugin development.</p>
-<p><a href="../../resources/resources/">Resources</a> is a short chapter that describes the Premiere Pro-specific resources used by plugins, including the Plugin Property List (PiPL).</p>
-<p><a href="../../universals/universals/">Universals</a> documents concepts, data types, and structures used throughout the APIs. It also describes suites and functions used by more than one type of plugin.</p>
-<p><a href="../../hardware/hardware/">Hardware</a> introduces Media Abstraction, used by hardware integrators and software developers to integrate with Premiere and accelerate specific workflows.</p>
-<p>This document is designed to be read non-linearly. You can browse through the topics from the bookmarks that appear in the left-hand panel in Acrobat, or the right-hand panel in the Preview application on macOS. A simple search for a well-chosen keyword will also turn up much information on any given topic.</p>
+<p>All developers should read this chapter, and browse through chapters two and
+three before diving too deep into plugin development.</p>
+<p><a href="../../resources/resources/">Resources</a> is a short chapter that describes the
+Premiere Pro-specific resources used by plugins, including the Plugin Property
+List (PiPL).</p>
+<p><a href="../../universals/universals/">Universals</a> documents concepts, data types, and
+structures used throughout the APIs. It also describes suites and functions used
+by more than one type of plugin.</p>
+<p><a href="../../hardware/hardware/">Hardware</a> introduces Media Abstraction, used by
+hardware integrators and software developers to integrate with Premiere and
+accelerate specific workflows.</p>
+<p>This document is designed to be read non-linearly. You can browse through the
+topics from the bookmarks that appear in the left-hand panel in Acrobat, or the
+right-hand panel in the Preview application on macOS. A simple search for a
+well-chosen keyword will also turn up much information on any given topic.</p>
 <hr />
 <h2 id="documentation-conventions">Documentation Conventions<a class="headerlink" href="#documentation-conventions" title="Permanent link">&para;</a></h2>
-<p>Functions, structure names and general C/C++ code are in Courier; <code>MyStruct.member</code> and <code>MyFunction()</code></p>
-<p>Underlined text in light blue is hyperlinked. Premiere selectors are italicized; <em>imGetPrefs</em>.</p>
+<p>Functions, structure names and general C/C++ code are in Courier;
+<code>MyStruct.member</code> and <code>MyFunction()</code></p>
+<p>Underlined text in light blue is hyperlinked. Premiere selectors are italicized;
+<em>imGetPrefs</em>.</p>
 
 
 
@@ -3480,7 +3352,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 21, 2025 21:51:32 UTC">April 21, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 10, 2026 21:38:11 UTC">April 10, 2026</span>
   </span>
 
     

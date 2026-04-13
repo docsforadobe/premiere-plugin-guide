@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://ppro-plugins.docsforadobe.dev/exporters/getting-started/">
       
       
-        <link rel="prev" href="../whats-new/">
+        <link rel="prev" href="../exporters/">
       
       
         <link rel="next" href="../selector-table/">
@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -1980,34 +1980,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../whats-new/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Whats New
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -2808,34 +2780,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../video-filters/whats-new/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Whats New
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../video-filters/getting-started/" class="md-nav__link">
         
   
@@ -3122,90 +3066,6 @@
     
   
     CUDA, OpenCL, Metal, or OpenGL?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gpu-effects-transitions/whats-new-in-ppro-12/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro 12.0?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gpu-effects-transitions/whats-new-in-ppro-cc2015/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro CC 2015.4?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gpu-effects-transitions/whats-new-in-ppro-cc2014/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro CC 2014?
   
 
     
@@ -3924,115 +3784,253 @@
 
 
 <h1 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h1>
-<p>Start your plugin by modifying the SDK sample. Step through the code in your debugger to learn the order of events.</p>
+<p>Start your plugin by modifying the SDK sample. Step through the code in your
+debugger to learn the order of events.</p>
 <hr />
 <h2 id="media-encoder-as-a-test-harness">Media Encoder as a Test Harness<a class="headerlink" href="#media-encoder-as-a-test-harness" title="Permanent link">&para;</a></h2>
-<p>It may be faster to developing exporters using Media Encoder, since it is a lighter-weight application. However, you will want to test your exporter in Premiere Pro, to make sure the behavior is the same as when running in Media Encoder.</p>
+<p>It may be faster to developing exporters using Media Encoder, since it is a
+lighter-weight application. However, you will want to test your exporter in
+Premiere Pro, to make sure the behavior is the same as when running in Media
+Encoder.</p>
 <hr />
 <h2 id="adding-parameters">Adding Parameters<a class="headerlink" href="#adding-parameters" title="Permanent link">&para;</a></h2>
-<p>Starting in CS6, the <a href="../suites/#export-standard-param-suite">Export Standard Param Suite</a> provides a way to add several basic sets of parameters, whether for video, audio, still sequences, etc. Beyond the standard parameters, custom defined parameters can be added using the <a href="../suites/#export-param-suite">Export Param Suite</a>.</p>
-<p>First register the parameters during <code>exSelGenerateDefaultParams</code>. Then provide the localized strings and min/max parameter values during <code>exSelPostProcessParams</code>. When the exporter is sent <code>exSelExport</code> to export, get the user-specified parameter values using the <a href="../suites/#export-param-suite">Export Param Suite</a>.</p>
+<p>Starting in CS6, the
+<a href="../suites/#export-standard-param-suite">Export Standard Param Suite</a> provides a
+way to add several basic sets of parameters, whether for video, audio, still
+sequences, etc. Beyond the standard parameters, custom defined parameters can be
+added using the <a href="../suites/#export-param-suite">Export Param Suite</a>.</p>
+<p>First register the parameters during <code>exSelGenerateDefaultParams</code>. Then provide
+the localized strings and min/max parameter values during
+<code>exSelPostProcessParams</code>. When the exporter is sent <code>exSelExport</code> to export, get
+the user-specified parameter values using the
+<a href="../suites/#export-param-suite">Export Param Suite</a>.</p>
 <hr />
 <h2 id="updating-parameters-dynamically">Updating Parameters Dynamically<a class="headerlink" href="#updating-parameters-dynamically" title="Permanent link">&para;</a></h2>
-<p>Parameters can be updated dynamically based on user interaction with any related parameter. The time to update is during the <code>exSelValidateParamChanged</code> selector. Use ChangeParam in the <a href="../suites/#export-param-suite">Export Param Suite</a> to make the change. Then, set <code>exParamChangedRec.rebuildAllParams</code> to true before returning. If you don't set that flag, parameters may appear out of order after a change.</p>
+<p>Parameters can be updated dynamically based on user interaction with any related
+parameter. The time to update is during the <code>exSelValidateParamChanged</code>
+selector. Use ChangeParam in the
+<a href="../suites/#export-param-suite">Export Param Suite</a> to make the change. Then, set
+<code>exParamChangedRec.rebuildAllParams</code> to true before returning. If you don't set
+that flag, parameters may appear out of order after a change.</p>
 <hr />
 <h2 id="supporting-match-source">Supporting "Match Source"<a class="headerlink" href="#supporting-match-source" title="Permanent link">&para;</a></h2>
-<p>The exporter must set <code>exExporterInfoRec.canMatchSource</code> to true. This will add the Match Source button to the Video tab in the Export Settings.</p>
-<p>Next, if the Match Source button is pressed in the Export Settings, <code>exPostProcessParamsRec.doConformToMatchParams</code> will be true. The exporter should respond by updating any parameter values it can to match the source settings.</p>
+<p>The exporter must set <code>exExporterInfoRec.canMatchSource</code> to true. This will add
+the Match Source button to the Video tab in the Export Settings.</p>
+<p>Next, if the Match Source button is pressed in the Export Settings,
+<code>exPostProcessParamsRec.doConformToMatchParams</code> will be true. The exporter
+should respond by updating any parameter values it can to match the source
+settings.</p>
 <hr />
 <h2 id="get-video-frames-and-audio-samples">Get Video Frames and Audio Samples<a class="headerlink" href="#get-video-frames-and-audio-samples" title="Permanent link">&para;</a></h2>
-<p>Starting in CS6, exporters can use the new push model, or the legacy pull model for obtaining frames. The new push model is supported starting in CS6, and the pull model is still supported.</p>
+<p>Starting in CS6, exporters can use the new push model, or the legacy pull model
+for obtaining frames. The new push model is supported starting in CS6, and the
+pull model is still supported.</p>
 <p>Push Model</p>
 <hr />
-<p>Using the push model, the exporter host can simply push frames to a thread-safe exporter-specified callback. Use DoMultiPassExportLoop in the <a href="../suites/#exporter-utility-suite">Exporter Utility Suite</a> to register the callback.</p>
-<p>Compared with the pull model, this will cut down on the code previously required for render loop management. It should also yield substantial performance increases for exporters that haven't finely tuned their multithreaded rendering.</p>
+<p>Using the push model, the exporter host can simply push frames to a thread-safe
+exporter-specified callback. Use DoMultiPassExportLoop in the
+<a href="../suites/#exporter-utility-suite">Exporter Utility Suite</a> to register the
+callback.</p>
+<p>Compared with the pull model, this will cut down on the code previously required
+for render loop management. It should also yield substantial performance
+increases for exporters that haven't finely tuned their multithreaded rendering.</p>
 <h3 id="pull-model">Pull Model<a class="headerlink" href="#pull-model" title="Permanent link">&para;</a></h3>
-<p>Using the pull model to get video and audio data involves making calls to the host to ask for this data. Use the <a href="../suites/#sequence-render-suite">Sequence Render Suite</a> to get individual video frames, and the <a href="../suites/#sequence-audio-suite">Sequence Audio Suite</a> to get buffers of audio samples.</p>
-<p>Video frames can be requested synchronously or asynchronously. The asynchronous method can yield better performance, but it is up to the exporter to provide its asynchronous render loop.</p>
+<p>Using the pull model to get video and audio data involves making calls to the
+host to ask for this data. Use the
+<a href="../suites/#sequence-render-suite">Sequence Render Suite</a> to get individual video
+frames, and the <a href="../suites/#sequence-audio-suite">Sequence Audio Suite</a> to get
+buffers of audio samples.</p>
+<p>Video frames can be requested synchronously or asynchronously. The asynchronous
+method can yield better performance, but it is up to the exporter to provide its
+asynchronous render loop.</p>
 <hr />
 <h2 id="handling-a-pause-or-cancel-by-the-user-pull-model-only">Handling a Pause or Cancel by the User (Pull Model only)<a class="headerlink" href="#handling-a-pause-or-cancel-by-the-user-pull-model-only" title="Permanent link">&para;</a></h2>
-<p>Push model export does not require any special code to handle pause or cancel by the user. For pull model export, the way to check if the user has paused or cancelled the export is to call UpdateProgressPercent in the <a href="../suites/#export-progress-suite">Export Progress Suite</a>, and check the return value. If the return value is suiteError_ExporterSuspended, the user has hit the pause button, which is only available in the Media Encoder UI. If the return value is <code>exportReturn_Abort</code>, then the export has been cancelled by the user.</p>
-<p>If UpdateProgressPercent returns <code>suiteError_ExporterSuspended</code>, then the exporter should next call <code>WaitForResume</code>, which will block until the user has unpaused the export.</p>
-<p>If UpdateProgressPercent returns <code>exportReturn_Abort</code>, the exporter should take steps to abort the export and clean up. Note that the exporter can still continue to ask for video frames and audio samples after a cancel has been received, which is useful in certain circumstances, such as if an exporter needs a few more frames to complete an MPEG GOP, or if it wants to include the audio for the video exported up to the point of cancel. This allows the exporter to generate well-formed output files, even in the case of a cancel.</p>
+<p>Push model export does not require any special code to handle pause or cancel by
+the user. For pull model export, the way to check if the user has paused or
+cancelled the export is to call UpdateProgressPercent in the
+<a href="../suites/#export-progress-suite">Export Progress Suite</a>, and check the return
+value. If the return value is suiteError_ExporterSuspended, the user has hit the
+pause button, which is only available in the Media Encoder UI. If the return
+value is <code>exportReturn_Abort</code>, then the export has been cancelled by the user.</p>
+<p>If UpdateProgressPercent returns <code>suiteError_ExporterSuspended</code>, then the
+exporter should next call <code>WaitForResume</code>, which will block until the user has
+unpaused the export.</p>
+<p>If UpdateProgressPercent returns <code>exportReturn_Abort</code>, the exporter should take
+steps to abort the export and clean up. Note that the exporter can still
+continue to ask for video frames and audio samples after a cancel has been
+received, which is useful in certain circumstances, such as if an exporter needs
+a few more frames to complete an MPEG GOP, or if it wants to include the audio
+for the video exported up to the point of cancel. This allows the exporter to
+generate well-formed output files, even in the case of a cancel.</p>
 <hr />
 <h2 id="creating-presets">Creating Presets<a class="headerlink" href="#creating-presets" title="Permanent link">&para;</a></h2>
-<p>Create your own presets using the Export Settings UI, either from within Premiere Pro, or Media Encoder. Just modify the parameters the way you want, and hit the Save icon to save the preset to disk. The presets are saved with the extension '.epr'.</p>
-<p>Starting in CS5, all the presets are saved to the same location, regardless of whether saved from Premiere Pro or Media Encoder:</p>
-<p>On Windows 7, presets are saved here: <code>[User folder]\AppData\Roaming\Adobe\Common\AME\[version]\Presets\\</code></p>
+<p>Create your own presets using the Export Settings UI, either from within
+Premiere Pro, or Media Encoder. Just modify the parameters the way you want, and
+hit the Save icon to save the preset to disk. The presets are saved with the
+extension '.epr'.</p>
+<p>Starting in CS5, all the presets are saved to the same location, regardless of
+whether saved from Premiere Pro or Media Encoder:</p>
+<p>On Windows 7, presets are saved here:
+<code>[User folder]\AppData\Roaming\Adobe\Common\AME\[version]\Presets\\</code></p>
 <p>On MacOS: <code>~/Library/Preferences/Adobe/Common/AME/[version]/Presets/</code></p>
-<p>In CS4, where the files are saved depends on whether you've opened the Export Settings UI in Premiere Pro or Media Encoder:</p>
+<p>In CS4, where the files are saved depends on whether you've opened the Export
+Settings UI in Premiere Pro or Media Encoder:</p>
 <h3 id="media-encoder-presets">Media Encoder presets<a class="headerlink" href="#media-encoder-presets" title="Permanent link">&para;</a></h3>
-<p>On Windows Vista, presets are saved here: <code>[User folder]\AppData\Roaming\Adobe\Adobe Media Encoder\[version]\Presets\\</code></p>
-<p>On Windows XP: <code>[Documents and Settings folder]\[user name]\Application Data\Adobe\Adobe Media Encoder\[version]\Presets\\</code></p>
+<p>On Windows Vista, presets are saved here:
+<code>[User folder]\AppData\Roaming\Adobe\Adobe Media Encoder\[version]\Presets\\</code></p>
+<p>On Windows XP, presets are saved here:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1">[Documents and Settings folder]\[user name]\Application Data\Adobe\Adobe Media Encoder\[version]\Presets\\
+</span></code></pre></div>
 <p>On MacOS: <code>~/Library/Preferences/Adobe/Adobe Media Encoder/[version]/ Presets/</code></p>
 <h3 id="premiere-pro-presets">Premiere Pro presets<a class="headerlink" href="#premiere-pro-presets" title="Permanent link">&para;</a></h3>
-<p>On Windows, presets are saved here: <code>[User folder]\AppData\Roaming\Adobe\Premiere Pro\[version]\\ Presets\\</code></p>
+<p>On Windows, presets are saved here:
+<code>[User folder]\AppData\Roaming\Adobe\Premiere Pro\[version]\\ Presets\\</code></p>
 <p>On MacOS: <code>~/Library/Preferences/Adobe/Adobe Premiere Pro/[version]/Presets/</code></p>
 <h4 id="ame-preset-browser">AME Preset Browser<a class="headerlink" href="#ame-preset-browser" title="Permanent link">&para;</a></h4>
-<p>Starting in CS6, Adobe Media Encoder has a Preset Browser with provides a structured organization of presets. Third-party presets can be added to any folder or subfolder within the main categories. Once you have created a preset, it will default to the Other folder. You can set the desired folder location in the <code>&lt;FolderDisplayPath&gt;</code> tag in the preset XML.</p>
-<p>For example, if you set it to: <code>&lt;FolderDisplayPath&gt;System Presets/Image Sequence/PNG&lt;/ FolderDisplayPath&gt;</code> then AME will display the preset in the <code>System Presets &gt; Image Sequence &gt; PNG folder</code>.</p>
-<p>It is essential to use: "System Presets/xxx/" where the xxx must be any of the existing main categories (use the English name for this). Only one level below can you can create a custom-named folder. If the folder doesn't already exist, it will be created.</p>
-<p>The Preset Browser data is cached in a file at: <code>[User Folder]\AppData\Roaming\Adobe\Common\AME\[version]\Presets\PresetTree.xml</code></p>
-<p>If you want to force a refresh of the Preset Browser data, just quit AME, delete this file, and re-launch AME.</p>
+<p>Starting in CS6, Adobe Media Encoder has a Preset Browser with provides a
+structured organization of presets. Third-party presets can be added to any
+folder or subfolder within the main categories. Once you have created a preset,
+it will default to the Other folder. You can set the desired folder location in
+the <code>&lt;FolderDisplayPath&gt;</code> tag in the preset XML.</p>
+<p>For example, if you set it to:
+<code>&lt;FolderDisplayPath&gt;System Presets/Image Sequence/PNG&lt;/ FolderDisplayPath&gt;</code> then
+AME will display the preset in the
+<code>System Presets &gt; Image Sequence &gt; PNG folder</code>.</p>
+<p>It is essential to use: "System Presets/xxx/" where the xxx must be any of the
+existing main categories (use the English name for this). Only one level below
+can you can create a custom-named folder. If the folder doesn't already exist,
+it will be created.</p>
+<p>The Preset Browser data is cached in a file at:
+<code>[User Folder]\AppData\Roaming\Adobe\Common\AME\[version]\Presets\PresetTree.xml</code></p>
+<p>If you want to force a refresh of the Preset Browser data, just quit AME, delete
+this file, and re-launch AME.</p>
 <hr />
 <h2 id="parameter-caching">Parameter Caching<a class="headerlink" href="#parameter-caching" title="Permanent link">&para;</a></h2>
-<p>During development, when you modify parameters in your exporter and reload the plugin into the host, the Settings UI may continue to show stale parameter data. New parameters that you have added may not appear, or old ones may continue to appear. Or if you have changed the UI for an existing parameter, it may not take effect.</p>
-<p>At a minimum, any old presets must be deleted. This includes Media Encoder presets and Premiere Pro presets. After deleting the old presets, there are two options, depending on whether the an older version of the exporter has already been distributed and is in use.</p>
+<p>During development, when you modify parameters in your exporter and reload the
+plugin into the host, the Settings UI may continue to show stale parameter data.
+New parameters that you have added may not appear, or old ones may continue to
+appear. Or if you have changed the UI for an existing parameter, it may not take
+effect.</p>
+<p>At a minimum, any old presets must be deleted. This includes Media Encoder
+presets and Premiere Pro presets. After deleting the old presets, there are two
+options, depending on whether the an older version of the exporter has already
+been distributed and is in use.</p>
 <h3 id="increment-the-parameter-version">Increment the Parameter Version<a class="headerlink" href="#increment-the-parameter-version" title="Permanent link">&para;</a></h3>
-<p>If an older version of the exporter is already being used by customers, you'll need to use parameter versioning. During <code>exSelGenerateDefaultParams</code>, you should call SetParamsVersion() in the <a href="../suites/#export-param-suite">Export Param Suite</a> and increment the version number.</p>
-<p>After that, create new presets and sequence encoder presets (if needed) using the new set of parameters. Make sure your installer removes the old presets, and installs the new ones.</p>
+<p>If an older version of the exporter is already being used by customers, you'll
+need to use parameter versioning. During <code>exSelGenerateDefaultParams</code>, you
+should call SetParamsVersion() in the
+<a href="../suites/#export-param-suite">Export Param Suite</a> and increment the version
+number.</p>
+<p>After that, create new presets and sequence encoder presets (if needed) using
+the new set of parameters. Make sure your installer removes the old presets, and
+installs the new ones.</p>
 <h3 id="flush-the-parameter-cache">Flush the Parameter Cache<a class="headerlink" href="#flush-the-parameter-cache" title="Permanent link">&para;</a></h3>
-<p>If you don't increment the parameter version, you can manually flush the parameter cache in a few steps. After you've deleted the old presets, do the following:</p>
+<p>If you don't increment the parameter version, you can manually flush the
+parameter cache in a few steps. After you've deleted the old presets, do the
+following:</p>
 <ol>
-<li>Delete hidden presets that were created by the hosts for the most recently used parameter settings. Look for a file called Placeholder Preset.epr in both the folders above the Media Encoder presets and the Premiere Pro presets.</li>
-<li>Delete batch.xml, used by Media Encoder. This is also in the folder above the Media Encoder presets. Deleting this is equivalent to deleting the items out of the Media Encoder render queue.</li>
+<li>Delete hidden presets that were created by the hosts for the most recently
+   used parameter settings. Look for a file called Placeholder Preset.epr in
+   both the folders above the Media Encoder presets and the Premiere Pro
+   presets.</li>
+<li>Delete batch.xml, used by Media Encoder. This is also in the folder above the
+   Media Encoder presets. Deleting this is equivalent to deleting the items out
+   of the Media Encoder render queue.</li>
 <li>Delete Premiere Pro sequence encoder presets that use the exporter, if any</li>
-<li>Even after deleting all the old presets, Media Encoder may initially show old cached parameter UI. In the Settings UI, just switch to a different format and then back to yours.</li>
+<li>Even after deleting all the old presets, Media Encoder may initially show old
+   cached parameter UI. In the Settings UI, just switch to a different format
+   and then back to yours.</li>
 </ol>
 <hr />
 <h2 id="multichannel-audio-layouts">Multichannel Audio Layouts<a class="headerlink" href="#multichannel-audio-layouts" title="Permanent link">&para;</a></h2>
-<p>To support multichannel audio layouts, kPrAudioChannelType_MaxChannel should be the type requested in MakeAudioRenderer().</p>
-<p>The audio buffers you use for GetAudio() should likewise be an array of kPrAudioChannelType_MaxChannel channels, and yes, this means you may be allocating more space than actually used.</p>
-<p>In the exporter's Audio tab, you can provide a parameter to choose between various multi-channel audio layouts. You can compare your settings to what we have with the built-in formats, QuickTime and MXF (such as MXF OP1a and DNxHD). From the user selection in your audio export settings (e.g., 2x stereo, etc), you will know how many of those channels passed back in GetAudio() should actually be written to the file.</p>
+<p>To support multichannel audio layouts, kPrAudioChannelType_MaxChannel should be
+the type requested in MakeAudioRenderer().</p>
+<p>The audio buffers you use for GetAudio() should likewise be an array of
+kPrAudioChannelType_MaxChannel channels, and yes, this means you may be
+allocating more space than actually used.</p>
+<p>In the exporter's Audio tab, you can provide a parameter to choose between
+various multi-channel audio layouts. You can compare your settings to what we
+have with the built-in formats, QuickTime and MXF (such as MXF OP1a and DNxHD).
+From the user selection in your audio export settings (e.g., 2x stereo, etc),
+you will know how many of those channels passed back in GetAudio() should
+actually be written to the file.</p>
 <hr />
 <h2 id="closed-captioning">Closed Captioning<a class="headerlink" href="#closed-captioning" title="Permanent link">&para;</a></h2>
-<p>Starting in CC, the Export Settings includes a new Captions tab, for Closed Captioning export. For all formats, a sidecar file containing the captions can be exported. Additionally, exporters can optionally embed Closed Captioning directly in the output file. First, the exporter must set exExporterInfoRec.canEmbedCaptions to true. This will add the option to embed the captions in the output file, from the Export Options drop-down in the Captions tab. If this option is selected during export, exDoExportRec.embedCaptions will be true. The exporter should retrieve the captions using the <a href="../../universals/sweetpea-suites/#captioning-suite">Captioning Suite</a>.</p>
+<p>Starting in CC, the Export Settings includes a new Captions tab, for Closed
+Captioning export. For all formats, a sidecar file containing the captions can
+be exported. Additionally, exporters can optionally embed Closed Captioning
+directly in the output file. First, the exporter must set
+exExporterInfoRec.canEmbedCaptions to true. This will add the option to embed
+the captions in the output file, from the Export Options drop-down in the
+Captions tab. If this option is selected during export,
+exDoExportRec.embedCaptions will be true. The exporter should retrieve the
+captions using the
+<a href="../../universals/sweetpea-suites/#captioning-suite">Captioning Suite</a>.</p>
 <hr />
 <h2 id="multiple-file-formats">Multiple File Formats<a class="headerlink" href="#multiple-file-formats" title="Permanent link">&para;</a></h2>
-<p>To support more than one file format in a single exporter, describe one format at a time during <code>exSelStartup</code>. After describing the first one, return exportReturn_IterateExporter from <code>exSelStartup</code>, and the exporter will be called again to describe the second format, and so on. After describing the last format, return exportReturn_IterateExporter, and the exporter will be called yet again. This time, return exportReturn_IterateExporterDone.</p>
-<p>Use a unique fileType for each format. When you are later sent <code>exSelGenerateDefaultParams</code>, <code>exSelPostProcessParams</code>, etc, you'll want to pay attention to the fileType, and respond according to the format.</p>
+<p>To support more than one file format in a single exporter, describe one format
+at a time during <code>exSelStartup</code>. After describing the first one, return
+exportReturn_IterateExporter from <code>exSelStartup</code>, and the exporter will be
+called again to describe the second format, and so on. After describing the last
+format, return exportReturn_IterateExporter, and the exporter will be called yet
+again. This time, return exportReturn_IterateExporterDone.</p>
+<p>Use a unique fileType for each format. When you are later sent
+<code>exSelGenerateDefaultParams</code>, <code>exSelPostProcessParams</code>, etc, you'll want to pay
+attention to the fileType, and respond according to the format.</p>
 <hr />
 <h2 id="timeline-segments-in-exporters">Timeline Segments in Exporters<a class="headerlink" href="#timeline-segments-in-exporters" title="Permanent link">&para;</a></h2>
-<p>The timeline segments available to exporters do not always fully describe the sequence being exported. To consistently get timeline segments that fully describe the sequence, an exporter needs to work along with a renderer plugin.</p>
-<p>During a sequence export, Premiere Pro makes a copy of the project file and passes it to Media Encoder. Media Encoder takes that project and uses the PProHeadless process to generate rendered frames. So when an exporter, which is running in Media Encoder, parses the sequence, it only has a very high-level view. It sees the entire sequence as a single clip, and sees any optional cropping or filters as applied effects. So when parsing that simple, high-level sequence, if there are no effects, an exporter can just use the MediaNode's ClipID with the <a href="../../universals/sweetpea-suites/#clip-render-suite">Clip Render Suite</a> to get frames directly from the PProHeadless process. In the PProHeadless process, a renderer plugin can step in, parse the real sequence in all its glory, and optionally provide frames in a custom pixel format.</p>
-<p>When rendering preview files, Premiere Pro does the rendering without Media Encoder, so an exporter can get the individual segments for each clip, similar to before.</p>
+<p>The timeline segments available to exporters do not always fully describe the
+sequence being exported. To consistently get timeline segments that fully
+describe the sequence, an exporter needs to work along with a renderer plugin.</p>
+<p>During a sequence export, Premiere Pro makes a copy of the project file and
+passes it to Media Encoder. Media Encoder takes that project and uses the
+PProHeadless process to generate rendered frames. So when an exporter, which is
+running in Media Encoder, parses the sequence, it only has a very high-level
+view. It sees the entire sequence as a single clip, and sees any optional
+cropping or filters as applied effects. So when parsing that simple, high-level
+sequence, if there are no effects, an exporter can just use the MediaNode's
+ClipID with the
+<a href="../../universals/sweetpea-suites/#clip-render-suite">Clip Render Suite</a> to get
+frames directly from the PProHeadless process. In the PProHeadless process, a
+renderer plugin can step in, parse the real sequence in all its glory, and
+optionally provide frames in a custom pixel format.</p>
+<p>When rendering preview files, Premiere Pro does the rendering without Media
+Encoder, so an exporter can get the individual segments for each clip, similar
+to before.</p>
 <hr />
 <h2 id="smart-rendering">Smart Rendering<a class="headerlink" href="#smart-rendering" title="Permanent link">&para;</a></h2>
-<p>Under very specific circumstances, an exporter can request compressed frames, avoiding unnecessary de/recompression.</p>
-<p>This would be done by providing both exporter and renderer plugins that parse timeline segments.</p>
-<p>If the source can be copied over to the destination, the compressed frames can be passed in a custom pixel format.</p>
-<p>These compressed frames are not guaranteed, however, so the exporter should be prepared to handle uncompressed frames.</p>
+<p>Under very specific circumstances, an exporter can request compressed frames,
+avoiding unnecessary de/recompression.</p>
+<p>This would be done by providing both exporter and renderer plugins that parse
+timeline segments.</p>
+<p>If the source can be copied over to the destination, the compressed frames can
+be passed in a custom pixel format.</p>
+<p>These compressed frames are not guaranteed, however, so the exporter should be
+prepared to handle uncompressed frames.</p>
 <hr />
 <h2 id="entry-point">Entry Point<a class="headerlink" href="#entry-point" title="Permanent link">&para;</a></h2>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">DllExport</span><span class="w"> </span><span class="n">PREMPLUGENTRY</span><span class="w"> </span><span class="n">xSDKExport</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-0-2"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">      </span><span class="n">selector</span><span class="p">,</span>
-</span><span id="__span-0-3"><span class="w">  </span><span class="n">exportStdParms</span><span class="o">*</span><span class="w">  </span><span class="n">stdParmsP</span><span class="p">,</span>
-</span><span id="__span-0-4"><span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">            </span><span class="n">param1</span><span class="p">,</span>
-</span><span id="__span-0-5"><span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">            </span><span class="n">param2</span><span class="p">)</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><span class="n">DllExport</span><span class="w"> </span><span class="n">PREMPLUGENTRY</span><span class="w"> </span><span class="n">xSDKExport</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-1-2"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">      </span><span class="n">selector</span><span class="p">,</span>
+</span><span id="__span-1-3"><span class="w">  </span><span class="n">exportStdParms</span><span class="o">*</span><span class="w">  </span><span class="n">stdParmsP</span><span class="p">,</span>
+</span><span id="__span-1-4"><span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">            </span><span class="n">param1</span><span class="p">,</span>
+</span><span id="__span-1-5"><span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w">            </span><span class="n">param2</span><span class="p">)</span>
 </span></code></pre></div>
 <ul>
 <li><code>selector</code> is the action the host wants the exporter to perform.</li>
-<li><code>stdParms</code> provides callbacks to obtain additional information from the host or to have the host perform tasks.</li>
-<li>Parameters 1 and 2 vary with the selector; they may contain a specific value or a pointer to a structure.</li>
+<li><code>stdParms</code> provides callbacks to obtain additional information from the host
+  or to have the host perform tasks.</li>
+<li>Parameters 1 and 2 vary with the selector; they may contain a specific value
+  or a pointer to a structure.</li>
 </ul>
 <p>Return <code>exportReturn_ErrNone</code> if successful, or an appropriate return code.</p>
 <hr />
 <h2 id="standard-parameters">Standard Parameters<a class="headerlink" href="#standard-parameters" title="Permanent link">&para;</a></h2>
-<p>A pointer to this structure is sent from the host to the plugin with every selector.</p>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-2"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">               </span><span class="n">interfaceVer</span><span class="p">;</span>
-</span><span id="__span-1-3"><span class="w">  </span><span class="n">plugGetSPBasicSuiteFunc</span><span class="o">*</span><span class="w">  </span><span class="n">getSPBasicSuite</span><span class="p">;</span>
-</span><span id="__span-1-4"><span class="p">}</span><span class="w"> </span><span class="n">exportStdParms</span><span class="p">;</span>
+<p>A pointer to this structure is sent from the host to the plugin with every
+selector.</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-2"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">               </span><span class="n">interfaceVer</span><span class="p">;</span>
+</span><span id="__span-2-3"><span class="w">  </span><span class="n">plugGetSPBasicSuiteFunc</span><span class="o">*</span><span class="w">  </span><span class="n">getSPBasicSuite</span><span class="p">;</span>
+</span><span id="__span-2-4"><span class="p">}</span><span class="w"> </span><span class="n">exportStdParms</span><span class="p">;</span>
 </span></code></pre></div>
 <table>
 <thead>
@@ -4100,7 +4098,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 19, 2025 19:00:00 UTC">November 19, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 10, 2026 21:38:11 UTC">April 10, 2026</span>
   </span>
 
     

@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -2142,34 +2142,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../exporters/whats-new/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Whats New
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../exporters/getting-started/" class="md-nav__link">
         
   
@@ -2670,34 +2642,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../video-filters/whats-new/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Whats New
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../video-filters/getting-started/" class="md-nav__link">
         
   
@@ -2984,90 +2928,6 @@
     
   
     CUDA, OpenCL, Metal, or OpenGL?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gpu-effects-transitions/whats-new-in-ppro-12/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro 12.0?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gpu-effects-transitions/whats-new-in-ppro-cc2015/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro CC 2015.4?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gpu-effects-transitions/whats-new-in-ppro-cc2014/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro CC 2014?
   
 
     
@@ -3649,49 +3509,109 @@
 
 <h1 id="whats-new">What's New<a class="headerlink" href="#whats-new" title="Permanent link">&para;</a></h1>
 <h2 id="whats-new-in-premiere-pro-cc-2019-130">What's New in Premiere Pro CC 2019 (13.0)<a class="headerlink" href="#whats-new-in-premiere-pro-cc-2019-130" title="Permanent link">&para;</a></h2>
-<p>We've begun adding colorspace support to Premiere Pro's APIs, beginning with Importers.</p>
-<p>Adding APIs <code>AddFrameToCacheWithColorSpace()</code> and <code>GetFrameFromCacheWithColorSpace()</code> which will deprecate <code>AddFrameToCacheWithColorProfile2()</code> and <code>GetFrameFromCacheWithColorProfile2()</code>.</p>
+<p>We've begun adding colorspace support to Premiere Pro's APIs, beginning with
+Importers.</p>
+<p>Adding APIs <code>AddFrameToCacheWithColorSpace()</code> and
+<code>GetFrameFromCacheWithColorSpace()</code> which will deprecate
+<code>AddFrameToCacheWithColorProfile2()</code> and <code>GetFrameFromCacheWithColorProfile2()</code>.</p>
 <hr />
 <h2 id="whats-new-in-premiere-pro-cc-2014">What's New in Premiere Pro CC 2014<a class="headerlink" href="#whats-new-in-premiere-pro-cc-2014" title="Permanent link">&para;</a></h2>
-<p>Importers can now choose the format they are rendering in, which allows importers to change pixel formats and quality based on criteria like enabled hardware and other Clip Source Settings, such as HDR. To handle the negotiation, implement <code>imSelectClipFrameDescriptor</code>.</p>
-<p><code>imSourceVideoRec</code> now includes a quality attribute. <a href="../../universals/sweetpea-suites/#ppix-cache-suite">PPix Cache Suite</a> is now at version 6, adding <code>AddFrameToCacheWithColorProfile2()</code> and <code>GetFrameFromCacheWithColorProfile2()</code>, which are the same as the ones added in version 5 with the addition of a PrRenderQuality parameter.</p>
+<p>Importers can now choose the format they are rendering in, which allows
+importers to change pixel formats and quality based on criteria like enabled
+hardware and other Clip Source Settings, such as HDR. To handle the negotiation,
+implement <code>imSelectClipFrameDescriptor</code>.</p>
+<p><code>imSourceVideoRec</code> now includes a quality attribute.
+<a href="../../universals/sweetpea-suites/#ppix-cache-suite">PPix Cache Suite</a> is now at
+version 6, adding <code>AddFrameToCacheWithColorProfile2()</code> and
+<code>GetFrameFromCacheWithColorProfile2()</code>, which are the same as the ones added in
+version 5 with the addition of a PrRenderQuality parameter.</p>
 <p><code>imFileInfoRec8.highMemUsage</code> is no longer supported.</p>
 <hr />
 <h2 id="whats-new-in-premiere-pro-cc-october-2013-release">What's New in Premiere Pro CC October 2013 release?<a class="headerlink" href="#whats-new-in-premiere-pro-cc-october-2013-release" title="Permanent link">&para;</a></h2>
-<p><code>imInitiateAsyncClosedCaptionScanRec</code> now provides extra fields for the importer to fill in the estimated duration of all the captions. This is useful for certain cases where the embedded captions contain many frames of empty data.</p>
+<p><code>imInitiateAsyncClosedCaptionScanRec</code> now provides extra fields for the importer
+to fill in the estimated duration of all the captions. This is useful for
+certain cases where the embedded captions contain many frames of empty data.</p>
 <hr />
 <h2 id="whats-new-in-premiere-pro-cc">What's New in Premiere Pro CC?<a class="headerlink" href="#whats-new-in-premiere-pro-cc" title="Permanent link">&para;</a></h2>
-<p>Starting in CC, importers can support closed captioning that is embedded in the source media. Note that Premiere Pro can also import and export captions in a sidecar file (e.g. .mcc, .scc, or</p>
-<p>.xml) alongside any media file, regardless of the media file format. This does not require any specific work on the importer side. The importer only needs to add support if it will support embedded closed captions.</p>
-<p>Importers can now support audio beyond basic mono, stereo, and 5.1, without implementing multiple streams (existing importers do not need to be updated). The importer specifies a channel layout by implementing the new <code>imGetAudioChannelLayout</code> selector. Otherwise the channel layout will be assumed to be discrete.</p>
-<p>The clip preferences are now passed with <code>imIndPixelFormatRec</code>, so that an importer can choose to return varying pixel formats depending on the Clip Source Settings.</p>
+<p>Starting in CC, importers can support closed captioning that is embedded in the
+source media. Note that Premiere Pro can also import and export captions in a
+sidecar file (e.g. .mcc, .scc, or</p>
+<p>.xml) alongside any media file, regardless of the media file format. This does
+not require any specific work on the importer side. The importer only needs to
+add support if it will support embedded closed captions.</p>
+<p>Importers can now support audio beyond basic mono, stereo, and 5.1, without
+implementing multiple streams (existing importers do not need to be updated).
+The importer specifies a channel layout by implementing the new
+<code>imGetAudioChannelLayout</code> selector. Otherwise the channel layout will be assumed
+to be discrete.</p>
+<p>The clip preferences are now passed with <code>imIndPixelFormatRec</code>, so that an
+importer can choose to return varying pixel formats depending on the Clip Source
+Settings.</p>
 <hr />
 <h2 id="whats-new-in-premiere-pro-cs602">What's New in Premiere Pro CS6.0.2?<a class="headerlink" href="#whats-new-in-premiere-pro-cs602" title="Permanent link">&para;</a></h2>
-<p>This release adds more support for growing files by adding a new flag, <code>imFileInfoRec8.mayBeGrowing</code>.</p>
+<p>This release adds more support for growing files by adding a new flag,
+<code>imFileInfoRec8.mayBeGrowing</code>.</p>
 <hr />
 <h2 id="whats-new-in-premiere-pro-cs6">What's New in Premiere Pro CS6?<a class="headerlink" href="#whats-new-in-premiere-pro-cs6" title="Permanent link">&para;</a></h2>
-<p>Importers can now bring in stereoscopic footage as a single clip with separate left and right channels.</p>
-<p>With some additional work, importers can now support growing files. The refresh rate for growing files is set by the user in Preferences &gt; Media &gt; Growing Files. The importer should get the refresh rate using the new call <code>GetGrowingFileRefreshInterval()</code> in the Importer File Manager Suite. Call <code>RefreshFileAsync()</code> to refresh the file.</p>
-<p>A new selector, <code>imQueryInputFileList</code>, was added to support Collect Files in After Effects for file types that use more than a single file. In imImportInfoRec, a new member, <code>canProvideFileList</code>, specifies whether the importer can provide a list of all files for a copy operation. If the importer does not implement this selector, the host will assume the media just uses a single file at the original imported media path.</p>
-<p>The Media Accelerator Suite is now at version 4. <code>FindPathInDatabaseAndValidateContentState</code> provides a new way to find existing media accelerators, making sure they are up-to-date.</p>
-<p>Importers can now choose whether or not they want to provide peak audio data on a clip-by-clip basis.</p>
-<p>The importer-wide setting still remains in <code>imImportInfoRec.canProvidePeakAudio</code>, but an importer can override the general setting by setting <code>imFileInfoRec8.canProvidePeakAudio</code> appropriately.</p>
+<p>Importers can now bring in stereoscopic footage as a single clip with separate
+left and right channels.</p>
+<p>With some additional work, importers can now support growing files. The refresh
+rate for growing files is set by the user in Preferences &gt; Media &gt; Growing
+Files. The importer should get the refresh rate using the new call
+<code>GetGrowingFileRefreshInterval()</code> in the Importer File Manager Suite. Call
+<code>RefreshFileAsync()</code> to refresh the file.</p>
+<p>A new selector, <code>imQueryInputFileList</code>, was added to support Collect Files in
+After Effects for file types that use more than a single file. In
+imImportInfoRec, a new member, <code>canProvideFileList</code>, specifies whether the
+importer can provide a list of all files for a copy operation. If the importer
+does not implement this selector, the host will assume the media just uses a
+single file at the original imported media path.</p>
+<p>The Media Accelerator Suite is now at version 4.
+<code>FindPathInDatabaseAndValidateContentState</code> provides a new way to find existing
+media accelerators, making sure they are up-to-date.</p>
+<p>Importers can now choose whether or not they want to provide peak audio data on
+a clip-by-clip basis.</p>
+<p>The importer-wide setting still remains in
+<code>imImportInfoRec.canProvidePeakAudio</code>, but an importer can override the general
+setting by setting <code>imFileInfoRec8.canProvidePeakAudio</code> appropriately.</p>
 <hr />
 <h2 id="whats-new-in-premiere-pro-cs55">What's New in Premiere Pro CS5.5?<a class="headerlink" href="#whats-new-in-premiere-pro-cs55" title="Permanent link">&para;</a></h2>
-<p>Importers can now support color management, when running in After Effects. The importer should set <code>imImageInfoRec.colorProfileSupport</code> to <code>imColorProfileSupport_Fixed</code>, and then describe the color profiles supported by the clip using the new <code>imGetIndColorProfile</code> selector. When importing the frame, specify the color profile in <code>imSourceVideoRec. selectedColorProfileName</code>. The <a href="../../universals/sweetpea-suites/#ppix-cache-suite">PPix Cache Suite</a> has been updated to differentiate between color profiles as well.</p>
-<p>New <code>canProvidePeakAudio</code> flag to allow an importer to provide peak audio data by responding to <code>imGetPeakAudio</code>.</p>
-<p>The new return value, <code>imRequiresProtectedContent</code>, allows an importer to be disabled if a library it depends on has not been activated.</p>
+<p>Importers can now support color management, when running in After Effects. The
+importer should set <code>imImageInfoRec.colorProfileSupport</code> to
+<code>imColorProfileSupport_Fixed</code>, and then describe the color profiles supported by
+the clip using the new <code>imGetIndColorProfile</code> selector. When importing the
+frame, specify the color profile in
+<code>imSourceVideoRec. selectedColorProfileName</code>. The
+<a href="../../universals/sweetpea-suites/#ppix-cache-suite">PPix Cache Suite</a> has been
+updated to differentiate between color profiles as well.</p>
+<p>New <code>canProvidePeakAudio</code> flag to allow an importer to provide peak audio data
+by responding to <code>imGetPeakAudio</code>.</p>
+<p>The new return value, <code>imRequiresProtectedContent</code>, allows an importer to be
+disabled if a library it depends on has not been activated.</p>
 <hr />
 <h2 id="whats-new-in-premiere-pro-cs5">What's New in Premiere Pro CS5?<a class="headerlink" href="#whats-new-in-premiere-pro-cs5" title="Permanent link">&para;</a></h2>
-<p>When an importer's settings dialog is opened, the importer now has access to the resolution, pixel aspect ratio, timebase, and audio sample rate of the source clip, in <code>imGetPrefsRec</code>.</p>
-<p>Custom importers can now use a new call in the Importer File Manager Suite, <code>RefreshFileAsync()</code>, to be able to update a clip after it is modified in <code>imGetPrefs8</code>.</p>
+<p>When an importer's settings dialog is opened, the importer now has access to the
+resolution, pixel aspect ratio, timebase, and audio sample rate of the source
+clip, in <code>imGetPrefsRec</code>.</p>
+<p>Custom importers can now use a new call in the Importer File Manager Suite,
+<code>RefreshFileAsync()</code>, to be able to update a clip after it is modified in
+<code>imGetPrefs8</code>.</p>
 <p>Two new selectors have been added.</p>
 <ul>
-<li><code>imQueryDestinationPath</code> allows importers that trim or copy files to be able to change the destination path of the trimmed or copy file.</li>
-<li><code>imQueryContentState</code> gives the host an alternate way of checking the state of a clip, for clips that have multiple source files.</li>
+<li><code>imQueryDestinationPath</code> allows importers that trim or copy files to be able
+  to change the destination path of the trimmed or copy file.</li>
+<li><code>imQueryContentState</code> gives the host an alternate way of checking the state of
+  a clip, for clips that have multiple source files.</li>
 </ul>
-<p>A new return value, <code>inFileNotAvailable</code> can be returned from <code>imQueryContentState</code> if the clip is no longer available because it is offline or has been deleted.</p>
-<p>As a convenience, when a file is opened, an importer can tell Premiere Pro how much memory to reserve for the importer's usage, rather than calling ReserveMemory in the <a href="../../universals/sweetpea-suites/#memory-manager-suite">Memory Manager Suite</a>. The importer should pass back this value in <code>imFileOpenRec8.outExtraMemoryUsage</code>.</p>
+<p>A new return value, <code>inFileNotAvailable</code> can be returned from
+<code>imQueryContentState</code> if the clip is no longer available because it is offline
+or has been deleted.</p>
+<p>As a convenience, when a file is opened, an importer can tell Premiere Pro how
+much memory to reserve for the importer's usage, rather than calling
+ReserveMemory in the
+<a href="../../universals/sweetpea-suites/#memory-manager-suite">Memory Manager Suite</a>.
+The importer should pass back this value in
+<code>imFileOpenRec8.outExtraMemoryUsage</code>.</p>
 <p>Several new return values are available for more descriptive error reporting:</p>
 <ul>
 <li><code>imBadHeader</code>,</li>
@@ -3706,28 +3626,74 @@
 </ul>
 <hr />
 <h2 id="whats-new-in-premiere-pro-cs4">What's New in Premiere Pro CS4?<a class="headerlink" href="#whats-new-in-premiere-pro-cs4" title="Permanent link">&para;</a></h2>
-<p>For CS4 only, importers are loaded and called from a separate process. As a result of being in a separate process, (1) all importers must do their own file handling, (2) privateData is no</p>
-<p>longer accessible from <code>imGetPrefs8</code>, and (3) the compressed frame selectors such as <code>imGetCompressedFrame</code> are no longer supported (this may now be achieved using custom pixel formats and a renderer plugin).</p>
-<p>To debug importers, attach to the <code>ImporterProcessServer</code> process. There is also a separate Importer Process Plugin Loading.log.</p>
-<p>All legacy selectors have been removed, and are now longer supported. All structures used only in these legacy selectors have been removed as well.</p>
-<p>There are built-in XMP metadata handlers for known filetypes. These handlers write and read metadata to and from the file, without going through the importer. <code>imSetTimeInfo8</code> is no longer called, since this is set by the XMP handler for that filetype.</p>
-<p>All file-based importers (which does not include synthetics) are required to do their own file handling now, rather than having Premiere Pro open the files. The <code>imCallbackFuncs</code>: <code>OpenFileFunc</code> and <code>ReleaseFileFunc</code> are no longer supported.</p>
-<p>Due to the out-of-process importing, <code>privateData</code> is not accessible during <code>imGetPrefs8</code>, and has been removed from <code>imGetPrefsRec</code>.</p>
-<p><code>imGetFrameInfo</code>, <code>imDisposeFrameInfo</code>, <code>imGetCompressedFrame</code>, and <code>imDisposeCompressedFrame</code> are no longer supported. Supporting a custom pixel format in an importer, a renderer, and an exporter is the new way to implement smart rendering, by passing custom compressed data from input to output.</p>
-<p>New <code>imFrameNotFound</code> return code. Returned if an importer could not find the requested frame (typically used with async importers).</p>
-<p>New in Premiere Pro 4.1, importer prefs are now part of imSourceVideoRec, passed to both <code>imGetSourceVideo</code> and the async import calls</p>
-<p>New in Premiere Pro 4.1, there is a new filepath member in imFileInfoRec8. For clips that have audio in files separate from the video file, set the filename here, so that UMIDs can properly be generated for AAFs.</p>
+<p>For CS4 only, importers are loaded and called from a separate process. As a
+result of being in a separate process, (1) all importers must do their own file
+handling, (2) privateData is no</p>
+<p>longer accessible from <code>imGetPrefs8</code>, and (3) the compressed frame selectors
+such as <code>imGetCompressedFrame</code> are no longer supported (this may now be achieved
+using custom pixel formats and a renderer plugin).</p>
+<p>To debug importers, attach to the <code>ImporterProcessServer</code> process. There is also
+a separate Importer Process Plugin Loading.log.</p>
+<p>All legacy selectors have been removed, and are now longer supported. All
+structures used only in these legacy selectors have been removed as well.</p>
+<p>There are built-in XMP metadata handlers for known filetypes. These handlers
+write and read metadata to and from the file, without going through the
+importer. <code>imSetTimeInfo8</code> is no longer called, since this is set by the XMP
+handler for that filetype.</p>
+<p>All file-based importers (which does not include synthetics) are required to do
+their own file handling now, rather than having Premiere Pro open the files. The
+<code>imCallbackFuncs</code>: <code>OpenFileFunc</code> and <code>ReleaseFileFunc</code> are no longer supported.</p>
+<p>Due to the out-of-process importing, <code>privateData</code> is not accessible during
+<code>imGetPrefs8</code>, and has been removed from <code>imGetPrefsRec</code>.</p>
+<p><code>imGetFrameInfo</code>, <code>imDisposeFrameInfo</code>, <code>imGetCompressedFrame</code>, and
+<code>imDisposeCompressedFrame</code> are no longer supported. Supporting a custom pixel
+format in an importer, a renderer, and an exporter is the new way to implement
+smart rendering, by passing custom compressed data from input to output.</p>
+<p>New <code>imFrameNotFound</code> return code. Returned if an importer could not find the
+requested frame (typically used with async importers).</p>
+<p>New in Premiere Pro 4.1, importer prefs are now part of imSourceVideoRec, passed
+to both <code>imGetSourceVideo</code> and the async import calls</p>
+<p>New in Premiere Pro 4.1, there is a new filepath member in imFileInfoRec8. For
+clips that have audio in files separate from the video file, set the filename
+here, so that UMIDs can properly be generated for AAFs.</p>
 <hr />
 <h2 id="whats-new-in-premiere-pro-cs3">What's New in Premiere Pro CS3?<a class="headerlink" href="#whats-new-in-premiere-pro-cs3" title="Permanent link">&para;</a></h2>
 <p>Importers can specify an initial poster frame for a clip in imImageInfoRec.</p>
-<p>Importers can specify subtype names during the new <code>imGetSubTypeNames</code> selector. This selector is sent after each <code>imGetIndFormat</code>, which gives an importer the opportunity to enumerate all the fourCCs and display names (e.g. "Cinepak") of their known compression types for a specific filetype. The importer can return imUnsupported, or create an array of <code>imSubTypeDescriptionRec</code> records (pairs of fourCCs and codec name strings) for all the codecs/subtypes it knows about.</p>
-<p>Importers that open their own files should specify how many files they keep open between <code>imOpenFile8</code> and <code>imQuietFile</code> using the new Importer File Manager Suite, if the number is not equal to one. Importers that don't open their own files, or importers that only open a single file should not use this suite. Premiere's File Manager now keeps track of the number of files held open by importers, and limits the number open at a time by closing the least recently used files when too many are open. On Windows, this helps memory usage, but on MacOS this addresses a whole class of bugs that may occur when too many files are open.</p>
-<p>Importers can also specify that certain files have very high memory usage, by setting <code>imFileInfoRec8.highMemUsage</code>. The number of files allowed to be open with this flag set to true is currently capped at 5.</p>
-<p>Importers can now specify an arbitrary matte color for premultiplied alpha channels in <code>imImageInfoRec.matteColor</code>. Importers can state that they are uncertain about a clip's pixel aspect ratio, field type, or alpha info in imImageInfoRec.interpretationUncertain.</p>
+<p>Importers can specify subtype names during the new <code>imGetSubTypeNames</code> selector.
+This selector is sent after each <code>imGetIndFormat</code>, which gives an importer the
+opportunity to enumerate all the fourCCs and display names (e.g. "Cinepak") of
+their known compression types for a specific filetype. The importer can return
+imUnsupported, or create an array of <code>imSubTypeDescriptionRec</code> records (pairs of
+fourCCs and codec name strings) for all the codecs/subtypes it knows about.</p>
+<p>Importers that open their own files should specify how many files they keep open
+between <code>imOpenFile8</code> and <code>imQuietFile</code> using the new Importer File Manager
+Suite, if the number is not equal to one. Importers that don't open their own
+files, or importers that only open a single file should not use this suite.
+Premiere's File Manager now keeps track of the number of files held open by
+importers, and limits the number open at a time by closing the least recently
+used files when too many are open. On Windows, this helps memory usage, but on
+MacOS this addresses a whole class of bugs that may occur when too many files
+are open.</p>
+<p>Importers can also specify that certain files have very high memory usage, by
+setting <code>imFileInfoRec8.highMemUsage</code>. The number of files allowed to be open
+with this flag set to true is currently capped at 5.</p>
+<p>Importers can now specify an arbitrary matte color for premultiplied alpha
+channels in <code>imImageInfoRec.matteColor</code>. Importers can state that they are
+uncertain about a clip's pixel aspect ratio, field type, or alpha info in
+imImageInfoRec.interpretationUncertain.</p>
 <p>The imInvalidHandleValue is now -1 for MacOS.</p>
-<p>Importers can specify a transform matrix for frames by setting <code>imImageInfoRec.canTransform = kPrTrue</code>, and then during <code>imImportImage</code>, when <code>imImportImageRec.applyTransform</code> is non-zero, use <code>imImportImageRec.transform</code>, and <code>destClipRect</code> to calculate the transform - This code path is currently not called by Premiere Pro. After Effects uses this call to import Flash video.</p>
-<p>New in Premiere Pro 3.1, the new capability flag, <code>imImportInfoRec.canSupplyMetadataClipName</code>, allows an importer to set the clip name from metadata, rather than the filename. The clip name should be set in <code>imFileInfoRec8.streamName</code>. This is useful for clips recorded by some new file-based cameras.</p>
-<p>New in Premiere Pro 3.1, the new <code>imGetFileAttributes</code> selector allows an importer to provide the clip creation date in the new imFileAttributesRec.</p>
+<p>Importers can specify a transform matrix for frames by setting
+<code>imImageInfoRec.canTransform = kPrTrue</code>, and then during <code>imImportImage</code>, when
+<code>imImportImageRec.applyTransform</code> is non-zero, use <code>imImportImageRec.transform</code>,
+and <code>destClipRect</code> to calculate the transform - This code path is currently not
+called by Premiere Pro. After Effects uses this call to import Flash video.</p>
+<p>New in Premiere Pro 3.1, the new capability flag,
+<code>imImportInfoRec.canSupplyMetadataClipName</code>, allows an importer to set the clip
+name from metadata, rather than the filename. The clip name should be set in
+<code>imFileInfoRec8.streamName</code>. This is useful for clips recorded by some new
+file-based cameras.</p>
+<p>New in Premiere Pro 3.1, the new <code>imGetFileAttributes</code> selector allows an
+importer to provide the clip creation date in the new imFileAttributesRec.</p>
 
 
 
@@ -3748,7 +3714,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 19, 2025 19:00:00 UTC">November 19, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 10, 2026 21:38:11 UTC">April 10, 2026</span>
   </span>
 
     

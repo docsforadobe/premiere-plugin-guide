@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -1981,34 +1981,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../exporters/whats-new/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Whats New
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../exporters/getting-started/" class="md-nav__link">
         
   
@@ -2509,34 +2481,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../video-filters/whats-new/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Whats New
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../video-filters/getting-started/" class="md-nav__link">
         
   
@@ -2825,90 +2769,6 @@
     
   
     CUDA, OpenCL, Metal, or OpenGL?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../whats-new-in-ppro-12/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro 12.0?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../whats-new-in-ppro-cc2015/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro CC 2015.4?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../whats-new-in-ppro-cc2014/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro CC 2014?
   
 
     
@@ -3510,26 +3370,65 @@
 
 
 <h1 id="suites">Suites<a class="headerlink" href="#suites" title="Permanent link">&para;</a></h1>
-<p>For information on how to acquire and manage suites, see <a href="../../universals/sweetpea-suites/">SweetPea Suites</a>.</p>
+<p>For information on how to acquire and manage suites, see
+<a href="../../universals/sweetpea-suites/">SweetPea Suites</a>.</p>
 <hr />
 <h2 id="gpu-device-suite">GPU Device Suite<a class="headerlink" href="#gpu-device-suite" title="Permanent link">&para;</a></h2>
-<p>This suite provides info on any GPU devices available. For example, GetDeviceInfo() allows an effect/transition to see if the device supports OpenCL or CUDA.</p>
-<p>Use this suite to get exclusive access to a device using AcquireExclusiveDeviceAccess and ReleaseExclusiveDeviceAccess. If needed, you can reconcile devices using the outDeviceHandle passed back from GetDeviceInfo().</p>
-<p>Device memory should ideally be allocated through this suite. In some cases you may find it more efficient to use a texture / image object as the source. With CUDA, you can bind a texture reference to an existing linear buffer. With OpenCL, you can create an image object from an existing 2D buffer object using image_2d_from_buffer. Temporary allocations are also fine but may be rather slow.</p>
+<p>This suite provides info on any GPU devices available. For example,
+GetDeviceInfo() allows an effect/transition to see if the device supports OpenCL
+or CUDA.</p>
+<p>Use this suite to get exclusive access to a device using
+AcquireExclusiveDeviceAccess and ReleaseExclusiveDeviceAccess. If needed, you
+can reconcile devices using the outDeviceHandle passed back from
+GetDeviceInfo().</p>
+<p>Device memory should ideally be allocated through this suite. In some cases you
+may find it more efficient to use a texture / image object as the source. With
+CUDA, you can bind a texture reference to an existing linear buffer. With
+OpenCL, you can create an image object from an existing 2D buffer object using
+image_2d_from_buffer. Temporary allocations are also fine but may be rather
+slow.</p>
 <hr />
 <h2 id="opaque-effect-data-suite">Opaque Effect Data Suite<a class="headerlink" href="#opaque-effect-data-suite" title="Permanent link">&para;</a></h2>
-<p>This suite provides effects a way to share unflattened sequence data between instances of the same effect on a track item. The data is opaque to the host and effects are responsible for maintaining thread safety of the shared data. The host provides reference-counting that the effect can use to manage the lifetime of the shared data. Here's an overview of how this suite should be used:</p>
-<p>When the effect is applied, in <code>PF_Cmd_SEQUENCE_SETUP</code>, the effect plugin allocates and initializes the sequence data in PF_OutData-&gt;out_data. Then it calls</p>
-<p>AcquireOpaqueEffectData(). The opaque effect data does not yet exist, so the plugin allocates it, and calls RegisterOpaqueEffectData, and then copies over the data from the sequence data. So both sequence data and opaque effect data are allocated.</p>
-<p>Then <code>PF_Cmd_SEQUENCE_RESETUP</code> is called (multiple times) for clones of the effect used for rendering. The effect instance knows it's a clone because the PF_InData-&gt;sequence_data is NULL (there is a special case if the effect has Opaque Effect Data - in that case, its render clones will receive <code>PF_Cmd_SEQUENCE_RESETUP</code> with a NULL sequence_data pointer). It then calls AcquireOpaqueEffectData(). As a render clone, it relies on this opaque effect data, rather than sequence data, and does not try to copy the sequence data to opaque effect data.</p>
-<p>When, on the other hand, <code>SEQUENCE_RESETUP</code> is called with valid sequence_data in PF_InData, this is not a render clone. The plugin unflattens this sequence data. It then calls AcquireOpaqueEffectData(), and if the opaque effect data does not yet exist (i.e. when reopening a saved project), the plugin allocates it, and calls RegisterOpaqueEffectData. It then copies the sequence data to opaque effect data.</p>
-<p>On <code>SEQUENCE_FLATTEN</code>, the plugin takes the unflattened data, flattens it, and disposes of the un-flat data.</p>
-<p>When <code>SEQUENCE_SETDOWN</code> is called (it may be called multiple times to dispose of render clones), ReleaseOpaqueEffectData() is called.</p>
+<p>This suite provides effects a way to share unflattened sequence data between
+instances of the same effect on a track item. The data is opaque to the host and
+effects are responsible for maintaining thread safety of the shared data. The
+host provides reference-counting that the effect can use to manage the lifetime
+of the shared data. Here's an overview of how this suite should be used:</p>
+<p>When the effect is applied, in <code>PF_Cmd_SEQUENCE_SETUP</code>, the effect plugin
+allocates and initializes the sequence data in PF_OutData-&gt;out_data. Then it
+calls</p>
+<p>AcquireOpaqueEffectData(). The opaque effect data does not yet exist, so the
+plugin allocates it, and calls RegisterOpaqueEffectData, and then copies over
+the data from the sequence data. So both sequence data and opaque effect data
+are allocated.</p>
+<p>Then <code>PF_Cmd_SEQUENCE_RESETUP</code> is called (multiple times) for clones of the
+effect used for rendering. The effect instance knows it's a clone because the
+PF_InData-&gt;sequence_data is NULL (there is a special case if the effect has
+Opaque Effect Data - in that case, its render clones will receive
+<code>PF_Cmd_SEQUENCE_RESETUP</code> with a NULL sequence_data pointer). It then calls
+AcquireOpaqueEffectData(). As a render clone, it relies on this opaque effect
+data, rather than sequence data, and does not try to copy the sequence data to
+opaque effect data.</p>
+<p>When, on the other hand, <code>SEQUENCE_RESETUP</code> is called with valid sequence_data
+in PF_InData, this is not a render clone. The plugin unflattens this sequence
+data. It then calls AcquireOpaqueEffectData(), and if the opaque effect data
+does not yet exist (i.e. when reopening a saved project), the plugin allocates
+it, and calls RegisterOpaqueEffectData. It then copies the sequence data to
+opaque effect data.</p>
+<p>On <code>SEQUENCE_FLATTEN</code>, the plugin takes the unflattened data, flattens it, and
+disposes of the un-flat data.</p>
+<p>When <code>SEQUENCE_SETDOWN</code> is called (it may be called multiple times to dispose of
+render clones), ReleaseOpaqueEffectData() is called.</p>
 <h3 id="instanceid">instanceID<a class="headerlink" href="#instanceid" title="Permanent link">&para;</a></h3>
-<p>The <a href="#opaque-effect-data-suite">Opaque Effect Data Suite</a> functions need the instanceID of the effect. For the software entry point, you can obtain this using GetFilterInstanceID() in PF_UtilitySuite, defined in PrSDKAESupport.h. For the GPU Render entry point, you can use the following code: csSDK_uint32 instanceID;</p>
+<p>The <a href="#opaque-effect-data-suite">Opaque Effect Data Suite</a> functions need the
+instanceID of the effect. For the software entry point, you can obtain this
+using GetFilterInstanceID() in PF_UtilitySuite, defined in PrSDKAESupport.h. For
+the GPU Render entry point, you can use the following code: csSDK_uint32
+instanceID;</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">GetProperty</span><span class="p">(</span><span class="w"> </span><span class="n">kVideoSegmentProperty_Effect_RuntimeInstanceID</span><span class="p">,</span><span class="w"> </span><span class="n">instanceID</span><span class="p">);</span>
 </span></code></pre></div>
-<p>…where GetProperty() is defined in PrGPUFilterModule.h, and the <code>kVideoSegmentProperty_</code> IDs are defined in PrSDKVideoSegmentProperties.h.</p>
+<p>…where GetProperty() is defined in PrGPUFilterModule.h, and the
+<code>kVideoSegmentProperty_</code> IDs are defined in PrSDKVideoSegmentProperties.h.</p>
 
 
 
@@ -3550,7 +3449,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 25, 2025 17:22:59 UTC">January 25, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 10, 2026 21:38:11 UTC">April 10, 2026</span>
   </span>
 
     

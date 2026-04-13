@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -2367,34 +2367,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../exporters/whats-new/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Whats New
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../exporters/getting-started/" class="md-nav__link">
         
   
@@ -2895,34 +2867,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../video-filters/whats-new/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Whats New
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../video-filters/getting-started/" class="md-nav__link">
         
   
@@ -3209,90 +3153,6 @@
     
   
     CUDA, OpenCL, Metal, or OpenGL?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gpu-effects-transitions/whats-new-in-ppro-12/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro 12.0?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gpu-effects-transitions/whats-new-in-ppro-cc2015/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro CC 2015.4?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gpu-effects-transitions/whats-new-in-ppro-cc2014/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro CC 2014?
   
 
     
@@ -4099,150 +3959,368 @@
 
 <h1 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h1>
 <h2 id="the-basics-of-import">The Basics of Import<a class="headerlink" href="#the-basics-of-import" title="Permanent link">&para;</a></h2>
-<p>For each clip, importers can tell Premiere Pro the resolutions and pixel formats they can decode video frames to.</p>
-<p>Premiere will request video frames as needed during scrubbing, playback, or export.</p>
-<p>Audio will be requested right when the clip is imported, if audio conforming or peak file generation is necessary.</p>
-<p>If audio conforming is not necessary, audio frames will be requested as needed during scrubbing, playback, or export.</p>
+<p>For each clip, importers can tell Premiere Pro the resolutions and pixel formats
+they can decode video frames to.</p>
+<p>Premiere will request video frames as needed during scrubbing, playback, or
+export.</p>
+<p>Audio will be requested right when the clip is imported, if audio conforming or
+peak file generation is necessary.</p>
+<p>If audio conforming is not necessary, audio frames will be requested as needed
+during scrubbing, playback, or export.</p>
 <p>Premiere requests audio in arrays of 32-bit float, uninterleaved format.</p>
 <hr />
 <h2 id="try-the-sample-importer-plugins">Try the Sample Importer Plugins<a class="headerlink" href="#try-the-sample-importer-plugins" title="Permanent link">&para;</a></h2>
-<p>Choose which one of the three sample importers matches closest with your desired functionality.</p>
-<p>Build that one, or if you are still not sure, build all three! Step through the code in your debugger to learn order of events.</p>
+<p>Choose which one of the three sample importers matches closest with your desired
+functionality.</p>
+<p>Build that one, or if you are still not sure, build all three! Step through the
+code in your debugger to learn order of events.</p>
 <p>Start your importer by modifying one of the SDK samples.</p>
 <hr />
 <h2 id="imgetsourcevideo-versus-imimportimage"><code>imGetSourceVideo</code> versus <code>imImportImage</code><a class="headerlink" href="#imgetsourcevideo-versus-imimportimage" title="Permanent link">&para;</a></h2>
-<p>For synchronous import, there are two different selectors an importer can use to provide frames to the host.</p>
+<p>For synchronous import, there are two different selectors an importer can use to
+provide frames to the host.</p>
 <p>Why? <em>imGetSourceVideo</em> is best for media that has specific resolutions.</p>
-<p>Importers that support <em>imGetSourceVideo</em> can import frames at their native resolution or specify preferred resolutions, rather than having to scale the frames to an arbitrary size.</p>
-<p><em>imImportImage</em> is only useful for resolution-independent video, such as vector-based graphics.</p>
+<p>Importers that support <em>imGetSourceVideo</em> can import frames at their native
+resolution or specify preferred resolutions, rather than having to scale the
+frames to an arbitrary size.</p>
+<p><em>imImportImage</em> is only useful for resolution-independent video, such as
+vector-based graphics.</p>
 <p>Choose the one that fits the media your importer will support.</p>
-<p>The SDK importer demonstrates <em>imGetSourceVideo</em> because resolution dependent video is much more common.</p>
-<p>The synthetic importer sample demonstrates <em>imImportImage</em> because it generates video on-the-fly and doesn't have a preference as to video resolution.</p>
-<p><code>imImageInfoRec.supportsGetSourceVideo</code> should be set to true if the importer wants to support <em>imGetSourceVideo</em>.</p>
+<p>The SDK importer demonstrates <em>imGetSourceVideo</em> because resolution dependent
+video is much more common.</p>
+<p>The synthetic importer sample demonstrates <em>imImportImage</em> because it generates
+video on-the-fly and doesn't have a preference as to video resolution.</p>
+<p><code>imImageInfoRec.supportsGetSourceVideo</code> should be set to true if the importer
+wants to support <em>imGetSourceVideo</em>.</p>
 <hr />
 <h2 id="asynchronous-import">Asynchronous Import<a class="headerlink" href="#asynchronous-import" title="Permanent link">&para;</a></h2>
-<p>Importers can optionally support asynchronous calls to read frames for better performance. imImageInfoRec.supportsAsyncIO should be set to true if the importer wants to support asynchronous import. The importer can implement <em>imCreateAsyncImporter</em>, which tells the importer to create an asynchronous importer object using the data provided, and store it in <code>imAsyncImporterCreationRec</code>.</p>
-<p>This async importer object must implement a separate entry point from a standard importer because it does not follow the same rules as a standard importer.</p>
-<p>All calls to AsyncImporterEntry are reentrant, except for the <em>aiClose</em> selector. <em>aiClose</em> will only be called once, but may be called while other calls are still executing. No calls will be made after <em>aiClose</em> is called.</p>
+<p>Importers can optionally support asynchronous calls to read frames for better
+performance. imImageInfoRec.supportsAsyncIO should be set to true if the
+importer wants to support asynchronous import. The importer can implement
+<em>imCreateAsyncImporter</em>, which tells the importer to create an asynchronous
+importer object using the data provided, and store it in
+<code>imAsyncImporterCreationRec</code>.</p>
+<p>This async importer object must implement a separate entry point from a standard
+importer because it does not follow the same rules as a standard importer.</p>
+<p>All calls to AsyncImporterEntry are reentrant, except for the <em>aiClose</em>
+selector. <em>aiClose</em> will only be called once, but may be called while other
+calls are still executing. No calls will be made after <em>aiClose</em> is called.</p>
 <p>Here is an overview of the lifetime of an async importer:</p>
 <ol>
 <li>The host calls <em>imOpenFile</em> and <em>imGetInfo</em> on the standard importer.</li>
-<li>The host calls <em>imCreateAsyncImporter</em> on the standard importer. At this time, the standard importer creates the private data for the async importer. The async importer MUST NOT contain a link to the standard importer, as their lifetimes are now decoupled. The async importer, therefore, must contain copies of all relevant private data from the creator importer. The importer preferences are also guaranteed to not change during the lifetime of the async importer.</li>
+<li>The host calls <em>imCreateAsyncImporter</em> on the standard importer. At this
+   time, the standard importer creates the private data for the async importer.
+   The async importer MUST NOT contain a link to the standard importer, as their
+   lifetimes are now decoupled. The async importer, therefore, must contain
+   copies of all relevant private data from the creator importer. The importer
+   preferences are also guaranteed to not change during the lifetime of the
+   async importer.</li>
 <li>The host uses the async importer to perform i/o.</li>
-<li>The host closes the async importer, forgetting about it. This will happen whenever the app loses focus, or when the async importer is no longer needed.</li>
+<li>The host closes the async importer, forgetting about it. This will happen
+   whenever the app loses focus, or when the async importer is no longer needed.</li>
 </ol>
 <hr />
 <h2 id="privatedata">privateData<a class="headerlink" href="#privatedata" title="Permanent link">&para;</a></h2>
-<p>Don't use global variables to store data. Use privateData instead. Each clip can have its own privateData. The host application will automatically pass the correct privateData to the appropriate importer instance.</p>
-<p>For privateData, create a handle to the custom structure you wish to store (during <code>imGetInfo8</code> or <code>imGetPrefs8</code>.) and save the handle to the privateData member of the structure passed in.</p>
-<p>The importer is responsible for allocating and deallocating the memory for privateData using Premiere's memory functions.</p>
-<p>Free the allocated privateData during <em>imCloseFile or imShutdown</em>, as appropriate.</p>
+<p>Don't use global variables to store data. Use privateData instead. Each clip can
+have its own privateData. The host application will automatically pass the
+correct privateData to the appropriate importer instance.</p>
+<p>For privateData, create a handle to the custom structure you wish to store
+(during <code>imGetInfo8</code> or <code>imGetPrefs8</code>.) and save the handle to the privateData
+member of the structure passed in.</p>
+<p>The importer is responsible for allocating and deallocating the memory for
+privateData using Premiere's memory functions.</p>
+<p>Free the allocated privateData during <em>imCloseFile or imShutdown</em>, as
+appropriate.</p>
 <hr />
 <h2 id="clip-source-settings">Clip Source Settings<a class="headerlink" href="#clip-source-settings" title="Permanent link">&para;</a></h2>
-<p>This data is unique to each clip instance, and can be used to store clip-wide data that affects the appearance of video and/or audio in the clip, usually user-modifiable.</p>
-<p>For example, Clip Source Settings for a titler/graphics importer could contain all the data describing the text and shapes for that clip.</p>
-<p>For a raw video clip, it could contain metadata that affects how the video is developed prior to import.</p>
-<p>Starting in Premiere Pro CC 2014, importers can now choose the format they are rendering in, which allows importers to change pixel formats and quality based on criteria like enabled hardware and other Clip Source Settings, such as HDR.</p>
+<p>This data is unique to each clip instance, and can be used to store clip-wide
+data that affects the appearance of video and/or audio in the clip, usually
+user-modifiable.</p>
+<p>For example, Clip Source Settings for a titler/graphics importer could contain
+all the data describing the text and shapes for that clip.</p>
+<p>For a raw video clip, it could contain metadata that affects how the video is
+developed prior to import.</p>
+<p>Starting in Premiere Pro CC 2014, importers can now choose the format they are
+rendering in, which allows importers to change pixel formats and quality based
+on criteria like enabled hardware and other Clip Source Settings, such as HDR.</p>
 <p>To handle the negotiation, implement <code>imSelectClipFrameDescriptor</code>.</p>
-<p>Clip Source Settings can be shown on file creation (for synthetic or custom importers) or when a clip is double-clicked.</p>
-<p>Settings data should be stored in a disk-safe prefs structure, which is defined by the importer.</p>
-<p>Premiere will allocate the prefs based on the prefsLength re turned from the first call to <em>imGetPrefs8</em>.</p>
+<p>Clip Source Settings can be shown on file creation (for synthetic or custom
+importers) or when a clip is double-clicked.</p>
+<p>Settings data should be stored in a disk-safe prefs structure, which is defined
+by the importer.</p>
+<p>Premiere will allocate the prefs based on the prefsLength re turned from the
+first call to <em>imGetPrefs8</em>.</p>
 <p>Premiere will deallocate the prefs when it is no longer needed.</p>
-<p>Once prefs has been allocated, the importer should show its setup dialog during all subsequent calls to <em>imGetPrefs8</em>, and store any setup dialog settings in prefs.</p>
-<p>Like privateData, each clip has its own prefs, and the host application automatically passes the correct prefs to the appropriate importer instance.</p>
-<p>If the user changes the Clip Source Settings in a way such that the frames should be reimported, then the importer should use the Importer File Manager Suite to call RefreshFileAsync() on the main file.</p>
+<p>Once prefs has been allocated, the importer should show its setup dialog during
+all subsequent calls to <em>imGetPrefs8</em>, and store any setup dialog settings in
+prefs.</p>
+<p>Like privateData, each clip has its own prefs, and the host application
+automatically passes the correct prefs to the appropriate importer instance.</p>
+<p>If the user changes the Clip Source Settings in a way such that the frames
+should be reimported, then the importer should use the Importer File Manager
+Suite to call RefreshFileAsync() on the main file.</p>
 <p>This is demonstrated in the SDK Custom Importer sample code.</p>
 <h3 id="showing-a-video-preview-in-the-settings-dialog">Showing a Video Preview in the Settings Dialog<a class="headerlink" href="#showing-a-video-preview-in-the-settings-dialog" title="Permanent link">&para;</a></h3>
-<p>If a clip is placed in the timeline, and its settings dialog is opened by double-clicking in the timeline, then the import can get frames from the timeline of the settings dialog. Only the rendered frames on layers beneath the current clip or timeline location are available. Use the <code>getPreviewFrameEx</code> callback with the time given by tdbTimelocation in imGetPrefsRec. timelineData is also valid during <em>imGetPrefs8</em>.</p>
+<p>If a clip is placed in the timeline, and its settings dialog is opened by
+double-clicking in the timeline, then the import can get frames from the
+timeline of the settings dialog. Only the rendered frames on layers beneath the
+current clip or timeline location are available. Use the <code>getPreviewFrameEx</code>
+callback with the time given by tdbTimelocation in imGetPrefsRec. timelineData
+is also valid during <em>imGetPrefs8</em>.</p>
 <hr />
 <h2 id="file-handling">File Handling<a class="headerlink" href="#file-handling" title="Permanent link">&para;</a></h2>
-<p>Basic importers that bring in media from a single file can rely on the host to provide basic file handling. If a clip has child files or a custom file system, an importer can provide its own file handling. Set canOpen, canSave, and canDelete to true during <code>imInit</code>, and respond to <code>imOpenFile8</code>, <em>imQuietFile</em>, <em>imCloseFile</em>, <em>imSaveFile8</em>, <em>imDeleteFile8</em>.</p>
-<p>Use the <a href="../suites/#async-file-reader-suite">Async File Reader Suite</a> for cross-platform file operations.</p>
+<p>Basic importers that bring in media from a single file can rely on the host to
+provide basic file handling. If a clip has child files or a custom file system,
+an importer can provide its own file handling. Set canOpen, canSave, and
+canDelete to true during <code>imInit</code>, and respond to <code>imOpenFile8</code>, <em>imQuietFile</em>,
+<em>imCloseFile</em>, <em>imSaveFile8</em>, <em>imDeleteFile8</em>.</p>
+<p>Use the <a href="../suites/#async-file-reader-suite">Async File Reader Suite</a> for
+cross-platform file operations.</p>
 <h3 id="quieting-versus-closing-a-file">Quieting versus Closing a File<a class="headerlink" href="#quieting-versus-closing-a-file" title="Permanent link">&para;</a></h3>
-<p>When the application loses focus, importers receive <em>imQuietFile</em> for each file it has been asked to open. Update any PrivateData and close the file. If the project is closed, <em>imCloseFile</em> is sent, telling the importer to free any PrivateData. If the importer didn't store any PrivateData, it will not receive <em>imCloseFile</em>.</p>
+<p>When the application loses focus, importers receive <em>imQuietFile</em> for each file
+it has been asked to open. Update any PrivateData and close the file. If the
+project is closed, <em>imCloseFile</em> is sent, telling the importer to free any
+PrivateData. If the importer didn't store any PrivateData, it will not receive
+<em>imCloseFile</em>.</p>
 <h3 id="growing-files">Growing Files<a class="headerlink" href="#growing-files" title="Permanent link">&para;</a></h3>
-<p>When Premiere Pro attempts to refresh a growing file (after N seconds, as determined by the preferences value), it quiets the existing importer instance, and opens a new one pointing to the same file. In response, the Importer should report the current (new) duration and, once it's determined whether the file is still growing, set  <code>imFileInfoRec.mayBeGrowing</code> appropriately.</p>
+<p>When Premiere Pro attempts to refresh a growing file (after N seconds, as
+determined by the preferences value), it quiets the existing importer instance,
+and opens a new one pointing to the same file. In response, the Importer should
+report the current (new) duration and, once it's determined whether the file is
+still growing, set <code>imFileInfoRec.mayBeGrowing</code> appropriately.</p>
 <h3 id="importing-from-streaming-sources">Importing from Streaming Sources<a class="headerlink" href="#importing-from-streaming-sources" title="Permanent link">&para;</a></h3>
-<p>For importing video from a streaming source, in order to pretend that the file is a local file or available on the network, create a placeholder file like video_proxy.abc.</p>
-<p>Inside this file, include info that lets your importer know it is your own type, and the http path, like this:</p>
-<p>"MyCompany ABC streaming format placeholder file <a href="https://myurl.com/video.abc">https://myurl.com/video.abc</a>"</p>
-<p>Your importer would open the local video_proxy.abc file, check the header and find it is your own placeholder file, and then access the real contents at the http location included. To create the local</p>
-<p>.abc files, you could use a custom importer that presents a OS dialog to choose the remote file, or a Premiere panel to do so. The Panel SDK can be found here:</p>
+<p>For importing video from a streaming source, in order to pretend that the file
+is a local file or available on the network, create a placeholder file like
+video_proxy.abc.</p>
+<p>Inside this file, include info that lets your importer know it is your own type,
+and the http path, like this:</p>
+<p>"MyCompany ABC streaming format placeholder file
+<a href="https://myurl.com/video.abc">https://myurl.com/video.abc</a>"</p>
+<p>Your importer would open the local video_proxy.abc file, check the header and
+find it is your own placeholder file, and then access the real contents at the
+http location included. To create the local</p>
+<p>.abc files, you could use a custom importer that presents a OS dialog to choose
+the remote file, or a Premiere panel to do so. The Panel SDK can be found here:</p>
 <p><a href="https://github.com/Adobe-CEP/Samples/tree/master/PProPanel">https://github.com/Adobe-CEP/Samples/tree/master/PProPanel</a></p>
-<p>If the filetype is an existing filetype supported by Premiere Pro, then set a high value in <code>imImportInfoRec.priority</code> to give your importer the first opportunity to handle the file.</p>
-<p>For your filetype to be visible in the Proxy &gt; Attach Proxies window, set imIndFormatRec. flags |= xfIsMovie (this flag is labeled obsolete, but still needed for this case)</p>
-<p>If your importer supports different fractional resolutions and decode qualities, the fractional resolutions can be enumerated in response to the selector <em>imGetPreferredFrameSize</em>, and the decode quality hint is sent on import requests to your importer (for example in imSourceVideoRec.inQuality).</p>
+<p>If the filetype is an existing filetype supported by Premiere Pro, then set a
+high value in <code>imImportInfoRec.priority</code> to give your importer the first
+opportunity to handle the file.</p>
+<p>For your filetype to be visible in the Proxy &gt; Attach Proxies window, set
+imIndFormatRec. flags |= xfIsMovie (this flag is labeled obsolete, but still
+needed for this case)</p>
+<p>If your importer supports different fractional resolutions and decode qualities,
+the fractional resolutions can be enumerated in response to the selector
+<em>imGetPreferredFrameSize</em>, and the decode quality hint is sent on import
+requests to your importer (for example in imSourceVideoRec.inQuality).</p>
 <hr />
 <h2 id="audio-conforming-and-peak-file-generation">Audio Conforming and Peak File Generation<a class="headerlink" href="#audio-conforming-and-peak-file-generation" title="Permanent link">&para;</a></h2>
-<p>When a clip that contains audio is imported into Premiere, one or two types of files may be generated:</p>
-<p>First, a separate .pek file is always created. This contains peak audio samples for quick access when Premiere needs to draw the audio waveform, for example in the Source Monitor or Timeline panel.</p>
-<p>Second, the audio may be conformed into a separate .cfa file. The conformed audio is in an interleaved 32-bit floating point format that matches the sequence audio sample rate, to maximize the speed at which Premiere can render audio effects and mix it without sacrificing quality.</p>
-<p>Both of these files can be generated through sequential calls for audio using <em>imImportAudio7</em>. Audio conforming cannot be disabled through the Premiere menus or API. However, if an importer can provide random-access, uncompressed audio of the clip, Premiere will not conform the audio. All compressed audio data must be conformed.</p>
-<p>Specifically, it is important to set these flags to avoid conforming: imImportInfoRec.avoidAudioConform = kPrTrue; imFileInfoRec8.accessModes |= kRandomAccessImport;</p>
-<p>Starting in CS5.5, peak audio data can also optionally be provided by the importer, if the importer implements a faster way to read the peak audio data from the clip. By setting imImportInfoRec. canProvidePeakAudio to non-zero, the importer will be sent <em>imGetPeakAudio</em> whenever this data is requested. Starting in CS6, if an importer wants to provide peak audio data on a clip-by-clip basis, it can set imFileInfoRec8.canProvidePeakData accordingly.</p>
-<p>The location of the .cfa and .pek files is determined by the user-specified path in Edit &gt; Preferences &gt; Media &gt; Media Cache Files. When the project is closed, the files will be cleaned up. If the source clip is not saved in the project, the associated conformed audio files will be deleted.</p>
-<p>Importers can get audio for scrubbing, playing and other timeline operations before conforming has completed, resulting in responsive audio feedback during conforming. To do this, they must support both random access and sequential access audio importing. The <code>kSeparateSequentialAudio</code> access mode should be set in imFileInfoRec8.accessModes.</p>
+<p>When a clip that contains audio is imported into Premiere, one or two types of
+files may be generated:</p>
+<p>First, a separate .pek file is always created. This contains peak audio samples
+for quick access when Premiere needs to draw the audio waveform, for example in
+the Source Monitor or Timeline panel.</p>
+<p>Second, the audio may be conformed into a separate .cfa file. The conformed
+audio is in an interleaved 32-bit floating point format that matches the
+sequence audio sample rate, to maximize the speed at which Premiere can render
+audio effects and mix it without sacrificing quality.</p>
+<p>Both of these files can be generated through sequential calls for audio using
+<em>imImportAudio7</em>. Audio conforming cannot be disabled through the Premiere menus
+or API. However, if an importer can provide random-access, uncompressed audio of
+the clip, Premiere will not conform the audio. All compressed audio data must be
+conformed.</p>
+<p>Specifically, it is important to set these flags to avoid conforming:
+imImportInfoRec.avoidAudioConform = kPrTrue; imFileInfoRec8.accessModes |=
+kRandomAccessImport;</p>
+<p>Starting in CS5.5, peak audio data can also optionally be provided by the
+importer, if the importer implements a faster way to read the peak audio data
+from the clip. By setting imImportInfoRec. canProvidePeakAudio to non-zero, the
+importer will be sent <em>imGetPeakAudio</em> whenever this data is requested. Starting
+in CS6, if an importer wants to provide peak audio data on a clip-by-clip basis,
+it can set imFileInfoRec8.canProvidePeakData accordingly.</p>
+<p>The location of the .cfa and .pek files is determined by the user-specified path
+in Edit &gt; Preferences &gt; Media &gt; Media Cache Files. When the project is closed,
+the files will be cleaned up. If the source clip is not saved in the project,
+the associated conformed audio files will be deleted.</p>
+<p>Importers can get audio for scrubbing, playing and other timeline operations
+before conforming has completed, resulting in responsive audio feedback during
+conforming. To do this, they must support both random access and sequential
+access audio importing. The <code>kSeparateSequentialAudio</code> access mode should be set
+in imFileInfoRec8.accessModes.</p>
 <hr />
 <h2 id="quality-levels">Quality Levels<a class="headerlink" href="#quality-levels" title="Permanent link">&para;</a></h2>
-<p>Importers can optionally support two different quality modes, with the imDraftMode flag that is used in imImportImageRec.</p>
+<p>Importers can optionally support two different quality modes, with the
+imDraftMode flag that is used in imImportImageRec.</p>
 <hr />
 <h2 id="closed-captioning">Closed Captioning<a class="headerlink" href="#closed-captioning" title="Permanent link">&para;</a></h2>
-<p>Starting in CC, importers can support closed captioning that is embedded in the source media. The built-in QuickTime importer provides this capability.</p>
-<div class="admonition note">
+<p>Starting in CC, importers can support closed captioning that is embedded in the
+source media. The built-in QuickTime importer provides this capability.</p>
+<div class="admonition note premiere pro can also import and export captions in a sidecar file">
 <p class="admonition-title">Note</p>
-<p>Premiere Pro can also import and export captions in a sidecar file (e.g. .mcc, .scc, or .xml) alongside any media file, regardless of the media file format. This does not require any specific work on the importer side.</p>
 </div>
-<p>To support embedded closed captioning, set <code>imImportInfoRec.canSupportClosedCaptions</code> to true. The importer should handle the following selectors: <code>imInitiateAsyncClosedCaptionScan</code>, <code>imGetNextClosedCaption</code>, and <em>imCompleteAsyncClosedCaptionScan</em>.</p>
-<p><em>imInitiateAsyncClosedCaptionScan</em> will be called for every file that is imported through an importer that sets canSupportClosedCaptions to true. The plugin should at this point determine whether or not there is closed captioning data for this file. If not, then the plugin should simply return imNoCaptions, and everything is done. If the plugin didn't report an error for that call, then <em>imGetNextClosedCaption</em> will be called until the plugin returns imNoCaptions. After which, <em>imCompleteAsyncClosedCaptionScan</em> will be called informing the importer that the host is done requesting captions.</p>
-<p>Both <em>imGetNextClosedCaption</em> and <em>imCompleteAsyncClosedCaptionScan</em> may be called from a different thread from which <code>imInitiateAsyncClosedCaptionScan</code> was originally called. To help facilitate this, <code>outAsyncCaptionScanPrivateData</code> during <code>imInitiateAsyncClosedCaptionScan</code> can be allocated by the importer to be used for the upcoming calls, which can be deallocated</p>
+<p>(e.g. .mcc, .scc, or .xml) alongside any media file, regardless of the media
+file format. This does not require any specific work on the importer side.</p>
+<p>To support embedded closed captioning, set
+<code>imImportInfoRec.canSupportClosedCaptions</code> to true. The importer should handle
+the following selectors: <code>imInitiateAsyncClosedCaptionScan</code>,
+<code>imGetNextClosedCaption</code>, and <em>imCompleteAsyncClosedCaptionScan</em>.</p>
+<p><em>imInitiateAsyncClosedCaptionScan</em> will be called for every file that is
+imported through an importer that sets canSupportClosedCaptions to true. The
+plugin should at this point determine whether or not there is closed captioning
+data for this file. If not, then the plugin should simply return imNoCaptions,
+and everything is done. If the plugin didn't report an error for that call, then
+<em>imGetNextClosedCaption</em> will be called until the plugin returns imNoCaptions.
+After which, <em>imCompleteAsyncClosedCaptionScan</em> will be called informing the
+importer that the host is done requesting captions.</p>
+<p>Both <em>imGetNextClosedCaption</em> and <em>imCompleteAsyncClosedCaptionScan</em> may be
+called from a different thread from which <code>imInitiateAsyncClosedCaptionScan</code> was
+originally called. To help facilitate this, <code>outAsyncCaptionScanPrivateData</code>
+during <code>imInitiateAsyncClosedCaptionScan</code> can be allocated by the importer to be
+used for the upcoming calls, which can be deallocated</p>
 <p>in <em>imCompleteAsyncClosedCaptionScan</em>.</p>
 <hr />
 <h2 id="n-channel-audio">N-Channel Audio<a class="headerlink" href="#n-channel-audio" title="Permanent link">&para;</a></h2>
-<p>Starting in CC, for audio configurations beyond mono, stereo, and 5.1, an importer can specify a channel layout by implementing the new <em>imGetAudioChannelLayout</em> selector. Otherwise the channel layout will be assumed to be discrete. For support prior to CC, the importer needs to import them as multiple streams.</p>
+<p>Starting in CC, for audio configurations beyond mono, stereo, and 5.1, an
+importer can specify a channel layout by implementing the new
+<em>imGetAudioChannelLayout</em> selector. Otherwise the channel layout will be assumed
+to be discrete. For support prior to CC, the importer needs to import them as
+multiple streams.</p>
 <hr />
 <h2 id="multiple-streams">Multiple Streams<a class="headerlink" href="#multiple-streams" title="Permanent link">&para;</a></h2>
-<p>Importers can support multiple streams of audio and/or video. For most filetypes with a single video and a simple audio configuration (mono, stereo, or 5.1), only a single stream is necessary. Multiple streams can be useful for stereoscopic footage, layered file types (like Photoshop PSD files), or clips with complex audio configuration (such as 4 mono audio channels). The following describes the general case of multiple streams. For stereoscopic importers, please refer to the description further down.</p>
-<p>An importer describes each stream one-by-one during iterative calls to <em>imGetInfo8</em>. In response to each call, the importer describes one stream, and returns imIterateStreams, until it reaches the last stream, and then it returns imBadStreamIndex. Set imFileInfoRec8-&gt;streamsAsComp = kPrFalse, so that the set of streams appear as a single clip within Premiere Pro.</p>
-<p>In <em>imGetInfo8</em>, save streamIdx in privateData, to have access to it later. That way, when called in <em>imImportAudio7</em>, the importer will know which stream of audio to pass back.</p>
-<p>See the sample code in the SDK File Importer, which can be turned on by uncommenting back in the MULTISTREAM_AUDIO_TESTING define in SDK_File_Import.h.</p>
+<p>Importers can support multiple streams of audio and/or video. For most filetypes
+with a single video and a simple audio configuration (mono, stereo, or 5.1),
+only a single stream is necessary. Multiple streams can be useful for
+stereoscopic footage, layered file types (like Photoshop PSD files), or clips
+with complex audio configuration (such as 4 mono audio channels). The following
+describes the general case of multiple streams. For stereoscopic importers,
+please refer to the description further down.</p>
+<p>An importer describes each stream one-by-one during iterative calls to
+<em>imGetInfo8</em>. In response to each call, the importer describes one stream, and
+returns imIterateStreams, until it reaches the last stream, and then it returns
+imBadStreamIndex. Set imFileInfoRec8-&gt;streamsAsComp = kPrFalse, so that the set
+of streams appear as a single clip within Premiere Pro.</p>
+<p>In <em>imGetInfo8</em>, save streamIdx in privateData, to have access to it later. That
+way, when called in <em>imImportAudio7</em>, the importer will know which stream of
+audio to pass back.</p>
+<p>See the sample code in the SDK File Importer, which can be turned on by
+uncommenting back in the MULTISTREAM_AUDIO_TESTING define in SDK_File_Import.h.</p>
 <h3 id="stereoscopic-video">Stereoscopic Video<a class="headerlink" href="#stereoscopic-video" title="Permanent link">&para;</a></h3>
-<p>First, an importer must advertise multiple video streams. During <em>imGetInfo8</em>, the host passes in the stream index in imFileInfoRec8.streamIdx. If the clip has a second stream, then on index 0 the importer should return imIterateStreams and it will be called again for the second stream. On the second one you return imNoErr, as before. The nice thing is that this works in Premiere Pro CS5.5 and earlier - when two video streams are present, on import, they will just appear as two different project items.</p>
-<p>Prior to CS6, an importer would need to have a prefs structure and on <em>imGetInfo8</em> it would need to store the stream index in that structure. With CS6 this is a lot simpler. Now, in the <code>imSourceVideoRec</code> (passed in <em>imGetSourceVideo</em>, and part of the <em>aiFrameRequest</em> for async importers), the host application passes in the currentStreamIndex (in the value formerly</p>
-<p>known as unused1). This makes it much easier to just check when providing a PPix and differentiate the two streams.</p>
-<p>Now, obviously, it is not desirable to have two project items. In order to get them merged, an importer needs to label the streams (the logic here is pretty simple, if there are multiple labeled video streams, it will appear as a single project item, and all views on that item will show the first stream). For this there is a new selector: <em>imQueryStreamLabel</em>. The struct passed to the importer has its privateData, prefs data, and the stream index, and the label needs to be passed back in a PrSDKString. If you're not familiar with PrSDKStringSuite, it's fairly obvious how to use. In this case you'll be allocating a string, passing either UTF-8 data, or UTF-16 data.</p>
-<p>In PrSDKStreamLabel.h we define two labels: kPrSDK_StreamLabelStereoscopicLeft and kPrSDKStreamLabel_Stereoscopic_Right. By convention, we expect Left to be stream 0 and Right to be stream 1. This is purely for consistency - if we have multiple stereo clips from multiple importers, we would want the thumbnails to all be consistent. If we stick to this convention, then the thumbnails will all be Left.</p>
-<p>To integrate well with other third-parties, we strongly encourage using these labels for stereoscopic importers. However, the entire StreamLabel mechanism is intentionally left quite general. You could use whatever labels you want in your importers and effects, and when you request the video segments you can pass whatever label you would like. If you have other uses for this, we would be interested to hear about them, and we would welcome any bug reports.</p>
+<p>First, an importer must advertise multiple video streams. During <em>imGetInfo8</em>,
+the host passes in the stream index in imFileInfoRec8.streamIdx. If the clip has
+a second stream, then on index 0 the importer should return imIterateStreams and
+it will be called again for the second stream. On the second one you return
+imNoErr, as before. The nice thing is that this works in Premiere Pro CS5.5 and
+earlier - when two video streams are present, on import, they will just appear
+as two different project items.</p>
+<p>Prior to CS6, an importer would need to have a prefs structure and on
+<em>imGetInfo8</em> it would need to store the stream index in that structure. With CS6
+this is a lot simpler. Now, in the <code>imSourceVideoRec</code> (passed in
+<em>imGetSourceVideo</em>, and part of the <em>aiFrameRequest</em> for async importers), the
+host application passes in the currentStreamIndex (in the value formerly</p>
+<p>known as unused1). This makes it much easier to just check when providing a PPix
+and differentiate the two streams.</p>
+<p>Now, obviously, it is not desirable to have two project items. In order to get
+them merged, an importer needs to label the streams (the logic here is pretty
+simple, if there are multiple labeled video streams, it will appear as a single
+project item, and all views on that item will show the first stream). For this
+there is a new selector: <em>imQueryStreamLabel</em>. The struct passed to the importer
+has its privateData, prefs data, and the stream index, and the label needs to be
+passed back in a PrSDKString. If you're not familiar with PrSDKStringSuite, it's
+fairly obvious how to use. In this case you'll be allocating a string, passing
+either UTF-8 data, or UTF-16 data.</p>
+<p>In PrSDKStreamLabel.h we define two labels: kPrSDK_StreamLabelStereoscopicLeft
+and kPrSDKStreamLabel_Stereoscopic_Right. By convention, we expect Left to be
+stream 0 and Right to be stream 1. This is purely for consistency - if we have
+multiple stereo clips from multiple importers, we would want the thumbnails to
+all be consistent. If we stick to this convention, then the thumbnails will all
+be Left.</p>
+<p>To integrate well with other third-parties, we strongly encourage using these
+labels for stereoscopic importers. However, the entire StreamLabel mechanism is
+intentionally left quite general. You could use whatever labels you want in your
+importers and effects, and when you request the video segments you can pass
+whatever label you would like. If you have other uses for this, we would be
+interested to hear about them, and we would welcome any bug reports.</p>
 <hr />
 <h2 id="project-manager-support">Project Manager Support<a class="headerlink" href="#project-manager-support" title="Permanent link">&para;</a></h2>
-<p>The Project Manager in Premiere Pro allows users to archive projects, trim out unused media, or collect all source files to a single location. Importers are the most knowledgable about the sources they work with. So Premiere Pro doesn't make any assumptions about the source media, but instead relies on the importers to handle the trimming and file size estimates. Only importers that specifically support trimming will trim and not copy when the Project Manager trims projects.</p>
-<p>To support trimming, importers will want to set the canCalcSizes and canTrim flags during <em>imInit</em>, and support <em>imCalcSize8</em>, <em>imCheckTrim8</em>, and <em>imTrimFile8</em>.</p>
-<p>If the each clip has more than one source file (such as audio channels in separate files), the importer should also set canCopy and support <em>imCopyFile</em>. Otherwise, the Project Manager will not know about the other source files.</p>
-<p>External files, such as textures, logos, etc. that are used by an importer instance but do not appear as footage in Project panel, should be registered with Premiere Pro using the <a href="../../universals/sweetpea-suites/#file-registration-suite">File Registration Suite</a> during <em>imGetInfo8</em> or <em>imGetPrefs8</em>. Registered files will be taken into account when trimming or copying a project using the Project Manager.</p>
+<p>The Project Manager in Premiere Pro allows users to archive projects, trim out
+unused media, or collect all source files to a single location. Importers are
+the most knowledgable about the sources they work with. So Premiere Pro doesn't
+make any assumptions about the source media, but instead relies on the importers
+to handle the trimming and file size estimates. Only importers that specifically
+support trimming will trim and not copy when the Project Manager trims projects.</p>
+<p>To support trimming, importers will want to set the canCalcSizes and canTrim
+flags during <em>imInit</em>, and support <em>imCalcSize8</em>, <em>imCheckTrim8</em>, and
+<em>imTrimFile8</em>.</p>
+<p>If the each clip has more than one source file (such as audio channels in
+separate files), the importer should also set canCopy and support <em>imCopyFile</em>.
+Otherwise, the Project Manager will not know about the other source files.</p>
+<p>External files, such as textures, logos, etc. that are used by an importer
+instance but do not appear as footage in Project panel, should be registered
+with Premiere Pro using the
+<a href="../../universals/sweetpea-suites/#file-registration-suite">File Registration Suite</a>
+during <em>imGetInfo8</em> or <em>imGetPrefs8</em>. Registered files will be taken into
+account when trimming or copying a project using the Project Manager.</p>
 <hr />
 <h2 id="creating-a-custom-importer">Creating a Custom Importer<a class="headerlink" href="#creating-a-custom-importer" title="Permanent link">&para;</a></h2>
-<p>This variant of the importer API allows importers to dynamically create disk-based media while working within Premiere. A titler plugin or similar should use this API. Once your clip is created, it is treated like any other standard file and will receive all standard missing file handling.</p>
+<p>This variant of the importer API allows importers to dynamically create
+disk-based media while working within Premiere. A titler plugin or similar
+should use this API. Once your clip is created, it is treated like any other
+standard file and will receive all standard missing file handling.</p>
 <p>A Custom Importer <strong>must</strong> do the following:</p>
 <ul>
-<li>Set the following flags true in imImportInfoRec; canCreate, canOpen, addToMenu, noFile. This tells Premiere your plugin will create a clip on disk at <em>imGetPrefs8</em> time.</li>
-<li>To determine when you need to create a new clip vs. modify an existing clip, check the <code>imFileAccessRec</code> filename. If it's identical to the plugin display name (as set in the PiPL), create a new clip; otherwise modify the clip.</li>
-<li>If the user cancels from your dialog when creating a new clip, return imCancel.</li>
-<li>If the clip is modified, the importer needs to do a few things for Premiere to pick up the changes. Put your file access information in the supplied <code>imFileAccessRec</code>. Premiere will use this data to reference your clip from now on. Close the file handle after you create it. Return imSetFile after creating a file handle in <em>imGetPrefs8</em>., and call RefreshFileAsync() in the Importer</li>
+<li>Set the following flags true in imImportInfoRec; canCreate, canOpen,
+  addToMenu, noFile. This tells Premiere your plugin will create a clip on disk
+  at <em>imGetPrefs8</em> time.</li>
+<li>To determine when you need to create a new clip vs. modify an existing clip,
+  check the <code>imFileAccessRec</code> filename. If it's identical to the plugin display
+  name (as set in the PiPL), create a new clip; otherwise modify the clip.</li>
+<li>If the user cancels from your dialog when creating a new clip, return
+  imCancel.</li>
+<li>If the clip is modified, the importer needs to do a few things for Premiere to
+  pick up the changes. Put your file access information in the supplied
+  <code>imFileAccessRec</code>. Premiere will use this data to reference your clip from now
+  on. Close the file handle after you create it. Return imSetFile after creating
+  a file handle in <em>imGetPrefs8</em>., and call RefreshFileAsync() in the Importer</li>
 </ul>
-<p>File Manager Suite to notify Premiere that the clip has been modified. Premiere will immediately call you to open the file and return a valid imFileRef. Respond to <em>imOpenFile8</em>, <em>imQuietFile</em>, <em>imCloseFile</em> at a minimum.</p>
+<p>File Manager Suite to notify Premiere that the clip has been modified. Premiere
+will immediately call you to open the file and return a valid imFileRef. Respond
+to <em>imOpenFile8</em>, <em>imQuietFile</em>, <em>imCloseFile</em> at a minimum.</p>
 <hr />
 <h2 id="real-time-rolling-and-crawling-titles">Real-Time Rolling and Crawling Titles<a class="headerlink" href="#real-time-rolling-and-crawling-titles" title="Permanent link">&para;</a></h2>
-<p>For RT rolls and crawls, a player and importer must be specially designed to work together. An importer can implement the appropriate functionality, but it is up to the player to take advantage of it.</p>
-<p>Importers can make image data available for rolling and crawling titles, using <code>imImageInfoRec.isRollCrawl</code>. If the importer sets it to non-zero, this declares that the image is a title or other image that does roll/crawl, and that the importer supports the <em>imGetRollCrawlInfo</em> and <em>imRollCrawlRenderPage</em> selectors. <em>imGetRollCrawlInfo</em> is used to get info on the roll/crawl from the importer, and <em>imRollCrawlRenderPage</em> is used to get a rendered page of the roll/crawl.</p>
+<p>For RT rolls and crawls, a player and importer must be specially designed to
+work together. An importer can implement the appropriate functionality, but it
+is up to the player to take advantage of it.</p>
+<p>Importers can make image data available for rolling and crawling titles, using
+<code>imImageInfoRec.isRollCrawl</code>. If the importer sets it to non-zero, this declares
+that the image is a title or other image that does roll/crawl, and that the
+importer supports the <em>imGetRollCrawlInfo</em> and <em>imRollCrawlRenderPage</em>
+selectors. <em>imGetRollCrawlInfo</em> is used to get info on the roll/crawl from the
+importer, and <em>imRollCrawlRenderPage</em> is used to get a rendered page of the
+roll/crawl.</p>
 <hr />
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
 <h3 id="how-to-get-first-crack-at-a-file">How to Get First Crack at a File<a class="headerlink" href="#how-to-get-first-crack-at-a-file" title="Permanent link">&para;</a></h3>
-<p>To get the first opportunity to import a filetype also supported by a built-in importer (e.g. MPEG, AVI, QuickTime, etc), provide a different subtype and classID in order for your importer to be called for the types of files you support. imImportInfoRec.priority must be higher than any of the other importers for that filetype. Set this value to 100 or higher to override all built-in importers. Premiere Pro has more than one type of AVI importer and MPEG importer, which use this same prioritization mechanism. So your importer can override all of them and get the first shot at a filetype.</p>
-<p>Just because you want to take over handling some files of a given filetype, it doesn't mean you have to handle all of them. To defer an unsupported subtype to a lower priority importer, return imBadFile during <em>imOpenFile8</em> or <em>imGetInfo8</em>. See the Media Abstraction chapter for more information on filetypes, subtypes, and classIDs.</p>
+<p>To get the first opportunity to import a filetype also supported by a built-in
+importer (e.g. MPEG, AVI, QuickTime, etc), provide a different subtype and
+classID in order for your importer to be called for the types of files you
+support. imImportInfoRec.priority must be higher than any of the other importers
+for that filetype. Set this value to 100 or higher to override all built-in
+importers. Premiere Pro has more than one type of AVI importer and MPEG
+importer, which use this same prioritization mechanism. So your importer can
+override all of them and get the first shot at a filetype.</p>
+<p>Just because you want to take over handling some files of a given filetype, it
+doesn't mean you have to handle all of them. To defer an unsupported subtype to
+a lower priority importer, return imBadFile during <em>imOpenFile8</em> or
+<em>imGetInfo8</em>. See the Media Abstraction chapter for more information on
+filetypes, subtypes, and classIDs.</p>
 <h3 id="format-repeated-in-menu">Format repeated in menu?<a class="headerlink" href="#format-repeated-in-menu" title="Permanent link">&para;</a></h3>
-<p>To avoid having your importer appear multiple times in the file formats supported pop-up list, fill out the formatName, formatShortName and platform extension once and only once during your <em>imGetIndFormat</em>.</p>
+<p>To avoid having your importer appear multiple times in the file formats
+supported pop-up list, fill out the formatName, formatShortName and platform
+extension once and only once during your <em>imGetIndFormat</em>.</p>
 <hr />
 <h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<p>Importers must contain a IMPT resource. Premiere uses this to identify the plugin as an importer. Also, depending on the type of importer (standard, synthetic, or custom), a PiPL may be required.</p>
+<p>Importers must contain a IMPT resource. Premiere uses this to identify the
+plugin as an importer. Also, depending on the type of importer (standard,
+synthetic, or custom), a PiPL may be required.</p>
 <hr />
 <h2 id="entry-point">Entry Point<a class="headerlink" href="#entry-point" title="Permanent link">&para;</a></h2>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">csSDK_int32</span><span class="w"> </span><span class="n">xImportEntry</span><span class="w"> </span><span class="p">(</span>
@@ -4251,11 +4329,16 @@
 </span><span id="__span-0-4"><span class="w">  </span><span class="kt">void</span><span class="w">         </span><span class="o">*</span><span class="n">param1</span><span class="p">,</span>
 </span><span id="__span-0-5"><span class="w">  </span><span class="kt">void</span><span class="w">         </span><span class="o">*</span><span class="n">param2</span><span class="p">)</span>
 </span></code></pre></div>
-<p><em>selector</em> is the action Premiere wants the importer to perform. stdParms provides callbacks to obtain additional information from Premiere or to have Premiere perform tasks.</p>
-<p><code>param1</code> and <code>param2</code> vary with the selector; they may contain a specific value or a pointer to a structure. Return imNoErr if successful, or an appropriate return code.</p>
+<p><em>selector</em> is the action Premiere wants the importer to perform. stdParms
+provides callbacks to obtain additional information from Premiere or to have
+Premiere perform tasks.</p>
+<p><code>param1</code> and <code>param2</code> vary with the selector; they may contain a specific value
+or a pointer to a structure. Return imNoErr if successful, or an appropriate
+return code.</p>
 <hr />
 <h2 id="standard-parameters">Standard Parameters<a class="headerlink" href="#standard-parameters" title="Permanent link">&para;</a></h2>
-<p>A pointer to this structure is sent from the host application to the plugin with every selector.</p>
+<p>A pointer to this structure is sent from the host application to the plugin with
+every selector.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-1-2"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">      </span><span class="n">imInterfaceVer</span><span class="p">;</span>
 </span><span id="__span-1-3"><span class="w">  </span><span class="n">imCallbackFuncs</span><span class="w">  </span><span class="o">*</span><span class="n">funcs</span><span class="p">;</span>
@@ -4375,7 +4458,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 18, 2025 18:57:47 UTC">November 18, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 10, 2026 21:38:11 UTC">April 10, 2026</span>
   </span>
 
     

@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -1983,34 +1983,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../whats-new/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Whats New
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../getting-started/" class="md-nav__link">
         
   
@@ -2625,34 +2597,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../video-filters/whats-new/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Whats New
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../video-filters/getting-started/" class="md-nav__link">
         
   
@@ -2939,90 +2883,6 @@
     
   
     CUDA, OpenCL, Metal, or OpenGL?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gpu-effects-transitions/whats-new-in-ppro-12/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro 12.0?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gpu-effects-transitions/whats-new-in-ppro-cc2015/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro CC 2015.4?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gpu-effects-transitions/whats-new-in-ppro-cc2014/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro CC 2014?
   
 
     
@@ -3559,32 +3419,48 @@
 
 <h1 id="additional-details">Additional Details<a class="headerlink" href="#additional-details" title="Permanent link">&para;</a></h1>
 <h2 id="multiplexer-tab-ordering">Multiplexer Tab Ordering<a class="headerlink" href="#multiplexer-tab-ordering" title="Permanent link">&para;</a></h2>
-<p>If your exporter provides a Multiplexer tab like some of the built-in exporters do, you may find that it appears after the Video and Audio tab, rather than before those tabs as in the case of our exporters. The key is to use the following define as the parameter identifer for the multiplexer tab group:</p>
+<p>If your exporter provides a Multiplexer tab like some of the built-in exporters
+do, you may find that it appears after the Video and Audio tab, rather than
+before those tabs as in the case of our exporters. The key is to use the
+following define as the parameter identifer for the multiplexer tab group:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="cp">#define ADBEMultiplexerTabGroup &quot;ADBEAudienceTabGroup&quot;</span>
 </span></code></pre></div>
 <hr />
 <h2 id="creating-a-non-editable-string-in-the-parameter-ui">Creating a Non-Editable String in the Parameter UI<a class="headerlink" href="#creating-a-non-editable-string-in-the-parameter-ui" title="Permanent link">&para;</a></h2>
-<p>During <code>exSelGenerateDefaultParams</code>, add a parameter with <code>exNewParamInfo.flags = exParamFlag_none</code>.</p>
-<p>Then during <code>exSelPostProcessParams</code>, call <code>AddConstrainedValuePair()</code> in the <a href="../suites/#export-param-suite">Export Param Suite</a>.</p>
-<p>If you only add one value pair, then the parameter will be a non-editable string.</p>
-<p>In the case of the SDK Exporter sample, it adds two, which appear as a pair of radio buttons side-by-side.</p>
+<p>During <code>exSelGenerateDefaultParams</code>, add a parameter with
+<code>exNewParamInfo.flags = exParamFlag_none</code>.</p>
+<p>Then during <code>exSelPostProcessParams</code>, call <code>AddConstrainedValuePair()</code> in the
+<a href="../suites/#export-param-suite">Export Param Suite</a>.</p>
+<p>If you only add one value pair, then the parameter will be a non-editable
+string.</p>
+<p>In the case of the SDK Exporter sample, it adds two, which appear as a pair of
+radio buttons side-by-side.</p>
 <hr />
 <h2 id="guidelines-for-exporters-in-premiere-elements">Guidelines for Exporters in Premiere Elements<a class="headerlink" href="#guidelines-for-exporters-in-premiere-elements" title="Permanent link">&para;</a></h2>
-<p>First, make sure you are building the exporter using the right SDK. Premiere Elements 8 requires the Premiere Pro CS4 SDK. The next version of Premiere Elements will likely use the CS5 SDK.</p>
+<p>First, make sure you are building the exporter using the right SDK. Premiere
+Elements 8 requires the Premiere Pro CS4 SDK. The next version of Premiere
+Elements will likely use the CS5 SDK.</p>
 <h3 id="exporter-preset">Exporter Preset<a class="headerlink" href="#exporter-preset" title="Permanent link">&para;</a></h3>
-<p>For an exporter to show up in the Premiere Elements UI, you'll need to create and install a preset in a specific location:</p>
+<p>For an exporter to show up in the Premiere Elements UI, you'll need to create
+and install a preset in a specific location:</p>
 <ol>
-<li>Create a folder named "OTHERS" in [App installation folder]/sharingcenter/Presets/pc/</li>
-<li>Create a sub-folder with your name (e.g. MyCompany) under OTHERS and place the preset file (.epr) in it. The final path of the preset file should be something like [App installation folder]/ sharingcenter/Presets/pc/OTHERS/MyCompany/MyPreset.epr</li>
+<li>Create a folder named "OTHERS" in [App installation
+   folder]/sharingcenter/Presets/pc/</li>
+<li>Create a sub-folder with your name (e.g. MyCompany) under OTHERS and place
+   the preset file (.epr) in it. The final path of the preset file should be
+   something like [App installation folder]/
+   sharingcenter/Presets/pc/OTHERS/MyCompany/MyPreset.epr</li>
 <li>Relaunch Premiere Elements.</li>
 <li>Add a clip to the timeline</li>
 <li>Goto the "Share" tab</li>
 <li>Under that choose "Personal Computer"</li>
-<li>You should see the "Others - 3rd Party Plugins" in the list of formats. Select this.</li>
+<li>You should see the "Others - 3rd Party Plugins" in the list of formats.
+   Select this.</li>
 <li>Your preset should be seen in the drop-down.</li>
 </ol>
 <h3 id="return-values">Return Values<a class="headerlink" href="#return-values" title="Permanent link">&para;</a></h3>
-<p>Premiere Elements 8 uses a slightly different definition of the return values. Use the following definition instead:</p>
+<p>Premiere Elements 8 uses a slightly different definition of the return values.
+Use the following definition instead:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><span class="k">enum</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-1-2"><span class="w">  </span><span class="n">exportReturn_ErrNone</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
 </span><span id="__span-1-3"><span class="w">  </span><span class="n">exportReturn_Abort</span><span class="p">,</span>
@@ -3618,7 +3494,8 @@
 </span><span id="__span-1-31"><span class="w">  </span><span class="n">exportReturn_Unsupported</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-100</span>
 </span><span id="__span-1-32"><span class="p">};</span>
 </span></code></pre></div>
-<p>The red values are unique to Premiere Elements 8, and shifted the subsequent return values 2 values higher than their definition in the Premiere Pro SDK.</p>
+<p>The red values are unique to Premiere Elements 8, and shifted the subsequent
+return values 2 values higher than their definition in the Premiere Pro SDK.</p>
 
 
 
@@ -3639,7 +3516,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 25, 2025 17:55:44 UTC">January 25, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 10, 2026 21:38:11 UTC">April 10, 2026</span>
   </span>
 
     

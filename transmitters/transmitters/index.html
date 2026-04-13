@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -1981,34 +1981,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../exporters/whats-new/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Whats New
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../exporters/getting-started/" class="md-nav__link">
         
   
@@ -2582,34 +2554,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../video-filters/whats-new/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Whats New
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../video-filters/getting-started/" class="md-nav__link">
         
   
@@ -2896,90 +2840,6 @@
     
   
     CUDA, OpenCL, Metal, or OpenGL?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gpu-effects-transitions/whats-new-in-ppro-12/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro 12.0?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gpu-effects-transitions/whats-new-in-ppro-cc2015/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro CC 2015.4?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gpu-effects-transitions/whats-new-in-ppro-cc2014/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro CC 2014?
   
 
     
@@ -3472,18 +3332,39 @@
 
 
 <h1 id="transmitters">Transmitters<a class="headerlink" href="#transmitters" title="Permanent link">&para;</a></h1>
-<p>This API provides support for pushing video, audio, and closed captions to external hardware. Transmitters can be specified by the user in Preferences &gt; Playback. Other plugins such as importers and effects with settings preview dialogs can send video out to the active transmitter, opening up new possibilities for hardware monitoring. Transmit plugins are supported in Premiere Pro, After Effects (starting in CC 2014), and Character Animator.</p>
-<p>When a new transmitter instance is created, it is asked to describe the format(s) it wishes to receive the rendered video in. A transmitter plugin can request different formats depending on the source clip or timeline format. The host application will handle all the conversions to the desired video format. As an example, a transmitter instance may specify that it can only handle a fixed width and height, but any pixel format. Besides video conversions, the host handles scheduling for prefetching the media and asynchronous rendering.</p>
-<p>A transmitter may leave the audio to be played by the host, through the system's sound drivers (ASIO or CoreAudio). Or, if a transmitter wants to handle the audio itself to send it to the external hardware, it can request audio using GetNextAudioBuffer in the <a href="../suites/#playmod-audio-suite">Playmod Audio Suite</a>.</p>
-<p>On playback, the host provides the transmitter with a clock callback, which the transmitter must call to update the host with the new time every frame. This allows the transmitter to orchestrate the audio/video sync.</p>
-<p>Transmitters can use the <a href="../../universals/sweetpea-suites/#captioning-suite">Captioning Suite</a> to get any closed captions for the sequence.</p>
-<p>Transmitters do not need to call the Playmod Device Controller suite to handle Export to Tape. This is handled at the player level.</p>
+<p>This API provides support for pushing video, audio, and closed captions to
+external hardware. Transmitters can be specified by the user in Preferences &gt;
+Playback. Other plugins such as importers and effects with settings preview
+dialogs can send video out to the active transmitter, opening up new
+possibilities for hardware monitoring. Transmit plugins are supported in
+Premiere Pro, After Effects (starting in CC 2014), and Character Animator.</p>
+<p>When a new transmitter instance is created, it is asked to describe the
+format(s) it wishes to receive the rendered video in. A transmitter plugin can
+request different formats depending on the source clip or timeline format. The
+host application will handle all the conversions to the desired video format. As
+an example, a transmitter instance may specify that it can only handle a fixed
+width and height, but any pixel format. Besides video conversions, the host
+handles scheduling for prefetching the media and asynchronous rendering.</p>
+<p>A transmitter may leave the audio to be played by the host, through the system's
+sound drivers (ASIO or CoreAudio). Or, if a transmitter wants to handle the
+audio itself to send it to the external hardware, it can request audio using
+GetNextAudioBuffer in the <a href="../suites/#playmod-audio-suite">Playmod Audio Suite</a>.</p>
+<p>On playback, the host provides the transmitter with a clock callback, which the
+transmitter must call to update the host with the new time every frame. This
+allows the transmitter to orchestrate the audio/video sync.</p>
+<p>Transmitters can use the
+<a href="../../universals/sweetpea-suites/#captioning-suite">Captioning Suite</a> to get any
+closed captions for the sequence.</p>
+<p>Transmitters do not need to call the Playmod Device Controller suite to handle
+Export to Tape. This is handled at the player level.</p>
 <hr />
 <h2 id="whats-new-in-premiere-pro-240">What's New in Premiere Pro 24.0?<a class="headerlink" href="#whats-new-in-premiere-pro-240" title="Permanent link">&para;</a></h2>
 <p>Support for additional audio output devices has been added.</p>
 <hr />
 <h2 id="whats-new-in-premiere-pro-cs602">What's New in Premiere Pro CS6.0.2?<a class="headerlink" href="#whats-new-in-premiere-pro-cs602" title="Permanent link">&para;</a></h2>
-<p>A transmitter can now provide strings to label its audio channels, in <code>tmAudioMode.outOutputAudioNames</code>. These strings will be used for the Audio Output Mapping preferences, rather than the default strings.</p>
+<p>A transmitter can now provide strings to label its audio channels, in
+<code>tmAudioMode.outOutputAudioNames</code>. These strings will be used for the Audio
+Output Mapping preferences, rather than the default strings.</p>
 
 
 
@@ -3504,7 +3385,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 25, 2025 17:22:59 UTC">January 25, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 10, 2026 21:38:11 UTC">April 10, 2026</span>
   </span>
 
     

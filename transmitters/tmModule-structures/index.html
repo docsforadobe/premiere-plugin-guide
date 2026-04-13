@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -1981,34 +1981,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../exporters/whats-new/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Whats New
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../exporters/getting-started/" class="md-nav__link">
         
   
@@ -2659,34 +2631,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../video-filters/whats-new/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Whats New
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../video-filters/getting-started/" class="md-nav__link">
         
   
@@ -2973,90 +2917,6 @@
     
   
     CUDA, OpenCL, Metal, or OpenGL?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gpu-effects-transitions/whats-new-in-ppro-12/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro 12.0?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gpu-effects-transitions/whats-new-in-ppro-cc2015/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro CC 2015.4?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gpu-effects-transitions/whats-new-in-ppro-cc2014/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro CC 2014?
   
 
     
@@ -3627,7 +3487,8 @@
 
 <h1 id="tmmodule-structures">tmModule Structures<a class="headerlink" href="#tmmodule-structures" title="Permanent link">&para;</a></h1>
 <h2 id="tmstdparms">tmStdParms<a class="headerlink" href="#tmstdparms" title="Permanent link">&para;</a></h2>
-<p>This is passed to all calls. Most of it is allocated and filled in by the transmitter on Startup, and may be modified during SetupDialog.</p>
+<p>This is passed to all calls. Most of it is allocated and filled in by the
+transmitter on Startup, and may be modified during SetupDialog.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-0-2"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">   </span><span class="n">inPluginIndex</span><span class="p">;</span>
 </span><span id="__span-0-3"><span class="w">  </span><span class="n">PrMemoryPtr</span><span class="w">   </span><span class="n">ioSerializedPluginData</span><span class="p">;</span>
@@ -3758,7 +3619,8 @@
 </tbody>
 </table>
 <h2 id="tminstance">tmInstance<a class="headerlink" href="#tminstance" title="Permanent link">&para;</a></h2>
-<p>This structure contains information for the transmitter to use for initializing an instance.</p>
+<p>This structure contains information for the transmitter to use for initializing
+an instance.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-2-2"><span class="w">  </span><span class="n">csSDK_int32</span><span class="w">          </span><span class="n">inInstanceID</span><span class="p">;</span>
 </span><span id="__span-2-3"><span class="w">  </span><span class="n">PrTimelineID</span><span class="w">         </span><span class="n">inTimelineID</span><span class="p">;</span>
@@ -3940,24 +3802,12 @@
 <td>The preferred video resolution. Set to 0 if any resolution is supported.</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
 <td><code>outPARNum</code>, <code>outPARDen</code></td>
 <td>The preferred video pixel aspect ratio. Set to 0 if any pixel aspect ratio is supported.</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
 <td><code>outFieldType</code></td>
 <td>The supported video field type.</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td></td>
@@ -4011,7 +3861,8 @@
 </table>
 <hr />
 <h2 id="tmplaybackclock">tmPlaybackClock<a class="headerlink" href="#tmplaybackclock" title="Permanent link">&para;</a></h2>
-<p>This structure is filled out by the host and sent to the transmitter to describe the playback clock to be managed by the transmitter.</p>
+<p>This structure is filled out by the host and sent to the transmitter to describe
+the playback clock to be managed by the transmitter.</p>
 <p>The transmitter uses the callback here to update the host at regular intervals.</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-5-2"><span class="w">  </span><span class="n">tmClockCallback</span><span class="w">         </span><span class="n">inClockCallback</span><span class="p">;</span>
@@ -4268,7 +4119,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 19, 2025 19:00:00 UTC">November 19, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 10, 2026 21:38:11 UTC">April 10, 2026</span>
   </span>
 
     

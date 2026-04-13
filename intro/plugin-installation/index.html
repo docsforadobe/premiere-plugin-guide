@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -2109,34 +2109,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../exporters/whats-new/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Whats New
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../exporters/getting-started/" class="md-nav__link">
         
   
@@ -2637,34 +2609,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../video-filters/whats-new/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Whats New
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../video-filters/getting-started/" class="md-nav__link">
         
   
@@ -2951,90 +2895,6 @@
     
   
     CUDA, OpenCL, Metal, or OpenGL?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gpu-effects-transitions/whats-new-in-ppro-12/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro 12.0?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gpu-effects-transitions/whats-new-in-ppro-cc2015/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro CC 2015.4?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../gpu-effects-transitions/whats-new-in-ppro-cc2014/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro CC 2014?
   
 
     
@@ -3582,22 +3442,35 @@
 
 
 <h1 id="plug-in-installation">Plug In Installation<a class="headerlink" href="#plug-in-installation" title="Permanent link">&para;</a></h1>
-<p>Plugins must have an installer. This simplifies installation by the user, provides more compact distribution, and ensures all the pieces are installed correctly.</p>
+<p>Plugins must have an installer. This simplifies installation by the user,
+provides more compact distribution, and ensures all the pieces are installed
+correctly.</p>
 <p>Create a container folder for your plugin(s) to minimize user confusion.</p>
 <p>Don't unintentionally overwrite existing plugins, or replace newer versions.</p>
-<p>The installer should find the default installation directories as described below.</p>
-<p>It is also appreciated when an installer allows the user to specify an alternate directory.</p>
+<p>The installer should find the default installation directories as described
+below.</p>
+<p>It is also appreciated when an installer allows the user to specify an alternate
+directory.</p>
 <p>Plugins should be installed in the common plugin location.</p>
-<p>Supported Premiere and After Effects plugins installed here will be loaded by Premiere Pro, After Effects, Audition, and Media Encoder.</p>
-<p>Other plugin types, such as QuickTime and VfW codecs should be installed at the operating system level.</p>
+<p>Supported Premiere and After Effects plugins installed here will be loaded by
+Premiere Pro, After Effects, Audition, and Media Encoder.</p>
+<p>Other plugin types, such as QuickTime and VfW codecs should be installed at the
+operating system level.</p>
 <hr />
 <h2 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h2>
-<p>As of Premiere Pro version 22.0, the <code>\Plug-ins</code> directories have been renamed <code>\Plugins</code>, to better coincide with Apple's Human Interface Guidelines. Premiere Pro will continue to attempt to load plugins from <code>\Plug-Ins</code> directories as well, for the foreseeable future.</p>
-<p>Starting in CC, each version of Premiere Pro will create a unique registry key that provide locations of folders of interest for third-party installations for that version.</p>
+<p>As of Premiere Pro version 22.0, the <code>\Plug-ins</code> directories have been renamed
+<code>\Plugins</code>, to better coincide with Apple's Human Interface Guidelines. Premiere
+Pro will continue to attempt to load plugins from <code>\Plug-Ins</code> directories as
+well, for the foreseeable future.</p>
+<p>Starting in CC, each version of Premiere Pro will create a unique registry key
+that provide locations of folders of interest for third-party installations for
+that version.</p>
 <p>For example, here are the registry values <strong>for CC 2015.3:</strong></p>
 <p>Key: <code>HKEY_LOCAL_MACHINE/Software/Adobe/Premiere Pro/10.0/</code></p>
 <p>Value name: <code>CommonPluginInstallPath</code></p>
-<p>Value data: <code>C:\Program Files\Adobe\Common\Plugins\7.0\MediaCore\\</code> (or whatever the proper MediaCore plugins folder is; note that this is the same as what the After Effects installer provides for a corresponding registry key)</p>
+<p>Value data: <code>C:\Program Files\Adobe\Common\Plugins\7.0\MediaCore\\</code> (or whatever
+the proper MediaCore plugins folder is; note that this is the same as what the
+After Effects installer provides for a corresponding registry key)</p>
 <p>Starting in CC 2015.3, <strong>control surface plugins</strong> should be installed here:</p>
 <p><code>/Library/Application Support/Adobe/Common/Plugins/ControlSurface/</code></p>
 <p><strong>For sequence presets:</strong></p>
@@ -3605,21 +3478,27 @@
 <p>Value data: <code>[Adobe Premiere Pro installation path]\Settings\SequencePresets\</code></p>
 <p><strong>For sequence preview presets:</strong></p>
 <p>Value name: <code>SequencePreviewPresetsPath</code></p>
-<p>Value data: <code>[Adobe Premiere Pro installation path]\Settings\EncoderPresets\SequencePreview\</code></p>
+<p>Value data:
+<code>[Adobe Premiere Pro installation path]\Settings\EncoderPresets\SequencePreview\</code></p>
 <p><strong>For exporter presets:</strong></p>
 <p>Value name: <code>CommonExporterPresetsPath</code></p>
-<p>Value data: *<em>[User folder]AppDataRoamingAdobeCommonAME7.0Presets*</em></p>
+<p>Value data: **[User folder]AppDataRoamingAdobeCommonAME7.0Presets**</p>
 <p><strong>Effects presets:</strong></p>
 <p>Value name: <code>PluginInstallPath</code></p>
-<p>Value data: <code>[Adobe Premiere Pro installation path]\Adobe Premiere Pro\Plugins\Common</code></p>
-<p>Third-party installers can start from this path, and then modify the string to build the path to the language-specific effect presets.</p>
-<p><strong>Prior to CC</strong>, the only path given in the registry was the common plugin path for the most recently installed version of Premiere Pro:</p>
+<p>Value data:
+<code>[Adobe Premiere Pro installation path]\Adobe Premiere Pro\Plugins\Common</code></p>
+<p>Third-party installers can start from this path, and then modify the string to
+build the path to the language-specific effect presets.</p>
+<p><strong>Prior to CC</strong>, the only path given in the registry was the common plugin path
+for the most recently installed version of Premiere Pro:</p>
 <p>HKEY_LOCAL_MACHINE/Software/Adobe/Premiere Pro/CurrentVersion</p>
 <p>Value name: <code>Plug-InsDir</code></p>
 <p>Value data: <code>REG_SZ</code> containing the full path of the plugin folder.</p>
 <p>As an example: <code>C:\Program Files\Adobe\Common\Plugins\7.0\MediaCore\</code></p>
-<p>The best way to locate other preset folders was to start from the root path for Premiere Pro in the registry at</p>
-<p><code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\ Adobe Premiere Pro.exe</code>.</p>
+<p>The best way to locate other preset folders was to start from the root path for
+Premiere Pro in the registry at:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\ Adobe Premiere Pro.exe
+</span></code></pre></div>
 <p>Then, just add the proper subdirectories as described in the macOS section.</p>
 <hr />
 <h2 id="macos">macOS<a class="headerlink" href="#macos" title="Permanent link">&para;</a></h2>
@@ -3627,12 +3506,16 @@
 <p><code>/Library/Application Support/Adobe/Common/Plugins/7.0/MediaCore/</code></p>
 <p>Starting in CC 2015.3, <strong>control surface plugins</strong> should be installed here:</p>
 <p><code>/Library/Application Support/Adobe/Common/Plugins/ControlSurface/</code></p>
-<p>Previously, starting in CC 2015, Premiere Pro provided installer hints for Mac. You'll find <code>com.Adobe.Premiere Pro.paths.plist</code> at <code>/Library/Preferences</code>, which contains hints for your Mac installer to know where to install plugins, and is similar to the registry entries we have been providing on Win.</p>
+<p>Previously, starting in CC 2015, Premiere Pro provided installer hints for Mac.
+You'll find <code>com.Adobe.Premiere Pro.paths.plist</code> at <code>/Library/Preferences</code>,
+which contains hints for your Mac installer to know where to install plugins,
+and is similar to the registry entries we have been providing on Win.</p>
 <p>The <strong>common plugin location</strong> was at:</p>
 <p><code>/Library/Application Support/Adobe/Common/Plugins/7.0/MediaCore/</code></p>
 <p>Starting in CC 2015.3, <strong>control surface plugins</strong> should be installed here:</p>
 <p><code>/Library/Application Support/Adobe/Common/Plugins/ControlSurface/</code></p>
-<p>Following OS X Code Signing guidelines, plugins should be installed in this separate shared location rather than in the application bundle.</p>
+<p>Following OS X Code Signing guidelines, plugins should be installed in this
+separate shared location rather than in the application bundle.</p>
 <p><strong>For sequence presets:</strong></p>
 <p><code>/Settings/SequencePresets/[Your specific folder]/</code></p>
 <p><strong>Sequence preview presets:</strong></p>
@@ -3640,51 +3523,82 @@
 <p><strong>Encoder presets:</strong></p>
 <p><code>/MediaIO/systempresets/[Your exporter folder]/</code></p>
 <p><strong>Effects presets:</strong></p>
-<p><code>/Plugins/[language subdirectory]/Effect Presets/</code> (see <a href="../localization/">Localization</a> for the list of language codes)</p>
+<p><code>/Plugins/[language subdirectory]/Effect Presets/</code> (see
+<a href="../localization/">Localization</a> for the list of language codes)</p>
 <p><strong>Editing modes:</strong></p>
 <p><code>/Settings/Editing Modes/</code></p>
 <hr />
 <h2 id="plugin-naming-conventions">Plugin Naming Conventions<a class="headerlink" href="#plugin-naming-conventions" title="Permanent link">&para;</a></h2>
-<p>On Windows, Premiere Pro plugins must have the file extension ".prm". On macOS, they have the file extension ".bundle". Other supported plugin standards use their conventional file extensions: ".aex" for After Effects plugins, ".dll" for VST plugins.</p>
-<p>While it is not required for your plugin to load, naming your plugins using the plugin type as a prefix (e.g. ImporterSDK, FilterSDK, etc.) will help reduce user confusion.</p>
+<p>On Windows, Premiere Pro plugins must have the file extension ".prm". On macOS,
+they have the file extension ".bundle". Other supported plugin standards use
+their conventional file extensions: ".aex" for After Effects plugins, ".dll" for
+VST plugins.</p>
+<p>While it is not required for your plugin to load, naming your plugins using the
+plugin type as a prefix (e.g. ImporterSDK, FilterSDK, etc.) will help reduce
+user confusion.</p>
 <hr />
 <h2 id="plugin-blocklisting-formerly-blacklisting">Plugin Blocklisting (formerly Blacklisting)<a class="headerlink" href="#plugin-blocklisting-formerly-blacklisting" title="Permanent link">&para;</a></h2>
-<p>Specific plugins can be blocked from being loaded by MediaCore in specific applications, using blocklists.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This does not work for After Effects plugins loaded by AE, although it does work for AE plugins loaded in Premiere Pro.</p>
-</div>
-<p>In the plugins folder, look for the appropriate blacklist file, and append the the filename of the plugin to the file (e.g. BadPlugin, not BadPlugin.prm). If the file doesn't exist, create it first. "Blocklist.txt" contains names of plugins blacklisted from all apps. Plugins can be blocked from loading in specific apps by including them in "Blocklist Adobe Premiere Pro.txt", or "Blocklist After Effects.txt", etc.</p>
+<p>Specific plugins can be blocked from being loaded by MediaCore in specific
+applications, using blocklists.</p>
+<p>!!! note This does not work for After Effects plugins loaded by AE, although it
+does work for AE plugins loaded in Premiere Pro.</p>
+<p>In the plugins folder, look for the appropriate blacklist file, and append the
+the filename of the plugin to the file (e.g. BadPlugin, not BadPlugin.prm). If
+the file doesn't exist, create it first. "Blocklist.txt" contains names of
+plugins blacklisted from all apps. Plugins can be blocked from loading in
+specific apps by including them in "Blocklist Adobe Premiere Pro.txt", or
+"Blocklist After Effects.txt", etc.</p>
 <hr />
 <h2 id="creating-sequence-presets">Creating Sequence Presets<a class="headerlink" href="#creating-sequence-presets" title="Permanent link">&para;</a></h2>
-<p>Not to be confused with encoder presets or sequence preview encoder presets, sequence presets are the successor to project presets. They contain the video, audio, timecode, and track layout information used when creating a new sequence.</p>
-<p>If you wish to add Sequence Presets for the New Sequence dialog, save the settings with a descriptive name and comment. Emulate our settings files. Install the presets as described in this section.</p>
+<p>Not to be confused with encoder presets or sequence preview encoder presets,
+sequence presets are the successor to project presets. They contain the video,
+audio, timecode, and track layout information used when creating a new sequence.</p>
+<p>If you wish to add Sequence Presets for the New Sequence dialog, save the
+settings with a descriptive name and comment. Emulate our settings files.
+Install the presets as described in this section.</p>
 <hr />
 <h2 id="application-level-preferences">Application-level Preferences<a class="headerlink" href="#application-level-preferences" title="Permanent link">&para;</a></h2>
-<p>For Windows 7 restricted user accounts, the only place that code has guaranteed write access to a folder is inside the user documents folder and its subfolders.</p>
+<p>For Windows 7 restricted user accounts, the only place that code has guaranteed
+write access to a folder is inside the user documents folder and its subfolders.</p>
 <p>..Users[user name]AppDataRoamingAdobePremiere Pro[version]\</p>
-<p>This means that you cannot save data or documents in the application folder. There is currently no plugin API for storing preferences in the application prefs folder. Plugins can create their own preferences file in the user's Premiere prefs directory like so:</p>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="n">HRESULT</span><span class="w"> </span><span class="n">herr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SHGetKnownFolderPath</span><span class="p">(</span><span class="n">FOLDERID_RoamingAppData</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">preferencesPath</span><span class="p">);</span>
-</span><span id="__span-0-2"><span class="n">strcat</span><span class="p">(</span><span class="n">preferencesPath</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\\</span><span class="s">Adobe</span><span class="se">\\</span><span class="s">Premiere Pro</span><span class="se">\\</span><span class="s">[version]</span><span class="se">\\</span><span class="s">MyPlugin.preferences&quot;</span><span class="p">);</span>
+<p>This means that you cannot save data or documents in the application folder.
+There is currently no plugin API for storing preferences in the application
+prefs folder. Plugins can create their own preferences file in the user's
+Premiere prefs directory like so:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><span class="n">HRESULT</span><span class="w"> </span><span class="n">herr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SHGetKnownFolderPath</span><span class="p">(</span><span class="n">FOLDERID_RoamingAppData</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">preferencesPath</span><span class="p">);</span>
+</span><span id="__span-1-2"><span class="n">strcat</span><span class="p">(</span><span class="n">preferencesPath</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\\</span><span class="s">Adobe</span><span class="se">\\</span><span class="s">Premiere Pro</span><span class="se">\\</span><span class="s">[version]</span><span class="se">\\</span><span class="s">MyPlugin.preferences&quot;</span><span class="p">);</span>
 </span></code></pre></div>
-<p>On MacOS: <code>NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirector y,NSLocalDomainMask,…)</code></p>
-<p>This should get you started getting the Application Support folder which you can add onto to create something like:</p>
+<p>On MacOS:
+<code>NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirector y,NSLocalDomainMask,…)</code></p>
+<p>This should get you started getting the Application Support folder which you can
+add onto to create something like:</p>
 <p><code>/Library/Application Support/Adobe/Premiere Pro/[version]/MyPlugin.preferences</code></p>
 <hr />
 <h2 id="dog-ears">Dog Ears<a class="headerlink" href="#dog-ears" title="Permanent link">&para;</a></h2>
-<p>Premiere Pro's built-in player has a mode to display statistics, historically known as "dog ears", which can be useful in debugging and tuning performance of importers, effects, transitions, and transmitters. The statistics include frames per second, frames dropped during playback, pixel format rendered, render size, and field type being rendered.</p>
-<p>You can bring up the debug console in Premiere Pro. You can do this via Ctrl/Cmd-F12. To enable the dog ears, type this:</p>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><span class="n">debug</span><span class="p">.</span><span class="n">set</span><span class="w"> </span><span class="n">EnableDogEars</span><span class="o">=</span><span class="nb">true</span>
+<p>Premiere Pro's built-in player has a mode to display statistics, historically
+known as "dog ears", which can be useful in debugging and tuning performance of
+importers, effects, transitions, and transmitters. The statistics include frames
+per second, frames dropped during playback, pixel format rendered, render size,
+and field type being rendered.</p>
+<p>You can bring up the debug console in Premiere Pro. You can do this via
+Ctrl/Cmd-F12. To enable the dog ears, type this:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><span class="n">debug</span><span class="p">.</span><span class="n">set</span><span class="w"> </span><span class="n">EnableDogEars</span><span class="o">=</span><span class="nb">true</span>
 </span></code></pre></div>
 <p>to disable, use this:</p>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><span class="n">debug</span><span class="p">.</span><span class="n">set</span><span class="w"> </span><span class="n">EnableDogEars</span><span class="o">=</span><span class="nb">false</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><span class="n">debug</span><span class="p">.</span><span class="n">set</span><span class="w"> </span><span class="n">EnableDogEars</span><span class="o">=</span><span class="nb">false</span>
 </span></code></pre></div>
-<p>If the enter keystroke seems to go to the wrong panel, this is an intermittent panel focus problem. Click the Tools or Info panel before typing in the Console panel, and the enter key will be processed properly.</p>
-<p>Once enabled, the player displays the statistics as black text on a partially transparent background. This allows you to still see the underlying video (to some extent) and yet also read the text. When you turn off dog ears, the setting may not take effect until you switch or reopen your current sequence.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you are developing a transmitter, displaying dog ears will result in duplicate calls to PushVideo for the same frame. This happens because the player routinely updates the dog ears on a timer even when the frame hasn't changed for updated stats. As of CS6, this triggers a PushVideo to active transmitters as a side effect.</p>
-</div>
+<p>If the enter keystroke seems to go to the wrong panel, this is an intermittent
+panel focus problem. Click the Tools or Info panel before typing in the Console
+panel, and the enter key will be processed properly.</p>
+<p>Once enabled, the player displays the statistics as black text on a partially
+transparent background. This allows you to still see the underlying video (to
+some extent) and yet also read the text. When you turn off dog ears, the setting
+may not take effect until you switch or reopen your current sequence.</p>
+<p>!!! note If you are developing a transmitter, displaying dog ears will result in
+duplicate calls to PushVideo for the same frame. This happens because the player
+routinely updates the dog ears on a timer even when the frame hasn't changed for
+updated stats. As of CS6, this triggers a PushVideo to active transmitters as a
+side effect.</p>
 
 
 
@@ -3705,7 +3619,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 19, 2025 19:00:00 UTC">November 19, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 10, 2026 21:38:11 UTC">April 10, 2026</span>
   </span>
 
     

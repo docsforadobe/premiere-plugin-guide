@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -1981,34 +1981,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../exporters/whats-new/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Whats New
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../exporters/getting-started/" class="md-nav__link">
         
   
@@ -2509,34 +2481,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../video-filters/whats-new/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Whats New
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../video-filters/getting-started/" class="md-nav__link">
         
   
@@ -2825,90 +2769,6 @@
     
   
     CUDA, OpenCL, Metal, or OpenGL?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../whats-new-in-ppro-12/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro 12.0?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../whats-new-in-ppro-cc2015/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro CC 2015.4?
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../whats-new-in-ppro-cc2014/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    What's New in Premiere Pro CC 2014?
   
 
     
@@ -3626,64 +3486,107 @@
 
 
 <h1 id="prgpu-sdk-macros">PrGPU SDK Macros<a class="headerlink" href="#prgpu-sdk-macros" title="Permanent link">&para;</a></h1>
-<p>The PrGPU SDK macros and device functions allow you to write kernels that will compile on multiple GPU compute languages - CUDA, OpenCL, and Metal. These languages have an enormous overlap - a C98 language subset, and by using the porting macros and functions to abstract out the differences, you can write portable code. You can still access API specific features not covered by the porting set but you'll need to include an alternate code path for the other APIs.</p>
-<p>Currently the SDK does not provide host side code to compile or launch arbitrary kernels, but there are SDK examples that show how to do this for the different APIs.</p>
-<p>The macros are not part of the plugin API - they are provided as a utility if you would like to used them. This gives you broad latitude to fork them and make any changes you see fit without breaking plugin compatibility. On the Adobe end, we may expand and modify the SDK kernel porting set in future releases to cover other compute APIs or other enhancements.</p>
+<p>The PrGPU SDK macros and device functions allow you to write kernels that will
+compile on multiple GPU compute languages - CUDA, OpenCL, and Metal. These
+languages have an enormous overlap - a C98 language subset, and by using the
+porting macros and functions to abstract out the differences, you can write
+portable code. You can still access API specific features not covered by the
+porting set but you'll need to include an alternate code path for the other
+APIs.</p>
+<p>Currently the SDK does not provide host side code to compile or launch arbitrary
+kernels, but there are SDK examples that show how to do this for the different
+APIs.</p>
+<p>The macros are not part of the plugin API - they are provided as a utility if
+you would like to used them. This gives you broad latitude to fork them and make
+any changes you see fit without breaking plugin compatibility. On the Adobe end,
+we may expand and modify the SDK kernel porting set in future releases to cover
+other compute APIs or other enhancements.</p>
 <hr />
 <h2 id="external-dependencies">External Dependencies<a class="headerlink" href="#external-dependencies" title="Permanent link">&para;</a></h2>
-<p>The macros do add one external source dependency - Boost (boost.org). We use the Boost preprocessor package to manipulate kernel definitions.</p>
-<p>Depending on how you choose to compile and deploy your kernels, we also provide a small python script that may be useful (See "Preprocessing as a Separate Step")</p>
+<p>The macros do add one external source dependency - Boost (boost.org). We use the
+Boost preprocessor package to manipulate kernel definitions.</p>
+<p>Depending on how you choose to compile and deploy your kernels, we also provide
+a small python script that may be useful (See "Preprocessing as a Separate
+Step")</p>
 <hr />
 <h2 id="include-paths">Include Paths<a class="headerlink" href="#include-paths" title="Permanent link">&para;</a></h2>
 <p>You need to add some include paths to your kernel compilation environment:</p>
 <ul>
-<li>the path to PrGPU/KernelSupport/ (found in the SDK at Examples/Projects/GPUVideoFilter/ Utils/)</li>
+<li>the path to PrGPU/KernelSupport/ (found in the SDK at
+  Examples/Projects/GPUVideoFilter/ Utils/)</li>
 <li>the path to the Boost library</li>
 </ul>
 <hr />
 <h2 id="defines">Defines<a class="headerlink" href="#defines" title="Permanent link">&para;</a></h2>
-<p>You will also need to define a symbol to tell the header file what API to process when compiling the kernel:</p>
+<p>You will also need to define a symbol to tell the header file what API to
+process when compiling the kernel:</p>
 <ul>
-<li>Metal:
-    <code>DGF_DEVICE_TARGET_METAL=1</code></li>
-<li>OpenCL:
-    <code>DGF_DEVICE_TARGET_OPENCL=1</code>
-    <code>DGF_OPENCL_SUPPORTS_16F=1</code> or <code>0</code>, depending on whether you will support half (16-bit float) access for this device. Some older cards are quite slow at half support, or just don't support it.</li>
-<li>CUDA:
-    the KernelCore.h header will automatically sense the cuda compiler and will <code>#define GF_DEVICE_TARGET_CUDA 1</code> for you.</li>
+<li>Metal: <code>DGF_DEVICE_TARGET_METAL=1</code></li>
+<li>OpenCL: <code>DGF_DEVICE_TARGET_OPENCL=1</code> <code>DGF_OPENCL_SUPPORTS_16F=1</code> or <code>0</code>,
+  depending on whether you will support half (16-bit float) access for this
+  device. Some older cards are quite slow at half support, or just don't support
+  it.</li>
+<li>CUDA: the KernelCore.h header will automatically sense the cuda compiler and
+  will <code>#define GF_DEVICE_TARGET_CUDA 1</code> for you.</li>
 </ul>
-<p>Only one device target flag will be active in any given compilation. The header the define the device target macros to 0 for the inactive APIs. Feel free to use these macros in your code for any API specializations. Outside of the header, we don't need to do this much.</p>
+<p>Only one device target flag will be active in any given compilation. The header
+the define the device target macros to 0 for the inactive APIs. Feel free to use
+these macros in your code for any API specializations. Outside of the header, we
+don't need to do this much.</p>
 <hr />
 <h2 id="header-files">Header Files<a class="headerlink" href="#header-files" title="Permanent link">&para;</a></h2>
 <ul>
 <li>KernelCore.h - basic header macros. You'll certainly want these</li>
 <li>KernelMemory.h - global device memory access abstractions for float and half</li>
-<li>FloatingPoint.h - common floating point routines. These mostly hide naming differences across APIs.</li>
+<li>FloatingPoint.h - common floating point routines. These mostly hide naming
+  differences across APIs.</li>
 </ul>
 <p>You'll want to include them like this in your kernel:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;PrGPU/KernelSupport/KernelCore.h&quot;</span>
 </span></code></pre></div>
 <p>The folder contains additional files used by the above files.</p>
-<p>One thing to watch out for is whether your projects are tracking header dependencies properly. If not, you'll need to manually recompile kernels when include files change. This is true whether or not you use the SDK porting set, so you've likely already sorted this out.</p>
+<p>One thing to watch out for is whether your projects are tracking header
+dependencies properly. If not, you'll need to manually recompile kernels when
+include files change. This is true whether or not you use the SDK porting set,
+so you've likely already sorted this out.</p>
 <hr />
 <h2 id="top-level-kernel-files">Top Level Kernel Files<a class="headerlink" href="#top-level-kernel-files" title="Permanent link">&para;</a></h2>
-<p>You can organize your code and projects as you like, but we find it convenient to have separate top level kernel files for each API (.cl, .cu, and .metal) that just include shared code and are otherwise nearly empty. This makes build rules much easier.</p>
+<p>You can organize your code and projects as you like, but we find it convenient
+to have separate top level kernel files for each API (.cl, .cu, and .metal) that
+just include shared code and are otherwise nearly empty. This makes build rules
+much easier.</p>
 <hr />
 <h2 id="preprocessing-as-a-separate-step">Preprocessing as a Separate Step<a class="headerlink" href="#preprocessing-as-a-separate-step" title="Permanent link">&para;</a></h2>
-<p>If you compile the kernel source on the customer machine, you may wish to preprocess the kernel at plugin compile time, and store the kernel source in your plugin. A python script (Python version 3 or greater required) is provided that will convert preprocessed source to a character array. The script is in Examples/Projects/GPUVideoFilter/Utils/CreateCString.py. See the ProcAmp example for usage.</p>
-<p>You can also compile kernels (which is always the case for CUDA) at plugin compile time, in which case you don't need the python script, or a separate preprocessing run. You will need to package the compiled kernel in your plugin if you go this route.</p>
+<p>If you compile the kernel source on the customer machine, you may wish to
+preprocess the kernel at plugin compile time, and store the kernel source in
+your plugin. A python script (Python version 3 or greater required) is provided
+that will convert preprocessed source to a character array. The script is in
+Examples/Projects/GPUVideoFilter/Utils/CreateCString.py. See the ProcAmp example
+for usage.</p>
+<p>You can also compile kernels (which is always the case for CUDA) at plugin
+compile time, in which case you don't need the python script, or a separate
+preprocessing run. You will need to package the compiled kernel in your plugin
+if you go this route.</p>
 <p>The ProcAmp example uses a preprocessing step for OpenCL.</p>
 <hr />
 <h2 id="declaring-kernels">Declaring Kernels<a class="headerlink" href="#declaring-kernels" title="Permanent link">&para;</a></h2>
-<p>Metal kernels require syntax that is quite different than CUDA, and the PrGPU macros use the Boost preprocessing package to express parameters. This is by far the most complicated part of the package, so grab a fresh cup of coffee and sit back for a read.</p>
-<p>The GF_KERNEL_FUNCTION macro is used to pass values as parameters (CUDA) or in a struct (metal). The macro will create an API-specific kernel entry point which will call a</p>
-<p>function that it defines, leaving you to fill in the body. The macro uses Boost preprocessor sequences to express a type/name pair:</p>
+<p>Metal kernels require syntax that is quite different than CUDA, and the PrGPU
+macros use the Boost preprocessing package to express parameters. This is by far
+the most complicated part of the package, so grab a fresh cup of coffee and sit
+back for a read.</p>
+<p>The GF_KERNEL_FUNCTION macro is used to pass values as parameters (CUDA) or in a
+struct (metal). The macro will create an API-specific kernel entry point which
+will call a</p>
+<p>function that it defines, leaving you to fill in the body. The macro uses Boost
+preprocessor sequences to express a type/name pair:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><span class="p">(</span><span class="kt">float</span><span class="p">)(</span><span class="n">inValue</span><span class="p">)</span>
 </span></code></pre></div>
 <p>These pairs are then nested into a sequence of parameters:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><span class="p">((</span><span class="kt">float</span><span class="p">)(</span><span class="n">inAge</span><span class="p">))((</span><span class="kt">int</span><span class="p">)(</span><span class="n">inMarbles</span><span class="p">))</span>
 </span></code></pre></div>
-<p>There are different categories of parameters, such as buffers, values, and kernel position. Each category sequence is a separate macro parameter. Example usage:</p>
+<p>There are different categories of parameters, such as buffers, values, and
+kernel position. Each category sequence is a separate macro parameter. Example
+usage:</p>
 <div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><span class="n">GF_KERNEL_FUNCTION</span><span class="p">(</span><span class="n">RemoveFlicker</span><span class="p">,</span>
 </span><span id="__span-3-2">
 </span><span id="__span-3-3"><span class="c1">//kernel name, then comma, ((GF_PTR(float4))(inSrc))</span>
@@ -3703,9 +3606,14 @@
 </span><span id="__span-3-17"><span class="w">  </span><span class="c1">// &lt;do something interesting here&gt;</span>
 </span><span id="__span-3-18"><span class="p">}</span>
 </span></code></pre></div>
-<p>In the example above, the host does not pass the position values when invoking the kernel.</p>
-<p>Position values are filled in automatically by the unmarshalling code generated by the GF_KERNEL_FUNCTION macro. The code you write will actually end up in a device function that the unmarshalling code will call. See the ProcAmp example plugin for usage.</p>
-<p>Kernels that use statically sized shared memory use a different macro, <code>GF_KERNEL_FUNCTION_SHARED</code>. Please see the header for details.</p>
+<p>In the example above, the host does not pass the position values when invoking
+the kernel.</p>
+<p>Position values are filled in automatically by the unmarshalling code generated
+by the GF_KERNEL_FUNCTION macro. The code you write will actually end up in a
+device function that the unmarshalling code will call. See the ProcAmp example
+plugin for usage.</p>
+<p>Kernels that use statically sized shared memory use a different macro,
+<code>GF_KERNEL_FUNCTION_SHARED</code>. Please see the header for details.</p>
 <hr />
 <h2 id="declaring-device-functions">Declaring Device Functions<a class="headerlink" href="#declaring-device-functions" title="Permanent link">&para;</a></h2>
 <p>By comparison, device functions are a snap to write:</p>
@@ -3713,7 +3621,8 @@
 </span></code></pre></div>
 <hr />
 <h2 id="other-macros-and-functions">Other Macros and Functions<a class="headerlink" href="#other-macros-and-functions" title="Permanent link">&para;</a></h2>
-<p>There's a variety of other macros and functions in the KernelSupport headers. Please see the Headers and examples for details.</p>
+<p>There's a variety of other macros and functions in the KernelSupport headers.
+Please see the Headers and examples for details.</p>
 
 
 
@@ -3734,7 +3643,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 25, 2025 18:55:10 UTC">January 25, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 10, 2026 21:38:11 UTC">April 10, 2026</span>
   </span>
 
     
