@@ -62,7 +62,6 @@ nav:
         - Export Controllers: export-controllers/export-controllers.md
     - Exporters:
         - Exporters: exporters/exporters.md
-        - Whats New: exporters/whats-new.md
         - Getting Started: exporters/getting-started.md
         - Selector Table: exporters/selector-table.md
         - Selector Descriptions: exporters/selector-descriptions.md
@@ -79,7 +78,6 @@ nav:
         - Suites: transmitters/suites.md
     - Video Filters:
         - Video Filters: video-filters/video-filters.md
-        - Whats New: video-filters/whats-new.md
         - Getting Started: video-filters/getting-started.md
         - Selector Table: video-filters/selector-table.md
         - Selector Descriptions: video-filters/selector-descriptions.md
@@ -90,9 +88,6 @@ nav:
         - GPU Effects & Transitions: gpu-effects-transitions/gpu-effects-transitions.md
         - Getting Started: gpu-effects-transitions/getting-started.md
         - CUDA, OpenCL, Metal, or OpenGL?: gpu-effects-transitions/cuda-opencl-metal-opengl.md
-        - What's New in Premiere Pro 12.0?: gpu-effects-transitions/whats-new-in-ppro-12.md
-        - What's New in Premiere Pro CC 2015.4?: gpu-effects-transitions/whats-new-in-ppro-cc2015.md
-        - What's New in Premiere Pro CC 2014?: gpu-effects-transitions/whats-new-in-ppro-cc2014.md
         - PrGPUFilter Function Table: gpu-effects-transitions/PrGPUFilter-function-table.md
         - Function Descriptions: gpu-effects-transitions/function-descriptions.md
         - Return Codes: gpu-effects-transitions/return-codes.md
