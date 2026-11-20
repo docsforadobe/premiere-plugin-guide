@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
     
     
       
@@ -29,10 +29,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -102,17 +102,17 @@
               </button>
             
             
-  Welcome to the new docsforadobe guide!
+    Welcome to the new docsforadobe guide!
 
-  This is a work in progress.
+    This is a work in progress.
 
-  Please provide all feedback via
-  <a ref="me" href="https://github.com/orgs/docsforadobe/discussions">
-    <span class="twemoji">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 1h8.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0 1 10.25 10H7.061l-2.574 2.573A1.458 1.458 0 0 1 2 11.543V10h-.25A1.75 1.75 0 0 1 0 8.25v-5.5C0 1.784.784 1 1.75 1M1.5 2.75v5.5c0 .138.112.25.25.25h1a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.75.75 0 0 1 .53-.22h3.5a.25.25 0 0 0 .25-.25v-5.5a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25m13 2a.25.25 0 0 0-.25-.25h-.5a.75.75 0 0 1 0-1.5h.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0 1 14.25 12H14v1.543a1.458 1.458 0 0 1-2.487 1.03L9.22 12.28a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l2.22 2.22v-2.19a.75.75 0 0 1 .75-.75h1a.25.25 0 0 0 .25-.25Z"/></svg>
-    </span>
-    <strong>the org's discussion forum</strong>
-  </a>.
+    Please provide all feedback via
+    <a ref="me" href="https://github.com/orgs/docsforadobe/discussions">
+        <span class="twemoji">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 1h8.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0 1 10.25 10H7.061l-2.574 2.573A1.458 1.458 0 0 1 2 11.543V10h-.25A1.75 1.75 0 0 1 0 8.25v-5.5C0 1.784.784 1 1.75 1M1.5 2.75v5.5c0 .138.112.25.25.25h1a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.75.75 0 0 1 .53-.22h3.5a.25.25 0 0 0 .25-.25v-5.5a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25m13 2a.25.25 0 0 0-.25-.25h-.5a.75.75 0 0 1 0-1.5h.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0 1 14.25 12H14v1.543a1.458 1.458 0 0 1-2.487 1.03L9.22 12.28a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l2.22 2.22v-2.19a.75.75 0 0 1 .75-.75h1a.25.25 0 0 0 .25-.25Z"/></svg>
+        </span>
+        <strong>the org's discussion forum</strong>
+    </a>.
 
           </div>
           
@@ -3381,19 +3381,19 @@ the PiPL in ANIM_ParamAtom sections, as demonstrated in the example below.</p>
 <p>The 'no UI' UI type is for non-keyframeable parameters. After making changes to
 the PiPL, rebuild the plugin each time, so that the PiPL will be recompiled.</p>
 <h3 id="a-filter-pipl-example">A Filter PiPL Example<a class="headerlink" href="#a-filter-pipl-example" title="Permanent link">&para;</a></h3>
-<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;PrSDKPiPLVer.h&quot;</span>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><span class="cp">#include</span><span class="w"> </span><span class="cpf">"PrSDKPiPLVer.h"</span>
 </span><span id="__span-0-2"><span class="cp">#ifndef PRWIN_ENV</span>
-</span><span id="__span-0-3"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;PrSDKPiPL.r&quot;</span>
+</span><span id="__span-0-3"><span class="cp">#include</span><span class="w"> </span><span class="cpf">"PrSDKPiPL.r"</span>
 </span><span id="__span-0-4"><span class="cp">#endif</span>
 </span><span id="__span-0-5">
 </span><span id="__span-0-6"><span class="c1">// The following two strings should be localized</span>
-</span><span id="__span-0-7"><span class="cp">#define plugInName &quot;Cool Video Filter&quot;</span>
-</span><span id="__span-0-8"><span class="cp">#define plugInCategory &quot;SDK Filters&quot;</span>
+</span><span id="__span-0-7"><span class="cp">#define plugInName "Cool Video Filter"</span>
+</span><span id="__span-0-8"><span class="cp">#define plugInCategory "SDK Filters"</span>
 </span><span id="__span-0-9">
 </span><span id="__span-0-10"><span class="c1">// This name should not be localized or updated</span>
-</span><span id="__span-0-11"><span class="cp">#define plugInMatchName &quot;SDK Cool Filter&quot;</span>
+</span><span id="__span-0-11"><span class="cp">#define plugInMatchName "SDK Cool Filter"</span>
 </span><span id="__span-0-12">
-</span><span id="__span-0-13"><span class="n">resource</span><span class="w"> </span><span class="err">&#39;</span><span class="n">PiPL</span><span class="err">&#39;</span><span class="w"> </span><span class="p">(</span><span class="mi">16000</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-13"><span class="n">resource</span><span class="w"> </span><span class="err">'</span><span class="n">PiPL</span><span class="err">'</span><span class="w"> </span><span class="p">(</span><span class="mi">16000</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-0-14"><span class="w">  </span><span class="p">{</span>
 </span><span id="__span-0-15"><span class="w">    </span><span class="c1">// The plugin type</span>
 </span><span id="__span-0-16"><span class="w">    </span><span class="n">Kind</span><span class="w"> </span><span class="p">{</span><span class="n">PrEffect</span><span class="p">},</span>
@@ -3450,7 +3450,7 @@ the PiPL, rebuild the plugin each time, so that the PiPL will be recompiled.</p>
 </span><span id="__span-0-67"><span class="w">      </span><span class="mi">0</span><span class="p">,</span>
 </span><span id="__span-0-68">
 </span><span id="__span-0-69"><span class="w">      </span><span class="c1">// The name to appear for the control</span>
-</span><span id="__span-0-70"><span class="w">      </span><span class="s">&quot;Level&quot;</span><span class="p">,</span>
+</span><span id="__span-0-70"><span class="w">      </span><span class="s">"Level"</span><span class="p">,</span>
 </span><span id="__span-0-71">
 </span><span id="__span-0-72"><span class="w">      </span><span class="c1">// Parameter number goes here - One based count</span>
 </span><span id="__span-0-73"><span class="w">      </span><span class="mi">1</span><span class="p">,</span>
@@ -3475,7 +3475,7 @@ the PiPL, rebuild the plugin each time, so that the PiPL will be recompiled.</p>
 </span><span id="__span-0-92"><span class="w">      </span><span class="cp">#endif</span>
 </span><span id="__span-0-93"><span class="w">    </span><span class="p">},</span>
 </span><span id="__span-0-94">
-</span><span id="__span-0-95"><span class="w">    </span><span class="c1">// Set/don&#39;t set this if the param should be animated</span>
+</span><span id="__span-0-95"><span class="w">    </span><span class="c1">// Set/don't set this if the param should be animated</span>
 </span><span id="__span-0-96"><span class="w">    </span><span class="n">animateParam</span><span class="p">,</span>
 </span><span id="__span-0-97"><span class="w">    </span><span class="n">dontRestrictBounds</span><span class="p">,</span><span class="w"> </span><span class="c1">// Not used by Premiere</span>
 </span><span id="__span-0-98"><span class="w">    </span><span class="n">spaceIsAbsolute</span><span class="p">,</span><span class="w"> </span><span class="c1">// Not used by Premiere</span>
@@ -3486,7 +3486,7 @@ the PiPL, rebuild the plugin each time, so that the PiPL will be recompiled.</p>
 </span><span id="__span-0-103">
 </span><span id="__span-0-104"><span class="w">    </span><span class="n">ANIM_ParamAtom</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-0-105"><span class="w">      </span><span class="mi">1</span><span class="p">,</span>
-</span><span id="__span-0-106"><span class="w">      </span><span class="s">&quot;Target Color&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+</span><span id="__span-0-106"><span class="w">      </span><span class="s">"Target Color"</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
 </span><span id="__span-0-107">
 </span><span id="__span-0-108"><span class="w">      </span><span class="c1">// Put the data type here</span>
 </span><span id="__span-0-109"><span class="w">      </span><span class="n">ANIM_DT_COLOR_RGB</span><span class="p">,</span>
@@ -3506,7 +3506,7 @@ the PiPL, rebuild the plugin each time, so that the PiPL will be recompiled.</p>
 </span><span id="__span-0-123"><span class="w">      </span><span class="n">dontScaleUIRange</span><span class="p">,</span>
 </span><span id="__span-0-124"><span class="w">      </span><span class="cp">#endif</span>
 </span><span id="__span-0-125">
-</span><span id="__span-0-126"><span class="w">      </span><span class="c1">// Set/don&#39;t set this if the param should be animated</span>
+</span><span id="__span-0-126"><span class="w">      </span><span class="c1">// Set/don't set this if the param should be animated</span>
 </span><span id="__span-0-127"><span class="w">      </span><span class="n">animateParam</span><span class="p">,</span>
 </span><span id="__span-0-128"><span class="w">      </span><span class="n">dontRestrictBounds</span><span class="p">,</span>
 </span><span id="__span-0-129"><span class="w">      </span><span class="n">spaceIsAbsolute</span><span class="p">,</span>
@@ -3578,29 +3578,29 @@ the PiPL, rebuild the plugin each time, so that the PiPL will be recompiled.</p>
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
-  
-    <div class="md-copyright__highlight">
-      All content is copyright Adobe Systems Incorporated.
-    </div>
-  
-  
-    Made with
-    <a
-      href="https://squidfunk.github.io/mkdocs-material/"
-      target="_blank" rel="noopener"
-    >
-      Material for MkDocs
-    </a>
-  
+    
+        <div class="md-copyright__highlight">
+            All content is copyright Adobe Systems Incorporated.
+        </div>
+    
+    
+        Made with
+        <a
+        href="https://squidfunk.github.io/mkdocs-material/"
+        target="_blank" rel="noopener"
+        >
+            Material for MkDocs
+        </a>
+    
 </div>
 
 <!-- Print button -->
 <div class="md-copyright">
-  
-  <a href="../../print_page/" title="Print Site" class="md-content__button md-icon">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 3H6v4h12m1 5a1 1 0 0 1-1-1 1 1 0 0 1 1-1 1 1 0 0 1 1 1 1 1 0 0 1-1 1m-3 7H8v-5h8m3-6H5a3 3 0 0 0-3 3v6h4v4h12v-4h4v-6a3 3 0 0 0-3-3"/></svg>
-  </a>
-  
+    
+    <a href="../../print_page/" title="Print Site" class="md-content__button md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 3H6v4h12m1 5a1 1 0 0 1-1-1 1 1 0 0 1 1-1 1 1 0 0 1 1 1 1 1 0 0 1-1 1m-3 7H8v-5h8m3-6H5a3 3 0 0 0-3 3v6h4v4h12v-4h4v-6a3 3 0 0 0-3-3"/></svg>
+    </a>
+    
 </div>
       
     </div>
@@ -3616,10 +3616,10 @@ the PiPL, rebuild the plugin each time, so that the PiPL will be recompiled.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.copy", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.copy", "search.highlight", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
       
         <script src="../../js/print-site.js"></script>
       
